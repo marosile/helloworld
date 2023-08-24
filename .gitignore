@@ -1,7 +1,5 @@
 target
 config.properties
-pom.properties
-MANIFEST.MF
 .classpath
 .project
 
