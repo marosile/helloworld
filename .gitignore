@@ -1,8 +1,7 @@
+target
 config.properties
-pom.properties
 .classpath
 .project
-MANIFEST.MF
 
 # Created by https://www.toptal.com/developers/gitignore/api/windows,macos,eclipse,java,git
 # Edit at https://www.toptal.com/developers/gitignore?templates=windows,macos,eclipse,java,git
