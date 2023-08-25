@@ -11,7 +11,7 @@
 </head>
 <body>
 	<main>
-		<h3>메인 페이지입니다. pja</h3>
+		<h3>메인 페이지입니다. LYS</h3>
 	</main>
 </body>
 </html>
