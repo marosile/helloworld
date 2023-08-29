@@ -3,9 +3,11 @@
 header {
     display: flex;
     width: 100vw;
-    height: 60px;
-    border-bottom: 1px solid rgb(220, 220, 220);
+    height: 70px;
+    border-bottom: 1px solid var(--divider);
+    background-color: var(--bg-color-2);
     align-items: center;
+    transition-duration: 0.5s;
 }
 
 #left {
@@ -25,22 +27,47 @@ header {
 
 #logo {
     width: 40px;
-    margin: 10px 10px 10px 15px;
+    margin: 15px 10px 15px 25px;
 }
 
 #title {
     color: rgb(0, 128, 255);
     font-family: 'Space Grotesk';
-    font-size: 35px;
-    letter-spacing: 0px;
+    font-size: 30px;
 }
 
-#theme {
-    width: 30px;
-    height: 30px;
-    border-radius: 20px;
+#theme-switch {
+    width: 52px;
+    height: 26px;
+    border-radius: 13px;
     margin-right: 20px;
-    background-color: rgba(220, 220, 220, 0.5);
+    background-color: rgb(180, 180, 180);
+    cursor: pointer;
+}
+
+#theme-button {
+    display: flex;
+    width: 26px;
+    height: 26px;
+    border-radius: 13px;
+    background-color: rgb(130, 130, 130);
+    justify-content: center;
+    align-items: center;
+    transition-duration: 0.5s;
+}
+
+#theme-image {
+    width: 70%;
+    content: url(/resources/images/sun.png);
+}
+
+#theme-checkbox:checked + label #theme-button {
+    background-color: rgb(255, 255, 255);
+    transform: translateX(26px);
+}
+
+#theme-checkbox:checked + label #theme-image {
+    content: url(/resources/images/moon.png);
 }
 
 .button {
@@ -55,11 +82,14 @@ header {
 }
 
 #login {
-    margin-right: 10px;
-    background-color: rgb(160, 160, 160);
+    margin-right: 15px;
+    border: 1px solid rgb(180, 180, 180);
+    background-color: rgb(255, 255, 255);
+    color: rgb(50, 50, 50);
 }
 
 #signup {
-    margin-right: 15px;
+    margin-right: 25px;
     background-color: rgb(0, 128, 255);
+    color: rgb(255, 255, 255);
 }

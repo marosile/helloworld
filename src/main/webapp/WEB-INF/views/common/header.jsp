@@ -9,7 +9,14 @@
         <p id="title">Hello, World!</p>
     </div>
     <div id="right">
-        <div id="theme"></div>
+        <input id="theme-checkbox" type="checkbox" hidden>
+        <label for="theme-checkbox">
+            <div id="theme-switch">
+                <div id="theme-button">
+                    <img id="theme-image">
+                </div>
+            </div>
+        </label>
         <div id="login" class="button">로그인</div>
         <div id="signup" class="button">회원가입</div>
     </div>
