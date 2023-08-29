@@ -4,7 +4,15 @@
 <link rel="stylesheet" href="/resources/css/common/header.css">
 
 <header>
-    <img id="logo" src="/resources/images/logo.svg">
+    <div id="left">
+        <img id="logo" src="/resources/images/logo.svg">
+        <p id="title">Hello, World!</p>
+    </div>
+    <div id="right">
+        <div id="theme"></div>
+        <div id="login" class="button">로그인</div>
+        <div id="signup" class="button">회원가입</div>
+    </div>
 </header>
 
 <nav>

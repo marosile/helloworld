@@ -1,7 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+
 * {
-    font-family: 'Apple SD Gothic Neo';
+    color: var(--text-color-1);
+    font-family: 'Noto Sans KR';
 }
 
-body, h1, h2, h3, h4, h5, h6 {
+html {
+    --bg-color-1: rgb(255, 255, 255);
+    --bg-color-2: rgb(255, 255, 255);
+    --text-color-1: rgb(50, 50, 50);
+}
+
+html.dark {
+    --bg-color-1: rgb(30, 30, 30);
+    --bg-color-2: rgb(40, 40, 40);
+    --text-color-1: rgb(255, 255, 255);
+}
+
+body {
+    display: none;
+    background-color: var(--bg-color-1);
+}
+
+body, h1, h2, h3, h4, h5, h6, p {
     margin: 0;
+}
+
+main {
+    min-height: calc(100vh - 162px);
+}
+
+div {
+    box-sizing: border-box;
 }
