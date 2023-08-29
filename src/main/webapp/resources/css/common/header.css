@@ -1,0 +1,11 @@
+header {
+    display: flex;
+    width: 100vw;
+    height: 60px;
+    border-bottom: 1px solid rgb(220, 220, 220);
+}
+
+#logo {
+    width: 50px;
+    margin: 10px;
+}
