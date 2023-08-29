@@ -14,8 +14,9 @@
 <body>
     <jsp:include page="/WEB-INF/views/common/header.jsp"/>
 	<main>
-		<h3>메인 페이지입니다.</h3>
+		<h3></h3>
 	</main>
     <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
+    <script src="/resources/js/common/general.js"></script>
 </body>
 </html>
