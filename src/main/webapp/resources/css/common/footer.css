@@ -2,9 +2,11 @@ footer {
     display: flex;
     width: 100vw;
     height: 100px;
-    border-top: 1px solid rgb(220, 220, 220);
+    border-top: 1px solid var(--divider);
+    background-color: var(--bg-color-2);
     justify-content: center;
     align-items: center;
+    transition-duration: 0.5s;
 }
 
 #content {
@@ -31,7 +33,7 @@ footer {
     flex-basis: 50%;
     display: flex;
     width: 100%;
-    border-top: 1px solid rgb(220, 220, 220);
+    border-top: 1px solid var(--divider);
     justify-content: center;
     align-items: center;
 }
