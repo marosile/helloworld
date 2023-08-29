@@ -8,10 +8,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>메인 페이지</title>
+    <link rel="stylesheet" href="/resources/css/common/general.css">
+    <link rel="stylesheet" href="/resources/css/index.css">
 </head>
 <body>
+    <jsp:include page="/WEB-INF/views/common/header.jsp"/>
 	<main>
-		<h3>메인 페이지입니다. CJE</h3>
+		<h3>메인 페이지입니다.</h3>
 	</main>
+    <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
 </body>
 </html>

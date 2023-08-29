@@ -4,6 +4,7 @@
 <link rel="stylesheet" href="/resources/css/common/header.css">
 
 <header>
+    <img id="logo" src="/resources/images/logo.svg">
 </header>
 
 <nav>
