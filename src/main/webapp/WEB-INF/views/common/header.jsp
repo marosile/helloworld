@@ -7,6 +7,13 @@
     <div id="left">
         <img id="logo" src="/resources/images/logo.svg">
         <p id="title">Hello, World!</p>
+        <div id="category">
+            <a>메인</a>
+            <a>커뮤니티</a>
+            <a>채용</a>
+            <a>강의</a>
+            <a>스터디</a>
+        </div>
     </div>
     <div id="right">
         <input id="theme-checkbox" type="checkbox" hidden>
