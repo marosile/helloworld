@@ -6,6 +6,7 @@ footer {
     background-color: var(--bg-color-2);
     justify-content: center;
     align-items: center;
+    transition-property: border-bottom, background-color;
     transition-duration: 0.5s;
 }
 
