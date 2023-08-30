@@ -1,0 +1,18 @@
+#body-area{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#main-area{
+    width: 1000px;
+    height: 2000px;
+    border: 1px solid black;
+
+    display: flex;
+}
+
+#left-area{
+    border: 1px solid black;
+    width: 400px;
+}
