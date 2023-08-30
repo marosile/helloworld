@@ -21,6 +21,19 @@ html.dark {
     --divider: rgb(80, 80, 80);
 }
 
+input[type='text'], input[type='password'] {
+    border-color: var(--divider);
+    outline: none;
+    background-color: var(--bg-color-1);
+}
+
+button {
+    border: 1px solid var(--divider);
+    border-radius: 5px;
+    background-color: var(--bg-color-2);
+    cursor: pointer;
+}
+
 body {
     display: none;
     background-color: var(--bg-color-1);

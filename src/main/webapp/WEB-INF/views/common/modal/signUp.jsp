@@ -9,11 +9,12 @@
     <title>회원가입</title>
 
     <link rel="stylesheet" href="/resources/css/common/signUp.css">
+    <link rel="stylesheet" href="/resources/css/common/general.css">
 
 </head>
 <body>
     
-    <div>헤더</div>
+    <jsp:include page="/WEB-INF/views/common/header.jsp"/>
 
     <div class="mainBody">
 
@@ -135,9 +136,10 @@
         
     </div>
     
-    <div>풋터</div>
+    <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
     
 
+    <script src="/resources/js/common/general.js"></script>
 </body>
 </html>
 
