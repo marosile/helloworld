@@ -16,6 +16,7 @@ main {
     width: 600px;
     height: 600px;
     border: 1px solid var(--divider);
+    border-radius: 10px;
     background-color: var(--bg-color-2);
     transition-duration: 0.5s;
 }
