@@ -75,6 +75,19 @@ p{
     font-size: 16px;
 }
 
+/* 이메일 입력창 인증을 위해 따로 설정 */
+#inputEmail{
+    width: 75%;
+}
+
+.inputAll > div{
+    display: flex;
+    justify-content:space-between;
+}
+
+#emailCheck{
+    width: 150px;
+}
 
 /* 체크박스 */
 .checkCollect{
@@ -82,11 +95,42 @@ p{
     flex-direction: column;
 }
 
+.checkCollect > div{
+    display: flex;
+    align-items: center;
+    padding-bottom: 10px;
+}
+
 .chkbox{
-    display: none;
+    /* display: none; */
 }
 
 .chkLabel{
+    display: inline-block;
     border: 1px solid black;
     border-radius: 3px;
+    width: 25px;
+    height: 25px;
+    align-items: center;
+    margin: 0px 5px;
+}
+
+.chkbox:checked + label{
+    background-color: red;
+}
+
+/* 회원가입 버튼 */
+#signUpBtn{
+    font-size: 20px;
+    font-weight: bold;
+    width: 700px;
+    cursor: pointer;
+    padding: 15px 0;
+    margin-top: 20px;
+}
+
+/* 약관 */
+.checkCollect a{
+    text-align: right;
+    margin-left: auto;
 }
