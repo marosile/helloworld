@@ -12,6 +12,7 @@
 
 .mainBody h1{
     text-align: center;
+    padding: 80px 0;
 }
 
 /* 메인 폼 */
@@ -21,15 +22,32 @@
 }
 
 /* 이메일로 시작하기 버튼 */
-.startEmail{
+.signUpEmailBtn{
     font-size: 20px;
     font-weight: bold;
     width: 700px;
-    background-color: none;
+    background-color: white;
+    border: none;
     cursor: pointer;
-
+    padding: 15px 0;
 }
 
+
+/* 회원가입에 필요한 정보 입력하세요 */
+.signUpInfo{
+    display: flex;
+    margin: 15px 0px;
+}
+
+.signUpInfoHr{
+    border: solid 1px #bbb;
+    width: 28.5%;
+    height: 0px;
+}
+
+p{
+    margin: 0;
+}
         
 
 /* 입력창 전체 */
@@ -53,4 +71,22 @@
     height: 50px;
     border-radius: 3px;
     border: 1px solid #ddd;
+    padding-left: 5px;
+    font-size: 16px;
+}
+
+
+/* 체크박스 */
+.checkCollect{
+    display: flex;
+    flex-direction: column;
+}
+
+.chkbox{
+    display: none;
+}
+
+.chkLabel{
+    border: 1px solid black;
+    border-radius: 3px;
 }
