@@ -1,0 +1,272 @@
+*{ box-sizing: border-box; 
+}
+
+/* 전체 */
+
+body{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* 임시 헤더 */
+#header{
+    width:100%;
+    height:50px;
+    border:1px solid #0080FF;
+}
+
+/* 임시 푸터 */
+#footer{
+    width:100%;
+    height:50px;
+    border:1px solid #0080FF;
+}
+
+/* 메인 */
+#main{
+    width:1000px;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+
+
+}
+
+/* 게시판 이름들(공지, 자유, Q&A), 네비게이션 */
+#boardNameList{
+    display:flex;
+    justify-content: space-between;
+    height:46px;
+    font-size:25px;
+    font-weight:bold;
+    align-items: center;
+   /*  color:#0080FF; */
+    border-bottom: 2px solid lightgray;
+    margin:10px 0;
+    width:100%;
+}
+
+/* 게시판이름, 게시글 목록 담는 div */
+#postList{
+    width:100%;
+    display:flex;
+    height:75px;
+    margin:10px 15px;
+    align-items: center;
+    justify-content: space-between;
+    text-align: center;
+    overflow: hidden;
+}
+
+/* 게시판 이름 (3개중 하나) */
+#postList > #boardName{
+    font-size:35px;
+    font-weight:bold;
+}
+
+/* 질문하기 버튼 */
+#BoardInsert{
+    display:block;
+    width:100px;
+    height:50px;
+    font-size:18px;
+    font-weight:bold;
+    border: 0;
+    border-radius: 10px;
+    background-color:#0080FF;
+    color: white;
+}
+
+/* 검색바 담은 div */
+#searchArea{
+    margin:15px 0;
+    width:100%;
+    border:2px solid gray;
+    border-radius: 10px;
+    height:60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+/* 검색 input */
+#searchInput{
+   height:80%;
+   width:90%;
+   border:0;
+   outline:0;
+}
+
+/* 조회수 탑 10 */
+#top10{
+    display:flex;
+    width:100%;
+    flex-direction: column;
+}
+
+/* 제목 */
+#top10Title{
+    font-size:24px;
+    font-weight: bolder;
+}
+
+/* 제목 + 버튼 */
+#top10TitleButton{
+    display:flex;
+    width:100%;
+    justify-content: space-between;
+}
+
+/* top10 스위퍼 */
+#swiper{
+    margin-top:20px;
+    height:300px;
+    width:100%;
+    border: 1px solid black;
+    overflow : hidden;
+}
+
+#swiper .swiper-slide {
+    width: 200px;
+    height: 100%;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    /* 다른 스타일 추가 */
+}
+
+/* 최신순서, 조회수 높은 순서 */
+#sortOptions{
+    display:flex;
+    width:100%;
+    margin-top:50px;
+}
+
+/* 최신순, 조회순 */
+#sortOptions > a{
+    display:block;
+    text-decoration: none;
+    color: #777;
+    font-size: 18px;
+    font-weight: bolder;
+    margin-left:20px;
+}
+
+/* 게시글 10개 담은 div */
+#post{
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2개씩 한 행으로 배치 */
+    gap: 80px; /* 각 게시물 간의 간격 */
+    justify-content: center;
+    align-items: center;
+    margin-top:20px;
+}
+
+
+
+/* 게시글 10개중 하나 */
+.posts{
+    border: 3px solid lightgray;
+    border-radius: 10px;
+    height: 285px;
+    width:450px;
+    display:flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+    padding: 15px 15px;
+
+
+}
+
+/* 작성자 이미지 */
+.imgs{
+    width:42px;
+    height:42px;
+}
+
+/* 이미지 + 작성자 + 직군 + 몇분전  div */
+#postFirstpart{
+    display:flex;
+    height:42px;
+
+}
+
+/* 작성자 + 직군 + 몇분전 div */
+#firstPartRight{
+    margin-left:10px;
+
+}
+
+/* 작성자 */
+#firstPartRight > div:first-child{
+    font-size:18px;
+    font-weight:bolder;
+}
+
+/* 직군 + 몇분전 */
+#firstPartRight > div:last-child{
+    font-size:14px;
+}
+
+/* 몇분전 */
+#minute{
+    font-size:14px;
+    font-weight:bold;
+    /* color:#0080FF; */
+}
+
+/* 제목 */
+#postSecondPart{
+    margin-top:25px;
+    font-size:20px;
+    font-weight:bolder;
+}
+
+/* 내용 요약 */
+#postThirdPart{
+    margin-top:25px;
+    font-size:16px;
+}
+
+/* 태그 */
+#postFourthPart{
+    margin-top:15px;
+    color: #777;
+    font-weight: bold;
+    font-size:21px;
+}
+
+/* 조회수, 댓글 수 */
+#postFifthPart{
+    display:flex;
+    justify-content: flex-end;
+    color:#777;
+    font-size:18px;
+    font-weight:bold;
+
+}
+
+/* 조회수 */
+#postFifthPart > #inquiryCount{
+    margin-left: 10px;
+}
+
+/* 임시 페이지네이션 */
+#pagination{
+    display:flex;
+    height:35px;
+    justify-content: center;
+    align-items: center;
+    letter-spacing: 4px;
+    /* color:#0080FF; */
+    font-size:16px;
+    font-weight:bold;
+    margin-top:10px;
+    margin-bottom: 30px;
+}
