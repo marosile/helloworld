@@ -5,10 +5,9 @@
 
 <header>
     <div id="left">
-        <img id="logo" src="/resources/images/logo.svg">
-        <p id="title">Hello, World!</p>
+        <img id="logo" src="/resources/images/logo.svg" onclick="location.href='/'">
+        <p id="title" onclick="location.href='/'">Hello, World!</p>
         <div id="category">
-            <a>메인</a>
             <a>커뮤니티</a>
             <a>채용</a>
             <a>강의</a>

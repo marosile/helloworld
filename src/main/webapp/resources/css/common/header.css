@@ -3,7 +3,7 @@
 header {
     display: flex;
     width: 100vw;
-    height: 70px;
+    height: 60px;
     border-bottom: 1px solid var(--divider);
     background-color: var(--bg-color-2);
     align-items: center;
@@ -28,21 +28,24 @@ header {
 #logo {
     width: 40px;
     margin: 15px 10px 15px 25px;
+    cursor: pointer;
 }
 
 #title {
     color: rgb(0, 128, 255);
     font-family: 'Space Grotesk';
     font-size: 30px;
+    cursor: pointer;
 }
 
 #category {
-    margin-left: 15px;
+    margin-left: 12px;
 }
 
 #category > a {
     margin-left: 25px;
-    font-size: 15px;
+    color: rgb(120, 120, 120);
+    font-size: 0.9rem;
     cursor: pointer;
     transition-duration: 0.3s;
 }
@@ -91,7 +94,7 @@ header {
     width: 90px;
     height: 36px;
     border-radius: 18px;
-    font-size: 14px;
+    font-size: 0.9rem;
     justify-content: center;
     align-items: center;
     cursor: pointer;
