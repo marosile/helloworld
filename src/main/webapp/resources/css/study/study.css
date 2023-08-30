@@ -1,0 +1,201 @@
+* {
+    box-sizing: border-box;
+    /* border: 1px solid gainsboro */;
+}
+
+/* 스터디 전체 div */
+.P-header {
+    width: 1000px;
+
+}
+
+/* 스터디 상단 내용 */
+.P-mainImage-area {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 스터디 이미지 */
+#P-studylogo {
+    width: 120px;
+    height: auto;
+    margin: 0 15px;
+}
+
+/* 모집글 버튼 */
+#P-study-btn {
+    background-color: rgb(0, 128, 255);
+    color: white;
+    font-size: 1em;
+    padding: 3px;
+    margin: 20px;
+    display: flex;
+    width: 13%;
+    height: 35px;
+    border-radius: 18px;
+    font-size: 14px;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border: 0;
+}
+
+#P-study-btn:hover {
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 128, 255);
+    font-size: 1em;
+    padding: 3px;
+    margin: 20px;
+    display: flex;
+    width: 13%;
+    height: 35px;
+    border-radius: 18px;
+    font-size: 14px;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border: 1px solid rgb(0, 128, 255) ;
+}
+
+
+/* 최신순/인기순 */
+.P-study-btn-area {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 20px;
+    margin-right: 90px;
+    gap: 10px;
+
+}
+
+.P-study-btn-area button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.P-study-btn-l:hover{
+    color: rgb(0, 128, 255);
+}
+
+.P-study-btn-p:hover{
+    color: rgb(0, 128, 255);
+}
+
+
+/* 스터디 모집  */
+.P-study{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; 
+}
+
+/* 스터디 모집 개별 */
+.P-study-area{
+    width: 1000px;
+    margin-top:20px ;
+    cursor: pointer;
+    border-bottom: 1px solid gray;
+}
+.P-study-area:hover{
+    width: 1000px;
+    margin-top:20px ;
+    background-color: aliceblue;
+}
+
+/* 프로젝트 상단 */
+.P-study-main{
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 10px 10px 10px;
+}
+
+/* 프로젝트 분류 + 하트 */
+.P-study-category {
+    background-color: #ccc;
+    border-radius: 18px;
+    width: 130px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    color: rgb(58, 57, 57);
+    font-weight: bold;
+}
+
+/* 제목 */
+.P-study-title{
+    display: flex;
+    margin: 15px 10px;
+    font-size: 20px;
+    font-weight: bold;
+    overflow: hidden;  		
+    text-overflow: ellipsis;  	
+    white-space: nowrap; 		
+    word-break:break-all
+}
+
+.P-study-title span{
+    display: inline-block;
+    margin: 0 3px;
+    color: royalblue;
+}
+
+/* 내용 */
+.P-study-content{
+    display: flex;
+    margin: 10px 10px;
+    overflow: hidden;  		
+    text-overflow: ellipsis;  	
+
+}
+
+/* 좋아요 댓글 수 */
+.P-study-common{
+    display: flex;
+    padding: 0;
+}
+.P-study-common span {
+    width: 100px;
+    display: inline-block;
+    font-weight: bold;
+    padding: 0 10PX;
+}
+
+/* 검색창
+.search-container {
+    display: flex;
+    align-items: center;
+    margin-left: 150px ;
+  }
+  
+  .search-input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 300px;
+    font-size: 16px;
+  }
+  
+  .search-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    margin-left: 10px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  .search-button:hover {
+    background-color: #0056b3;
+  } */
+
+.P-study-popular{
+
+
+}
