@@ -6,7 +6,7 @@ footer {
     background-color: var(--bg-color-2);
     justify-content: center;
     align-items: center;
-    transition-property: border-bottom, background-color;
+    transition-property: border-top, background-color;
     transition-duration: 0.5s;
 }
 
@@ -28,6 +28,8 @@ footer {
 
 #info > a {
     margin: 0 7px;
+    color: var(--text-color-2);
+    cursor: pointer;
 }
 
 #copyright {
@@ -35,6 +37,7 @@ footer {
     display: flex;
     width: 100%;
     border-top: 1px solid var(--divider);
+    color: var(--text-color-2);
     justify-content: center;
     align-items: center;
 }

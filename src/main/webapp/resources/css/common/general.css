@@ -9,14 +9,16 @@ html {
     --bg-color-1: rgb(240, 240, 240);
     --bg-color-2: rgb(255, 255, 255);
     --text-color-1: rgb(60, 60, 60);
-    --divider: rgb(200, 200, 200);
+    --text-color-2: rgb(120, 120, 120);
+    --divider: rgb(210, 210, 210);
 }
 
 html.dark {
     --bg-color-1: rgb(30, 30, 30);
     --bg-color-2: rgb(40, 40, 40);
     --text-color-1: rgb(255, 255, 255);
-    --divider: rgb(120, 120, 120);
+    --text-color-2: rgb(200, 200, 200);
+    --divider: rgb(80, 80, 80);
 }
 
 body {
@@ -26,6 +28,7 @@ body {
 
 body, h1, h2, h3, h4, h5, h6, p {
     margin: 0;
+    transition-duration: 0.5s;
 }
 
 main {
