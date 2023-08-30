@@ -4,31 +4,6 @@ main{
     margin: auto;
 }
 
-/* nav */
-.nav{
-    width: 100%;
-    list-style: none;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.nav > li{
-    margin: 0 10px;
-}
-
-.nav >li > a{
-    color: black;
-    text-decoration: none;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.nav > li > a:hover{
-    background-color: black;
-    border-bottom: 3px solid black;
-}
 
 /* 회원정보 글씨 */
 .Title{
@@ -36,10 +11,27 @@ main{
     justify-content: center;
 }
 
-
+/* 왼쪽 오른쪽 나누기 */
 .profile-area{
     display: flex;
 }
+.profile-area > div:nth-of-type(1){
+    flex-basis: 50%;
+}
+.profile-area > div:nth-of-type(2){
+    flex-basis: 50%;
+}
+
+
+/* left인 애들 */
+.texts{
+    font-size: 20px;
+}
+.left{
+    margin: 100px 150px;
+
+}
+
 
 
 

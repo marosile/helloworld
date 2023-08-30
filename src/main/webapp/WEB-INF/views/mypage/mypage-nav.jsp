@@ -2,7 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 
-<section>
+<section class="container">
 
     <ul class="nav">
         <li> <a href="#">회원정보</a> </li>
@@ -21,3 +21,8 @@
     </ul>
 
 </section>
+
+<script>
+
+
+</script>
