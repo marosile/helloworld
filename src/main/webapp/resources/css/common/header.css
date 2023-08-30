@@ -2,6 +2,7 @@
 
 header {
     display: flex;
+    position: sticky;
     width: 100vw;
     height: 60px;
     border-bottom: 1px solid var(--divider);
@@ -52,7 +53,7 @@ header {
 }
 
 #category > a:hover {
-    color: rgb(0, 128, 255);
+    color: var(--text-color-1);
 }
 
 #theme-switch {

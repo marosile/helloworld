@@ -31,10 +31,41 @@ body, h1, h2, h3, h4, h5, h6, p {
     transition-duration: 0.5s;
 }
 
+a {
+    text-decoration-line: none;
+}
+
 main {
     min-height: calc(100vh - 162px);
 }
 
 div {
     box-sizing: border-box;
+}
+
+.page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 900px;
+    padding: 30px 60px;
+    border: 1px solid var(--divider);
+    border-radius: 10px;
+    margin: 10px;
+    background-color: var(--bg-color-2);
+    transition-duration: 0.5s;
+}
+
+.window {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 40px;
+    border: 1px solid var(--divider);
+    border-radius: 10px;
+    margin: 20px;
+    background-color: var(--bg-color-2);
+    transition-duration: 0.5s;
 }

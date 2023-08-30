@@ -10,7 +10,7 @@
         <div id="category">
             <a>커뮤니티</a>
             <a>채용</a>
-            <a>강의</a>
+            <a href="/lecture">강의</a>
             <a>스터디</a>
         </div>
     </div>
