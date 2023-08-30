@@ -8,7 +8,7 @@
 html {
     --bg-color-1: rgb(240, 240, 240);
     --bg-color-2: rgb(255, 255, 255);
-    --text-color-1: rgb(50, 50, 50);
+    --text-color-1: rgb(60, 60, 60);
     --divider: rgb(200, 200, 200);
 }
 
@@ -29,7 +29,7 @@ body, h1, h2, h3, h4, h5, h6, p {
 }
 
 main {
-    min-height: calc(100vh - 172px);
+    min-height: calc(100vh - 162px);
 }
 
 div {

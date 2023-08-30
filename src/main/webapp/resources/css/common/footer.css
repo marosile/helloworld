@@ -13,7 +13,7 @@ footer {
     display: flex;
     flex-direction: column;
     height: 60px;
-    font-size: 13px;
+    font-size: 0.8rem;
     align-items: center;
 }
 
@@ -36,4 +36,13 @@ footer {
     border-top: 1px solid var(--divider);
     justify-content: center;
     align-items: center;
+}
+
+@media (max-width: 1024px) {
+    #content {
+        display: flex;
+        flex-direction: column;
+        height: 60px;
+        font-size: 0.7rem;
+    }
 }
