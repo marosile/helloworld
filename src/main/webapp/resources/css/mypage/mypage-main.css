@@ -1,0 +1,64 @@
+main{
+    width: 1000px;
+    border: 1px solid black;
+    margin: auto;
+}
+
+/* nav */
+.nav{
+    width: 100%;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav > li{
+    margin: 0 10px;
+}
+
+.nav >li > a{
+    color: black;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav > li > a:hover{
+    background-color: black;
+    border-bottom: 3px solid black;
+}
+
+/* 회원정보 글씨 */
+.Title{
+    display: flex;
+    justify-content: center;
+}
+
+
+.profile-area{
+    display: flex;
+}
+
+
+
+
+/* 프로필 사진 영역 */
+#profileImage{
+    width: 150px;
+    height: 150px;
+
+}
+
+
+/* 프로필 버튼들 */
+/* .imageBtn-area{
+
+} */
+
+#imageInput{
+    display: none;
+}
+
+
