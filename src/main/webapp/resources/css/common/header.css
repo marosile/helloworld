@@ -7,6 +7,7 @@ header {
     border-bottom: 1px solid var(--divider);
     background-color: var(--bg-color-2);
     align-items: center;
+    transition-property: border-bottom, background-color;
     transition-duration: 0.5s;
 }
 
