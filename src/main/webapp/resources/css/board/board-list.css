@@ -104,11 +104,12 @@ body{
     display:flex;
     width:100%;
     flex-direction: column;
+    margin-top:20px;
 }
 
 /* 제목 */
 #top10Title{
-    font-size:24px;
+    font-size:35px;
     font-weight: bolder;
 }
 
@@ -117,28 +118,70 @@ body{
     display:flex;
     width:100%;
     justify-content: space-between;
+    overflow: hidden;
+    position:relative;
 }
 
-/* top10 스위퍼 */
+/* swiper < 버튼 */
+.swiper-button-prev{
+    margin-left:900px;
+
+}
+
+/* <, > 색 변경 */
+.swiper-button-prev::before{
+    color:black;
+
+}
+
+.swiper-button-prev::after{
+    color:black;
+}
+
+/* <, > 색 변경 */
+.swiper-button-next::before{
+    color:black;
+
+}
+
+.swiper-button-next::after{
+    color:black;
+
+}
+
+.swiper-button-next:root{
+    color:red;
+    height:30px;
+}
+
+
+/*스위퍼 container */
 #swiper{
-    margin-top:20px;
-    height:300px;
-    width:100%;
-    border: 1px solid black;
-    overflow : hidden;
+    margin-top: 20px;
+    height: 500px;
+    width: 100%;
+    overflow: hidden;
 }
 
-#swiper .swiper-slide {
-    width: 200px;
-    height: 100%;
+/* 스위퍼 wrapper */
+#swiper .swiper-wrapper{
+    height:500px;
+}
+
+.post{
+    height:50%;
     border: 1px solid #ccc;
+}
+
+.swiper-slide {
+
     box-sizing: border-box;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-    /* 다른 스타일 추가 */
 }
+
 
 /* 최신순서, 조회수 높은 순서 */
 #sortOptions{
