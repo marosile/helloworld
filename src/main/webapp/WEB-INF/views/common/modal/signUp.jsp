@@ -19,13 +19,20 @@
 
         <form action="" class="mainFrm">
 
-            <h1>HELLO WORLD</h1>
+            <h1>회원가입</h1>
 
             <div>
                 SNS회원가입
             </div>
+            <div>
+                <button>카카오로 로그인</button>
+                <button>Google 계정으로 로그인</button>
+                <button>네이버 계정으로 로그인</button>
+            </div>
 
-            <button class="startEmail" type="button">
+            <hr>
+
+            <button class="signUpEmailBtn" type="button">
                 이메일로 시작하기 ∧
             </button>
 
@@ -39,50 +46,88 @@
 
                 <div class="inputAll">
                     <label for="inputEmail" class="inputName">이메일</label>
-                    <input type="text" name="inputEmail" id="inputEmail" class="inputClass">
+                    <div>
+                        <input type="text" name="inputEmail" id="inputEmail" class="inputClass" autocomplete="off">
+                        <button id="emailCheck" type="button">인증하기</button>
+                    </div>
+                    <span>04:59</span>
                 </div>
 
                 <div class="inputAll">
+                    <label for="inputPw" class="inputName">인증번호 입력</label>
+                    <input type="text" name="inputEmailChk" id="inputEmailChk" class="inputClass" autocomplete="off">
+                    <span>정규표현식 확인</span>
+                </div>
+
+
+                <div class="inputAll">
                     <label for="inputPw" class="inputName">비밀번호</label>
-                    <input type="text" name="inputPw" id="inputPw" class="inputClass">
+                    <input type="text" name="inputPw" id="inputPw" class="inputClass" autocomplete="off">
+                    <span>정규표현식 확인</span>
                 </div>
 
                 <div class="inputAll">
                     <label for="inputConfirmPw" class="inputName">비밀번호확인</label>
-                    <input type="text" name="inputConfirmPw" id="inputConfirmPw" class="inputClass">
+                    <input type="text" name="inputConfirmPw" id="inputConfirmPw" class="inputClass" autocomplete="off">
+                    <span>정규표현식 확인</span>
                 </div>
 
                 <div class="inputAll">
                     <label for="inputNickname" class="inputName">닉네임</label>
-                    <input type="text" name="inputNickname" id="inputNickname" class="inputClass">
+                    <input type="text" name="inputNickname" id="inputNickname" class="inputClass" autocomplete="off">
+                    <span>정규표현식 확인</span>
                 </div>
 
                 <div class="inputAll">
                     <label for="inputName" class="inputName">이름</label>
-                    <input type="text" name="inputName" id="inputName" class="inputClass">
+                    <input type="text" name="inputName" id="inputName" class="inputClass" autocomplete="off">
+                    <span>정규표현식 확인</span>
                 </div>
 
                 <div class="inputAll">
                     <label for="inputPno" class="inputName">주민등록번호</label>
-                    <input type="text" name="inputPno" id="inputPno" class="inputClass">
+                    <input type="text" name="inputPno" id="inputPno" class="inputClass" autocomplete="off">
+                    <span>정규표현식 확인</span>
                 </div>
 
-                주소를 입력하시겠습니까?(선택)<input type="checkbox">
-
-                <div class="inputAll">
-                    <label for="inputAddress" class="inputName">주소</label>
-                    <input type="text" name="inputAddress" id="inputAddress" class="inputClass">
-                </div>
+               
 
                 <div class="checkCollect">
-                    <input type="checkbox">모두 동의
-                    <input type="checkbox">(필수) 만 14세 이상입니다.
-                    <input type="checkbox">(필수) 헬로월드 이용약관 동의
-                    <input type="checkbox">(필수) 개인정보 수집 및 이용 동의
-                    <input type="checkbox">(선택) 마케팅 정보 수신 동의
+                    <div>
+                        <input type="checkbox" name="checkAll" id="checkAll" class="chkbox">
+                        <label for="checkAll" class="chkLabel"></label>
+                        <label for="checkAll">모두 동의</label>
+                    </div>
+
+                    <div>
+                        <input type="checkbox" name="chkEssential" id="check1" class="chkbox">
+                        <label for="check1" class="chkLabel"></label>
+                        <label for="check1">(필수) 만 14세 이상입니다.</label>
+                    </div>
+
+                    <div>
+                        <input type="checkbox" name="chkEssential" id="check2" class="chkbox">
+                        <label for="check2" class="chkLabel"></label>
+                        <label for="check2">(필수) 헬로월드 이용약관 동의</label>
+                        <a href="#">보기</a>
+                    </div>
+
+                    <div>
+                        <input type="checkbox" name="chkEssential" id="check3" class="chkbox">
+                        <label for="check3" class="chkLabel"></label>
+                        <label for="check3">(필수) 개인정보 수집 및 이용 동의</label>
+                        <a href="#">보기</a>
+                    </div>
+
+                    <div>
+                        <input type="checkbox" name="chkSelect" id="check4" class="chkbox">
+                        <label for="check4" class="chkLabel"></label>
+                        <label for="check4">(선택) 마케팅 정보 수신 동의</label>
+                        <a href="#">보기</a>
+                    </div>
                 </div>
 
-                <button>회원가입</button>
+                <button id="signUpBtn">회원가입</button>
 
             </div>
 

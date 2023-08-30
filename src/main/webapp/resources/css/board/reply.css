@@ -1,6 +1,4 @@
-
 #reply-area{
-    /*  border: 1px solid black; */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -16,7 +14,7 @@
  }
  
  .reply-row{
-     padding: 10px 10px;
+     padding: 5px 5px;
      border-bottom: 1px solid #ccc;
  }
  
@@ -59,4 +57,20 @@
      border: 2px solid rgb(78, 80, 79);
      color: rgb(78, 80, 79);
  }
- 
+
+ .reply-data{
+    font-size: 15px;
+    color: gray;
+ }
+
+ .reply-nick{
+    font-size: 20px;
+ }
+
+ .fa-regular fa-comment{
+    margin-left: 5px;
+ }
+
+ .fa-solid fa-comment{
+    margin-left: 5px;
+ }

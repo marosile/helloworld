@@ -1,0 +1,32 @@
+
+
+/* nav */
+.nav{
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.164);
+    height: 55px;
+    margin-left: 0;
+    padding: 0 60px;
+    margin-top: 0;
+
+}
+.nav > li{
+    margin: 0 30px;
+    padding-bottom: 3px;
+}
+.nav >li > a{
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-content: space-between;
+}
+.nav > li > a:hover{
+    background-color: black;
+    border-bottom: 3px solid black;
+}
+

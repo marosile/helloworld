@@ -50,37 +50,38 @@
             <img src="../images/logo.svg" class="imgs">
         </div>
 
-        <!-- 게시판 3개합친 조회수 높은거? 일단 임시 -->
         <div id="top10">
-            
-            <!-- 게시판 조회수 젶높은순? -->
             <div id="top10TitleButton">
                 <div id="top10Title">조회수 TOP 10</div>
-                
                 <div class="swiper-button-prev"></div>
                 <div class="swiper-button-next"></div>
-
             </div>
-
-
-            <!-- swipper로 넘기기 for문돌릴거 임시로 10개 -->
+        
             <div class="swiper-container" id="swiper">
                 <div class="swiper-wrapper">
-                    <div class="swiper-slide">게시글 1</div>
-                    <div class="swiper-slide">게시글 2</div>
-                    <div class="swiper-slide">게시글 3</div>
-                    <div class="swiper-slide">게시글 4</div>
-                    <div class="swiper-slide">게시글 5</div>
-                    <div class="swiper-slide">게시글 6</div>
-                    <div class="swiper-slide">게시글 7</div>
-                    <div class="swiper-slide">게시글 8</div>
-                    <div class="swiper-slide">게시글 9</div>
-                    <div class="swiper-slide">게시글 10</div>
-                    <!-- 나머지 게시글들도 마찬가지로 추가 -->
+                    <!-- Place posts inside swiper slides -->
+                    <div class="swiper-slide">
+                        <div class="post">게시글 1</div>
+                        <div class="post">게시글 2</div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="post">게시글 3</div>
+                        <div class="post">게시글 4</div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="post">게시글 5</div>
+                        <div class="post">게시글 6</div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="post">게시글 7</div>
+                        <div class="post">게시글 8</div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="post">게시글 9</div>
+                        <div class="post">게시글 10</div>
+                    </div>
                 </div>
-
             </div>
-
         </div>
 
             <div id="sortOptions">
@@ -160,13 +161,14 @@
     <script>
         // Swiper 초기화
         var mySwiper = new Swiper('.swiper-container', {
-            slidesPerView: 5, // 한 화면에 보여질 슬라이드 개수
-            slidesPerGroup: 5,    // 한 번에 그룹으로 넘어갈 슬라이드 개수
+            slidesPerView: 3, // 한 화면에 보여질 슬라이드 개수
+            slidesPerGroup: 2,    // 한 번에 그룹으로 넘어갈 슬라이드 개수
         spaceBetween: 10,     // 슬라이드 사이의 간격
             navigation: {
                 nextEl: '.swiper-button-next', // 다음 버튼 클래스
                 prevEl: '.swiper-button-prev', // 이전 버튼 클래스
             },
+
         });
     </script>
 
