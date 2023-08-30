@@ -7,7 +7,11 @@
 
 .mainBody{
     width: 1000px;
-    margin: auto;
+    border: 1px solid var(--divider);
+    border-radius: 10px;
+    background-color: var(--bg-color-2);
+    transition-duration: 0.5s;
+    margin: 30px auto 30px auto;
 }
 
 .mainBody h1{
@@ -127,6 +131,7 @@ p{
     cursor: pointer;
     padding: 15px 0;
     margin-top: 20px;
+    margin-bottom: 30px;
 }
 
 /* 약관 */
