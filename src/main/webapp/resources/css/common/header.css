@@ -42,14 +42,13 @@ header {
 
 #category > a {
     margin-left: 25px;
-    color: rgb(220, 220, 220);
     font-size: 15px;
     cursor: pointer;
-    transition-duration: 0.5s;
+    transition-duration: 0.3s;
 }
 
 #category > a:hover {
-    color: rgb(255, 255, 255);
+    color: rgb(0, 128, 255);
 }
 
 #theme-switch {
