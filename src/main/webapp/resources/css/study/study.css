@@ -3,10 +3,15 @@
     /* border: 1px solid gainsboro  */;
 }
 
+
 /* 스터디 전체 div */
 .P-header {
     width: 1000px;
     margin: auto    ;
+    border: 1px solid var(--divider);
+    border-radius: 10px;
+    background-color: var(--bg-color-2);
+    transition-duration: 0.5s;
 
 }
 
@@ -117,14 +122,12 @@
 /* 프로젝트 분류 + 하트 */
 .P-study-category {
     background-color: #ccc;
+    width: 140px;
     border-radius: 18px;
-    width: 130px;
-    height: 30px;
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    color: rgb(58, 57, 57);
     font-weight: bold;
+    text-align: center;
+    padding: 2px;
+    
 }
 
 /* 제목 */
@@ -201,6 +204,7 @@
     margin-top: 10px ;
     display: flex;
     justify-content: space-between;
+    align-items: flex-end;
 }
 
 .P-study-popular h1{
@@ -216,6 +220,7 @@
 .fa-solid.fa-arrow-left {
     padding: 8px; 
     margin-right: 10px;
+    margin-bottom: 15px;
 }
 
 .fa-solid.fa-arrow-right {
@@ -244,9 +249,31 @@
 
 .P-study-popular-category{
     background-color: #ccc;
-    width: 140px;
+    width: 130px;
+    font-size: 13px;
     border-radius: 18px;
     font-weight: bold;
     text-align: center;
     padding: 2px;
 }
+
+.P-study-popular-title{
+    display: flex;
+    margin: 13px 0;
+    font-size: 20px;
+    font-weight: bold;
+    overflow: hidden;  		
+    text-overflow: ellipsis;  	
+    white-space: nowrap; 		
+    word-break:break-all
+}
+
+.P-study-popular-content{
+    display: flex;
+    margin: 10px 10px;
+	
+    overflow:hidden; 
+    text-overflow:ellipsis; 
+    white-space:nowrap;
+}
+
