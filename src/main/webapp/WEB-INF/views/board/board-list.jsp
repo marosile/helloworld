@@ -32,7 +32,7 @@
     <jsp:include page="/WEB-INF/views/common/header.jsp"/>
 
     <main id="main">
-        <div>
+        <div id="divContainer">
         <!-- 게시판 이름 (네비게이션) -->
         <div id = "boardNameList">
                 <div class="listNames">공지사항 게시판</div>
@@ -46,7 +46,6 @@
         <div id="postList">
             <div id="boardName"> Q&A 게시판 </div>
             <div id="question"><button id="BoardInsert">작성하기</button></div>
-            
         </div>
 
         <!-- 검색 바 -->
@@ -208,7 +207,6 @@
                  <a href="#">- 조회순</a>
             </div>
 
-
             <!-- 임시 게시글 10개 -->
             <div id="post">
                 
@@ -267,7 +265,7 @@
             </div>
         
 
-        <!-- 임시 페이지네이션 -->
+        <!-- 임시 페이지네이션 (무한스크롤로 변경할듯) -->
         <div id="pagination">
                 << < 1 2 3 4 5 6 7 8 9 10 > >>
         </div>
