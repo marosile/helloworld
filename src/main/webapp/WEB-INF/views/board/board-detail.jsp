@@ -52,8 +52,7 @@
         </div>
 
         
-         <jsp:include page="/WEB-INF/views/board/reply.jsp"/>
-
+         
         </div>
 	</main>
 	
