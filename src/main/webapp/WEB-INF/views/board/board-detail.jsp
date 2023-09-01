@@ -12,8 +12,6 @@
     <link rel="stylesheet" href="/resources/css/index.css">
     <link rel="stylesheet" href="/resources/css/board/board-detail.css">
     <link rel="stylesheet" href="/resources/css/board/reply.css">
-
-    <script src="https://kit.fontawesome.com/98acdabf0d.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <jsp:include page="/WEB-INF/views/common/header.jsp"/>
@@ -21,30 +19,16 @@
 		<div id="main-area">
         <p>트렌드</p>
 
+        <p>제목을 입력하세요.</p>
         <p>안녕하세요</p>
         <div id="heart">
-            <div id="heart-left">
-                <p>2023년 8월 17일</p>
-                <p>조회 90</p>
-            </div>
-
-            <div id="heart-right">
-                <p><i class="fa-regular fa-heart fa-2xl"></i></p>
-                <p><i class="fa-regular fa-bookmark fa-2xl"></i></p>
-            </div>
+            <p>8월 17일</p>
+            <p>조회 90</p>
+            <p>하트</p>
+            <p>북마크</p>
         </div>
 
-        <div id="text">
-            <div id="image">썸네일/이미지</div>
-            <div id="input-text">
-            <pre>
-안녕하세요?
-반갑습니다~!
-ㅎㅎ
-            </pre>
-            </div>
-        </div>
-        
+        <div id="text">글 내용</div>
 
         <div id="tag">
             <div>#해쉬태그</div>
@@ -52,12 +36,13 @@
         </div>
 
         
-         
+         <jsp:include page="/WEB-INF/views/board/reply.jsp"/>
+
         </div>
 	</main>
 	
+	
+	<script src="/resources/js/common/general.js"></script>
     <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
-    <script src="/resources/js/common/general.js"></script>
-
 </body>
 </html>

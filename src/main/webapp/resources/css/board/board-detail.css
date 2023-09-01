@@ -1,12 +1,20 @@
+
 #body-area{
     display: flex;
     justify-content: center;
     align-items: center;
+    
+    margin: 30px 0;
 }
 
 #main-area{
     width: 1000px;
-    height: 1300px;
+    height: 1000px;
+    border: 1px solid var(--divider);
+    border-radius: 10px;
+    background-color: var(--bg-color-2);
+    transition-duration: 0.5s;
+
 }
 
 #main-area > p {
@@ -30,39 +38,21 @@
 }
 
 #text{
+
     width: 1000px; margin: 0 auto;
     height: 600px;
-    
+
     margin-top: 10px;
     padding: 20px;
 
     border: 1px solid rgb(177, 175, 175);
-
-}
-
-#image{
-    border: 1px solid #ddd;
-    width: 400px;
-    height: 400px;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-#image > img{
-    width: 400px;
-    height: 400px;
-}
-
-#input-text{
-    margin-top: 20px;
 }
 
 #heart{
     margin-top: 10px;
     display: flex;
 }
+
 
 #heart p{
     /* border: 1px solid black; */

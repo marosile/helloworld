@@ -9,12 +9,12 @@
 
                 <li class="reply-row">
                     <p class="reply-writer">
-                        <img src="/resources/images/user.png">
-                       <span class="reply-nick">유저일</span>
-                        <span class="reply-date">(2023-08-30)</span>
+                        <img src="#">
+                        <span>닉네임</span>
+                        <span class="reply-data">작성일</span>
                     </p>
 
-                    <p class="reply-content"><i class="fa-regular fa-comment"></i> 댓글 내용</p>
+                    <p class="reply-content">댓글 내용</p>
 
                     <div class="reply-btn-area">
                         <button>수정</button>
@@ -24,12 +24,12 @@
 
                  <li class="reply-row">
                     <p class="reply-writer">
-                        <img src="/resources/images/user.png">
-                        <span class="reply-nick">유저일</span>
-                        <span class="reply-date">(2023-08-30)</span>
+                        <img src="#">
+                        <span>닉네임</span>
+                        <span class="reply-data">작성일</span>
                     </p>
 
-                    <p class="reply-content"><i class="fa-regular fa-comment"></i> 댓글 내용</p>
+                    <p class="reply-content">댓글 내용</p>
 
                     <div class="reply-btn-area">
                         <button>수정</button>
@@ -39,22 +39,18 @@
 
                  <li class="reply-row">
                     <p class="reply-writer">
-                        <img src="/resources/images/user.png">
-                        <span class="reply-nick">유저일</span>
-                        <span class="reply-date">(2023-08-30)</span>
+                        <img src="#">
+                        <span>닉네임</span>
+                        <span class="reply-data">작성일</span>
                     </p>
 
-                    <p class="reply-content"><i class="fa-solid fa-comment"></i> 댓글 내용</p>
+                    <p class="reply-content">댓글 내용</p>
 
                     <div class="reply-btn-area">
                         <button>수정</button>
                         <button>삭제</button>
                     </div>
                 </li>
-
-
-
-
 
             </ul>
         </div>
