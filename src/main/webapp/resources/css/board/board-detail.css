@@ -1,10 +1,10 @@
-
 #body-area{
     display: flex;
     justify-content: center;
     align-items: center;
     
-    margin: 30px 0;
+    margin-top: 70px;
+    margin-bottom: 15px;
 }
 
 #main-area{
@@ -14,10 +14,9 @@
     border-radius: 10px;
     background-color: var(--bg-color-2);
     transition-duration: 0.5s;
-
 }
 
-#main-area > p {
+#main-area p {
     margin: 0;
 }
 
@@ -26,7 +25,9 @@
     font-size: 25px;
     font-weight: bold;
     color: gray;
-    margin-top: 10px;
+    margin-top: 15px;
+
+    margin-left: 50px;
 }
 
 /* 제목 */
@@ -34,18 +35,48 @@
     font-size: 30px;
     font-weight: bold;
     color: rgb(22, 21, 21);
-    margin-top: 10px;
+    margin-top: 5px;
+
+    margin-left: 50px;
+
 }
 
 #text{
+   margin-left: 50px; 
 
-    width: 1000px; margin: 0 auto;
-    height: 600px;
+    width: 900px; 
+    height: 700px;
 
-    margin-top: 10px;
+    margin-top: 20px;
     padding: 20px;
 
-    border: 1px solid rgb(177, 175, 175);
+    border: 1px solid rgba(177, 175, 175, 0.425);
+    border-radius: 10px;
+}
+
+#images{
+    border: 1px solid rgba(177, 175, 175, 0.425);
+    width: 300px;
+    height: 300px;
+
+    text-align: center;
+    line-height: 300px;
+}
+
+#images-area{
+    display: flex;
+
+    justify-content: space-around;
+}
+
+#images-area div{
+    border: 1px solid rgba(177, 175, 175, 0.425);
+
+    text-align: center;
+    line-height: 200px;
+
+    width: 200px;
+    height: 200px;
 }
 
 #heart{
@@ -63,48 +94,54 @@
     display: flex;
     width: 50%;
     justify-content: flex-start;
+
+    margin-left: 50px;
 }
 
 #heart-right{
     display: flex;
     width: 50%;
     justify-content: flex-end;
+
+    margin-right: 50px;
 }
 
-#heart-right>p:hover{
+#heart-right>i{
+    margin-left: 10px;
+}
+
+
+#heart-right>i:hover{
     cursor: pointer;
-
 }
 
-
-#tag{
+#tag-area{
     display: flex;
+    margin-left: 50px;
+    margin-top: 30px;
 
-    height: 50px;
-
-    border-bottom: 1px solid rgb(177, 175, 175);
-   
 }
 
-#tag > div{
-    border: 1px solid rgb(131, 131, 131);
-    border-radius: 10px;
+#tag-area div{
+    font-weight: bold;
+    color: rgb(177, 175, 175);
+
     width: 80px;
     height: 30px;
+    border: 1px solid rgb(177, 175, 175);
+    border-radius: 10px;
 
-    color: rgb(131, 131, 131);
-    font-weight: bold;
-
-    text-align: center;
-    line-height : 180%;
-
-    margin-top: 10px;
-    margin-bottom: 10px;
-    margin-right: 10px;
+    text-align: center; 
+    margin-right: 8px;
 }
 
-#tag > div:hover{
+#tag-area div:hover{
+
     cursor: pointer;
+
+    color: white;
+    background:  rgb(114, 112, 112);
+
 }
 
 

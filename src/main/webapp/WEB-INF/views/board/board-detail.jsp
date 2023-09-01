@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<script src="https://kit.fontawesome.com/98acdabf0d.js" crossorigin="anonymous"></script>
 
 <!DOCTYPE html>
 <html lang="ko">
@@ -17,30 +18,49 @@
     <jsp:include page="/WEB-INF/views/common/header.jsp"/>
 	<main id="body-area">
 		<div id="main-area">
-        <p>트렌드</p>
+            <p>트렌드</p>
+            <p>안녕하세요</p>
 
-        <p>제목을 입력하세요.</p>
-        <p>안녕하세요</p>
         <div id="heart">
-            <p>8월 17일</p>
-            <p>조회 90</p>
-            <p>하트</p>
-            <p>북마크</p>
+            <div id="heart-left">
+                <p>8월 17일</p>
+                <p>조회 90</p>
+            </div>
+
+            <div id="heart-right">
+                <i class="fa-solid fa-heart fa-2xl"></i>
+                <i class="fa-regular fa-bookmark fa-2xl"></i>
+            </div>
         </div>
 
-        <div id="text">글 내용</div>
+        <div id="text">
+            <div id="images">썸네일/이미지</div>
 
-        <div id="tag">
+            <pre>
+안녕하세요? 반갑습니다
+helloworld~!
+            </pre>
+
+            <div id="images-area">
+                <div>이미지</div>
+                <div>이미지</div>
+                <div>이미지</div>
+                <div>이미지</div>
+            </div>    
+        </div>
+
+        <div id="tag-area">
             <div>#해쉬태그</div>
             <div>#해쉬태그</div>
         </div>
-
         
-         <jsp:include page="/WEB-INF/views/board/reply.jsp"/>
+    </div>
+    
+    
+</main>
 
-        </div>
-	</main>
-	
+    <jsp:include page="/WEB-INF/views/board/reply.jsp"/>            
+        
 	
 	<script src="/resources/js/common/general.js"></script>
     <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
