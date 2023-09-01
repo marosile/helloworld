@@ -1,0 +1,11 @@
+*{
+    box-sizing: border-box;
+}
+
+
+/* 아이디 찾기 메인 */
+.findIdMain{
+    width: 1000px;
+    margin: auto;
+    text-align: center;
+}
