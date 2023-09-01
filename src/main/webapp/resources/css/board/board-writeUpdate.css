@@ -1,0 +1,237 @@
+* {box-sizing: border-box;}
+
+/* 메인 */
+#main{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 메인 속 전부 다 담는 div */
+#main > #divContainer {
+    width:1000px;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid var(--divider);
+    border-radius: 10px;
+    background-color: var(--bg-color-2);
+    transition-duration: 0.5s;
+    margin:30px;
+    padding: 20px 20px;
+}
+
+/* 게시글 작성 or 게시글 수정  */
+#boardWrite{
+    height:50px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    font-size:32px;
+    /* font-weight: bold; */
+}
+
+/* 게시판 이름 담은 div */
+#boardNameDiv{
+    width:95%;
+    height:50px;
+    font-size:24px;
+    display:flex;
+    justify-content: flex-start;
+    align-items: center;
+    border-bottom: 1px solid lightgray;
+}
+
+/* OO 게시판 */
+#boardNameDiv > div{
+    margin-left:7px;
+}
+
+/* 제목 담은 div */
+#boardTitleDiv{
+    margin-top:15px;
+    width:95%;
+    height:50px;
+    font-size:24px;
+    display:flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+/* 제목 input */
+#boardTitle{
+    background-color: white;
+    width:100%;
+    height:100%;
+    margin-left:2.5px;
+    font-size:20px;
+    border:0;
+    border-radius:10px;
+}
+
+/* 제목을 입력해주세요. */
+#boardTitle::placeholder{
+    font-size:20px;
+}
+
+/* 내용 담은 div */
+#boardContent{
+    margin-top:10px;
+    width:95%;
+    height:350px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* 내용 들어갈 textarea */
+#boardContent > textarea{
+    width:100%;
+    height:100%;
+    resize:none;
+    border-radius:10px;
+    padding:10px 10px;
+    border:2px solid rgb(240, 240, 240);
+    cursor:pointer;
+}
+
+textarea:hover{
+    background-color: rgb(240, 240, 240);
+    border:2px solid rgb(240, 240, 240);
+    outline:0;
+}
+
+textarea:focus{
+    background-color: rgb(240, 240, 240);
+    border:2px solid rgb(240, 240, 240);
+    outline:0;
+}
+
+
+/* 썸네일이미지 */
+.thumbnailImage{
+    width:95%;
+    height:200px;
+    margin-top:15px;
+    margin-bottom:25px;
+    border-radius: 10px;
+    position:relative;
+    text-align:center;
+    border:2px solid rgb(240, 240, 240);
+}
+
+/* file input display 없애기 */
+.images{
+    display:none;
+    width:100%;
+    height:100%;
+}
+
+/* 이미지 박스 안 x */
+.deleteImages{
+    position:absolute;
+    right:10px;
+    top:2px;
+}
+
+/* 파일에 대한 labels */
+.labelsForFile{
+    display:block;
+    width:100%;
+    height:100%;
+    cursor:pointer;
+}
+
+/* 썸네일, 추가이미지 1,2,3,4 text로 표시 */
+.ImageInnerTexts{
+    position:absolute;
+    top:3px;
+    left:10px;
+    text-align: center;
+    font-size:15px;
+}
+
+/* 추가이미지 1,2,3,4 담긴 div */
+#additionalImagesBox{
+    width:95%;
+    margin:25px 0;
+    display:flex;
+    justify-content: space-between;
+    height:250px;
+}
+
+/* 추가이미지 1, 2, 3, 4 */
+.additionalImages{
+    width:22.5%;
+    height:100%;
+    position:relative;
+    border:2px solid rgb(240, 240, 240);
+    border-radius: 10px;
+}
+
+/* 태그 전체 container */
+#tagsContainer{
+    width:95%;
+    height:80px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    border-top:2px solid rgb(240, 240, 240);
+    border-bottom:2px solid rgb(240, 240, 240);
+    
+}
+
+/* 태그 선택 text */
+#tagText{
+    display:flex;
+    justify-content: flex-start;
+    align-items: center;
+    width:12%;
+    height:100%;
+    font-size:18px;
+    margin-left:10px;
+    /* color: lightgray; */
+}
+
+/* selects 담긴 div */
+#tagsDiv{
+    width:88%;
+    height:100%;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* selects */
+.tagSelects{
+    width:30%;
+    height:50%;
+    border:2px solid rgb(240, 240, 240);
+    border-radius: 10px;
+    cursor:pointer;
+}
+
+/* 버튼담은 div */
+#buttonsArea{
+    width:95%;
+    height:80px;
+    display:flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+/* 등록하기, 등록취소 버튼 */
+.btns{
+    /* background-color: rgb(240, 240, 240); */
+    border: 1px solid black;
+    border-radius: 10px;
+    width:80px;
+    height:50%;
+}
+
+/* 등록하기 버튼 */
+#createOrUpdatePostButton{
+    margin-right:20px;
+}

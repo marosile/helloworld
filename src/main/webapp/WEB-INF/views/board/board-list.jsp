@@ -8,8 +8,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>게시글 목록</title>
-    <%-- <link rel="stylesheet" href="/resources/css/common/general.css">
-    <link rel="stylesheet" href="/resources/css/index.css"> --%>
+   <link rel="stylesheet" href="/resources/css/common/general.css">
+
     
     <link rel="stylesheet" href="/resources/css/board/board-list.css">
 
@@ -32,7 +32,7 @@
     <jsp:include page="/WEB-INF/views/common/header.jsp"/>
 
     <main id="main">
-        
+        <div id="divContainer">
         <!-- 게시판 이름 (네비게이션) -->
         <div id = "boardNameList">
                 <div class="listNames">공지사항 게시판</div>
@@ -45,14 +45,13 @@
         <!-- 게시글 목록 -->
         <div id="postList">
             <div id="boardName"> Q&A 게시판 </div>
-            <div id="question"><button id="BoardInsert">질문하기</button></div>
-            
+            <div id="question"><button id="BoardInsert">작성하기</button></div>
         </div>
 
         <!-- 검색 바 -->
         <div id="searchArea">
             <input type="search" placeholder="키워드로 검색하기" id="searchInput">
-            <img src="../images/logo.svg" class="imgs">
+            <img src="/resources/images/board/search1.png" class="searchInputImage">
         </div>
 
         <div id="top10">
@@ -64,26 +63,140 @@
         
             <div class="swiper-container" id="swiper">
                 <div class="swiper-wrapper">
-                    <!-- Place posts inside swiper slides -->
+
+                    <!-- 나중에 for문 -->
                     <div class="swiper-slide">
-                        <div class="post">게시글 1</div>
-                        <div class="post">게시글 2</div>
+                        <div class="post">
+                            <div id="directionRow">
+                                <div>
+                                    <img src="/resources/images/board/number1.png" class="top10LevelImage">
+                                </div>  
+                                <div id="top10BoardTitle">  
+                                    <div class="top10Titles">제목입니다.제목입니다.</div>
+                                    <div class="top10Inquirys">조회 1500 댓글 35</div>
+                                </div>
+                            </div>
+
+                        </div>
+                        
+                        <div class="post">
+                            <div id="directionRow">
+                                <div>
+                                    <img src="/resources/images/board/number2.png" class="top10LevelImage">
+                                </div>  
+                                <div id="top10BoardTitle">  
+                                    <div class="top10Titles">제목입니다.제목입니다.</div>
+                                    <div class="top10Inquirys">조회 1500 댓글 35</div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <div class="post">
+                            <div id="directionRow">
+                                <div>
+                                    <img src="/resources/images/board/number3.png" class="top10LevelImage">
+                                </div>  
+                                <div id="top10BoardTitle">  
+                                    <div class="top10Titles">제목입니다.제목입니다.</div>
+                                    <div class="top10Inquirys">조회 1500 댓글 35</div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="post">
+                            <div id="directionRow">
+                                <div>
+                                    <img src="/resources/images/board/number4.png" class="top10LevelImage">
+                                </div>  
+                                <div id="top10BoardTitle">  
+                                    <div class="top10Titles">제목입니다.제목입니다.</div>
+                                    <div class="top10Inquirys">조회 1500 댓글 35</div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <div class="post">
+                            <div id="directionRow">
+                                <div>
+                                    <img src="/resources/images/board/number5.png" class="top10LevelImage">
+                                </div>  
+                                <div id="top10BoardTitle">  
+                                    <div class="top10Titles">제목입니다.제목입니다.</div>
+                                    <div class="top10Inquirys">조회 1500 댓글 35</div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="post">
+                            <div id="directionRow">
+                                <div>
+                                    <img src="/resources/images/board/number6.png" class="top10LevelImage">
+                                </div>  
+                                <div id="top10BoardTitle">  
+                                    <div class="top10Titles">제목입니다.제목입니다.</div>
+                                    <div class="top10Inquirys">조회 1500 댓글 35</div>
+                                </div>
+                            </div>
+
+                        </div>
                     </div>
                     <div class="swiper-slide">
-                        <div class="post">게시글 3</div>
-                        <div class="post">게시글 4</div>
+                        <div class="post">
+                            <div id="directionRow">
+                                <div>
+                                    <img src="/resources/images/board/number7.png" class="top10LevelImage">
+                                </div>  
+                                <div id="top10BoardTitle">  
+                                    <div class="top10Titles">제목입니다.제목입니다.</div>
+                                    <div class="top10Inquirys">조회 1500 댓글 35</div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="post">
+                            <div id="directionRow">
+                                <div>
+                                    <img src="/resources/images/board/number8.png" class="top10LevelImage">
+                                </div>  
+                                <div id="top10BoardTitle">  
+                                    <div class="top10Titles">제목입니다.제목입니다.</div>
+                                    <div class="top10Inquirys">조회 1500 댓글 35</div>
+                                </div>
+                            </div>
+
+                        </div>
                     </div>
                     <div class="swiper-slide">
-                        <div class="post">게시글 5</div>
-                        <div class="post">게시글 6</div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="post">게시글 7</div>
-                        <div class="post">게시글 8</div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="post">게시글 9</div>
-                        <div class="post">게시글 10</div>
+                        <div class="post">
+                            <div id="directionRow">
+                                <div>
+                                    <img src="/resources/images/board/number9.png" class="top10LevelImage">
+                                </div>  
+                                <div id="top10BoardTitle">  
+                                    <div class="top10Titles">제목입니다.제목입니다.</div>
+                                    <div class="top10Inquirys">조회 1500 댓글 35</div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="post">
+                            <div id="directionRow">
+                                <div>
+                                    <img src="/resources/images/board/number10.png" class="top10LevelImage">
+                                </div>  
+                                <div id="top10BoardTitle">  
+                                    <div class="top10Titles">제목입니다.제목입니다.</div>
+                                    <div class="top10Inquirys">조회 1500 댓글 35</div>
+                                </div>
+                            </div>
+
+                        </div>
                     </div>
                 </div>
             </div>
@@ -94,17 +207,16 @@
                  <a href="#">- 조회순</a>
             </div>
 
-
             <!-- 임시 게시글 10개 -->
             <div id="post">
                 
                 <!-- 10개중 하나 -->
-                <div class="posts"> <!-- height:250px; -->
+                <div class="posts"> <!-- height:250 px; -->
                 
                     <!-- 하나 중 이미지 + 작성자 + 직군 + 몇분전 -->
                     <div id="postFirstpart">
 
-                        <img src="../images/logo.svg" class="imgs">
+                        <img src="/resources/images/logo.svg" class="writerImages">
                         
                         <div id="firstPartRight">
                             
@@ -153,15 +265,16 @@
             </div>
         
 
-        <!-- 임시 페이지네이션 -->
+        <!-- 임시 페이지네이션 (무한스크롤로 변경할듯) -->
         <div id="pagination">
                 << < 1 2 3 4 5 6 7 8 9 10 > >>
+        </div>
         </div>
     </main>
 
 
     <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
-
+    <script src="/resources/js/common/general.js"></script>
     <script>
         // Swiper 초기화
         var mySwiper = new Swiper('.swiper-container', {
