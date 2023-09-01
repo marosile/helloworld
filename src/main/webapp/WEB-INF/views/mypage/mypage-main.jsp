@@ -20,7 +20,7 @@
         <jsp:include page="/WEB-INF/views/mypage/mypage-nav.jsp"/>
         
         <section class="myPage-main">
-            <h1 class="Title">회원 정보</h1>
+            <h1 class="Title">프로필</h1>
 
             <form action="main" method="POST" name="myPageFrm" id="profileFrm" enctype="multipart/form-data">
 
@@ -28,27 +28,21 @@
                 <div class="profile-area">
 
                     <div class="left">
-                        <!-- 아이디 영역 -->
-                        <div class="id-area">
-                            <div class="texts">아이디(이메일)</div>
-                            <input type="text" placeholder="나의 아이디">
+                        <!-- 이름 영역 -->
+                        <div class="name-area">
+                            <div class="texts">이름</div>
+                            <input type="text" name="name" class="boxs" placeholder="나의 이름">
                         </div>
 
                         <!-- 닉네임 영역 -->
                         <div class="nick-area">
                             <div class="texts">닉네임</div>
-                            <input type="text" placeholder="나의 닉네임">
-                        </div>
-
-                        <!-- 관심있는 기술 -->
-                        <div class="skill-area">
-                            <div class="texts">관심있는 기술</div>
-                            <input type="text" placeholder="이건 어케하지">
-
-                            <button id="skillBtn">등록</button>
+                            <input type="text" name="memberNickname" class="boxs" placeholder="나의 닉네임">
                         </div>
 
                     </div>
+
+                    <%-- ======================================================== --%>
 
                     <div class="right">
                         <!-- 사진 -->
@@ -59,7 +53,7 @@
                         <div class="imageBtn-area">
                             <label for="imageInput">이미지 선택</label>
                             <input type="file" name="profileImage" id="imageInput" accept="image/*">
-                            <button>변경하기</button>
+                            <button id="changeBtn">변경하기</button>
                         </div>
 
                         <!-- 팔로잉 팔로워 영역 -->
@@ -68,7 +62,7 @@
                             <div id="following">팔로잉 0</div>
                         </div>
 
-                        <button is="saveBtn">회원 정보 저장</button>
+                        <button id="saveBtn">회원 정보 저장</button>
                     </div>
 
                 </div>

@@ -1,0 +1,31 @@
+main{
+    margin: auto;
+
+    width: 1000px;
+    height: 600px;
+    border: 1px solid var(--divider);
+    border-radius: 10px;
+    background-color: var(--bg-color-2);
+    transition-duration: 0.5s;
+}
+.Title{
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+    font-size: 25px;
+}
+
+.tb{
+    margin-left: 100px;
+    margin-top: 80px;
+}
+
+.tb tr > *:nth-of-type(1){ width: 60%; text-align: start;}
+.tb tr > *:nth-of-type(2){ width: 16%; }
+.tb tr > *:nth-of-type(3){ width: 8%; }
+.tb tr > *:nth-of-type(4){ width: 8%; }
+.tb tr > *:nth-of-type(5){ width: 8%; }
+
+.tb > tbody > tr{ 
+    text-align: center;
+}
