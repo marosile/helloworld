@@ -50,7 +50,7 @@
 /* 아이디 저장 */
 .login-saveId{
     width: 90%;
-    text-align: ;
+    margin: auto;
 }
 
 
@@ -101,7 +101,18 @@
 }
 
 .snsLogin > h3{
-    border-top: 1px solid black;
+    border-top: 1px solid #bbb;
     padding-top: 15px;
 }
 
+.snsLogin > button{
+    font-size: 15px;
+    font-weight: bold;
+    width: 90%;
+    cursor: pointer;
+    padding: 12px 0;
+    display: block;
+    border-radius: 10px;
+    border: none;
+    margin: 0px auto 10px auto;
+}
