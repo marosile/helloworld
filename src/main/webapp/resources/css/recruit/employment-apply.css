@@ -1,0 +1,14 @@
+#main-area{
+    border: 1px solid black;
+    width: 1000px;
+    height: 1000px;
+}
+
+.upload{
+    border: 1px solid black;
+    background-color: rgba(128, 128, 128, 0.368);
+
+    
+    width: 700px;
+    height: 50px;
+}
