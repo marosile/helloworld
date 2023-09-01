@@ -1,0 +1,102 @@
+main{
+    margin: auto;
+
+    width: 1000px;
+    height: 880px;
+    border: 1px solid var(--divider);
+    border-radius: 10px;
+    background-color: var(--bg-color-2);
+    transition-duration: 0.5s;
+}
+.Title{
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+    font-size: 25px;
+}
+
+
+
+/* 인풋 박스들 */
+.rowE > input{
+    width: 400px;
+    height: 40px;
+    border-radius: 5px;
+    background-color: white;
+    border: 1px solid gray;
+    margin-top: 5px;
+}
+
+.row > input{
+    width: 400px;
+    height: 40px;
+    border-radius: 5px;
+    background-color: white;
+    border: 1px solid gray;
+}
+
+/* 폼태그 */
+#accountFrm{
+    margin-left: 50px;
+    margin-top: 50px;
+}
+
+/* 회원탈퇴 경계선 */
+.line{
+    margin-top: 100px;
+}
+
+
+
+/* ===================이메일=========== */
+.rowE{
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+
+
+/* =============== =======비밀번호  ============== */
+/* 비밀번호 행 */
+.row{
+    margin-top: 10px;
+}
+
+
+
+/* =============== 회원 탈퇴 ==================== */
+.secession-area{
+    margin-left: 50px;
+    margin-top: 30px;
+}
+
+#agreeText{
+    width: 500px;
+    height: 100px;
+    border: 1px solid rgba(128, 128, 128, 0.774);
+
+    overflow: auto;
+}
+
+
+/* 버튼들 */
+
+#sendAuthKeyBtn{
+    margin-left: 25px;
+    width: 200px;
+    height: 44px;
+}
+
+#pwBtn{
+    margin-left: 25px;
+    width: 200px;
+    height: 44px;
+
+}
+
+#secessionBtn{
+    margin-left: 10px;
+    width: 100px;
+    height: 40px;
+
+}
