@@ -25,8 +25,22 @@
     align-items: center;
     justify-content: space-between;
 }
+
 .nav > li > a:hover{
-    background-color: black;
-    border-bottom: 3px solid black;
+    
+    border-bottom: 1px solid gray;
+    transform: scale(1.1);
+    transition: 0.2s;
 }
+
+
+/* 실패,,,,,,, */
+/* .container>ul>li>a:focus{
+
+    text-decoration: underline yellow;
+    text-decoration-style: wavy;
+    text-decoration-thickness: 3px;
+} */
+
+
 

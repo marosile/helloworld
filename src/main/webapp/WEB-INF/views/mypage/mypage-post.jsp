@@ -23,8 +23,8 @@
         <section>
 
             <div class="postList">
-
                 <table class="tb">
+                    
                     <thead>
                         <tr>
                             <th>제목</th>
@@ -51,6 +51,16 @@
                             <td>댓글임</td>
                             <td>좋아오</td>
                         </tr>
+
+                        <tr>
+                            <td><a>제목이다</a></td>
+                            <td>작성일이고</td>
+                            <td>조회수고</td>
+                            <td>댓글임</td>
+                            <td>좋아오</td>
+                        </tr>
+
+
                     </tbody>
 
 

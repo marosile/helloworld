@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="/resources/css/index.css">
     <link rel="stylesheet" href="/resources/css/mypage/mypage-like.css">
     <link rel="stylesheet" href="/resources/css/mypage/mypage-nav.css">
+    <link rel="stylesheet" href="/resources/css/mypage/mypage-post.css">
 </head>
 <body>
     <jsp:include page="/WEB-INF/views/common/header.jsp"/>
@@ -19,12 +20,57 @@
         <!-- 마이페이지 nav -->
         <jsp:include page="/WEB-INF/views/mypage/mypage-nav.jsp"/>
 
+        <h1 class="Title">좋아요</h1>
         <section>
-            <h1 class="Title">좋아요</h1>
+        
+            <div class="postList">
+                <table class="tb">
+                    
+                    <thead>
+                        <tr>
+                            <th>제목</th>
+                            <th>작성자</th>
+                            <th>조회수</th>
+                            <th>댓글</th>
+                            <th>좋아요</th>
+                        </tr>
+                    </thead>
 
-            좋아오
-        
-        
+                    <tbody>
+                        <tr>
+                            <td><a>제목이다</a></td>
+                            <td>작성자임</td>
+                            <td>조회수고</td>
+                            <td>댓글임</td>
+                            <td>좋아오</td>
+                        </tr>
+
+                        <tr>
+                            <td><a>제목이다</a></td>
+                            <td>user01</td>
+                            <td>조회수고</td>
+                            <td>댓글임</td>
+                            <td>좋아오</td>
+                        </tr>
+
+                        <tr>
+                            <td><a>제목이다</a></td>
+                            <td>작성일이고</td>
+                            <td>조회수고</td>
+                            <td>댓글임</td>
+                            <td>좋아오</td>
+                        </tr>
+
+
+                    </tbody>
+
+
+                </table>
+
+
+            </div>
+
+                
         
         </section>
         
