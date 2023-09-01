@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.RestController;
 @Controller
 public class ohsController {
 
+	////////////////////////////////
+	
 	// 게시글 목록조회
 	@GetMapping("/boardList")
 	public String listTest() {
@@ -24,6 +26,17 @@ public class ohsController {
 	public String boardUpdate() {
 		return "board/board-update";
 	}
+	
+	////////////////////////////////
+	
+	// 커리어리 트렌드 상세
+	@GetMapping("/trandDetail")
+	public String trandDetail() {
+		return "trand/trand-detail";
+	}
+	
+	
+	
 	
 	
 }
