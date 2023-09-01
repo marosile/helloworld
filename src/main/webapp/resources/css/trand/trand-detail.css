@@ -1,0 +1,23 @@
+* {box-sizing: border-box;}
+
+/* 메인 */
+#main{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 메인 안 전부 다 담는 div */
+#main > #divContainer {
+    width:1000px;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid var(--divider);
+    border-radius: 10px;
+    background-color: var(--bg-color-2);
+    transition-duration: 0.5s;
+    margin:30px;
+    padding: 20px 20px;
+}
