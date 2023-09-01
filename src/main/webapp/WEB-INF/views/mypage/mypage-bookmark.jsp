@@ -19,18 +19,56 @@
         <!-- 마이페이지 nav -->
         <jsp:include page="/WEB-INF/views/mypage/mypage-nav.jsp"/>
 
-        <section>
-            <h1 class="Title">북마크</h1>
+        <h1 class="Title">북마크</h1>
 
-        
-        
-        
+        <section class="bookmark">
+
+            <div class="bookmarkList">
+                
+                <!-- 왼쪽 -->
+                <div class="row1">
+
+                    <div class="top">
+                        <img class="thumbnail">
+                        <a>회사이름</a>
+                    </div>
+
+                    <div class="mid">
+                        <div>신입 ~ 100년차</div>
+                        <div>연봉 정보 비공개</div>
+                    </div>
+
+                    <div class="bottom">
+                        <div>사무실 출근</div>
+                        <div>서울 강남</div>
+                    </div>
+
+                </div>
+
+    
+                <!-- 오룬쪽 -->
+                <div class="row1">
+
+                    <div class="top">
+                        <img class="thumbnail">
+                        <a>회사이름</a>
+                    </div>
+
+                    <div class="mid">
+                        <div>신입 ~ 100년차</div>
+                        <div>연봉 정보 비공개</div>
+                    </div>
+
+                    <div class="bottom">
+                        <div>사무실 출근</div>
+                        <div>서울 강남</div>
+                    </div>
+
+                </div>
+            </div>
+            
         
         </section>
-        
-        
-        
-
 
 	</main>
     <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
