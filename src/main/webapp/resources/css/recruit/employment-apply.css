@@ -1,14 +1,206 @@
+#body-area{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    margin: 60px 100px;
+}
+
 #main-area{
     border: 1px solid black;
-    width: 1000px;
-    height: 1000px;
+    
+    width: 780px;
+    height: 950px;
+    border: 1px solid var(--divider);
+    border-radius: 10px;
+    background-color: var(--bg-color-2);
+    transition-duration: 0.5s;    
+
+    justify-content: center;
 }
 
 .upload{
-    border: 1px solid black;
+    border-radius: 5px;
     background-color: rgba(128, 128, 128, 0.368);
 
+    color: rgb(100, 99, 99);
+
     
-    width: 700px;
+    line-height: 50px;
+    margin-left: 40px;
+
+    width: 680px;
     height: 50px;
+}
+
+.upload:hover{
+    cursor: pointer;
+}
+
+
+.pdf{
+    margin-left: 40px;
+    font-size: 13px;
+
+    color: gray;
+}
+
+#title3{
+    font-size: 35px;
+    font-weight: bold;
+
+    margin-left: 40px;
+    margin-bottom: 5px;
+    margin-top: 30px;
+}
+
+#subTitle{
+    font-size: 15px;
+    color: grey;
+
+    margin-top: 17px;
+    margin-left: 40px;
+    margin-bottom: 40px
+}
+
+#infomation{
+    font-size: 23px;
+    font-weight: bold;
+    color: rgb(73, 72, 72);
+
+    margin-top: 50px;
+    margin-left: 40px;
+}
+
+#info2{
+    font-size: 17px;
+    font-weight: bold;
+    color: rgb(73, 72, 72);
+
+    margin-top: 10px;
+    margin-left: 40px;
+}
+
+.required{
+    font-size: 12px;
+    margin-left: 10px;
+    color: rgba(252, 7, 7, 0.795);
+}
+
+input{
+    border: none;
+    width: 360px;
+}
+
+.line{
+    border-bottom: 1px solid rgb(161, 161, 161);
+    width: 360px;
+    height: 30px;
+}
+
+#emailBtn{
+    width: 80px;
+    height: 30px;
+
+    background-color: rgb(59, 59, 59);
+    color: white;
+    border: 1px solid rgb(59, 59, 59);
+    border-radius: 10px;
+
+    margin-left: 10px;
+}
+
+#emailBtn:hover{
+    background-color: rgba(59, 59, 59, 0.068);
+    color: rgb(59, 59, 59);
+    border: 1px solid rgb(59, 59, 59);
+
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+#document{
+    font-size: 23px;
+    font-weight: bold;
+    color: rgb(73, 72, 72);
+
+    margin-left: 40px;
+    margin-top: 40px;
+}
+
+#info-area{
+    margin-left: 40px;
+}
+
+.doc{
+    font-size: 17px;
+    font-weight: bold;
+    color: rgb(73, 72, 72);
+
+    margin-top: 10px;
+    margin-bottom: 5px;
+
+    margin-left: 40px;
+}
+
+#check-area div{
+    margin-left: 40px;
+}
+
+#check-area{
+    margin-top: 30px;
+}
+
+.checkbox-row{
+    display: flex;
+}
+
+.checkbox{
+    width: 30px;
+}
+
+.checkbox input{
+    width: 30px;
+}
+
+.agree{
+    width: 470px;
+}
+
+#checkPoint{
+    font-size: 17px;
+    font-weight: bold;
+    color: rgb(73, 72, 72);
+
+    margin-left: 40px;
+    margin-top: 60px;
+}
+
+.drop{
+    color: rgba(119, 118, 118, 0.753);
+    border-radius: 3px;
+
+    text-align: center;
+}
+
+.drop:hover{
+    cursor: pointer;
+}
+
+#Btn{
+    width: 600px;
+    height: 40px;
+
+    background-color: rgb(59, 59, 59);
+    color: white;
+    border: none;
+    border-radius: 5px;
+
+    margin-left: 90px;
+    margin-top: 20px;
+}
+
+i{
+    margin-left: 10px;
 }
