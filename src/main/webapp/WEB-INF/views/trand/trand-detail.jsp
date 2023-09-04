@@ -51,7 +51,7 @@
                     🕊️ JWT 기본 개념 이해하기
                 </div>
 
-                <!-- 내용 p태그 쓰는게 맞나?? -->
+                <!-- 내용 p태그 쓰는게 맞나 -->
                 <div id="pDiv">
                     <p>📌JWT(Json Web Token)는 말그대로 웹에서 사용되는 JSON 형식의 토큰에 대한 표준 규격인데요. 주로 사용자의 인증(authentication) 또는 인가(authorization) 정보를 서버와 클라이언트 간에 안전하게 주고 받기 위해서 사용됩니다.<br><br>
 
@@ -70,25 +70,34 @@
                     2023년 8월 21일 오전 4:43
                 </div>
 
-                <!-- 좋아요 북마크 -->
-                <div id="likeBookMark"> 
+                <!-- 좋아요 북마크 수정 삭제 목록으로 div-->
+                <div id="likeBookMarkUpdateDeleteBack">
+                    
+                    <!-- 좋아요 북마크 -->
+                    <div id="likeBookMark"> 
+                    
+                            <div id="like">
+                                <div>
+                                    <i class="fa-solid fa-heart fa-2xl"></i>
+                                </div>  
+                                <div id="likeCount">
+                                    135
+                                </div>
+                            </div>
 
-                
-                        <div id="like">
+                        <div id="bookMark">
                             <div>
-                                <i class="fa-solid fa-heart fa-2xl"></i>
-                            </div>  
-                            <div id="likeCount">
-                                135
+                                <i class="fa-regular fa-bookmark fa-2xl"></i>
                             </div>
                         </div>
-
-                    <div id="bookMark">
-                        <div>
-                            <i class="fa-regular fa-bookmark fa-2xl"></i>
-                        </div>
                     </div>
-                        
+
+                    <div id="updateDeleteBack">
+                        <button class="boardBtns">수정</button>
+                        <button class="boardBtns">삭제</button>
+                        <button class="boardBtns">목록으로</button>
+                    </div>
+
 
                 </div>
 
@@ -100,35 +109,67 @@
                         댓글 수 : 2
                     </div>
 
+                    <!-- 댓글 하나하나 나중에 for문 -->
                     <div class="replys">
-                        
+
+                        <div class="inReplyfirstDiv">
+                            <div><img src="resources/images/user.png" class="replyImages"></div>
+                            <div>작성자</div>
+                            <div>(2023-09-04)</div>
+                        </div>
+
+                        <div class="replyContents">
+                            댓글 내용입니다.
+                        </div>
+
+                        <div class="replyBtns">
+                            <button class="replyBtn">수정</button>
+                            <button class="replyBtn">삭제</button>
+                            <button class="replyBtn">대댓글</button>
+                        </div>
+                     
                     </div>
 
                     <div class="replys">
-                        
+
+                        <div class="inReplyfirstDiv">
+                            <div><img src="resources/images/user.png" class="replyImages"></div>
+                            <div id="replyWriter">작성자</div>
+                            <div id="replyCreateDate">(2023-09-04)</div>
+                        </div>
+
+                        <div class="replyContents">
+                            댓글 내용입니다.
+                        </div>
+
+                        <div class="replyBtns">
+                            <button class="replyBtn">수정</button>
+                            <button class="replyBtn">삭제</button>
+                            <button class="replyBtn">대댓글</button>
+                        </div>
+                     
                     </div>
+
+                    <!-- 댓글 작성 div -->
+                    <div id="replyWrite">
+
+                        <!-- 작성 부분 -->
+                        <div id="replyWriteContent">
+                            <textarea placeholder="댓글을 작성해주세요."></textarea>
+                        </div>
+
+                        <!-- 버튼 부분 -->
+                        <div id="replyWriteBtn">
+                            <button>작성하기</button>
+                        </div>
+
+                    </div>
+
 
                 </div>
 
             </div>
             
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 <!-- /////////////////////////////////////////////////////////////////////////////////////// -->
 
