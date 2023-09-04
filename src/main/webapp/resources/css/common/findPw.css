@@ -3,7 +3,7 @@
 }
 
 
-/* 아이디 찾기 메인 */
+/* 비밀번호 찾기 메인 */
 .findIdMain{
     margin: 50px auto 50px auto;
     text-align: center;
@@ -23,7 +23,7 @@
     margin-top: 50px;
 }
 
-/* 아이디 찾기 div*/
+/* 비밀번호 찾기 div*/
 .phoneAuth1{
     display: flex;
     margin: 10px auto 10px auto;
@@ -32,7 +32,17 @@
 
 }
 
-/* 아이디 찾기 input */
+/* 비밀번호 찾기 아이디 받는 곳 */
+#inputId{
+    width: 450px;
+    height: 50px;
+    border-radius: 3px;
+    border: 1px solid #ddd;
+    padding-left: 5px;
+    font-size: 16px;
+}
+
+/* 비밀번호 찾기 input */
 .phoneInput{
     width: 350px;
     height: 50px;
@@ -50,7 +60,7 @@
 }
 
 /* 아이디 찾기 버튼 */
-#findIdBtn{
+#findPwBtn{
     font-size: 16px;
     font-weight: bold;
     width: 450px;
@@ -60,6 +70,7 @@
     padding: 15px 0;
     margin-bottom: 30px;
 }
+
 
 /* 휴대폰 / 이메일 인증 고르는 radio */
 .radioList{
