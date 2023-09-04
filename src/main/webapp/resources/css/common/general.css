@@ -22,7 +22,7 @@ html.dark {
 }
 
 input[type='text'], input[type='password'] {
-    border-color: var(--divider);
+    border: solid 1px var(--divider);
     outline: none;
     background-color: var(--bg-color-1);
 }
