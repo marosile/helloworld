@@ -30,6 +30,11 @@ public class lysController {
 		return "common/findId";
 	}
 	
+	@GetMapping("/findPw")
+	public String findPw() {
+		return "common/findPw";
+	}
+	
 	
 	// 휴대폰 인증
 	@PostMapping("phoneAuth")
