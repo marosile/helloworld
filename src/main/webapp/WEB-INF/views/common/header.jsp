@@ -4,17 +4,17 @@
 <link rel="stylesheet" href="/resources/css/common/header.css">
 
 <header>
-    <div id="left">
-        <img id="logo" src="/resources/images/logo.svg" onclick="location.href='/'">
-        <p id="title" onclick="location.href='/'">Hello, World!</p>
-        <div id="category">
+    <div id="header-left">
+        <img id="header-logo" src="/resources/images/logo.svg" onclick="location.href='/'">
+        <p id="header-title" onclick="location.href='/'">Hello, World!</p>
+        <div id="header-category">
             <a>커뮤니티</a>
             <a>채용</a>
             <a href="/lecture">강의</a>
             <a>스터디</a>
         </div>
     </div>
-    <div id="right">
+    <div id="header-right">
         <input id="theme-checkbox" type="checkbox" hidden>
         <label for="theme-checkbox">
             <div id="theme-switch">
@@ -23,8 +23,8 @@
                 </div>
             </div>
         </label>
-        <div id="login" class="button">로그인</div>
-        <div id="signup" class="button">회원가입</div>
+        <div id="header-login" class="button">로그인</div>
+        <div id="header-signup" class="button">회원가입</div>
     </div>
 </header>
 

@@ -10,7 +10,7 @@ footer {
     transition-duration: 0.5s;
 }
 
-#content {
+#footer-content {
     display: flex;
     flex-direction: column;
     height: 60px;
@@ -18,7 +18,7 @@ footer {
     align-items: center;
 }
 
-#info {
+#footer-info {
     flex-basis: 50%;
     display: flex;
     width: 100%;
@@ -26,13 +26,13 @@ footer {
     align-items: center;
 }
 
-#info > a {
+#footer-info > a {
     margin: 0 7px;
     color: var(--text-color-2);
     cursor: pointer;
 }
 
-#copyright {
+#footer-copyright {
     flex-basis: 50%;
     display: flex;
     width: 100%;
@@ -43,7 +43,7 @@ footer {
 }
 
 @media (max-width: 1024px) {
-    #content {
+    #footer-content {
         display: flex;
         flex-direction: column;
         height: 60px;

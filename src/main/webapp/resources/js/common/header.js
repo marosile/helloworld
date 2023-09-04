@@ -1,4 +1,4 @@
-$('#category > a').hover(function() {
+$('#header-category > a').hover(function() {
     switch ($(this).text()) {
         case '커뮤니티':
             break;

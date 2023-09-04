@@ -4,28 +4,45 @@ main {
     align-items: center;
 }
 
-#first {
+#head {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-#first > p {
+#head > p {
     font-size: 0.9rem;
     margin-top: 10px;
 }
 
-#second {
-    margin-top: 30px;
+#search {
+    margin-top: 10px;
 }
 
 #search-box {
-    width: 100%;
-    height: 30px;
-    border-radius: 15px;
+    display: flex;
+    width: 500px;
+    height: 40px;
+    padding: 0 12px;
+    border: solid 1px rgb(210, 210, 210);
+    border-radius: 25px;
     margin-top: 10px;
-    font-size: 1.2rem;
+    background-color: rgb(255, 255, 255);
+    align-items: center;
+}
+
+#search-icon {
+    height: 60%;
+    cursor: pointer;
+}
+
+#search-input {
+    width: 100%;
+    padding-left: 10px;
+    border: none;
+    background-color: transparent;
+    font-size: 1rem;
 }
 
 #search-tag {
@@ -39,19 +56,53 @@ main {
     border-radius: 20px;
     background-color: var(--bg-color-2);
     font-size: 0.8rem;
+    transition-duration: 0.5s;
+    cursor: pointer;
 }
 
-#populars {
+.container {
     display: flex;
-    width: 800px;
+    width: 900px;
     padding: 0;
+    margin: 0;
+    margin-top: 10px;
     list-style: none;
     justify-content: space-between;
 }
 
-#populars > li {
-    width: 250px;
-    height: 200px;
+.container > li {
+    display: flex;
+    flex-direction: column;
+    width: 210px;
+    height: 210px;
     border: 1px solid var(--divider);
     border-radius: 20px;
+    background: linear-gradient(90deg, rgba(200, 100, 255, 0.3), rgba(0, 128, 255, 0.3));
+    overflow: hidden;
+    cursor: pointer;
+    transition-duration: 0.3s;
+}
+
+.container > li:hover {
+    transform: scale(1.02);
+}
+
+.container > li > div:first-of-type {
+    flex-basis: 60%;
+}
+
+.container > li > div:last-of-type {
+    flex-basis: 40%;
+    padding: 5px 10px;
+    background-color: var(--overlay-color-1);
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+#latest {
+    margin-top: 50px;
+}
+
+#content {
+    margin-top: 20px;
 }

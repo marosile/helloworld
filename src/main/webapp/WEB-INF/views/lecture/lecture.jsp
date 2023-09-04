@@ -18,23 +18,67 @@
     <jsp:include page="/WEB-INF/views/common/header.jsp"/>
 	<main>
         <section id="lecture" class="page">
-            <div id="first">
+            <div id="head">
                 <h2>강의</h2>
                 <p>새로운 기술을 배우고 싶으신가요? 수많은 유용한 강의들이 당신을 기다리고 있습니다!</p>
-                <input id="search-box" type="text">
+            </div>
+            <div id="search">
+                <div id="search-box">
+                    <img id="search-icon" src="/resources/images/magnifier.png">
+                    <input id="search-input" type="text">
+                </div>
                 <section id="search-tag">
                     <a>#Spring Boot</a>
                     <a>#JPA</a>
                     <a>#React</a>
                 </section>
             </div>
-            <div id="second">
-                <h2>인기 강의</h2>
-                <ul id="populars">
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                </ul>
+        </section>
+        <div id="full-advertise-banner">THIS IS ADVERTISE BANNER</div>
+        <section id="content" class="page">
+            <div id="default">
+                <div id="popular">
+                    <h2>인기 강의</h2>
+                    <ul class="container">
+                        <li>
+                            <div></div>
+                            <div>일주일만에 끝내는 리액트 완벽 가이드</div>
+                        </li>
+                        <li>
+                            <div></div>
+                            <div></div>
+                        </li>
+                        <li>
+                            <div></div>
+                            <div></div>
+                        </li>
+                        <li>
+                            <div></div>
+                            <div></div>
+                        </li>
+                    </ul>
+                </div>
+                <div id="latest">
+                    <h2>최신 강의</h2>
+                    <ul class="container">
+                        <li>
+                            <div></div>
+                            <div></div>
+                        </li>
+                        <li>
+                            <div></div>
+                            <div></div>
+                        </li>
+                        <li>
+                            <div></div>
+                            <div></div>
+                        </li>
+                        <li>
+                            <div></div>
+                            <div></div>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </section>
 	</main>
