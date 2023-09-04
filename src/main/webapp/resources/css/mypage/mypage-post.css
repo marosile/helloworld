@@ -1,0 +1,53 @@
+main{
+    margin: auto;
+
+    width: 1000px;
+    height: 600px;
+    border: 1px solid var(--divider);
+    border-radius: 10px;
+    background-color: var(--bg-color-2);
+    transition-duration: 0.5s;
+}
+.Title{
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+    font-size: 25px;
+}
+
+/* 게시글 목록 테이블을 감싸는 div */
+.postList{
+    border: 1px solid gray;
+    width: 800px;
+    height: 500px;
+    border-radius: 10px;
+    margin-left: 103px;
+    margin-top: 60px;
+
+    overflow: auto;
+}
+
+
+/* 테이블 */
+.tb{
+    margin-left: 10px;
+    margin-top: 5px;
+}
+
+
+.tb tr > *:nth-of-type(1){ width: 60%; text-align: start; cursor: pointer;} /* 제목 */
+
+.tb > tbody tr > :nth-of-type(1):hover{
+    border-bottom: 1px solid gray;
+}
+
+.tb tr > *:nth-of-type(2){ width: 16%; }    /* 작성일 */
+.tb tr > *:nth-of-type(3){ width: 8%; }     /* 조회수 */
+.tb tr > *:nth-of-type(4){ width: 8%; }      /* 댓글 */
+.tb tr > *:nth-of-type(5){ width: 8%; }     /* 좋아요 */
+
+
+.tb > tbody > tr{ 
+    text-align: center;
+    height: 40px;
+}

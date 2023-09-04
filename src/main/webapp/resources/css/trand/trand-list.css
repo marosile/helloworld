@@ -1,0 +1,140 @@
+#body-area{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+#main-area{
+    width: 1000px;
+    height: 2000px;
+
+    border: 1px solid black;
+
+    display: flex;
+}
+
+#left-area{
+    border: 1px solid black;
+    width: 400px;
+    height: 600px;
+}
+
+#right-area{
+    border: 1px solid black;
+
+    width: 600px;
+    height: 100%;
+}
+
+#right-area div{
+    border: 1px solid gray;
+}
+
+.row-area{
+    display: flex;
+    flex-direction: column;
+
+    border: 1px solid rgba(24, 0, 0, 0.507);
+    border-radius: 10px;
+
+    padding: 5px;
+
+    height: 150px;
+
+    margin-bottom: 20px;
+}
+
+.row1-1{
+    display: flex;
+}
+
+.name-area{
+    display: flex;
+    flex-direction: column;
+
+    font-size: 14px;
+    font-weight: bold;
+
+    width: 400px;
+}
+
+.name{
+    margin-top: 8px;
+}
+
+.nickname{
+    font-size: 13px;
+
+    color: rgba(100, 98, 98, 0.637);
+}
+
+.title{
+    margin-top: 10px;
+    margin-left: 15px;
+    margin-bottom: 5px;
+
+
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.content{
+    margin-left: 15px;
+
+    font-size: 14px;
+
+}
+
+
+.row1-2{
+    display: flex;
+    height: 80px;
+}
+
+.text-area{
+    display: flex;
+    flex-direction: column;
+
+    width: 420px;
+}
+
+.row1-3{
+    display: flex;
+}
+
+.number{
+    font-size: 30px;
+    font-weight: bold;
+    width: 60px;
+
+    text-align: center;
+    line-height: 40px;
+
+    margin-left: 10px;
+
+    border-bottom: 1px solid gray;
+}
+
+.profile{
+    width: 50px;
+
+    margin-left: 9px;
+    margin-right: 9px;
+
+    border: 1px solid gray;
+}
+
+.picture{
+    width: 120px;
+    margin-left: 15px;
+
+    border: 1px solid rgba(128, 128, 128, 0.534);
+}
+
+.heart{
+    margin-left: 10px;
+    margin-right: 15px;
+
+
+}

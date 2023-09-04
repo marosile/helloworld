@@ -10,5 +10,10 @@ public class phjController {
 	public String board() {
 		return "board/board-detail";
 	}
+	
+	@RequestMapping("/employement-test")
+	public String employementTest() {
+		return "recruit/employment-test/employement-test3";
+	}
 
 }

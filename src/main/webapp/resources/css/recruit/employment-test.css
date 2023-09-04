@@ -1,0 +1,183 @@
+#body-area{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    margin: 60px 100px;
+}
+
+
+#main-area{
+    border: 1px solid black;
+    
+    width: 600px;
+    height: 750px;
+    border: 1px solid var(--divider);
+    border-radius: 10px;
+    background-color: var(--bg-color-2);
+    transition-duration: 0.5s;    
+}
+
+p{
+    margin: 0;
+}
+
+#question{
+    font-size: 30px;
+    font-weight: bold;
+
+    text-align: center;
+
+    margin-top: 15px;
+    margin-bottom: 70px;
+}
+
+#question2{
+    font-size: 25px;
+    font-weight: bold;
+
+    text-align: center;
+
+    margin-top: 15px;
+    margin-bottom: 70px;
+}
+
+#number{
+    margin-left: 38px;
+
+    margin-top: 70px;
+    margin-bottom: 10px;
+}
+
+.answer{
+    border: 1px solid rgb(96, 117, 157);
+    border-radius: 10px;
+
+    width: 500px;
+    height: 50px;
+
+    text-align: center;
+
+    line-height: 50px;
+
+    margin-bottom: 20px;
+    margin-left: 50px;
+
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.answer:hover{
+    cursor: pointer;
+    background-color: rgba(174, 193, 228, 0.167);
+}
+
+#notice{
+    margin-left: 50px;
+    font-size: 13px;
+    color: rgba(128, 128, 128, 0.501);
+}
+
+#term{
+    font-size: 18px;
+    font-weight: bold;
+
+    margin-left: 35px;
+}
+
+#slider{
+    accent-color: rgba(174, 193, 228, 0.167);
+
+    margin-top: 15px;
+    margin-left: 35px;
+
+    width:500px
+}
+
+datalist{
+    margin-left: 38px;
+
+    display: grid;
+    
+    grid-column-gap: 20px;
+    grid-auto-flow: column;
+    width:500px;
+}
+
+#button{
+    font-size: 20px;
+    font-weight: bold;
+
+    border: 1px solid rgba(74, 106, 165, 0.648);
+    border-radius: 10px;
+    background-color: rgb(74, 106, 165, 0.648);
+    color: white;
+
+    width: 180px;
+    height: 40px;
+
+    text-align: center;
+    line-height: 40px;
+
+
+    margin-left: 200px;
+    margin-top: 250px;
+}
+
+#button:hover{
+    cursor: pointer;
+    background-color: rgba(40, 88, 177, 0.743);
+}
+
+#button2{
+    font-size: 20px;
+    font-weight: bold;
+
+    border: 1px solid rgba(74, 106, 165, 0.648);
+    border-radius: 10px;
+    background-color: rgb(74, 106, 165, 0.648);
+    color: white;
+
+    width: 180px;
+    height: 40px;
+
+    text-align: center;
+    line-height: 40px;
+
+
+    margin-left: 200px;
+    margin-top: 160px;
+}
+
+#button2:hover{
+    cursor: pointer;
+    background-color: rgba(40, 88, 177, 0.743);
+}
+
+#button3{
+    font-size: 20px;
+    font-weight: bold;
+
+    border: 1px solid rgba(74, 106, 165, 0.648);
+    border-radius: 10px;
+    background-color: rgb(74, 106, 165, 0.648);
+    color: white;
+
+    width: 180px;
+    height: 40px;
+
+    text-align: center;
+    line-height: 40px;
+
+
+    margin-left: 200px;
+    margin-top: 50px;
+}
+
+#button3:hover{
+    cursor: pointer;
+    background-color: rgba(40, 88, 177, 0.743);
+}
+
+
+

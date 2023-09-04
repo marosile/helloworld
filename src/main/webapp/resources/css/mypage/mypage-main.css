@@ -1,56 +1,119 @@
 main{
-    width: 1000px;
-    border: 1px solid black;
     margin: auto;
-}
 
+    width: 1000px;
+    height: 600px;
+    border: 1px solid var(--divider);
+    border-radius: 10px;
+    background-color: var(--bg-color-2);
+    transition-duration: 0.5s;
+}
 
 /* 회원정보 글씨 */
 .Title{
     display: flex;
     justify-content: center;
+    margin-top: 30px;
+    font-size: 25px;
 }
+
+/* .myPage-main{
+    margin-top: 30px;
+} */
+
+
 
 /* 왼쪽 오른쪽 나누기 */
 .profile-area{
     display: flex;
 }
-.profile-area > div:nth-of-type(1){
-    flex-basis: 50%;
-}
-.profile-area > div:nth-of-type(2){
-    flex-basis: 50%;
-}
 
 
-/* left인 애들 */
+/* =========== left인 애들 ==========*/
 .texts{
     font-size: 20px;
+    margin-bottom: 5px;
 }
+
 .left{
-    margin: 100px 150px;
+    margin: 120px 90px;
+}
 
+/* 인풋 박스들 */
+.boxs{
+    width: 380px;
+    height: 40px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+}
+
+#skillBtn{
+    width: 70px;
+    height: 40px;
+    margin-left: 5px;
+    cursor: pointer;
 }
 
 
 
+/* =============== right인 애들 =================*/
+.right{
+    margin-top: 70px;
+}
 
-
-/* 프로필 사진 영역 */
+/* 프로필 사진 */
 #profileImage{
-    width: 150px;
-    height: 150px;
-
+    width: 180px;
+    height: 180px;
+    margin-bottom: 15px;
+    margin-left: 28px;
 }
 
-
-/* 프로필 버튼들 */
-/* .imageBtn-area{
-
-} */
-
+/* 이미지 선택 버튼 */
 #imageInput{
     display: none;
+    padding: 10px;
 }
+
+.imageBtn-area > *{
+    width: 110px;
+    height: 34px;
+
+    border: 1px solid black;
+    background-color: white;
+    font-size: 14px;
+    cursor: pointer;
+    text-align: center;
+    padding: 6px 20px;
+}
+
+#changeBtn{
+    margin-left: 10px;
+}
+
+
+/* 팔로 */
+.follow{
+    display: flex;
+    margin-top: 30px;
+}
+
+#follower{
+    margin-right: 50px;
+    margin-left: 36px;
+}
+
+/* 회원 정보 저장 버튼 */
+#saveBtn{
+    margin: 50px 0px 0px 54px;
+    height: 50px;
+    width: 130px;
+    cursor: pointer;
+}
+
+
+
+
+
 
 
