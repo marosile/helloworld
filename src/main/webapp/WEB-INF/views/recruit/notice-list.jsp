@@ -22,7 +22,7 @@
                 <div class="row-area">
                     <div class="box">
                         <div id="row1">
-                            <div id="photo"><img src="#"></div>
+                            <div id="photo"><img src="resources/images/mypage/당근.png"></div>
                             <div id="title-area">
                                 <div id="title">당근마켓</div>
                                 <div id="subTitle">Software Engineer, Frontend</div>
@@ -47,59 +47,7 @@
 
                     <div class="box">
                         <div id="row1">
-                            <div id="photo"><img src="#"></div>
-                            <div id="title-area">
-                                <div id="title">당근마켓</div>
-                                <div id="subTitle">Software Engineer, Frontend</div>
-                            </div>
-                            <div id="machting">70%</div>
-                        </div>
-                        <div id="row2">
-                            <div id="left">
-                                <div class="up"><i class="fa-solid fa-briefcase"></i> 신입 ~ 5년차</div>
-                                <div class="down"><i class="fa-solid fa-desktop"></i> 사무실 출근</div>
-                            </div>
-                            <div id="right">
-                                <div class="up"><i class="fa-solid fa-coins"></i> 연봉 정보 비공개</div>
-                                <div class="down"><i class="fa-solid fa-location-dot"></i> 서울 강남</div>
-                            </div>
-                        </div>
-                        <div id="row3">
-                            <div>지원하기</div>
-                            <div>삭제</div>
-                        </div>
-                    </div>
-                </div>
-
-                              <div class="row-area">
-                    <div class="box">
-                        <div id="row1">
-                            <div id="photo"><img src="#"></div>
-                            <div id="title-area">
-                                <div id="title">당근마켓</div>
-                                <div id="subTitle">Software Engineer, Frontend</div>
-                            </div>
-                            <div id="machting">70%</div>
-                        </div>
-                        <div id="row2">
-                            <div id="left">
-                                <div class="up"><i class="fa-solid fa-briefcase"></i> 신입 ~ 5년차</div>
-                                <div class="down"><i class="fa-solid fa-desktop"></i> 사무실 출근</div>
-                            </div>
-                            <div id="right">
-                                <div class="up"><i class="fa-solid fa-coins"></i> 연봉 정보 비공개</div>
-                                <div class="down"><i class="fa-solid fa-location-dot"></i> 서울 강남</div>
-                            </div>
-                        </div>
-                        <div id="row3">
-                            <div>지원하기</div>
-                            <div>삭제</div>
-                        </div>
-                    </div>
-
-                    <div class="box">
-                        <div id="row1">
-                            <div id="photo"><img src="#"></div>
+                            <div id="photo"><img src="resources/images/mypage/당근.png"></div>
                             <div id="title-area">
                                 <div id="title">당근마켓</div>
                                 <div id="subTitle">Software Engineer, Frontend</div>
@@ -126,7 +74,7 @@
                               <div class="row-area">
                     <div class="box">
                         <div id="row1">
-                            <div id="photo"><img src="#"></div>
+                            <div id="photo"><img src="resources/images/mypage/당근.png"></div>
                             <div id="title-area">
                                 <div id="title">당근마켓</div>
                                 <div id="subTitle">Software Engineer, Frontend</div>
@@ -151,7 +99,59 @@
 
                     <div class="box">
                         <div id="row1">
-                            <div id="photo"><img src="#"></div>
+                            <div id="photo"><img src="resources/images/mypage/당근.png"></div>
+                            <div id="title-area">
+                                <div id="title">당근마켓</div>
+                                <div id="subTitle">Software Engineer, Frontend</div>
+                            </div>
+                            <div id="machting">70%</div>
+                        </div>
+                        <div id="row2">
+                            <div id="left">
+                                <div class="up"><i class="fa-solid fa-briefcase"></i> 신입 ~ 5년차</div>
+                                <div class="down"><i class="fa-solid fa-desktop"></i> 사무실 출근</div>
+                            </div>
+                            <div id="right">
+                                <div class="up"><i class="fa-solid fa-coins"></i> 연봉 정보 비공개</div>
+                                <div class="down"><i class="fa-solid fa-location-dot"></i> 서울 강남</div>
+                            </div>
+                        </div>
+                        <div id="row3">
+                            <div>지원하기</div>
+                            <div>삭제</div>
+                        </div>
+                    </div>
+                </div>
+
+                              <div class="row-area">
+                    <div class="box">
+                        <div id="row1">
+                            <div id="photo"><img src="resources/images/mypage/당근.png"></div>
+                            <div id="title-area">
+                                <div id="title">당근마켓</div>
+                                <div id="subTitle">Software Engineer, Frontend</div>
+                            </div>
+                            <div id="machting">70%</div>
+                        </div>
+                        <div id="row2">
+                            <div id="left">
+                                <div class="up"><i class="fa-solid fa-briefcase"></i> 신입 ~ 5년차</div>
+                                <div class="down"><i class="fa-solid fa-desktop"></i> 사무실 출근</div>
+                            </div>
+                            <div id="right">
+                                <div class="up"><i class="fa-solid fa-coins"></i> 연봉 정보 비공개</div>
+                                <div class="down"><i class="fa-solid fa-location-dot"></i> 서울 강남</div>
+                            </div>
+                        </div>
+                        <div id="row3">
+                            <div>지원하기</div>
+                            <div>삭제</div>
+                        </div>
+                    </div>
+
+                    <div class="box">
+                        <div id="row1">
+                            <div id="photo"><img src="resources/images/mypage/당근.png"></div>
                             <div id="title-area">
                                 <div id="title">당근마켓</div>
                                 <div id="subTitle">Software Engineer, Frontend</div>
