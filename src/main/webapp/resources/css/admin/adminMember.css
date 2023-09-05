@@ -1,0 +1,72 @@
+*{
+    box-sizing: border-box;
+    border: 1px solid black;
+}
+
+/* 전체 div */
+.adminMemberAll{
+    width: 1000px;
+    margin: auto;
+}
+
+/* 관리자 회원관리 밑 div */
+.adminMemberMain{
+    display: flex;
+}
+
+/* 사이드바 */
+.adminMemberSidebar{
+    width: 20%;
+    margin: auto;
+    text-align: center;
+}
+
+/* 사이드바 select문 */
+#searchMember{
+    height: 40px;
+    width: 150px;
+    padding-left: 5px;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+#searchMember > option{
+    font-weight: bold;
+}
+
+/* 사이드바 ul태그 */
+.adminSidebar{
+    padding: 0px;
+}
+
+.adminSidebar > li{
+    list-style: none;
+    text-align: left;
+    height: 50px;
+}
+
+/* 사이드바 목록 사진 */
+.adminSidebar img{
+    width: 50px;
+}
+
+/* 사이드바 목록 */
+.adminSidebar a{
+    text-decoration: none;
+    color: black;
+    height: 50px;
+    width: 100%;
+    display: flex;
+}
+
+/* 사이드바 목록 글자 세로 중간으로 올리기 */
+.adminSidebar p{
+}
+
+
+
+/* 회원목록 */
+.adminMemberDisplay{
+    width: 80%;
+}
+
