@@ -1,0 +1,81 @@
+/* footer */
+#recruitFooter{
+    width:100%;
+    height:80px;
+    border-top: 1px solid var(--divider);
+    border-bottom: 1px solid var(--divider);
+    background-color: var(--bg-color-2);
+    transition-duration: 0.5s;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    position: sticky;
+    bottom:0;
+}
+
+/* footer 안 다 담는 div */
+#footerDiv{
+    width:1000px;
+    display:flex;
+    justify-content: space-evenly;
+    align-items: center;
+    height:100%;
+}
+
+/* 이전 다음 북마크 지원하기 */
+#footerDiv > div{
+    height:70%;
+}
+
+/* 이전, 다음 */
+.prevNext{
+    color: rgb(120, 120, 120);
+    font-size:16px;
+    display:flex;
+    align-items: center;
+}
+
+/* 북마크 */
+#bookMark{
+    width:120px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    /* border:3px solid lightgray; */
+    border:0.5px solid black;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+#bookMark:hover{
+    color: rgb(0, 128, 255) !important;
+    border:2px solid rgb(0, 128, 255);
+}
+
+/* 북마크 text */
+#bookMarkSpan{
+    margin-left:5px;
+    font-size:18px;
+}
+
+/* 지원하기 */
+#apply{
+    width:350px;
+    display:flex;
+    text-align: center;
+}
+
+/* 지원하기 버튼 */
+#btn{
+    height:100%;
+    width:100%;
+    font-size:22px;
+    border:0.5px solid black;
+    border-radius: 10px;
+    font-weight: bold;
+}
+
+#btn:hover{
+    color: rgb(0, 128, 255);
+    border:2px solid rgb(0, 128, 255);
+}
