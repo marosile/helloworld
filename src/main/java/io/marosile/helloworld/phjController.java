@@ -31,6 +31,16 @@ public class phjController {
 		return "recruit/notice-list";
 	}
 	
+	@RequestMapping("/allnotice-list")
+	public String allnoticeList() {
+		return "recruit/allnotice-list";
+	}
+	
+	@RequestMapping("/recruit-detail")
+	public String recruitDetail() {
+		return "recruit/recruit-detail";
+	}
+	
 	
 
 }

@@ -1,19 +1,23 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<script src="https://kit.fontawesome.com/98acdabf0d.js" crossorigin="anonymous"></script>
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-
-    <link rel="stylesheet" href="../css/recruit/recruit-detail.css">
-
-    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
-    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-
+    <title>채용 상세페이지</title>
+    <link rel="stylesheet" href="/resources/css/common/general.css">
+    <link rel="stylesheet" href="/resources/css/index.css">
+    <link rel="stylesheet" href="/resources/css/recruit/recruit-detail.css">
 </head>
 
 <body>
-    <main id="main-area">
+    <jsp:include page="/WEB-INF/views/common/header.jsp"/>
+    <jsp:include page="/WEB-INF/views/recruit/recruit-nav.jsp"/>
+     <main id="main-area">
 
         <div id="body-area">
             <div id="left">
@@ -132,6 +136,8 @@
             </div>
         </div>
     </main> 
-</body>
 
+	<script src="/resources/js/common/general.js"></script>
+    <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
+</body>
 </html>
