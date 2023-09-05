@@ -35,8 +35,27 @@ public class ohsController {
 		return "trand/trand-detail";
 	}
 	
+	////////////////////////////////
 	
+	// 채용공고 테스트 메인
+	@GetMapping("/recruitMain")
+	public String recruitMain() {
+		return "recruit/employment-test/employment-main";
+	}
 	
+	// 채용공고 테스트 결과 == 내 매칭 공고
+	@GetMapping("/recruitResult")
+	public String recruitResult() {
+		return "recruit/employment-test/employment-resultAndRecruitDetail";
+	}
 	
+	////////////////////////////////
+	
+	// 채용 공고 등록
+	@GetMapping("/postRecruit")
+	public String postRecruit() {
+		return null;
+		
+	}
 	
 }

@@ -13,25 +13,58 @@
 
         
     <div class="findIdMain">
-        <h2>아이디(이메일) 찾기</h2>
+        <h2>아이디 찾기</h2>
     
-        <h4>휴대폰 인증</h4>
+        <div class="radioList">
+            <label for="findTel" class="findTelLabel">
+                <input type="radio" name="findIdRadio" id="findTel" checked>휴대폰 인증
+                <label for="findTel" class="findTelShape"></label>
+            </label>
+                
+
+            <label for="findEmail" class="findTelLabel">
+                <input type="radio" name="findIdRadio" id="findEmail">이메일 인증
+                <label for="findEmail" class="findTelShape"></label>
+            </label>
+        </div>
+
+
         <form action="#" class="phoneFrm">
             
-            <div class="phoneAuth1">
-                <input type="text" id="inputTel1" class="phoneInput">
-    
-                <button id="btn1" class="inputBtn">인증번호 발송</button>
-            </div>
-                
-            <div class="phoneAuth1">
-                <input type="text" id="inputTel2" class="phoneInput">
-    
-                <button id="btn2" class="inputBtn">인증하기</button>
+            <div class="TelCertification">
+                <div class="phoneAuth1">
+                    <input type="text" id="inputTel1" class="phoneInput" placeholder="본인인증을 위한 휴대폰 번호 입력">
+        
+                    <button id="btn1" class="inputBtn" type="button">인증번호 발송</button>
+                </div>
+                    
+                <div class="phoneAuth1">
+                    <input type="text" id="inputTel2" class="phoneInput" placeholder="인증번호 입력">
+        
+                    <button id="btn2" class="inputBtn" type="button">인증하기</button>
+                </div>
+
+                <button id="findIdBtn">아이디 찾기</button>
             </div>
 
+            <div class="EmailCertification">
+                <div class="phoneAuth1">
+                    <input type="text" id="inputEmail1" class="phoneInput" placeholder="본인인증을 위한 이메일 입력">
+        
+                    <button id="btn3" class="inputBtn" type="button">인증번호 발송</button>
+                </div>
+                    
+                <div class="phoneAuth1">
+                    <input type="text" id="inputEmail2" class="phoneInput" placeholder="인증번호 입력">
+        
+                    <button id="btn4" class="inputBtn" type="button">인증하기</button>
+                </div>
 
-            <button id="phoneBtn">아이디 찾기</button>
+                <button id="findIdBtn">아이디 찾기</button>
+            </div>
+            
+
+            
         </form>
 
 
@@ -48,6 +81,6 @@
     <div>풋터</div>
     
     
-    <script src="/resources/js/common/findId.js"></script>
+    <script src="../js/common/findId.js"></script>
 </body>
 </html>

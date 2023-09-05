@@ -26,6 +26,7 @@ main{
 /* 왼쪽 오른쪽 나누기 */
 .profile-area{
     display: flex;
+    margin-right: 100px;
 }
 
 

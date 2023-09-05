@@ -1,0 +1,99 @@
+* {box-sizing: border-box;}
+
+/* 메인 */
+#main{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 메인 안 전부 다 담는 div */
+#main > #divContainer {
+    width:1000px;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid var(--divider);
+    border-radius: 10px;
+    background-color: var(--bg-color-2);
+    transition-duration: 0.5s;
+    margin:30px;
+    padding: 20px 20px;
+}
+
+/* text 부분들 */
+#textButtonContainer{
+    margin-top:15px;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width:65%;
+}
+
+/* 텍스트들 */
+span{
+    display: block;
+}
+
+/* 채용 공고 매칭 */
+#firstText{
+    font-size:28px;
+    font-weight: bold;
+    margin-bottom:10px;
+}
+
+/* 설명1 */
+#secondText{
+    font-size:18px;
+    font-weight: bold;
+    margin-bottom:3px;
+}
+
+/* 설명2 */
+#thirdText{
+    font-size:18px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+/* 설명3 */
+#fourthText{
+    font-size:14px;
+    color:lightgray;
+    font-weight:bold;
+}
+
+/* 버튼담은 div */
+#buttonDiv{
+    height:50px;
+}
+
+/* 시작하기 버튼 */
+#btn{
+    width:100px;
+    height:100%;
+    font-size:20px;
+    border:0;
+    border-radius: 10px;
+    border:2px solid black;
+
+}
+
+#btn:hover{
+    color:#C800FF;
+    border:2px solid #C800FF;
+}
+
+/* 메인 이미지 담는 Div */
+#recruitMainImageDiv{
+    width:75%;
+    height:500px;
+}
+
+/* 메인 이미지 */
+#recruitMainImage{
+    width: 100%;
+    height: 100%;
+}

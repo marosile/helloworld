@@ -50,7 +50,7 @@
 }
 
 /* 아이디 찾기 버튼 */
-#phoneBtn{
+#findIdBtn{
     font-size: 16px;
     font-weight: bold;
     width: 450px;
@@ -61,4 +61,40 @@
     margin-bottom: 30px;
 }
 
+/* 휴대폰 / 이메일 인증 고르는 radio */
+.radioList{
+    display: flex;
+    margin: 40px auto 10px auto;
+    width: 400px;
+    justify-content: space-evenly;
+}
 
+[name="findIdRadio"]{
+    display: none;
+}
+
+.findTelLabel{
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+.findTelShape{
+    display: inline-block;
+    border: 1px solid black;
+    border-radius: 3px;
+    width: 20px;
+    height: 20px;
+    align-items: center;
+    vertical-align:middle;
+    cursor: pointer;
+}
+
+[name="findIdRadio"]:checked + label{
+    background-image: url(../../images/checkimg.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.EmailCertification{
+    display: none;
+}

@@ -1,0 +1,111 @@
+*{
+    box-sizing: border-box;
+}
+
+
+/* 비밀번호 찾기 메인 */
+.findIdMain{
+    margin: 50px auto 50px auto;
+    text-align: center;
+    width: 600px;
+    height: 600px;
+    border: 1px solid var(--divider);
+    border-radius: 10px;
+    background-color: var(--bg-color-2);
+    transition-duration: 0.5s;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* 폼태그 */
+.phoneFrm{
+    margin-top: 50px;
+}
+
+/* 비밀번호 찾기 div*/
+.phoneAuth1{
+    display: flex;
+    margin: 10px auto 10px auto;
+    width: 450px;
+    justify-content: space-between;
+
+}
+
+/* 비밀번호 찾기 아이디 받는 곳 */
+#inputId{
+    width: 450px;
+    height: 50px;
+    border-radius: 3px;
+    border: 1px solid #ddd;
+    padding-left: 5px;
+    font-size: 16px;
+}
+
+/* 비밀번호 찾기 input */
+.phoneInput{
+    width: 350px;
+    height: 50px;
+    border-radius: 3px;
+    border: 1px solid #ddd;
+    padding-left: 5px;
+    font-size: 16px;
+}
+
+/* 인증번호 버튼 */
+.inputBtn{
+    width: 100px;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+/* 아이디 찾기 버튼 */
+#findPwBtn{
+    font-size: 16px;
+    font-weight: bold;
+    width: 450px;
+    height: 50px;
+    line-height: 0;
+    cursor: pointer;
+    padding: 15px 0;
+    margin-bottom: 30px;
+}
+
+
+/* 휴대폰 / 이메일 인증 고르는 radio */
+.radioList{
+    display: flex;
+    margin: 40px auto 10px auto;
+    width: 400px;
+    justify-content: space-evenly;
+}
+
+[name="findIdRadio"]{
+    display: none;
+}
+
+.findTelLabel{
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+.findTelShape{
+    display: inline-block;
+    border: 1px solid black;
+    border-radius: 3px;
+    width: 20px;
+    height: 20px;
+    align-items: center;
+    vertical-align:middle;
+    cursor: pointer;
+}
+
+[name="findIdRadio"]:checked + label{
+    background-image: url(../../images/checkimg.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.EmailCertification{
+    display: none;
+}

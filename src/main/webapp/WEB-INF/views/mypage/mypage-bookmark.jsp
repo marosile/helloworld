@@ -12,6 +12,8 @@
     <link rel="stylesheet" href="/resources/css/index.css">
     <link rel="stylesheet" href="/resources/css/mypage/mypage-bookmark.css">
     <link rel="stylesheet" href="/resources/css/mypage/mypage-nav.css">
+
+    <script src="https://kit.fontawesome.com/98acdabf0d.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <jsp:include page="/WEB-INF/views/common/header.jsp"/>
@@ -29,18 +31,25 @@
                 <div class="row1">
 
                     <div class="top">
-                        <img class="thumbnail">
-                        <a>회사이름</a>
+                        <!-- 임시 썸네일 당근 -->
+                        <img class="thumbnail" src="/resources/images/mypage/당근.png">
+                        <div class="companyName"><a>당근 마켓</a></div>
                     </div>
 
                     <div class="mid">
-                        <div>신입 ~ 100년차</div>
-                        <div>연봉 정보 비공개</div>
+                        <div class="fa-solid fa-briefcase"> 신입 ~ 100년차</div>
+                        <div class="fa-solid fa-coins"> 연봉 정보 비공개</div>
                     </div>
 
                     <div class="bottom">
-                        <div>사무실 출근</div>
-                        <div>서울 강남</div>
+                        <div class="fa-solid fa-desktop"> 사무실 출근</div>
+                        <div class="fa-solid fa-location-dot"> 서울 강남</div>
+                    </div>
+
+                    <!-- 버튼 영역 -->
+                    <div class="Btn-area">
+                        <button id="goBtn"><a>상세 보기</a></button>
+                        <button id="deleteBtn">삭제 하기</button>
                     </div>
 
                 </div>
@@ -51,17 +60,23 @@
 
                     <div class="top">
                         <img class="thumbnail">
-                        <a>회사이름</a>
+                        <div class="companyName"><a>회사이름</a></div>
                     </div>
 
                     <div class="mid">
-                        <div>신입 ~ 100년차</div>
-                        <div>연봉 정보 비공개</div>
+                        <div class="fa-solid fa-briefcase"> 신입 ~ 100년차</div>
+                        <div class="fa-solid fa-coins"> 연봉 정보 비공개</div>
                     </div>
 
                     <div class="bottom">
-                        <div>사무실 출근</div>
-                        <div>서울 강남</div>
+                        <div class="fa-solid fa-desktop"> 사무실 출근</div>
+                        <div class="fa-solid fa-location-dot"> 서울 강남</div>
+                    </div>
+
+                    <!-- 버튼 영역 -->
+                    <div class="Btn-area">
+                        <button id="goBtn2"><a>상세 보기</a></button>
+                        <button id="deleteBtn2">삭제 하기</button>
                     </div>
 
                 </div>

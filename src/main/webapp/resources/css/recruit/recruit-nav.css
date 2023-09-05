@@ -1,0 +1,35 @@
+
+/* Nav 전체 div */
+recruitNav{
+    display:flex;
+    width:100%;
+    border-bottom: 1px solid var(--divider);
+    background-color: var(--bg-color-2);
+    transition-duration: 0.5s;
+    height:50px;
+    align-items: center;
+    justify-content: center;
+}
+
+/* width 주기위한 div */
+#navContainer{
+    width:1305px;
+    display:flex;
+
+}
+
+/* 공고 a태그  */
+#navContainer > a{
+    width:100px;
+    display:block;
+    text-decoration: none;
+    color: rgb(120, 120, 120);
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition-duration: 0.3s;
+    margin-right:30px;
+}
+
+#navContainer > a:hover{
+    color: rgb(0, 128, 255);
+}

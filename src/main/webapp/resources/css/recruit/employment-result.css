@@ -1,0 +1,273 @@
+* {box-sizing: border-box;}
+
+/* 메인 */
+#main{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 메인 안 전부 다 담는 div */
+#main > #divContainer {
+    width:1000px;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid var(--divider);
+    background-color: var(--bg-color-2);
+    transition-duration: 0.5s;
+    margin:30px;
+    padding: 20px 20px;
+}
+
+/* 메인 안 큰 하나하나의 div들 */
+#main > #divContainer > div{
+    width:100%;
+    display:flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+/* 공고 번호 */
+#recruitNo{
+    color: rgb(120, 120, 120);
+    height:55px;
+    
+}
+
+/* 이미지, 회사명 */
+#companyInfo1{
+    display:flex;
+    height:50px;
+    margin-right:15px;
+    
+}
+
+/* 이미지 */
+#companyImg{
+    width:40px;
+    height:40px;
+}
+
+/* 회사명 */
+#companyName{
+    font-size:22px;
+}
+
+/* 직무 */
+#jobTitle{
+    height:80px;
+    font-size:28px;
+    font-weight: bold;
+}
+
+/* 요구 기능 */
+#jobRequirements{
+    height:50px;
+    margin-right:25px;
+}
+
+#jobRequirements> div{
+    margin-left:15px;
+}
+
+/* 기업의 요구기술 태그들중에서 */
+
+/* 내가 가진 태그? */
+.mySkill{
+    width:100px;
+    height:35px;
+    background-color: rgba(120, 240, 47, 0.5);
+    border-radius: 10px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    font-size:14px;
+}
+
+/* 내가 안가진 태그? */
+.notMySkill{
+    width:100px;
+    height:35px;
+    background-color: rgb(240, 240, 240);
+    border-radius: 10px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    font-size:14px;
+}
+
+/* 기업 간단 설명 */
+#companyDescription{
+    height:100px;
+
+}
+
+/* 주소 + 몇명 */
+#locationAndtotalEmployees{
+    height:65px;
+    flex-direction: column;
+    color: rgb(120, 120, 120);
+    font-size:14px;
+}
+
+/* 주소 */
+#location{
+    width:100%;
+    display:flex;
+    margin-bottom: 2px;
+}
+
+#location span{
+    margin-left:2px;
+}
+
+/* 몇명 */
+#totalEmployees{
+    width:100%;
+    display:flex;
+}
+
+#totalEmployees span{
+    margin-left:2px;
+}
+
+/* 위의 이미지 */
+.imageInfo1{
+    width:20px;
+    height:20px;
+}
+
+/* 매칭 퍼센트와 설명 몇가지 */
+#matchingInfo{
+    height:150px;
+    flex-direction: column;
+}
+
+/* OOO님과 매칭률 */
+#matching{
+    font-size:24px;
+    width:100%;
+    height:40px;
+}
+
+/* 00.0% */
+#percent{
+    width:100%;
+    font-size:32px;
+    font-weight: bold;
+    height:50px;
+    margin-bottom: 10px;
+}
+
+/* 기업 정보 4개 통 div */
+#companyInfo2{
+    width:100%;
+    padding: 10px 10px;
+    background-color: rgb(240, 240, 240);
+    border-radius: 10px;
+}
+
+#widthDiv{
+    width:70%;
+    display:flex;
+    justify-content: flex-start;
+}
+
+/* 체크 ,정보 4개*/
+.checksInfo2{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 25px;
+}
+
+.greenChecks{
+    width:18px;
+    height:18px;
+    margin-right:2px;
+}
+
+.imgCenter{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    margin-top:3px;
+}
+
+/* 자격요건 */
+#qualification{
+    width:100%;
+    flex-direction: column;
+    align-items: flex-start !important;
+}
+
+/* 타이틀 */
+#qualification > #qualificationTitle{
+    font-weight: bold;
+    font-size:20px;
+    margin-top:20px;
+    height:40px;
+}
+
+/* 전구 이미지 */
+.bulbImages{
+    width:16px;
+    height:16px;
+}
+
+/* 이런분을 원해요, 이런 역량은 플러스, 이런 일 하게 돼요  */
+.want {
+    height:20px;
+    margin-bottom:10px;
+    font-size:13px;
+    color: rgb(120, 120, 120);
+}
+
+/* 신입, 경력, 내용 */
+.personInfo{
+    height:100px;
+    margin-bottom: 20px;
+}
+
+/* 신입 , 경력 */
+.personInfo > div{
+    margin-bottom: 5px;
+}
+
+/* 내용 */
+p{
+    font-size:15px;
+    margin-left:10px;
+}
+
+/* 경력 div 만 */
+#personInfo2{
+    height:140px;
+}
+
+/* 플러스요인 div */
+#plustDiv{
+    height:140px;
+    margin-bottom: 20px;
+}
+
+.marginDiv{
+    margin-bottom: 5px;
+}
+
+/* 주요업무 */
+#responsibilities{
+    height:140px;
+    width:100%;
+    flex-direction: column;
+    align-items: flex-start !important;
+}
+
+#responsibilitiesTitle{
+    margin-top:40px;
+    height:40px;
+    font-size:20px;
+    font-weight: bold;
+}

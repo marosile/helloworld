@@ -1,19 +1,27 @@
 * {
     box-sizing: border-box;
-    /* border: 1px solid gainsboro  */;
+    /* border: 1px solid gainsboro ; */
 }
 
 
 /* 스터디 전체 div */
 .P-header {
     width: 1000px;
-    margin: auto    ;
+    margin: auto ;
     border: 1px solid var(--divider);
     border-radius: 10px;
     background-color: var(--bg-color-2);
     transition-duration: 0.5s;
 
 }
+
+.P-main {
+
+    width: 900px;
+    margin: 30px auto;
+
+}
+
 
 /* 스터디 상단 내용 */
 .P-mainImage-area {
@@ -101,14 +109,13 @@
 
 /* 스터디 모집 개별 */
 .P-study-area{
-    width: 1000px;
-    margin-top:20px ;
+    margin:20px auto;
     cursor: pointer;
     border-bottom: 1px solid gray;
 }
 .P-study-area:hover{
-    width: 1000px;
-    margin-top:20px ;
+    margin:20px auto;
+    cursor: pointer;
     background-color: aliceblue;
 }
 
@@ -161,6 +168,7 @@
 .P-study-common{
     display: flex;
     padding: 0;
+    margin-bottom: 30px;
 }
 .P-study-common span {
     width: 100px;
@@ -208,11 +216,11 @@
 }
 
 .P-study-popular h1{
-    margin:0;
+    margin:15px 10px;
 }
 
 .P-study-popular h4{
-    margin-top: 15px;
+    margin:15px 10px;
 }
 
 
@@ -220,7 +228,7 @@
 .fa-solid.fa-arrow-left {
     padding: 8px; 
     margin-right: 10px;
-    margin-bottom: 15px;
+    margin-bottom: 5px;
 }
 
 .fa-solid.fa-arrow-right {
@@ -231,16 +239,19 @@
 /* 미리보기 스터디 */
 .P-study-popular-area{
     display: flex;
+    justify-content: center;
+    margin: auto;
     width: 100%;
+
 }
 
 .P-study-popular-container{
-    width: 50%;
+    width: 48%;
     background-color: #fafafa;
     border-radius: 8px;
     border:0.0625rem solid #f2f2f2 ;
-    margin: 0 10px;
     height: 130px;
+    margin: 10px;
 }
 
 .P-study-popular-container-f{

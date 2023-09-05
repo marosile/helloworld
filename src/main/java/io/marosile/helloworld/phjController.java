@@ -15,5 +15,32 @@ public class phjController {
 	public String employementTest() {
 		return "recruit/employment-test/employement-test3";
 	}
+	
+	@RequestMapping("/trand-list")
+	public String trandList() {
+		return "trand/trand-list";
+	}
+
+	@RequestMapping("/recruit-apply")
+	public String recruitApply() {
+		return "recruit/recruit-apply";
+	}
+
+	@RequestMapping("/notice-list")
+	public String noticeList() {
+		return "recruit/notice-list";
+	}
+	
+	@RequestMapping("/allnotice-list")
+	public String allnoticeList() {
+		return "recruit/allnotice-list";
+	}
+	
+	@RequestMapping("/recruit-detail")
+	public String recruitDetail() {
+		return "recruit/recruit-detail";
+	}
+	
+	
 
 }
