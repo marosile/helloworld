@@ -3,6 +3,7 @@
 * {
     color: var(--text-color-1);
     font-family: 'Noto Sans KR';
+    box-sizing: border-box;
 }
 
 html {
@@ -11,6 +12,7 @@ html {
     --text-color-1: rgb(60, 60, 60);
     --text-color-2: rgb(120, 120, 120);
     --overlay-color-1: rgba(255, 255, 255, 0.3);
+    --overlay-color-2: rgba(255, 255, 255, 0.6);
     --divider: rgb(210, 210, 210);
 }
 
@@ -20,6 +22,7 @@ html.dark {
     --text-color-1: rgb(255, 255, 255);
     --text-color-2: rgb(200, 200, 200);
     --overlay-color-1: rgba(0, 0, 0, 0.3);
+    --overlay-color-2: rgba(0, 0, 0, 0.5);
     --divider: rgb(80, 80, 80);
 }
 
@@ -55,17 +58,8 @@ main {
     margin: 20px 0;
 }
 
-div {
-    box-sizing: border-box;
-}
-
 .page {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 900px;
-    padding: 30px;
+    width: 1000px;
     border: 1px solid var(--divider);
     border-radius: 10px;
     background-color: var(--bg-color-2);
@@ -73,18 +67,14 @@ div {
 }
 
 .window {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
     border: 1px solid var(--divider);
     border-radius: 10px;
     background-color: var(--bg-color-2);
     transition-duration: 0.5s;
+    overflow: hidden;
 }
 
-#advertise-banner {
+.advertise-banner {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -92,21 +82,32 @@ div {
     height: 100px;
     border-radius: 10px;
     margin-top: 20px;
-    background: linear-gradient(90deg, rgba(200, 100, 255, 0.7), rgba(0, 128, 255, 0.7));
+    background: linear-gradient(90deg, rgba(200, 100, 255, 0.5), rgba(0, 128, 255, 0.5));
     color: rgba(255, 255, 255, 0.5);
     font-size: 2.5rem;
     font-weight: 900;
+    overflow: hidden;
+    cursor: pointer;
 }
 
-#full-advertise-banner {
+.full-advertise-banner {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100vw;
     height: 100px;
     margin-top: 20px;
-    background: linear-gradient(90deg, rgba(200, 100, 255, 0.7), rgba(0, 128, 255, 0.7));
+    background: linear-gradient(90deg, rgba(200, 100, 255, 0.5), rgba(0, 128, 255, 0.5));
     color: rgba(255, 255, 255, 0.5);
     font-size: 2.5rem;
     font-weight: 900;
+    cursor: pointer;
+}
+
+#advertise-banner:hover {
+    background: linear-gradient(90deg, rgba(200, 100, 255, 0.7), rgba(0, 128, 255, 0.7));
+}
+
+#full-advertise-banner:hover {
+    background: linear-gradient(90deg, rgba(200, 100, 255, 0.7), rgba(0, 128, 255, 0.7));
 }

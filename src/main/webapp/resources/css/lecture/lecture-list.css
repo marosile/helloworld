@@ -4,6 +4,14 @@ main {
     align-items: center;
 }
 
+#lecture {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+}
+
 #head {
     display: flex;
     flex-direction: column;
@@ -56,13 +64,24 @@ main {
     border-radius: 20px;
     background-color: var(--bg-color-2);
     font-size: 0.8rem;
-    transition-duration: 0.5s;
     cursor: pointer;
+    transition: background-color 0.5s, border-color 0.3s, color 0.3s;
+}
+
+#search-tag > a:hover {
+    border-color: rgb(0, 128, 255);
+    color: rgb(0, 128, 255);
+}
+
+#content {
+    width: 1000px;
+    padding: 30px;
+    margin-top: 20px;
 }
 
 .container {
     display: flex;
-    width: 900px;
+    width: 100%;
     padding: 0;
     margin: 0;
     margin-top: 10px;
@@ -73,8 +92,8 @@ main {
 .container > li {
     display: flex;
     flex-direction: column;
-    width: 210px;
-    height: 210px;
+    width: 220px;
+    height: 200px;
     border: 1px solid var(--divider);
     border-radius: 20px;
     background: linear-gradient(90deg, rgba(200, 100, 255, 0.3), rgba(0, 128, 255, 0.3));
@@ -97,12 +116,9 @@ main {
     background-color: var(--overlay-color-1);
     font-size: 1.2rem;
     font-weight: 500;
+    transition-duration: 0.5s;
 }
 
 #latest {
     margin-top: 50px;
-}
-
-#content {
-    margin-top: 20px;
 }
