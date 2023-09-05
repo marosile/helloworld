@@ -9,7 +9,7 @@
 
 #main-area{
     width: 1000px;
-    height: 1000px;
+    height: 1150px;
     border: 1px solid var(--divider);
     border-radius: 10px;
     background-color: var(--bg-color-2);
@@ -45,7 +45,7 @@
    margin-left: 50px; 
 
     width: 900px; 
-    height: 700px;
+    height: 900px;
 
     margin-top: 20px;
     padding: 20px;
@@ -141,8 +141,11 @@
 
     color: white;
     background:  rgb(114, 112, 112);
-
 }
+
+#content{
+    height: 300px;
+ }
 
 
 #reply{
