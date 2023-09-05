@@ -1,6 +1,21 @@
 #body-area{
-    width: 1000px;
-    height: 1000px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    margin: 20px 100px;
+}
+
+
+#main-area{
+    border: 1px solid black;
+    
+    width: 1200px;
+    height: 750px;
+    border: 1px solid var(--divider);
+    border-radius: 10px;
+    background-color: var(--bg-color-2);
+    transition-duration: 0.5s;    
 }
 
 .box{
@@ -9,6 +24,11 @@
 
     width: 490px;
     height: 190px;
+
+    border: 1px solid var(--divider);
+    border-radius: 10px;
+    background-color: var(--bg-color-2);
+    transition-duration: 0.5s;   
 }
 
 /* .box div{
@@ -103,4 +123,10 @@ i{
 
 .down{
     height: 50%;
+}
+
+.row-area{
+    margin-top: 35px;
+    display: flex;
+    justify-content: space-evenly;
 }
