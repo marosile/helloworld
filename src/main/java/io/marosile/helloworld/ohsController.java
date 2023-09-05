@@ -54,7 +54,10 @@ public class ohsController {
 	// 채용 공고 등록
 	@GetMapping("/postRecruit")
 	public String postRecruit() {
-		return null;
+		return "recruit/recruit-post";
+		
+	////////////////////////////////	
+		
 		
 	}
 	
