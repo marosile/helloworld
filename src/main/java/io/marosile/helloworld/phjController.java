@@ -26,4 +26,11 @@ public class phjController {
 		return "recruit/recruit-apply";
 	}
 
+	@RequestMapping("/notice-list")
+	public String noticeList() {
+		return "recruit/notice-list";
+	}
+	
+	
+
 }
