@@ -14,6 +14,8 @@
 
    <script src="https://kit.fontawesome.com/98acdabf0d.js" crossorigin="anonymous"></script>
    
+    
+
     <!-- 이전 다음 페이지 넘기는거 커리어리에선 전체 스위퍼로함 -->
 </head>
 
@@ -46,7 +48,7 @@
 
                 <!-- 이름 -->
                 <div id="companyName">
-                    <input type="text" id="compnayNameInput" placeholder="기업명을 입력해주세요.">
+                    <input type="text" id="companyNameInput" placeholder="기업명을 입력해주세요.">
                 </div>
 
             </div>
@@ -59,41 +61,61 @@
             <!-- 직무에 맞는 태그 선택 -->
             <div id="jobTitleTag">
                 <div id="jobTitleTagText">직무 태그 선택</div>
-                <input type="text" class="jobTitleTags" placeholder="tag1">
-                <input type="text" class="jobTitleTags" placeholder="tag2">
-                <input type="text" class="jobTitleTags" placeholder="tag3">
-                <input type="text" class="jobTitleTags" placeholder="tag4">
-                <input type="text" class="jobTitleTags" placeholder="tag5">
+                <input type="text" class="jobTitleTags" placeholder="#tag1" maxlength="20">
+                <input type="text" class="jobTitleTags" placeholder="#tag2" maxlength="20">
+                <input type="text" class="jobTitleTags" placeholder="#tag3" maxlength="20">
+                <input type="text" class="jobTitleTags" placeholder="#tag4" maxlength="20">
+                <input type="text" class="jobTitleTags" placeholder="#tag5" maxlength="20">
             </div>
 
             <!-- 기업 소개 -->
             <div id="companyIntroduce">
                 <textarea maxlength="300" placeholder="기업 소개글을 작성해주세요. (300자 이내)"></textarea>
+            </div>
+
+            <!-- 연봉 년차 출퇴근여부 지역 2개씩 큰 div로-->
+            <div class="companyInfos">
+
+                <div class="checksInfo2">
+                    <div class="imgCenter"><img src="/resources/images/greenCheck.png" class="greenChecks"></div>
+                    <div class="infos"><input type="text" placeholder="연봉정보를 입력해주세요. (비공개 가능)" class="infoInputs"></div>
+                </div>
+                <div class="checksInfo2">
+                    <div class="imgCenter"><img src="/resources/images/greenCheck.png" class="greenChecks"></div>
+                    <div class="infos"><input type="text" placeholder="요구 경력기간을 입력해주세요 (ex: 신입~5년차)" class="infoInputs"></div>
+                </div>
 
             </div>
 
-            <!-- 연봉 년차 출퇴근여부 지역 -->
-            <div>
+            <div class="companyInfos">
+
                 <div class="checksInfo2">
                     <div class="imgCenter"><img src="/resources/images/greenCheck.png" class="greenChecks"></div>
-                    <div>연봉 정보 비공개</div>
+                    <div class="infos"><input type="text" placeholder="출근 장소 여부를 입력해주세요.(ex: 재택, 사무실 출근)" class="infoInputs"></div>
                 </div>
                 <div class="checksInfo2">
                     <div class="imgCenter"><img src="/resources/images/greenCheck.png" class="greenChecks"></div>
-                    <div>신입 ~ 15년차</div>
+                    <div class="infos"><input type="text" placeholder="회사 위치를 입력해주세요. (ex: 서울 강남)" class="infoInputs"></div>
                 </div>
-                <div class="checksInfo2">
-                    <div class="imgCenter"><img src="/resources/images/greenCheck.png" class="greenChecks"></div>
-                    <div>사무실 출근</div>
-                </div>
-                <div class="checksInfo2">
-                    <div class="imgCenter"><img src="/resources/images/greenCheck.png" class="greenChecks"></div>
-                    <div>서울 강남</div>
+
+            </div>
+        
+            <!-- 자격 요건 + 주요 업무-->
+            <div id="qualificationAndresponsibilities">
+                
+                <textarea placeholder="자격 요건을 작성해주세요. ( 👨‍👦‍👦이런 분을 원해요. )" class="qualRespTextArea" id="qualrespTextArea1"></textarea>
+                <textarea placeholder="플러스 요인을 작성해주세요. ( 🔥이런 역량은 플러스 요인이 될 수 있어요. )" class="qualRespTextArea" id="qualrespTextArea2"></textarea>
+                <textarea placeholder="주요 업무를 작성해주세요. ( 👌이런 일을 하게 돼요! )"  class="qualRespTextArea" id="qualrespTextArea3"></textarea>
+
             </div>
 
+            <div id="buttonsArea">
 
+                <button id="writeButton" class="btns">등록하기</button>
+                <button id="Backbutton" class="btns">등록취소</button>
 
-        </div>
+            </div>
+
     
     </main>
 

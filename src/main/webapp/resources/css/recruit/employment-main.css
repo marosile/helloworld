@@ -82,8 +82,8 @@ span{
 }
 
 #btn:hover{
-    color:#C800FF;
-    border:2px solid #C800FF;
+    color: rgb(0, 128, 255);
+    border: 2px solid rgb(0, 128, 255);
 }
 
 /* 메인 이미지 담는 Div */

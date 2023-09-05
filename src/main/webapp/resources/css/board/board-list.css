@@ -146,12 +146,12 @@
     margin-right:32px;
 }
 
-/* <, > 크기 변경 */
+/* ? */
 :root {
     --swiper-navigation-size: 0 !important; 
 }
 
-/* <, > 색 변경 */
+/* <, > 변경 */
 .swiper-button-prev::before{color:black; content: "←" !important;}
 
 .swiper-button-next::before{color:black; content: "→" !important;}

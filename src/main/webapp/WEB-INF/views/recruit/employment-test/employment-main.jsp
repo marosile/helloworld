@@ -14,6 +14,7 @@
 
    <script src="https://kit.fontawesome.com/98acdabf0d.js" crossorigin="anonymous"></script>
 
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -42,7 +43,9 @@
 
             <!-- button 담은 div -->
             <div id="buttonDiv">
+            <form action=>
                 <button id="btn">시작하기</button>
+
             </div>
 
         </div>

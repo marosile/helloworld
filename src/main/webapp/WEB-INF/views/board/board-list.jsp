@@ -16,6 +16,8 @@
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
 </head>
 <body>
     
@@ -45,7 +47,13 @@
         <!-- 게시글 목록 -->
         <div id="postList">
             <div id="boardName"> Q&A 게시판 </div>
-            <div id="question"><button id="BoardInsert">작성하기</button></div>
+            <div id="question">
+
+            <button id="BoardInsert">작성하기</button>
+            <%-- location.href = `/board2/${location.pathname.split("/")[2]}/insert` ; --%>
+            <%-- 넘길 값 없으면 그냥 js에서 click으로 처리 --%>
+
+            </div>
         </div>
 
         <!-- 검색 바 -->
