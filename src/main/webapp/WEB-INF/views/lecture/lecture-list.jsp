@@ -40,43 +40,62 @@
                 <div id="popular">
                     <h2>인기 강의</h2>
                     <ul class="container">
-                        <li>
-                            <div></div>
-                            <div>일주일만에 끝내는 리액트 완벽 가이드</div>
+                        <li class="card">
+                            <div class="card-front">
+                                <div class="card-thumbnail"></div>
+                                <div class="card-info">
+                                    <h3 class="card-title">일주일만에 끝내는 리액트 완벽 가이드</h3>
+                                    <div class="card-tags">
+                                        <a>#React</a>
+                                        <a>#프론트엔드</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-back">
+                                <div class="card-detail"></div>
+                            </div>
                         </li>
-                        <li>
-                            <div></div>
-                            <div></div>
-                        </li>
-                        <li>
-                            <div></div>
-                            <div></div>
-                        </li>
-                        <li>
-                            <div></div>
-                            <div></div>
-                        </li>
+                        <c:forEach begin="0" end="2" step="1">
+                            <li class="card">
+                                <div class="card-front">
+                                    <div class="card-thumbnail"></div>
+                                    <div class="card-info">
+                                        <h3 class="card-title"></h3>
+                                        <div class="card-tags">
+                                            <a></a>
+                                            <a></a>
+                                            <a></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-back">
+                                    <div class="card-detail"></div>
+                                </div>
+                            </li>
+                        </c:forEach>
                     </ul>
                 </div>
                 <div id="latest">
                     <h2>최신 강의</h2>
                     <ul class="container">
-                        <li>
-                            <div></div>
-                            <div></div>
-                        </li>
-                        <li>
-                            <div></div>
-                            <div></div>
-                        </li>
-                        <li>
-                            <div></div>
-                            <div></div>
-                        </li>
-                        <li>
-                            <div></div>
-                            <div></div>
-                        </li>
+                        <c:forEach begin="0" end="3" step="1">
+                            <li class="card">
+                                <div class="card-front">
+                                    <div class="card-thumbnail"></div>
+                                    <div class="card-info">
+                                        <h3 class="card-title"></h3>
+                                        <div class="card-tags">
+                                            <a></a>
+                                            <a></a>
+                                            <a></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-back">
+                                    <div class="card-detail"></div>
+                                </div>
+                            </li>
+                        </c:forEach>
                     </ul>
                 </div>
             </div>

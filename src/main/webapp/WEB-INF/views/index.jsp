@@ -17,11 +17,8 @@
 <body>
     <jsp:include page="/WEB-INF/views/common/header.jsp"/>
 	<main>
-		<section id="feed">
-            <h1>실시간 피드</h1>
-            <article class="post">
-            </article>
-        </section>
+		<div id="slide">
+        </div>
 	</main>
     <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
     <script src="/resources/js/common/general.js"></script>
