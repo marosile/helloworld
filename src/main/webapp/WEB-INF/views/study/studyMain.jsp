@@ -1,29 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
+<!DOCTYPE html>
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>스터디</title>
+    <link rel="stylesheet" href="/resources/css/common/general.css"> 
+    <link rel="stylesheet" href="/resources/css/index.css">
+    <link rel="stylesheet" href="/resources/css/study/studyMain.css">
 
-
-    <script src="https://kit.fontawesome.com/f7459b8054.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="../css/study/studyMain.css">
 </head>
-
 <body>
+    <jsp:include page="/WEB-INF/views/common/header.jsp"/>
+	<main>
 
-    헤더
-    <!--     <nav>
-        <ul>
-            <li><a href="">지역</a></li>
-            <li><a href="">포지션</a></li>
-            <li><a href="">프로젝트</a></li>
-            <li><a href="">대면/비대면</a></li>
-        </ul>
-    </nav> -->
-
-    <div class="P-header">
+     <div class="P-header">
 
         <div class="P-main">
 
@@ -51,7 +45,10 @@
 
             <hr>
 
-        
+            <div class="P-study-btn-area">
+                <button><span class="P-study-btn-l">◾ 최신순</span></button>
+                <button><span class="P-study-btn-p">◾ 인기순</span></button>
+            </div>
 
             <div class="P-study-popular">
                 <div>
@@ -69,8 +66,6 @@
                     <i class="fa-solid fa-arrow-right"></i>
                 </div>
             </div>
-
-        
 
 
 
@@ -102,12 +97,6 @@
                         </div>
                     </div>
                 </div>
-            </div>
-
-
-            <div class="P-study-btn-area">
-                <button><span class="P-study-btn-l">◾ 최신순</span></button>
-                <button><span class="P-study-btn-p">◾ 인기순</span></button>
             </div>
 
             <div class="P-study">
@@ -176,12 +165,12 @@
             </div>
 
         </div>
+		
     </div>
 
- 
-
+        
+	</main>
+    <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
+    <script src="/resources/js/common/general.js"></script>
 </body>
-
-<script src="../js/common/studyMain.js"></script>
-
 </html>
