@@ -7,9 +7,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>강의</title>
+    <title>헬로월드 - 강의</title>
     <link rel="stylesheet" href="/resources/css/common/general.css">
-    <link rel="stylesheet" href="/resources/css/lecture/lecture.css">
+    <link rel="stylesheet" href="/resources/css/lecture/lecture-list.css">
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"
             integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
             crossorigin="anonymous"></script>
@@ -34,7 +34,7 @@
                 </section>
             </div>
         </section>
-        <div id="full-advertise-banner">THIS IS ADVERTISE BANNER</div>
+        <div class="full-advertise-banner">THIS IS ADVERTISE BANNER</div>
         <section id="content" class="page">
             <div id="default">
                 <div id="popular">
@@ -84,5 +84,6 @@
 	</main>
     <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
     <script src="/resources/js/common/general.js"></script>
+    <script src="/resources/js/lecture/lecture-list.js"></script>
 </body>
 </html>

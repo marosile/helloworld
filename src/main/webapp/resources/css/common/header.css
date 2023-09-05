@@ -44,10 +44,15 @@ header {
 }
 
 #header-category {
+    display: flex;
+    height: 100%;
     margin-left: 12px;
 }
 
 #header-category > a {
+    display: flex;
+    align-items: center;
+    height: 100%;
     margin-left: 25px;
     color: var(--text-color-2);
     font-size: 0.9rem;
@@ -56,7 +61,7 @@ header {
 }
 
 #header-category > a:hover {
-    color: var(--text-color-1);
+    color: rgb(0, 128, 255);
 }
 
 #theme-switch {
@@ -121,7 +126,7 @@ header {
     color: rgb(255, 255, 255);
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1023px) {
     #header-logo {
         margin: 15px 5px 15px 15px;
     }
@@ -134,9 +139,6 @@ header {
     #header-category > a {
         margin-left: 15px;
     }
-    #theme-switch {
-        display: none;
-    }
     .button {
         display: flex;
         width: 80px;
@@ -148,5 +150,11 @@ header {
     }
     #header-signup {
         margin-right: 15px;
+    }
+}
+
+@media (max-width: 767px) {
+    #theme-switch {
+        display: none;
     }
 }
