@@ -45,7 +45,4 @@ public class phjController {
 	public String application() {
 		return "application";
 	}
-	
-	
-
 }
