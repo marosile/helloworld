@@ -4,19 +4,8 @@ main {
     align-items: center;
 }
 
-#feed {
-    margin: 30px 0;
-}
-
-#feed > h1 {
-    margin-bottom: 10px;
-}
-
-.post {
-    width: 600px;
-    height: 600px;
-    border: 1px solid var(--divider);
-    border-radius: 10px;
-    background-color: var(--bg-color-2);
-    transition-duration: 0.5s;
+#slide {
+    width: 100vw;
+    height: 350px;
+    background: linear-gradient(90deg, rgba(200, 100, 255, 0.9), rgba(0, 128, 255, 0.9));
 }

@@ -2,6 +2,7 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin: 20px 0;
 }
 
 #lecture {
@@ -89,34 +90,53 @@ main {
     justify-content: space-between;
 }
 
-.container > li {
+.card {
     display: flex;
     flex-direction: column;
-    width: 220px;
-    height: 200px;
-    border: 1px solid var(--divider);
-    border-radius: 20px;
-    background: linear-gradient(90deg, rgba(200, 100, 255, 0.3), rgba(0, 128, 255, 0.3));
+    width: 224px;
     overflow: hidden;
     cursor: pointer;
     transition-duration: 0.3s;
 }
 
-.container > li:hover {
+.card:hover {
     transform: scale(1.02);
 }
 
-.container > li > div:first-of-type {
-    flex-basis: 60%;
+.card-thumbnail {
+    height: 140px;
+    background: linear-gradient(90deg, rgba(200, 100, 255, 0.3), rgba(0, 128, 255, 0.3));
 }
 
-.container > li > div:last-of-type {
-    flex-basis: 40%;
-    padding: 5px 10px;
-    background-color: var(--overlay-color-1);
-    font-size: 1.2rem;
-    font-weight: 500;
+.card-info {
+    height: 105px;
+    border: 1px solid var(--divider);
+    border-top: none;
     transition-duration: 0.5s;
+}
+
+.card-title {
+    height: 75px;
+    padding: 5px 8px;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.card-tags {
+    display: flex;
+    height: 30px;
+    padding-bottom: 5px;
+}
+
+.card-tags > a {
+    padding: 3px 6px;
+    margin-left: 5px;
+    background-color: rgba(0, 0, 0, 0.1);
+    color: var(--text-color-1);
+    font-size: 0.7rem;
+    cursor: pointer;
+} html.dark .card-tags > a {
+    background-color: rgba(255, 255, 255, 0.1);
 }
 
 #latest {
