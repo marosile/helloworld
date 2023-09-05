@@ -7,6 +7,5 @@
     <div id="navContainer">
         <a href="#">전체 채용 공고</a>
         <a href="#">내 매칭 공고</a>
-        <a href="#">저장한 공고</a>
     </div>
 </recruitNav>
