@@ -116,3 +116,7 @@
     border: none;
     margin: 0px auto 10px auto;
 }
+
+.snsLogin > div{
+    text-align: center;
+}
