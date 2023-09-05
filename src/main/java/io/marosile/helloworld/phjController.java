@@ -41,6 +41,11 @@ public class phjController {
 		return "recruit/recruit-detail";
 	}
 	
+	@RequestMapping("/application")
+	public String application() {
+		return "application";
+	}
+	
 	
 
 }

@@ -36,10 +36,13 @@
         <div id="text">
             <div id="images">썸네일/이미지</div>
 
-            <pre>
+            <div id="content">
+                <pre>
 안녕하세요? 반갑습니다
 helloworld~!
-            </pre>
+                </pre>
+            </div>
+
 
             <div id="images-area">
                 <div>이미지</div>
