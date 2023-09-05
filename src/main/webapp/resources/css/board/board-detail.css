@@ -115,14 +115,24 @@
     cursor: pointer;
 }
 
-#tag-area{
+#tag{
     display: flex;
-    margin-left: 50px;
-    margin-top: 30px;
+    margin-top: 15px;
 
 }
 
-#tag-area div{
+
+
+#tag-area{
+
+    display: flex;
+    justify-content: space-between;
+
+    margin-left: 50px;
+
+}
+
+#tag div{
     font-weight: bold;
     color: rgb(177, 175, 175);
 
@@ -135,13 +145,39 @@
     margin-right: 8px;
 }
 
-#tag-area div:hover{
+#tag div:hover{
 
     cursor: pointer;
 
     color: white;
     background:  rgb(114, 112, 112);
 }
+
+#report{
+    font-weight: bold;
+    color: rgb(177, 175, 175);
+
+    font-size: 16px;
+
+    width: 80px;
+    height: 30px;
+    border: 1px solid rgb(177, 175, 175);
+    border-radius: 10px;
+
+    margin-top: 15px;
+    text-align: center; 
+    margin-right: 50px;
+}
+
+#report:hover{
+
+    cursor: pointer;
+
+    color: white;
+    background:  rgb(114, 112, 112);
+}
+
+
 
 #content{
     height: 300px;
@@ -169,4 +205,8 @@
 
 #reply div{
     border: 1px solid black;
+}
+
+i{
+    margin-right: 2px;
 }
