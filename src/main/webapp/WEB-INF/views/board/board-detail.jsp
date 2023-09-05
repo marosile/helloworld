@@ -19,7 +19,7 @@
 	<main id="body-area">
 		<div id="main-area">
             <p>트렌드</p>
-            <p>안녕하세요</p>
+            <p>🕊️ 시니어 개발자가 되기 위한 백엔드 프로젝트 아이디어</p>
 
         <div id="heart">
             <div id="heart-left">
@@ -38,8 +38,9 @@
 
             <div id="content">
                 <pre>
-안녕하세요? 반갑습니다
-helloworld~!
+안녕하세요???              
+백엔드 프로그래밍 기술을 향상시키고 시니어 수준의 개발자가 되는 데 
+도움이 되는 흥미로운 프로젝트 아이디어를 살펴봅시다.🔍
                 </pre>
             </div>
 
@@ -53,8 +54,15 @@ helloworld~!
         </div>
 
         <div id="tag-area">
-            <div>#해쉬태그</div>
-            <div>#해쉬태그</div>
+            <div id="tag">
+                <div>#개발</div>
+                <div>#디자인</div>
+            </div>
+
+            <div>
+                <button id="report"><i class="fa-regular fa-face-angry" style="color: rgb(177, 175, 175)"></i> 신고</button>
+            </div>
+           
         </div>
         
     </div>
