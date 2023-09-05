@@ -1,0 +1,342 @@
+* {
+    box-sizing: border-box;
+    /* border: 0.3px solid gainsboro ; */
+}
+
+
+/* 스터디 전체 div */
+.P-header {
+    width: 1000px;
+    height: 8000px;
+    margin: auto;
+    border: 1px solid var(--divider);
+    border-radius: 10px;
+    background-color: var(--bg-color-2);
+    transition-duration: 0.5s;
+
+}
+
+.P-main {
+    margin: 30px auto;
+}
+
+.P-studyChatting-search {
+    border: 1px solid #ccc;
+}
+
+/* 왼쪽 검색창 */
+.P-studyChatting-follow {
+    display: flex;
+    justify-content: space-between;
+}
+
+.P-studyChatting-follow p {
+    font-weight: bold;
+    align-items: center;
+    margin: 15px;
+}
+
+.P-studyChatting-follow button {
+    align-items: center;
+    background: none;
+    border: 0;
+    margin: 10px 15px 10px;
+
+    cursor: pointer;
+}
+
+.P-studyChatting-search-area {
+    display: flex;
+    border: 1px solid #ccc;
+    margin: 10px 15px;
+    border-radius: 18px;
+
+}
+
+.fa-magnifying-glass {
+    margin: 5px;
+}
+
+#P-studyChatting-query {
+    border: none;
+
+    outline: 0;
+    font-size: 14px;
+    padding: 10px;
+    width: 280px;
+    border-radius: 18px;
+
+}
+
+#P-studyChatting-searchBtn {
+    width: 8%;
+    cursor: pointer;
+    border: none;
+
+    font-size: 1em;
+    background-color: white;
+}
+
+/* 왼쪽 체팅 방 전체 div */
+.P-studyChatting-search-list-area {
+    width: 100%;
+    overflow-y: scroll;
+    min-height: 1000px;
+
+}
+
+/* 채팅 메시지 컨테이너 스타일 */
+.P-studyChatting-item {
+    display: flex;
+    padding: 10px;
+    background-color: #f2f2f2;
+    width: 100%;
+    cursor: pointer;
+}
+
+.P-studyChatting-search-list :hover {
+    background-color: #dbdbdb;
+}
+
+/* 사용자 프로필 영역*/
+.P-studyChatting-item-header {
+    padding: 10px;
+
+}
+
+.P-studyChatting-user-area{
+    display: flex;
+}
+
+/* 사용자 프로필 이미지 스타일 */
+.P-profile-image {
+    max-width: 80px;
+    max-height: 80px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+/* 채팅 메시지 본문 스타일 */
+.P-studyChatting-item-body {
+    margin: auto;
+    width: 75%;
+}
+
+/* 사용자 이름 스타일 */
+.P-studyChatting-user {
+    font-weight: bold;
+    margin: 0 ;
+    text-align: center;
+}
+
+/* 채팅 시간 스타일 */
+.P-studyChatting-time {
+    margin: 2px 10px;
+    text-align: center;
+    font-size: 12px;
+    color: #7a7979;
+    
+}
+
+/* 채팅 메시지 스타일 */
+.P-studyChatting-message {
+    margin: 5px 0;
+}
+
+
+/* 체팅방 상단 */
+.P-studyChatting-content{
+    width: 1000px;
+    height: 1111px;
+    border: 1px solid #ccc;
+    
+}
+
+.P-studyChatting-content-top{
+    height: 100%;
+    display: flex; /* .P-studyChatting-footer에 display: flex 적용 */
+    flex-direction: column; /* 자식 요소를 세로로 나열 */
+}
+
+.P-studyChatting-content-header{
+    display: flex;
+    justify-content: space-between;
+    height: 10%;
+}
+
+.P-studyChatting-content-header h4{
+    font-weight: bold;
+    align-items: center;
+    margin: 15px;
+}
+
+.P-studyChatting-content-btn{
+   margin: 0; 
+}
+
+.P-studyChatting-content-header button {
+    align-items: center;
+    background: none;
+    border: 0;
+    margin: 15px;
+
+    cursor: pointer;
+}
+
+/* 체팅방 전체 div */
+.P-studyChatting-contaion{
+    height: 100%;
+}
+
+/* 체팅방 글쓰는 곳 div */
+.P-studyChatting-contaion-area{
+    height: 80%;
+    overflow-y: scroll;
+
+    -ms-overflow-style: none; /* 인터넷 익스플로러 */
+    scrollbar-width: none; /* 파이어폭스 */
+}
+
+.P-studyChatting-contaion-area::-webkit-scrollbar {
+    display: none;
+}
+
+/* 보낸 사람 div */
+.P-studyChatting-content-senderArea{
+    margin-right:6rem;
+    margin-left: 15px;
+    margin-top: 15px;
+
+}
+
+.P-studyChatting-sender-content{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.P-studyChatting-sender{
+    border-radius: 24px;
+    padding: 0.5rem 1rem;
+    border-radius: 24px;
+    background-color: #7a797934;
+    width: fit-content;
+
+}
+.P-studyChatting-message-right{
+   font-size: 0.8rem;
+   font-weight: bold;
+   margin-left: 0.5rem;
+}
+
+
+/* 내가 쓰는 div */
+.P-studyChatting-body-receiveArea{
+    margin-left:6rem;
+    margin-right: 15px;
+    justify-content:flex-end;
+    display: flex;
+
+}
+
+.P-studyChatting-receive{
+    border-radius: 24px;
+    padding: 0.5rem 1rem;
+    border-radius: 24px;
+    border: 1px solid #ccc;
+    width: fit-content;
+    
+    padding-top: 0px;
+    padding-bottom: 0px;
+
+}
+.P-studyChatting-message-left{
+   font-size: 0.8rem;
+   font-weight: bold;
+   margin-right: 1.6rem;
+   justify-content:flex-end;
+   display: flex;
+}
+
+/* 채팅 보내는 창 전체 스타일 */
+.P-studyChatting-footer {
+    background-color: #f5f5f5;
+    padding: 10px;
+    border-top: 1px solid #ccc;
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+    height: 10%;
+
+}
+
+
+/* 텍스트 입력란 스타일 */
+#inbox-message-textarea {
+    width: 800px;
+    height: 50px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    resize: none; 
+    font-size: 16px; 
+    outline: none;
+
+}
+
+
+
+/* 전송 버튼 스타일 */
+#inbox-message-textarea-btn {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    margin-left: 10px; 
+    cursor: pointer;
+    justify-content: center;
+}
+
+/* 전송 버튼 호버 효과 */
+#inbox-message-textarea-btn :hover {
+    background-color: #0056b3;
+}
+
+
+
+
+
+
+
+
+
+
+
+/* 
+
+.P-studyChatting-footer{
+    height: 10%;
+    display: flex;
+    justify-content: center;
+}
+.P-studyChatting-textMessage-area{
+    border-radius: 24px;
+    padding: 0.5rem 1rem;
+    border-radius: 24px;
+    border: 1px solid #ccc;
+    width: fit-content;
+    width: 900px;
+    height: 90px;
+    text-align: center;
+
+}
+
+#inbox-message-textarea{
+    border: none;
+    resize: none;
+    border-width:0
+
+}
+
+ */

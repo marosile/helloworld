@@ -8,7 +8,7 @@ public class PjaController {
 	
 	@GetMapping("/studyMain")
 	public String signUp() {
-		return null;
+		return "study/studyMain";
 	}
 
 }
