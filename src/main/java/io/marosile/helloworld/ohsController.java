@@ -16,13 +16,13 @@ public class ohsController {
 	}
 	
 	// 게시글 작성
-	@GetMapping("/boardWrite")
+	@GetMapping("/board/Write")
 	public String boardWrite() {
 		return "board/board-write";
 	}
 	
 	// 게시글 수정
-	@GetMapping("/boardUpdate")
+	@GetMapping("/board/Update")
 	public String boardUpdate() {
 		return "board/board-update";
 	}
@@ -30,21 +30,24 @@ public class ohsController {
 	////////////////////////////////
 	
 	// 커리어리 트렌드 상세
-	@GetMapping("/trandDetail")
+	@GetMapping("/trand/Detail")
 	public String trandDetail() {
 		return "trand/trand-detail";
 	}
 	
 	////////////////////////////////
 	
+	// 테스트 한 적 없다면 채용공고 테스트 메인으로,
+	// 테스트 한 적 있다면 내 매칭공고나 전체 채용 공고로
+	
 	// 채용공고 테스트 메인
-	@GetMapping("/recruitMain")
+	@GetMapping("/recruitTestMain")
 	public String recruitMain() {
 		return "recruit/employment-test/employment-main";
 	}
 	
 	// 채용공고 테스트 결과 == 내 매칭 공고
-	@GetMapping("/recruitResult")
+	@GetMapping("/recruit/testResult")
 	public String recruitResult() {
 		return "recruit/employment-test/employment-resultAndRecruitDetail";
 	}
@@ -52,7 +55,7 @@ public class ohsController {
 	////////////////////////////////
 	
 	// 채용 공고 등록
-	@GetMapping("/postRecruit")
+	@GetMapping("/recruit/post")
 	public String postRecruit() {
 		return "recruit/recruit-post";
 		

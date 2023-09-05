@@ -8,8 +8,8 @@
         <img id="header-logo" src="/resources/images/logo.svg" onclick="location.href='/'">
         <p id="header-title" onclick="location.href='/'">Hello, World!</p>
         <div id="header-category">
-            <a>커뮤니티</a>
-            <a>채용</a>
+            <a href="/boardList">커뮤니티</a>
+            <a href="/recruitTestMain">채용</a>
             <a href="/lecture">강의</a>
             <a>스터디</a>
         </div>
