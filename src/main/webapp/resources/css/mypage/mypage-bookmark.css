@@ -30,7 +30,7 @@ main{
 .row1{
     border: 1px solid #80808052;
     width: 450px;
-    height: 150px;
+    height: 170px;
     margin-right: 15px;
     margin-left: 15px;
     border-radius: 10px;
@@ -56,7 +56,7 @@ main{
 .mid{
     display: flex;
     font-size: small;
-    margin-top: 20px;
+    margin-top: 10px;
     margin-left: 10px;
 }
 
@@ -87,11 +87,9 @@ main{
 
 
 /* 버튼 영역 */
-.Btn-area > a{
-    display: flex;
-}
-
-.Btn-area > button{
-    display: flex;
-    justify-content: space-evenly;
+.Btn-area > *{
+    margin-left: 28px;
+    width: 178px;
+    height: 35px;
+    margin-top: 15px;
 }
