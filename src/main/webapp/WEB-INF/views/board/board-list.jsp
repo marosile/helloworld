@@ -257,7 +257,6 @@
                             <div id="inquiryCount">조회 7</div>
                         </div>
 
-
                 </div>
 
                 <!-- for문 돌릴거 -->
@@ -271,7 +270,6 @@
                 <div class="posts"></div>
                 <div class="posts"></div>
             </div>
-        
 
         <!-- 임시 페이지네이션 (무한스크롤로 변경) -->
         <div id="pagination">
