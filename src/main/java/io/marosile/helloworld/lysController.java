@@ -49,6 +49,11 @@ public class lysController {
 		return "common/modal/login";
 	}
 	
+	@GetMapping("/admin/adminMember")
+	public String adminMember() {
+		return "admin/adminMember";
+	}
+	
 	
 	
 	// 휴대폰 인증

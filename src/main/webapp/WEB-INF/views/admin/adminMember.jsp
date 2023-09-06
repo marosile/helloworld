@@ -1,3 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -5,11 +8,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>관리자회원관리</title>
 
-    <link rel="stylesheet" href="../css/admin/adminMember.css">
+    <link rel="stylesheet" href="/resources/css/admin/adminMember.css">
+    <link rel="stylesheet" href="/resources/css/admin/adminSidebar.css">
 </head>
 <body>
 
-    <div>헤더</div>
+    <jsp:include page="/WEB-INF/views/common/header.jsp"/>
 
     <div class="adminMemberAll">
         <h1>회원 관리</h1>
@@ -18,7 +22,7 @@
             <div class="adminMemberSidebar">
                 <!-- <div class="adminSidebarDiv">
                     <button type="button" name="searchMember" id="searchMember">조회 방법
-                        <img src="../images/admin/sort.png">
+                        <img src="/resources/images/admin/sort.png">
                     </button>
                     <ul class="searchMenu menuHidden" id="searchMenu">
                         <li><button type="button" class="sidebarMenu">아이디</button></li>
@@ -31,9 +35,9 @@
                     
 
                 <ul class="adminSidebar">
-                    <li><a href="#"><img src="../images/admin/group.png">회원 관리</a></li>
-                    <li><a href="#"><img src="../images/admin/exclamation.png">신고글 관리</a></li>
-                    <li><a href="#"><img src="../images/admin/document.png">자격 신청 관리</a></li>
+                    <li><a href="#"><img src="/resources/images/admin/group.png">회원 관리</a></li>
+                    <li><a href="#"><img src="/resources/images/admin/exclamation.png">신고글 관리</a></li>
+                    <li><a href="#"><img src="/resources/images/admin/document.png">자격 신청 관리</a></li>
                 </ul>
 
             </div>
@@ -44,7 +48,7 @@
                 <form action="#" id="searchMemberMenu" class="searchMemberMenu">
                     <div class="adminSearchDiv">
                         <button type="button" name="searchMember" id="searchMember">조회 방법
-                            <img src="../images/admin/sort.png">
+                            <img src="/resources/images/admin/sort.png">
                         </button>
                         <ul class="searchMenu menuHidden" id="searchMenu">
                             <li><button type="button" class="sidebarMenu" id="searchId">아이디</button></li>
@@ -56,7 +60,7 @@
                     </div>
 
                     <input type="text" id="searchInput"> 
-                    <button id="searchBtn"><img src="../images/admin/search.png"></button>
+                    <button id="searchBtn"><img src="/resources/images/admin/search.png"></button>
 
                 </form>
 
@@ -115,8 +119,9 @@
 
     </div>
 
-    <div>풋터</div>
+    <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
     
-    <script src="../js/common/admin/adminMember.js"></script>
+    <script src="/resources/js/common/admin/adminMember.js"></script>
+    <script src="/resources/js/common/admin/adminSidebar.js"></script>
 </body>
 </html>

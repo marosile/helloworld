@@ -100,7 +100,7 @@
 
                 <div class="checkCollect">
                     <div>
-                        <input type="checkbox" name="checkAll" id="checkAll" class="chkbox">
+                        <input type="checkbox" name="checkAllMain" id="checkAll" class="chkbox">
                         <label for="checkAll" class="chkLabel"></label>
                         <label for="checkAll">모두 동의</label>
                     </div>
