@@ -16,24 +16,74 @@
 
         <div class="adminMemberMain">
             <div class="adminMemberSidebar">
-                <select name="searchMember" id="searchMember">
-                    <option value="memberId">아이디</option>
-                    <option value="memberPw">이메일</option>
-                    <option value="memberTel">전화번호</option>
-                    <option value="memberNickname">닉네임</option>
-                </select>
+                <!-- <div class="adminSidebarDiv">
+                    <button type="button" name="searchMember" id="searchMember">조회 방법
+                        <img src="../images/admin/sort.png">
+                    </button>
+                    <ul class="searchMenu menuHidden" id="searchMenu">
+                        <li><button type="button" class="sidebarMenu">아이디</button></li>
+                        <li><button type="button" class="sidebarMenu">이메일</button></li>
+                        <li><button type="button" class="sidebarMenu">전화번호</button></li>
+                        <li><button type="button" class="sidebarMenu">닉네임</button></li>
+                    </ul>
+
+                </div> -->
+                    
 
                 <ul class="adminSidebar">
                     <li><a href="#"><img src="../images/admin/group.png">회원 관리</a></li>
                     <li><a href="#"><img src="../images/admin/exclamation.png">신고글 관리</a></li>
-                    <li><a href="#"><img src="../images/admin/group.png">자격 신청 관리</a></li>
+                    <li><a href="#"><img src="../images/admin/document.png">자격 신청 관리</a></li>
                 </ul>
 
             </div>
 
 
             <div class="adminMemberDisplay">
-                d
+                
+                <form action="#" id="searchMemberMenu" class="searchMemberMenu">
+                    <div class="adminSearchDiv">
+                        <button type="button" name="searchMember" id="searchMember">조회 방법
+                            <img src="../images/admin/sort.png">
+                        </button>
+                        <ul class="searchMenu menuHidden" id="searchMenu">
+                            <li><button type="button" class="sidebarMenu" id="searchId">아이디</button></li>
+                            <li><button type="button" class="sidebarMenu" id="searchPw">이메일</button></li>
+                            <li><button type="button" class="sidebarMenu" id="searchTel">전화번호</button></li>
+                            <li><button type="button" class="sidebarMenu" id="searchNickname">닉네임</button></li>
+                        </ul>
+    
+                    </div>
+
+                    <input type="text" id="searchInput"> 
+                    <button id="searchBtn"><img src="../images/admin/search.png"></button>
+
+                </form>
+
+                <div>
+                    <div>
+                        <span>총 회원수 : </span>
+                        <span>0명</span>
+                    </div>
+                    <div>
+                        <span>검색된 회원수</span>
+                        <span>0명</span>
+                    </div>
+                </div>
+
+                <div>
+                    <table>
+                        <tr>
+                            <th>체크박스</th>
+                            <th>번호</th>
+                            <th>아이디</th>
+                            <th>이름</th>
+                            <th>전화번호</th>
+                            <th>닉네임</th>
+                        </tr>
+                    </table>
+
+                </div>
 
             </div>
 
@@ -43,5 +93,6 @@
 
     <div>풋터</div>
     
+    <script src="../js/common/admin/adminMember.js"></script>
 </body>
 </html>
