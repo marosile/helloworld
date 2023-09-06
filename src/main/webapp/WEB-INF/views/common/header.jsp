@@ -8,10 +8,10 @@
         <img id="header-logo" src="/resources/images/logo.svg" onclick="location.href='/'">
         <p id="header-title" onclick="location.href='/'">Hello, World!</p>
         <div id="header-category">
-            <a href="/trand-list">트렌드</a>
-            <a href="/boardList">커뮤니티</a>
-            <a href="/recruitTestMain">채용</a>
-            <a href="/lecture">강의</a>
+            <a href="/trand/list" servlet-link="trand">트렌드</a>
+            <a href="/board/list" servlet-link="board">커뮤니티</a>
+            <a href="/recruit" servlet-link="recruit">채용</a>
+            <a href="/lecture" servlet-link="lecture">강의</a>
             <a>스터디</a>
         </div>
     </div>
