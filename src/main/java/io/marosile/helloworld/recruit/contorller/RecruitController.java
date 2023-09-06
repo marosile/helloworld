@@ -20,33 +20,33 @@ public class RecruitController {
 		// else -> 내 매칭 공고 jsp로
 		
 		// 임시 : 테스트 메인으로
-		return "recruit/employement-test/emplyment-main";
+		return "recruit/employment-test/employment-main";
 	}
 	
 	// jsp 1개로 합칠건데 일단 5개로 나뉨
 	@GetMapping("/test1")
 	private String recruitTest1() {
-		return "recruit/employment-test/employement-test1";
+		return "recruit/employment-test/employment-test1";
 	}
 	
 	@GetMapping("/test2")
 	private String recruitTest2() {
-		return "recruit/employment-test/employement-test2";
+		return "recruit/employment-test/employment-test2";
 	}
 	
 	@GetMapping("/test3")
 	private String recruitTest3() {
-		return "recruit/employment-test/employement-test3";
+		return "recruit/employment-test/employment-test3";
 	}
 	
 	@GetMapping("/test4")
 	private String recruitTest4() {
-		return "recruit/employment-test/employement-test4";
+		return "recruit/employment-test/employment-test4";
 	}
 	
 	@GetMapping("/test5")
 	private String recruitTest5() {
-		return "recruit/employment-test/employement-test5";
+		return "recruit/employment-test/employment-test5";
 	}
 	
 	// 채용 결과 페이지 == 내 매칭 공고 상세 페이지
@@ -90,7 +90,7 @@ public class RecruitController {
 	// 기업 담당자 신청
 	@GetMapping("/application")
 	public String application() {
-		return "application";
+		return "recruit/application";
 	}
 	
 }

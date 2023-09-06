@@ -181,5 +181,7 @@
 
     <script src="/resources/js/common/general.js"></script>
 
+    <script src="/resources/js/board/board-update.js"></script>
+
 </body>
 </html>
