@@ -43,7 +43,7 @@
 
             <!-- button 담은 div -->
             <div id="buttonDiv">
-            <form action=>
+            
                 <button id="btn">시작하기</button>
 
             </div>
@@ -55,6 +55,7 @@
     <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
 
     <script src="/resources/js/common/general.js"></script>
+    <script src="/resources/js/recruit/recruit-main.js"></script>
 
 </body>
 </html>
