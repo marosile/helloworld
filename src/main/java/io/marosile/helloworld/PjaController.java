@@ -7,8 +7,13 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class PjaController {
 	
 	@GetMapping("/studyMain")
-	public String signUp() {
+	public String studyMain() {
 		return "study/studyMain";
+	}
+	
+	@GetMapping("/studyWrite")
+	public String studyWrite() {
+		return "study/studyWrite";
 	}
 
 }

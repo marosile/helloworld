@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/f7459b8054.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../css/study/studyWrite.css">
+
     <title>스터디 모집 작성</title>
 </head>
 
@@ -14,37 +16,113 @@
 
         <div id="P-main-area">
             <p id="P-main-title">
-                <i class="fa-regular fa-file-lines"></i> 스터디 모집하기</p>
+                <i class="fa-regular fa-file-lines"></i> 스터디 모집하기
             </p>
-        </div>
 
-        <div id="P-body-area">
-            
+
+            <form action="" class="P-body-category-top">
+
+                <h5><span class="required">*</span> 카테고리</h5>
+                <div class="P-body-category-area">
+                    
+                    <div class="P-body-category-role">
+
+                        <button type="button" class="P-body-category-btn">역할
+                            <i class="fa-solid fa-caret-down"></i>
+                        </button>
+
+                        <ul class="P-selectBox-role">
+                            <li><button type="button" class="P-option-btn">프론트앤드</button></li>
+                            <li><button type="button" class="P-option-btn">백엔드</button></li>
+                            <li><button type="button" class="P-option-btn">디자인</button></li>
+                            <li><button type="button" class="P-option-btn">기획</button></li>
+                            <li><button type="button" class="P-option-btn">기타</button></li>
+                        </ul>
+
+                    </div>
+
+                    <div class="P-body-category-purpose">
+                        <button type="button" class="P-body-purpose-btn">목적
+                            <i class="fa-solid fa-caret-down"></i>
+                        </button>
+    
+                        <ul class="P-selectBox-purpose">
+                            <li><button type="button" class="P-option-btn">포트폴리오/직무역량 강화</button></li>
+                            <li><button type="button" class="P-option-btn">창업/수익 창출</button></li>
+                            <li><button type="button" class="P-option-btn">네트워킹</button></li>
+                        </ul>
+
+                    </div>
+
+                    <div class="P-body-category-count">
+                        <button type="button" class="P-body-count-btn">인원
+                            <i class="fa-solid fa-caret-down"></i>
+                        </button>
+    
+                        <ul class="P-selectBox-count">
+    
+                            <div class="P-CountPerson">
+                                <div>
+                                    <div>인원</div>
+                                    <div class="P-person">
+                                        <button type="button" id="P-Aminusbutton">-</button>
+                                        <span aria-hidden="true">4</span>
+                                        <button type="button" id="C-Aplusbutton">+</button>
+                                        <button type="button" id="P-personBtn">완료</button>
+                                    </div>
+                                </div>
+    
+                            </div>
+                        </ul>
+                    </div>
+                    
+                </div>
+
+
+                <div id="P-body-container">
+
+                    <h5>지역</h5>
+
+                    <div id="P-body-location">
+                        <input id="P-body-location-input" placeholder="위치를 작성해주세요."></ㅑ>
+                        <button type="button">위치찾기</button>
+                    </div>
+
+                </div>
+
+               
+        <div id="P-body-container">
+
+            <h5><span class="required">*</span>제목</h5>
+
             <div id="P-body-title">
                 <textarea id="P-body-title-textarea" rows="1" placeholder="제목을 입력해주세요"></textarea>
                 <br>
             </div>
 
-            <h5>요약</h5>
+            <h5><span class="required">*</span>내용</h5>
             <div id="P-body-content">
-                <textarea name="" id="P-body-content-textarea" rows="1" placeholder="프로젝트 요약을 입력하세요.
-
-                예시 - 온/오프라인으로 달리기 모임을 만들고 찾을 수 있는 앱을 기획 중입니다. 현재 기획자 1명, 백엔드 개발자 1명이 있고, 함께 하실 디자이너와 프론트 개발자를 찾고 있어요!"></textarea>
-            </div>
-
-            <h5>위치</h5>
-            <div id="P-body-content">
-                <textarea name="" id="P-body-content-textarea" rows="1" placeholder="프로젝트 요약을 입력하세요.
+                <textarea name="" id="P-body-content-textarea" rows="1"
+                    placeholder="프로젝트 요약을 입력하세요.
 
                 예시 - 온/오프라인으로 달리기 모임을 만들고 찾을 수 있는 앱을 기획 중입니다. 현재 기획자 1명, 백엔드 개발자 1명이 있고, 함께 하실 디자이너와 프론트 개발자를 찾고 있어요!"></textarea>
             </div>
 
         </div>
 
-    </main>
-   
-    
 
+
+
+
+            </form>
+        </div>
+
+
+
+    </main>
+
+
+    <script src="../js/common/studyWrite.js"></script>
 
 </body>
 
