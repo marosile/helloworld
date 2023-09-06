@@ -5,14 +5,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import io.marosile.helloworld.recruit.model.service.RecruitService;
 
 @Controller
 @RequestMapping("/recruit") // 채용 공고 controller
 public class RecruitController {
 
-	@Autowired
-	private RecruitService service;
+
 	
 	@GetMapping("/list")
 	private String recruitTestMainOrRecruitDetail() {
