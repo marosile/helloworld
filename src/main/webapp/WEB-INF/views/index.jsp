@@ -17,10 +17,20 @@
 <body>
     <jsp:include page="/WEB-INF/views/common/header.jsp"/>
 	<main>
-		<div id="slide">
+		<div id="slide-frame">
+            <div id="slide-container">
+                <div class="slide">1</div>
+                <div class="slide">2</div>
+                <div class="slide" style="scale: 1.5; margin: 0 160px;">3</div>
+                <div class="slide">4</div>
+                <div class="slide">5</div>
+            </div>
+        </div>
+        <div id="content" class="page">
         </div>
 	</main>
     <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
     <script src="/resources/js/common/general.js"></script>
+    <script src="/resources/js/index.js"></script>
 </body>
 </html>

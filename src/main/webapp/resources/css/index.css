@@ -2,10 +2,50 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-bottom: 20px;
 }
 
-#slide {
-    width: 100vw;
-    height: 350px;
-    background: linear-gradient(90deg, rgba(200, 100, 255, 0.9), rgba(0, 128, 255, 0.9));
+#slide-frame {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    height: 370px;
+    width: 100%;
+    margin-top: 15px;
+    overflow: hidden;
+}
+
+#slide-container {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    height: 360px;
+}
+
+.slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 600px;
+    height: 240px;
+    border-radius: 10px;
+    margin: 0 10px;
+    background: linear-gradient(90deg, rgba(200, 100, 255, 0.5), rgba(0, 128, 255, 0.5));
+    color: rgba(255, 255, 255, 0.3);
+    font-size: 10rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 3s;
+}
+
+.slide:hover {
+    scale: 1.015;
+}
+
+#content {
+    width: 1000px;
+    height: 500px;
+    margin-top: 15px;
 }
