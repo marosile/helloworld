@@ -23,7 +23,6 @@ main{
     height: 40px;
     border-radius: 5px;
     background-color: white;
-    border: 1px solid rgba(128, 128, 128, 0.678);
     margin-top: 5px;
 }
 
@@ -32,7 +31,10 @@ main{
     height: 40px;
     border-radius: 5px;
     background-color: white;
-    border: 1px solid gray;
+}
+
+.row>:nth-child(1){
+    margin-top: 5px;
 }
 
 /* 폼태그 */

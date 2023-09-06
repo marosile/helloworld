@@ -30,7 +30,7 @@
                 <div class="resume-area">
                     <div class="fa-solid fa-arrow-up-from-bracket fa-4x" id="icon"></div>
                     <label for="resumeInput">업로드 파일</label>
-                    <input type="file" name="resumeFile" id="resumeInput"><!-- accept 지정 해줘야함 -->
+                    <input type="file" name="resumeFile" id="resumeInput" accept="application/pdf, application/msword, application/vnd.openxmlformats-officedocument.wordprocessingml.document">
                     <div>PDF, DOC, DOCX 최대 1MB</div>
                 </div>
 
@@ -42,7 +42,7 @@
                     <div>이력서 활용에 대한 약관 및 정책에 동의해주세요.</div>
 
                     <div class="row1">           <!-- 전체동의 -->
-                        <input type="checkbox" id="allcheck" class="cbox" name="check1" onclick="">
+                        <input type="checkbox" id="allcheck" class="cbox" name="check1">
                         <label for="check1">전체동의</label>
                     </div>
 
@@ -50,27 +50,39 @@
                     
                     <div class="row23">
                         <div class="row2">           <!-- 2번째 박스 -->
-                            <input type="checkbox" id="box2" class="cbox" name="box2" onclick="">
+                            <input type="checkbox" id="box2" class="cbox" name="box2">
                             <label for="box2">개인정보 보호에 대한 방침</label>
-                            <a href="#">보기</a>
+
+                            <!-- 팝업 영역 -->
+                            <button type="button" id="seeBtn1">보기</button>
+
+                            <div id="see1popup" class="popup">
+                                <span id="closeBtn">&times</span>
+
+                                <div class="agreeText">
+                                    이걸또 언제 꾸미니 ㅡㅡ
+                                </div>
+
+                            </div>
                         </div>
     
                         <div class="row3">           <!-- 3번째 박스 -->
-                            <input type="checkbox" id="box3" class="cbox" name="box3" onclick="">
+                            <input type="checkbox" id="box3" class="cbox" name="box3">
                             <label for="box3">개인회원 이용약관</label>
-                            <a href="#">보기</a>
+                            <button type="button" id="see2">보기</button>
+
                         </div>
                     </div>
 
                     <hr>
 
                     <div class="row4">           <!-- 4번째 박스 -->
-                        <input type="checkbox" id="box3" class="cbox" name="box3" onclick="">
+                        <input type="checkbox" id="box3" class="cbox" name="box3">
                         <label for="box3">"바로 지원하기"에서 이메일 전달 동의</label>
                     </div>
                 </div>
 
-                <button id="saveBtn">정책 동의하고 저장</button>
+                <button id="saveBtn">저장</button>
 
             </form>
             
@@ -84,5 +96,6 @@
 	</main>
     <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
     <script src="/resources/js/common/general.js"></script>
+    <script src="/resources/js/mypage/mypage-resume.js"></script>
 </body>
 </html>
