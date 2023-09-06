@@ -1,0 +1,72 @@
+#body-area{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#main-area{
+    border: 1px solid black;
+
+    width: 600px;
+    height: 800px;
+}
+
+#report-title{
+    font-size: 30px;
+    font-weight: bold;
+
+    margin-left: 20px;
+}
+
+#info{
+    display: flex;
+    justify-content: space-between;
+
+    height: 40px;
+}
+
+#info > div:nth-child(1){
+    font-size: 20px;
+
+    margin-left: 20px;
+}
+
+#info > div:nth-child(2){
+    font-size: 15px;
+
+    margin-right: 20px;
+}
+
+#content{
+    border-top: 1px solid black;
+
+    height: 300px;
+
+    padding: 10px 30px;
+}
+
+#report-area2{
+    font-size: 15px;
+    margin-left: 30px;
+}
+
+#report-area2 textarea{
+    width: 530px;
+    height: 200px;
+}
+
+#button-area{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+button{
+    width: 80px;
+    height: 30px;
+
+    margin-right: 10px;
+    margin-top: 10px;
+}
+
+

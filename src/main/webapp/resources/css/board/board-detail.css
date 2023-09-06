@@ -153,28 +153,35 @@
     background:  rgb(114, 112, 112);
 }
 
-#report{
+#button-area button{
     font-weight: bold;
     color: rgb(177, 175, 175);
 
     font-size: 16px;
 
-    width: 80px;
+    width: 90px;
     height: 30px;
     border: 1px solid rgb(177, 175, 175);
     border-radius: 10px;
 
+    
     margin-top: 15px;
     text-align: center; 
-    margin-right: 50px;
+    margin-right: 10px;
 }
 
-#report:hover{
+#button-area button:hover{
 
     cursor: pointer;
 
     color: white;
     background:  rgb(114, 112, 112);
+}
+
+
+
+#button-area{
+    margin-right: 50px;
 }
 
 
