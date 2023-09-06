@@ -179,5 +179,82 @@ datalist{
     background-color: rgba(40, 88, 177, 0.743);
 }
 
+#button4{
+    font-size: 20px;
+    font-weight: bold;
+
+    border: 1px solid rgba(74, 106, 165, 0.648);
+    border-radius: 10px;
+    background-color: rgb(74, 106, 165, 0.648);
+    color: white;
+
+    width: 180px;
+    height: 40px;
+
+    text-align: center;
+    line-height: 40px;
+
+
+    margin-left: 200px;
+    margin-top: 250px;
+}
+
+#button4:hover{
+    cursor: pointer;
+    background-color: rgba(40, 88, 177, 0.743);
+}
+
+#button5{
+    font-size: 20px;
+    font-weight: bold;
+
+    border: 1px solid rgba(74, 106, 165, 0.648);
+    border-radius: 10px;
+    background-color: rgb(74, 106, 165, 0.648);
+    color: white;
+
+    width: 180px;
+    height: 40px;
+
+    text-align: center;
+    line-height: 40px;
+
+
+    margin-left: 200px;
+    margin-top: 160px;
+}
+
+#button5:hover{
+    cursor: pointer;
+    background-color: rgba(40, 88, 177, 0.743);
+}
+
+
+#button6{
+    font-size: 20px;
+    font-weight: bold;
+
+    border: 1px solid rgba(74, 106, 165, 0.648);
+    border-radius: 10px;
+    background-color: rgb(74, 106, 165, 0.648);
+    color: white;
+
+    width: 180px;
+    height: 40px;
+
+    text-align: center;
+    line-height: 40px;
+
+
+    margin-left: 200px;
+    margin-top: 50px;
+}
+
+#button6:hover{
+    cursor: pointer;
+    background-color: rgba(40, 88, 177, 0.743);
+}
+
+
 
 

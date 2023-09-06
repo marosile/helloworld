@@ -1,14 +1,14 @@
-#body-area{
+/* #body-area{
     display: flex;
     justify-content: center;
     align-items: center;
-}
+} */
 
-#main-area{
+#report-area{
     border: 1px solid black;
 
     width: 600px;
-    height: 800px;
+    height: 450px;
 }
 
 #report-title{
@@ -16,33 +16,6 @@
     font-weight: bold;
 
     margin-left: 20px;
-}
-
-#info{
-    display: flex;
-    justify-content: space-between;
-
-    height: 40px;
-}
-
-#info > div:nth-child(1){
-    font-size: 20px;
-
-    margin-left: 20px;
-}
-
-#info > div:nth-child(2){
-    font-size: 15px;
-
-    margin-right: 20px;
-}
-
-#content{
-    border-top: 1px solid black;
-
-    height: 300px;
-
-    padding: 10px 30px;
 }
 
 #report-area2{
@@ -55,18 +28,27 @@
     height: 200px;
 }
 
-#button-area{
+#report-button-area{
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-button{
+#reportBtn{
     width: 80px;
     height: 30px;
 
     margin-right: 10px;
     margin-top: 10px;
 }
+
+#cancelBtn{
+    width: 80px;
+    height: 30px;
+
+    margin-right: 10px;
+    margin-top: 10px;
+}
+
 
 

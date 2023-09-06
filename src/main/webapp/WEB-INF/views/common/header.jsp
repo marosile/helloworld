@@ -10,7 +10,7 @@
         <div id="header-category">
             <a href="/trand/list" servlet-link="trand">트렌드</a>
             <a href="/board/list" servlet-link="board">커뮤니티</a>
-            <a href="/recruit" servlet-link="recruit">채용</a>
+            <a href="/recruit/list" servlet-link="recruit">채용</a>
             <a href="/lecture" servlet-link="lecture">강의</a>
             <a>스터디</a>
         </div>
