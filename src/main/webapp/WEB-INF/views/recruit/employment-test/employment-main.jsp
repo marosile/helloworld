@@ -32,7 +32,6 @@
                 <span id="secondText">나에게 딱 맞는 채용 공고를 골라 볼 수 있어요.</span>
                 <span id="thirdText">질문 6개에 답하고 맞는 회사를 추천받으세요!</span>
                 <span id="fourthText">현재는 프론트엔드, 백엔드 채용 공고를 서비스하고 있어요!</span>
-            
             </div>
 
             <!-- image 담은 div -->

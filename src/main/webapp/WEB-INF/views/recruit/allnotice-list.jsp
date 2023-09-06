@@ -116,11 +116,20 @@
                         <div id="click">상세보기</div>
                     </div>
                 </div>
+
+                <!-- 임시 -->
+                <div style="height:200px !important; width:100px !important;">
+                    <button id="insertBtn">채용공고 등록하기</button>
+                </div>
+   
             </div>
         </div>
     </main>
 
 	<script src="/resources/js/common/general.js"></script>
+    
+    <script src="/resources/js/recruit/allnotice-list.js"></script>
+
     <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
 </body>
 </html>

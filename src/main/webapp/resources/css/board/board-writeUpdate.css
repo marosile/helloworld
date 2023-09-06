@@ -222,7 +222,7 @@ textarea:focus{
     justify-content: flex-end;
 }
 
-/* 등록하기, 등록취소 버튼 */
+/* 등록하기 or 수정하기 , 등록취소 or 수정취소 버튼 */
 .btns{
     /* background-color: rgb(240, 240, 240); */
     border: 1px solid black;
@@ -231,7 +231,7 @@ textarea:focus{
     height:50%;
 }
 
-/* 등록하기 버튼 */
+/* 등록하기 or 수정하기 버튼 */
 #createOrUpdatePostButton{
     margin-right:20px;
 }
