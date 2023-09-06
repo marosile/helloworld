@@ -41,6 +41,9 @@
         </main> 
 
 	<script src="/resources/js/common/general.js"></script>
+    
+    <script src="/resources/js/recruit/application.js"></script>
+
     <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
 </body>
 </html>

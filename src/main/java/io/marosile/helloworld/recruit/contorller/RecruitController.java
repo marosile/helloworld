@@ -90,7 +90,7 @@ public class RecruitController {
 	// 기업 담당자 신청
 	@GetMapping("/application")
 	public String application() {
-		return "application";
+		return "recruit/application";
 	}
 	
 }
