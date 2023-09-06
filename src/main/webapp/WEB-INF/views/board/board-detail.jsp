@@ -44,7 +44,6 @@
                 </pre>
             </div>
 
-
             <div id="images-area">
                 <div>이미지</div>
                 <div>이미지</div>
@@ -65,7 +64,27 @@
                 <button id="delete">삭제</button>
                 <button id="list">목록</button>
             </div>
-           
+            
+            <div class="report-area" id="report-area">
+            <span id="close">&times</span>
+
+                <p id="report-title">게시글 신고</p>
+
+                <div id="report-area2">
+                    <p>게시글을 신고하는 이유를 작성해주세요 <i class="fa-solid fa-face-sad-tear"></i></p>
+                    <textarea>
+게시글이 유해합니다 ㅠㅠㅠ
+                    </textarea>
+                </div>
+
+                <div id="report-button-area">
+                    <button id="reportBtn">신고</button>
+                    <button id="cancelBtn">취소</button>
+                </div>
+            </div>
+
+
+
         </div>
         
     </div>

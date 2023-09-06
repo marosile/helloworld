@@ -25,11 +25,13 @@
             <div class="answer">✔️ 백엔드 개발자</div>
             <p id="notice">ⓘ 현재는 프론트엔드/백엔드 채용 공고만 서비스하고 있습니다.</p>
 
-            <div id="button2">NEXT</div>
+            <button id="button2">NEXT</button>
         </div>
     </main> 
 
-	<script src="/resources/js/common/general.js"></script>
     <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
+
+	<script src="/resources/js/common/general.js"></script>
+    <script src="/resources/js/recruit/recruit-main.js"></script>
 </body>
 </html>
