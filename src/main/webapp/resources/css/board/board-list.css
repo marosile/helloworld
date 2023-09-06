@@ -69,7 +69,7 @@
 }
 
 /* 질문하기 버튼 */
-#boardInsert{
+#BoardInsert{
     display:block;
     width:100px;
     height:50px;
@@ -265,7 +265,7 @@
 }
 
 /* 이미지 + 작성자 + 직군 + 몇분전  div */
-.postFirstpart{
+#postFirstpart{
     display:flex;
     height:46px;
 }
@@ -300,14 +300,14 @@
 }
 
 /* 제목 */
-.postSecondPart{
+#postSecondPart{
     margin-top:25px;
     font-size:20px;
     font-weight:bolder;
 }
 
 /* 내용 요약 */
-.postThirdPart{
+#postThirdPart{
     margin-top:25px;
     font-size:16px;
 }
@@ -317,7 +317,7 @@
 }
 
 /* 태그 */
-.postFourthPart{
+#postFourthPart{
     margin-top:15px;
     color: #777;
     font-weight: bold;
@@ -325,7 +325,7 @@
 }
 
 /* 조회수, 댓글 수 */
-.postFifthPart{
+#postFifthPart{
     display:flex;
     justify-content: flex-end;
     color:#777;
@@ -334,7 +334,7 @@
 }
 
 /* 조회수 */
-.postFifthPart > .inquiryCount{
+#postFifthPart > #inquiryCount{
     margin-left: 10px;
 }
 

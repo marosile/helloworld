@@ -270,8 +270,5 @@
 
     <script src="/resources/js/common/general.js"></script>
 
-    <script src="/resources/js/trand/trand-list.js"></script>
-
-
 </body>
 </html>

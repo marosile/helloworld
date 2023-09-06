@@ -93,7 +93,9 @@
                     </div>
 
                     <div id="updateDeleteBack">
-                        <button class="boardBtns" id="goToBackButton">목록으로</button>
+                        <button class="boardBtns">수정</button>
+                        <button class="boardBtns">삭제</button>
+                        <button class="boardBtns">목록으로</button>
                     </div>
 
 
@@ -418,8 +420,6 @@
     <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
 
     <script src="/resources/js/common/general.js"></script>
-
-    <script src="/resources/js/trand/trand-detail.js"></script>
 
 </body>
 </html>
