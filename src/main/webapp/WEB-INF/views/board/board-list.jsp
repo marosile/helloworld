@@ -49,7 +49,7 @@
             <div id="boardName"> Q&A 게시판 </div>
             <div id="question">
 
-            <button id="BoardInsert">작성하기</button>
+            <button id="boardInsert">작성하기</button>
             <%-- location.href = `/board2/${location.pathname.split("/")[2]}/insert` ; --%>
             <%-- 넘길 값 없으면 그냥 js에서 click으로 처리 --%>
 
@@ -257,7 +257,6 @@
                             <div id="inquiryCount">조회 7</div>
                         </div>
 
-
                 </div>
 
                 <!-- for문 돌릴거 -->
@@ -271,7 +270,6 @@
                 <div class="posts"></div>
                 <div class="posts"></div>
             </div>
-        
 
         <!-- 임시 페이지네이션 (무한스크롤로 변경) -->
         <div id="pagination">
@@ -282,21 +280,10 @@
 
 
     <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
+    
     <script src="/resources/js/common/general.js"></script>
-    <script>
-        // Swiper 초기화
-        var mySwiper = new Swiper('.swiper-container', {
-            slidesPerView: 3, // 한 화면에 보여질 슬라이드 개수
-            slidesPerGroup: 2,    // 한 번에 그룹으로 넘어갈 슬라이드 개수
-        spaceBetween: 10,     // 슬라이드 사이의 간격
-            navigation: {
-                nextEl: '.swiper-button-next', // 다음 버튼 클래스
-                prevEl: '.swiper-button-prev', // 이전 버튼 클래스
-            },
-
-            
-        });
-    </script>
+    
+    <script src="/resources/js/board/board-list.js"></script>
 
 </body>
 </html>

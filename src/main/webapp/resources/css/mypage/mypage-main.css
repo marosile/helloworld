@@ -43,7 +43,7 @@ main{
 /* 인풋 박스들 */
 .boxs{
     width: 380px;
-    height: 40px;
+    height: 45px;
     margin-bottom: 15px;
     border-radius: 5px;
 }

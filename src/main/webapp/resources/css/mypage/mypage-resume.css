@@ -28,10 +28,34 @@ main{
     margin-bottom: 30px;
 }
 
+.resume-area > * {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+/* 업로드 파일 input태그 */
+.resume-area >:nth-child(2){
+    color: rgb(0, 128, 255);
+}
+
+.resume-area > :nth-child(2):hover{
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.resume-area >:nth-child(4){
+    font-size: smaller;
+}
+
 #icon{
     display: flex;
     justify-content: center;
     margin-top: 50px;
+}
+
+#resumeInput{
+    display: none;
 }
 
 
@@ -58,7 +82,7 @@ main{
 
 /* 이력서 활용에 대한 약관 및 정책에 동의해주세요 글씨 */
 .agree-area > :nth-of-type(2){
-    font-size: small;
+    font-size: 0.875rem;
     margin-bottom: 10px;
 }
 
@@ -79,11 +103,47 @@ main{
     font-size: 14px;
 }
 
-.row23 > div > a{
+/* ============팝업 영역============= */
+/* 보기 버튼 */
+.row23 > div > button{
     color: rgb(0, 128, 255);
     text-decoration: underline;
     margin-left: 10px;
+    border: 0;
 }
+
+#see1popup{
+    position: fixed;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+     left: 0;
+     right: 0;
+     z-index: 1200;
+     background-color: wheat;
+     border: 5px inset black;
+     width: 450px;
+     height: 500px;
+}
+
+.popup{
+    display: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 /* 마지막 박스 */
@@ -100,6 +160,8 @@ main{
     height: 50px;
     font-size: large;
     margin-top: 10px;
+    background-color: rgb(0, 128, 255);
+    color: white;
 }
 
 

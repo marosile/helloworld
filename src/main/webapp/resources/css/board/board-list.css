@@ -99,6 +99,7 @@
    width:90%;
    border:0;
    outline:0;
+   background-color: transparent;
 }
 
 #searchInput::placeholder{
