@@ -1,0 +1,55 @@
+*{
+    box-sizing: border-box;
+    /* border: 1px solid black; */
+}
+
+
+/* 사이드바 */
+.adminMemberSidebar{
+    width: 20%;
+    margin: auto;
+    text-align: center;
+    height: 800px;
+    position: relative;
+}
+
+
+/* 사이드바 ul태그 */
+.adminSidebar{
+    padding: 0px;
+    height: 250px;
+    position: sticky;
+    top: 120px;
+}
+
+.adminSidebar > li{
+    list-style: none;
+    text-align: left;
+    height: 33%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding-left: 5px;
+    margin-bottom: 1px;
+}
+
+.adminSidebar > li:hover{
+    background-color: red;
+}
+
+/* 사이드바 목록 사진 */
+.adminSidebar img{
+    width: 50px;
+    margin-right: 5px;
+}
+
+/* 사이드바 목록 */
+.adminSidebar a{
+    text-decoration: none;
+    color: black;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+
