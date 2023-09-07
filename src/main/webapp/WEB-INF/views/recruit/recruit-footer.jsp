@@ -19,3 +19,5 @@
         </div>
 
     </footer>
+
+    <script src="/resources/js/recruit/recruit-footer.js"></script>

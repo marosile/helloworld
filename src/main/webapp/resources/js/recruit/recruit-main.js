@@ -10,7 +10,7 @@ if(btn != null){
     btn.addEventListener("click", () => {
    
 
-        location.href="test1";
+        location.href="/recruit/test1";
     });
 
 }

@@ -175,5 +175,7 @@
 
     <script src="/resources/js/common/general.js"></script>
 
+    <script src="/resources/js/recruit/testResultAndDetail.js"></script>
+
 </body>
 </html>
