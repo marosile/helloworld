@@ -74,9 +74,9 @@ public class RecruitController {
 	}
 	
 	// 상세의 상세페이지
-	@GetMapping("/MoreDetail")
+	@GetMapping("/moreDetail")
 	public String recruitDetail() {
-		return "recruit/recruit-detail";
+		return "recruit/recruit-moreDetail";
 	}//d
 	
 	// 채용 공고 등록
