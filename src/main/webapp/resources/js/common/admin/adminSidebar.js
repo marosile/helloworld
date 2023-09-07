@@ -14,7 +14,7 @@ const searchNickname = document.getElementById("searchNickname");
 
 /* 사진 */
 const img = document.createElement("img");
-img.setAttribute("src", "/resources/images/admin/sort.png");
+img.setAttribute("src", "../images/admin/sort.png");
 
 /* 아이디 */
 searchId.addEventListener("click", () => {

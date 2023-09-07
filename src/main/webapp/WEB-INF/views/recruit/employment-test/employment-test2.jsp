@@ -36,12 +36,14 @@
                 <option value="70">7년+</option>
             </datalist>
 
-            <div id="button">NEXT</div>
+            <button id="button4">NEXT</button>
 
         </div>
     </main> 
 
 	<script src="/resources/js/common/general.js"></script>
+    <script src="/resources/js/recruit/recruit-main.js"></script>
+
     <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
 </body>
 </html>

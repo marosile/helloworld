@@ -217,3 +217,88 @@
 i{
     margin-right: 2px;
 }
+
+
+
+/* 게시글 신고  */
+
+#report-area{
+    border: 1px solid black;
+
+    width: 600px;
+    height: 450px;
+}
+
+#report-title{
+    font-size: 30px;
+    font-weight: bold;
+
+    padding-left: 30px;
+    padding-bottom: 20px;
+
+}
+
+#report-area2{
+    font-size: 15px;
+    margin-left: 30px;
+}
+
+#report-area2 p{
+
+    font-size: 17px;
+    margin-bottom: 10px;
+}
+
+#report-area2 textarea{
+    width: 640px;
+    height: 300px;
+}
+
+#report-button-area{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#reportBtn{
+    width: 80px;
+    height: 30px;
+
+    margin-right: 10px;
+    margin-top: 10px;
+}
+
+#cancelBtn{
+    width: 80px;
+    height: 30px;
+
+    margin-right: 10px;
+    margin-top: 10px;
+}
+
+.report-area{
+    display: none;
+}
+
+#report-area{
+    position: fixed;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1200;
+    background-color: white;
+    border: 1px inset black;
+    border-radius: 10px;
+    width: 700px;
+    height: 500px;
+}
+
+#close{
+    font-size: 30px;
+    display: flex;
+    justify-content: end;
+    margin-right: 10px;
+    cursor: pointer;
+}

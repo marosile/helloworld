@@ -25,12 +25,14 @@
             <div class="answer">✔️ 사무실 출근</div>
             <div class="answer">✔️ 하이브리드(주 1회 이상 재택)</div>
 
-            <div id="button2">NEXT</div>
+            <div id="button5">NEXT</div>
 
         </div>
     </main> 
 
 	<script src="/resources/js/common/general.js"></script>
+    <script src="/resources/js/recruit/recruit-main.js"></script>
+
     <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
 </body>
 </html>

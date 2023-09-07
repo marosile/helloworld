@@ -14,54 +14,6 @@
     display: flex;
 }
 
-/* 사이드바 */
-.adminMemberSidebar{
-    width: 20%;
-    margin: auto;
-    text-align: center;
-    height: 800px;
-    position: relative;
-}
-
-
-/* 사이드바 ul태그 */
-.adminSidebar{
-    padding: 0px;
-    height: 250px;
-    position: sticky;
-    top: 50px;
-}
-
-.adminSidebar > li{
-    list-style: none;
-    text-align: left;
-    height: 33%;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    padding-left: 5px;
-    margin-bottom: 1px;
-}
-
-.adminSidebar > li:hover{
-    background-color: red;
-}
-
-/* 사이드바 목록 사진 */
-.adminSidebar img{
-    width: 50px;
-    margin-right: 5px;
-}
-
-/* 사이드바 목록 */
-.adminSidebar a{
-    text-decoration: none;
-    color: black;
-    height: 100%;
-    width: 100%;
-    display: flex;
-    align-items: center;
-}
-
 
 /****************** 회원목록 ****************/
 
@@ -195,4 +147,41 @@
 }
 
 
+/* 회원 수 전체 div */
+.checkNumber{
+    display: flex;
+    justify-content: right;
+}
 
+.checkNumber > div{
+    margin-left: 15px;
+    padding: 10px 0;
+}
+
+/*********** 테이블있는 부분 **************/
+.tableDiv{
+    border: 1px solid #ccc;
+    height: 800px;
+    border-radius: 10px;
+}
+
+table{
+    width: 100%;
+    border-radius: 10px;
+    border-collapse: collapse;
+    box-shadow : 0 0 0 1px #ccc;
+}
+
+tr{
+    border-bottom: 1px solid #ccc;
+    height: 60px;
+    margin-bottom: 10px;
+}
+
+tbody tr:last-child{
+    border: 0;
+}
+
+.adminTr{
+    text-align: center;
+}

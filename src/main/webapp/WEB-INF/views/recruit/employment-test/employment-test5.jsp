@@ -28,12 +28,14 @@
             <div class="answer">✔️ 서울 성동</div>
             <div class="answer">✔️ 판교</div>
 
-            <div id="button3">DONE 🔎</div>
+            <div id="button6">DONE 🔎</div>
 
         </div>
     </main> 
 
 	<script src="/resources/js/common/general.js"></script>
+    <script src="/resources/js/recruit/recruit-main.js"></script>
+
     <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
 </body>
 </html>

@@ -222,11 +222,11 @@
                 <div class="posts"> <!-- height:250 px; -->
                 
                     <!-- 하나 중 이미지 + 작성자 + 직군 + 몇분전 -->
-                    <div id="postFirstpart">
+                    <div class="postFirstpart">
 
                         <img src="/resources/images/logo.svg" class="writerImages">
                         
-                        <div id="firstPartRight">
+                        <div class="firstPartRight">
                             
                             <div>작성자</div>
                             
@@ -238,23 +238,23 @@
 
                     </div>
                         
-                        <div id="postSecondPart">
+                        <div class="postSecondPart">
                             Recoil의 상태관리를 활용한 초기값 지켜내기
                         </div>
 
-                        <div id="postThirdPart">
+                        <div class="postThirdPart">
                             안녕하세요! 오랜만이네요.
                             요점부터 말씀드리자면, Recoil에서 default 값을 
                             api로 받아온 데이터를 연산하여 나온 값을 default로 깔고 싶습니다. 현재 프로젝트에서는...
                         </div>
                    
-                        <div id="postFourthPart">
+                        <div class="postFourthPart">
                             <div></div>#react #recoil #next.js
                         </div>
 
-                        <div id="postFifthPart">
-                            <div id="replyCount">댓글 5</div>
-                            <div id="inquiryCount">조회 7</div>
+                        <div class="postFifthPart">
+                            <div class="replyCount">댓글 5</div>
+                            <div class="inquiryCount">조회 7</div>
                         </div>
 
                 </div>

@@ -185,5 +185,8 @@
 
     <script src="/resources/js/common/general.js"></script>
 
+    <script src="/resources/js/board/board-write.js"></script>
+
+
 </body>
 </html>
