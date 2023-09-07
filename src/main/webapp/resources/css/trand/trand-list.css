@@ -7,10 +7,15 @@
     display: flex;
 
     justify-content: center;
+
+    position: relative;
 }
 
 
 #left-area{
+
+    position: sticky;
+    top: 90px;
     
     width: 380px;
     height: 500px;
@@ -22,7 +27,7 @@
     margin-right: 20px;
 }
 
-#right-area{
+/* #right-area{
     width: 600px;
     height: 2000px;
     border: 1px solid var(--divider);
@@ -30,7 +35,7 @@
     background-color: var(--bg-color-2);
     transition-duration: 0.5s;    
 }
-
+ */
 
 .row-area{
     display: flex;
@@ -181,7 +186,16 @@
     margin-top: 30px;
 }
 
-#tag-area div:hover{
+/* #tag-area div:hover{
+    cursor: pointer;
+
+    background: -webkit-linear-gradient(-70deg, #db469f 0%, #2188ff 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+} */
+
+.tagArea{
     cursor: pointer;
 
     background: -webkit-linear-gradient(-70deg, #db469f 0%, #2188ff 100%);

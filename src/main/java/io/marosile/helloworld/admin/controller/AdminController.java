@@ -23,14 +23,14 @@ public class AdminController {
 		return "admin/report";
 	}
 	
-	// 신고글 관리
+	// 강사 관리
 	@GetMapping("/Instructor")
 	public String Instructor() {
 		
 		return "admin/instructor";
 	}
 	
-	// 신고글 관리 - 상세페이지
+	// 강사 관리 - 상세페이지
 	@GetMapping("/Instructor/detail")
 	public String InstructorDetail() {
 		
