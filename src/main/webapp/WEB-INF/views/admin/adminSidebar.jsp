@@ -5,9 +5,9 @@
 <div class="adminMemberSidebar">
 
     <ul class="adminSidebar">
-            <li><a href="#"><img src="/resources/images/admin/group.png">회원 관리</a></li>
-            <li><a href="#"><img src="/resources/images/admin/exclamation.png">신고글 관리</a></li>
-            <li><a href="#"><img src="/resources/images/admin/document.png">자격 신청 관리</a></li>
+            <li><a href="/admin/adminMember"><img src="/resources/images/admin/group.png">회원 관리</a></li>
+            <li><a href="/admin/Instructor"><img src="/resources/images/admin/exclamation.png">신고글 관리</a></li>
+            <li><a href="/admin/recruitOfficer"><img src="/resources/images/admin/document.png">자격 신청 관리</a></li>
     </ul>
 
 </div>

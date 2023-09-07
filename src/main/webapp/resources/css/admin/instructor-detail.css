@@ -1,0 +1,213 @@
+* {box-sizing: border-box;}
+
+/* 메인 */
+#main{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 메인 안 전부 다 담는 div */
+#main > #divContainer {
+    width:1000px;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid var(--divider);
+    border-radius: 10px;
+    background-color: var(--bg-color-2);
+    transition-duration: 0.5s;
+    margin:30px;
+    padding: 20px 20px;
+}
+
+/* 타이틀 */
+#title{
+    font-size:35px;
+    height:70px;
+}
+
+/* 이미지, 이름,.연락처 */
+#profileInfo{
+    width:100%;
+    display:flex;
+    justify-content: flex-start;
+    align-items: center;
+    height:60px;
+}
+
+#profileInfo > div{
+    width:40px;
+    height:40px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#profileInfo #name{
+    margin-left: 5px;
+    width:80px;
+    border:2px solid lightgray;
+    border-radius: 10px;
+}
+
+
+#profileInfo #phone{
+    margin-left: 5px;
+    width:160px;
+    border:2px solid lightgray;
+    border-radius: 10px;
+}
+
+
+#profileInfo img {
+    width:40px;
+    height:40px;
+}
+
+
+/* 자기소개 */
+#introduce {
+    width:100%;
+    height: 300px;
+    margin:15px;
+    border:2px solid lightgray;
+    border-radius: 10px;
+    padding:10px 10px;
+}
+
+/* 명시 */
+.specify{
+    width:100%;
+    height:50px;
+    font-size:24px;
+    margin-bottom: 5px;
+    display:flex;
+    justify-content: center;
+
+}
+
+/* 경력사항, 자격증 */
+#experienceAndCertifications{
+    width:100%;
+    height: 400px;
+    margin:15px;
+    display:flex;
+    justify-content: space-between;
+}
+
+/* 경력사항, 자격증 */
+#experience, #certifications{
+
+    width:48%;
+    height:100%;
+    padding:10px 10px;
+    border:2px solid lightgray;
+    border-radius: 10px;
+
+}
+
+/* 테이블 2개 */
+#experienceTable, #certificationsTable{
+    width:100%;
+    height:300px;
+
+    text-align:center;
+}
+
+th{
+    width:33%;
+    height:40px;
+    border-bottom: 1px solid lightgray;
+}
+
+td{
+    border-bottom: 1px solid lightgray;
+}
+
+/* 강의에 대한 설명 통 div */
+#courseDescription{
+    height:840px;
+    width:100%;
+    margin:15px;
+    border:2px solid lightgray;
+    border-radius: 10px;
+    padding:10px 10px;
+}
+
+
+
+/* 좌우나누기 */
+#details{
+    width:100%;
+    height:400px;
+    display:flex;
+    border:0.5px solid rgb(240, 240, 240);
+    border-radius: 10px;
+    
+}
+
+#details > .left , #details > .right {
+    width:50%;
+    height:100%;
+    padding: 5px 5px;
+}
+
+
+/* 강의명 */
+#courseTitle{
+    height:50px;
+    font-size:22px;
+    font-weight: bold;
+}
+/* 강의 주 내용 */
+#courseContent{
+    font-size:14px;
+}
+/* 가격 */
+#coursePrice{
+    margin-top: 80px;
+    font-size:20px;
+    font-weight: bold;
+}
+/* 기간 */
+#courseDuration{
+    margin-top:80px;
+    font-size:20px;
+    font-weight: bold;
+}
+/* 온 / 오프라인 여부 */
+#courseLocation{
+    margin-top:80px;
+    font-size:20px;
+    font-weight: bold;
+}
+
+/* 강의 예시 동영상 */
+#courseVideo{
+    margin-top:20px;
+    display:flex;
+    justify-content: flex-start;
+    flex-direction: column;
+}
+
+#btn-Area{
+    width:60%;
+    height:60px;
+    margin-top:10px;
+    display:flex;
+    justify-content: space-evenly;
+}
+
+#btn-Area .btns{
+    width:100px;
+    height:50px;
+    border:1px solid black;
+    cursor:pointer;
+}
+
+/* .btns:hover{
+
+} */
+
