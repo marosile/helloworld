@@ -75,43 +75,49 @@
                     </div>
                 </div>
 
-                <div class="tableDiv">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th><input type="checkbox" name="memberCheckAll" id="memberCheckAll"></th>
-                                <th>번호</th>
-                                <th>아이디</th>
-                                <th>이름</th>
-                                <th>전화번호</th>
-                                <th>닉네임</th>
-                            </tr>
-                        </thead>
+                <form action="#">
+                    <div class="tableDiv">
+                    
 
-                        <tbody>
-                            <tr class="adminTr">
-                                <td><input type="checkbox" name="memberCheck"></td>
-                                <td>1</td>
-                                <td>아이디입니다</td>
-                                <td>유저일</td>
-                                <td>01012341234</td>
-                                <td>닉네임입니다</td>
-                            </tr>
-
-                            <tr class="adminTr">
-                                <td><input type="checkbox" name="memberCheck"></td>
-                                <td>2</td>
-                                <td>아이디2</td>
-                                <td>유저이</td>
-                                <td>01012341234</td>
-                                <td>닉네임2</td>
-                            </tr>
-                        </tbody>
-
-
-                    </table>
-
-                </div>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th><input type="checkbox" name="memberCheckAll" id="memberCheckAll"></th>
+                                    <th>번호</th>
+                                    <th>아이디</th>
+                                    <th>이름</th>
+                                    <th>전화번호</th>
+                                    <th>닉네임</th>
+                                </tr>
+                            </thead>
+                            
+                            <tbody>
+                                <tr class="adminTr">
+                                    <td><input type="checkbox" name="memberCheck"></td>
+                                    <td>1</td>
+                                    <td>아이디입니다</td>
+                                    <td>유저일</td>
+                                    <td>01012341234</td>
+                                    <td>닉네임입니다</td>
+                                </tr>
+                            
+                                <tr class="adminTr">
+                                    <td><input type="checkbox" name="memberCheck"></td>
+                                    <td>2</td>
+                                    <td>아이디2</td>
+                                    <td>유저이</td>
+                                    <td>01012341234</td>
+                                    <td>닉네임2</td>
+                                </tr>
+                            </tbody>
+                        
+                        
+                        </table>
+                        
+                    </div>
+                    
+                    <button>선택한 회원 탈퇴</button>
+                </form>
 
             </div>
 
