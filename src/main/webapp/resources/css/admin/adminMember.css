@@ -6,12 +6,24 @@
 /* 전체 div */
 .adminMemberAll{
     width: 1000px;
-    margin: auto;
+    border: 1px solid var(--divider);
+    border-radius: 10px;
+    background-color: var(--bg-color-2);
+    transition-duration: 0.5s;
+    margin: 50px auto 50px auto;
+}
+
+.adminMemberAll > h1{
+    margin-left: 60px;
+    padding: 20px 0;
+    border-bottom: 1px solid #ccc;
 }
 
 /* 관리자 회원관리 밑 div */
 .adminMemberMain{
     display: flex;
+    padding-top: 20px;
+    
 }
 
 
@@ -59,6 +71,8 @@
     height: 60px;
     border-radius: 10px;
     text-align: center;
+    width: 95%;
+    margin: auto;
 }
 
 .adminSearchDiv{
@@ -151,6 +165,7 @@
 .checkNumber{
     display: flex;
     justify-content: right;
+    width: 95%;
 }
 
 .checkNumber > div{
@@ -163,6 +178,8 @@
     border: 1px solid #ccc;
     height: 800px;
     border-radius: 10px;
+    width: 95%;
+    margin: auto;
 }
 
 table{

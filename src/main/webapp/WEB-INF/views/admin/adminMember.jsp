@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>관리자회원관리</title>
 
+    <link rel="stylesheet" href="/resources/css/common/general.css">
     <link rel="stylesheet" href="/resources/css/admin/adminMember.css">
     <link rel="stylesheet" href="/resources/css/admin/adminSidebar.css">
 </head>
@@ -17,30 +18,10 @@
 
     <div class="adminMemberAll">
         <h1>회원 관리</h1>
-
+        
         <div class="adminMemberMain">
-            <div class="adminMemberSidebar">
-                <!-- <div class="adminSidebarDiv">
-                    <button type="button" name="searchMember" id="searchMember">조회 방법
-                        <img src="/resources/images/admin/sort.png">
-                    </button>
-                    <ul class="searchMenu menuHidden" id="searchMenu">
-                        <li><button type="button" class="sidebarMenu">아이디</button></li>
-                        <li><button type="button" class="sidebarMenu">이메일</button></li>
-                        <li><button type="button" class="sidebarMenu">전화번호</button></li>
-                        <li><button type="button" class="sidebarMenu">닉네임</button></li>
-                    </ul>
-
-                </div> -->
-                    
-
-                <ul class="adminSidebar">
-                    <li><a href="#"><img src="/resources/images/admin/group.png">회원 관리</a></li>
-                    <li><a href="#"><img src="/resources/images/admin/exclamation.png">신고글 관리</a></li>
-                    <li><a href="#"><img src="/resources/images/admin/document.png">자격 신청 관리</a></li>
-                </ul>
-
-            </div>
+            
+            <jsp:include page="/WEB-INF/views/admin/adminSidebar.jsp"/>
 
 
             <div class="adminMemberDisplay">
@@ -115,7 +96,7 @@
                         </table>
                         
                     </div>
-                    
+
                     <button>선택한 회원 탈퇴</button>
                 </form>
 
@@ -127,6 +108,7 @@
 
     <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
     
+    <script src="/resources/js/common/general.js"></script>
     <script src="/resources/js/common/admin/adminMember.js"></script>
     <script src="/resources/js/common/admin/adminSidebar.js"></script>
 </body>
