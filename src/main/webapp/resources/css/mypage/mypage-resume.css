@@ -2,7 +2,6 @@ main{
     margin: auto;
 
     width: 1000px;
-    height: 600px;
     border: 1px solid var(--divider);
     border-radius: 10px;
     background-color: var(--bg-color-2);
@@ -60,14 +59,6 @@ main{
 
 
 
-
-
-
-
-
-
-
-
 /* ================================== 약관동의 영역 ================================*/
 
 /* 정책 동의 글씨 */
@@ -104,7 +95,8 @@ main{
 }
 
 /* ============팝업 영역============= */
-/* 보기 버튼 */
+
+/* 보기 버튼 (#popupBtn들)*/
 .row23 > div > button{
     color: rgb(0, 128, 255);
     text-decoration: underline;
@@ -112,7 +104,25 @@ main{
     border: 0;
 }
 
-#see1popup{
+/* 팝업창 */
+.popup{display: none;}
+
+#popup1{
+    position: fixed;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1200;
+    background-color: white;
+    border: 1px inset black;
+    border-radius: 10px;
+    width: 700px;
+    height: 500px;
+}
+
+#popup2{
     position: fixed;
     margin: auto;
     top: 0;
@@ -120,17 +130,43 @@ main{
      left: 0;
      right: 0;
      z-index: 1200;
-     background-color: wheat;
-     border: 5px inset black;
-     width: 450px;
+     background-color: white;
+     border: 1px inset black;
+     border-radius: 10px;
+     width: 700px;
      height: 500px;
 }
 
-.popup{
-    display: none;
+/* x버튼 */
+#closeBtn1{
+    font-size: 30px;
+    display: flex;
+    justify-content: end;
+    margin-right: 10px;
+    cursor: pointer;
 }
 
+#closeBtn2{
+    font-size: 30px;
+    display: flex;
+    justify-content: end;
+    margin-right: 10px;
+    cursor: pointer;
+}
+/* 약관 제목 */
+.agreeTitle{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+}
 
+/* 약관내용 */
+.agreeText{
+    overflow: auto;
+    width: auto;
+    height: 440px;
+    padding: 10px;
+}
 
 
 

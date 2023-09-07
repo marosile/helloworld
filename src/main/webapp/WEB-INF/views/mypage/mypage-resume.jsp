@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"  %>
 
 <!DOCTYPE html>
 <html lang="ko">
@@ -7,6 +7,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
     <title>마이페이지-이력서</title>
     <link rel="stylesheet" href="/resources/css/common/general.css">
     <link rel="stylesheet" href="/resources/css/index.css">
@@ -14,11 +16,13 @@
     <link rel="stylesheet" href="/resources/css/mypage/mypage-nav.css">
 
     <script src="https://kit.fontawesome.com/98acdabf0d.js" crossorigin="anonymous"></script>
+
+
 </head>
-<body>
+<body id="body">
     <jsp:include page="/WEB-INF/views/common/header.jsp"/>
 
-	<main>
+	<main id="main">
         <!-- 마이페이지 nav -->
         <jsp:include page="/WEB-INF/views/mypage/mypage-nav.jsp"/>
 
@@ -54,14 +58,50 @@
                             <label for="box2">개인정보 보호에 대한 방침</label>
 
                             <!-- 팝업 영역 -->
-                            <button type="button" id="seeBtn1">보기</button>
+                            <button type="button" id="popupBtn1">보기</button>
 
-                            <div id="see1popup" class="popup">
-                                <span id="closeBtn">&times</span>
+                            <div class="popup" id="popup1">
+                                <span id="closeBtn1">&times</span>
 
+                                <!-- **************** 약관 내용  ******************-->
                                 <div class="agreeText">
-                                    이걸또 언제 꾸미니 ㅡㅡ
-                                </div>
+                                    <h1 class="agreeTitle">개인정보 보호에 대한 방침</h1>
+                                    <h3>1.개인정보의 처리 목적</h3>
+                                    가. 홈페이지 회원가입 및 관리
+                                    회원 가입의사 확인, 회원제 서비스 제공에 따른 본인 식별·인증, 회원자격 유지·관리, 
+                                    서비스 부정이용 방지, 고충처리, 분쟁 조정을 위한 기록 보존 등을 목적으로 개인정보를 처리합니다.
+                                    <br>
+                                    나. 민원사무 처리
+                                    민원인의 신원 확인, 민원사항 확인, 사실조사를 위한 연락·통지, 처리결과 통보 등을 목적으로 개인정보를 처리합니다.
+                                    <br>
+                                    다. 재화 또는 서비스 제공
+                                    서비스 제공, 콘텐츠 제공, 맞춤 서비스 제공, 본인인증 등을 목적으로 개인정보를 처리합니다.
+                                    <br>
+                                    라. 마케팅 및 광고에의 활용
+                                    신규 서비스(제품) 개발 및 맞춤 서비스 제공, 이벤트 및 광고성 정보 제공 및 참여기회 제공 , 
+                                    인구통계학적 특성에 따른 서비스 제공 및 광고 게재 , 
+                                    접속빈도 파악 또는 회원의 서비스 이용에 대한 통계 등을 목적으로 개인정보를 처리합니다.
+                                    <br><br><br>
+                                    <h3>2.개인정보 파일 현황</h3>
+                                    가. 홈페이지 회원가입 및 관리
+                                    회원 가입의사 확인, 회원제 서비스 제공에 따른 본인 식별·인증, 회원자격 유지·관리, 
+                                    서비스 부정이용 방지, 고충처리, 분쟁 조정을 위한 기록 보존 등을 목적으로 개인정보를 처리합니다.
+                                    <br>
+                                    나. 민원사무 처리
+                                    민원인의 신원 확인, 민원사항 확인, 사실조사를 위한 연락·통지, 처리결과 통보 등을 목적으로 개인정보를 처리합니다.
+                                    <br>
+                                    다. 재화 또는 서비스 제공
+                                    서비스 제공, 콘텐츠 제공, 맞춤 서비스 제공, 본인인증 등을 목적으로 개인정보를 처리합니다.
+                                    <br>
+                                    라. 마케팅 및 광고에의 활용
+                                    신규 서비스(제품) 개발 및 맞춤 서비스 제공, 이벤트 및 광고성 정보 제공 및 참여기회 제공 , 
+                                    인구통계학적 특성에 따른 서비스 제공 및 광고 게재 , 
+                                    접속빈도 파악 또는 회원의 서비스 이용에 대한 통계 등을 목적으로 개인정보를 처리합니다.
+                                    마. 오버 플로우 테스트
+                                    신규 서비스(제품) 개발 및 맞춤 서비스 제공, 이벤트 및 광고성 정보 제공 및 참여기회 제공 , 
+                                    인구통계학적 특성에 따른 서비스 제공 및 광고 게재 , 
+                                    접속빈도 파악 또는 회원의 서비스 이용에 대한 통계 등을 목적으로 개인정보를 처리합니다.
+                                </div> <!-- **************** 약관 내용 끝 ********* -->
 
                             </div>
                         </div>
@@ -69,7 +109,54 @@
                         <div class="row3">           <!-- 3번째 박스 -->
                             <input type="checkbox" id="box3" class="cbox" name="box3">
                             <label for="box3">개인회원 이용약관</label>
-                            <button type="button" id="see2">보기</button>
+
+                            <!-- 팝업 영역 -->
+                            <button type="button" id="popupBtn2">보기</button>
+
+                            <div class="popup" id="popup2">
+                                <span id="closeBtn2">&times</span>
+
+                                <div class="agreeText">
+                                    <!-- *************** 약관내용  ****************-->
+                                    <h1 class="agreeTitle">개인회원 이용약관</h1>
+                                    <h3>1.개인정보의 처리 목적</h3>
+                                    가. 홈페이지 회원가입 및 관리
+                                    회원 가입의사 확인, 회원제 서비스 제공에 따른 본인 식별·인증, 회원자격 유지·관리, 
+                                    서비스 부정이용 방지, 고충처리, 분쟁 조정을 위한 기록 보존 등을 목적으로 개인정보를 처리합니다.
+                                    <br>
+                                    나. 민원사무 처리
+                                    민원인의 신원 확인, 민원사항 확인, 사실조사를 위한 연락·통지, 처리결과 통보 등을 목적으로 개인정보를 처리합니다.
+                                    <br>
+                                    다. 재화 또는 서비스 제공
+                                    서비스 제공, 콘텐츠 제공, 맞춤 서비스 제공, 본인인증 등을 목적으로 개인정보를 처리합니다.
+                                    <br>
+                                    라. 마케팅 및 광고에의 활용
+                                    신규 서비스(제품) 개발 및 맞춤 서비스 제공, 이벤트 및 광고성 정보 제공 및 참여기회 제공 , 
+                                    인구통계학적 특성에 따른 서비스 제공 및 광고 게재 , 
+                                    접속빈도 파악 또는 회원의 서비스 이용에 대한 통계 등을 목적으로 개인정보를 처리합니다.
+                                    <br><br><br>
+                                    <h3>2.개인정보 파일 현황</h3>
+                                    가. 홈페이지 회원가입 및 관리
+                                    회원 가입의사 확인, 회원제 서비스 제공에 따른 본인 식별·인증, 회원자격 유지·관리, 
+                                    서비스 부정이용 방지, 고충처리, 분쟁 조정을 위한 기록 보존 등을 목적으로 개인정보를 처리합니다.
+                                    <br>
+                                    나. 민원사무 처리
+                                    민원인의 신원 확인, 민원사항 확인, 사실조사를 위한 연락·통지, 처리결과 통보 등을 목적으로 개인정보를 처리합니다.
+                                    <br>
+                                    다. 재화 또는 서비스 제공
+                                    서비스 제공, 콘텐츠 제공, 맞춤 서비스 제공, 본인인증 등을 목적으로 개인정보를 처리합니다.
+                                    <br>
+                                    라. 마케팅 및 광고에의 활용
+                                    신규 서비스(제품) 개발 및 맞춤 서비스 제공, 이벤트 및 광고성 정보 제공 및 참여기회 제공 , 
+                                    인구통계학적 특성에 따른 서비스 제공 및 광고 게재 , 
+                                    접속빈도 파악 또는 회원의 서비스 이용에 대한 통계 등을 목적으로 개인정보를 처리합니다.
+                                    마. 오버 플로우 테스트
+                                    신규 서비스(제품) 개발 및 맞춤 서비스 제공, 이벤트 및 광고성 정보 제공 및 참여기회 제공 , 
+                                    인구통계학적 특성에 따른 서비스 제공 및 광고 게재 , 
+                                    접속빈도 파악 또는 회원의 서비스 이용에 대한 통계 등을 목적으로 개인정보를 처리합니다.
+                                </div><!-- 약관내용 끝 -->
+
+                            </div>
 
                         </div>
                     </div>
@@ -77,8 +164,8 @@
                     <hr>
 
                     <div class="row4">           <!-- 4번째 박스 -->
-                        <input type="checkbox" id="box3" class="cbox" name="box3">
-                        <label for="box3">"바로 지원하기"에서 이메일 전달 동의</label>
+                        <input type="checkbox" id="box4" class="cbox" name="box4">
+                        <label for="box4">"바로 지원하기"에서 이메일 전달 동의</label>
                     </div>
                 </div>
 
@@ -94,8 +181,11 @@
 
 
 	</main>
+
     <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
+    
     <script src="/resources/js/common/general.js"></script>
     <script src="/resources/js/mypage/mypage-resume.js"></script>
+    
 </body>
 </html>
