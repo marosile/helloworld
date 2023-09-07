@@ -77,7 +77,7 @@ public class RecruitController {
 	@GetMapping("/MoreDetail")
 	public String recruitDetail() {
 		return "recruit/recruit-detail";
-	}
+	}//d
 	
 	// 채용 공고 등록
 	@GetMapping("/post")
