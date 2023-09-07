@@ -61,6 +61,14 @@ p{
     margin-bottom: 20px;
 }
 
+/* 입력창 안에 안내글(span태그) */
+.inputAll > span{
+    display: inline-block;
+    font-size: 13px;
+    padding-left: 5px;
+    padding-top: 5px;
+}
+
 /* 입력창 라벨 */
 .inputName{
     display: inline-block;
@@ -149,3 +157,9 @@ p{
     text-align: right;
     margin-left: auto;
 }
+
+
+
+/* 메세지 색상 지정 */
+.confirm{ color : green; }
+.error{ color : red; }

@@ -11,6 +11,8 @@
     <link rel="stylesheet" href="/resources/css/common/general.css">
     <link rel="stylesheet" href="/resources/css/admin/adminMember.css">
     <link rel="stylesheet" href="/resources/css/admin/adminSidebar.css">
+
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
 </head>
 <body>
 
@@ -56,7 +58,7 @@
                     </div>
                 </div>
 
-                <form action="#">
+                <form action="#" id="adminMemberForm">
                     <div class="tableDiv">
                     
 
@@ -97,12 +99,17 @@
                         
                     </div>
 
-                    <button>선택한 회원 탈퇴</button>
+                    <button id="searchMemberBtn">선택한 회원 탈퇴</button>
                 </form>
 
+                <!-- 임시 페이지네이션 -->
+                <div id="pagination">
+                    << < 1 2 3 4 5 6 7 8 9 10 > >>
+                </div>
             </div>
 
         </div>
+        
 
     </div>
 
