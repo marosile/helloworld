@@ -37,11 +37,11 @@ main {
     font-size: 10rem;
     font-weight: 600;
     cursor: pointer;
-    transition: 3s;
 }
 
-.slide:hover {
-    scale: 1.015;
+.slide:nth-last-of-type(3) {
+    margin: 0 160px;
+    scale: 1.5;
 }
 
 #content {
