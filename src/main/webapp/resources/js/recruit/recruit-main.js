@@ -4,6 +4,7 @@ const button4 = document.getElementById("button4");
 const button3 = document.getElementById("button3");
 const button5 = document.getElementById("button5");
 const button6 = document.getElementById("button6");
+const button7 = document.getElementById("button7");
 
 if(btn != null){
 
@@ -55,10 +56,20 @@ if(button6 != null){
 
     button6.addEventListener("click", () => {
 
+        location.href="test6";
+    });
+
+}
+
+if(button7 != null){
+
+    button7.addEventListener("click", () => {
+
         location.href="testResultAndRecuritDetail";
     });
 
 }
+
 
 
 

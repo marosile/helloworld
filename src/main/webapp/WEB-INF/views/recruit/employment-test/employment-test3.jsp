@@ -18,7 +18,7 @@
     <jsp:include page="/WEB-INF/views/common/header.jsp"/>
        <main id="body-area">
         <div id="main-area">
-            <p id="number">3/5</p>
+            <p id="number">3/6</p>
             <p id="question">희망하는 연봉을 알려주세요. 💵</p>
             
             <div class="answer">✔️ 최소 2700만</div>

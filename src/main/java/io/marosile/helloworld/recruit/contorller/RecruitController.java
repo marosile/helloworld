@@ -49,6 +49,11 @@ public class RecruitController {
 		return "recruit/employment-test/employment-test5";
 	}
 	
+	@GetMapping("/test6")
+	private String recruitTest6() {
+		return "recruit/employment-test/employment-test6";
+	}
+	
 	// 채용 결과 페이지 == 내 매칭 공고 상세 페이지
 	@GetMapping("/testResultAndRecuritDetail")
 	public String recruitResult() {

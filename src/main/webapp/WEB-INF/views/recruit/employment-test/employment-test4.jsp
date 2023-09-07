@@ -18,7 +18,7 @@
     <jsp:include page="/WEB-INF/views/common/header.jsp"/>
        <main id="body-area">
         <div id="main-area">
-            <p id="number">4/5</p>
+            <p id="number">4/6</p>
             <p id="question">선호 하는 근무 형태를 알려주세요. 👩‍💻</p>
             
             <div class="answer">✔️ 풀재택</div>

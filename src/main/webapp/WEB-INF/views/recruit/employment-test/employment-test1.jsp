@@ -18,7 +18,7 @@
     <jsp:include page="/WEB-INF/views/common/header.jsp"/>
     <main id="body-area">
         <div id="main-area">
-            <p id="number">1/5</p>
+            <p id="number">1/6</p>
             <p id="question">찾고 있는 직무를 선택하세요. 💻</p>
             
             <div class="answer">✔️ 프론트엔드 개발자</div>

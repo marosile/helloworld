@@ -18,7 +18,7 @@
     <jsp:include page="/WEB-INF/views/common/header.jsp"/>
      <main id="body-area">
         <div id="main-area">
-            <p id="number">2/5</p>
+            <p id="number">2/6</p>
 
             <p id="question">몇 년차 채용 공고를 보여드릴까요? 🔎</p>
 

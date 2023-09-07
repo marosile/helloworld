@@ -18,7 +18,7 @@
     <jsp:include page="/WEB-INF/views/common/header.jsp"/>
       <main id="body-area">
         <div id="main-area">
-            <p id="number">5/5</p>
+            <p id="number">5/6</p>
             <p id="question2">선호 하는 근무 지역을 모두 선택해주세요. 🗾</p>
             
             <div class="answer">✔️ 서울 전체</div>
@@ -28,7 +28,7 @@
             <div class="answer">✔️ 서울 성동</div>
             <div class="answer">✔️ 판교</div>
 
-            <div id="button6">DONE 🔎</div>
+            <div id="button6">NEXT 🔎</div>
 
         </div>
     </main> 
