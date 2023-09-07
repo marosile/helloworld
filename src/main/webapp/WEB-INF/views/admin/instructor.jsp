@@ -146,7 +146,8 @@
     <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
     
     <script src="/resources/js/common/general.js"></script>
-    <script src="/resources/js/common/admin/adminMember.js"></script>
     <script src="/resources/js/common/admin/adminSidebar.js"></script>
+    <script src="/resources/js/admin/instructor.js"></script>
+
 </body>
 </html>
