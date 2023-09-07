@@ -22,7 +22,6 @@
 .adminMemberMain{
     display: flex;
     padding-top: 20px;
-    
 }
 
 
@@ -199,5 +198,26 @@ tbody tr:last-child{
 }
 
 .adminTr{
+    text-align: center;
+}
+
+
+/* 회원 정보 테이블 감싸고 있는 form 태그 */
+#adminMemberForm{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+/* 선택한 회원 탈퇴 버튼 */
+#searchMemberBtn{
+    width: 150px;
+    height: 40px;
+    margin: 19px;
+    border-radius: 10px;
+}
+
+/* 임시 페이지네이션 */
+#pagination{
     text-align: center;
 }

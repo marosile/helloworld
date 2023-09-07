@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>회원가입</title>
-
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../css/common/signUp.css">
 
 </head>
@@ -45,23 +45,23 @@
 
                 <div class="inputAll">
                     <label for="inputId" class="inputName">아이디</label>
-                    <input type="text" name="inputId" id="inputId" class="inputClass" autocomplete="off">
-                    <span>정규표현식 확인 / ajax 중복확인</span>
+                    <input type="text" name="inputId" id="inputId" class="inputClass" autocomplete="off" >
+                    <span id="idMessage">영문(대,소문자)와 숫자를 조합하여 5~14글자 사이로 입력해주세요</span>
                 </div>
 
                 <div class="inputAll">
                     <label for="inputEmail" class="inputName">이메일</label>
                     <input type="text" name="inputEmail" id="inputEmail" class="inputClass" autocomplete="off">
-                    <span>정규표현식 확인 / ajax 중복확인</span>
+                    <span id="emailMessage">이메일을 입력해주세요</span>
                 </div>
 
                 <div class="inputAll">
                     <label for="inputTel1" class="inputName">전화번호</label>
                     <div>
-                        <input type="text" name="inputTel" id="inputTel1" class="inputClass" autocomplete="off">
+                        <input type="text" name="inputTel1" id="inputTel1" class="inputClass" autocomplete="off">
                         <button id="btn1" type="button">인증번호 받기</button>
                     </div>
-                    <span>정규표현식 확인 / ajax 중복확인</span>
+                    <span id="telMessage">정규표현식 확인 / ajax 중복확인</span>
                 </div>
 
                 <div class="inputAll">
@@ -71,59 +71,59 @@
                         <button id="btn2" type="button">인증하기</button>
                     </div>
                     <span>04:59</span>
-                    <span>-인증확인-</span>
+                    <span id="telAuthMessage">-인증확인-</span>
                 </div>
 
                 <div class="inputAll">
                     <label for="inputNickname" class="inputName">닉네임</label>
                     <input type="text" name="inputNickname" id="inputNickname" class="inputClass" autocomplete="off">
-                    <span>정규표현식 확인</span>
+                    <span id="nickMessage">한글,영어,숫자 2~8글자 입력 해주세요</span>
                 </div>
 
                 <div class="inputAll">
                     <label for="inputPw" class="inputName">비밀번호</label>
                     <input type="text" name="inputPw" id="inputPw" class="inputClass" autocomplete="off">
-                    <span>정규표현식 확인</span>
+                    <span id="pwMessage">영어,숫자,특수문자(!,@,#,-,_) 6~20글자 사이로 입력해주세요</span>
                 </div>
 
                 <div class="inputAll">
                     <label for="inputConfirmPw" class="inputName">비밀번호확인</label>
                     <input type="text" name="inputConfirmPw" id="inputConfirmPw" class="inputClass" autocomplete="off">
-                    <span>정규표현식 확인</span>
+                    <span id="pwCheckMessage"></span>
                 </div>
 
 
                
 
-                <div class="checkCollect">
+                <div class="checkCollect" id="checkCollect">
                     <div>
-                        <input type="checkbox" name="checkAll" id="checkAll" class="chkbox">
+                        <input type="checkbox" name="checkAllMain" id="checkAll" class="chkbox">
                         <label for="checkAll" class="chkLabel"></label>
                         <label for="checkAll">모두 동의</label>
                     </div>
 
                     <div>
-                        <input type="checkbox" name="chkEssential" id="check1" class="chkbox">
+                        <input type="checkbox" name="checkAll" id="check1" class="chkbox essentialCheck">
                         <label for="check1" class="chkLabel"></label>
                         <label for="check1">(필수) 만 14세 이상입니다.</label>
                     </div>
 
                     <div>
-                        <input type="checkbox" name="chkEssential" id="check2" class="chkbox">
+                        <input type="checkbox" name="checkAll" id="check2" class="chkbox essentialCheck">
                         <label for="check2" class="chkLabel"></label>
                         <label for="check2">(필수) 헬로월드 이용약관 동의</label>
                         <a href="#">보기</a>
                     </div>
 
                     <div>
-                        <input type="checkbox" name="chkEssential" id="check3" class="chkbox">
+                        <input type="checkbox" name="checkAll" id="check3" class="chkbox essentialCheck">
                         <label for="check3" class="chkLabel"></label>
                         <label for="check3">(필수) 개인정보 수집 및 이용 동의</label>
                         <a href="#">보기</a>
                     </div>
 
                     <div>
-                        <input type="checkbox" name="chkSelect" id="check4" class="chkbox">
+                        <input type="checkbox" name="checkAll" id="check4" class="chkbox">
                         <label for="check4" class="chkLabel"></label>
                         <label for="check4">(선택) 마케팅 정보 수신 동의</label>
                         <a href="#">보기</a>
@@ -140,6 +140,6 @@
     
     <div>풋터</div>
     
-
+    <script src="../js/common/modal/signUp.js"></script>
 </body>
 </html>
