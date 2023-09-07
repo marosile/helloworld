@@ -58,7 +58,7 @@ public class RecruitController {
 	// 전체 매칭 공고
 	@GetMapping("/allNoticeList")
 	public String allNoticeList() {
-		return "recruit/notice-list";
+		return "recruit/allnotice-list";
 	}
 	
 	// recruitTestMainOrRecruitDetail()에서 판별할건데 일단 조건 못거니까 만듬

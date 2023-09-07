@@ -15,6 +15,7 @@ list.addEventListener("click", function(){
 })
 
 
+
 /* 게시글 신고 모달창 */
 const report = document.getElementById("report");
 const reportzone = document.getElementById("report-area");

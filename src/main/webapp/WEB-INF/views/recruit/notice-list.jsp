@@ -71,7 +71,7 @@
                     </div>
                 </div>
 
-                              <div class="row-area">
+                <div class="row-area">
                     <div class="box">
                         <div id="row1">
                             <div id="photo"><img src="resources/images/mypage/당근.png"></div>
