@@ -61,7 +61,7 @@
             <div id="button-area">
                 <button id="report"><i class="fa-regular fa-face-angry" style="color: rgb(177, 175, 175)"></i> 신고</button>
                 <button id="update">수정</button>
-                <button id="delete">삭제</button>
+                <button id="deleteBtn">삭제</button>
                 <button id="list">목록</button>
             </div>
             

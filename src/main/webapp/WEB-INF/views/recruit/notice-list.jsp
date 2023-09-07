@@ -22,7 +22,7 @@
                 <div class="row-area">
                     <div class="box">
                         <div id="row1">
-                            <div id="photo"><img src="resources/images/mypage/당근.png"></div>
+                            <div id="photo"><img src="/resources/images/mypage/당근.png"></div>
                             <div id="title-area">
                                 <div id="title">당근마켓</div>
                                 <div id="subTitle">Software Engineer, Frontend</div>
@@ -47,7 +47,7 @@
 
                     <div class="box">
                         <div id="row1">
-                            <div id="photo"><img src="resources/images/mypage/당근.png"></div>
+                            <div id="photo"><img src="/resources/images/mypage/당근.png"></div>
                             <div id="title-area">
                                 <div id="title">당근마켓</div>
                                 <div id="subTitle">Software Engineer, Frontend</div>
@@ -74,7 +74,7 @@
                 <div class="row-area">
                     <div class="box">
                         <div id="row1">
-                            <div id="photo"><img src="resources/images/mypage/당근.png"></div>
+                            <div id="photo"><img src="/resources/images/mypage/당근.png"></div>
                             <div id="title-area">
                                 <div id="title">당근마켓</div>
                                 <div id="subTitle">Software Engineer, Frontend</div>
@@ -99,7 +99,7 @@
 
                     <div class="box">
                         <div id="row1">
-                            <div id="photo"><img src="resources/images/mypage/당근.png"></div>
+                            <div id="photo"><img src="/resources/images/mypage/당근.png"></div>
                             <div id="title-area">
                                 <div id="title">당근마켓</div>
                                 <div id="subTitle">Software Engineer, Frontend</div>
@@ -126,7 +126,7 @@
                               <div class="row-area">
                     <div class="box">
                         <div id="row1">
-                            <div id="photo"><img src="resources/images/mypage/당근.png"></div>
+                            <div id="photo"><img src="/resources/images/mypage/당근.png"></div>
                             <div id="title-area">
                                 <div id="title">당근마켓</div>
                                 <div id="subTitle">Software Engineer, Frontend</div>
@@ -151,7 +151,7 @@
 
                     <div class="box">
                         <div id="row1">
-                            <div id="photo"><img src="resources/images/mypage/당근.png"></div>
+                            <div id="photo"><img src="/resources/images/mypage/당근.png"></div>
                             <div id="title-area">
                                 <div id="title">당근마켓</div>
                                 <div id="subTitle">Software Engineer, Frontend</div>

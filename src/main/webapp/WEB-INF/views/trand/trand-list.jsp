@@ -30,10 +30,10 @@
                 <p id="sub-title">한 달 동안 반응이 가장 좋았던 게시물을 만나보세요!</p>
 
                 <div id="tag-area">
-                    <div><i class="fa-solid fa-calendar"></i> 개발</div>
-                    <div><i class="fa-solid fa-arrow-pointer"></i> 디자인</div>
-                    <div><i class="fa-solid fa-tag"></i> 마케팅</div>
-                    <div><i class="fa-solid fa-building"></i> 비즈니스</div>
+                    <div class="tagArea"><i class="fa-solid fa-calendar"></i> 개발</div>
+                    <div class="tagArea"><i class="fa-solid fa-arrow-pointer"></i> 디자인</div>
+                    <div class="tagArea"><i class="fa-solid fa-tag"></i> 마케팅</div>
+                    <div class="tagArea"><i class="fa-solid fa-building"></i> 비즈니스</div>
                 </div>
 
             </div>
