@@ -1,23 +1,21 @@
 let slideCount = 0;
 
-setInterval(() => {
-    slide(5000);
-}, 5000);
+// setInterval(() => {
+//     slide(8000);
+// }, 8000);
 
-function slide(t, d) {
-    if (slideCount++ == 0) {
-        $('.slide:nth-of-type(3)').removeAttr('style');
-        $('.slide:nth-of-type(4)').css({'scale' : '1.5', 'margin' : '0 160px'});
-    } else {
-        $('.slide:nth-of-type(4)').removeAttr('style');
-        $('.slide:nth-of-type(5)').css({'scale' : '1.5', 'margin' : '0 160px'});
-    }
+$('.slide').click(function() {
+    const no = $('.slide').index($(this))
+    if(no == 3) slide(false, 3000);
+    else if(no == 1) slide(true, 3000);
+})
+
+function slide(d, t) {
+    if (d) $('#slide-container').prepend($('#slide-container > .slide:last-of-type'));
+    else $('#slide-container').append($('#slide-container > .slide:first-of-type'));
+    $('.slide').css('transition-duration', t + 'ms');
     document.querySelector('#slide-container').animate(
-        {transform: ['translateX(0)', 'translateX(' + (d ? '' : '-') + '620px)']},
-        {duration: 3000, fill: 'forwards', easing: 'ease'}
+        {transform: ['translateX(' + (d ? '-' : '') + '620px)', 'translateX(0)']},
+        {duration: t, easing: 'ease'}
     );
-    setTimeout(() => {
-        $('#slide-container').append($('#slide-container > .slide:first-of-type'));
-    }, t);
-    
 }

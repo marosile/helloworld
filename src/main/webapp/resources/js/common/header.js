@@ -1,5 +1,3 @@
-console.log('asdf');
-
 $('a[servlet-link=\'' + location.pathname.split('/')[1] + '\']').css({'border-top' : '3px solid transparent',
                                                               'border-bottom' : '3px solid rgb(0, 128, 255)',
                                                               'color' : 'var(--text-color-1)'});
