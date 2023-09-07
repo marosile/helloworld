@@ -8,5 +8,6 @@
         <a href="allNoticeList">전체 채용 공고</a>
         <a href="noticeList">내 매칭 공고</a>
         <a href="post">채용 공고 등록</a>
+        <a href="application">기업 담당자 신청</a>
     </div>
 </recruitNav>
