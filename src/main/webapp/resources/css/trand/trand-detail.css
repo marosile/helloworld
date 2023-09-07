@@ -13,10 +13,7 @@
     width:1000px;
     display:flex;
     justify-content: space-between;
-    align-items: center;
-    margin:30px;
-    /* 임시 */
-    height:1100px;
+    margin:45px;
 }
 
 /* 글 상세 div */
@@ -26,8 +23,7 @@
     background-color: var(--bg-color-2);
     transition-duration: 0.5s;
     width:65%;
-    height:1000px;
-    padding:15px 15px;
+    padding:20px 20px;
 }
 
 /* 헤더 : 이미지 + 이름 / 소개 */
@@ -244,6 +240,8 @@
     flex-direction: column;
     justify-content: center;
     align-items:center;
+    position: sticky;
+    top: 90px;
 }
 
 /* 트렌드 인기 게시글 TOP 10 */
@@ -336,12 +334,12 @@
 #replyWriteBtn{
     width:20%;
     display:flex;
-    border:4px solid black;
-    border-radius: 10px;
 }
 
 
 #replyWriteBtn > button{
     width:100%;
     height:100%;
+    border:1px solid black;
+    border-radius: 10px;
 }

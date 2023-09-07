@@ -30,7 +30,7 @@
                 <div id="postHeader">
                     
                     <div id="headerImage">
-                        <img src="resources/images/user.png" 
+                        <img src="/resources/images/user.png" 
                              id="detailWriterImage">
                     
                     </div>
@@ -111,7 +111,7 @@
                     <div class="replys">
 
                         <div class="inReplyfirstDiv">
-                            <div><img src="resources/images/user.png" class="replyImages"></div>
+                            <div><img src="/resources/images/user.png" class="replyImages"></div>
                             <div>작성자</div>
                             <div>(2023-09-04)</div>
                         </div>
@@ -131,7 +131,7 @@
                     <div class="replys">
 
                         <div class="inReplyfirstDiv">
-                            <div><img src="resources/images/user.png" class="replyImages"></div>
+                            <div><img src="/resources/images/user.png" class="replyImages"></div>
                             <div id="replyWriter">작성자</div>
                             <div id="replyCreateDate">(2023-09-04)</div>
                         </div>
