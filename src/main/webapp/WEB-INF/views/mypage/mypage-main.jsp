@@ -13,6 +13,8 @@
     <link rel="stylesheet" href="/resources/css/mypage/mypage-main.css">
     <link rel="stylesheet" href="/resources/css/mypage/mypage-nav.css">
 </head>
+
+<%-- @@@@@@@@@@@@@@@@@@@@@@ mypage-profile로 변경 폐기 가능@@@@@@@@@@@@@@@@@@@@@@ --%>
 <body>
     <jsp:include page="/WEB-INF/views/common/header.jsp"/>
 	<main>
