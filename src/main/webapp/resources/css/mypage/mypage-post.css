@@ -24,6 +24,7 @@ main{
     margin-top: 60px;
 
     overflow: auto;
+    box-shadow: rgba(0, 0, 0, 0.05) 3px 3px 5px 2px;
 }
 
 

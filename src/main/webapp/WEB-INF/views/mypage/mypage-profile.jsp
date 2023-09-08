@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="/resources/css/index.css">
     <link rel="stylesheet" href="/resources/css/mypage/mypage-profile.css">
     <link rel="stylesheet" href="/resources/css/mypage/mypage-nav.css">
+    <script src="https://kit.fontawesome.com/98acdabf0d.js" crossorigin="anonymous"></script>
 
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 </head>
@@ -33,10 +34,15 @@
                         <img src="/resources/images/user.png" id="profileImage">
                     </div>
                     
-                    <div class="imageBtn-area">
-                        <label for="imageInput">변경하기</label>
-                        <input type="file" name="profileImage" id="imageInput" accept="image/*">
+
+                    <div class="Btn-area">
+                        <div class="imageBtn-area">
+                            <label for="imageInput" class="fa-solid fa-pencil" style="margin-top: 7px;">&nbsp;변경</label>
+                            <input type="file" name="profileImage" id="imageInput" accept="image/*">
+                        </div>
+                        <button type="button" id="deleteBtn" class="fa-regular fa-trash-can">&nbsp;제거</button>
                     </div>
+
                 </div>
 
 
@@ -111,6 +117,8 @@
 
                 </div>
 
+
+
                 <!-- ==================== 닉네임 영역 =============================  -->
                 <div class="nick-area">
                     <label>닉네임</label>
@@ -120,6 +128,7 @@
 
                 <!-- 저장 버튼 -->
                 <button id="saveBtn">저장</button>
+
             </form>
             
 
