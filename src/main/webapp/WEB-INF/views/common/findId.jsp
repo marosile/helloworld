@@ -49,7 +49,12 @@
                     <button id="btn2" class="inputBtn" type="button">인증하기</button>
                 </div>
 
-                <div id="telAuthMessage"></div>
+                <div class="telMessage">
+                    <span id="authKeyMessage"></span>
+                    <span id="telAuthMessage"></span>
+                </div>
+
+
 
                 <button id="findIdBtn">아이디 찾기</button>
             </div>
