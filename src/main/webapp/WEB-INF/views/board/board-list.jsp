@@ -20,16 +20,6 @@
 
 </head>
 <body>
-    
-    <!-- 
-        C800FF (0, 128, 255)
-        0080FF (200, 100, 255) 
-    -->
-
-    <!-- 
-        background-color: #0080FF;
-        background-color: rgb(200, 100, 255); 
-    -->
 
     <jsp:include page="/WEB-INF/views/common/header.jsp"/>
 
@@ -269,12 +259,38 @@
                 <div class="posts"></div>
                 <div class="posts"></div>
                 <div class="posts"></div>
+                <div class="posts"></div>
+                <div class="posts"></div>
+                <div class="posts"></div>
+                <div class="posts"></div>
+                <div class="posts"></div>
+                <div class="posts"></div>
+                <div class="posts"></div>
+                <div class="posts"></div>
+                <div class="posts"></div>
+                <div class="posts"></div>
+                <div class="posts"></div>
+                <div class="posts"></div>
+                <div class="posts"></div>
+                <div class="posts"></div>
+                <div class="posts"></div>
+                <div class="posts"></div>
+                <div class="posts"></div>
+                <div class="posts"></div>
+                <div class="posts"></div>
+                <div class="posts"></div>
+                <div class="posts"></div>
+                <div class="posts"></div>
+                <div class="posts"></div>
+                <div class="posts"></div>
+                <div class="posts"></div>
+                <div class="posts"></div>
+                <div class="posts"></div>
             </div>
 
-        <!-- 임시 페이지네이션 (무한스크롤로 변경) -->
-        <div id="pagination">
-                << < 1 2 3 4 5 6 7 8 9 10 > >>
-        </div>
+        <div class="list"></div>
+<p id="sentinel"></p>
+
         </div>
     </main>
 

@@ -13,30 +13,14 @@
    <link rel="stylesheet" href="/resources/css/recruit/employment-result.css">
 
    <script src="https://kit.fontawesome.com/98acdabf0d.js" crossorigin="anonymous"></script>
+
+   <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
    
 </head>
 
 <body>
-    
-<%-- 나중에 for문
 
-    슬라이드를 동적으로 생성할 개수
-    const numberOfSlides = 2;
-
-    슬라이드를 감싸는 부모 요소
-    const sliderContainer = document.getElementById("divContainer");
-
-    반복문을 사용하여 슬라이드 생성 및 추가
-    for (let i = 1; i <= numberOfSlides; i++) {
-    새로운 슬라이드 요소 생성
-    const slide = document.createElement("div");
-    slide.className = "slide";
-    slide.textContent = `페이지 ${i} 내용`;
-
-    슬라이드를 슬라이더 컨테이너에 추가
-    sliderContainer.appendChild(slide); 
-
-} --%>
 
     <jsp:include page="/WEB-INF/views/common/header.jsp"/>
 
@@ -44,12 +28,13 @@
 
     <main id="main">
     
-        <div id ="sliderContainer">
+        <div id ="DivContainer">
 
-         <div id="slider">
-
-            <div class="slide">
-            <!-- 공고 번호 -->
+            <div class="swiper-container">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <!-- 슬라이드 내용 1 -->
+                    <!-- 공고 번호 -->
                 <div id="recruitNo">
                     <span>1/6</span>
                 </div>
@@ -188,10 +173,11 @@
 
                     </div>
 
-            </div>
+                </div>
 
-            <div class="slide">
-                <div id="recruitNo">
+
+                <div class="swiper-slide">
+                    <div id="recruitNo">
                     2/6
                 </div>
 
@@ -333,21 +319,26 @@
                             - AWS 기반의 서버리스 인프라 구성
                             - 클라썸 서비스 품질 향상을 위한 다양한 최적화 작업 및 리서치
                         </p>
-
-                    </div>
-            
-            </div>
-
-
-
-            <div class="slide"><h1>3</h1></div>
-            <div class="slide"><h1>4</h1></div>
-            <div class="slide"><h1>5</h1></div>
-            <div class="slide"><h1>6</h1></div>
+                </div>
 
 
             </div>
 
+                            <!-- 나머지 슬라이드들 -->
+          <%--            <div class="swiper-slide">
+                    <!-- 슬라이드 내용 2 -->
+                </div>
+                     <div class="swiper-slide">
+                    <!-- 슬라이드 내용 2 -->
+                </div>
+                     <div class="swiper-slide">
+                    <!-- 슬라이드 내용 2 -->
+                </div>
+                     <div class="swiper-slide">
+                    <!-- 슬라이드 내용 2 -->
+                </div>
+             --%>
+        </div>
         </div>
     
     </main>

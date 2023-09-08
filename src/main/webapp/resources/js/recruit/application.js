@@ -5,7 +5,7 @@ sub.addEventListener("click", () => {
 
         if(confirm("기업 담당자 지원서를 등록하시겠습니까?")){
             
-            alert("기업 담당자 지원 신청이 완료되었습니다.                                     승인 여부는 1~2일 내 지원하신 휴대폰 번호로 알려드립니다.");
+            alert("기업 담당자 지원 신청이 완료되었습니다.                                                승인 여부는 1~2일 내 지원하신 휴대폰 번호로 알려드립니다.");
     
             location.href = "allNoticeList";
 

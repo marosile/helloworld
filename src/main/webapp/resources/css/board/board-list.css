@@ -264,10 +264,17 @@
     padding: 15px 15px;
 }
 
+.posts:hover{
+    border:2px solid lightgray;
+    border-radius: 10px;
+    background-color: rgb(240, 240, 240);
+}
+
 /* 이미지 + 작성자 + 직군 + 몇분전  div */
 .postFirstpart{
     display:flex;
     height:46px;
+    cursor:pointer;
 }
 
 /* 작성자 이미지 크기 */
@@ -304,12 +311,14 @@
     margin-top:25px;
     font-size:20px;
     font-weight:bolder;
+    cursor:pointer;
 }
 
 /* 내용 요약 */
 .postThirdPart{
     margin-top:25px;
     font-size:16px;
+    cursor:pointer;
 }
 
 .swiper-button-prev{
@@ -357,3 +366,5 @@
 #postFirstPart, .post:hover{
     cursor: pointer;
 }
+
+
