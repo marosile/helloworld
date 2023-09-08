@@ -5,7 +5,7 @@
 <section class="container">
 
     <ul class="nav">
-        <li> <a href="/mypage/main">프로필</a> </li>
+        <li> <a href="/mypage/profile">프로필</a> </li>
 
         <li> <a href="/mypage/account">계정 관리</a> </li>
 

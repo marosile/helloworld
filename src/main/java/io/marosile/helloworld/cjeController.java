@@ -14,9 +14,9 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 public class cjeController {
 	
 	// 마이페이지로 이동(프로필화면)
-	@GetMapping("/main")
+	@GetMapping("/profile")
 	public String main() {
-		return "mypage/mypage-main";
+		return "mypage/mypage-profile";
 	}
 	
 	// 계정관리로 이동
