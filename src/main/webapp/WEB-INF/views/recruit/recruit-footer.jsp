@@ -5,18 +5,28 @@
 
     <footer id="recruitFooter">
         <div id="footerDiv">
-            <div class="prevNext" id="prev">
-               ← 이전
+
+            <div>
+                <div class="swiper-button-prev"></div>
+                <div>이전</div>
             </div>
+
             <div id="bookMark">
                 <div><i class="fa-regular fa-bookmark fa-2xl"></i></div>
                 <div id="bookMarkSpan">북마크</div>
             </div>
+
             <div id="apply">
                 <button id="btn">지원하기</button>
             </div>
-            <div class="prevNext" id="next">다음 →</div>
+         
+            <div>
+                <div>다음</div>
+                <div class="swiper-button-next"></div>
+            </div>
+            
         </div>
+
 
     </footer>
 
