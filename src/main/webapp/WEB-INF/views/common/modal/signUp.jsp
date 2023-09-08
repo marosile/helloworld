@@ -19,7 +19,7 @@
 
     <div class="mainBody">
 
-        <form action="" class="mainFrm">
+        <form action="#" class="mainFrm" id="mainFrm" name="mainFrm">
 
             <h1>회원가입</h1>
 
@@ -64,7 +64,7 @@
                         <input type="text" name="inputTel1" id="inputTel1" class="inputClass" autocomplete="off">
                         <button id="btn1" type="button">인증번호 받기</button>
                     </div>
-                    <span id="telMessage">정규표현식 확인 / ajax 중복확인</span>
+                    <span id="telMessage">전화번호를 입력해주세요(- 제외)</span>
                 </div>
 
                 <div class="inputAll">
@@ -73,8 +73,8 @@
                         <input type="text" name="inputTel2" id="inputTel2" class="inputClass" autocomplete="off">
                         <button id="btn2" type="button">인증하기</button>
                     </div>
-                    <span>04:59</span>
-                    <span id="telAuthMessage">-인증확인-</span>
+                    <span id="authKeyMessage">04:59</span>
+                    <span id="telAuthMessage"></span>
                 </div>
 
                 <div class="inputAll">
@@ -140,12 +140,11 @@
         </form>
         
     </div>
-    
+
     <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
     
 
     <script src="/resources/js/common/general.js"></script>
-    <script src="/resources/js/common/phoneAuth.js"></script>
     <script src="/resources/js/common/modal/signUp.js"></script>
 </body>
 </html>

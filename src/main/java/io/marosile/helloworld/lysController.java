@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.bind.support.SessionStatus;
 
 import io.marosile.helloworld.common.utility.Util;
 import io.marosile.helloworld.service.lysService;
@@ -81,13 +82,15 @@ public class lysController {
 	@PostMapping("phoneAuthCheck")
 	@ResponseBody
 	public int phoneAuthCheck(@RequestBody Map<String, Object> inputTel2,
-					@SessionAttribute("rand") String rand) {
+					@SessionAttribute("rand") String rand
+					, SessionStatus session) {
 		
 		String randCheck = inputTel2.get("inputTel2").toString();
 		
 		System.out.println(randCheck);
 		
 		if(rand.equals(randCheck)) {
+			session.setComplete();
 			return 1;
 		}else {
 			return 0;

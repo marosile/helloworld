@@ -49,6 +49,8 @@
                     <button id="btn2" class="inputBtn" type="button">인증하기</button>
                 </div>
 
+                <div id="telAuthMessage"></div>
+
                 <button id="findIdBtn">아이디 찾기</button>
             </div>
 
@@ -78,5 +80,6 @@
     
     <script src="/resources/js/common/general.js"></script>
     <script src="/resources/js/common/findId.js"></script>
+    <script src="/resources/js/common/phoneAuth.js"></script>
 </body>
 </html>

@@ -28,17 +28,30 @@
 */
 const checkSignUp = {
 
-    "inputId" : false,
-    "inputEmail" : false,
-    "inputTel" : false,
-    "inputTel2" : false,
-    "inputNickname" : false,
-    "inputPw" : false,
-    "inputConfirmPw" : false,
-    "essentialCheck" : false
+    // "inputId" : false,
+    // "inputEmail" : false,
+    // "inputTel1" : false,
+    // "inputTel2" : false, 
+    // "inputNickname" : false,
+    // "inputPw" : false,
+    // "inputConfirmPw" : false,
+    // "essentialCheck" : false,
+    // "authKey" : false
+
+    "inputId" : true,
+    "inputEmail" : true,
+    "inputTel1" : true,
+    "inputTel2" : true, 
+    "inputNickname" : true,
+    "inputPw" : true,
+    "inputConfirmPw" : true,
+    "essentialCheck" : false,
+    "authKey" : true
+    // 실험용
+
 };
 
-// 아이디 유효성 검사
+///////////////////// 아이디 유효성 검사 /////////////////////
 const inputId = document.getElementById("inputId");
 const idMessage = document.getElementById("idMessage");
 
@@ -84,7 +97,7 @@ inputId.addEventListener("input", () => {
 
 
 
-// 이메일 유효성 검사
+///////////////////// 이메일 유효성 검사 /////////////////////
 const inputEmail = document.getElementById("inputEmail");
 const emailMessage = document.getElementById("emailMessage");
 
@@ -135,14 +148,203 @@ inputEmail.addEventListener("input", () => {
 
 
 
-// 전화번호 유효성 검사
+///////////////////// 전화번호 유효성 검사 /////////////////////
+const inputTel1 = document.getElementById("inputTel1");
+const telMessage = document.getElementById("telMessage");
 
-// 전화번호인증 유효성 검사(숫자 6자리로 제한)
+// 전화번호가 입력 되었을 때
+inputTel1.addEventListener("input", () => {
+
+    // 전화번호가 입력이 되지 않은 경우
+    if(inputTel1.value.trim().length == 0){
+        inputTel1.value = "";
+        telMessage.innerText = "전화번호를 입력해주세요(- 제외)";
+        telMessage.classList.remove("confirm", "error");
+        checkSignUp.inputTel1 = false;
+        return;
+    }
+
+
+    // 정규표현식으로 유효성 검사
+    const regExp = /^0(1[01679]|2|[3-6][1-5]|70)\d{3,4}\d{4}$/;
+
+    if(regExp.test(inputTel1.value)){
+
+        /* ajax로 중복되는 전화번호가 있는지 확인 필요! */
+
+        telMessage.innerText = "사용 가능한 전화번호 입니다";
+        telMessage.classList.add("confirm");
+        telMessage.classList.remove("error");
+
+        checkSignUp.inputTel1 = true; // 유효 O
+
+    }else{ // 무효
+        telMessage.innerText = "전화번호 형식이 일치하지 않습니다";
+        telMessage.classList.add("error");
+        telMessage.classList.remove("confirm");
+
+        checkSignUp.inputTel1 = false;
+
+    }
+
+});
+
+///////////////////// 전화번호인증 유효성 검사 /////////////////////
+const btn1 = document.getElementById("btn1");
+const btn2 = document.getElementById("btn2");
+
+const telAuthMessage = document.getElementById("telAuthMessage");
+
+/* 전화번호 인증 타이머 */
+const authKeyMessage = document.getElementById("authKeyMessage");
+let authTimer;
+let authMin = 4;
+let authSec = 59;
+
+    /* 전화번호 인증 */
+    btn1.addEventListener("click", () => {
+        authMin = 4;
+        authSec = 59;
+        
+        if(checkSignUp.inputTel1){
+        
+            const data = {
+                "inputTel1": inputTel1.value
+            }
+            
+            fetch("/phoneAuth", {
+                method: "POST",
+                headers: { "content-Type": "application/json" },
+                body: JSON.stringify(data)
+            })
+            
+            .then(resp => resp.text())
+            .then(result => {
+                if (result != null) {
+                    alert("인증번호가 발송되었습니다.");
+                    return;
+                } else {
+                    alert("인증번호 발송 실패")
+                    return;
+                }
+                
+            })
+            .catch(err => {
+                console.log("인증번호 중 에러 발생");
+                console.log(err);
+            });
 
 
 
+        
+            authKeyMessage.innerText = "05:00";
+            authKeyMessage.classList.remove("confirm");
 
-// 닉네임 유효성 검사
+
+            authTimer = window.setInterval(()=>{
+
+
+                authKeyMessage.innerText = "0" + authMin + ":" + (authSec<10 ? "0" + authSec : authSec);
+            
+                // 남은 시간이 0분 0초인 경우
+                if(authMin == 0 && authSec == 0){
+                    checkSignUp.authKey = false;
+                    clearInterval(authTimer);
+                    return;
+                }
+
+
+                // 0초인 경우
+                if(authSec == 0){
+                    authSec = 60;
+                    authMin--;
+                }
+
+                authSec--; // 1초 감소
+
+
+            }, 1000)
+
+    }   else{
+            alert("중복되지 않은 전화번호를 작성해주세요.");
+            inputTel1.focus();
+    }
+});
+
+
+// 전화번호 인증 input창 입력시 비어있을 때
+inputTel2.addEventListener("input", () => {
+    if(inputTel2.value.trim().length == 0){
+        inputTel2.value = "";
+        
+        telAuthMessage.innerText = "";
+        telAuthMessage.classList.remove("confirm", "error");
+
+        checkSignUp.inputTel2 = false;
+        return;
+    }
+})
+
+/* 전화번호 인증 확인 */
+btn2.addEventListener("click", () => {
+
+    if(authMin > 0 || authSec > 0){ // 시간 제한이 지나지 않은 경우에만 인증번호 검사 진행
+
+        const data = {
+            "inputTel2": inputTel2.value
+        }
+
+        fetch("/phoneAuthCheck", {
+            method: "POST",
+            headers: { "content-Type": "application/json" },
+            body: JSON.stringify(data)
+        })
+
+        .then(resp => resp.text())
+
+        .then(result => {
+            if (result > 0) {
+
+                /* 원래는 체크 메시지를 회원가입에서만 쓰려고 했으나
+                다른곳에도 사용하게 되어 if(telAuthMessage != null) 조건문
+                지워버림
+                */
+
+                telAuthMessage.innerText ="인증되었습니다.";
+                telAuthMessage.classList.add("confirm");
+                telAuthMessage.classList.remove("error");
+
+                checkSignUp.inputTel2 = true;
+                checkSignUp.authKey = true;
+
+
+
+            } else { //인증번호가 일치하지 않을 때
+
+
+                telAuthMessage.innerText ="인증번호가 일치하지 않습니다";
+                telAuthMessage.classList.add("error");
+                telAuthMessage.classList.remove("confirm");
+
+                checkSignUp.inputTel2 = false;
+                checkSignUp.authKey = false;
+
+            }
+
+        })
+
+        .catch(err => console.log(err))
+
+    }else{
+        alert("인증 시간이 만료되었습니다. 다시 시도해주세요.")
+    }
+
+
+});
+
+
+
+///////////////////// 닉네임 유효성 검사 /////////////////////
 // 닉네임은 중복검사 따로 안하기로 했음 (중복 가능)
 const inputNickname = document.getElementById("inputNickname");
 const nickMessage = document.getElementById("nickMessage");
@@ -188,7 +390,7 @@ inputNickname.addEventListener("input", () => {
 
 
 
-// 비밀번호/비밀번호 확인 유효성 검사
+///////////////////// 비밀번호/비밀번호 확인 유효성 검사 /////////////////////
 const inputPw = document.getElementById("inputPw");
 const inputConfirmPw = document.getElementById("inputConfirmPw");
 const pwMessage = document.getElementById("pwMessage");
@@ -265,7 +467,7 @@ inputPw.addEventListener("input", () => {
 })
 
 
-// 비밀번호 확인 유효성 검사
+///////////////////// 비밀번호 확인 입력 시 유효성 검사 /////////////////////
 inputConfirmPw.addEventListener("input", ()=> {
 
     // 비밀번호가 유효하게 작성된 경우는 같을때만 true를 반환하고
@@ -326,9 +528,7 @@ inputConfirmPw.addEventListener("input", ()=> {
 
 
 
-// 필수동의 모두 체크했는지 확인
-
-
+///////////////////// 필수 동의 하기! /////////////////////
 // jquery 방식이 더 쉽다
 $(document).ready(function(){
 
@@ -336,8 +536,10 @@ $(document).ready(function(){
 
         if($("#checkAll").is(":checked")){
             $("[name='checkAll']").prop("checked", true);
+            checkSignUp.essentialCheck = true;
         }else{
             $("[name='checkAll']").prop("checked", false);
+            checkSignUp.essentialCheck = false;
         }
 
     });
@@ -352,10 +554,86 @@ $(document).ready(function(){
 
         if(total == checked){
             $("#checkAll").prop("checked", true);
+
         }else{
             $("#checkAll").prop("checked", false);
+
         }
         
     });
 
-})
+    $(".essentialCheck").click(function(){
+
+        var total1 = $(".essentialCheck").length;
+        var checked1 = $(".essentialCheck:checked").length;
+
+        if(total1 == checked1){
+
+            checkSignUp.essentialCheck = true;
+        }else{
+
+            checkSignUp.essentialCheck = false;
+        }
+        
+    });
+
+});
+
+
+
+
+
+
+
+
+///////////////////// 회원 가입 form태그가 제출 되었을 때 /////////////////////
+document.getElementById("mainFrm").addEventListener("submit", e => {
+
+    // checkSignUp 모든 value가 true인지 검사
+
+    for( let key in checkSignUp ){
+
+        if(!checkSignUp[key]){ // 각 key에 대한 value(true/false)를 얻어와
+                // false인 경우 == 유효하지 않다!
+
+            switch(key){
+                case "inputId" : alert("아이디가 유효하지 않습니다."); break;
+
+                case "inputEmail" : alert("이메일이 유효하지 않습니다."); break;
+
+                case "inputTel1" : alert("전화번호가 확인되지 않습니다."); break;
+
+                case "inputTel2" : alert("전화번호 인증을 해주세요"); break;
+
+                case "inputNickname" : alert("닉네임이 유효하지 않습니다."); break;
+
+                case "inputPw" : alert("비밀번호가 유효하지 않습니다."); break;
+
+                case "inputConfirmPw" : alert("비밀번호 확인이 유효하지 않습니다."); break;
+
+                case "essentialCheck" : alert("필수 항목에 동의해주세요."); break;
+
+
+            }
+
+            // 유효하지 않은 input 태그로 focus 이동
+            // - key를 input의 id와 똑같이 설정했음
+            // essentialCheck만 class기 때문에 제외시켜줌
+            if(key != "essentialCheck"){
+                document.getElementById(key).focus();
+            }
+
+            // form 태그 기본 이벤트 제거
+            e.preventDefault();
+            return; // 함수 종료
+
+        }
+
+    }
+
+});
+
+
+
+
+

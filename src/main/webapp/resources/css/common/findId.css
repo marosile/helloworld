@@ -60,6 +60,7 @@
     cursor: pointer;
     padding: 15px 0;
     margin-bottom: 30px;
+    margin-top: 10px;
 }
 
 /* 휴대폰 / 이메일 인증 고르는 radio */
@@ -98,4 +99,13 @@
 
 .EmailCertification{
     display: none;
+}
+
+/* 휴대폰 인증 메시지 */
+#telAuthMessage{
+    text-align: left;
+    margin: auto;
+    width: 450px;
+    font-size: 14px;
+    padding-left: 10px;
 }
