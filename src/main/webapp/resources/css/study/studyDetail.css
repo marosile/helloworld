@@ -8,7 +8,6 @@
 /* 스터디 전체 div */
 .P-header {
     width: 1000px;
-    height: 8000px;
     margin: auto;
     border: 1px solid var(--divider);
     border-radius: 10px;
@@ -18,7 +17,6 @@
 }
 
 .P-main {
-    display: flex;
     margin: 30px auto;
     position: relative;
 
@@ -66,7 +64,7 @@
     color: royalblue;
 }
 
-/*  */
+/* 지도 */
 .P-study-detail-location-area {
     display: flex;
     justify-content: space-between;
@@ -76,6 +74,7 @@
 .P-like-btn {
     margin-right: 15px;
 }
+
 
 .P-study-datail-location {
     color: #494949;
@@ -92,9 +91,6 @@
 }
 
 
-.P-study-detail-container {
-    display: flex;
-}
 
 /* 스팬 태그의 스타일 */
 .P-study-detail-tag span {
@@ -146,8 +142,6 @@
     padding: 20px;
     background-color: #a09f9f28;
     z-index: 1;
-   
-
 
 }
 
@@ -182,6 +176,3 @@
     border: 1px solid rgb(0, 128, 255);
 }
 
-.P-study-datail-footer-area{
-    display: flex;
-}
