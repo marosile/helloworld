@@ -73,9 +73,17 @@
     border:0.5px solid black;
     border-radius: 10px;
     font-weight: bold;
+    cursor:pointer
 }
 
 #btn:hover{
     color: rgb(0, 128, 255);
     border:2px solid rgb(0, 128, 255);
 }
+
+#prev, #next{
+    cursor: pointer;
+    font-weight: bold;
+    color:black;
+}
+

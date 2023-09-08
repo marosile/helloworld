@@ -153,7 +153,7 @@
 
                         <!-- 작성 부분 -->
                         <div id="replyWriteContent">
-                            <textarea placeholder="댓글을 작성해주세요."></textarea>
+                            <input type="text" placeholder="댓글을 작성해주세요.">
                         </div>
 
                         <!-- 버튼 부분 -->
