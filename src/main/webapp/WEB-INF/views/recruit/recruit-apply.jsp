@@ -16,6 +16,7 @@
 
 <body>
     <jsp:include page="/WEB-INF/views/common/header.jsp"/>
+      
        <main id="body-area">
         <div id="main-area">
             <p id="title3"><i class="fa-regular fa-file-lines"></i> 지원서 작성하기</p>
