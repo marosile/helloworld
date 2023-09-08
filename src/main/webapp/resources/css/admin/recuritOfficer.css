@@ -16,6 +16,8 @@
 .adminMemberAll > h1{
     padding: 20px 0 20px 30px;
     border-bottom: 1px solid #ccc;
+
+    cursor: pointer;
 }
 
 /* 관리자 회원관리 밑 div */
@@ -201,6 +203,9 @@
 
 .box:hover{
     cursor: pointer;
+    
+    box-shadow: rgba(190, 189, 189, 0.432) 3px 10px 3px 3px;
+
 
     border: 1px solid #9b9b9b;
     border-radius: 10px;

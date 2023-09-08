@@ -28,7 +28,9 @@
             <div class="answer">✔️ 최소 5000만</div>
             <div class="answer">✔️ 최소 7000만+</div>
 
-            <div id="button3">NEXT</div>
+            <div class="btn-container">
+            <a href="#" class="btn-3d blue" id="button3">NEXT</a>
+            </div>
 
             
         </div>

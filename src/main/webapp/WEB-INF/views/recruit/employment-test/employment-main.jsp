@@ -43,8 +43,10 @@
             <!-- button 담은 div -->
             <div id="buttonDiv">
             
-                <button id="btn">시작하기</button>
-
+                <%-- <button id="btn">시작하기</button> --%>
+                <button class="custom-btn btn-4 btn-primary btn-jittery" id="btn">
+                시작하기
+                </button>
             </div>
 
         </div>

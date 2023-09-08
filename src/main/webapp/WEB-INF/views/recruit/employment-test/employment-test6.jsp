@@ -31,7 +31,9 @@
             <div class="answer">✔️ React</div>
             <div class="answer">✔️ GitHub</div>
 
-            <div id="button7">DONE 🔎</div>
+            <div class="btn-container">
+            <a href="#" class="btn-3d blue" id="button7">DONE 🎉</a>
+            </div>
 
         </div>
     </main> 

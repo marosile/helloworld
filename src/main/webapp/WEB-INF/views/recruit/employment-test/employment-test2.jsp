@@ -36,7 +36,11 @@
                 <option value="70">7년+</option>
             </datalist>
 
-            <button id="button4">NEXT</button>
+
+
+            <div class="btn-container">
+            <a href="#" class="btn-3d blue" id="button4">NEXT</a>
+            </div>
 
         </div>
     </main> 

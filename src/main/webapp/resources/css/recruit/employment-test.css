@@ -104,185 +104,6 @@ datalist{
     width:500px;
 }
 
-#button{
-    font-size: 20px;
-    font-weight: bold;
-
-    border: 1px solid rgba(74, 106, 165, 0.648);
-    border-radius: 10px;
-    background-color: rgb(74, 106, 165, 0.648);
-    color: white;
-
-    width: 180px;
-    height: 40px;
-
-    text-align: center;
-    line-height: 40px;
-
-
-    margin-left: 200px;
-    margin-top: 250px;
-}
-
-#button:hover{
-    cursor: pointer;
-    background-color: rgba(40, 88, 177, 0.743);
-}
-
-#button2{
-    font-size: 20px;
-    font-weight: bold;
-
-    border: 1px solid rgba(74, 106, 165, 0.648);
-    border-radius: 10px;
-    background-color: rgb(74, 106, 165, 0.648);
-    color: white;
-
-    width: 180px;
-    height: 40px;
-
-    text-align: center;
-    line-height: 40px;
-
-
-    margin-left: 200px;
-    margin-top: 160px;
-}
-
-#button2:hover{
-    cursor: pointer;
-    background-color: rgba(40, 88, 177, 0.743);
-}
-
-#button3{
-    font-size: 20px;
-    font-weight: bold;
-
-    border: 1px solid rgba(74, 106, 165, 0.648);
-    border-radius: 10px;
-    background-color: rgb(74, 106, 165, 0.648);
-    color: white;
-
-    width: 180px;
-    height: 40px;
-
-    text-align: center;
-    line-height: 40px;
-
-
-    margin-left: 200px;
-    margin-top: 50px;
-}
-
-#button3:hover{
-    cursor: pointer;
-    background-color: rgba(40, 88, 177, 0.743);
-}
-
-#button4{
-    font-size: 20px;
-    font-weight: bold;
-
-    border: 1px solid rgba(74, 106, 165, 0.648);
-    border-radius: 10px;
-    background-color: rgb(74, 106, 165, 0.648);
-    color: white;
-
-    width: 180px;
-    height: 40px;
-
-    text-align: center;
-    line-height: 40px;
-
-
-    margin-left: 200px;
-    margin-top: 250px;
-}
-
-#button4:hover{
-    cursor: pointer;
-    background-color: rgba(40, 88, 177, 0.743);
-}
-
-#button5{
-    font-size: 20px;
-    font-weight: bold;
-
-    border: 1px solid rgba(74, 106, 165, 0.648);
-    border-radius: 10px;
-    background-color: rgb(74, 106, 165, 0.648);
-    color: white;
-
-    width: 180px;
-    height: 40px;
-
-    text-align: center;
-    line-height: 40px;
-
-
-    margin-left: 200px;
-    margin-top: 160px;
-}
-
-#button5:hover{
-    cursor: pointer;
-    background-color: rgba(40, 88, 177, 0.743);
-}
-
-
-#button6{
-    font-size: 20px;
-    font-weight: bold;
-
-    border: 1px solid rgba(74, 106, 165, 0.648);
-    border-radius: 10px;
-    background-color: rgb(74, 106, 165, 0.648);
-    color: white;
-
-    width: 180px;
-    height: 40px;
-
-    text-align: center;
-    line-height: 40px;
-
-
-    margin-left: 200px;
-    margin-top: 50px;
-}
-
-#button6:hover{
-    cursor: pointer;
-    background-color: rgba(40, 88, 177, 0.743);
-}
-
-
-
-#button7{
-    font-size: 20px;
-    font-weight: bold;
-
-    border: 1px solid rgba(74, 106, 165, 0.648);
-    border-radius: 10px;
-    background-color: rgb(74, 106, 165, 0.648);
-    color: white;
-
-    width: 180px;
-    height: 40px;
-
-    text-align: center;
-    line-height: 40px;
-
-
-    margin-left: 200px;
-    margin-top: 50px;
-}
-
-#button7:hover{
-    cursor: pointer;
-    background-color: rgba(40, 88, 177, 0.743);
-}
-
-
 #main-area2{
     border: 1px solid black;
     
@@ -295,5 +116,61 @@ datalist{
 }
 
 
+ /* 3d 버튼  */
+ .btn-container, .container {
+    background-color: white;
+    border-radius: 4px;
+    text-align: center;
 
+  }
 
+  .btn-3d {
+    position: relative;
+    display: inline-block;
+    font-size: 20px;
+    padding: 10px;
+    color: white;
+
+    line-height: 15px;
+    margin: 20px 10px 10px;
+    border-radius: 6px;
+    transition: top .01s linear;
+    text-shadow: 0 1px 0 rgba(0,0,0,0.15);
+
+    width: 150px;
+    height: 40px;
+
+    margin-top: 200px;
+}
+  
+  .btn-3d.blue:hover   {background-color: #699DD1;}
+
+  .btn-3d:active {
+    top: 9px;
+  }
+
+  .btn-3d.blue {
+    background-color: #6DA2D9;
+    box-shadow: 0 0 0 1px #6698cb inset,
+          0 0 0 2px rgba(255,255,255,0.15) inset,
+          0 8px 0 0 rgba(110, 164, 219, .7),
+          0 8px 0 1px rgba(0,0,0,.4),
+          0 8px 8px 1px rgba(0,0,0,0.5);
+  }
+  .btn-3d.blue:active {
+    box-shadow: 0 0 0 1px #6191C2 inset,
+          0 0 0 2px rgba(255,255,255,0.15) inset,
+          0 0 0 1px rgba(0,0,0,0.4);
+  }
+  
+  #button3{
+    margin-top: 15px;
+  }
+
+  #button6{
+    margin-top: 15px;
+  }
+
+  #button7{
+    margin-top: 15px;
+  }
