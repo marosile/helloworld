@@ -6,10 +6,6 @@
     box-sizing: border-box;
 }
 
-::-webkit-scrollbar {
-    display: none;
-}
-
 html {
     --bg-color-1: rgb(245, 245, 245);
     --bg-color-2: rgb(255, 255, 255);

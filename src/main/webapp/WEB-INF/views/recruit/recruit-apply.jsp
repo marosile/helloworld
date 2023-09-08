@@ -42,11 +42,17 @@
             <p id="document">제출 서류</p>
 
             <p class="doc">이력서<span class="required">필수</span></p>
-            <div class="upload"><i class="fa-solid fa-folder-open"></i> 이곳에 파일을 올려주세요.</div>
+            <div class="upload">
+                <label for="apply"><i class="fa-solid fa-folder-open"></i> 이곳에 파일을 올려주세요. </label>
+                <input type="file" name="applyInput" id="apply" accept="application/pdf">
+            </div>
             <p class="pdf">* PDF 형식으로 올려주세요</p>
 
             <p class="doc">자기소개서</p>
-            <div class="upload"><i class="fa-solid fa-folder-open"></i> 이곳에 파일을 올려주세요.</div>
+            <div class="upload">
+                <label for="apply2"><i class="fa-solid fa-folder-open"></i> 이곳에 파일을 올려주세요.</label>
+                <input type="file" name="applyInput" id="apply2" accept="application/pdf">
+            </div>
             <p class="pdf">* PDF 형식으로 올려주세요</p>
 
             <p id="checkPoint">지원을 위해 다음 사항을 확인해 주세요.</p>

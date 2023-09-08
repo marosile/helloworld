@@ -8,13 +8,26 @@ for (let i = 0; i < textArea.length; i++) {
   });
 }
 
+// 왼쪽 태그 클릭 시 색상 유지
+var div2 = document.getElementsByClassName("div2");
 
-// 해쉬태그 클릭 시 
-const tagArea = document.getElementsByClassName("tagArea")
-for(let i=0; i < tagArea.length; i++) {
-  tagArea[i].addEventListener("click", () => {
+function handleClick(event) {
 
-    tagArea[i].classList.toggle("tagArea");
+  if (event.target.classList[1] === "clicked") {
+    event.target.classList.remove("clicked");
+  } else {
+    for (var i = 0; i < div2.length; i++) {
+      div2[i].classList.remove("clicked");
+    }
 
-  })
+    event.target.classList.add("clicked");
+  }
 }
+
+function init() {
+  for (var i = 0; i < div2.length; i++) {
+    div2[i].addEventListener("click", handleClick);
+  }
+}
+
+init();

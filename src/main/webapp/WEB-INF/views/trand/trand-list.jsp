@@ -25,20 +25,38 @@
         <div id="main-area">
             <div id="left-area">
             
-                <p id="main-title">HELLO, WORLD! 트렌드 🤍</p>
+                <%-- <p id="main-title">HELLO, WORLD! 트렌드 🤍</p> --%>
+
+                <h1>
+                    <span style="color:rgb(222, 143, 241)">H</span>
+                    <span style="color:rgb(181, 102, 201)">E</span>
+                    <span style="color:rgb(181, 102, 201)">L</span>
+                    <span style="color:rgb(128, 102, 201)">L</span>
+                    <span style="color:red">O</span>
+                    <span style="color:red">,</span>
+                    <span style="color:red">w</span>
+                    <span style="color:red">O</span>
+                    <span style="color:red">R</span>
+                    <span style="color:red">L</span>
+                    <span style="color:rgb(176, 148, 212)">D</span>
+                    <span style="color:rgb(148, 148, 212)">!</span>
+                </h1>
 
                 <p id="sub-title">한 달 동안 반응이 가장 좋았던 게시물을 만나보세요!</p>
 
-                <div id="tag-area">
-                    <div class="tagArea"><i class="fa-solid fa-calendar"></i> 개발</div>
-                    <div class="tagArea"><i class="fa-solid fa-arrow-pointer"></i> 디자인</div>
-                    <div class="tagArea"><i class="fa-solid fa-tag"></i> 마케팅</div>
-                    <div class="tagArea"><i class="fa-solid fa-building"></i> 비즈니스</div>
+
+                <div class="div1" id="tag-area">
+                    <div class="div2"><i class="fa-solid fa-calendar"></i> 개발</div>
+                    <div class="div2"><i class="fa-solid fa-arrow-pointer"></i> 디자인</div>
+                    <div class="div2"><i class="fa-solid fa-tag"></i> 마케팅</div>
+                    <div class="div2"><i class="fa-solid fa-building"></i> 비즈니스</div>
                 </div>
 
             </div>
             <div id="right-area">
+
                 <div class="row-area">
+
                     <div class="row1-1">
                         <div class="number" style='color:#2188ff'>1</div>
                         <div class="profile"><img src="/resources/images/trand/userSample.jpg" id="userProfile"></div>
@@ -47,6 +65,7 @@
                             <div class="nickname">백엔드 개발자</div>
                         </div>
                     </div>
+
                     <div class="row1-2">
                         <div class="text-area">
                             <div class="title">🕊️ 시니어 개발자가 되기 위한 백엔드 프로젝트 아이디어 | </div>
@@ -54,11 +73,14 @@
                         </div>
                         <div class="picture"><img src="/resources/images/trand/sample.jpg" id="pic"></div>
                     </div>
+
                     <div class="row1-3">
                         <div class="heart"><i class="fa-solid fa-heart"></i>  65</div>
                         <div class="bookmark"><i class="fa-regular fa-bookmark"></i>  30</div>
                     </div>
+
                 </div>
+
 
                 <div class="row-area">
                     <div class="row1-1">
@@ -104,7 +126,6 @@
                         <div class="bookmark"><i class="fa-regular fa-bookmark"></i>  30</div>
                     </div>
                 </div>
-
 
                 <div class="row-area">
                     <div class="row1-1">
@@ -196,7 +217,7 @@
                     </div>
                 </div>
 
-                         <div class="row-area">
+                <div class="row-area">
                     <div class="row1-1">
                         <div class="number">8</div>
                         <div class="profile"><img src="/resources/images/trand/userSample.jpg" id="userProfile"></div>
@@ -218,7 +239,7 @@
                     </div>
                 </div>
 
-                         <div class="row-area">
+                <div class="row-area">
                     <div class="row1-1">
                         <div class="number">9</div>
                         <div class="profile"><img src="/resources/images/trand/userSample.jpg" id="userProfile"></div>
