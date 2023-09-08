@@ -95,7 +95,7 @@
                         <tr>
                             <td>2016.07.20</td>
                             <td>정보처리기사</td>
-                            <td>큐넷</td>
+                            <td>한국산업인력공단</td>
                             <td></td>
                         </tr>
 
@@ -173,8 +173,8 @@
 
                     <!-- 강의 예시 동영상 -->
                     <div id="courseVideo" class="right">
-                        <div class="specify" >강의 예시 동영상</div>
-                        <iframe width="460" height="315" 
+                        <div class="specify" class="fontSize">강의 예시 동영상</div>
+                        <iframe width="380" height="300" border-radius="10px";
                         src="https://www.youtube.com/embed/NQq0dOoEPUM?si=6h9tSFXeL1U7wEj7"
                         title="YouTube video player" 
                         frameborder="0" allow="accelerometer; autoplay; 

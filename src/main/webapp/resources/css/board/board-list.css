@@ -277,12 +277,12 @@
 }
 
 /* 작성자 + 직군 + 몇분전 div */
-#firstPartRight{
+.firstPartRight{
     margin-left:10px;
 }
 
 /* 작성자 */
-#firstPartRight > div:first-child{
+.firstPartRight > div:first-child{
     font-size:18px;
     font-weight:bolder;
 }

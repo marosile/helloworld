@@ -9,7 +9,7 @@
 }
 
 /* 메인 안 전부 다 담는 div */
-#main > #divContainer {
+#main > #sliderContainer {
     width:1000px;
     display:flex;
     flex-direction: column;
@@ -18,11 +18,11 @@
     background-color: var(--bg-color-2);
     transition-duration: 0.5s;
     margin: 30px;
-    padding: 20px 20px;
+    padding: 20px 40px;
 }
 
 /* 메인 안 큰 하나하나의 div들 */
-#main > #divContainer > div{
+#main > #sliderContainer > div{
     width:100%;
     display:flex;
     justify-content: flex-start;
@@ -31,28 +31,42 @@
 
 /* 공고 번호 */
 #recruitNo{
-    color: rgb(120, 120, 120);
     height:55px;
+    display:flex;
+    align-items: center;    
     
+}
+
+#recruitNo > span{
+    display: block;
+    width: 35px;
+    height: 30px;
+    text-align: center;
+    color: rgb(120, 120, 120);
+    font-size:16px;
+
 }
 
 /* 이미지, 회사명 */
 #companyInfo1{
     display:flex;
-    height:50px;
-    margin-right:15px;
-    
+    height:40px;
 }
 
 /* 이미지 */
 #companyImg{
     width:40px;
     height:40px;
+    border:1px solid lightgray;
+    border-radius: 10px;
 }
 
 /* 회사명 */
 #companyName{
     font-size:22px;
+    display:flex;
+    align-items: center;
+    margin-left:10px;
 }
 
 /* 직무 */
@@ -60,15 +74,21 @@
     height:80px;
     font-size:28px;
     font-weight: bold;
+    display:flex;
+    align-items:center;
 }
 
 /* 요구 기능 */
 #jobRequirements{
     height:50px;
-    margin-right:25px;
+    display:flex;
+    align-items: center;
 }
 
-#jobRequirements> div{
+#jobRequirements > div:nth-of-type(2n),
+#jobRequirements > div:nth-of-type(3n),
+#jobRequirements > div:nth-of-type(5n),
+#jobRequirements > div:nth-of-type(7n){
     margin-left:15px;
 }
 
@@ -78,7 +98,8 @@
 .mySkill{
     width:100px;
     height:35px;
-    background-color: rgba(120, 240, 47, 0.5);
+    background-color: rgba(180, 220, 60, 0.5);
+    border:1px solid lightgreen;
     border-radius: 10px;
     display:flex;
     justify-content: center;
@@ -91,6 +112,7 @@
     width:100px;
     height:35px;
     background-color: rgb(240, 240, 240);
+    border:1px solid lightgray;
     border-radius: 10px;
     display:flex;
     justify-content: center;
@@ -101,6 +123,8 @@
 /* 기업 간단 설명 */
 #companyDescription{
     height:100px;
+    display:flex;
+    align-items: center;
 
 }
 
@@ -201,6 +225,7 @@
     width:100%;
     flex-direction: column;
     align-items: flex-start !important;
+    margin-top:20px;
 }
 
 /* 타이틀 */
@@ -223,6 +248,10 @@
     margin-bottom:10px;
     font-size:13px;
     color: rgb(120, 120, 120);
+}
+
+#wantFirst{
+    margin-top:10px;
 }
 
 /* 신입, 경력, 내용 */
@@ -270,4 +299,16 @@ p{
     height:40px;
     font-size:20px;
     font-weight: bold;
+}
+
+.slide {
+    display: none !important;
+    opacity: 0 !important;
+    transition: opacity 2s ease-in-out !important; /* 페이드 인/아웃 트랜지션 설정 (예: 0.5초) */
+}
+
+.slide.active {
+    display: block !important;
+    opacity: 1 !important; /* 투명도를 1로 설정하여 보이게 함 */
+
 }

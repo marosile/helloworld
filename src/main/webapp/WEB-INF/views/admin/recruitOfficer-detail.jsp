@@ -42,9 +42,9 @@
                 
                 <!-- 반려 버튼, 등록 버튼 누르면 문자메세지로 알림 -->
                 <div id="button-area">
-                <button id="cancelRegistration" class="btns custom-btn btn-8">등록 반려</button>
-                <button id="registerCompany" class="btns custom-btn btn-8">담당자로 등록</button>
-                <button id="goToList" class="btns custom-btn btn-8">목록으로</button>
+                    <button id="cancelRegistration" class="btns">등록 반려</button>
+                    <button id="registerCompany" class="btns">담당자로 등록</button>
+                    <button id="goToList" class="btns">목록으로</button>
                 </div>
             </div>
             
