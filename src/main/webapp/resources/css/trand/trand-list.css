@@ -2,18 +2,13 @@
     margin: 40px 100px;
 }
 
-
 #main-area{
     display: flex;
-
     justify-content: center;
-
     position: relative;
 }
 
-
 #left-area{
-
     position: sticky;
     top: 90px;
     
@@ -27,22 +22,11 @@
     margin-right: 20px;
 }
 
-/* #right-area{
-    width: 600px;
-    height: 2000px;
-    border: 1px solid var(--divider);
-    border-radius: 10px;
-    background-color: var(--bg-color-2);
-    transition-duration: 0.5s;    
-}
- */
-
 .row-area{
     display: flex;
     flex-direction: column;
 
     padding: 5px;
-
 
     margin-bottom: 15px;
 
@@ -50,11 +34,15 @@
     border: 1px solid var(--divider);
     border-radius: 10px;
     background-color: var(--bg-color-2);
-    transition-duration: 0.5s;
+    transition-duration: 0.3s;
 }
 
 .row-area:hover{
+
+    border: 1px solid #676fddb0;
     cursor: pointer;
+
+    transform: scale(1);
 }
 
 .row1-1{
@@ -79,7 +67,6 @@
 
 .nickname{
     font-size: 13px;
-
     color: rgba(100, 98, 98, 0.637);
 }
 
@@ -88,18 +75,14 @@
     margin-left: 15px;
     margin-bottom: 5px;
 
-
     font-size: 14px;
     font-weight: bold;
 }
 
 .content{
     margin-left: 15px;
-
     font-size: 14px;
-
 }
-
 
 .row1-2{
     display: flex;
@@ -136,7 +119,6 @@
     margin-top: 5px;
     margin-left: 9px;
     margin-right: 9px;
-
 }
 
 .picture{
@@ -146,7 +128,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-
 }
 
 .heart{
@@ -154,7 +135,7 @@
     margin-right: 15px;
 }
 
-#main-title{
+/* #main-title{
     font-size: 25px;
     font-weight: bold;
 
@@ -166,37 +147,21 @@
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
-    
-}
+} */
 
 #sub-title{
     font-size: 15px;
     color: grey;
 
     margin-left: 20px;
-
+    margin-top: 10px;
 }
 
-#tag-area{
-    font-size: 20px;
+.clicked {
+    cursor: pointer;
+
     font-weight: bold;
-    color: gray;
-
-    margin-left: 20px;
-    margin-top: 30px;
-}
-
-/* #tag-area div:hover{
-    cursor: pointer;
-
-    background: -webkit-linear-gradient(-70deg, #db469f 0%, #2188ff 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-} */
-
-.tagArea{
-    cursor: pointer;
+    font-size: 30px;
 
     background: -webkit-linear-gradient(-70deg, #db469f 0%, #2188ff 100%);
     -webkit-background-clip: text;
@@ -205,19 +170,96 @@
 }
 
 #tag-area div{
-    margin-top: 10px ;
+    margin-top: 20px ;
+    cursor: pointer;
 }
 
 #userProfile{
     width: 50px;
     height: 50px;
-
     border-radius: 50%;
-
 }
 
 #pic{
     width: 100px;
     height: 85px;
-
 }
+
+.div2 {
+    font-size: 20px;
+    font-weight: bold;
+    color: gray;
+    
+    margin-left: 20px;
+    margin-top: 30px;
+}
+
+.div1{
+    margin-top: 50px;
+}
+
+i{
+    margin-right: 8px;
+    margin-left: 8px;
+}
+
+
+/* 타이틀 실험중 */
+
+h1 {
+
+    margin-top: 20px;
+    margin-left: 18px;
+    margin-bottom: 15px;
+
+  }
+  
+  h1 span {
+    position: relative;
+
+    color: rgb(128, 102, 201);
+    color: rgb(146, 108, 196);
+
+    top: 10px;
+    display: inline-block;
+    animation: bounce .3s ease infinite alternate;
+
+    font-size: 30px;
+    
+    text-shadow: 0 1px 0 #CCC,
+                 0 2px 0 #CCC,
+                 0 3px 0 #CCC,
+                 0 4px 0 #CCC,
+                 0 5px 0 #CCC,
+                 0 6px 0 transparent,
+                 0 7px 0 transparent,
+                 0 8px 0 transparent,
+                 0 9px 0 transparent,
+                 0 10px 10px rgba(0, 0, 0, .4);
+  }
+  
+  h1 span:nth-child(1) { animation-delay: .4s; }
+  h1 span:nth-child(2) { animation-delay: .5s; }
+  h1 span:nth-child(3) { animation-delay: .6s; }
+  h1 span:nth-child(4) { animation-delay: .7s; }
+  h1 span:nth-child(5) { animation-delay: .8s; }
+  h1 span:nth-child(6) { animation-delay: .9s; }
+  h1 span:nth-child(7) { animation-delay: .10s; }
+  h1 span:nth-child(8) { animation-delay: .10s; }
+  h1 span:nth-child(9) { animation-delay: .10s; }
+  
+  @keyframes bounce {
+    100% {
+      top: -20px;
+      text-shadow: 0 1px 0 #CCC,
+                   0 2px 0 #CCC,
+                   0 3px 0 #CCC,
+                   0 4px 0 #CCC,
+                   0 5px 0 #CCC,
+                   0 6px 0 #CCC,
+                   0 7px 0 #CCC,
+                   0 8px 0 #CCC,
+                   0 9px 0 #CCC,
+                   0 50px 25px rgba(0, 0, 0, .2);
+    }
+  }

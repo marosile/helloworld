@@ -185,7 +185,6 @@
 }
 
 
-
 #content{
     height: 300px;
  }
@@ -221,7 +220,6 @@ i{
 
 
 /* 게시글 신고  */
-
 #report-area{
     border: 1px solid black;
 
@@ -235,7 +233,6 @@ i{
 
     padding-left: 30px;
     padding-bottom: 20px;
-
 }
 
 #report-area2{
