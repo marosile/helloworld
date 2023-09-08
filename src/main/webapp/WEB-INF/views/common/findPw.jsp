@@ -51,7 +51,10 @@
                     <input type="text" id="inputTel2" class="phoneInput" placeholder="인증번호 입력">
         
                     <button id="btn2" class="inputBtn">인증하기</button>
+
                 </div>
+
+                <div id="telAuthMessage">DDD</div>
 
 
                 <button id="findPwBtn">비밀번호 찾기</button>
@@ -72,6 +75,7 @@
                     <input type="text" id="inputEmail2" class="phoneInput" placeholder="인증번호 입력">
         
                     <button id="btn4" class="inputBtn">인증하기</button>
+                   
                 </div>
 
 
@@ -85,5 +89,6 @@
     
     <script src="/resources/js/common/general.js"></script>
     <script src="/resources/js/common/findPw.js"></script>
+    <script src="/resources/js/common/phoneAuth.js"></script>
 </body>
 </html>

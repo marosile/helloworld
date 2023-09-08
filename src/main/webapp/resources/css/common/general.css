@@ -114,3 +114,7 @@ main {
 #full-advertise-banner:hover {
     background: linear-gradient(90deg, rgba(200, 100, 255, 0.7), rgba(0, 128, 255, 0.7));
 }
+
+/* 메세지 색상 지정 */
+.confirm{ color : green; }
+.error{ color : red; }
