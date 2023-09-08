@@ -7,3 +7,11 @@ for (let i = 0; i < box.length; i++) {
 
     });
   }
+
+  const recruit = document.getElementById("recruit")
+
+  recruit.addEventListener("click", () => {
+
+    location.href = "/admin/Instructor";
+
+  })

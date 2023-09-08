@@ -28,8 +28,9 @@
             <div class="answer">✔️ 서울 성동</div>
             <div class="answer">✔️ 판교</div>
 
-            <div id="button6">NEXT 🔎</div>
-
+            <div class="btn-container">
+            <a href="#" class="btn-3d blue" id="button6">NEXT</a>
+            </div>
         </div>
     </main> 
 
