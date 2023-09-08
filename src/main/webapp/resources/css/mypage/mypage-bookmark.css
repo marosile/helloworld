@@ -36,6 +36,7 @@ main{
     border-radius: 10px;
     padding: 5px;
     margin-top: 30px;
+    box-shadow: rgba(0, 0, 0, 0.05) 3px 3px 5px 2px;
 
 }
 
@@ -92,4 +93,5 @@ main{
     width: 178px;
     height: 35px;
     margin-top: 15px;
+    box-shadow: rgba(0, 0, 0, 0.05) 3px 3px 5px 2px;
 }

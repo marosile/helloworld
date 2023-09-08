@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="/resources/css/index.css">
     <link rel="stylesheet" href="/resources/css/mypage/mypage-account.css">
     <link rel="stylesheet" href="/resources/css/mypage/mypage-nav.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 </head>
 <body>
     <jsp:include page="/WEB-INF/views/common/header.jsp"/>
@@ -22,9 +23,8 @@
         <h1 class="Title">계정 관리</h1>
         <section>
 
-            <form action="account" method="POST" name="myPageFrm" id="accountFrm">
-
-                <!-- 이메일 -->
+            <!-- ===================== 이메일 ======================== -->
+            <div class="email">
                 <div class="email-area">
                     <div class="rowE">
                         <label><h3>이메일 정보</h3></label>
@@ -32,30 +32,34 @@
                         <button id="sendAuthKeyBtn">이메일 인증</button>
                     </div>
                 </div>
+            </div>
 
-                <!-- 비번 -->
+
+
+            <!-- ============================  비번 ========================= -->
+            <form action="account" method="POST" name="myPageFrm" id="accountFrm">
                 <h3>비밀번호 변경</h3>
                 <div class="pw-area">
                     <div class="row">
                         <label>현재 비밀번호</label><br>
-                        <input type="password" maxlength="30">
+                        <input type="password" name="currnetPw" id="currentPw" maxlength="30">
                     </div>
                     <div class="row">
                         <label>새 비밀번호</label><br>
-                        <input type="password" maxlength="30">
+                        <input type="password" name="newPw" id="newPw" maxlength="30">
                     </div>
                     <div class="row">
                         <label>비밀번호 확인</label><br>
-                        <input type="password" maxlength="30">
+                        <input type="password" name="newPwConfirm" id="newPwConfirm" maxlength="30">
                         <button id="pwBtn">변경하기</button>
                     </div>
-
                 </div>
             </form>
 
+
             <div class="line"><hr></div>
 
-            <!-- 회원 탈퇴 -->
+            <!-- ============================= 회원 탈퇴 ======================= -->
             <div class="secession-area">
                     
                 <h4>회원 탈퇴</h4>
@@ -106,5 +110,6 @@
 	</main>
     <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
     <script src="/resources/js/common/general.js"></script>
+    <script src="/resources/js/mypage/mypage-account.js"></script>
 </body>
 </html>
