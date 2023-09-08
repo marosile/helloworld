@@ -12,31 +12,35 @@ const checkPhoneAuth = {
 };
 
 
-/* 전화번호 인증 */
+
+    /* 전화번호 인증 */
 btn1.addEventListener("click", () => {
-    const data = {
-        "inputTel1": inputTel1.value
+
+const data = {
+    "inputTel1": inputTel1.value
+}
+
+fetch("/phoneAuth", {
+    method: "POST",
+    headers: { "content-Type": "application/json" },
+    body: JSON.stringify(data)
+})
+
+.then(resp => resp.text())
+.then(result => {
+    if (result != null) {
+        alert("인증번호가 발송되었습니다.");
+        return;
+    } else {
+        alert("인증번호 발송 실패")
+        return;
     }
-
-    fetch("/phoneAuth", {
-        method: "POST",
-        headers: { "content-Type": "application/json" },
-        body: JSON.stringify(data)
+    
     })
-
-        .then(resp => resp.text())
-        .then(result => {
-            if (result != null) {
-                alert("인증번호가 발송되었습니다.");
-                return;
-            } else {
-                alert("인증번호 발송 실패")
-                return;
-            }
-
-        })
-        .catch(err => console.log(err));
+    .catch(err => console.log(err));
 });
+
+
 
 // 전체적으로 유효성 검사 진행
 inputTel2.addEventListener("input", () => {
@@ -45,12 +49,12 @@ inputTel2.addEventListener("input", () => {
         
         telAuthMessage.innerText = "";
         telAuthMessage.classList.remove("confirm", "error");
-
+        
         checkPhoneAuth.inputTel2 = false;
         return;
     }
 })
-
+    
 /* 전화번호 인증 확인 */
 btn2.addEventListener("click", () => {
 

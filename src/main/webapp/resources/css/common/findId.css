@@ -102,7 +102,7 @@
 }
 
 /* 휴대폰 인증 메시지 */
-#telAuthMessage{
+.telMessage{
     text-align: left;
     margin: auto;
     width: 450px;

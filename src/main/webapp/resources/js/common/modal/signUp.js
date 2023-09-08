@@ -202,6 +202,7 @@ let authMin = 4;
 let authSec = 59;
 
     /* 전화번호 인증 */
+
     btn1.addEventListener("click", () => {
         authMin = 4;
         authSec = 59;

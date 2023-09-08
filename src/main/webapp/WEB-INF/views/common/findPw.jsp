@@ -54,7 +54,10 @@
 
                 </div>
 
-                <div id="telAuthMessage">DDD</div>
+                <div class="telMessage">
+                    <span id="authKeyMessage"></span>
+                    <span id="telAuthMessage"></span>
+                </div>
 
 
                 <button id="findPwBtn">비밀번호 찾기</button>
