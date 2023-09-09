@@ -6,11 +6,18 @@ let slideCount = 0;
 
 $('.slide').click(function() {
     const no = $('.slide').index($(this))
-    if(no == 3) slide(false, 3000);
-    else if(no == 1) slide(true, 3000);
-})
+    if(no == 3) slide(false, 1000);
+    else if(no == 1) slide(true, 1000);
+});
+
+setInterval(() => {
+    slide(false, 3000);
+}, 8000);
+
+let timer = 0;
 
 function slide(d, t) {
+    if (timer) return;
     if (d) $('#slide-container').prepend($('#slide-container > .slide:last-of-type'));
     else $('#slide-container').append($('#slide-container > .slide:first-of-type'));
     $('.slide').css('transition-duration', t + 'ms');
@@ -18,4 +25,8 @@ function slide(d, t) {
         {transform: ['translateX(' + (d ? '-' : '') + '620px)', 'translateX(0)']},
         {duration: t, easing: 'ease'}
     );
+    timer = setTimeout(() => {
+        timer = 0;
+    }, t - 200)
+
 }
