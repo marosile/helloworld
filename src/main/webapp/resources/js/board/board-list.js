@@ -42,111 +42,71 @@ boardInsert.addEventListener("click", () => {
 
 })
 
-/* var intersectionObserver = new IntersectionObserver(function(entries) {
-  // If intersectionRatio is 0, the target is out of view
-  // and we do not need to do anything.
-  if (entries[0].intersectionRatio <= 0) return;
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-  loadItems(10);
-  console.log('Loaded new items');
-});
-// start observing
-intersectionObserver.observe(document.querySelector('.scrollerFooter'));
+        var page = 2; // 처음 ajax 넘길 page 번호
 
-const io = new IntersectionObserver((entries, observer) => {
-entries.forEach(entry => {
-  if (!entry.isIntersecting) return; 
-  //entry가 interscting 중이 아니라면 함수를 실행하지 않습니다.
-  if (page._scrollchk) return;
-  //현재 page가 불러오는 중임을 나타내는 flag를 통해 불러오는 중이면 함수를 실행하지 않습니다.
-  observer.observe(document.getElementById('sentinel'));
-  //observer를 등록합니다.
-  page._page += 1;
-  //불러올 페이지를 추가합니다.
-  page.list.search();
-  //페이지를 불러오는 함수를 호출합니다.
-});
-});
+            var isLoading = false;
 
-io.observe(document.getElementById('sentinel'));
+            /** 게시글 무한스크롤 */
+            function loadMoreData() {
 
-$.ajax({
-url: url,
-data: param,
-method: "GET",
-dataType: "json",
-success: function (result) {
-  console.log(result);
-},
-error: function (err) {
-  console.log(err);
-},
-beforeSend: function () {
-  _scrollchk = true; 
-  //데이터가 로드 중임을 나타내는 flag입니다.
-  document.getElementById('list').appendChild(skeleton.show());
-  //skeleton을 그리는 함수를 이용해 DOM에 추가해줍니다.
-  $(".loading").show();
-  //loading animation을 가진 요소를 보여줍니다.
-},
-complete: function () {
-  _scrollchk = false;
-  //데이터가 로드 중임을 나타내는 flag입니다.
-  $(".loading").hide();
-  skeleton.hide();
-  //loading animation 요소와 skeleton을 지우는 함수를 이용해 DOM에서 지워줍니다.
-}
-});
+                if (!isLoading) {
+                    
+                    isLoading = true;
+                    
+                    fetch('loadPosts?page=' + page, {
+                        method: 'GET',
+                        headers: {'Content-Type': 'application/json'}
+                        // data : x
+                    })
 
-if (_total === 0) {
-$('#sentinel').hide();
-//검색된 아이템이 없을 경우 관찰중인 요소를 숨긴다.
-}
-else {
-if (_total <= _page*20){
-  $('#sentinel').hide();
-  //검색된 아이템이 20개 이하일 경우 관찰중인 요소를 숨긴다.
-}
-else {
-   $('#sentinel').show();
-  //관찰중인 요소를 보여준다.
-}
-}
+                    .then(response => {  // 응답 객체를 필요한 형태로 파싱하여 리턴
 
-if (sessionStorage.getItem("page")) {
-  var pageNum = Number.parseInt(sessionStorage.getItem("page"));
-  _page = pageNum ;
-  list.search();
-}
+                        if (!response.ok) { throw new Error('HTTP 응답 실패'); } 
+                        // response.ok 값은 HTTP 응답 코드가 200에서 299 사이인 경우에 true를 반환하고, 그 외의 경우에는 false를 반환한다.
+                        // 그 외의 경우는 예를 들어 404 ("Not Found")나 500 ("Internal Server Error") 등등...
 
-window.addEventListener('pageshow', function (event) {
-if (event.persisted || window.performance && window.performance.navigation.type == 2) {
-   //
-}
-});
+                        return response.json(); // .then(resp => resp.json())
+                    })
 
-if (sessionStorage.getItem("page")) {
-  var pageNum = Number.parseInt(sessionStorage.getItem("page"));
-  _page = pageNum ;
-  list.search();
-} */
+                    .then(data => { // js 객체
 
-// 페이지 시작 시에 로드할 초기 페이지 번호를 설정합니다.
-let currentPage = 1;
+                        if (data.length > 0) { // 데이터 확인
 
-// 스크롤 이벤트를 감지합니다.
-window.addEventListener("scroll", () => {
-  // 스크롤바의 위치와 문서의 높이를 비교하여 페이지 하단에 도달했는지 확인합니다.
-  if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
-    // 새로운 페이지를 로드하기 위한 AJAX 요청을 보냅니다.
-    loadMorePosts();
-  }
-});
+                            console.log(data);
+                            //(10) [{…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}]
+                            //  1 : {boardNo: 11, boardTitle: '11번째 게시글', boardContent: '11번째 게시글 내용 입니다.', boardCreateDate: null, boardUpdateDate: null, …}
+                            //  2 : {boardNo: 12, boardTitle: '12번째 게시글', boardContent: '12번째 게시글 내용 입니다.', boardCreateDate: null, boardUpdateDate: null, …}
+                            //  3 : {boardNo: 13, boardTitle: '13번째 게시글', boardContent: '13번째 게시글 내용 입니다.', boardCreateDate: null, boardUpdateDate: null, …}
 
-// 새로운 게시물을 로드하는 함수입니다.
-function loadMorePosts() {
-  // AJAX 요청을 보내서 서버에서 새로운 게시물을 가져오는 코드를 작성합니다.
-  // 서버에서 가져온 데이터를 HTML로 렌더링하고 페이지에 추가합니다.
-  // 페이지 번호를 증가시킵니다.
-  currentPage++;
-}
+                            data.forEach( whatever => { // function(whatever) => {}
+
+                                var postAppends = '<div class="posts">' +  
+                                                        '<div>' + whatever.boardTitle + '</div>' +
+                                                        '<div>' + whatever.boardContent + '</div>' +
+                                                    '</div>'; // 임시
+                                                   
+                                $('#post').append(postAppends); 
+
+                            });
+                            page++; // 11~20, 21~30 구분을 위함 (controller)
+                        }
+                        isLoading = false; 
+                    })
+                    .catch(function(error) {
+                        console.error('Fetch 에러', error);
+                        isLoading = false;
+                    });
+                }
+            }
+
+        // 스크롤 이벤트 감지
+        $(window).scroll(function() {
+            if ($(window).scrollTop() + $(window).height() >= $(document).height() - 100) {
+                // 스크롤이 페이지 하단에 도달하면 추가 데이터 로드
+                loadMoreData();
+            }
+        });
+        
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
