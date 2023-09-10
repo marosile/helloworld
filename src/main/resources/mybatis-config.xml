@@ -8,10 +8,12 @@
 
 	<typeAliases>
 		<typeAlias type="io.marosile.helloworld.member.model.dto.Member" alias="Member" />
+		<typeAlias type="io.marosile.helloworld.board.model.dto.Board" alias="Board" />
 	</typeAliases>
 
 	<mappers>
 		<mapper resource="/mappers/member-mapper.xml" />
+		<mapper resource="/mappers/board-mapper.xml"/>
 	</mappers>
 
 </configuration>

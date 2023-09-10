@@ -35,7 +35,7 @@
         </div>
 
         <!-- 게시글 목록 -->
-        <div id="postList">
+        <div id="postList1">
             <div id="boardName"> Q&A 게시판 </div>
             <div id="question">
 
@@ -211,7 +211,7 @@
                 <!-- 10개중 하나 -->
                 <div class="posts"> <!-- height:250 px; -->
                 
-                    <!-- 하나 중 이미지 + 작성자 + 직군 + 몇분전 -->
+                    <!-- 하나 중 이미지 + 작성자 + 직군 + 몇분전 양식-->
                     <div class="postFirstpart">
 
                         <img src="/resources/images/logo.svg" class="writerImages">
@@ -249,7 +249,7 @@
 
                 </div>
 
-                <!-- for문 돌릴거 -->
+                <!-- for문 돌릴거 첫화면 -> 10개만 -->
                 <div class="posts"></div>
                 <div class="posts"></div>
                 <div class="posts"></div>
@@ -259,33 +259,10 @@
                 <div class="posts"></div>
                 <div class="posts"></div>
                 <div class="posts"></div>
-                <div class="posts"></div>
-                <div class="posts"></div>
-                <div class="posts"></div>
-                <div class="posts"></div>
-                <div class="posts"></div>
-                <div class="posts"></div>
-                <div class="posts"></div>
-                <div class="posts"></div>
-                <div class="posts"></div>
-                <div class="posts"></div>
-                <div class="posts"></div>
-                <div class="posts"></div>
-                <div class="posts"></div>
-                <div class="posts"></div>
-                <div class="posts"></div>
-                <div class="posts"></div>
-                <div class="posts"></div>
-                <div class="posts"></div>
-                <div class="posts"></div>
-                <div class="posts"></div>
-                <div class="posts"></div>
-                <div class="posts"></div>
-                <div class="posts"></div>
-                <div class="posts"></div>
-                <div class="posts"></div>
-                <div class="posts"></div>
-                <div class="posts"></div>
+       
+                
+            
+              
             </div>
 
         <div class="list"></div>
