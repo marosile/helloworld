@@ -347,24 +347,57 @@
     margin-left: 10px;
 }
 
-/* 임시 페이지네이션 */
-#pagination{
-    display:flex;
-    height:35px;
-    justify-content: center;
-    align-items: center;
-    letter-spacing: 4px;
-    /* color:#0080FF; */
-    font-size:16px;
-    font-weight:bold;
-    margin-top:10px;
-    margin-bottom: 30px;
-}
-
 /* 커서 포인터 */
 #BoardInsert, .listNames, 
-#postFirstPart, .post:hover{
+#postFirstPart{
     cursor: pointer;
 }
 
 
+
+
+/* 모달 설정 */
+.modal {
+    display: none; /* 모달을 처음에는 화면에 표시하지 않음 */
+    position: fixed; /* 뷰포트에 고정 */
+    z-index: 50; /* 다른 요소 위에 표시되도록 z-index 설정 헤더는 덮지 않음 */
+    width: 100%; /* position fixed -> 전체 뷰포트에 대한 width */
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.1); 
+
+}
+
+.modal-content {
+    position: absolute; /* 절대 위치 */
+   
+    transform: translate(-50%, -50%); /* 중앙 정렬 (가로, 세로로 -50% 이동) */
+    top:50%;
+    left:50%; /* ?? */
+    background-color: white; /* 모달 내용의 배경 색상 */
+    padding: 20px; 
+    border-radius: 5px; 
+    width: 120px;
+    height: 100px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.loader {
+    border: 4px solid #f3f3f3; /* 로딩 스피너 외곽선 스타일 */
+    border-top: 4px solid #3498db; /* border가 회전함 */
+    border-radius: 50%; /* 로딩 스피너를 원형으로 만듦 */
+    width: 30px; /* 로딩 스피너 너비 */
+    height: 30px; /* 로딩 스피너 높이 */
+    animation: spin 1s linear infinite; /* 1초동안 회전시키기 */
+    
+   
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); } /* 0% 위치에서 회전 각도 */
+    100% { transform: rotate(360deg); } /* 100% 위치에서 회전 각도 (360도 = 한 바퀴) */
+}

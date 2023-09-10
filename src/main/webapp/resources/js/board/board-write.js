@@ -27,6 +27,8 @@ cancelButton.addEventListener("click", () => {
 })
 
 
+
+
 // 게시물 저장
 function savePost() {
     var content = simplemde.value(); // 마크다운 에디터의 내용 가져오기
@@ -40,3 +42,4 @@ function loadPosts() {
     // AJAX 요청을 사용하여 서버에서 게시물 목록 가져오기
     // 가져온 데이터를 게시물 목록 영역에 표시합니다.
 }
+

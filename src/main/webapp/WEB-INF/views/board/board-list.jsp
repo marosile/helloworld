@@ -259,16 +259,20 @@
                 <div class="posts"></div>
                 <div class="posts"></div>
                 <div class="posts"></div>
-       
-                
-            
               
             </div>
 
-        <div class="list"></div>
-<p id="sentinel"></p>
+            <div id="loadingModal" class="modal">
+                <div class="modal-content">
+                    <div class="loader"></div>
+                    <div class="loading">로딩중</div>
+                </div>
+            </div> <!-- 로딩이 0.1초만에 되면 모달창이 0.1초만 보여서 일단 1초로 세팅함 -->
+                   <!-- 로딩이 5초걸리면 모달창 로딩중은 1초만 보이고 사라지는데 -->
+                   <!-- 모달창이 사라져도 화면이 안바뀌는 이슈가 이씀 -->
 
-        </div>
+
+
     </main>
 
 
