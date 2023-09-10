@@ -12,14 +12,19 @@
 
     <link rel="stylesheet" href="/resources/css/board/board-writeUpdate.css">
 
-        <!-- 마크다운 에디터 라이브러리 -->
+        <!-- 마크다운 에디터 라이브러리 (CKEditor5)-->
+        <script src="/ckeditor/ckeditor.js"></script>
+	<script>
+    window.onload = function(){
+       ck = CKEDITOR.replace("editor");
+    };
+    </script>
+
+        
+        
         <script src="https://cdn.jsdelivr.net/npm/simplemde@1.11.2/dist/simplemde.min.js"></script>
 
-        <script>
-            var simplemde = new SimpleMDE({
-                element: document.getElementById("markdown-content"),
-            });
-        </script>
+
 
 </head>
 
@@ -174,11 +179,8 @@
             </div>
 
 
-            <div id="editor">
-                <!-- 마크다운 에디터 영역 -->
+            <textarea name="content" id="editor"></textarea>
 
-                <textarea id="markdown-content" style="width:300px; height:300px !important;"></textarea>
-            </div>
             <div id="post-list">
                 <!-- 게시물 목록 영역 -->
             </div>
