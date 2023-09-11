@@ -1,28 +1,33 @@
 * {
     box-sizing: border-box;
-    /* border: 0.3px solid gainsboro ; */
 }
+
+
+
 
 
 /* 스터디 전체 div */
 .P-header {
-    border: 1px solid black;
-    width: 780px;
-    height: 950px;
-    border: 1px solid var(--divider);
-    border-radius: 10px;
-    background-color: var(--bg-color-2);
-    transition-duration: 0.5s;
-    justify-content: center;
+
+    display: flex;
+    flex-direction: column; /* 요소들을 수직으로 쌓기 위해 */
+    justify-content: center; /* 내용을 수직으로 가운데 정렬하기 위해 */
+    align-items: center; /* 내용을 수평으로 가운데 정렬하기 위해 */
+    
     
 }
 
 .P-main {
     margin: 30px auto;
+    display: flex;
+    border: 1px solid var(--divider);
+    border-radius: 10px;
+    background-color: var(--bg-color-2);
+    transition-duration: 0.5s;
+
 }
 
 .P-studyChatting-search {
-    border: 1px solid #ccc;
 }
 
 /* 왼쪽 검색창 */
@@ -149,14 +154,15 @@
 .P-studyChatting-content{
     width: 1000px;
     height: 1111px;
-    border: 1px solid #ccc;
+    border-left: 0.3px solid #ccc;
     
 }
 
+
 .P-studyChatting-content-top{
     height: 100%;
-    display: flex; /* .P-studyChatting-footer에 display: flex 적용 */
-    flex-direction: column; /* 자식 요소를 세로로 나열 */
+    display: flex; 
+    flex-direction: column; 
 }
 
 .P-studyChatting-content-header{
@@ -186,12 +192,12 @@
 
 /* 체팅방 전체 div */
 .P-studyChatting-contaion{
-    height: 100%;
+    height: 80%;
 }
 
 /* 체팅방 글쓰는 곳 div */
 .P-studyChatting-contaion-area{
-    height: 80%;
+    height: 100%;
     overflow-y: scroll;
 
     -ms-overflow-style: none; /* 인터넷 익스플로러 */
@@ -245,9 +251,6 @@
     border-radius: 24px;
     border: 1px solid #ccc;
     width: fit-content;
-    
-    padding-top: 0px;
-    padding-bottom: 0px;
 
 }
 .P-studyChatting-message-left{
@@ -258,16 +261,23 @@
    display: flex;
 }
 
+.P-studyChatting-receive-content{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+
 /* 채팅 보내는 창 전체 스타일 */
 .P-studyChatting-footer {
-    background-color: #f5f5f5;
-    padding: 10px;
+    justify-content: flex-end;
+    background-color: #f5f5f596;
     border-top: 1px solid #ccc;
     display: flex;
+    border-radius: 1px;
 
     justify-content: center;
     align-items: center;
-    height: 10%;
+    height: 10.4%;
 
 }
 
@@ -305,39 +315,181 @@
 }
 
 
+/* 팔로워버튼 */
+.Follow-area{
+    display: none;
+}
+
+#Follow-area{
+    position: fixed;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1200;
+    background-color: white;
+    border: 1px inset #ccc;
+    border-radius: 10px;
+    width: 500px;
+    height: 500px;
+}
 
 
 
+#close{
+    font-size: 25px;
+    display: flex;
+    justify-content: end;
+    margin-top: 10px;
+    margin-right: 15px;
+    cursor: pointer;
+}
+
+#Follow-title{
+    font-size: 30px;
+    font-weight: bold;
+    margin: 0;
+   text-align: center;
+    padding-bottom: 10px;
+}
+
+#Follow-area2 p{
+    margin-bottom: 20px;
+}
+
+#Follow-area2{
+    font-size: 15px;
+    text-align: center;
+}
+
+.FollowArea {
+    display: flex;
+    align-items: center;
+    padding: 15px 50px;
+    border: 1px solid #eee; 
+}
 
 
+.FollowArea:hover {
+    display: flex;
+    align-items: center;
+    padding: 15px 50px;
+    background-color: #cccccc36; 
+    border: 1px solid #eee; 
+}
 
 
+.FollowContainer {
+    display: flex;
+    align-items: center;
+}
 
+.replyImages {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%; /* 원 모양으로 이미지를 보여주기 위한 스타일 */
+    margin: auto;
+}
 
-/* 
+#FollowWriter {
+    font-weight: bold;
+    font-size: 16px;
+    margin-left: 20px;
+    text-align: left;
 
-.P-studyChatting-footer{
-    height: 10%;
+    
+}
+
+#FollowInfo {
+    font-size: 14px;
+    color: #888;
+}
+
+#Follow-button-area {
+    margin-left: auto; /* 버튼을 오른쪽으로 이동 */
+}
+
+#reportBtn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s; /* 호버 효과에 애니메이션 추가 */
+}
+
+#reportBtn:hover {
+    background-color: #0056b3;
+}
+
+.addChatting{
+    width: 1000px;
+    height: 1111px;
+    border: 0.3px solid #ccc;
+    background-color: white;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    align-items: center; 
+
+    display: none;
+    
+}
+
+.addChatContent{
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* 수평 가운데 정렬 */
+    justify-content: center; /* 수직 가운데 정렬 */
+    text-align: center; /* 텍스트를 가운데 정렬 */
+}
+
+.addChattingImg{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}   
+
+.iconChat{
+    width: 250px;
+    margin: auto;
+    height: auto;
+
+}
+
+.P-addChatting-content-header{
+    height: 30%;
+}
+
+.addChat{
+    display:flex;
+    padding: 50px;
+    font-size: 30px;
+    color: #333; 
+    font-weight: bold;
+    text-align: center;
     display: flex;
     justify-content: center;
 }
-.P-studyChatting-textMessage-area{
-    border-radius: 24px;
-    padding: 0.5rem 1rem;
-    border-radius: 24px;
-    border: 1px solid #ccc;
-    width: fit-content;
-    width: 900px;
-    height: 90px;
+
+
+/* "채팅 시작하기" 버튼 스타일 */
+.addChatContent button {
+    background-color: #7a7979; /* 배경색 변경 */
+    color: #fff; 
     text-align: center;
-
-}
-
-#inbox-message-textarea{
     border: none;
-    resize: none;
-    border-width:0
-
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px; /
 }
 
- */
+/* 버튼에 호버 효과 추가 */
+.addChatContent button:hover {
+    background: linear-gradient(90deg, rgba(200, 100, 255, 0.5), rgba(0, 128, 255, 0.5));
+}

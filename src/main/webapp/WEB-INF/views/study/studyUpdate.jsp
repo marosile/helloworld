@@ -26,10 +26,13 @@
 
         <div id="P-main-area">
             <p id="P-main-title">
-                <i class="fa-regular fa-file-lines"></i> 스터디 모집하기
+                <i class="fa-regular fa-file-lines"></i> 스터디 모집 수정하기
             </p>
 
             <form action="" class="P-body-category-top">
+
+                
+
 
                 <h5><span class="required">*</span> 카테고리</h5>
                 <div class="P-body-category-area">
@@ -98,7 +101,7 @@
                         <textarea name="" id="P-body-content-textarea" rows="1"
                             placeholder="프로젝트 요약을 입력하세요.
 
-예시 - 온/오프라인으로 달리기 모임을 만들고 찾을 수 있는 앱을 기획 중입니다. 현재 기획자 1명, 백엔드 개발자 1명이 있고, 함께 하실 디자이너와 프론트 개발자를 찾고 있어요!"></textarea>
+                    예시 - 온/오프라인으로 달리기 모임을 만들고 찾을 수 있는 앱을 기획 중입니다. 현재 기획자 1명, 백엔드 개발자 1명이 있고, 함께 하실 디자이너와 프론트 개발자를 찾고 있어요!"></textarea>
                     </div>
 
                 </div>
@@ -117,8 +120,8 @@
 
                 <div class="P-body-controller">
                     <div class="P-body-controller-Btn">
-                        <button id="BtnModify">작성완료</button>
-                        <button id="BtnDelete">작성취소</button>
+                        <button id="BtnModify">수정하기</button>
+                        <button id="BtnDelete">삭제하기</button>
                         <button id="referer">목록으로</button>
                     </div>
 

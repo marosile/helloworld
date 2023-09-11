@@ -20,7 +20,6 @@ selectBoxRole.addEventListener("click", (e) => {
 
 
 
-
 // 카테고리 - 목적 클릭 했을때 
 const purposeBtn = document.querySelector('.P-body-purpose-btn');
 const selectBoxPurpose = document.querySelector('.P-selectBox-purpose');
@@ -131,3 +130,30 @@ function sample5_execDaumPostcode() {
         }
     }).open();
 }
+
+
+
+// 작성하기 
+const BtnModify = document.getElementById("BtnModify");
+
+BtnModify.addEventListener("click", () => {
+
+    alert("게시글이 작성되었습니다.");
+    location.href="detail";
+
+})
+
+// 작성취소 
+// 작성하기 
+const BtnDelete = document.getElementById("BtnDelete");
+
+BtnDelete.addEventListener("click", () => {
+
+    if(confirm("작성취소하시겠습니까? 작성한 내용은 저장되지 않습니다.")){
+        alert("게시글이 삭제되었습니다. ")
+        location.href="main";
+    }
+
+
+})
+
