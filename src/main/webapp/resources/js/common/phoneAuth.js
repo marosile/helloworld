@@ -104,5 +104,31 @@ btn2.addEventListener("click", () => {
 });
 
 
-    
-// 휴대폰 인증 유효성 검사 ㄱㄱㄱ
+
+document.getElementById("phoneFrm").addEventListener("submit", e => {
+
+    // checkSignUp 모든 value가 true인지 검사
+
+    for( let key in checkPhoneAuth ){
+
+        if(!checkPhoneAuth[key]){ // 각 key에 대한 value(true/false)를 얻어와
+            // false인 경우 == 유효하지 않다!
+
+            switch(key){
+                case "inputTel2" : alert("전화번호 인증을 해주세요"); break;
+            }
+
+            // 유효하지 않은 input 태그로 focus 이동
+            // - key를 input의 id와 똑같이 설정했음
+            document.getElementById(key).focus();
+
+            // form 태그 기본 이벤트 제거
+            e.preventDefault();
+            return; // 함수 종료
+
+        }
+
+    }
+
+});
+
