@@ -34,8 +34,8 @@
     }
 
     .snackbar > div:first-of-type > img {
-        height: 46px;
-        margin-right: 12px;
+        height: 40px;
+        margin-right: 15px;
     }
 
     .snackbar > div:last-of-type {
