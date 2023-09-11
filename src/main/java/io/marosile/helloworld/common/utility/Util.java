@@ -9,8 +9,11 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
+import java.text.SimpleDateFormat;
 import java.util.Base64;
+import java.util.Date;
 import java.util.Random;
+import java.util.UUID;
 
 import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
@@ -161,5 +164,16 @@ public class Util {
         return numStr;
     }
 	
+    
+    // 파일명 변경 메소드
+    public static String fileRename(String originFileName) {
+    	SimpleDateFormat dateFormat = new SimpleDateFormat("yyyyMMddHHmmss");
+        String timestamp = dateFormat.format(new Date());
+        int ranNum = (int) (Math.random() * 100000); // 5자리 랜덤 숫자 생성
+        String fileName = timestamp + "_" + ranNum;
+        return fileName;
+    
+ 
+    }
 
 }

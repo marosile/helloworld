@@ -11,19 +11,14 @@
    <link rel="stylesheet" href="/resources/css/common/general.css">
 
     <link rel="stylesheet" href="/resources/css/board/board-writeUpdate.css">
+    
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 
-        <!-- 마크다운 에디터 라이브러리 (CKEditor5)-->
-        <script src="/ckeditor/ckeditor.js"></script>
-	<script>
-    window.onload = function(){
-       ck = CKEDITOR.replace("editor");
-    };
-    </script>
+    <!-- 마크다운 에디터 라이브러리 (CKEditor4)-->
+ <script src="//cdn.ckeditor.com/4.19.0/full/ckeditor.js"></script>
 
-        
-        
-        <script src="https://cdn.jsdelivr.net/npm/simplemde@1.11.2/dist/simplemde.min.js"></script>
 
+    <script src="/resources/ckeditor/ckeditor.js"></script>
 
 
 </head>
@@ -37,7 +32,7 @@
 
     <main id="main">
     
-
+    
         <!-- 모든걸 담는 div -->
         <div id="divContainer">
 
@@ -54,137 +49,57 @@
             </div>
 
 
-            <!-- 제목 -->
-            <div id="boardTitleDiv">
-                <input type="text" id="boardTitle" placeholder="제목을 입력해주세요.">
-            </div>
+            <form id="uploadForm" action="/test" method="post" enctype="multipart/form-data">
 
-
-            <!-- 썸네일 이미지 -->
-            <div class="thumbnailImage">
-
-                <div class="ImageInnerTexts">썸네일 이미지</div>
-
-                <label for="img0" class="labelsForFile">
-                    <img class="preview" src="">
-                </label>
-
-                <input type="file" name="images" class="images" id="img0" accept="image/*">
-                
-                <div class="deleteImages">&times;</div>
-
-            </div>
-
-
-            <!-- 내용 -->
-            <div id="boardContent">
-                <textarea placeholder="내용을 입력해주세요."></textarea>
-            </div>
-
-
-            <!-- 추가이미지 1, 2, 3, 4 -->
-            <div id="additionalImagesBox">
-             
-                    <div class="additionalImages">
-
-                        <div class="ImageInnerTexts">추가 이미지 1</div>
-
-                        <label for="img1" class="labelsForFile">
-                            <img class="preview" src="">
-                        </label>
-
-                        <input type="file" name="images" class="images" id="img1" accept="image/*">
-
-                        <span class="deleteImages">&times;</span>
-                        
-                    </div>
-             
-                    <div class="additionalImages">
-                        
-                        <div class="ImageInnerTexts">추가 이미지 2</div>
-
-                        <label for="img1" class="labelsForFile">
-                            <img class="preview" src="">
-                        </label>
-
-                        <input type="file" name="images" class="images" id="img1" accept="image/*">
-
-                        <span class="deleteImages">&times;</span>
-
-                    </div>
-             
-                    <div class="additionalImages">
-            
-                        <div class="ImageInnerTexts">추가 이미지 3</div>
-
-                        <label for="img1" class="labelsForFile">
-                            <img class="preview" src="">
-                        </label>
-
-                        <input type="file" name="images" class="images" id="img1" accept="image/*">
-
-                        <span class="deleteImages">&times;</span>
-
-                    </div>
-             
-                    <div class="additionalImages">
-                      
-                        <div class="ImageInnerTexts">추가 이미지 4</div>
-
-                        <label for="img1" class="labelsForFile">
-                            <img class="preview" src="">
-                        </label>
-
-                        <input type="file" name="images" class="images" id="img1" accept="image/*">
-
-                        <span class="deleteImages">&times;</span>
-
-                    </div>
+                <!-- 제목 -->
+                <div id="boardTitleDiv">
+                    <input type="text" id="boardTitle" placeholder="제목을 입력해주세요.">
                 </div>
 
 
-            <!-- 태그 설정 (자동완성하는거 어떻게 만들지 몰라서 일단 select 태그)-->
-            <div id="tagsContainer">
+                <!-- 내용 -->
+                <div id="boardContent">
+                    <textarea id="contents" name="contents" placeholder="내용을 입력해주세요."></textarea>
+                </div>
 
-                <div id="tagText"># 태그 선택</div>
 
-                <div id="tagsDiv">
-                    
-                    <select id="selectTag" name="tags" class="tagSelects">
-                        <option value="태그1">태그1</option>
-                        <option value="태그2">태그2</option>
-                        <option value="태그3">태그3</option>
-                        <option value="태그3">태그4</option>
-                        <option value="태그3">태그5</option>
-                    </select>
 
-                    <select id="selectTag" name="tags" class="tagSelects">
-                        <option value="태그1">태그1</option>
-                        <option value="태그2">태그2</option>
-                        <option value="태그3">태그3</option>
-                        <option value="태그3">태그4</option>
-                        <option value="태그3">태그5</option>
-                    </select>
+                <!-- 태그 설정 (자동완성하는거 어떻게 만들지 몰라서 일단 select 태그)-->
+                <div id="tagsContainer">
 
-                    <select id="selectTag" name="tags" class="tagSelects">
-                        <option value="태그1">태그1</option>
-                        <option value="태그2">태그2</option>
-                        <option value="태그3">태그3</option>
-                        <option value="태그3">태그4</option>
-                        <option value="태그3">태그5</option>
-                    </select>
+                    <div id="tagText"># 태그 선택</div>
+
+                    <div id="tagsDiv">
+                        
+                        <select id="selectTag" name="tags" class="tagSelects">
+                            <option value="태그1">태그1</option>
+                            <option value="태그2">태그2</option>
+                            <option value="태그3">태그3</option>
+                            <option value="태그3">태그4</option>
+                            <option value="태그3">태그5</option>
+                        </select>
+
+                        <select id="selectTag" name="tags" class="tagSelects">
+                            <option value="태그1">태그1</option>
+                            <option value="태그2">태그2</option>
+                            <option value="태그3">태그3</option>
+                            <option value="태그3">태그4</option>
+                            <option value="태그3">태그5</option>
+                        </select>
+
+                        <select id="selectTag" name="tags" class="tagSelects">
+                            <option value="태그1">태그1</option>
+                            <option value="태그2">태그2</option>
+                            <option value="태그3">태그3</option>
+                            <option value="태그3">태그4</option>
+                            <option value="태그3">태그5</option>
+                        </select>
+
+                    </div>
 
                 </div>
 
-            </div>
-
-
-            <textarea name="content" id="editor"></textarea>
-
-            <div id="post-list">
-                <!-- 게시물 목록 영역 -->
-            </div>
-
+            </form>
             <!-- 등록, 작성취소 버튼 -->
             <div id="buttonsArea">
 
