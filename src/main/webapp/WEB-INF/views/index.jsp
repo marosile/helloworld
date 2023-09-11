@@ -26,6 +26,13 @@
                 <div class="slide">3</div>
             </div>
         </div>
+        <div id="slide-bullet-container">
+            <div class="slide-bullet" style="background-color: rgb(0, 128, 255);"></div>
+            <div class="slide-bullet"></div>
+            <div class="slide-bullet"></div>
+            <div class="slide-bullet"></div>
+            <div class="slide-bullet"></div>
+        </div>
         <div id="content" class="page">
         </div>
 	</main>

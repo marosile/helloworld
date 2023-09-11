@@ -1,9 +1,3 @@
-let slideCount = 0;
-
-// setInterval(() => {
-//     slide(8000);
-// }, 8000);
-
 $('.slide').click(function() {
     const no = $('.slide').index($(this))
     if(no == 3) slide(false, 1000);
@@ -18,8 +12,14 @@ let timer = 0;
 
 function slide(d, t) {
     if (timer) return;
-    if (d) $('#slide-container').prepend($('#slide-container > .slide:last-of-type'));
-    else $('#slide-container').append($('#slide-container > .slide:first-of-type'));
+    if (d) {
+        $('#slide-container').prepend($('#slide-container > .slide:last-of-type'));
+        $('#slide-bullet-container').append($('#slide-bullet-container > .slide-bullet:first-of-type'));
+
+    } else {
+        $('#slide-container').append($('#slide-container > .slide:first-of-type'));
+        $('#slide-bullet-container').prepend($('#slide-bullet-container > .slide-bullet:last-of-type'));
+    }
     $('.slide').css('transition-duration', t + 'ms');
     document.querySelector('#slide-container').animate(
         {transform: ['translateX(' + (d ? '-' : '') + '620px)', 'translateX(0)']},
@@ -28,5 +28,4 @@ function slide(d, t) {
     timer = setTimeout(() => {
         timer = 0;
     }, t - 200)
-
 }

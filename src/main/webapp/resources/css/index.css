@@ -44,8 +44,21 @@ main {
     scale: 1.5;
 }
 
+#slide-bullet-container {
+    display: flex;
+    margin-top: 10px;
+}
+
+.slide-bullet {
+    width: 12px;
+    height: 12px;
+    margin: 0 4px;
+    border-radius: 50%;
+    background-color: rgb(120, 120, 120);
+}
+
 #content {
     width: 1000px;
     height: 500px;
-    margin-top: 15px;
+    margin-top: 20px;
 }
