@@ -3,18 +3,18 @@
 
 <style>
     #snackbar {
-        visibility: hidden;
+        /*visibility: hidden;*/
+        position: fixed;
+        bottom: 30px;
         min-width: 250px;
-        margin-left: -125px;
         background-color: #333;
         color: #fff;
         text-align: center;
         border-radius: 2px;
         padding: 16px;
-        position: fixed;
         z-index: 1;
         left: 50%;
-        bottom: 30px;
+
     }
 
     #snackbar.show {
@@ -33,7 +33,7 @@
     }
 </style>
 
-<div class="snack-bar">
+<div class="snackbar">
     <img>
     <div></div>
 </div>
