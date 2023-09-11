@@ -22,16 +22,16 @@
         margin-top: -50px;
         margin-bottom: 70px;
         background-color: var(--bg-color-2);
-        box-shadow: 0 0 20px 5px rgba(0, 0, 0, 0.3);
+        box-shadow: 0 0 20px 5px rgba(0, 0, 0, 0.2);
         text-align: center;
         overflow: hidden;
         transition-duration: 0.5s;
         animation: fadein 1s, fadeout 1s 4s;
     }
 
-    .snackbar:last-of-type {
-        scale: 1.08;
-        box-shadow: 0 0 20px 5px rgba(0, 0, 0, 0.2);
+    .snackbar:not(.snackbar:last-of-type) {
+        scale: 0.85;
+        box-shadow: 0 0 20px 5px rgba(0, 0, 0, 0.3);
     }
 
     .snackbar > div:first-of-type {

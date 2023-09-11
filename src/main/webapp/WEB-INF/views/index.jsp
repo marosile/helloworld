@@ -15,7 +15,6 @@
             crossorigin="anonymous"></script>
 </head>
 <body>
-    <jsp:include page="/WEB-INF/views/common/snack-bar.jsp"/>
     <jsp:include page="/WEB-INF/views/common/header.jsp"/>
 	<main>
 		<div id="slide-frame">

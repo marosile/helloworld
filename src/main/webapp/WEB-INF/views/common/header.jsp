@@ -3,6 +3,8 @@
 
 <link rel="stylesheet" href="/resources/css/common/header.css">
 
+<jsp:include page="/WEB-INF/views/common/snack-bar.jsp"/>
+
 <header>
     <div id="header-left">
         <img id="header-logo" src="/resources/images/logo.svg" onclick="location.href='/'">
