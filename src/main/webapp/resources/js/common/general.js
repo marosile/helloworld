@@ -1,8 +1,14 @@
 applyTheme(true);
 
 document.getElementById("theme-switch").addEventListener("click",() => {
-    if (localStorage.getItem("theme") == "dark") localStorage.setItem("theme", "light");
-    else localStorage.setItem("theme", "dark");
+    if (localStorage.getItem("theme") == "dark") {
+        localStorage.setItem("theme", "light");
+        snackbar('라이트 모드로 설정되었습니다.', 'rgb(0, 128, 255)', '/resources/images/sun.png')
+    }
+    else {
+        localStorage.setItem("theme", "dark");
+        snackbar('다크 모드로 설정되었습니다.', 'rgb(0, 128, 255)', '/resources/images/moon.png')
+    }
     applyTheme();
 })
 

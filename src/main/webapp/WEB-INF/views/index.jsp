@@ -15,7 +15,7 @@
             crossorigin="anonymous"></script>
 </head>
 <body>
-    <jsp:include page="/WEB-INF/views/common/general.jsp"/>
+    <jsp:include page="/WEB-INF/views/common/snack-bar.jsp"/>
     <jsp:include page="/WEB-INF/views/common/header.jsp"/>
 	<main>
 		<div id="slide-frame">
@@ -25,7 +25,7 @@
                 <div class="slide">1</div>
                 <div class="slide">2</div>
                 <div class="slide">3</div>
-            </div>ㅌ₩
+            </div>
         </div>
         <div id="slide-bullet-container">
             <div class="slide-bullet" style="background-color: rgb(0, 128, 255);"></div>
