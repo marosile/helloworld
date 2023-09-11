@@ -34,9 +34,10 @@
         </div>
 
 
-        <form action="#" class="phoneFrm">
+        <div class="TelCertification">
+            <form action="#" class="findIdFrm" id="phoneFrm">
             
-            <div class="TelCertification">
+
                 <div class="phoneAuth1">
                     <input type="text" id="inputTel1" class="phoneInput" placeholder="본인인증을 위한 휴대폰 번호 입력">
         
@@ -55,11 +56,17 @@
                 </div>
 
 
+                <button id="findIdBtn1" class="findIdBtn">아이디 찾기</button>
 
-                <button id="findIdBtn">아이디 찾기</button>
-            </div>
+            </form>
+        </div>
 
-            <div class="EmailCertification">
+
+
+
+        <div class="EmailCertification">
+
+            <form action="#" class="findIdFrm" id="emailFrm">
                 <div class="phoneAuth1">
                     <input type="text" id="inputEmail1" class="phoneInput" placeholder="본인인증을 위한 이메일 입력">
         
@@ -72,11 +79,17 @@
                     <button id="btn4" class="inputBtn" type="button">인증하기</button>
                 </div>
 
-                <button id="findIdBtn">아이디 찾기</button>
-            </div>
+                <div class="telMessage">
+                    <span id="emailAuthMessage"></span>
+                </div>
+
+                <button id="findIdBtn2" class="findIdBtn">아이디 찾기</button>
+
+            </form>
+        </div>
+
             
-            
-        </form>
+
         
     </div>
     
@@ -85,6 +98,5 @@
     
     <script src="/resources/js/common/general.js"></script>
     <script src="/resources/js/common/findId.js"></script>
-    <script src="/resources/js/common/phoneAuth.js"></script>
 </body>
 </html>
