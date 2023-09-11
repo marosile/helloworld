@@ -25,10 +25,11 @@ import io.marosile.helloworld.service.lysService;
 @SessionAttributes("rand")
 @Controller
 public class lysController {
-	
+
+	// 된거냐?
 	@Autowired
 	private lysService service;
-	
+
 	// 회원가입
 	@GetMapping("/signUp")
 	public String signUp() {
