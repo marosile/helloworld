@@ -1,16 +1,25 @@
-<!DOCTYPE html>
-<html lang="en">
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
+<!DOCTYPE html>
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://kit.fontawesome.com/f7459b8054.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="../css/study/studyDetail.css">
-    <title>스터디 상세</title>
+    <title>스터디</title>
+    <link rel="stylesheet" href="/resources/css/common/general.css"> 
+    <link rel="stylesheet" href="/resources/css/index.css">
+    <link rel="stylesheet" href="/resources/css/study/studyDetail.css">
+     <script src="https://kit.fontawesome.com/98acdabf0d.js" crossorigin="anonymous"></script>
+
+     
+    <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+    <script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=955d027ad541e959373216700e779cf3&libraries=services"></script>
+
 </head>
-
 <body>
-
+    <jsp:include page="/WEB-INF/views/common/header.jsp"/>
 
     <main id="main">
 
@@ -46,10 +55,7 @@
 
                     </div>
 
-                    <!-- 
-                    <div id="followButtonDiv">
-                        <button id="followBtn">팔로우</button>
-                    </div> -->
+          
 
                 </div>
 
@@ -114,7 +120,9 @@
 
 
                     <div id="updateDeleteBack">
-                        <button class="boardBtns" id="goToBackButton">목록으로</button>
+                        <button class="boardBtns" id="updateBtn">수정</button>
+                        <button class="boardBtns" id="deleteBtn">삭제</button>
+                        <button class="boardBtns" id="goToBackBtn">목록</button>
                     </div>
 
 
@@ -129,12 +137,14 @@
                     </div>
 
                     <!-- 댓글 하나하나 나중에 for문 -->
-                    <div class="replys">
+                      <div class="replys">
 
                         <div class="inReplyfirstDiv">
                             <div><img src="/resources/images/user.png" class="replyImages"></div>
-                            <div>작성자</div>
-                            <div>(2023-09-04)</div>
+                            <div id="replyWriter">작성자
+                            <div id="replyCreateDate">(2023-09-04)</div>
+                            </div>
+                            
                         </div>
 
                         <div class="replyContents">
@@ -142,9 +152,9 @@
                         </div>
 
                         <div class="replyBtns">
-                            <button class="replyBtn">수정</button>
-                            <button class="replyBtn">삭제</button>
-                            <button class="replyBtn">대댓글</button>
+                            <button class="replyBtn" id="updateBtn">수정</button>
+                            <button class="replyBtn" id="deleteBtn">삭제</button>
+                            <button class="replyBtn" id="replyBtn">대댓글</button>
                         </div>
 
                     </div>
@@ -192,8 +202,6 @@
 
             <!-- /////////////////////////////////////////////////////////////////////////////////////// -->
 
-            <!-- 인기글 top 10 -->
-            <div id="top10">
 
                 <div class="P-profile-area">
                     <div class="P-profile-container">
@@ -217,8 +225,13 @@
 
 
 
-            </div>
 
     </main>
 
+        
+    <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
+    <script src="/resources/js/common/general.js"></script>
+    <script src="/resources/js/study/studyWrite.js"></script>
+    <script src="/resources/js/study/studyDetail.js"></script>
+</body>
 </html>
