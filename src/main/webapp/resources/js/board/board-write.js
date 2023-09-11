@@ -26,20 +26,12 @@ cancelButton.addEventListener("click", () => {
 
 })
 
+const contents = document.getElementById("contents")
 
-
-
-// 게시물 저장
-function savePost() {
-    var content = simplemde.value(); // 마크다운 에디터의 내용 가져오기
-
-    // AJAX 요청을 사용하여 서버에 게시물 저장 요청 보내기
-    // 서버는 받은 데이터를 DB에 저장합니다.
-}
-
-// 게시물 불러오기
-function loadPosts() {
-    // AJAX 요청을 사용하여 서버에서 게시물 목록 가져오기
-    // 가져온 데이터를 게시물 목록 영역에 표시합니다.
-}
+$(function () {
+    CKEDITOR.replace('contents', {
+        filebrowserUploadUrl: '/adm/fileupload.do',
+        contentsLangDirection: 'ltr', // 텍스트 방향 설정 (ltr: 왼쪽에서 오른쪽, rtl: 오른쪽에서 왼쪽)
+    });
+});
 
