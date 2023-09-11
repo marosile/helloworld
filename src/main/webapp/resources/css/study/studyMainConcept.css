@@ -49,44 +49,26 @@
 
 /* 모집글 버튼 */
 #P-study-btn {
-    background-color: rgb(0, 128, 255);
-    color: white;
-    font-size: 1em;
-    padding: 3px;
-    margin: 10px 20px 0 20px;
-    display: flex;
-    width: 15%;
-    height: 35px;
-    border-radius: 18px;
+    background-color: #007bff; 
+    margin-left: 100px;
+    color: white; 
     font-size: 14px;
-    justify-content: center;
-    align-items: center;
+    font-weight: bold;
+    border: none;
+    border-radius: 20px;
+    padding: 10px 20px;
     cursor: pointer;
-    border: 0;
+    transition: background-color 0.3s ease-in-out; /* 부드러운 hover 효과 추가 */
+
 }
 
 #P-study-btn:hover {
-    background-color: rgb(255, 255, 255);
-    color: rgb(0, 128, 255);
-    font-size: 1em;
-    padding: 3px;
-    margin: 10px 20px 0 20px;
-    display: flex;
-     width: 15%;
-    height: 35px;
-    border-radius: 18px;
-    font-size: 14px;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    border: 1px solid rgb(0, 128, 255) ;
+    background-color: #0056b3; 
 }
 
 
 /* 최신순/인기순 */
 .P-study-btn-area {
-    display: flex;
-    justify-content: flex-end;
     gap: 10px;
 
 }
@@ -267,33 +249,75 @@
     text-overflow:ellipsis; 
     white-space:nowrap;
 }
+
+#search{
+    display: flex;
+    justify-content: space-between;
+}
+
+/* 검색 영역 */
 #search-area {
     display: flex;
-    flex-direction: column;
+    width: 100%;
     align-items: center;
-    justify-content: center;
-    text-align: center;
-
+    justify-content: space-between;
+    background-color: #f0f0f0;
+    padding: 10px 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    height: 80px;
 }
 
+/* 검색 박스 */
 #search-box {
     display: flex;
+    align-items: center;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    padding: 5px 10px;
     width: 500px;
     height: 40px;
-    padding: 0 12px;
-    border: solid 1px rgb(210, 210, 210);
-    border-radius: 25px;
-    margin-top: 10px;
-    background-color: rgb(255, 255, 255);
-    align-items: center;
 }
 
-#search-input {
-    border: none;
-    outline: none;
-    width: 200px;
-    padding: 5px;
+/* 검색 아이콘 */
+#search-icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
 }
+
+/* 검색 입력 필드 */
+#search-input {
+     border: none;
+    outline: none;
+    font-size: 14px;
+    background-color: white;
+    width: 100%; 
+}
+
+
+#searchBtn {
+    padding: 10px 20px; 
+    width: 110px; 
+    border-radius: 18px;
+    border: none;
+    background-color: rgb(0, 128, 255);
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition-duration: 0.3s; /* 부드러운 hover 효과를 위해 트랜지션 추가 */
+}
+
+#searchBtn:hover {
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 128, 255);
+    font-size: 14px;
+    font-weight: bold;
+    border: 1px solid rgb(0, 128, 255);
+}
+
 
 #search-tag {
     width: 100%;
@@ -314,5 +338,379 @@
 #search-tag > a:hover {
     border-color: rgb(0, 128, 255);
     color: rgb(0, 128, 255);
+}
+
+
+
+.P-body-category-area {
+    margin: 10px 10px 5px 30px;
+    display: flex;
+
+}
+
+/* 역할 select 영역 */
+.P-body-category-role {
+    width: 33.3%;
+    margin-right: 20px;
+    position: relative;
+}
+
+/* 역할 버튼 */
+.P-body-category-btn {
+    width: 100%;
+
+    padding: 12px 14px;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 14px;
+    background-color: #fff;
+    border: 1px solid #C4C4C4;
+    box-sizing: border-box;
+    border-radius: 10px;
+    cursor: pointer;
+    text-align: left;
+
+    /* 말줄임 */
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    justify-content: space-between;
+    display: flex;
+    
+}
+
+/* 역할 버튼 클릭 시 나타나는 화면*/
+.P-selectBox-role {
+    width: 100%;
+    padding: 12px 14px;
+    font-size: 12px;
+    line-height: 14px;
+    background-color: #fff;
+    border: 1px solid #C4C4C4;
+    border-radius: 10px;
+    cursor: pointer;
+    position: absolute;
+}
+
+
+.menuHidden{
+    display: none;
+    transition-duration: 1ms;
+}
+
+.P-selectBox-role>li {
+    list-style: none;
+    height: 30px;
+}
+
+.P-option-btn {
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.P-option-btn:hover {
+    cursor: pointer;
+    background-color: #cccccc98;
+}
+
+
+/* 역할 select 영역 */
+.P-body-category-role {
+    width: 33.3%;
+    margin-right: 20px;
+}
+
+/* 역할 버튼 */
+.P-body-category-btn {
+    width: 100%;
+
+    padding: 12px 14px;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 14px;
+    background-color: #fff;
+    border: 1px solid #C4C4C4;
+    box-sizing: border-box;
+    border-radius: 10px;
+    cursor: pointer;
+    text-align: left;
+
+    /* 말줄임 */
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    justify-content: space-between;
+    display: flex;
+}
+
+/* 역할 버튼 클릭 시 나타나는 화면*/
+.P-selectBox-role {
+    width: 100%;
+    padding: 12px 14px;
+    font-size: 12px;
+    line-height: 14px;
+    background-color: #fff;
+    border: 1px solid #C4C4C4;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+
+/* .menuHidden{
+    display: none;
+    transition-duration: 1ms;
+} */
+
+.P-selectBox-role>li {
+    list-style: none;
+    height: 30px;
+}
+
+.P-option-btn {
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.P-option-btn:hover {
+    cursor: pointer;
+    background-color: #cccccc98;
+}
+
+
+/* 목적 select 영역 */
+.P-body-category-purpose {
+    width: 33.3%;
+    margin-right: 20px;
+    position: relative;
+}
+
+/* 역할 버튼 */
+.P-body-purpose-btn {
+    width: 100%;
+
+    padding: 12px 14px;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 14px;
+    background-color: #fff;
+    border: 1px solid #C4C4C4;
+    box-sizing: border-box;
+    border-radius: 10px;
+    cursor: pointer;
+    text-align: left;
+
+    /* 말줄임 */
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    justify-content: space-between;
+    display: flex;
+}
+
+/* 역할 버튼 클릭 시 나타나는 화면*/
+.P-selectBox-purpose {
+    width: 100%;
+    padding: 12px 14px;
+    font-size: 12px;
+    line-height: 14px;
+    background-color: #fff;
+    border: 1px solid #C4C4C4;
+    border-radius: 10px;
+    cursor: pointer;
+    position: absolute;
+}
+
+
+/* .menuHidden{
+    display: none;
+    transition-duration: 1ms;
+} */
+
+.P-selectBox-purpose>li {
+    list-style: none;
+    height: 30px;
+}
+
+.P-option-btn {
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.P-option-btn:hover {
+    cursor: pointer;
+    background-color: #cccccc98;
+}
+
+
+
+
+/* 인원 select 영역 */
+.P-body-category-count {
+    width: 33%;
+    margin-right: 20px;
+    position: relative;
+
+}
+
+/* 인원 버튼 */
+.P-body-count-btn {
+    width: 100%;
+
+    padding: 12px 14px;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 14px;
+    background-color: #fff;
+    border: 1px solid #C4C4C4;
+    box-sizing: border-box;
+    border-radius: 10px;
+    cursor: pointer;
+    text-align: left;
+
+    /* 말줄임 */
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    justify-content: space-between;
+    display: flex;
+}
+
+/* 인원 버튼 클릭 시 나타나는 화면*/
+.P-selectBox-count {
+    width: 100%;
+    height: 116px;
+    padding: 12px 14px;
+    font-size: 12px;
+    line-height: 14px;
+    background-color: #fff;
+    border: 1px solid #C4C4C4;
+    border-radius: 10px;
+    cursor: pointer;
+    position: absolute;
+}
+
+
+/* .menuHidden{
+    display: none;
+    transition-duration: 1ms;
+} */
+
+/* 인원 클릭 시 나타나는 화면 */
+.P-person {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.P-person span {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+
+#P-minusBtn {
+    padding: 12px 14px;
+    font-size: 14px;
+    line-height: 14px;
+    border: 1px solid #C4C4C4;
+
+    border-radius: 10px;
+    cursor: pointer;
+    text-align: left;
+}
+
+#P-minusBtn:hover {
+    padding: 12px 14px;
+    font-size: 14px;
+    line-height: 14px;
+    border: 1px solid #C4C4C4;
+    background-color: white;
+
+    border-radius: 10px;
+    cursor: pointer;
+    text-align: left;
+}
+
+
+
+#P-plusBtn {
+    padding: 12px 14px;
+    font-size: 14px;
+    line-height: 14px;
+    border: 1px solid #C4C4C4;
+
+    border-radius: 10px;
+    cursor: pointer;
+    text-align: left;
+}
+
+#P-plusBtn:hover {
+    padding: 12px 14px;
+    font-size: 14px;
+    line-height: 14px;
+    border: 1px solid #C4C4C4;
+    background-color: white;
+
+    border-radius: 10px;
+    cursor: pointer;
+    text-align: left;
+}
+
+#P-personBtn {
+    margin-top: 20px;
+    padding: 5px 5px;
+    width: 100%;
+
+    border-radius: 10px;
+    border: 1px solid #C4C4C4;
+    background-color: white;
+    cursor: pointer;
+}
+
+
+#P-personBtn:hover {
+    margin-top: 20px;
+    padding: 5px 5px;
+    width: 100%;
+
+    border-radius: 10px;
+    border: 1px solid #C4C4C4;
+    cursor: pointer;
+    color: white;
+    font-weight: bold;
+    background: linear-gradient(90deg, rgba(200, 100, 255, 0.5), rgba(0, 128, 255, 0.5));
+}
+
+/* 제목 */
+#P-body-title {
+    margin: 0px 20px 5px 30px;
+    padding: 10px 10px 10px 0;
+    border-radius: 5px;
+}
+
+
+
+#P-body-title-textarea {
+    width: 100%; 
+    height: 30px; 
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 5px;
+    resize: none;
+    outline: none;
+}
+
+.P-body-category-top {
+    width: 100%;
 }
 
