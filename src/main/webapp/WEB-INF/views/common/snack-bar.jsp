@@ -72,5 +72,5 @@
                           <div style="background-color:` + color + `;"></div>`
         document.getElementById('snackbar-container').append(temp);
         setTimeout(() => { document.querySelector('#snackbar-container > .snackbar:first-of-type').remove(); }, 5000);
-    };
+    }
 </script>
