@@ -22,9 +22,12 @@ public class Board {
     private String modifyDate;
     private String deletedFl;
     private int boardType;
+    private int boardCode;
+    private String boardName;
     
     // member
     private String memberId; 
+    private String memberNickname;
 
 	
 }

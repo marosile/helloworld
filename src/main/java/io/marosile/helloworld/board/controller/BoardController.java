@@ -2,7 +2,12 @@ package io.marosile.helloworld.board.controller;
 
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -12,9 +17,13 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.SessionAttribute;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import io.marosile.helloworld.board.model.dto.Board;
 import io.marosile.helloworld.board.model.service.BoardService_OHS;
+import io.marosile.helloworld.board.model.service.BoardService_PHJ;
+import io.marosile.helloworld.member.model.dto.Member;
 
 
 @RequestMapping("/board")
@@ -24,11 +33,17 @@ public class BoardController {
 	@Autowired
 	private BoardService_OHS service;
 	
+	@Autowired
+	private BoardService_PHJ service2;
+	
 	// 게시글 목록 조회 (첫 조회 -> posts 10개)
-	@GetMapping("/list/{boardCode}")
-	public String boardList(Model model, @PathVariable("boardCode") int boardCode) {
+	@GetMapping("/{boardCode:[1-3]+}")
+	public String boardList(Model model, @PathVariable("boardCode") int boardCode
+			) {
 		
+		List<Board> boardList = service2.selectBoardList(boardCode);
 		
+		model.addAttribute("boardList", boardList);
 		
 		return "board/board-list";
 	}
@@ -52,10 +67,38 @@ public class BoardController {
 	
 	
 	// 게시글 상세 조회
-	@GetMapping("/detail")
-	public String boardDetail() {
+	@GetMapping("/{boardCode}/{boardNo}")
+	public String boardDetail(@PathVariable("boardCode") int boardCode
+							, @PathVariable("boardNo") int boardNo
+							, Model model
+							, RedirectAttributes ra
+							, @SessionAttribute(value="loginMember", required=false) Member loginMember
+							, HttpServletRequest req
+							, HttpServletResponse resp
+							) {
 		
-		return "board/board-detail";
+		Map<String, Object> map = new HashMap<String, Object>();
+		
+		map.put("boardCode", boardCode);
+		map.put("boardNo", boardNo);
+		
+		Board board = service2.selectBoard(map);
+		
+		String path = null;
+		
+		if(board != null) {
+			
+			path = "board/board-detail";
+			model.addAttribute("board", board);
+			
+		}else {
+			path = "redirect:/board/" + boardCode;
+			
+			ra.addFlashAttribute("message", "해당 게시글이 존재하지 않습니다.");
+		}
+		
+		
+		return path;
 	}
 	
 

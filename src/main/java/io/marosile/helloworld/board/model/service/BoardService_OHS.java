@@ -1,6 +1,7 @@
 package io.marosile.helloworld.board.model.service;
 
 import java.util.List;
+import java.util.Map;
 
 import io.marosile.helloworld.board.model.dto.Board;
 
@@ -12,5 +13,8 @@ public interface BoardService_OHS {
 	 * @return list
 	 */
 	List<Board> loadPosts(int start, int end);
+
+	
+
 
 }

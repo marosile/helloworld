@@ -300,3 +300,24 @@ i{
     cursor: pointer;
 }
 
+#profile-image{
+    display: flex;
+    margin-right: 20px;
+}
+
+#pic{
+    margin-right: 5px;
+    border-radius: 50%;
+    border: 1px solid gray;
+
+    width: 40px;
+    height: 40px;
+}
+
+#profile-image div{
+    font-weight: bold;
+    font-size: 15px;
+    color:  rgb(78, 76, 76);
+    line-height: 30px;
+}
+
