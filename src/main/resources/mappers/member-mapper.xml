@@ -18,7 +18,7 @@
     </resultMap>
 
     <select id="login" resultMap="member_rm" parameterType="Member">
-        SELECT MEMBER_ID, MEMBER_NICK, MEMBER_EMAIL, MEMBER_TEL, PROFILE_IMG,
+        SELECT MEMBER_ID, MEMBER_PW, MEMBER_NICK, MEMBER_EMAIL, MEMBER_TEL, PROFILE_IMG,
                TO_CHAR(ENROLL_DT, 'YYYY"년" MM"월" DD"일" HH24"시" MI"분" SS"초"') ENROLL_DT,
                PROMOTION_FL
         FROM "MEMBER"

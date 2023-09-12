@@ -27,8 +27,22 @@
                 </div>
             </div>
         </label>
-        <div id="header-login" class="button">로그인</div>
+
+        <c:choose>
+            <c:when test="${empty loginMember}">
+                <div id="header-login" class="button" onClick="location.href='/member/login'">로그인</div>
+
+            </c:when>
+
+            <c:otherwise>
+                <div id="header-login" class="button" onClick="location.href='/member/logout'">로그아웃</div>
+
+            </c:otherwise>
+
+        </c:choose>
+
         <div id="header-signup" class="button">회원가입</div>
+
     </div>
 </header>
 
