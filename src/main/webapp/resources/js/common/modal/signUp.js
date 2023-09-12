@@ -28,25 +28,25 @@
 */
 const checkSignUp = {
 
-    "inputId" : false,
-    "inputEmail" : false,
-    "inputTel1" : false,
-    "inputTel2" : false,
-    "inputNickname" : false,
-    "inputPw" : false,
-    "inputConfirmPw" : false,
-    "essentialCheck" : false,
-    "authKey" : false
-
-    // "inputId" : true,
-    // "inputEmail" : true,
-    // "inputTel1" : true,
-    // "inputTel2" : true,
-    // "inputNickname" : true,
-    // "inputPw" : true,
-    // "inputConfirmPw" : true,
+    // "inputId" : false,
+    // "inputEmail" : false,
+    // "inputTel1" : false,
+    // "inputTel2" : false,
+    // "inputNickname" : false,
+    // "inputPw" : false,
+    // "inputConfirmPw" : false,
     // "essentialCheck" : false,
-    // "authKey" : true
+    // "authKey" : false
+
+    "inputId" : true,
+    "inputEmail" : true,
+    "inputTel1" : true,
+    "inputTel2" : true,
+    "inputNickname" : true,
+    "inputPw" : true,
+    "inputConfirmPw" : true,
+    "essentialCheck" : true,
+    "authKey" : true
     // 실험용
 
 };
@@ -578,6 +578,7 @@ $(document).ready(function(){
         
     });
 
+
 });
 
 
@@ -591,6 +592,17 @@ $(document).ready(function(){
 document.getElementById("mainFrm").addEventListener("submit", e => {
 
     // checkSignUp 모든 value가 true인지 검사
+
+    // 마케팅 동의 값보내주기 (좀 귀찮음)
+    const checkAll3 = document.getElementsByName("checkAll")[3];
+    const promotionFl = document.getElementsByName("promotionFl")[0];
+
+    if(checkAll3.checked == 'true'){
+        promotionFl.value = 'Y';
+    }else{
+        promotionFl.value = 'N';
+    }
+
 
     for( let key in checkSignUp ){
 
@@ -631,6 +643,8 @@ document.getElementById("mainFrm").addEventListener("submit", e => {
         }
 
     }
+
+
 
 });
 

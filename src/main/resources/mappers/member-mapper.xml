@@ -25,6 +25,18 @@
         WHERE DELETED_FL = 'N'
         AND MEMBER_ID = #{memberId}
     </select>
-    
+
+    <insert id="signUp" parameterType="Member">
+        INSERT INTO "MEMBER"
+        VALUES(#{memberId},
+               #{memberPw},
+               #{memberNick},
+               #{memberEmail},
+               #{memberTel},
+               #{profileImg},
+               DEFAULT,
+               #{promotionFl},
+               DEFAULT)
+    </insert>
     
 </mapper>

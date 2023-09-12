@@ -19,7 +19,7 @@
 
     <div class="mainBody">
 
-        <form action="#" class="mainFrm" id="mainFrm" name="mainFrm">
+        <form action="/member/signUp" class="mainFrm" id="mainFrm" name="mainFrm" method="post">
 
             <h1>회원가입</h1>
 
@@ -48,20 +48,20 @@
 
                 <div class="inputAll">
                     <label for="inputId" class="inputName">아이디</label>
-                    <input type="text" name="inputId" id="inputId" class="inputClass" autocomplete="off" >
+                    <input type="text" name="memberId" id="inputId" class="inputClass" autocomplete="off" >
                     <span id="idMessage">영문(대,소문자)와 숫자를 조합하여 5~14글자 사이로 입력해주세요</span>
                 </div>
 
                 <div class="inputAll">
                     <label for="inputEmail" class="inputName">이메일</label>
-                    <input type="text" name="inputEmail" id="inputEmail" class="inputClass" autocomplete="off">
+                    <input type="text" name="memberEmail" id="inputEmail" class="inputClass" autocomplete="off">
                     <span id="emailMessage">이메일을 입력해주세요</span>
                 </div>
 
                 <div class="inputAll">
                     <label for="inputTel1" class="inputName">전화번호</label>
                     <div>
-                        <input type="text" name="inputTel1" id="inputTel1" class="inputClass" autocomplete="off">
+                        <input type="text" name="memberTel" id="inputTel1" class="inputClass" autocomplete="off">
                         <button id="btn1" type="button">인증번호 받기</button>
                     </div>
                     <span id="telMessage">전화번호를 입력해주세요(- 제외)</span>
@@ -79,13 +79,13 @@
 
                 <div class="inputAll">
                     <label for="inputNickname" class="inputName">닉네임</label>
-                    <input type="text" name="inputNickname" id="inputNickname" class="inputClass" autocomplete="off">
+                    <input type="text" name="memberNick" id="inputNickname" class="inputClass" autocomplete="off">
                     <span id="nickMessage">한글,영어,숫자 2~8글자 입력 해주세요</span>
                 </div>
 
                 <div class="inputAll">
                     <label for="inputPw" class="inputName">비밀번호</label>
-                    <input type="text" name="inputPw" id="inputPw" class="inputClass" autocomplete="off">
+                    <input type="text" name="memberPw" id="inputPw" class="inputClass" autocomplete="off">
                     <span id="pwMessage">영어,숫자,특수문자(!,@,#,-,_) 6~20글자 사이로 입력해주세요</span>
                 </div>
 
@@ -130,12 +130,15 @@
                         <label for="check4" class="chkLabel"></label>
                         <label for="check4">(선택) 마케팅 정보 수신 동의</label>
                         <a href="#">보기</a>
+                        <input type="hidden" name="promotionFl">
                     </div>
                 </div>
 
                 <button id="signUpBtn">회원가입</button>
 
             </div>
+
+            <input type="hidden" name="profileImg" value="/resources/images/user.png">
 
         </form>
         

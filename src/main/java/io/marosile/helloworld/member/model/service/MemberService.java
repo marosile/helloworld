@@ -24,4 +24,10 @@ public interface MemberService {
      * @return 회원 정보
      */
     Member login(Member inputMember);
+
+    /** 회원가입하기
+     * @param inputMember
+     * @return 회원가입여부
+     */
+    int signUp(Member inputMember);
 }
