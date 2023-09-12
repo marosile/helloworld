@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>로그인</title>
 
-    <link rel="stylesheet" href="resources/css/common/login.css">
+    <link rel="stylesheet" href="/resources/css/common/login.css">
 </head>
     <body>
 
@@ -52,7 +52,7 @@
             <div class="snsLogin">
                 <h3>SNS로그인</h3>
                 <div>
-                    <a href="https://kauth.kakao.com/oauth/authorize?client_id=aac73a50e342183e31a5478826ffeffd&redirect_uri=http://localhost/login/kakao&response_type=code"><img src="resources/images/kakao_login_medium_wide.png"></a>
+                    <a href="https://kauth.kakao.com/oauth/authorize?client_id=aac73a50e342183e31a5478826ffeffd&redirect_uri=http://localhost/login/kakao&response_type=code"><img src="/resources/images/kakao_login_medium_wide.png"></a>
                 </div>
                 <button>구글 계정으로 로그인 하기</button>
                 <button>네이버 계정으로 로그인 하기</button>

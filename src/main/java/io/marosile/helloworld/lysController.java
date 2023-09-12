@@ -26,7 +26,6 @@ import io.marosile.helloworld.service.lysService;
 @Controller
 public class lysController {
 
-	// 된거냐?
 	@Autowired
 	private lysService service;
 
