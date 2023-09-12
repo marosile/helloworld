@@ -89,59 +89,16 @@ personBtn.addEventListener("click", (e) => {
 })
 
 
-// 스와이퍼 초기화
+
+
 var mySwiper = new Swiper('.swiper-container', {
-    slidesPerView: 2, // 화면에 보이는 슬라이드 수
-    spaceBetween: 10, // 슬라이드 간 간격
+    slidesPerView: 2, // 한 화면에 보여질 슬라이드 개수
+    slidesPerGroup: 2,    // 한 번에 그룹으로 넘어갈 슬라이드 개수
+    spaceBetween: 10,     // 슬라이드 사이의 간격
     navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
+        nextEl: '.swiper-button-next', // 다음 버튼 클래스
+        prevEl: '.swiper-button-prev', // 이전 버튼 클래스
     },
+
 });
 
-// 슬라이더 내용 설정
-var slideContents = [
-    {
-        category: '스터디',
-        title: '모집중 | 우리 같이 백엔드 공부하는거 어때요?',
-        content: '안녕하세요. 3개월 안에 서비스를 릴리즈할 스터디 팀원을 모집합니다...',
-    },
-    {
-        category: '스터디',
-        title: '모집중 | 우리 같이 백엔드 공부하는거 어때요?',
-        content: '안녕하세요. 3개월 안에 서비스를 릴리즈할 스터디 팀원을 모집합니다...',
-    },
-    // 추가적인 슬라이드 내용을 필요에 따라 추가
-];
-
-// 각 슬라이드에 내용을 추가
-var swiperWrapper = document.querySelector('.swiper-wrapper');
-for (var i = 0; i < slideContents.length; i++) {
-    var slideContent = slideContents[i];
-
-    var slide = document.createElement('div');
-    slide.className = 'swiper-slide';
-
-    var studyContainer = document.createElement('div');
-    studyContainer.className = 'P-study';
-
-    // 슬라이드 내용 추가
-    var studyMain = document.createElement('div');
-    studyMain.className = 'P-study-main';
-    studyMain.innerHTML = '<span class="P-study-category">' + slideContent.category + '</span>' +
-        '<span class="P-like-btn"><i class="fa-regular fa-heart"></i></span>';
-    studyContainer.appendChild(studyMain);
-
-    var studyTitle = document.createElement('div');
-    studyTitle.className = 'P-study-title';
-    studyTitle.innerHTML = '<span class="PN">' + slideContent.title + '</span>' +
-        '<span class="PS"> | </span>' + slideContent.content;
-    studyContainer.appendChild(studyTitle);
-
-    // 슬라이더에 슬라이드 추가
-    slide.appendChild(studyContainer);
-    swiperWrapper.appendChild(slide);
-}
-
-// 스와이퍼 업데이트
-mySwiper.update();

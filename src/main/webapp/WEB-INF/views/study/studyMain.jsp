@@ -135,8 +135,8 @@
                             인기 있는 스터디 TOP 10 🔥
                         </h3>
                     </div>
-                    <div class="swiper-button-next"></div>
                     <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
                 </div>
 
                 <div class="swiper-container" id="swiper">
@@ -149,53 +149,77 @@
 
                                 <div class="P-study-popular-container-f">
                                     <div class="P-study-popular-category">
-                                        스터디
+                                        <img src="/resources/images/board/number1.png" class="top10LevelImage">
                                     </div>
-                                    <div class="P-study-popular-title">
-                                        Hello World 웹 개발 같이해요!
-                                    </div>
-                                    <div class="P-study-popular-content">
-                                        개발자를 위한 커뮤니티를 만들고 싶은데 같이 만들어봐요!
+
+                                    <div>
+                                        <div class="P-study-popular-title">
+                                            Hello World 웹 개발 같이해요!
+
+                                        </div>
+                                        <div class="P-study-popular-content">
+                                            개발자를 위한 커뮤니티를 만들고 싶은데 같이 만들어봐요!
+                                        </div>
                                     </div>
                                 </div>
 
                             </div>
 
                             <div class="post">
-                                <div id="directionRow">
-                                    <div>
+
+                                <div class="P-study-popular-container-f">
+                                    <div class="P-study-popular-category">
                                         <img src="/resources/images/board/number2.png" class="top10LevelImage">
                                     </div>
-                                    <div id="top10BoardTitle">
-                                        <div class="top10Titles">제목입니다.제목입니다.</div>
-                                        <div class="top10Inquirys">조회 1500 댓글 35</div>
+
+                                    <div>
+                                        <div class="P-study-popular-title">
+                                            Hello World 웹 개발 같이해요!
+
+                                        </div>
+                                        <div class="P-study-popular-content">
+                                            개발자를 위한 커뮤니티를 만들고 싶은데 같이 만들어봐요!
+                                        </div>
                                     </div>
                                 </div>
 
                             </div>
+
                         </div>
 
                         <div class="swiper-slide">
                             <div class="post">
-                                <div id="directionRow">
-                                    <div>
+                                <div class="P-study-popular-container-f">
+                                    <div class="P-study-popular-category">
                                         <img src="/resources/images/board/number3.png" class="top10LevelImage">
                                     </div>
-                                    <div id="top10BoardTitle">
-                                        <div class="top10Titles">제목입니다.제목입니다.</div>
-                                        <div class="top10Inquirys">조회 1500 댓글 35</div>
+
+                                    <div>
+                                        <div class="P-study-popular-title">
+                                            Hello World 웹 개발 같이해요!
+
+                                        </div>
+                                        <div class="P-study-popular-content">
+                                            개발자를 위한 커뮤니티를 만들고 싶은데 같이 만들어봐요!
+                                        </div>
                                     </div>
                                 </div>
 
                             </div>
                             <div class="post">
-                                <div id="directionRow">
-                                    <div>
+                                <div class="P-study-popular-container-f">
+                                    <div class="P-study-popular-category">
                                         <img src="/resources/images/board/number4.png" class="top10LevelImage">
                                     </div>
-                                    <div id="top10BoardTitle">
-                                        <div class="top10Titles">제목입니다.제목입니다.</div>
-                                        <div class="top10Inquirys">조회 1500 댓글 35</div>
+
+                                    <div>
+                                        <div class="P-study-popular-title">
+                                            Hello World 웹 개발 같이해요!
+
+                                        </div>
+                                        <div class="P-study-popular-content">
+                                            개발자를 위한 커뮤니티를 만들고 싶은데 같이 만들어봐요!
+                                        </div>
                                     </div>
                                 </div>
 
@@ -204,25 +228,37 @@
 
                         <div class="swiper-slide">
                             <div class="post">
-                                <div id="directionRow">
-                                    <div>
+                                <div class="P-study-popular-container-f">
+                                    <div class="P-study-popular-category">
                                         <img src="/resources/images/board/number5.png" class="top10LevelImage">
                                     </div>
-                                    <div id="top10BoardTitle">
-                                        <div class="top10Titles">제목입니다.제목입니다.</div>
-                                        <div class="top10Inquirys">조회 1500 댓글 35</div>
+
+                                    <div>
+                                        <div class="P-study-popular-title">
+                                            Hello World 웹 개발 같이해요!
+
+                                        </div>
+                                        <div class="P-study-popular-content">
+                                            개발자를 위한 커뮤니티를 만들고 싶은데 같이 만들어봐요!
+                                        </div>
                                     </div>
                                 </div>
 
                             </div>
                             <div class="post">
-                                <div id="directionRow">
-                                    <div>
+                                <div class="P-study-popular-container-f">
+                                    <div class="P-study-popular-category">
                                         <img src="/resources/images/board/number6.png" class="top10LevelImage">
                                     </div>
-                                    <div id="top10BoardTitle">
-                                        <div class="top10Titles">제목입니다.제목입니다.</div>
-                                        <div class="top10Inquirys">조회 1500 댓글 35</div>
+
+                                    <div>
+                                        <div class="P-study-popular-title">
+                                            Hello World 웹 개발 같이해요!
+
+                                        </div>
+                                        <div class="P-study-popular-content">
+                                            개발자를 위한 커뮤니티를 만들고 싶은데 같이 만들어봐요!
+                                        </div>
                                     </div>
                                 </div>
 
@@ -230,25 +266,37 @@
                         </div>
                         <div class="swiper-slide">
                             <div class="post">
-                                <div id="directionRow">
-                                    <div>
+                                <div class="P-study-popular-container-f">
+                                    <div class="P-study-popular-category">
                                         <img src="/resources/images/board/number7.png" class="top10LevelImage">
                                     </div>
-                                    <div id="top10BoardTitle">
-                                        <div class="top10Titles">제목입니다.제목입니다.</div>
-                                        <div class="top10Inquirys">조회 1500 댓글 35</div>
+
+                                    <div>
+                                        <div class="P-study-popular-title">
+                                            Hello World 웹 개발 같이해요!
+
+                                        </div>
+                                        <div class="P-study-popular-content">
+                                            개발자를 위한 커뮤니티를 만들고 싶은데 같이 만들어봐요!
+                                        </div>
                                     </div>
                                 </div>
 
                             </div>
                             <div class="post">
-                                <div id="directionRow">
-                                    <div>
+                                <div class="P-study-popular-container-f">
+                                    <div class="P-study-popular-category">
                                         <img src="/resources/images/board/number8.png" class="top10LevelImage">
                                     </div>
-                                    <div id="top10BoardTitle">
-                                        <div class="top10Titles">제목입니다.제목입니다.</div>
-                                        <div class="top10Inquirys">조회 1500 댓글 35</div>
+
+                                    <div>
+                                        <div class="P-study-popular-title">
+                                            Hello World 웹 개발 같이해요!
+
+                                        </div>
+                                        <div class="P-study-popular-content">
+                                            개발자를 위한 커뮤니티를 만들고 싶은데 같이 만들어봐요!
+                                        </div>
                                     </div>
                                 </div>
 
@@ -256,88 +304,40 @@
                         </div>
                         <div class="swiper-slide">
                             <div class="post">
-                                <div id="directionRow">
-                                    <div>
+                                <div class="P-study-popular-container-f">
+                                    <div class="P-study-popular-category">
                                         <img src="/resources/images/board/number9.png" class="top10LevelImage">
                                     </div>
-                                    <div id="top10BoardTitle">
-                                        <div class="top10Titles">제목입니다.제목입니다.</div>
-                                        <div class="top10Inquirys">조회 1500 댓글 35</div>
+
+                                    <div>
+                                        <div class="P-study-popular-title">
+                                            Hello World 웹 개발 같이해요!
+
+                                        </div>
+                                        <div class="P-study-popular-content">
+                                            개발자를 위한 커뮤니티를 만들고 싶은데 같이 만들어봐요!
+                                        </div>
                                     </div>
                                 </div>
 
                             </div>
                             <div class="post">
-                                <div id="directionRow">
-                                    <div>
+                                <div class="P-study-popular-container-f">
+                                    <div class="P-study-popular-category">
                                         <img src="/resources/images/board/number10.png" class="top10LevelImage">
                                     </div>
-                                    <div id="top10BoardTitle">
-                                        <div class="top10Titles">제목입니다.제목입니다.</div>
-                                        <div class="top10Inquirys">조회 1500 댓글 35</div>
+
+                                    <div>
+                                        <div class="P-study-popular-title">
+                                            Hello World 웹 개발 같이해요!
+
+                                        </div>
+                                        <div class="P-study-popular-content">
+                                            개발자를 위한 커뮤니티를 만들고 싶은데 같이 만들어봐요!
+                                        </div>
                                     </div>
                                 </div>
 
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="P-study-popular">
-
-
-
-                    <div class="P-study-popular-icon">
-                        <i class="fa-solid fa-arrow-left" id="prevSlide"></i>
-                        <i class="fa-solid fa-arrow-right" id="nextSlide"></i>
-                    </div>
-                </div>
-
-
-                <div class="P-study-popular-area">
-                    <div class="P-study-popular-container">
-
-
-                    </div>
-
-                    <div class="P-study-popular-container">
-                        <div class="P-study-popular-container-f">
-                            <div class="P-study-popular-category">
-                                스터디
-                            </div>
-                            <div class="P-study-popular-title">
-                                Hello World 웹 개발 같이해요!
-                            </div>
-                            <div class="P-study-popular-content">
-                                개발자를 위한 커뮤니티를 만들고 싶은데 같이 만들어봐요!
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="P-study-popular-container">
-                        <div class="P-study-popular-container-f">
-                            <div class="P-study-popular-category">
-                                스터디
-                            </div>
-                            <div class="P-study-popular-title">
-                                Hello World 웹 개발 같이해요!
-                            </div>
-                            <div class="P-study-popular-content">
-                                개발자를 위한 커뮤니티를 만들고 싶은데 같이 만들어봐요!
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="P-study-popular-container">
-                        <div class="P-study-popular-container-f">
-                            <div class="P-study-popular-category">
-                                스터디
-                            </div>
-                            <div class="P-study-popular-title">
-                                Hello World 웹 개발 같이해요!
-                            </div>
-                            <div class="P-study-popular-content">
-                                개발자를 위한 커뮤니티를 만들고 싶은데 같이 만들어봐요!
                             </div>
                         </div>
                     </div>
