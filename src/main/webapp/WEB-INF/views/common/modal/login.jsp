@@ -21,7 +21,7 @@
                 <div class="login-inputAll">
                     <label for="login-inputEmail" class="login-inputName">아이디</label>
                     <input type="text" name="memberId" id="login-inputEmail" class="login-inputClass"
-                           autocomplete="off" placeholder="아이디를 입력해주세요" value="${cookie.saveId.value}">
+                           autocomplete="off" placeholder="아이디를 입력해주세요" value="${cookie.idSave.value}">
                 </div>
 
                 <div class="login-inputAll">
@@ -29,14 +29,14 @@
                     <input type="text" name="memberPw" id="login-inputPw" class="login-inputClass" autocomplete="off" placeholder="비밀번호를 입력해주세요">
                 </div>
 
-                <c:if test="${!empty cookie.saveId.value}">
+                <c:if test="${!empty cookie.idSave.value}">
                     <c:set var="chk" value="checked"/>
                 </c:if>
 
                 <div class="login-saveId">
                     <div>
-                        <input type="checkbox" id="saveId" name="saveId" ${chk}>
-                        <label for="saveId">아이디 저장</label>
+                        <input type="checkbox" id="idSave" name="idSave" ${chk}>
+                        <label for="idSave">아이디 저장</label>
                     </div>
 
                     <div>

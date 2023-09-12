@@ -51,7 +51,7 @@ public class MemberController {
 	public String login(Member inputMember
 						, Model model
 						, @RequestHeader(value="referer") String referer
-						, @RequestParam(value="saveId", required = false) String saveId
+						, @RequestParam(value="idSave", required = false) String idSave
 						, HttpServletResponse resp
 						){
 
@@ -69,9 +69,9 @@ public class MemberController {
 			model.addAttribute("loginMember", loginMember);
 
 			// 쿠키를 이용한 아이디 저장
-			Cookie cookie = new Cookie("saveId", loginMember.getMemberId());
+			Cookie cookie = new Cookie("idSave", loginMember.getMemberId());
 
-			if(saveId != null){
+			if(idSave != null){
 				// 한달동안 유지되는 쿠키 생성
 				cookie.setMaxAge(60 * 60 * 24 * 30);
 			} else{
