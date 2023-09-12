@@ -133,7 +133,7 @@
     </main>
 
     <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
-    <script src="/resources/js/common/general.js"></script>
     <script src="/resources/js/study/studyWrite.js"></script>
+    <script src="/resources/js/common/general.js"></script>
 </body>
 </html>

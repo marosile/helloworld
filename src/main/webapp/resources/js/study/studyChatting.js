@@ -14,7 +14,7 @@ close.addEventListener("click", () => {
 })
 
 // 나가기 (질문)
-const leaveChat = document.getElementById("fa-arrow-right")
+/* const leaveChat = document.getElementById("fa-arrow-right")
 const addChatting = document.getElementById("addChatting");
 
 leaveChat.addEventListener("click", () => {
@@ -23,4 +23,4 @@ leaveChat.addEventListener("click", () => {
 
     }
 });
-
+ */
