@@ -1,3 +1,4 @@
+
 * {
     box-sizing: border-box;
     /* border: 1px solid gainsboro ; */
@@ -8,10 +9,7 @@
     overflow: hidden;
 }
 
-.P-study-popular-container {
-    flex: 0 0 50%; /* 각 슬라이드가 반쪽 페이지의 너비를 가지도록 */
-    transition: transform 0.5s ease; /* 슬라이드 이동 애니메이션 */
-}
+
 
 /* 스터디 전체 div */
 .P-header {
@@ -58,9 +56,9 @@
 
 /* 모집글 버튼 */
 #P-study-btn {
-    background-color: #007bff; 
+    background-color: #007bff;
     margin-left: 100px;
-    color: white; 
+    color: white;
     font-size: 14px;
     font-weight: bold;
     border: none;
@@ -72,7 +70,7 @@
 }
 
 #P-study-btn:hover {
-    background-color: #0056b3; 
+    background-color: #0056b3;
 }
 
 
@@ -103,7 +101,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column; 
+    flex-direction: column;
 }
 
 /* 스터디 모집 개별 */
@@ -136,7 +134,7 @@
     font-weight: bold;
     text-align: center;
     padding: 2px;
-    
+
 }
 
 /* 제목 */
@@ -145,9 +143,9 @@
     margin: 15px 10px;
     font-size: 20px;
     font-weight: bold;
-    overflow: hidden;  		
-    text-overflow: ellipsis;  	
-    white-space: nowrap; 		
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
     word-break:break-all
 }
 
@@ -161,8 +159,8 @@
 .P-study-content{
     display: flex;
     margin: 10px 10px;
-    overflow: hidden;  		
-    text-overflow: ellipsis;  	
+    overflow: hidden;
+    text-overflow: ellipsis;
 
 }
 
@@ -197,13 +195,13 @@
 
 /* 화살표 */
 .fa-solid.fa-arrow-left {
-    padding: 8px; 
+    padding: 8px;
     margin-right: 10px;
     margin-bottom: 5px;
 }
 
 .fa-solid.fa-arrow-right {
-    padding: 8px; 
+    padding: 8px;
     margin-right: 10px;
 }
 
@@ -216,8 +214,8 @@
 
 }
 
-.P-study-popular-container{
-    width: 48%;
+.post{
+    width: 100%;
     background-color: #fafafa;
     border-radius: 8px;
     border:0.0625rem solid #f2f2f2 ;
@@ -226,12 +224,15 @@
 }
 
 .P-study-popular-container-f{
-    margin: 15px;
+    margin: 1px;
+    width: 100%;
+    height: 80px;
 }
 
 .P-study-popular-category{
     background-color: #ccc;
-    width: 130px;
+    width: 80px;
+    margin: 10px;
     font-size: 13px;
     border-radius: 18px;
     font-weight: bold;
@@ -241,21 +242,22 @@
 
 .P-study-popular-title{
     display: flex;
-    margin: 13px 0;
-    font-size: 20px;
+    margin: 1px 15px;
+    font-size: 15px;
     font-weight: bold;
-    overflow: hidden;  		
-    text-overflow: ellipsis;  	
-    white-space: nowrap; 		
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
     word-break:break-all
 }
 
 .P-study-popular-content{
     display: flex;
+    font-size: 13px;
     margin: 10px 10px;
-	
-    overflow:hidden; 
-    text-overflow:ellipsis; 
+
+    overflow:hidden;
+    text-overflow:ellipsis;
     white-space:nowrap;
 }
 
@@ -298,17 +300,17 @@
 
 /* 검색 입력 필드 */
 #search-input {
-     border: none;
+    border: none;
     outline: none;
     font-size: 14px;
     background-color: white;
-    width: 100%; 
+    width: 100%;
 }
 
 
 #searchBtn {
-    padding: 10px 20px; 
-    width: 110px; 
+    padding: 10px 20px;
+    width: 110px;
     border-radius: 18px;
     border: none;
     background-color: rgb(0, 128, 255);
@@ -385,7 +387,7 @@
     overflow: hidden;
     justify-content: space-between;
     display: flex;
-    
+
 }
 
 /* 역할 버튼 클릭 시 나타나는 화면*/
@@ -710,8 +712,8 @@
 
 
 #P-body-title-textarea {
-    width: 100%; 
-    height: 30px; 
+    width: 100%;
+    height: 30px;
     border: 1px solid #ccc;
     border-radius: 5px;
     padding: 5px;
@@ -723,3 +725,119 @@
     width: 100%;
 }
 
+/* 형석이 코드 */
+
+/* 조회수 탑 10 */
+#top10{
+    border:1px solid lightgray;
+    border-radius: 10px;
+    display:flex;
+    width:95%;
+    flex-direction: column;
+    margin:30px 0;
+}
+
+/* 제목 */
+#top10Title1{
+    font-size:22px;
+    font-weight: bold;
+    margin-left:52px;
+}
+
+/* 제목 + 버튼 */
+#top10TitleButton{
+    margin:0 20px;
+    display:flex;
+    justify-content: space-between;
+    overflow: hidden;
+    position:relative;
+}
+
+/* swiper < 버튼 */
+.swiper-button-prev{
+    margin-left:770px;
+}
+
+/* swiper > 버튼 */
+.swiper-button-next{
+    margin-right:32px;
+}
+
+/* ? */
+:root {
+    --swiper-navigation-size: 0 !important;
+}
+
+/* <, > 변경 */
+.swiper-button-prev::before{color:black; content: "←" !important;}
+
+.swiper-button-next::before{color:black; content: "→" !important;}
+
+.swiper-button-prev::after{color:black; display: none !important;}
+
+.swiper-button-next::after{color:black; display: none !important;}
+
+/*스위퍼 container */
+#swiper{
+    height: 225px;
+    overflow: hidden;
+}
+
+/* 스위퍼 wrapper */
+#swiper .swiper-wrapper{
+    height:200px;
+}
+
+/* swipper 1열 */
+.swiper-slide {
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* 게시글 2개씩 */
+.post{
+    margin:20px 10px;
+    height:80px;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+}
+
+/* top10 이미지 + 제목 */
+.post > #directionRow{
+    display:flex;
+    margin-left:10px;
+}
+
+/* top10 1나의 제목, 조회, 댓글 */
+#top10BoardTitle{
+    margin-left:10px;
+}
+
+.top10LevelImage{
+    height:40px;
+    width:40px;
+}
+
+.top10Titles{
+    display:flex;
+    justify-content: flex-start;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.top10Inquirys{
+    display:flex;
+    justify-content: flex-start;
+    font-size:12px;
+}
+
+.post:hover{
+    background-color: rgb(240, 240, 240);
+}

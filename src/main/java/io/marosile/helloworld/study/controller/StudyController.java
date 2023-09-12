@@ -16,6 +16,12 @@ public class StudyController {
 		return "study/studyMain";
 	}
 
+	@GetMapping("/mainTest")
+	public String studyMainTest(Model model) {
+
+		return "study/studyMainTEST";
+	}
+
 	// 스터디 작성
 	@GetMapping("/write")
 	public String studyWrite(Model model) {
@@ -36,6 +42,8 @@ public class StudyController {
 
 		return "study/studyDetail";
 	}
+
+
 
 	// 스터디 체팅
 	@GetMapping("/chatting")
