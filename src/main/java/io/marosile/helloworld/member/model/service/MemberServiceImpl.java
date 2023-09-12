@@ -11,14 +11,13 @@ import java.util.HashMap;
 import java.util.Map;
 
 import io.marosile.helloworld.member.model.dao.MemberDAO;
-import io.marosile.helloworld.service.lysService;
+import io.marosile.helloworld.member.model.dto.Member;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import io.marosile.helloworld.dao.lysDAO;
 
 @Service
 public class MemberServiceImpl implements MemberService {
@@ -47,7 +46,7 @@ public class MemberServiceImpl implements MemberService {
             sb.append("grant_type=authorization_code");
 
             sb.append("&client_id=aac73a50e342183e31a5478826ffeffd"); // REST_API키 본인이 발급받은 key 넣어주기
-            sb.append("&redirect_uri=http://localhost/login/kakao"); // REDIRECT_URI 본인이 설정한 주소 넣어주기
+            sb.append("&redirect_uri=http://localhost/member/login/kakao"); // REDIRECT_URI 본인이 설정한 주소 넣어주기
 
             sb.append("&code=" + code);
             bw.write(sb.toString());
@@ -158,6 +157,14 @@ public class MemberServiceImpl implements MemberService {
     }
 
 
+    // 로그인 서비스
+    @Override
+    public Member login(Member inputMember) {
+
+        Member loginMember = dao.login(inputMember);
+
+        return null;
+    }
 
 
 }

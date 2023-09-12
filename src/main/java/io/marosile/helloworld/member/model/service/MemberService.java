@@ -1,6 +1,8 @@
 package io.marosile.helloworld.member.model.service;
 
 
+import io.marosile.helloworld.member.model.dto.Member;
+
 import java.util.HashMap;
 
 public interface MemberService {
@@ -17,4 +19,9 @@ public interface MemberService {
      */
     HashMap<String, Object> getUserInfo(String access_Token);
 
+    /** 로그인하기
+     * @param inputMember
+     * @return 회원 정보
+     */
+    Member login(Member inputMember);
 }

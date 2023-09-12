@@ -16,16 +16,16 @@
             
             <h2>로그인</h2>
 
-            <form action="" class="loginFrm">
+            <form action="" class="loginFrm" method="post">
 
                 <div class="login-inputAll">
                     <label for="login-inputEmail" class="login-inputName">아이디(이메일)</label>
-                    <input type="text" name="login-inputEmail" id="login-inputEmail" class="login-inputClass" autocomplete="off" placeholder="아이디(이메일)을 입력해주세요">
+                    <input type="text" name="memberId" id="login-inputEmail" class="login-inputClass" autocomplete="off" placeholder="아이디(이메일)을 입력해주세요">
                 </div>
 
                 <div class="login-inputAll">
                     <label for="login-inputPw" class="login-inputName">비밀번호</label>
-                    <input type="text" name="login-inputPw" id="login-inputPw" class="login-inputClass" autocomplete="off" placeholder="비밀번호를 입력해주세요">
+                    <input type="text" name="memberPw" id="login-inputPw" class="login-inputClass" autocomplete="off" placeholder="비밀번호를 입력해주세요">
                 </div>
 
                 <div class="login-saveId">

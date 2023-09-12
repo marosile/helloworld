@@ -1,6 +1,7 @@
 package io.marosile.helloworld.member.controller;
 
-import io.marosile.helloworld.service.lysService;
+import io.marosile.helloworld.member.model.dto.Member;
+import io.marosile.helloworld.member.model.service.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -13,7 +14,7 @@ import java.util.HashMap;
 public class MemberController {
 
 	@Autowired
-	private lysService service;
+	private MemberService service;
  
 	// 회원가입 화면
 	@GetMapping("/signUp")
@@ -38,6 +39,16 @@ public class MemberController {
 	public String login() {
 		return "common/modal/login";
 	}
+
+
+	@PostMapping("/login")
+	public String login(Member inputMember){
+
+		Member loginMember = service.login(inputMember);
+
+		return null;
+	}
+
 
 
 	
