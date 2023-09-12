@@ -40,7 +40,7 @@
 
                         <div class="P-studyChatting-search-area">
                             <button id="P-studyChatting-searchBtn" class="fa-solid fa-magnifying-glass"></button>
-                            <input type="search" placeholder="닉네임 또는 아이디를 입력해주세요." id="P-studyChatting-query"
+                            <input type="search" placeholder="닉네임 또는 아이디를 입력해주세요" id="P-studyChatting-query"
                                 autocomplete="off" autocomplete="off">
                         </div>
 
@@ -91,7 +91,7 @@
                                 <h4>유저일</h4>
 
                                 <div class="P-studyChatting-content-btn">
-                                    <button class="P-studyChatting-content-out">
+                                    <button class="P-studyChatting-content-out" id="P-studyChatting-content-out">
                                         <i class="fa-solid fa-arrow-right" id="fa-arrow-right"></i></button>
                                   <!--   <button class="P-studyChatting-content-report"><i
                                             class="fa-solid fa-bell-concierge"></i></button> 신고하기 -->  

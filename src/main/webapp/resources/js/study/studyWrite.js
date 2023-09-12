@@ -1,4 +1,4 @@
-// 카테고리 - 역할 클릭 했을때 
+// 카테고리 - 역할 클릭 했을때
 const categoryBtn = document.querySelector('.P-body-category-btn');
 const selectBoxRole = document.querySelector('.P-selectBox-role');
 
@@ -141,12 +141,12 @@ const BtnModify = document.getElementById("BtnModify");
 BtnModify.addEventListener("click", () => {
 
     alert("게시글이 작성되었습니다.");
-    location.href="detail";
+    location.href="/study/main";
 
 })
 
-// 작성취소 
-// 작성하기 
+// 작성취소
+// 작성하기
 const BtnDelete = document.getElementById("BtnDelete");
 
 BtnDelete.addEventListener("click", () => {

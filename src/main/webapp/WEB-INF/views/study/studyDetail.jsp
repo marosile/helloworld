@@ -36,7 +36,8 @@
                         <div>
                             스터디
                         </div>
-                            <i class="fa-regular fa-heart"></i>
+                            <i class="fa-regular fa-heart" id="heart"></i>
+                            <i class="fa-solid fa-heart"></i>
                     </div>
 
                     <div class="P-study-detail-title">
@@ -109,7 +110,7 @@
                             <i class="fa-regular fa-heart"> 좋아요</i>
                             <b>15</b>
                         </p>
-                        <p>&nbsp•&nbsp</p>
+                        <p>&nbsp • &nbsp</p>
 
                         <p>
                             <i class="fa-regular fa-face-smile"> 조회</i>
