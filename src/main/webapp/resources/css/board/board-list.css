@@ -22,17 +22,32 @@
     padding: 20px 20px;
 }
 
+/* 게시판 a태그 */
+#boardNameList a{
+    display:block;
+    width:95%;
+    height:80px;
+    border-radius:10px;
+    margin-bottom:10px;
+}
+
+/* 00 게시판 일때만 효과주기 */
+.active{
+    transition-duration: 0.5s;
+    font-size:22px;
+    font-weight:bold;
+}
+
 /* 게시판 이름들(공지, 자유, Q&A), 네비게이션 */
 #boardNameList{
     display:flex;
     justify-content: space-around;
     height:80px;
     font-size:20px;
-    font-weight:bold;
     align-items: center;
     border-bottom: 1px solid lightgray; 
     margin:10px 0;
-    width:95%;
+    width:100%;
 }
 
 /* 게시판 이름 3개 */
@@ -40,7 +55,7 @@
     display:flex;
     justify-content: center;
     align-items: center;
-    height:90%;
+    height:100%;
     border-radius: 10px;
 }
 
@@ -49,7 +64,7 @@
 }
 
 /* 게시판이름, 게시글 목록 담는 div */
-#postList1{
+#postList{
     width:95%;
     display:flex;
     height:75px;
@@ -60,8 +75,17 @@
     overflow: hidden;
 }
 
+#postList > form{
+    display:flex;
+    width:100%;
+    align-items: center;
+    justify-content: space-between;
+    text-align: center;
+    overflow: hidden;
+}
+
 /* 게시판 이름 (3개중 하나) */
-#postList > #boardName{
+#postList #boardName{
     font-size:25px;
     font-weight:bold;
     margin-left:15px;
@@ -354,7 +378,6 @@
 
 
 
-
 /* 모달 설정 */
 .modal {
     display: none; /* 모달을 처음에는 화면에 표시하지 않음 */
@@ -400,3 +423,4 @@
     0% { transform: rotate(0deg); } /* 0% 위치에서 회전 각도 */
     100% { transform: rotate(360deg); } /* 100% 위치에서 회전 각도 (360도 = 한 바퀴) */
 }
+

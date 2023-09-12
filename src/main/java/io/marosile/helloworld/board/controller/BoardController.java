@@ -51,14 +51,21 @@ public class BoardController {
 	// 게시글 목록 무한스크롤
 	@GetMapping(value = "/loadPosts", produces = "application/json; charset=UTF-8")
 	@ResponseBody
-	public List<Board> loadPosts(@RequestParam("page") int page, Model model) {
+	public List<Board> loadPosts(@RequestParam("page") int page,
+								 @RequestParam("boardCode") int boardCode){
 		
 	    int pageSize = 10; // 한 페이지에 표시할 게시글 수
 	    int start = (page - 1) * pageSize + 1; // 첫 매핑 -> 11 두번째 매핑 -> 21 , ...
 	    int end = page * pageSize; // 첫 매핑 -> 20, 두번째 매핑 -> 30 , ...
 	    
+	    Map<String, Object> parameters = new HashMap<>();
+        
+	    parameters.put("boardCode", boardCode);
+        parameters.put("start", start);
+        parameters.put("end", end);
+	    
 	    // 데이터베이스에서 start부터 end까지의 게시글을 가져오기
-	    List<Board> postList = service.loadPosts(start, end);
+	    List<Board> postList = service.loadPosts(parameters);
 	    
 	    //model.addAttribute("postList", postList);
 	    
@@ -87,7 +94,6 @@ public class BoardController {
 		String path = null;
 		
 		if(board != null) {
-			
 			path = "board/board-detail";
 			model.addAttribute("board", board);
 			

@@ -12,9 +12,12 @@ public interface BoardService_OHS {
 	 * @param end
 	 * @return list
 	 */
-	List<Board> loadPosts(int start, int end);
-
 	
+	List<Board> loadPosts(Map<String, Object> parameters);
 
-
+	/** 게시글 삽입
+	 * @param board
+	 * @return result
+	 */
+	int boardInsert(Board board);
 }

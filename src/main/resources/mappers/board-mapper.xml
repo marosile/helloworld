@@ -21,16 +21,25 @@
 	
 	
 	<select id="loadPost" resultMap="boardResultMap">
-	        SELECT BOARD_NO, BOARD_TITLE, BOARD_CONTENT FROM BOARD
-   			WHERE BOARD_NO BETWEEN #{start} AND #{end}
+	   		SELECT * FROM (
+			    SELECT A.*, ROWNUM AS rnum FROM (
+			        SELECT BOARD_NO, BOARD_TITLE, BOARD_CONTENT, CREATE_DT, BOARD_CODE, MEMBER_NICK, MEMBER_ID 
+			        FROM BOARD 
+			        JOIN MEMBER USING(MEMBER_ID)
+			        WHERE BOARD_CODE = #{boardCode}
+			        ORDER BY BOARD_NO DESC
+			    ) A 
+			)
+			WHERE rnum BETWEEN #{start} AND #{end}
 	</select>
 	
 	
 	<select id="selectBoardList" resultMap="boardResultMap">
-			SELECT BOARD_NO, MEMBER_ID, MEMBER_NICK, BOARD_TITLE, BOARD_CONTENT, CREATE_DT FROM BOARD
+			SELECT BOARD_NO, MEMBER_ID, MEMBER_NICK, BOARD_TITLE, BOARD_CONTENT, CREATE_DT, BOARD_NAME FROM BOARD
 			JOIN BOARD_TYPE USING(BOARD_CODE)
 			FULL JOIN MEMBER USING(MEMBER_ID)
 			WHERE BOARD_CODE = #{boardCode}
+			ORDER BY BOARD_NO DESC
 	</select>
 	
 	<select id="selectBoard" resultMap="boardResultMap">
@@ -43,7 +52,22 @@
 			AND BOARD_CODE = #{boardCode}
 	</select>
 	
-
+	<insert id="boardInsert" parameterType="Board" useGeneratedKeys="true">
+		<selectKey order="BEFORE" resultType="_int"
+			keyProperty="boardNo">
+			SELECT SEQ_BOARD_NO.NEXTVAL FROM DUAL
+		</selectKey>
+	
+		INSERT INTO BOARD
+		VALUES(#{boardNo},
+		#{memberId},
+		#{boardTitle},
+		#{boardContent},
+		#{boardCode},
+		DEFAULT, DEFAULT, DEFAULT)
+	
+	
+	</insert>
 
 
 </mapper>

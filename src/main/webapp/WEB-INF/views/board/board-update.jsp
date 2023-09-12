@@ -12,157 +12,87 @@
 
     <link rel="stylesheet" href="/resources/css/board/board-writeUpdate.css">
 
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+
 
 </head>
 
 <body>
-    <%-- 0080FF (200, 100, 255) --%>
 
     <jsp:include page="/WEB-INF/views/common/header.jsp"/>
 
-
     <main id="main">
     
-
+    
         <!-- 모든걸 담는 div -->
         <div id="divContainer">
 
 
             <!-- 작성 or 수정 표시 -->
             <div id="boardWrite">
-                <div>게시글 수정</div>
+                <div>게시글 작성</div>
             </div>
 
 
             <!-- 게시판 이름 -->
             <div id="boardNameDiv">
-                <div>자유 게시판</div>
+                <div>${boardName}</div>
             </div>
 
 
-            <!-- 제목 -->
-            <div id="boardTitleDiv">
-                <input type="text" id="boardTitle" placeholder="제목을 입력해주세요.">
-            </div>
+            <form id="uploadForm" action="/board2/${boardCode}/write" method="post"> <!-- enctype="multipart/form-data" -->
 
-
-            <!-- 썸네일 이미지 -->
-            <div class="thumbnailImage">
-
-                <div class="ImageInnerTexts">썸네일 이미지</div>
-
-                <label for="img0" class="labelsForFile">
-                    <img class="preview" src="">
-                </label>
-
-                <input type="file" name="images" class="images" id="img0" accept="image/*">
-                
-                <div class="deleteImages">&times;</div>
-
-            </div>
-
-
-            <!-- 내용 -->
-            <div id="boardContent">
-                <textarea placeholder="내용을 입력해주세요."></textarea>
-            </div>
-
-
-            <!-- 추가이미지 1, 2, 3, 4 -->
-            <div id="additionalImagesBox">
-             
-                    <div class="additionalImages">
-
-                        <div class="ImageInnerTexts">추가 이미지 1</div>
-
-                        <label for="img1" class="labelsForFile">
-                            <img class="preview" src="">
-                        </label>
-
-                        <input type="file" name="images" class="images" id="img1" accept="image/*">
-
-                        <span class="deleteImages">&times;</span>
-                        
-                    </div>
-             
-                    <div class="additionalImages">
-                        
-                        <div class="ImageInnerTexts">추가 이미지 2</div>
-
-                        <label for="img1" class="labelsForFile">
-                            <img class="preview" src="">
-                        </label>
-
-                        <input type="file" name="images" class="images" id="img1" accept="image/*">
-
-                        <span class="deleteImages">&times;</span>
-
-                    </div>
-             
-                    <div class="additionalImages">
-            
-                        <div class="ImageInnerTexts">추가 이미지 3</div>
-
-                        <label for="img1" class="labelsForFile">
-                            <img class="preview" src="">
-                        </label>
-
-                        <input type="file" name="images" class="images" id="img1" accept="image/*">
-
-                        <span class="deleteImages">&times;</span>
-
-                    </div>
-             
-                    <div class="additionalImages">
-                      
-                        <div class="ImageInnerTexts">추가 이미지 4</div>
-
-                        <label for="img1" class="labelsForFile">
-                            <img class="preview" src="">
-                        </label>
-
-                        <input type="file" name="images" class="images" id="img1" accept="image/*">
-
-                        <span class="deleteImages">&times;</span>
-
-                    </div>
+                <!-- 제목 -->
+                <div id="boardTitleDiv">
+                    <input type="text" id="boardTitle" name="boardTitle" placeholder="제목을 입력해주세요.">
                 </div>
 
-            <!-- 태그 설정 (자동완성하는거 어떻게 만들지 몰라서 일단 select 태그)-->
-            <div id="tagsContainer">
 
-                <div id="tagText"># 태그 선택</div>
+                <!-- 내용 -->
+                <div id="boardContent">
+                     <textarea id="summernote" name="boardContent"></textarea>
+                </div>
 
-                <div id="tagsDiv">
-                    
-                    <select id="selectTag" name="tags" class="tagSelects">
-                        <option value="태그1">태그1</option>
-                        <option value="태그2">태그2</option>
-                        <option value="태그3">태그3</option>
-                        <option value="태그3">태그4</option>
-                        <option value="태그3">태그5</option>
-                    </select>
+                <!-- 태그 설정 (자동완성하는거 어떻게 만들지 몰라서 일단 select 태그)-->
+                <div id="tagsContainer">
 
-                    <select id="selectTag" name="tags" class="tagSelects">
-                        <option value="태그1">태그1</option>
-                        <option value="태그2">태그2</option>
-                        <option value="태그3">태그3</option>
-                        <option value="태그3">태그4</option>
-                        <option value="태그3">태그5</option>
-                    </select>
+                    <div id="tagText"># 태그 선택</div>
 
-                    <select id="selectTag" name="tags" class="tagSelects">
-                        <option value="태그1">태그1</option>
-                        <option value="태그2">태그2</option>
-                        <option value="태그3">태그3</option>
-                        <option value="태그3">태그4</option>
-                        <option value="태그3">태그5</option>
-                    </select>
+                    <div id="tagsDiv">
+                        
+                        <select id="selectTag" name="tags" class="tagSelects">
+                            <option value="태그1">태그1</option>
+                            <option value="태그2">태그2</option>
+                            <option value="태그3">태그3</option>
+                            <option value="태그3">태그4</option>
+                            <option value="태그3">태그5</option>
+                        </select>
+
+                        <select id="selectTag" name="tags" class="tagSelects">
+                            <option value="태그1">태그1</option>
+                            <option value="태그2">태그2</option>
+                            <option value="태그3">태그3</option>
+                            <option value="태그3">태그4</option>
+                            <option value="태그3">태그5</option>
+                        </select>
+
+                        <select id="selectTag" name="tags" class="tagSelects">
+                            <option value="태그1">태그1</option>
+                            <option value="태그2">태그2</option>
+                            <option value="태그3">태그3</option>
+                            <option value="태그3">태그4</option>
+                            <option value="태그3">태그5</option>
+                        </select>
+
+                    </div>
 
                 </div>
 
-            </div>
-
+       
 
 
             <!-- 등록, 작성취소 버튼 -->
@@ -176,6 +106,70 @@
         </div>
  
     </main>
+
+    <script>
+
+        $(document).ready(function() {
+        
+            var toolbar = [
+                    // 글꼴 설정
+                    ['fontname', ['fontname']],
+                    // 글자 크기 설정
+                    ['fontsize', ['fontsize']],
+                    // 굵기, 기울임꼴, 밑줄,취소 선, 서식지우기
+                    ['style', ['bold', 'italic', 'underline','strikethrough', 'clear']],
+                    // 글자색
+                    ['color', ['forecolor','color']],
+                    // 표만들기
+                    ['table', ['table']],
+                    // 글머리 기호, 번호매기기, 문단정렬
+                    ['para', ['ul', 'ol', 'paragraph']],
+                    // 줄간격
+                    ['height', ['height']],
+                    // 그림첨부, 링크만들기, 동영상첨부
+                    ['insert',['picture','link','video']],
+                    // 코드보기, 확대해서보기, 도움말
+                    ['view', ['codeview','fullscreen', 'help']]
+                  ];
+        
+                  var setting = {
+                    height : 300,
+                    minHeight : null,
+                    maxHeight : null,
+                    focus : true,
+                    lang : 'ko-KR',
+                    toolbar : toolbar,
+                    //콜백 함수
+                    callbacks : { 
+                        onImageUpload : function(files, editor, welEditable) {
+                    // 파일 업로드(다중업로드를 위해 반복문 사용)
+                    for (var i = files.length - 1; i >= 0; i--) {
+                    uploadSummernoteImageFile(files[i],
+                    this);
+                            }
+                        }
+                    }
+                 };
+                $('#summernote').summernote(setting);
+                });
+                
+                function uploadSummernoteImageFile(file, el) {
+                    data = new FormData();
+                    data.append("file", file);
+                    $.ajax({
+                        data : data,
+                        type : "POST",
+                        url : "uploadSummernoteImageFile",
+                        contentType : false,
+                        enctype : 'multipart/form-data',
+                        processData : false,
+                        success : function(data) {
+                            $(el).summernote('editor.insertImage', data.url);
+                        }
+                    });
+                }
+        
+            </script>
 
     <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
 

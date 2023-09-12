@@ -16,7 +16,6 @@ const postSecondPart = document.getElementsByClassName("postSecondPart");
 const postThirdPart = document.getElementsByClassName("postThirdPart");
 
 
-
 // 각각의 상세페이지로
 for (let i = 0; i < postSecondPart.length; i++) {
     postSecondPart[i].addEventListener("click", () => {
@@ -34,14 +33,17 @@ for (let i = 0; i < postThirdPart.length; i++) {
 
 
 // 작성하기 버튼
-const boardInsert = document.getElementById("boardInsert");
+/* const boardInsert = document.getElementById("boardInsert");
 
-boardInsert.addEventListener("click", () => {
+if(boardInsert != null){
 
-    location.href = "/board2/write";
-
-})
-
+    boardInsert.addEventListener("click", () => {
+    
+        location.href = `/board2/${location.pathname.split("/")[2]}/write` ;
+    
+    })
+}
+ */
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 // 무한스크롤
@@ -78,7 +80,7 @@ var page = 2; // 처음 ajax 넘길 page 번호
 
             showLoadingModal();
             
-            fetch('loadPosts?page=' + page, {
+            fetch('loadPosts?page=' + page + '&boardCode=' + boardCode,{
                 method: 'GET',
                 headers: {'Content-Type': 'application/json'}
                 // data : x
@@ -106,8 +108,24 @@ var page = 2; // 처음 ajax 넘길 page 번호
                     data.forEach( whatever => { // function(whatever) => {}
 
                         var postAppends = '<div class="posts">' +  
-                                                '<div>' + whatever.boardTitle + '</div>' +
-                                                '<div>' + whatever.boardContent + '</div>' +
+                                           '<div class="postFirstpart">' +
+                                                '<img src="/resources/images/logo.svg" class="writerImages">' +
+                                                '<div class="firstPartRight">' +
+                                                        '<div>' + whatever.memberId + '</div>' +
+                                                            '<div>'+ whatever.memberNickname +
+                                                            '<span id="minute">' + whatever.createDate + '</span>' +
+                                                        '</div>' +
+                                                    '</div>' +
+                                                '</div>' +
+
+                                                '<div class="postSecondPart">' + whatever.boardTitle + '</div>' +
+                                                '<div class="postThirdPart">' + whatever.boardContent + '</div>' +
+                                                '<div class="postFourthPart">' + "#react #recoil #next.js" + '</div>' +
+                                                '<div class="postFifthPart">' + 
+                                                    '<div class="replyCount">' + "댓글 5" + '</div>' +
+                                                    '<div class="inquiryCount">' + "조회 7" + '</div>' +
+                                                '</div>' +
+
                                             '</div>'; // 임시
                                             
                         $('#post').append(postAppends); 
