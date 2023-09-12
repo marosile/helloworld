@@ -132,8 +132,10 @@ function sample5_execDaumPostcode() {
 }
 
 
+// 작성완료
+const titleTextarea = document.getElementById("P-body-title-textarea");
+const bodyContent = document.getElementById("P-body-content");
 
-// 작성하기 
 const BtnModify = document.getElementById("BtnModify");
 
 BtnModify.addEventListener("click", () => {
@@ -150,8 +152,7 @@ const BtnDelete = document.getElementById("BtnDelete");
 BtnDelete.addEventListener("click", () => {
 
     if(confirm("작성취소하시겠습니까? 작성한 내용은 저장되지 않습니다.")){
-        alert("게시글이 삭제되었습니다. ")
-        location.href="main";
+        location.href="/study/main";
     }
 
 
