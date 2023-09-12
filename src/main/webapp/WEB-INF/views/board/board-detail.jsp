@@ -18,12 +18,16 @@
     <jsp:include page="/WEB-INF/views/common/header.jsp"/>
 	<main id="body-area">
 		<div id="main-area">
-            <p>트렌드</p>
-            <p>🕊️ 시니어 개발자가 되기 위한 백엔드 프로젝트 아이디어</p>
+            <p>${board.boardName}</p>
+            <p>🕊️ ${board.boardTitle}</p>
 
         <div id="heart">
             <div id="heart-left">
-                <p>8월 17일</p>
+                <div id="profile-image">
+                    <img src="/resources/images/trand/sample.jpg" id="pic">
+                    <div>${board.memberNickname}</div>
+                </div>
+                <p>${board.createDate}</p>
                 <p>조회 90</p>
             </div>
 
@@ -37,10 +41,7 @@
             <div id="images">썸네일/이미지</div>
 
             <div id="content">
-                <pre>
-안녕하세요???              
-백엔드 프로그래밍 기술을 향상시키고 시니어 수준의 개발자가 되는 데 
-도움이 되는 흥미로운 프로젝트 아이디어를 살펴봅시다.🔍
+                <pre>${board.boardContent}
                 </pre>
             </div>
 
@@ -72,9 +73,7 @@
 
                 <div id="report-area2">
                     <p>게시글을 신고하는 이유를 작성해주세요 <i class="fa-solid fa-face-sad-tear"></i></p>
-                    <textarea>
-게시글이 유해합니다 ㅠㅠㅠ
-                    </textarea>
+                    <textarea></textarea>
                 </div>
 
                 <div id="report-button-area">

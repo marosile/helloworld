@@ -3,6 +3,10 @@
 
 <!DOCTYPE html>
 <html lang="ko">
+
+<c:set var="board" value="${boardList}" />
+
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -27,11 +31,19 @@
         <div id="divContainer">
         <!-- 게시판 이름 (네비게이션) -->
         <div id = "boardNameList">
+
+            <a href="/board/1">
                 <div class="listNames">공지사항 게시판</div>
+            </a>
 
+            <a href="/board/2">
                 <div class="listNames">자유 게시판</div>
+            </a>
 
+            <a href="/board/3">
                 <div class="listNames">Q&A 게시판</div>
+            </a>
+
         </div>
 
         <!-- 게시글 목록 -->
@@ -208,57 +220,60 @@
             <!-- 임시 게시글 10개 -->
             <div id="post">
                 
-                <!-- 10개중 하나 -->
-                <div class="posts"> <!-- height:250 px; -->
-                
-                    <!-- 하나 중 이미지 + 작성자 + 직군 + 몇분전 양식-->
-                    <div class="postFirstpart">
-
-                        <img src="/resources/images/logo.svg" class="writerImages">
-                        
-                        <div class="firstPartRight">
-                            
-                            <div>작성자</div>
-                            
-                            <div>Naver Cloud 백엔드 개발자 - 
-                                <span id="minute">4분전</span>
-                            </div>
-
-                        </div> 
-
-                    </div>
-                        
-                        <div class="postSecondPart">
-                            Recoil의 상태관리를 활용한 초기값 지켜내기
-                        </div>
-
-                        <div class="postThirdPart">
-                            안녕하세요! 오랜만이네요.
-                            요점부터 말씀드리자면, Recoil에서 default 값을 
-                            api로 받아온 데이터를 연산하여 나온 값을 default로 깔고 싶습니다. 현재 프로젝트에서는...
-                        </div>
-                   
-                        <div class="postFourthPart">
-                            <div></div>#react #recoil #next.js
-                        </div>
-
-                        <div class="postFifthPart">
-                            <div class="replyCount">댓글 5</div>
-                            <div class="inquiryCount">조회 7</div>
-                        </div>
-
-                </div>
-
                 <!-- for문 돌릴거 첫화면 -> 10개만 -->
-                <div class="posts"></div>
-                <div class="posts"></div>
-                <div class="posts"></div>
-                <div class="posts"></div>
-                <div class="posts"></div>
-                <div class="posts"></div>
-                <div class="posts"></div>
-                <div class="posts"></div>
-                <div class="posts"></div>
+                <c:choose>
+                    <c:when test="${empty board}">
+                        <div>
+                            게시글이 존재하지 않습니다.
+                        </div>
+                    </c:when>
+
+                    <c:otherwise>
+
+                        <c:forEach items="${board}" var="board" begin="0" end="9">
+
+
+                            <a href="/board/${boardCode}/${board.boardNo}">
+
+                            <div class="posts"> <!-- height:250 px; -->
+                                <!-- 하나 중 이미지 + 작성자 + 직군 + 몇분전 양식-->
+                                <div class="postFirstpart">
+                                    <img src="/resources/images/logo.svg" class="writerImages">
+                                    <div class="firstPartRight">
+                                        <div>${board.memberId}</div>
+                                        
+                                        <div>${board.memberNickname} 
+                                            <span id="minute">${board.createDate}</span>
+                                        </div>
+
+                                    </div> 
+
+                                </div>
+                                    
+                                <div class="postSecondPart">
+                                    ${board.boardTitle}
+                                </div>
+
+                                <div class="postThirdPart">
+                                    ${board.boardContent}
+                                </div>
+                        
+                                <div class="postFourthPart">
+                                    <div></div>#react #recoil #next.js
+                                </div>
+
+                                <div class="postFifthPart">
+                                    <div class="replyCount">댓글 5</div>
+                                    <div class="inquiryCount">조회 7</div>
+                                </div>
+                            </div>
+                            </a>
+
+
+                        </c:forEach>
+                    
+                    </c:otherwise>
+                </c:choose>
               
             </div>
 

@@ -13,6 +13,9 @@
 		<result property="modifyDate" column="MODIFY_DT" />
 		<result property="deletedFl" column="DELETED_FL" />
 		<result property="memberId" column="MEMBER_ID" />
+		<result property="memberNickname" column="MEMBER_NICK" />
+		<result property="boardCode" column="BOARD_CODE" />
+		<result property="boardName" column="BOARD_NAME" />
 
 	</resultMap>
 	
@@ -21,6 +24,26 @@
 	        SELECT BOARD_NO, BOARD_TITLE, BOARD_CONTENT FROM BOARD
    			WHERE BOARD_NO BETWEEN #{start} AND #{end}
 	</select>
+	
+	
+	<select id="selectBoardList" resultMap="boardResultMap">
+			SELECT BOARD_NO, MEMBER_ID, MEMBER_NICK, BOARD_TITLE, BOARD_CONTENT, CREATE_DT FROM BOARD
+			JOIN BOARD_TYPE USING(BOARD_CODE)
+			FULL JOIN MEMBER USING(MEMBER_ID)
+			WHERE BOARD_CODE = #{boardCode}
+	</select>
+	
+	<select id="selectBoard" resultMap="boardResultMap">
+			SELECT BOARD_NO, BOARD_TITLE, BOARD_CONTENT, BOARD_CODE,
+			 MEMBER_NICK, PROFILE_IMG, BOARD_NAME
+			FROM BOARD
+			JOIN MEMBER USING(MEMBER_ID)
+			JOIN BOARD_TYPE USING (BOARD_CODE)
+			WHERE BOARD_NO = #{boardNo}
+			AND BOARD_CODE = #{boardCode}
+	</select>
+	
+
 
 
 </mapper>
