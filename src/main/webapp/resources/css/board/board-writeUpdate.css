@@ -235,3 +235,7 @@ textarea:focus{
 #createOrUpdatePostButton{
     margin-right:20px;
 }
+
+#uploadForm{
+    width:100%;
+}
