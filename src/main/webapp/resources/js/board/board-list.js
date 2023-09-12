@@ -86,6 +86,8 @@ var page = 2; // 처음 ajax 넘길 page 번호
 
             .then(response => {  // 응답 객체를 필요한 형태로 파싱하여 리턴
 
+                console.log("test");
+
                 if (!response.ok) { throw new Error('HTTP 응답 실패'); } 
                 // response.ok 값은 HTTP 응답 코드가 200에서 299 사이인 경우에 true를 반환하고, 그 외의 경우에는 false를 반환한다.
                 // 그 외의 경우는 예를 들어 404 ("Not Found")나 500 ("Internal Server Error") 등등...

@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
-// oracle 연결 project 계정이라 임시임 
+//임시임 
 
 @Getter
 @Setter
@@ -18,20 +18,13 @@ public class Board {
 	private int boardNo;
     private String boardTitle;
     private String boardContent;
-    private String boardCreateDate;
-    private String boardUpdateDate;
-    private int readCount;
-    private int boardCode;
+    private String createDate;
+    private String modifyDate;
+    private String deletedFl;
+    private int boardType;
     
- 
-    private int commentCount; 
-    private int likeCount;	  
-    
-    // 회원 join
-    private String memberNickname; 
-    private int memberNo;
-    private String profileImage;
-    private String thumbnail;
+    // member
+    private String memberId; 
 
 	
 }
