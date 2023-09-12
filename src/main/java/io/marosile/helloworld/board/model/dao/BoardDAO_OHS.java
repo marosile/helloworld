@@ -20,15 +20,30 @@ public class BoardDAO_OHS {
         this.sqlSession = sqlSession;
     }
 	
-	public List<Board> loadPost(int start, int end) {
+
+	/** 무한스크롤
+	 * @param parameters
+	 * @return list
+	 */
+	public List<Board> loadPost(Map<String, Object> parameters) {
+		return sqlSession.selectList("loadPost", parameters);
+	}
+
+
+	
+	/** 게시글 삽입
+	 * @param board
+	 * @return result
+	 */
+	public int boardInsert(Board board) {
 		
-        Map<String, Object> parameters = new HashMap<>();
-        
-        parameters.put("start", start);
-        parameters.put("end", end);
-        
-        return sqlSession.selectList("loadPost", parameters);
-        
-    }
+		int result = sqlSession.insert("boardMapper.boardInsert", board);
+		
+		if(result > 0) {
+			result = board.getBoardNo();
+		}
+		
+		return result;
+	}
 
 }
