@@ -1,4 +1,4 @@
-package io.marosile.helloworld;
+package io.marosile.helloworld.mypage.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
