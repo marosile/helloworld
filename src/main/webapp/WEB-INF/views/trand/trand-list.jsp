@@ -32,14 +32,15 @@
                     <span style="color:rgb(181, 102, 201)">E</span>
                     <span style="color:rgb(181, 102, 201)">L</span>
                     <span style="color:rgb(128, 102, 201)">L</span>
-                    <span style="color:red">O</span>
-                    <span style="color:red">,</span>
-                    <span style="color:red">w</span>
-                    <span style="color:red">O</span>
-                    <span style="color:red">R</span>
-                    <span style="color:red">L</span>
+                    <span style="color:rgb(66, 58, 146)">O</span>
+                    <span style="color:rgb(44, 36, 126)">,</span>
+                    <span style="color:rgb(57, 46, 179)">w</span>
+                    <span style="color:rgba(60, 47, 204, 0.808)">O</span>
+                    <span style="color:rgba(174, 79, 230, 0.808)">R</span>
+                    <span style="color:rgba(140, 70, 180, 0.808)">L</span>
                     <span style="color:rgb(176, 148, 212)">D</span>
                     <span style="color:rgb(148, 148, 212)">!</span>
+                    <span style="color:rgb(148, 148, 212)">💜</span>
                 </h1>
 
                 <p id="sub-title">한 달 동안 반응이 가장 좋았던 게시물을 만나보세요!</p>
