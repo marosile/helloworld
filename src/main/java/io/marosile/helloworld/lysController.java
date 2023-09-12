@@ -19,38 +19,15 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
 import io.marosile.helloworld.common.utility.Util;
-import io.marosile.helloworld.service.lysService;
+
 
 
 @SessionAttributes("rand")
 @Controller
 public class lysController {
 
-	@Autowired
-	private lysService service;
 
-	// 회원가입
-	@GetMapping("/signUp")
-	public String signUp() {
-		return "common/modal/signUp";
-	}
-	
-	@GetMapping("/findId")
-	public String findId() {
-		return "common/findId";
-	}
-	
-	@GetMapping("/findPw")
-	public String findPw() {
-		return "common/findPw";
-	}
-	
-	@GetMapping("/login")
-	public String login() {
-		return "common/modal/login";
-	}
 
-	
 	// 휴대폰 인증
 	@PostMapping("phoneAuth")
 	@ResponseBody
