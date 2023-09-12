@@ -10,7 +10,7 @@
     <title>비밀번호 찾기</title>
 
     <link rel="stylesheet" href="/resources/css/common/general.css">
-    <link rel="stylesheet" href="resources/css/common/findPw.css">
+    <link rel="stylesheet" href="/resources/css/common/findPw.css">
 </head>
 <body>
     
