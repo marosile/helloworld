@@ -27,6 +27,14 @@ following.addEventListener("click", e => {
 
 
 
+/* =========체크 리스트 ========= */
+const checkObj = {
+    "memberNickname" : false
+};
+
+
+
+
 
 /* ============================ 프로필 이미지 ============================== */
 const profileImage = document.getElementById("profileImage"); // img 태그
@@ -40,7 +48,7 @@ let originalImage;
 if(imageInput != null){
     originalImage = profileImage.getAttribute("src");
 
-    if(originalImage == "/resources/images/uer.png"){
+    if(originalImage =="/resources/images/user.png"){
         initCheck = false;
     }else{
         initCheck = true;
@@ -48,12 +56,13 @@ if(imageInput != null){
 
     imageInput.addEventListener("change", e => {
 
-        const maxSize = 1 * 1024 * 1024 * 2
+        const maxSize = 1 * 1024 * 1024 * 2;
 
-        const file = e.target.file[0];
+        const file = e.target.files[0];
 
         // 파일한번 선택했다가 취소했을떄
         if(file == undefined){
+            console.log("파일선택취소");
             deleteCheck = -1;
             profileImage.setAttribute("src", originalImage);
             return;
@@ -61,6 +70,7 @@ if(imageInput != null){
 
         // 파일 크기 초과한 경우
         if(file.size > maxSize){
+            alert("2MB 이하의 이미지만 가능합니다.");
             imageInput.value = "";
             deleteCheck = -1;
             profileImage.setAttribute("src", originalImage);
@@ -68,11 +78,14 @@ if(imageInput != null){
         }
 
         const reader = new FileReader();
+
         reader.readAsDataURL(file);
 
         reader.onload = e => {
+
             const url = e.target.result;
             profileImage.setAttribute("src", url);
+
             deleteCheck = -1;
         }
     });
@@ -85,28 +98,69 @@ if(imageInput != null){
     });
 
 
-
-
 }
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* ================================ 닉네임 ================================ */
+const memberNickname = document.getElementById("memberNickname");
+const nickMessage = document.getElementById("nickMessage");
+
+/* ☆★☆★ 입력전 닉네임이 수정하기 전 닉네임이랑 같을때 넘어가게 어떻게함!!!!!!!!!!*/
+
+
+// 닉네임이 입력이 되었을 때
+memberNickname.addEventListener("input", () => {
+
+    // 닉네임 입력이 되지 않은 경우
+    if(memberNickname.value.trim().length == 0){
+
+        memberNickname.value = "";
+        
+        nickMessage.innerText = "한글,영어,숫자 2~8글자 입력 해주세요";
+        nickMessage.classList.remove("confirm", "error");
+
+        checkObj.memberNickname = false;
+        return;
+    
+    }
+
+    // 정규표현식으로 유효성 검사
+    const regExp = /^[가-힣\w\d]{2,10}$/;
+
+    if(regExp.test(memberNickname.value)){ // 유효
+       
+        nickMessage.innerText = "사용 가능한 닉네임 입니다";
+        nickMessage.classList.add("confirm");
+        nickMessage.classList.remove("error");
+
+        checkObj.memberNickname = true; // 유효 O
+
+    }else{ 
+        nickMessage.innerText = "닉네임 형식이 유효하지 않습니다";
+        nickMessage.classList.add("error");
+        nickMessage.classList.remove("confirm");
+
+        checkObj.memberNickname = false;
+    }
+})
+
+
+/* ========= form 태그 제출 시 ========= */
+document.getElementById("profileFrm").addEventListener("submit", e => {
+
+    for(let key in checkObj){
+        if(!checkObj[key]){
+            switch(key){
+                case "memberNickname" : alert("닉네임이 유효하지 않습니다."); break;
+            }
+            e.preventDefault();
+            return;
+        }
+    }
+    
+
+});
 
 
 

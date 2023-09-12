@@ -46,7 +46,7 @@
                     <div>이력서 활용에 대한 약관 및 정책에 동의해주세요.</div>
 
                     <div class="row1">           <!-- 전체동의 -->
-                        <input type="checkbox" id="allcheck" class="cbox" name="check1">
+                        <input type="checkbox" id="allcheck" class="cbox">
                         <label for="check1">전체동의</label>
                     </div>
 
@@ -54,7 +54,7 @@
                     
                     <div class="row23">
                         <div class="row2">           <!-- 2번째 박스 -->
-                            <input type="checkbox" id="box2" class="cbox" name="box2">
+                            <input type="checkbox" id="box2" class="cbox" name="boxList" required>
                             <label for="box2">개인정보 보호에 대한 방침</label>
 
                             <!-- 팝업 영역 -->
@@ -107,7 +107,7 @@
                         </div>
     
                         <div class="row3">           <!-- 3번째 박스 -->
-                            <input type="checkbox" id="box3" class="cbox" name="box3">
+                            <input type="checkbox" id="box3" class="cbox" name="boxList" required>
                             <label for="box3">개인회원 이용약관</label>
 
                             <!-- 팝업 영역 -->
@@ -164,7 +164,7 @@
                     <hr>
 
                     <div class="row4">           <!-- 4번째 박스 -->
-                        <input type="checkbox" id="box4" class="cbox" name="box4">
+                        <input type="checkbox" id="box4" class="cbox" name="boxList" required>
                         <label for="box4">"바로 지원하기"에서 이메일 전달 동의</label>
                     </div>
                 </div>
