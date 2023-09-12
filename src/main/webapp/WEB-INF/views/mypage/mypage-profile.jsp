@@ -120,11 +120,15 @@
 
 
                 <!-- ==================== 닉네임 영역 =============================  -->
-                <div class="nick-area">
-                    <label>닉네임</label>
-                    <input type="text" name="memberNickname" id="inputNickname" placeholder="닉네임을 입력해주세요.">
-                    <span></span>
+                <div>
+                    <div class="nick-area">
+                        <label>닉네임</label>
+                        <input type="text" name="memberNickname" id="memberNickname" maxlength="8"
+                        placeholder="닉네임을 입력해주세요.">
+                    </div>
+                    <span id="nickMessage"></span>
                 </div>
+
 
                 <!-- 저장 버튼 -->
                 <button id="saveBtn">저장</button>
