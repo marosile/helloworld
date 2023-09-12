@@ -16,11 +16,12 @@
             
             <h2>로그인</h2>
 
-            <form action="" class="loginFrm" method="post">
+            <form action="/member/login" class="loginFrm" id="loginFrm" method="post">
 
                 <div class="login-inputAll">
-                    <label for="login-inputEmail" class="login-inputName">아이디(이메일)</label>
-                    <input type="text" name="memberId" id="login-inputEmail" class="login-inputClass" autocomplete="off" placeholder="아이디(이메일)을 입력해주세요">
+                    <label for="login-inputEmail" class="login-inputName">아이디</label>
+                    <input type="text" name="memberId" id="login-inputEmail" class="login-inputClass"
+                           autocomplete="off" placeholder="아이디를 입력해주세요" value="${cookie.saveId.value}">
                 </div>
 
                 <div class="login-inputAll">
@@ -28,10 +29,25 @@
                     <input type="text" name="memberPw" id="login-inputPw" class="login-inputClass" autocomplete="off" placeholder="비밀번호를 입력해주세요">
                 </div>
 
+                <c:if test="${!empty cookie.saveId.value}">
+                    <c:set var="chk" value="checked"/>
+                </c:if>
+
                 <div class="login-saveId">
-                    <input type="checkbox" id="saveId">
-                    <label for="saveId">아이디 저장</label>
+                    <div>
+                        <input type="checkbox" id="saveId" name="saveId" ${chk}>
+                        <label for="saveId">아이디 저장</label>
+                    </div>
+
+                    <div>
+                        <input type="checkbox" id="autoLogin" name="autoLogin">
+                        <label for="autoLogin">자동 로그인</label>
+                    </div>
+
                 </div>
+
+
+
 
                 <button id="loginBtn">로그인</button>
 
@@ -61,7 +77,7 @@
         </div>
 
 
-        
+        <script src="/resources/js/common/modal/login.js"></script>
     </body>
 </html>
 

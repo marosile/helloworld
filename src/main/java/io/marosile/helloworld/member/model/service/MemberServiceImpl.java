@@ -13,6 +13,7 @@ import java.util.Map;
 import io.marosile.helloworld.member.model.dao.MemberDAO;
 import io.marosile.helloworld.member.model.dto.Member;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.fasterxml.jackson.core.type.TypeReference;
@@ -24,6 +25,10 @@ public class MemberServiceImpl implements MemberService {
 
     @Autowired
     private MemberDAO dao;
+
+    // 암호화를 위한 bean 등록
+    @Autowired
+    private BCryptPasswordEncoder bcrypt;
 
     @Override
     public String getAccessToken(String code) throws Throwable {
@@ -163,7 +168,28 @@ public class MemberServiceImpl implements MemberService {
 
         Member loginMember = dao.login(inputMember);
 
-        return null;
+        if(loginMember != null){
+
+            // 비밀번호가 그대로 db에 들어가면 해킹의 위험이 있다
+            // -> 암호화 진행해야 함
+            if(loginMember.getMemberId().equals(inputMember.getMemberId())
+             && loginMember.getMemberPw().equals(inputMember.getMemberPw())){
+
+                loginMember.setMemberId(inputMember.getMemberId());
+
+//            if(bcrypt.matches(inputMember.getMemberPw(), loginMember.getMemberPw())){
+//
+//                // 비밀번호를 유지하지 않기 위해서 로그인 정보에서 제거
+//                loginMember.setMemberPw(null);
+
+            }else{
+                loginMember = null;
+            }
+
+        }
+
+
+        return loginMember;
     }
 
 

@@ -49,9 +49,13 @@
 
 /* 아이디 저장 */
 .login-saveId{
-    width: 90%;
+    width: 65%;
     margin: auto;
+    display: flex;
+    justify-content: space-between;
 }
+
+
 
 
 /* 로그인 버튼 */
