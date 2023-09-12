@@ -12,7 +12,7 @@ updateBtn.addEventListener("click",()=>{
 
     if(confirm("게시글을 수정하시겠습니까?")){
 
-        location.href="write"
+        location.href="/study/write"
     }
 
 
@@ -25,7 +25,7 @@ deleteBtn.addEventListener("click",()=>{
     if(confirm("게시글을 삭제하시겠습니까?")){
 
         alert("게시글이 삭제되었습니다.")
-        location.href="main"
+        location.href="/study/main"
     }
 
 })
