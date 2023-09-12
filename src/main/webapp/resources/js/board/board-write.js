@@ -25,14 +25,3 @@ cancelButton.addEventListener("click", () => {
     }
 
 })
-
-const contents = document.getElementById("contents")
-
-$(function () {
-    CKEDITOR.replace('contents', {
-        
-        filebrowserUploadUrl: '/adm/fileupload.do',
-        contentsLangDirection: 'ltr', // 텍스트 방향 설정 (ltr: 왼쪽에서 오른쪽, rtl: 오른쪽에서 왼쪽)
-    });
-});
-
