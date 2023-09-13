@@ -41,7 +41,7 @@
 
         </c:choose>
 
-        <div id="header-signup" class="button">회원가입</div>
+        <div id="header-signup" class="button" onClick="location.href='/member/signUp'">회원가입</div>
 
     </div>
 </header>

@@ -18,6 +18,8 @@ import org.springframework.stereotype.Service;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.RequestParam;
 
 
 @Service
@@ -190,6 +192,22 @@ public class MemberServiceImpl implements MemberService {
 
 
         return loginMember;
+    }
+
+
+    // 회원 가입 service
+    @Transactional(rollbackFor = {Exception.class})
+    @Override
+    public int signUp(Member inputMember) {
+
+        // 비밀번호 암호화
+        String encPw = bcrypt.encode(inputMember.getMemberPw());
+
+
+        int result = dao.signUp(inputMember);
+
+
+        return result;
     }
 
 

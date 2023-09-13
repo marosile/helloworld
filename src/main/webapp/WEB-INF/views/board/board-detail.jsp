@@ -38,19 +38,13 @@
         </div>
 
         <div id="text">
-            <div id="images">썸네일/이미지</div>
 
-            <div id="content">
+            <div id="boardContent">
                 <pre>${board.boardContent}
                 </pre>
             </div>
 
-            <div id="images-area">
-                <div>이미지</div>
-                <div>이미지</div>
-                <div>이미지</div>
-                <div>이미지</div>
-            </div>    
+         
         </div>
 
         <div id="tag-area">

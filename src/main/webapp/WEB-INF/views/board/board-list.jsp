@@ -32,30 +32,31 @@
         <!-- 게시판 이름 (네비게이션) -->
         <div id = "boardNameList">
 
-            <a href="/board/1">
+            <a href="/board/1" class="${boardCode == 1 ? 'active' : ''}">
                 <div class="listNames">공지사항 게시판</div>
             </a>
 
-            <a href="/board/2">
+            <a href="/board/2" class="${boardCode == 2 ? 'active' : ''}">
                 <div class="listNames">자유 게시판</div>
             </a>
 
-            <a href="/board/3">
+            <a href="/board/3" class="${boardCode == 3 ? 'active' : ''}">
                 <div class="listNames">Q&A 게시판</div>
             </a>
 
         </div>
 
         <!-- 게시글 목록 -->
-        <div id="postList1">
-            <div id="boardName"> Q&A 게시판 </div>
+        <div id="postList">
+            <form action="/board2/${boardCode}/write" method="get">
+            <div id="boardName">${board[0].boardName}</div>
+            <input type="hidden" name="boardName" value="${board[0].boardName}">
             <div id="question">
 
             <button id="boardInsert">작성하기</button>
-            <%-- location.href = `/board2/${location.pathname.split("/")[2]}/insert` ; --%>
-            <%-- 넘길 값 없으면 그냥 js에서 click으로 처리 --%>
 
             </div>
+            </form>
         </div>
 
         <!-- 검색 바 -->
@@ -255,7 +256,7 @@
                                 </div>
 
                                 <div class="postThirdPart">
-                                    ${board.boardContent}
+                                    <!-- ${board.boardContent} 이미지까지 나와버려서 일단 막음 -->
                                 </div>
                         
                                 <div class="postFourthPart">
@@ -286,6 +287,10 @@
                    <!-- 로딩이 5초걸리면 모달창 로딩중은 1초만 보이고 사라지는데 -->
                    <!-- 모달창이 사라져도 화면이 안바뀌는 이슈가 이씀 -->
 
+
+            <script>
+                 const boardCode = "${boardCode}";  // js 사용
+            </script>
 
 
     </main>

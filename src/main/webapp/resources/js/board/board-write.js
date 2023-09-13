@@ -2,13 +2,13 @@
 // 작성하기
 const createOrUpdatePostButton = document.getElementById("createOrUpdatePostButton");
 
-createOrUpdatePostButton.addEventListener("click", () => {
+/* createOrUpdatePostButton.addEventListener("click", () => {
 
     alert("게시글이 작성되었습니다.");
     location.href = "/board/detail";
 
 })
-
+ */
 
 // 작성 취소
 const cancelButton = document.getElementById("cancelButton");

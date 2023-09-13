@@ -83,8 +83,6 @@ public class MemberController {
 
 			resp.addCookie(cookie);
 
-
-
 		}else{
 			System.out.println("로그인 실패");
 			path += referer;
@@ -94,7 +92,6 @@ public class MemberController {
 		return path;
 	}
 
-
 	// 로그아웃 실행 컨트롤러
 	@GetMapping("/logout")
 	public String logout(SessionStatus status){
@@ -103,6 +100,35 @@ public class MemberController {
 
 		return "redirect:/";
 	}
+
+
+
+	// 회원 가입 실행 컨트롤러
+	@PostMapping("/signUp")
+	public String signUp(Member inputMember
+						, @RequestParam(value="promotionFl") String promotionFl
+						){
+
+		// 마케팅동의 담아주기
+		inputMember.setPromotionFl(promotionFl);
+
+		int result = service.signUp(inputMember);
+
+		String path = "redirect:";
+
+		if(result > 0){ //성공
+			System.out.println("회원가입 성공!");
+			path += "/";
+
+		}else{
+			System.out.println("회원가입 실패!");
+			path += "signUp";
+		}
+
+		return path;
+	}
+
+
 
 
 	
