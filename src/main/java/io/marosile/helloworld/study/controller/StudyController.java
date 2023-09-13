@@ -51,7 +51,7 @@ public class StudyController {
 		return "study/studyChatting";
 	}
 
-	// 스터디 체팅
+	// 스터디 목록 수정
 	@GetMapping("/detail/update")
 	public String studyDetailUpdate(Model model) {
 

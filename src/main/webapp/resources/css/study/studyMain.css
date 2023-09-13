@@ -43,8 +43,17 @@
 /* 스터디 상단 내용 */
 .P-mainImage-area {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
+    width: 100%;
+    background-color: #f0f0f0;
+    padding: 10px 20px;
+    border-radius: 10px;
+
+}
+
+.Ptitle{
+    width: 400px;
 }
 
 /* 스터디 이미지 */
@@ -57,7 +66,7 @@
 /* 모집글 버튼 */
 #P-study-btn {
     background-color: #007bff;
-    margin-left: 100px;
+    margin: auto;
     color: white;
     font-size: 14px;
     font-weight: bold;
