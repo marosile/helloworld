@@ -132,6 +132,14 @@ public class MemberController {
 	}
 
 
+	// 아이디 중복 검사
+	@GetMapping ("/signUp/dupId")
+	@ResponseBody
+	public int dupId(String memberId){
+
+		return service.dupId(memberId);
+	}
+
 
 
 	

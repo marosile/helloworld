@@ -39,4 +39,10 @@
                DEFAULT)
     </insert>
     
+    <select id="dupId" parameterType="string" resultType="_int">
+        SELECT COUNT(*) FROM "MEMBER"
+        WHERE MEMBER_ID = #{memberId}
+        AND DELETED_FL = 'N'
+    </select>
+    
 </mapper>

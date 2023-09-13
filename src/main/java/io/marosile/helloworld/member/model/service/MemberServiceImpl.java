@@ -213,4 +213,12 @@ public class MemberServiceImpl implements MemberService {
     }
 
 
+    // 아이디 중복 체크
+    @Override
+    public int dupId(String memberId) {
+
+        return dao.dupId(memberId);
+    }
+
+
 }
