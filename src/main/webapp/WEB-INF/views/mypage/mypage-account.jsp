@@ -20,7 +20,7 @@
         <!-- 마이페이지 nav -->
         <jsp:include page="/WEB-INF/views/mypage/mypage-nav.jsp"/>
 
-        <h1 class="Title">계정 관리</h1>
+        <h1 class="Title">계정 관리fff</h1>
         <section>
 
             <!-- ===================== 이메일 ======================== -->
