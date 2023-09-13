@@ -37,7 +37,7 @@
                             스터디
                         </div>
                             <i class="fa-regular fa-heart" id="heart"></i>
-                            <i class="fa-solid fa-heart"></i>
+                           <%-- <i class="fa-solid fa-heart"></i>--%>
                     </div>
 
                     <div class="P-study-detail-title">
@@ -128,108 +128,21 @@
 
 
                     <div id="updateDeleteBack">
+
                         <button class="boardBtns" id="updateBtn">수정</button>
                         <button class="boardBtns" id="deleteBtn">삭제</button>
-                        <button class="boardBtns" id="goToBackBtn">목록</button>
+                        <%--<button class="boardBtns" id="goToBackBtn">목록</button>--%>
+                        <button class="boardBtns" id="complete">모집완료</button>
                     </div>
 
 
                 </div>
 
 
-                <!-- 댓글 -->
-                <div id="replyContainer">
-
-                    <div id="replyCount">
-                        댓글 : 2
-                    </div>
-
-                    <!-- 댓글 하나하나 나중에 for문 -->
-                      <div class="replys">
-
-                        <div class="inReplyfirstDiv">
-                            <div><img src="/resources/images/user.png" class="replyImages"></div>
-                            <div id="replyWriter">작성자
-                            <div id="replyCreateDate">(2023-09-04)</div>
-                            </div>
-                            
-                        </div>
-
-                        <div class="replyContents">
-                            댓글 내용입니다.
-                        </div>
-
-                        <div class="replyBtns">
-                            <button class="replyBtn" id="updateBtn">수정</button>
-                            <button class="replyBtn" id="deleteBtn">삭제</button>
-                            <button class="replyBtn" id="replyBtn">대댓글</button>
-                        </div>
-
-                    </div>
-
-                    <div class="replys">
-
-                        <div class="inReplyfirstDiv">
-                            <div><img src="/resources/images/user.png" class="replyImages"></div>
-                            <div id="replyWriter">작성자</div>
-                            <div id="replyCreateDate">(2023-09-04)</div>
-                        </div>
-
-                        <div class="replyContents">
-                            댓글 내용입니다.
-                        </div>
-
-                        <div class="replyBtns">
-                            <button class="replyBtn">수정</button>
-                            <button class="replyBtn">삭제</button>
-                            <button class="replyBtn">대댓글</button>
-                        </div>
-
-                    </div>
-
-                    <!-- 댓글 작성 div -->
-                    <div id="replyWrite">
-
-                        <!-- 작성 부분 -->
-                        <div id="replyWriteContent">
-                            <input type="text" placeholder="댓글을 작성해주세요.">
-                        </div>
-
-                        <!-- 버튼 부분 -->
-                        <div id="replyWriteBtn">
-                            <button>작성하기</button>
-                        </div>
-
-                    </div>
 
 
-                </div>
-
-            </div>
 
 
-            <!-- /////////////////////////////////////////////////////////////////////////////////////// -->
-
-
-                <div class="P-profile-area">
-                    <div class="P-profile-container">
-                        <!-- 프로필 이미지 -->
-                        <a href="" class="P-profile-pro">
-                            <img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FQX0NG%2Fbtq4eLx4ioT%2FHIAI77g1dqA3t1ilaoSIzK%2Fimg.jpg"
-                                class="P-profile-image">
-                        </a>
-
-                        <!-- 이름 및 회사 정보 -->
-                        <p>박진아</p>
-                        <p>KH정보교육원</p>
-
-                        <!-- 공유하기 및 문의하기 버튼 -->
-                        <div class="P-profile-buttons">
-                            <button id="contact-button">채팅하기</button>
-                            <button id="share-button">팔로우하기</button>
-                        </div>
-                    </div>
-                </div>
 
 
 
