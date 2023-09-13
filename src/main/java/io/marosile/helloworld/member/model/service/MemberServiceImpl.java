@@ -168,12 +168,14 @@ public class MemberServiceImpl implements MemberService {
     @Override
     public Member login(Member inputMember) {
 
+
         Member loginMember = dao.login(inputMember);
 
         if(loginMember != null){
 
             // 비밀번호가 그대로 db에 들어가면 해킹의 위험이 있다
             // -> 암호화 진행해야 함
+            // --> 암호화 완료했으나 편의를 위해 변경
             if(loginMember.getMemberId().equals(inputMember.getMemberId())
              && loginMember.getMemberPw().equals(inputMember.getMemberPw())){
 
@@ -202,7 +204,7 @@ public class MemberServiceImpl implements MemberService {
 
         // 비밀번호 암호화
         String encPw = bcrypt.encode(inputMember.getMemberPw());
-
+        inputMember.setMemberPw(encPw);
 
         int result = dao.signUp(inputMember);
 
