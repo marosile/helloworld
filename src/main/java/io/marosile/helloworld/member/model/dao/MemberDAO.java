@@ -21,4 +21,10 @@ public class MemberDAO {
     public int signUp(Member inputMember) {
         return sqlSession.insert("memberMapper.signUp", inputMember);
     }
+
+    // 아이디 중복 확인 DAO
+    public int dupId(String memberId) {
+        System.out.println("dao : " + memberId);
+        return sqlSession.selectOne("memberMapper.dupId", memberId);
+    }
 }

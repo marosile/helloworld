@@ -74,16 +74,41 @@ inputId.addEventListener("input", () => {
     // 아이디 정규식
     const regExp = /^([A-z]|[0-9]){5,14}$/;
 
+
+
     // 정규식 확인
     if(regExp.test(inputId.value)){
 
-        // ajax 로 중복검사 실행 후 결과갑승로 다시 if문 걸어야할듯
+        // ajax 로  아이디 중복검사 실행
+        fetch("/member/signUp/dupId?memberId=" + inputId.value)
 
-        idMessage.innerText = "사용 가능한 아이디 입니다"
-        idMessage.classList.add("confirm");
-        idMessage.classList.remove("error");
+        .then(resp => resp.text())
 
-        checkSignUp.inputId = true;
+        .then(result => {
+
+            console.log(result);
+
+            if(result == 0){
+                idMessage.innerText = "사용 가능한 아이디 입니다"
+                idMessage.classList.add("confirm");
+                idMessage.classList.remove("error");
+
+                checkSignUp.inputId = true;
+            }else{
+                idMessage.innerText = "중복된 아이디 입니다. 다시 입력해주세요"
+                idMessage.classList.add("error");
+                idMessage.classList.remove("confirm");
+
+                checkSignUp.inputId = false;
+            }
+
+
+        })
+
+        .catch(e => console.log(e))
+
+
+
 
     }else{
         idMessage.innerText = "올바른 아이디 형식이 아닙니다. 다시 입력해주세요"
@@ -92,6 +117,9 @@ inputId.addEventListener("input", () => {
 
         checkSignUp.inputId = false;
     }
+
+
+
 
 });
 

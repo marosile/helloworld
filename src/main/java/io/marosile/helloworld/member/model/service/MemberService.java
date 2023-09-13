@@ -30,4 +30,10 @@ public interface MemberService {
      * @return 회원가입여부
      */
     int signUp(Member inputMember);
+
+    /** 아이디 중복 체크
+     * @param memberId
+     * @return 중복체크
+     */
+    int dupId(String memberId);
 }
