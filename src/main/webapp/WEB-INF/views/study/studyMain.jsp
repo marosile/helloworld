@@ -36,42 +36,40 @@
                 <div class="P-mainImage-area">
                     <div class="P-mainImage">
                         <img src="https://careerly.co.kr/_next/static/images/img_lounge-banner-1-cb2b8ed2be705e9e38e45f1730482651.svg"
-                             id="P-studylogo">
+                   n          id="P-studylogo">
                     </div>
-                    <div>
+                    <div class="Ptitle">
                         <h2>스터디 같이 해요🤔</h2>
                         <h4>나에게 맞는 프로젝트나 스터디/ 모임을 찾아 참여하세요!</h4>
                     </div>
 
-                </div>
-
-                <div id="search-area">
-
-                    <div id="search">
-                        <div id="search-box">
-                            <img id="search-icon" src="/resources/images/magnifier.png">
-                            <input id="search-input" placeholder="원하는 유형의 스터디를 검색해보세요."></input>
-                        </div>
-
-                        <div class="P-study-btn-area">
-                            <button id="P-study-btn">모집글 작성하기</button>
-                        </div>
+                    <div class="P-study-btn-area">
+                        <butto id="P-study-btn">모집글 작성하기</button>
                     </div>
                 </div>
-
-
-
-
-
             </div>
 
 
             <div class="P-body-category-top">
                 <div class="P-body-category-area">
 
+                    <div class="P-body-category-purpose">
+                        <button type="button" class="P-body-purpose-btn">위치
+                            <i class="fa-solid fa-caret-down"></i>
+                        </button>
+
+                        <ul class="P-selectBox-purpose menuHidden">
+                            <li><button type="button" class="P-option-btn">포트폴리오/직무역량 강화</button></li>
+                            <li><button type="button" class="P-option-btn">창업/수익 창출</button></li>
+                            <li><button type="button" class="P-option-btn">네트워킹</button></li>
+                        </ul>
+
+                    </div>
+
+
                     <div class="P-body-category-role">
 
-                        <button type="button" class="P-body-category-btn">역할
+                        <button type="button" class="P-body-category-btn">포지션
                             <i class="fa-solid fa-caret-down"></i>
                         </button>
 
@@ -85,20 +83,7 @@
 
                     </div>
 
-                    <div class="P-body-category-purpose">
-                        <button type="button" class="P-body-purpose-btn">목적
-                            <i class="fa-solid fa-caret-down"></i>
-                        </button>
 
-                        <ul class="P-selectBox-purpose menuHidden">
-                            <li><button type="button" class="P-option-btn">포트폴리오/직무역량 강화</button></li>
-                            <li><button type="button" class="P-option-btn">창업/수익 창출</button></li>
-                            <li><button type="button" class="P-option-btn">네트워킹</button></li>
-                        </ul>
-
-
-
-                    </div>
 
                     <div class="P-body-category-count">
                         <button type="button" class="P-body-count-btn">인원
