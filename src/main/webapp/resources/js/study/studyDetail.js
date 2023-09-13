@@ -29,3 +29,14 @@ deleteBtn.addEventListener("click",()=>{
     }
 
 })
+
+// 모집완료버튼 클릭 시
+const complete = document.getElementById("complete");
+
+complete.addEventListener("click",()=>{
+
+        if(confirm("모집완료되신건가요 ?")){
+            alert("🎉 축하합니다! 모집완료되었습니다.")
+        }
+})
+

@@ -44,12 +44,18 @@ public class StudyController {
 	}
 
 
-
 	// 스터디 체팅
 	@GetMapping("/chatting")
 	public String studyChatting(Model model) {
 
 		return "study/studyChatting";
+	}
+
+	// 스터디 체팅
+	@GetMapping("/detail/update")
+	public String studyDetailUpdate(Model model) {
+
+		return "study/studyDetailUpdate";
 	}
 }
 
