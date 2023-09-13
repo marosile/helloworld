@@ -112,6 +112,9 @@ public class MemberController {
 		// 마케팅동의 담아주기
 		inputMember.setPromotionFl(promotionFl);
 
+		System.out.println(promotionFl);
+		System.out.println(inputMember.getPromotionFl());
+
 		int result = service.signUp(inputMember);
 
 		String path = "redirect:";

@@ -28,25 +28,25 @@
 */
 const checkSignUp = {
 
-    // "inputId" : false,
-    // "inputEmail" : false,
-    // "inputTel1" : false,
-    // "inputTel2" : false,
-    // "inputNickname" : false,
-    // "inputPw" : false,
-    // "inputConfirmPw" : false,
-    // "essentialCheck" : false,
-    // "authKey" : false
+    "inputId" : false,
+    "inputEmail" : false,
+    "inputTel1" : false,
+    "inputTel2" : false,
+    "inputNickname" : false,
+    "inputPw" : false,
+    "inputConfirmPw" : false,
+    "essentialCheck" : false,
+    "authKey" : false
 
-    "inputId" : true,
-    "inputEmail" : true,
-    "inputTel1" : true,
-    "inputTel2" : true,
-    "inputNickname" : true,
-    "inputPw" : true,
-    "inputConfirmPw" : true,
-    "essentialCheck" : true,
-    "authKey" : true
+    // "inputId" : true,
+    // "inputEmail" : true,
+    // "inputTel1" : true,
+    // "inputTel2" : true,
+    // "inputNickname" : true,
+    // "inputPw" : true,
+    // "inputConfirmPw" : true,
+    // "essentialCheck" : true,
+    // "authKey" : true
     // 실험용
 
 };
@@ -593,11 +593,11 @@ document.getElementById("mainFrm").addEventListener("submit", e => {
 
     // checkSignUp 모든 value가 true인지 검사
 
-    // 마케팅 동의 값보내주기 (좀 귀찮음)
+    // 마케팅 동의 값보내주기 (좀 귀찮음) --> 잘 안되다가 해결 -완-
     const checkAll3 = document.getElementsByName("checkAll")[3];
     const promotionFl = document.getElementsByName("promotionFl")[0];
 
-    if(checkAll3.checked == 'true'){
+    if(checkAll3.checked == true){
         promotionFl.value = 'Y';
     }else{
         promotionFl.value = 'N';
