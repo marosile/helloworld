@@ -155,12 +155,28 @@ inputEmail.addEventListener("input", () => {
         // ajax 로 중복검사 실행 후 결과값으로 다시 if문 걸어야할듯
         // 이미 사용 중인지 확인해야한다
 
-        emailMessage.innerText = "사용 가능한 이메일 입니다";
-        emailMessage.classList.add("confirm");
-        emailMessage.classList.remove("error");
+        fetch("/member/signUp/dupEmail?memberEmail=" + inputEmail.value)
+        .then(resp => resp.text())
+        .then(result => {
 
-        checkSignUp.inputEmail = true;
+            if(result == 0){
+                emailMessage.innerText = "사용 가능한 이메일 입니다";
+                emailMessage.classList.add("confirm");
+                emailMessage.classList.remove("error");
 
+                checkSignUp.inputEmail = true;
+            }else{
+                emailMessage.innerText = "이미 가입 되어 있는 이메일 입니다";
+                emailMessage.classList.add("error");
+                emailMessage.classList.remove("confirm");
+
+                checkSignUp.inputEmail = false;
+
+            }
+
+
+        })
+        .catch(e => console.log(e))
 
     } else { 
 
@@ -199,12 +215,29 @@ inputTel1.addEventListener("input", () => {
     if(regExp.test(inputTel1.value)){
 
         /* ajax로 중복되는 전화번호가 있는지 확인 필요! */
+        fetch("/member/signUp/dupTel?memberTel=" + inputTel1.value)
+            .then(resp => resp.text())
+            .then(result => {
 
-        telMessage.innerText = "사용 가능한 전화번호 입니다";
-        telMessage.classList.add("confirm");
-        telMessage.classList.remove("error");
+                if(result == 0){
+                    telMessage.innerText = "사용 가능한 전화번호 입니다";
+                    telMessage.classList.add("confirm");
+                    telMessage.classList.remove("error");
 
-        checkSignUp.inputTel1 = true; // 유효 O
+                    checkSignUp.inputTel1 = true;
+                }else{
+                    telMessage.innerText = "이미 가입 되어 있는 전화번호 입니다";
+                    telMessage.classList.add("error");
+                    telMessage.classList.remove("confirm");
+
+                    checkSignUp.inputTel1 = false;
+                }
+            })
+            .catch(e => console.log(e))
+
+
+
+
 
     }else{ // 무효
         telMessage.innerText = "전화번호 형식이 일치하지 않습니다";
@@ -295,7 +328,7 @@ let authSec = 59;
             }, 1000)
 
     }   else{
-            alert("중복되지 않은 전화번호를 작성해주세요.");
+            alert("전화번호 형식이 일치하지 않거나 중복입니다. 다시 입력해주세요");
             inputTel1.focus();
     }
 });

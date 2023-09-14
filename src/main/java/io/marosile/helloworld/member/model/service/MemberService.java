@@ -36,4 +36,17 @@ public interface MemberService {
      * @return 중복체크
      */
     int dupId(String memberId);
+
+    /** 이메일 중복 체크
+     * @param memberEmail
+     * @return 중복체크
+     */
+    int dupEmail(String memberEmail);
+
+
+    /** 이메일 중복 체크
+     * @param memberTel
+     * @return 중복체크
+     */
+    int dupTel(String memberTel);
 }

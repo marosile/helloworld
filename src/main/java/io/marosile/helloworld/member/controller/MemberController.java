@@ -136,10 +136,23 @@ public class MemberController {
 	@GetMapping ("/signUp/dupId")
 	@ResponseBody
 	public int dupId(String memberId){
-
 		return service.dupId(memberId);
 	}
 
+	// 이메일 중복 검사
+	@GetMapping("/signUp/dupEmail")
+	@ResponseBody
+	public int dupEmail(String memberEmail){
+		return service.dupEmail(memberEmail);
+	}
+
+	// 전화번호 중복 검사
+	@GetMapping("/signUp/dupTel")
+	@ResponseBody
+	public int dupTel(String memberTel){
+		return service.dupTel(memberTel);
+	}
+	
 
 
 	
