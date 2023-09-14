@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="memberMapper">
-    
+
+    <!-- 멤버 resultMap -->
     <resultMap id="member_rm" type="Member">
 
         <id property="memberId" column="MEMBER_ID"/>
@@ -17,6 +18,7 @@
 
     </resultMap>
 
+    <!-- 로그인 -->
     <select id="login" resultMap="member_rm" parameterType="Member">
         SELECT MEMBER_ID, MEMBER_PW, MEMBER_NICK, MEMBER_EMAIL, MEMBER_TEL, PROFILE_IMG,
                TO_CHAR(ENROLL_DT, 'YYYY"년" MM"월" DD"일" HH24"시" MI"분" SS"초"') ENROLL_DT,
@@ -26,6 +28,7 @@
         AND MEMBER_ID = #{memberId}
     </select>
 
+    <!-- 회원가입 -->
     <insert id="signUp" parameterType="Member">
         INSERT INTO "MEMBER"
         VALUES(#{memberId},
@@ -38,11 +41,25 @@
                #{promotionFl},
                DEFAULT)
     </insert>
-    
+
+    <!-- 아이디 중복 체크 -->
     <select id="dupId" parameterType="string" resultType="_int">
         SELECT COUNT(*) FROM "MEMBER"
         WHERE MEMBER_ID = #{memberId}
-        AND DELETED_FL = 'N'
     </select>
+
+    <!-- 이메일 중복 체크 -->
+    <select id="dupEmail" parameterType="string" resultType="_int">
+        SELECT COUNT(*) FROM "MEMBER"
+        WHERE MEMBER_EMAIL = #{memberEmail}
+    </select>
+
+    <!-- 전화번호 중복 체크 -->
+    <select id="dupTel" parameterType="string" resultType="_int">
+        SELECT COUNT(*) FROM "MEMBER"
+        WHERE MEMBER_TEL = #{memberTel}
+    </select>
+
+
     
 </mapper>

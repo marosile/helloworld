@@ -220,5 +220,17 @@ public class MemberServiceImpl implements MemberService {
         return dao.dupId(memberId);
     }
 
+    // 이메일 중복 체크
+    @Override
+    public int dupEmail(String memberEmail) {
+        return dao.dupEmail(memberEmail);
+    }
+
+    // 전화번호 중복 체크
+    @Override
+    public int dupTel(String memberTel) {
+        return dao.dupTel(memberTel);
+    }
+
 
 }

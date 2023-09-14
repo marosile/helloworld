@@ -24,7 +24,16 @@ public class MemberDAO {
 
     // 아이디 중복 확인 DAO
     public int dupId(String memberId) {
-        System.out.println("dao : " + memberId);
         return sqlSession.selectOne("memberMapper.dupId", memberId);
+    }
+
+    // 이메일 중복 확인 DAO
+    public int dupEmail(String memberEmail) {
+        return sqlSession.selectOne("memberMapper.dupEmail", memberEmail);
+    }
+
+    // 전화번호 중복 확인 DAO
+    public int dupTel(String memberTel) {
+        return sqlSession.selectOne("memberMapper.dupTel", memberTel);
     }
 }
