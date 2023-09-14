@@ -49,4 +49,16 @@ public interface MemberService {
      * @return 중복체크
      */
     int dupTel(String memberTel);
+
+    /** 카카오 api 로그인 진행
+     * @param userInfo
+     * @return 카카오 로그인
+     */
+    Member kakaoLogin(HashMap<String, Object> userInfo);
+
+    /** 카카오
+     * @param imgChange1
+     * @return 카카오 로그인
+     * */
+    Member imgChange(Member imgChange1);
 }

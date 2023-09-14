@@ -5,6 +5,8 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import java.util.HashMap;
+
 @Repository
 public class MemberDAO {
 
@@ -36,4 +38,15 @@ public class MemberDAO {
     public int dupTel(String memberTel) {
         return sqlSession.selectOne("memberMapper.dupTel", memberTel);
     }
+
+    // 카카오에서 받아온 정보로 로그인
+    public Member kakaoLogin(String memberEmail) {
+        return sqlSession.selectOne("memberMapper.kakaoLogin", memberEmail);
+    }
+
+    // 카카오에서 받아온 프로필 이미지로 변경
+    public int imgChange(Member member) {
+        return sqlSession.update("memberMapper.imgChange", member);
+    }
+
 }

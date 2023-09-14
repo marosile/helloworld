@@ -46,20 +46,39 @@
     <select id="dupId" parameterType="string" resultType="_int">
         SELECT COUNT(*) FROM "MEMBER"
         WHERE MEMBER_ID = #{memberId}
+        AND DELETED_FL = 'N'
     </select>
 
     <!-- 이메일 중복 체크 -->
     <select id="dupEmail" parameterType="string" resultType="_int">
         SELECT COUNT(*) FROM "MEMBER"
         WHERE MEMBER_EMAIL = #{memberEmail}
+        AND DELETED_FL = 'N'
     </select>
 
     <!-- 전화번호 중복 체크 -->
     <select id="dupTel" parameterType="string" resultType="_int">
         SELECT COUNT(*) FROM "MEMBER"
         WHERE MEMBER_TEL = #{memberTel}
+        AND DELETED_FL = 'N'
     </select>
 
+    <!-- 카카오 로그인(이메일) -->
+    <select id="kakaoLogin" resultMap="member_rm" parameterType="Member">
+        SELECT MEMBER_ID, MEMBER_PW, MEMBER_NICK, MEMBER_EMAIL, MEMBER_TEL, PROFILE_IMG,
+               TO_CHAR(ENROLL_DT, 'YYYY"년" MM"월" DD"일" HH24"시" MI"분" SS"초"') ENROLL_DT,
+               PROMOTION_FL
+        FROM "MEMBER"
+        WHERE DELETED_FL = 'N'
+        AND MEMBER_EMAIL = #{memberEmail}
+    </select>
+    
+    <!-- 카카오 프로필 이미지로 변경 -->
+    <update id="imgChange" parameterType="string">
+        UPDATE "MEMBER"
+        SET PROFILE_IMG = #{profileImg}
+        WHERE MEMBER_EMAIL = #{memberEmail}
+    </update>
 
     
 </mapper>
