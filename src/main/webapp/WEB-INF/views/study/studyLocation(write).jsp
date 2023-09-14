@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -8,10 +9,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>스터디</title>
+
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+            integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+            crossorigin="anonymous"></script>
+
     <link rel="stylesheet" href="/resources/css/common/general.css">
     <link rel="stylesheet" href="/resources/css/index.css">
-    <link rel="stylesheet" href="/resources/css/study/studyWrite.css">
+    <link rel="stylesheet" href="/resources/css/study/studyLocation(write).css">
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
     <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
     <script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=955d027ad541e959373216700e779cf3&libraries=services"></script>
@@ -41,11 +49,21 @@
                     </button>
 
                     <ul class="P-selectBox-role menuHidden" id=P-selectBox-role"">
-                        <li><button type="button" class="P-option-btn">프론트앤드</button></li>
-                        <li><button type="button" class="P-option-btn">백엔드</button></li>
-                        <li><button type="button" class="P-option-btn">디자인</button></li>
-                        <li><button type="button" class="P-option-btn">기획</button></li>
-                        <li><button type="button" class="P-option-btn">기타</button></li>
+                        <li>
+                            <button type="button" class="P-option-btn">프론트앤드</button>
+                        </li>
+                        <li>
+                            <button type="button" class="P-option-btn">백엔드</button>
+                        </li>
+                        <li>
+                            <button type="button" class="P-option-btn">디자인</button>
+                        </li>
+                        <li>
+                            <button type="button" class="P-option-btn">기획</button>
+                        </li>
+                        <li>
+                            <button type="button" class="P-option-btn">기타</button>
+                        </li>
                     </ul>
 
                 </div>
@@ -56,9 +74,15 @@
                     </button>
 
                     <ul class="P-selectBox-purpose menuHidden">
-                        <li><button type="button" class="P-option-btn">포트폴리오/직무역량 강화</button></li>
-                        <li><button type="button" class="P-option-btn">창업/수익 창출</button></li>
-                        <li><button type="button" class="P-option-btn">네트워킹</button></li>
+                        <li>
+                            <button type="button" class="P-option-btn">포트폴리오/직무역량 강화</button>
+                        </li>
+                        <li>
+                            <button type="button" class="P-option-btn">창업/수익 창출</button>
+                        </li>
+                        <li>
+                            <button type="button" class="P-option-btn">네트워킹</button>
+                        </li>
                     </ul>
 
                 </div>
@@ -103,17 +127,9 @@
 
             </div>
 
-
-            <div id="P-body-container-location">
-                <h5><span class="required">*</span> 위치</h5>
-                <div id="P-body-location">
+            <div id="map"></div>
 
 
-                    <input id="P-body-location-input" placeholder="위치를 작성해주세요.">
-                    <input type="button" id="P-locationBtn" onclick="sample5_execDaumPostcode()" value="주소 검색">
-                    <div id="map"></div>
-                </div>
-            </div>
 
             <div class="P-body-controller">
                 <div class="P-body-controller-Btn">
@@ -129,11 +145,15 @@
     </div>
 
 
-
 </main>
 
 <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
 <script src="/resources/js/study/studyWrite.js"></script>
 <script src="/resources/js/common/general.js"></script>
+<script src="/resources/js/study/studyLocation.js"></script>
+
+
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=955d027ad541e959373216700e779cf3"></script>
+
 </body>
 </html>

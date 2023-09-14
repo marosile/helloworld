@@ -19,8 +19,15 @@ public class StudyController {
 	@GetMapping("/mainTest")
 	public String studyMainTest(Model model) {
 
-		return "study/studyMainTEST";
+		return "study/studyLocation";
 	}
+
+	@GetMapping("/Location")
+	public String studyMainLocation(Model model) {
+
+		return "study/studyLocation(write)";
+	}
+
 
 	// 스터디 작성
 	@GetMapping("/write")

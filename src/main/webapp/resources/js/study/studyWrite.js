@@ -154,7 +154,4 @@ BtnDelete.addEventListener("click", () => {
     if(confirm("작성취소하시겠습니까? 작성한 내용은 저장되지 않습니다.")){
         location.href="/study/main";
     }
-
-
 })
-
