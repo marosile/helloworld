@@ -159,7 +159,9 @@ public class MemberController {
 	// 카카오 api 정보 얻어오기
 	// 1번 카카오톡에 사용자 코드 받기(jsp의 a태그 href에 경로 있음)
 	@RequestMapping(value = "/login/kakao", method = RequestMethod.GET)
-	public String kakaoLogin(@RequestParam(value = "code", required = false) String code) throws Throwable {
+	public String kakaoLogin(@RequestParam(value = "code", required = false) String code
+//							, @RequestHeader(value="referer") String referer
+							, Model model) throws Throwable {
 
 		// 1번
 		System.out.println("code:" + code);
@@ -167,7 +169,7 @@ public class MemberController {
 
 		// 2번
 		String access_Token = service.getAccessToken(code);
-		System.out.println("###access_Token#### : " + access_Token);
+		System.out.println("access_Token : " + access_Token);
 		// 위의 access_Token 받는 걸 확인한 후에 밑에 진행
 		// 2번 받은 code를 service.getAccessToken로 보냄 ###access_Token###로 찍어서 잘 나오면은 다음단계진행
 
@@ -179,7 +181,49 @@ public class MemberController {
 		System.out.println("썸네일사진 :" + userInfo.get("thumbnailImage"));
 		// 3번 받은 access_Token를 iKakaoS.getUserInfo로 보냄 userInfo받아옴, userInfo에 nickname, email정보가 담겨있음
 
-		return "redirect:/";
+
+		// 4번 DB와 이메일 비교해서 회원가입된 이메일과 같은지 확인(이미 있는 이메일 중복 체크 이용)
+		String memberEmail = String.valueOf(userInfo.get("email"));
+		int searchEmail = service.dupEmail(memberEmail);
+
+		// 로그인 및 프로필 사진 변경 진행
+
+		String path = "redirect:";
+
+		if(searchEmail == 0) { // 가입되어있는 이메일이 없을때
+			System.out.println("가입되어있는 이메일이 없어서 회원가입 화면으로 이동");
+			// alert창 띄워서 설명해주고 싶은데 이야기 다시 해봐야 할듯 ~
+			path += "/member/signUp";
+		}else {
+			Member loginMember = service.kakaoLogin(userInfo);
+
+			Member imgChange1 = new Member();
+			imgChange1.setMemberEmail(String.valueOf(userInfo.get("email")));
+			imgChange1.setProfileImg(String.valueOf(userInfo.get("profileImage")));
+
+
+			if (loginMember != null) {
+
+				Member imgChange = service.imgChange(imgChange1);
+				loginMember.setProfileImg(imgChange.getProfileImg());
+
+				System.out.println("로그인 성공");
+				// 메인페이지 이동
+				path += "/";
+
+				model.addAttribute("loginMember", loginMember);
+
+
+			} else {
+				System.out.println("로그인 실패");
+				path += "/";
+
+			}
+		}
+
+
+
+		return path;
 	}
 	
 	
