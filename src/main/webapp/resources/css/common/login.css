@@ -124,3 +124,8 @@
 .snsLogin > div{
     text-align: center;
 }
+
+/*구글 로그인 버튼*/
+#my-signin2{
+    padding-left: 52px;
+}

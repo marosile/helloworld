@@ -6,11 +6,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
     <title>로그인</title>
 
+
+    <meta name="google-signin-client_id" content="829784621579-9i247enb310blhhajovb5u9ggnfiglja.apps.googleusercontent.com">
     <link rel="stylesheet" href="/resources/css/common/login.css">
 </head>
+
     <body>
+
 
         <div class="loginMain">
             
@@ -70,14 +76,16 @@
                 <div>
                     <a href="https://kauth.kakao.com/oauth/authorize?client_id=aac73a50e342183e31a5478826ffeffd&redirect_uri=http://localhost/member/login/kakao&response_type=code"><img src="/resources/images/kakao_login_medium_wide.png"></a>
                 </div>
-                <button>구글 계정으로 로그인 하기</button>
+                <div id="my-signin2"></div>
                 <button>네이버 계정으로 로그인 하기</button>
             </div>
 
         </div>
 
 
+
         <script src="/resources/js/common/modal/login.js"></script>
+        <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
     </body>
 </html>
 

@@ -222,10 +222,32 @@ public class MemberController {
 		}
 
 
-
 		return path;
 	}
-	
-	
-	
+
+	// 구글 로그인 컨트롤러
+	@RequestMapping("/login/googleForm")
+	public String loginPage(Model model) {
+
+		// 구글 로그인 URL 생성
+		String googleUrl = "https://accounts.google.com/o/oauth2/v2/auth?"
+				+ "scope=email"
+				+ "&response_type=code"
+				+ "&state=security_token%3D138r5719ru3e1%26url%3Dhttps://oauth2.example.com/token"
+				+ "&client_id=" + "829784621579-9i247enb310blhhajovb5u9ggnfiglja.apps.googleusercontent.com"
+				+ "&redirect_uri=" + "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"
+				+ "&access_type=offline";
+
+		model.addAttribute("googleUrl", googleUrl);
+
+		return "login";
+
+	}
+
+
+
+
+
+
+
 }
