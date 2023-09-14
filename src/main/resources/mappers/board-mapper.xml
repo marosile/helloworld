@@ -23,11 +23,12 @@
 	<select id="loadPost" resultMap="boardResultMap">
 	   		SELECT * FROM (
 			    SELECT A.*, ROWNUM AS rnum FROM (
-			        SELECT BOARD_NO, BOARD_TITLE, BOARD_CONTENT, CREATE_DT, BOARD_CODE, MEMBER_NICK, MEMBER_ID 
-			        FROM BOARD 
-			        JOIN MEMBER USING(MEMBER_ID)
-			        WHERE BOARD_CODE = #{boardCode}
-			        ORDER BY BOARD_NO DESC
+			        SELECT B.BOARD_NO, B.MEMBER_ID, B.BOARD_TITLE, B.BOARD_CONTENT, B.CREATE_DT, B.MODIFY_DT, B.DELETED_FL, B.READ_COUNT, M.MEMBER_NICK, BG.BOARD_CODE 
+			        FROM BOARD B
+			        JOIN MEMBER M ON B.MEMBER_ID = M.MEMBER_ID
+			        JOIN BOARD_GENERAL BG ON B.BOARD_NO = BG.BOARD_NO
+			        WHERE BG.BOARD_CODE = #{boardCode}
+			        ORDER BY B.BOARD_NO DESC
 			    ) A 
 			)
 			WHERE rnum BETWEEN #{start} AND #{end}
@@ -35,38 +36,38 @@
 	
 	
 	<select id="selectBoardList" resultMap="boardResultMap">
-			SELECT BOARD_NO, MEMBER_ID, MEMBER_NICK, BOARD_TITLE, BOARD_CONTENT, CREATE_DT, BOARD_NAME FROM BOARD
-			JOIN BOARD_TYPE USING(BOARD_CODE)
-			FULL JOIN MEMBER USING(MEMBER_ID)
-			WHERE BOARD_CODE = #{boardCode}
-			ORDER BY BOARD_NO DESC
+			SELECT B.BOARD_NO, B.MEMBER_ID, B.BOARD_TITLE, B.BOARD_CONTENT, B.CREATE_DT, B.MODIFY_DT, B.DELETED_FL, BG.BOARD_CODE
+			FROM BOARD B
+			JOIN BOARD_GENERAL BG ON (B.BOARD_NO = BG.BOARD_NO)
+			WHERE BG.BOARD_CODE = #{boardCode}
+			ORDER BY B.BOARD_NO DESC
 	</select>
 	
 	<select id="selectBoard" resultMap="boardResultMap">
-			SELECT BOARD_NO, BOARD_TITLE, BOARD_CONTENT, BOARD_CODE,
-			 MEMBER_NICK, PROFILE_IMG, BOARD_NAME
-			FROM BOARD
-			JOIN MEMBER USING(MEMBER_ID)
-			JOIN BOARD_TYPE USING (BOARD_CODE)
-			WHERE BOARD_NO = #{boardNo}
-			AND BOARD_CODE = #{boardCode}
+			SELECT B.BOARD_NO, B.MEMBER_ID, B.BOARD_TITLE, B.BOARD_CONTENT, B.CREATE_DT, B.MODIFY_DT, B.DELETED_FL, B.READ_COUNT, M.MEMBER_NICK, BG.BOARD_CODE
+			FROM BOARD B
+			JOIN MEMBER M ON (B.MEMBER_ID = M.MEMBER_ID)
+			JOIN BOARD_GENERAL BG ON (B.BOARD_NO = BG.BOARD_NO)
+			WHERE B.BOARD_NO = #{boardNo}
+			AND BG.BOARD_CODE = #{boardCode}
 	</select>
 	
 	<insert id="boardInsert" parameterType="Board" useGeneratedKeys="true">
+		
 		<selectKey order="BEFORE" resultType="_int"
 			keyProperty="boardNo">
 			SELECT SEQ_BOARD_NO.NEXTVAL FROM DUAL
 		</selectKey>
 	
-		INSERT INTO BOARD
-		VALUES(#{boardNo},
-		#{memberId},
-		#{boardTitle},
-		#{boardContent},
-		#{boardCode},
-		DEFAULT, DEFAULT, DEFAULT)
-	
-	
+		INSERT ALL
+		
+		INTO BOARD (BOARD_NO, MEMBER_ID, BOARD_TITLE, BOARD_CONTENT, CREATE_DT, DELETED_FL, READ_COUNT)
+		VALUES(#{boardNo}, #{memberId}, #{boardTitle}, #{boardContent}, DEFAULT, DEFAULT, #{boardCode})
+			
+		INTO BOARD_GENERAL (BOARD_NO, BOARD_CODE) VALUES(#{boardNo}, #{boardCode})
+		
+		SELECT 1 FROM DUAL
+
 	</insert>
 
 
