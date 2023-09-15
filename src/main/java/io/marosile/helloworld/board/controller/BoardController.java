@@ -131,6 +131,9 @@ public class BoardController {
 	@ResponseBody
 	public int like(@RequestBody Map<String, Object> map) {
 		
+		
+		
+		
 		return service2.like(map);
 	}
 	

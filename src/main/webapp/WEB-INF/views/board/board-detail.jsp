@@ -55,7 +55,7 @@
             <c:if test="${!empty likeCheck}">
                 <i class="fa-solid fa-heart fa-2xl" id="like" style="color:red"></i>
             </c:if>
-            <span>${count}</span>
+            <span>${board.likeCount}</span>
 
             </div>
         </div>

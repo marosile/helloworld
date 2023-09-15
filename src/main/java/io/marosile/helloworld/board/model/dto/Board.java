@@ -25,6 +25,7 @@ public class Board {
     private int boardCode;
     private String boardName;
     private int check;
+    private int likeCount;
     
     // member
     private String memberId; 

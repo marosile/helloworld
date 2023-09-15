@@ -148,6 +148,9 @@ like.addEventListener("click", e=>{
         e.target.classList.toggle("fa-regular");
         e.target.classList.toggle("fa-solid");
 
+        e.target.nextElementSibling.innerText = count;
+
+
     })
     .catch( err => {
         console.log("예외발생")
