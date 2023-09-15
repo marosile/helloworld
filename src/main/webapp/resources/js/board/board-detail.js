@@ -77,13 +77,13 @@ bookMark.addEventListener("click", e=>{
     }
 
     const data = {
-        "MemberId" : loginMemberId,
+        "memberId": loginMemberId,
         "boardNo" : boardNo,
-        "check" : check
+        "bookMarkCheck" : check
     };
 
     fetch("/board/bookMark",{
-        method: "post",
+        method: "POST",
         headers:{"Content-Type" : "application/json" },
         body : JSON.stringify(data)
     })
@@ -91,9 +91,10 @@ bookMark.addEventListener("click", e=>{
     .then( count => {
 
         if(count == -1) { // DML 실패
+            alert("fail");
             return;
         }
-
+        alert("suc");
         e.target.classList.toggle("fa-regular");
         e.target.classList.toggle("fa-solid");
     })

@@ -81,12 +81,12 @@
 	
 	<!-- 북마크 테이블 삽입 -->
 	<insert id="insertBookMark">
-		INSERT INTO BOARD_LIKE VALUES (#{boardNo}, #{memberId})
+		INSERT INTO BOOKMARK VALUES (#{boardNo}, #{memberId})
 	</insert>
 	
 	<!-- 북마크 테이블 삭제 -->
 	<delete id="deleteBookMark">
-		DELETE FROM BOARD_LIKE
+		DELETE FROM BOOKMARK
 		WHERE BOARD_NO = #{boardNo}
 		AND MEMBER_ID = #{memberId}
 	</delete>

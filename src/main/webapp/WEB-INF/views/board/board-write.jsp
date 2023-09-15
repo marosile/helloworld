@@ -18,16 +18,11 @@
     <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
 
-
-
 </head>
 
 <body>
-    <%-- 0080FF (200, 100, 255) --%>
 
     <jsp:include page="/WEB-INF/views/common/header.jsp"/>
-
-
 
     <main id="main">
     
@@ -100,9 +95,10 @@
     
                     <button id="createOrUpdatePostButton" class="btns" type="submit">등록하기</button>
                     <button id="cancelButton" class="btns">등록취소</button>
+                </form>
     
                 </div>
-            </form>
+
             <!-- 등록, 작성취소 버튼 -->
 
 
@@ -171,6 +167,8 @@ $(document).ready(function() {
 				}
 			});
 		}
+        
+        const boardCode = "${boardCode}";  // js 사용
 
     </script>
     </main>

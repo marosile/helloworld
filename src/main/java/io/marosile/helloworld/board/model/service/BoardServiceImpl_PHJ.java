@@ -5,6 +5,7 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import io.marosile.helloworld.board.model.dao.BoardDAO_PHJ;
 import io.marosile.helloworld.board.model.dto.Board;
@@ -40,26 +41,35 @@ public class BoardServiceImpl_PHJ implements BoardService_PHJ{
 	}
 
 
-	// 북마크 처리 서비스
+	@Transactional
 	@Override
-	public int bookMark(Map<String, Integer> map) {
+	public int bookMark(Map<String, Object> map) {
+	    
+	    System.out.println("test");
+	    
 		
 		int result = 0;
-		
-		if(map.get("bookMarkCheck") == 0) {
-			
-			result = dao.insertBookMark(map);
-			
-		}else {
-			
-			result = dao.deleteBookMark(map);
-		}
-		
-		if(result == 0) return -1;
-		
-		
-		
-		return result;
+	    
+	    Object bookMarkCheckObj = map.get("bookMarkCheck");
+	    
+	    System.out.println(map);
+	    
+	    
+	    if (bookMarkCheckObj instanceof Integer) {
+	        Integer bookMarkCheck = (Integer) bookMarkCheckObj;
+	        
+	        if (bookMarkCheck == 0) {
+	            result = dao.insertBookMark(map);
+	        } else {
+	            result = dao.deleteBookMark(map);
+	        }
+	        
+	        if (result == 0) return -1;
+	    } else {
+	        // bookMarkCheck가 유효한 Integer가 아닌 경우에 대한 처리
+	    }
+	    
+	    return result;
 	}
 	
 }

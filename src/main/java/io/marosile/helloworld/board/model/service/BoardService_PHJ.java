@@ -32,6 +32,6 @@ public interface BoardService_PHJ {
 	 * @param map
 	 * @return
 	 */
-	int bookMark(Map<String, Integer> map);
+	int bookMark(Map<String, Object> map);
 
 }
