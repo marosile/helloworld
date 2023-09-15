@@ -4,7 +4,7 @@
 
 	<update id="updateProfile" parameterType="Member">
 		UPDATE MEMBER SET
-		PROFILE_IMG = #{profileImage}
+		PROFILE_IMG = #{profileImg},
 		MEMBER_NICK = #{memberNick}
 		WHERE MEMBER_ID = #{memberId}
 	</update>

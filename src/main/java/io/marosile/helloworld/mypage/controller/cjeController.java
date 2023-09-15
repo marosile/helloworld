@@ -65,12 +65,11 @@ public class cjeController {
 	
 	// 프로필 수정(프로필 이미지, 닉네임)
 	@PostMapping("/profile")
-	public String profile(@RequestParam("profileImg") MultipartFile profileImg // 업로드 파일
+	public String profile(@RequestParam(value = "profileImg1", required = false) MultipartFile profileImg // 업로드 파일
 						, @SessionAttribute("loginMember") Member loginMember // 로그인한회원
 						, Member updateMember // 수정할 멤버 닉네임
 						, RedirectAttributes ra
 						, HttpSession session) throws IllegalStateException, IOException {
-		
 		// 웹 접근 경로
 		String webPath = "/resources/images/member/";
 		
@@ -84,15 +83,19 @@ public class cjeController {
 		int result = service.updateProfile(profileImg, webPath, filePath, loginMember, updateMember);
 		
 		String msg = null;
+		
 		if(result > 0) {
+			
 			msg = "수정 성공";
 			
+			// 닉네임 동기화
 			loginMember.setMemberNick(updateMember.getMemberNick());
 		}else {
+			
 			msg= "수정 실패";
 		}
-		ra.addAttribute("msg",msg);
 		
+		ra.addFlashAttribute("msg", msg);
 		
 		return "redirect:profile";
 	}
