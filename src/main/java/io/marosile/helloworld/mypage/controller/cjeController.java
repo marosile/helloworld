@@ -63,7 +63,9 @@ public class cjeController {
 	
 	// =========================================================================
 	
-	// 프로필 수정(프로필 이미지, 닉네임)
+	/** 프로필 수정!! (프로필 사진, 닉네임)
+	 * mypage-profile 프로필 수정
+	 */
 	@PostMapping("/profile")
 	public String profile(@RequestParam(value = "profileImg1", required = false) MultipartFile profileImg // 업로드 파일
 						, @SessionAttribute("loginMember") Member loginMember // 로그인한회원

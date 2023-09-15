@@ -24,16 +24,27 @@
         <section>
 
             <!-- ===================== 이메일 ======================== -->
+            <%-- 이메일 입력 --%>
             <div class="email">
                 <div class="email-area">
                     <div class="rowE">
                         <label><h3>이메일 정보</h3></label>
-                        <input type="text" name="memberEmail" id="memberEmail" maxlength="30" autocomplete="off">
-                        <button id="sendAuthKeyBtn">이메일 인증</button>
+                        <input type="text" name="memberEmail" id="memberEmail" 
+                        maxlength="30" autocomplete="off" value="${loginMember.memberEmail}">
+                        <button id="sendAuthKeyBtn">인증번호 받기</button>
                     </div>
                 </div>
-            </div>
 
+            <%-- 이메일 인증 번호 입력 --%>
+                <div class="email-area">
+                    <div class="rowE">
+                        <input type="text" name="memberEmail" id="memberEmailConfirm" maxlength="30" autocomplete="off">
+                        <button id="sendAuthKeyBtn">인증하기</button>
+                    </div>
+                    <span class="authKeyMessage" id="authKeyMessage">asd</span>
+                </div>
+
+            </div>
 
 
             <!-- ============================  비번 ========================= -->
