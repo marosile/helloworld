@@ -20,4 +20,18 @@ public interface BoardService_PHJ {
 	 */
 	Board selectBoard(Map<String, Object> map);
 
+
+	/** 북마크 확인 여부 서비스 
+	 * @param map
+	 * @return
+	 */
+	int bookMarkCheck(Map<String, Object> map);
+
+
+	/** 북마크 처리 서비스
+	 * @param map
+	 * @return
+	 */
+	int bookMark(Map<String, Integer> map);
+
 }

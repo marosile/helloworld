@@ -35,8 +35,19 @@
             </div>
 
             <div id="heart-right">
+            <%-- 좋아요 --%>
                 <i class="fa-solid fa-heart fa-2xl"></i>
-                <i class="fa-regular fa-bookmark fa-2xl"></i>
+                <i class="fa-regular fa-heart fa-2xl"></i>
+
+            <%-- 북마크 --%> 
+            <%-- 북마크 누른적이 없거나 로그인 x --%>
+            <c:if test="${empty bookMarkCheck}">
+                <i class="fa-regular fa-bookmark fa-2xl" id="bookMark"></i>
+            </c:if>
+
+            <c:if test="${!empty bookMarkCheck}">
+                <i class="fa-solid fa-bookmark fa-2xl" id="bookMark"></i>
+            </c:if>
             </div>
         </div>
 
@@ -82,6 +93,7 @@
               <script>
                  const boardCode = "${boardCode}";  // js 사용
                  const boardNo = "${boardNo}";
+                 const loginMemberId = "${loginMember.memberId}"
             </script>
 
         </div>

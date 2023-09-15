@@ -26,4 +26,20 @@ public class BoardDAO_PHJ {
 		return sqlSession2.selectOne("boardMapper.selectBoard", map);
 	}
 
+	// 북마크 확인 여부 조회
+	public int bookMarkCheck(Map<String, Object> map) {
+		return sqlSession2.selectOne("boardMapper.bookMarkCheck", map);
+	}
+
+	// 북마크 삽입
+	public int insertBookMark(Map<String, Integer> map) {
+		return sqlSession2.insert("boardMapper.insertBookMark", map);
+	}
+
+	// 북마크 삭제
+	public int deleteBookMark(Map<String, Integer> map) {
+		return sqlSession2.delete("boardMapper.deleteBookMark", map);
+	}
+
+
 }
