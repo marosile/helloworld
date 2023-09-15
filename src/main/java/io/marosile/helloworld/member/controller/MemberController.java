@@ -179,7 +179,7 @@ public class MemberController {
 
 
 	
-	// 카카오 api 정보 얻어오기
+	//**************************************** 카카오 api 정보 얻어오기 ****************************************
 	// 1번 카카오톡에 사용자 코드 받기(jsp의 a태그 href에 경로 있음)
 	@RequestMapping(value = "/login/kakao", method = RequestMethod.GET)
 	public String kakaoLogin(@RequestParam(value = "code", required = false) String code
@@ -240,7 +240,7 @@ public class MemberController {
 
 			} else {
 				System.out.println("로그인 실패");
-				path += "/";
+				path += "/member/login";
 
 			}
 		}
@@ -250,8 +250,8 @@ public class MemberController {
 	}
 
 
-	/* 구글 로그인 응답 후 진행 */
-	@RequestMapping(value = "/member/login/google", method = RequestMethod.GET)
+	/***************************************** 구글 로그인 응답 후 진행 **********************************************/
+	@RequestMapping(value = "/login/google", method = RequestMethod.GET)
 	public String googleAuth(Model model, @RequestParam(value = "code") String authCode, HttpServletRequest request)
 			throws Exception {
 
@@ -286,12 +286,46 @@ public class MemberController {
 
 		Map<String,String> userInfo = mapper.readValue(resultJson, new TypeReference<Map<String, String>>(){});
 
-		System.out.println(userInfo);
+		System.out.println("userInfo = " +userInfo);
 
-		model.addAllAttributes(userInfo);
-		model.addAttribute("token", result.getAccessToken());
+		//model.addAllAttributes(userInfo);
+		//model.addAttribute("token", result.getAccessToken());
 
-		return "googleSuccess";
+		System.out.println("카카오이메일 : " + userInfo.get("email"));
+
+		// 구글 이메일과 같은 이메일이 있는지 확인
+		String memberEmail = String.valueOf(userInfo.get("email"));
+		int searchEmail = service.dupEmail(memberEmail);
+
+		// 로그인 진행
+		String path = "redirect:";
+
+		if(searchEmail == 0) { // 가입되어있는 이메일이 없을때
+			System.out.println("가입되어있는 이메일이 없어서 회원가입 화면으로 이동");
+			// alert창 띄워서 설명해주고 싶은데 이야기 다시 해봐야 할듯 ~
+			path += "/member/signUp";
+		}else {
+			Member loginMember = service.googleLogin(userInfo);
+
+			if (loginMember != null) {
+
+				System.out.println("로그인 성공");
+				// 메인페이지 이동
+				path += "/";
+
+				model.addAttribute("loginMember", loginMember);
+
+
+			} else {
+				System.out.println("로그인 실패");
+				path += "/member/login";
+
+			}
+		}
+
+		return path;
+
+
 	}
 
 

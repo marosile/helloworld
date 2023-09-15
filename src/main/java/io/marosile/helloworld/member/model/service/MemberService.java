@@ -4,6 +4,7 @@ package io.marosile.helloworld.member.model.service;
 import io.marosile.helloworld.member.model.dto.Member;
 
 import java.util.HashMap;
+import java.util.Map;
 
 public interface MemberService {
 
@@ -61,4 +62,11 @@ public interface MemberService {
      * @return 카카오 로그인
      * */
     Member imgChange(Member imgChange1, Member loginMember);
+
+
+    /** 구글 로그인
+     * @param userInfo
+     * @return 구글 로그인 결과
+     * */
+    Member googleLogin(Map<String, String> userInfo);
 }
