@@ -34,4 +34,19 @@ public interface BoardService_PHJ {
 	 */
 	int bookMark(Map<String, Object> map);
 
+
+	/** 좋아요 확인 여부 조회
+	 * @param map
+	 * @return
+	 */
+	int likeCheck(Map<String, Object> map);
+
+
+	/** 좋아요 처리 서비스 
+	 * @param map
+	 * @return
+	 */
+	int like(Map<String, Object> map);
+	
+
 }

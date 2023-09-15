@@ -47,5 +47,28 @@ public class BoardDAO_PHJ {
 		return sqlSession2.delete("boardMapper.deleteBookMark", map);
 	}
 
+	
+	
+	
+	// 좋아요 여부 조회
+	public int likeCheck(Map<String, Object> map) {
+		return sqlSession2.selectOne("boardMapper.likeCheck", map);
+	}
+
+	// 좋아요 테이블 삽입
+	public int insertBoardLike(Map<String, Object> map) {
+		return sqlSession2.insert("boardMapper.insertBoardLike", map);
+	}
+
+	// 좋아요 테이블 삭제
+	public int deleteBoardLike(Map<String, Object> map) {
+		return sqlSession2.delete("boardMapper.deleteBoardLike", map);
+	}
+
+	// 좋아요 개수 조회
+	public int countBoardLike(Object boardNo) {
+		return sqlSession2.selectOne("boardMapper.countBoardLike", boardNo);
+	}
+
 
 }

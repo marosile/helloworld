@@ -24,6 +24,7 @@ public class Board {
     private int boardType;
     private int boardCode;
     private String boardName;
+    private int check;
     
     // member
     private String memberId; 
