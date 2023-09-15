@@ -30,15 +30,25 @@
 
                 <!-- =================== 프로필 이미지 영역 ==================== -->
                 <div class="profile-image-area">
-                    <div class="image-area">
-                        <img src="/resources/images/user.png" id="profileImage">
-                    </div>
-                    
+
+                    <%-- 프로필사진 없을 때 --%>
+                    <c:if test="${empty loginMember.profileImg}">
+                        <div class="image-area">
+                            <img src="/resources/images/user.png" id="profileImage">
+                        </div>
+                    </c:if>
+
+                    <%-- 프로필 사진 있을 때 --%>
+                    <c:if test="${!empty loginMember.profileImg}">
+                        <div class="image-area">
+                            <img src="${loginMember.profileImg}" id="profileImage">
+                        </div>
+                    </c:if>
 
                     <div class="Btn-area">
                         <div class="imageBtn-area">
                             <label for="imageInput" class="fa-solid fa-pencil" style="margin-top: 7px;">&nbsp;변경</label>
-                            <input type="file" name="profileImage" id="imageInput" accept="image/*">
+                            <input type="file" name="profileImg" id="imageInput" accept="image/*">
                         </div>
                         <button type="button" id="deleteBtn" class="fa-regular fa-trash-can">&nbsp;제거</button>
                     </div>
@@ -123,7 +133,7 @@
                 <div>
                     <div class="nick-area">
                         <label>닉네임</label>
-                        <input type="text" name="memberNickname" id="memberNickname" maxlength="8"
+                        <input type="text" name="memberNick" id="memberNickname" maxlength="8"
                         placeholder="닉네임을 입력해주세요.">
                     </div>
                     <span id="nickMessage"></span>
