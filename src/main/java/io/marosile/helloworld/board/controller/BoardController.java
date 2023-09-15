@@ -92,11 +92,17 @@ public class BoardController {
 
 				map.put("memberId", loginMember.getMemberId());
 				
-
+				// 북마크 조회
 				int result = service2.bookMarkCheck(map);
-
 				if (result > 0)
 					model.addAttribute("bookMarkCheck", "on");
+				
+				// 좋아요 조회
+				int result2 = service2.likeCheck(map);
+				
+				if (result2 > 0)
+					model.addAttribute("likeCheck", "on");
+				
 
 			}
 			path = "board/board-detail";
@@ -111,14 +117,22 @@ public class BoardController {
 		return path;
 	}
 
-	
+	// 북마크 처리
 	@PostMapping("/bookMark")
 	@ResponseBody
 	public int bookMark(@RequestBody Map<String, Object> map) {
-	    // 북마크 작업 처리
-	    
-	    System.out.println(map);
 	    
 	    return service2.bookMark(map);
 	}
+	
+	
+	// 좋아요 처리
+	@PostMapping("/like")
+	@ResponseBody
+	public int like(@RequestBody Map<String, Object> map) {
+		
+		return service2.like(map);
+	}
+	
+	
 }

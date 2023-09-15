@@ -15,7 +15,7 @@ public class BoardServiceImpl_PHJ implements BoardService_PHJ{
 	
 	@Autowired
 	private BoardDAO_PHJ dao;
-
+	
 	
 	// 게시글 목록 조회
 	@Override
@@ -40,20 +40,14 @@ public class BoardServiceImpl_PHJ implements BoardService_PHJ{
 		return dao.bookMarkCheck(map);
 	}
 
-
+	// 북마크 처리 서비스
 	@Transactional
 	@Override
 	public int bookMark(Map<String, Object> map) {
 	    
-	    System.out.println("test");
-	    
-		
 		int result = 0;
 	    
 	    Object bookMarkCheckObj = map.get("bookMarkCheck");
-	    
-	    System.out.println(map);
-	    
 	    
 	    if (bookMarkCheckObj instanceof Integer) {
 	        Integer bookMarkCheck = (Integer) bookMarkCheckObj;
@@ -65,11 +59,43 @@ public class BoardServiceImpl_PHJ implements BoardService_PHJ{
 	        }
 	        
 	        if (result == 0) return -1;
-	    } else {
-	        // bookMarkCheck가 유효한 Integer가 아닌 경우에 대한 처리
-	    }
+	    } 
 	    
 	    return result;
 	}
+
 	
+	// 좋아요 여부 조회
+	@Override
+	public int likeCheck(Map<String, Object> map) {
+		return dao.likeCheck(map);
+	}
+
+	
+	
+	// 좋아요 처리 서비스 
+	@Override
+	public int like(Map<String, Object> map) {
+		int result = 0;
+	    
+	    Object likeCheckObj = map.get("likeCheck");
+	    
+	    if (likeCheckObj instanceof Integer) {
+	    	Integer likeCheckObj2 = (Integer) likeCheckObj;
+	    
+	        if (likeCheckObj2 == 0) {
+	            result = dao.insertBoardLike(map);
+	        } else {
+	            result = dao.deleteBoardLike(map);
+	        }
+	        
+	        if (result == 0) return -1;
+	        
+	    }
+	    
+	    int count = dao.countBoardLike(map.get("boardNo"));
+	    
+	    return count;
+	    
+	}
 }

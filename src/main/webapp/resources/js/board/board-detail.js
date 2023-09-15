@@ -94,9 +94,60 @@ bookMark.addEventListener("click", e=>{
             alert("fail");
             return;
         }
-        alert("suc");
+
         e.target.classList.toggle("fa-regular");
         e.target.classList.toggle("fa-solid");
+    })
+    .catch( err => {
+        console.log("예외발생")
+    })
+})
+
+
+
+/* 좋아요 */
+const like = document.getElementById("like");
+
+like.addEventListener("click", e=>{
+
+    // 로그인 여부
+    if(loginMemberId == ""){
+         alert("로그인 후 이용해주세요");
+         return;
+    }
+
+    let check;
+
+    if( e.target.classList.contains("fa-regular")){ // 북마크 안눌렀을 때
+        check=0;
+    } else {  // 북마크 눌렀을 때
+        check=1;
+    }
+
+    const data = {
+        "memberId": loginMemberId,
+        "boardNo" : boardNo,
+        "likeCheck" : check
+    };
+
+    fetch("/board/like",{
+        method: "POST",
+        headers:{"Content-Type" : "application/json" },
+        body : JSON.stringify(data)
+    })
+    .then( res => res.text())
+    .then( count => {
+
+        console.log("count :" + count)
+
+        if(count == -1) { // DML 실패
+            alert("좋아요 실패 ㅜㅜ");
+            return;
+        }
+
+        e.target.classList.toggle("fa-regular");
+        e.target.classList.toggle("fa-solid");
+
     })
     .catch( err => {
         console.log("예외발생")
