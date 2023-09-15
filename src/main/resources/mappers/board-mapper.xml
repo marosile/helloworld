@@ -71,6 +71,25 @@
 		SELECT 1 FROM DUAL
 
 	</insert>
+	
+	<!-- 북마크 확인 여부 -->
+	<select id="bookMarkCheck" resultType="_int">
+		SELECT COUNT(*) FROM BOOKMARK
+		WHERE BOARD_NO = ${boardNo}
+		AND MEMBER_ID = #{memberId}
+	</select>
+	
+	<!-- 북마크 테이블 삽입 -->
+	<insert id="insertBookMark">
+		INSERT INTO BOARD_LIKE VALUES (#{boardNo}, #{memberId})
+	</insert>
+	
+	<!-- 북마크 테이블 삭제 -->
+	<delete id="deleteBookMark">
+		DELETE FROM BOARD_LIKE
+		WHERE BOARD_NO = #{boardNo}
+		AND MEMBER_ID = #{memberId}
+	</delete>
 
 
 </mapper>
