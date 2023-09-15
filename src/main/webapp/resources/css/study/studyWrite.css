@@ -1,3 +1,22 @@
+.area {
+    position: absolute;
+    background: #fff;
+    border: 1px solid #888;
+    border-radius: 3px;
+    font-size: 12px;
+    top: -5px;
+    left: 15px;
+    padding:2px;
+}
+
+.info {
+    font-size: 12px;
+    padding: 5px;
+}
+.info .title {
+    font-weight: bold;
+}
+
 * {
     box-sizing: border-box;
 
@@ -80,7 +99,7 @@
     overflow: hidden;
     justify-content: space-between;
     display: flex;
-    
+
 }
 
 /* 역할 버튼 클릭 시 나타나는 화면*/
@@ -405,8 +424,8 @@
 
 
 #P-body-title-textarea {
-    width: 100%; 
-    height: 30px; 
+    width: 100%;
+    height: 30px;
     border: 1px solid #ccc;
     border-radius: 5px;
     padding: 5px;
@@ -427,8 +446,8 @@
 }
 
 #P-body-content-textarea {
-    width: 100%; 
-    height: 150px; 
+    width: 100%;
+    height: 150px;
     border: 1px solid #ccc;
     border-radius: 5px;
     padding: 5px;
@@ -477,12 +496,7 @@
     background: linear-gradient(90deg, rgba(200, 100, 255, 0.5), rgba(0, 128, 255, 0.5));
 }
 
-#map{
-    width: 600px;
-    height: 600px;
-    margin-top: 10px;
-    display: none;
-}
+
 
 /* 수정/삭제/목록버튼 */
 .P-body-controller{
@@ -510,4 +524,20 @@
     border: 1px solid #C4C4C4;
     background-color: white;
     cursor: pointer;
+}
+
+#P-body-container-location{
+    margin: 0 20px 5px 30px;
+    padding: 10px 10px 10px 0;
+
+}
+#map{
+    width: 100%;
+    height: 500px;
+}
+
+.h5{
+    margin:0 0 20px 0;
+    font-weight: bold;
+    font-size: 13px;
 }

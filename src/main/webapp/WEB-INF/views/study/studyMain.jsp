@@ -74,11 +74,11 @@
                         </button>
 
                         <ul class="P-selectBox-role menuHidden" id=P-selectBox-role"">
-                            <li><button type="button" class="P-option-btn">프론트앤드</button></li>
-                            <li><button type="button" class="P-option-btn">백엔드</button></li>
-                            <li><button type="button" class="P-option-btn">디자인</button></li>
-                            <li><button type="button" class="P-option-btn">기획</button></li>
-                            <li><button type="button" class="P-option-btn">기타</button></li>
+                            <li><button type="button" class="P-option-btn" id="front">프론트앤드</button></li>
+                            <li><button type="button" class="P-option-btn" id="back">백엔드</button></li>
+                            <li><button type="button" class="P-option-btn" id="design">디자인</button></li>
+                            <li><button type="button" class="P-option-btn" id="Planning">기획</button></li>
+                            <li><button type="button" class="P-option-btn" id="etc">기타</button></li>
                         </ul>
 
                     </div>
