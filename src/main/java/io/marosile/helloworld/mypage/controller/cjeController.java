@@ -1,16 +1,24 @@
 package io.marosile.helloworld.mypage.controller;
 
+import java.io.IOException;
+
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import io.marosile.helloworld.member.model.dto.Member;
 import oracle.jdbc.proxy.annotation.Post;
 
-//@SessionAttributes({"loginMember"})
+@SessionAttributes({"loginMember"})
 
 @RequestMapping("/mypage")
 @Controller
@@ -50,6 +58,21 @@ public class cjeController {
 	
 	
 	// =========================================================================
+	
+	// 프로필 수정(프로필 이미지, 닉네임)
+	@PostMapping("/profile")
+	public String profile(@RequestParam("profileImage") MultipartFile profileImage
+						, @SessionAttribute("loginMember") Member loginMember
+						, RedirectAttributes ra
+						, HttpSession session) throws IllegalStateException, IOException {
+		
+		String webPath = "/resources/images";
+		
+		String filePath = session.getServletContext().getRealPath(webPath);
+		
+		
+		return null;
+	}
 	
 	
 	// 비밀번호 변경 (account 페이지)
