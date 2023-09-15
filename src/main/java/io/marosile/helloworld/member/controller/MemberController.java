@@ -12,6 +12,7 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletResponse;
 import java.util.HashMap;
 
+
 @Controller
 @RequestMapping("/member")
 @SessionAttributes("loginMember")
@@ -40,7 +41,18 @@ public class MemberController {
 	
 	// 로그인 화면
 	@GetMapping("/login")
-	public String login() {
+	public String login(Model model) {
+
+		// 구글 로그인 URL 생성하여 사용할 수 있게 진행
+		String googleUrl = "https://accounts.google.com/o/oauth2/v2/auth?"
+				+ "client_id=" + "829784621579-9i247enb310blhhajovb5u9ggnfiglja.apps.googleusercontent.com"
+				+ "&redirect_uri=" + "http://localhost/member/login/google"
+				+ "&response_type=code"
+				+ "&scope=" + "email%20profile%20openid"
+				+ "&access_type=offline";
+
+		model.addAttribute("googleUrl", googleUrl);
+
 		return "common/modal/login";
 	}
 
@@ -226,23 +238,8 @@ public class MemberController {
 		return path;
 	}
 
-	// 구글 로그인 컨트롤러
-	@RequestMapping("/login/googleForm")
-	public String loginPage(Model model) {
 
-		// 구글 로그인 URL 생성
-		String googleUrl = "https://accounts.google.com/o/oauth2/v2/auth?"
-				+ "client_id=" + "829784621579-9i247enb310blhhajovb5u9ggnfiglja.apps.googleusercontent.com"
-				+ "&redirect_uri=" + "http://localhost/member/login/google"
-				+ "&response_type=code"
-				+ "&scope=" + "email%20profile%20openid"
-				+ "&access_type=offline";
 
-		model.addAttribute("googleUrl", googleUrl);
-
-		return "login";
-
-	}
 
 
 
