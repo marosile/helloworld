@@ -21,17 +21,30 @@
     <jsp:include page="/WEB-INF/views/common/header.jsp"/>
 	<main id="body-area">
 		<div id="main-area">
-            <p>${board.boardName}</p>
+            <p>
+            <c:if test="${boardCode == 1}">공지사항</c:if>
+            <c:if test="${boardCode == 2}">자유 게시판</c:if>
+            <c:if test="${boardCode == 3}">Q&A 게시판</c:if>
+            </p>
             <p>🕊️ ${board.boardTitle}</p>
 
         <div id="heart">
             <div id="heart-left">
                 <div id="profile-image">
-                    <img src="/resources/images/trand/sample.jpg" id="pic">
+                    <c:choose>
+                        <c:when test="${empty board.profileImg}">
+                            <img src="/resources/images/user.png" id="pic">
+                        </c:when>
+
+                        <c:otherwise>
+                            <img src="${board.profileImg}" id="pic">
+                        </c:otherwise>
+                    </c:choose>
+
                     <div>${board.memberNickname}</div>
                 </div>
                 <p>${board.createDate}</p>
-                <p>조회 90</p>
+                <p><span>조회수</span> ${board.readCount}</p>
             </div>
 
             <div id="heart-right">

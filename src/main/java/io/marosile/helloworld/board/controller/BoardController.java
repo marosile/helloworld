@@ -1,5 +1,6 @@
 package io.marosile.helloworld.board.controller;
 
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -74,8 +75,9 @@ public class BoardController {
 	@GetMapping("/{boardCode}/{boardNo}")
 	public String boardDetail(@PathVariable("boardCode") int boardCode, @PathVariable("boardNo") int boardNo,
 			Model model, RedirectAttributes ra,
-			@SessionAttribute(value = "loginMember", required = false) Member loginMember, HttpServletRequest req,
-			HttpServletResponse resp) {
+			@SessionAttribute(value = "loginMember", required = false) Member loginMember, 
+			HttpServletRequest req,
+			HttpServletResponse resp) throws ParseException {
 
 		Map<String, Object> map = new HashMap<String, Object>();
 
@@ -102,9 +104,12 @@ public class BoardController {
 				
 				if (result2 > 0)
 					model.addAttribute("likeCheck", "on");
-				
 
 			}
+			
+			// --------------------------------------------------
+			
+			// 쿠키를 이용한 조회 수 
 			path = "board/board-detail";
 			model.addAttribute("board", board);
 
@@ -130,9 +135,6 @@ public class BoardController {
 	@PostMapping("/like")
 	@ResponseBody
 	public int like(@RequestBody Map<String, Object> map) {
-		
-		
-		
 		
 		return service2.like(map);
 	}
