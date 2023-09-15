@@ -30,6 +30,11 @@ public class Study {
     private String memberId;
     private String memberNickname;
 
+    //tag
+    private int tagNo;
+    private String tagNm;
+
+
 
 
 

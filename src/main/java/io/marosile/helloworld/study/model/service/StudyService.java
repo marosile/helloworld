@@ -11,4 +11,7 @@ public interface StudyService {
     
     /*스터디 상세 조회*/
     List<Study> selectStudy(int studyNo);
+
+    // 스터디 게시글 삽입
+    int studyInsert(Study study);
 }
