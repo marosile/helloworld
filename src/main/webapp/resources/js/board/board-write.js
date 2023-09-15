@@ -1,24 +1,38 @@
 
-// 작성하기
-const createOrUpdatePostButton = document.getElementById("createOrUpdatePostButton");
+const uploadForm = document.getElementById("uploadForm");
+const boardTitle = document.getElementById("boardTitle");
+const boardContent = document.getElementById("summernote");
 
-/* createOrUpdatePostButton.addEventListener("click", () => {
+// form 제출 event 막기
+uploadForm.addEventListener("submit", (e) => {
 
-    alert("게시글이 작성되었습니다.");
-    location.href = "/board/detail";
+    if(boardTitle.value.trim().length == 0){
+        alert("제목을 입력해주세요.");
+        e.preventDefault();
+        boardTitle.focus();
+        return;
+    }
+
+    if(boardContent.value.trim().length == 0){
+        alert("내용을 입력해주세요.");
+        e.preventDefault();
+        boardContent.focus();
+    } 
 
 })
- */
+
 
 // 작성 취소
 const cancelButton = document.getElementById("cancelButton");
 
-cancelButton.addEventListener("click", () => {
+cancelButton.addEventListener("click", (e) => {
+
+    e.preventDefault();
 
     if(confirm("정말 취소하시겠습니까? 작성한 내용은 저장되지 않습니다.")){
 
         // 확인
-        location.href ="/board/list";
+        location.href = "/board/" + boardCode;
     
     }else{
 

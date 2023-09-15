@@ -4,7 +4,9 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.http.HttpHeaders;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.UUID;
 
 import javax.servlet.ServletContext;
@@ -33,6 +35,7 @@ import com.google.gson.JsonObject;
 
 import io.marosile.helloworld.board.model.dto.Board;
 import io.marosile.helloworld.board.model.service.BoardService_OHS;
+import io.marosile.helloworld.board.model.service.BoardService_PHJ;
 import io.marosile.helloworld.member.model.dto.Member;
 
 
@@ -44,12 +47,8 @@ public class BoardController2 {
 	@Autowired
 	private BoardService_OHS service;
 	
-	// 게시글 수정
-	@GetMapping("/{boardCode}/{boardNo}/update")
-	public String boardUpdate() {
-		
-		return "board/board-update";
-	}
+	@Autowired
+	private BoardService_PHJ service2;
 	
 	// 게시글 작성
 	@GetMapping("/{boardCode}/write")
@@ -91,6 +90,36 @@ public class BoardController2 {
 		
 		return path;
 	}
+	
+	// 게시글 수정
+	@GetMapping("/{boardCode}/{boardNo}/update")
+	public String boardUpdate(@PathVariable("boardCode") int boardCode
+						     ,@PathVariable("boardNo") int boardNo
+						     , Model model
+									) {
+		
+		Map<String, Object> map = new HashMap<>();
+		
+		map.put("boardCode", boardCode);
+		map.put("boardNo", boardNo);
+		
+		Board board = service2.selectBoard(map);
+		
+		model.addAttribute("board", board);
+		
+		return "board/board-update";
+	}
+	
+	@PostMapping("/{boardCode}/{boardNo}/update")
+	public String boardUpdate(@PathVariable("boardCode") int boardCode
+							 ,@PathVariable("boardNo") int boardNo
+							 ,@SessionAttribute("loginMember") Member loginMember
+							 ) {
+		
+		return "board/board-list";
+	}
+	
+	
 	
 
 	@RequestMapping(value="/{boardCode}/uploadSummernoteImageFile", produces = "application/json; charset=utf8")

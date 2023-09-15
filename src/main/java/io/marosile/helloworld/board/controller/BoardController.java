@@ -112,11 +112,13 @@ public class BoardController {
 	}
 
 	
-	  // 북마크
-	  @PostMapping(value="/bookMark" ,  produces = "application/text; charset=utf8")
-	  @ResponseBody public int bookMark(@RequestBody Map<String, Integer> map) {
-	  
-	  return service2.bookMark(map);
-	  
-	  }
+	@PostMapping("/bookMark")
+	@ResponseBody
+	public int bookMark(@RequestBody Map<String, Object> map) {
+	    // 북마크 작업 처리
+	    
+	    System.out.println(map);
+	    
+	    return service2.bookMark(map);
+	}
 }
