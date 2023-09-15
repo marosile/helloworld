@@ -13,6 +13,8 @@
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"
             integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
             crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/color-thief/2.4.0/color-thief.min.js" integrity="sha512-r2yd2GP87iHAsf2K+ARvu01VtR7Bs04la0geDLbFlB/38AruUbA5qfmtXwXx6FZBQGJRogiPtEqtfk/fnQfaYA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
 </head>
 <body>
     <jsp:include page="/WEB-INF/views/common/header.jsp"/>
@@ -59,7 +61,7 @@
             </div>
         </div>
         <div id="promotion">
-            <img id="thumbnail" src="/resources/images/laptop.jpg">
+            <img id="thumbnail" src="/resources/images/terminal-5440620_1920.jpg">
             <div id="pay">
                 <div id="price">
                     <p id="real-price"><strike>144000 원</strike></p>
