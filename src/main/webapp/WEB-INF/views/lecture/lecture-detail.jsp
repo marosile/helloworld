@@ -17,8 +17,9 @@
 <body>
     <jsp:include page="/WEB-INF/views/common/header.jsp"/>
 	<main>
+        <div id="banner-background"></div>
         <div id="main">
-            <div id="banner" class="window">
+            <div id="banner">
                 <h1 id="title">일주일만에 끝내는 리액트 완벽 가이드</h1>
                 <div id="left">
                     <section id="lecture-info">
@@ -57,17 +58,15 @@
                 </section>
             </div>
         </div>
-        <div id="second">
-            <div id="promotion" class="window">
-                <img id="thumbnail" src="/resources/images/laptop.jpg">
-                <div id="pay">
-                    <div id="price">
-                        <p id="real-price"><strike>144000 원</strike></p>
-                        <p id="sale-price">116000 원</p>
-                    </div>
-                    <button id="store-button">장바구니에 담기</button>
-                    <button id="pay-button">지금 구매하기</button>
+        <div id="promotion">
+            <img id="thumbnail" src="/resources/images/laptop.jpg">
+            <div id="pay">
+                <div id="price">
+                    <p id="real-price"><strike>144000 원</strike></p>
+                    <p id="sale-price">116000 원</p>
                 </div>
+                <button id="store-button">장바구니에 담기</button>
+                <button id="pay-button">지금 구매하기</button>
             </div>
         </div>
     </main>
