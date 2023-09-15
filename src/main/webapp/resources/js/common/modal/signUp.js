@@ -28,25 +28,25 @@
 */
 const checkSignUp = {
 
-    "inputId" : false,
-    "inputEmail" : false,
-    "inputTel1" : false,
-    "inputTel2" : false,
-    "inputNickname" : false,
-    "inputPw" : false,
-    "inputConfirmPw" : false,
-    "essentialCheck" : false,
-    "authKey" : false
+    // "inputId" : false,
+    // "inputEmail" : false,
+    // "inputTel1" : false,
+    // "inputTel2" : false,
+    // "inputNickname" : false,
+    // "inputPw" : false,
+    // "inputConfirmPw" : false,
+    // "essentialCheck" : false,
+    // "authKey" : false
 
-    // "inputId" : true,
-    // "inputEmail" : true,
-    // "inputTel1" : true,
-    // "inputTel2" : true,
-    // "inputNickname" : true,
-    // "inputPw" : true,
-    // "inputConfirmPw" : true,
-    // "essentialCheck" : true,
-    // "authKey" : true
+    "inputId" : true,
+    "inputEmail" : true,
+    "inputTel1" : true,
+    "inputTel2" : true,
+    "inputNickname" : true,
+    "inputPw" : true,
+    "inputConfirmPw" : true,
+    "essentialCheck" : true,
+    "authKey" : true
     // 실험용
 
 };
