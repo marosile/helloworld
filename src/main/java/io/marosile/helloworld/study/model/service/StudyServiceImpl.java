@@ -31,4 +31,13 @@ public class StudyServiceImpl implements StudyService{
 
         return study;
     }
+
+    // 스터디 게시글 삽입
+    @Override
+    public int studyInsert(Study study) {
+
+        int studyNumber = dao.studyInsert(study);
+
+        return studyNumber;
+    }
 }

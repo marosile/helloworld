@@ -7,27 +7,28 @@
 
         <id property="boardNo" column="BOARD_NO"/>
 
-        <result property="boardTitle" column="BOARD_TITLE" />
-        <result property="boardContent" column="BOARD_CONTENT" />
-        <result property="createDate" column="CREATE_DT" />
-        <result property="modifyDate" column="MODIFY_DT" />
-        <result property="deletedFl" column="DELETED_FL" />
-        <result property="readCount" column="READ_COUNT" />
+        <result property="boardTitle" column="BOARD_TITLE"/>
+        <result property="boardContent" column="BOARD_CONTENT"/>
+        <result property="createDate" column="CREATE_DT"/>
+        <result property="modifyDate" column="MODIFY_DT"/>
+        <result property="deletedFl" column="DELETED_FL"/>
+        <result property="readCount" column="READ_COUNT"/>
 
-        <result property="memberId" column="MEMBER_ID" />
-        <result property="memberNickname" column="MEMBER_NICK" />
+        <result property="memberId" column="MEMBER_ID"/>
+        <result property="memberNickname" column="MEMBER_NICK"/>
 
-        <result property="studyNo" column="STUDY_NO" />
-        <result property="location" column="LOCATION" />
-        <result property="headCount" column="HEAD_COUNT" />
+        <result property="studyNo" column="STUDY_NO"/>
+        <result property="location" column="LOCATION"/>
+        <result property="headCount" column="HEAD_COUNT"/>
 
     </resultMap>
 
 
     <!--스터디 목록 조회-->
     <select id="selectStudyList" resultMap="StudyResultMap">
-        SELECT B.BOARD_TITLE,B.BOARD_CONTENT,S.LOCATION FROM BOARD B
-        JOIN BOARD_STUDY S ON(B.BOARD_NO = S.BOARD_NO)
+        SELECT B.BOARD_TITLE, B.BOARD_CONTENT, S.LOCATION
+        FROM BOARD B
+                 JOIN BOARD_STUDY S ON (B.BOARD_NO = S.BOARD_NO)
         ORDER BY S.BOARD_NO DESC
     </select>
 
@@ -36,7 +37,19 @@
 
     </select>
 
+    <!--스터디 삽입-->
+    <insert id="studyInsert" parameterType="Study" useGeneratedKeys="true">
 
+        <selectKey order="BEFORE" resultType="_int" keyProperty="boardNo">
+            SELECT SEQ_BOARD_NO.NEXTVAL FROM DUAL
+        </selectKey>
+
+        INSERT ALL
+
+        INSERT INTO BOARD VALUES(#{boardNo},#{memberId}, #{boardTitle}, #{boardContent},DEFAULT,NULL,DEFAULT,DEFAULT)
+
+
+    </insert>
 
 
 </mapper>

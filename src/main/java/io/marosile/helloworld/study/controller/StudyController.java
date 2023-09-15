@@ -1,13 +1,12 @@
 package io.marosile.helloworld.study.controller;
 
+import io.marosile.helloworld.member.model.dto.Member;
 import io.marosile.helloworld.study.model.dto.Study;
 import io.marosile.helloworld.study.model.service.StudyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -15,6 +14,7 @@ import java.util.List;
 
 @RequestMapping("/study")
 @Controller
+@SessionAttributes("loginMember")
 public class StudyController {
 	@Autowired
 	private StudyService service;
@@ -42,12 +42,27 @@ public class StudyController {
 		return "study/studyDetail";
 	}
 
-
-
-
-	// 스터디 작성
+	// 스터디 작성(화면전환)
 	@GetMapping("/write/{studyNo}")
-	public String studyWrite(Model model) {
+	public String studyWrite(Model model,
+							@PathVariable("studyNo")int studyNo) {
+
+		return "study/studyWrite";
+	}
+
+
+	// 스터디 게시글 삽입
+	@PostMapping ("/write/{studyNo}")
+	public String studyWrite(@ModelAttribute Study study
+							 ,@RequestParam(value = "tagNm" ,required = false) String selectBox
+			                , @PathVariable("studyNo")int studyNo
+							, @SessionAttribute("loginMember") Member loginMember) {
+
+
+
+		study.setMemberId(loginMember.getMemberId());
+
+		int studyNumber = service.studyInsert(study);
 
 		return "study/studyWrite";
 	}
