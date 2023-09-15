@@ -63,8 +63,7 @@
         <div id="text">
 
             <div id="boardContent">
-                <pre>${boardContent}
-                </pre>
+                ${board.boardContent}
             </div>
 
          

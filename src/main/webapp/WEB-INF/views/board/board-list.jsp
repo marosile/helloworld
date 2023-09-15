@@ -263,7 +263,6 @@
                                 </div>
 
                                 <div class="postThirdPart">
-                                    <!-- ${board.boardContent} 이미지까지 나와버려서 일단 막음 -->
                                 </div>
                         
                                 <div class="postFourthPart">

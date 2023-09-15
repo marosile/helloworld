@@ -121,7 +121,12 @@
 	   WHERE BOARD_NO = #{boardNo}
    </select>
 	
-	
+	<update id="boardUpdate">
+		UPDATE BOARD SET
+		BOARD_TITLE = #{boardTitle},
+		BOARD_CONTENT = #{boardContent}
+		WHERE BOARD_NO = #{boardNo}	
+	</update>
 	
 	
 	
