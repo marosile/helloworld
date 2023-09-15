@@ -198,13 +198,14 @@ public class MemberController {
 			Member loginMember = service.kakaoLogin(userInfo);
 
 			Member imgChange1 = new Member();
-			imgChange1.setMemberEmail(String.valueOf(userInfo.get("email")));
-			imgChange1.setProfileImg(String.valueOf(userInfo.get("profileImage")));
 
 
 			if (loginMember != null) {
 
-				Member imgChange = service.imgChange(imgChange1);
+				imgChange1.setMemberEmail(String.valueOf(userInfo.get("email")));
+				imgChange1.setProfileImg(String.valueOf(userInfo.get("profileImage")));
+
+				Member imgChange = service.imgChange(imgChange1, loginMember);
 				loginMember.setProfileImg(imgChange.getProfileImg());
 
 				System.out.println("로그인 성공");
@@ -231,11 +232,10 @@ public class MemberController {
 
 		// 구글 로그인 URL 생성
 		String googleUrl = "https://accounts.google.com/o/oauth2/v2/auth?"
-				+ "scope=email"
+				+ "client_id=" + "829784621579-9i247enb310blhhajovb5u9ggnfiglja.apps.googleusercontent.com"
+				+ "&redirect_uri=" + "http://localhost/member/login/google"
 				+ "&response_type=code"
-				+ "&state=security_token%3D138r5719ru3e1%26url%3Dhttps://oauth2.example.com/token"
-				+ "&client_id=" + "829784621579-9i247enb310blhhajovb5u9ggnfiglja.apps.googleusercontent.com"
-				+ "&redirect_uri=" + "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"
+				+ "&scope=" + "email%20profile%20openid"
 				+ "&access_type=offline";
 
 		model.addAttribute("googleUrl", googleUrl);
