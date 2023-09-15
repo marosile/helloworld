@@ -17,10 +17,15 @@
 <body>
     <jsp:include page="/WEB-INF/views/common/header.jsp"/>
 	<main>
-        <div id="banner" class="window">
-            <h1 id="title">일주일만에 끝내는 리액트 완벽 가이드</h1>
-            <div id="left">
-                <div id="left-info">
+        <div id="main">
+            <div id="banner" class="window">
+                <h1 id="title">일주일만에 끝내는 리액트 완벽 가이드</h1>
+                <div id="left">
+                    <section id="lecture-info">
+                        <p>7차시 구성</p>
+                        <p>난이도 · 중</p>
+                        <p>수강 기한 · 무제한</p>
+                    </section>
                     <section id="lecture-rating">
                         <div id="lecture-rating-star">
                             <div id="star-filled">
@@ -37,20 +42,11 @@
                         <a>#프론트엔드</a>
                     </section>
                 </div>
+                <%-- <div id="lecturer">
+                    <img id="lecturer-profile" src="/resources/images/profile.png">
+                    <h3 id="lecturer-name">강사 누구누구</h3>
+                </div> --%>
             </div>
-            <div id="right">
-                <div id="right-info">
-                    <p>7차시 구성</p>
-                    <p>난이도 · 중</p>
-                    <p>수강 기한 · 무제한</p>
-                </div>
-            </div>
-            <%-- <div id="lecturer">
-                <img id="lecturer-profile" src="/resources/images/profile.png">
-                <h3 id="lecturer-name">강사 누구누구</h3>
-            </div> --%>
-        </div>
-        <div id="middle">
             <div id="content" class="window">
                 <section id="lecture-nav">
                     <a>강의 소개</a>
@@ -60,7 +56,10 @@
                 <section id="content">
                 </section>
             </div>
+        </div>
+        <div id="second">
             <div id="promotion" class="window">
+                <img id="thumbnail" src="/resources/images/laptop.jpg">
                 <div id="pay">
                     <div id="price">
                         <p id="real-price"><strike>144000 원</strike></p>
