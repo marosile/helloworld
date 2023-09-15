@@ -49,7 +49,14 @@
         <!-- 게시글 목록 -->
         <div id="postList">
             <form action="/board2/${boardCode}/write" method="get">
-            <div id="boardName">${board[0].boardName}</div>
+            <img src="https://careerly.co.kr/_next/static/images/img_lounge-banner-3-47e86ec10e6adf3bb01dd471d47295bc.svg" id="list-logo">
+            <div id="boardName">
+                <c:if test="${boardCode == 1}">공지사항 🔊</c:if>
+
+                <c:if test="${boardCode == 2}">자유 게시판 💬</c:if>
+
+                <c:if test="${boardCode == 3}">Q&A 게시판 💁‍♀️</c:if>
+            </div>
             <input type="hidden" name="boardName" value="${board[0].boardName}">
             <div id="question">
 

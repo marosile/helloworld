@@ -126,6 +126,4 @@ public class BoardController2 {
 		String a = jsonObject.toString();
 		return a;
 	}
-	
-
-	}
+}
