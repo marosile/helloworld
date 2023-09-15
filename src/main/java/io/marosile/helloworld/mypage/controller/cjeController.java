@@ -16,6 +16,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import io.marosile.helloworld.member.model.dto.Member;
+import io.marosile.helloworld.mypage.model.service.MyPageService;
 import oracle.jdbc.proxy.annotation.Post;
 
 @SessionAttributes({"loginMember"})
@@ -23,6 +24,9 @@ import oracle.jdbc.proxy.annotation.Post;
 @RequestMapping("/mypage")
 @Controller
 public class cjeController {
+	
+	@Autowired
+	private MyPageService service;
 	
 	// 마이페이지로 이동(프로필화면)
 	@GetMapping("/profile")
@@ -61,18 +65,48 @@ public class cjeController {
 	
 	// 프로필 수정(프로필 이미지, 닉네임)
 	@PostMapping("/profile")
-	public String profile(@RequestParam("profileImage") MultipartFile profileImage
-						, @SessionAttribute("loginMember") Member loginMember
+	public String profile(@RequestParam("profileImg") MultipartFile profileImg // 업로드 파일
+						, @SessionAttribute("loginMember") Member loginMember // 로그인한회원
+						, Member updateMember // 수정할 멤버 닉네임
 						, RedirectAttributes ra
 						, HttpSession session) throws IllegalStateException, IOException {
 		
-		String webPath = "/resources/images";
+		// 웹 접근 경로
+		String webPath = "/resources/images/member/";
 		
+		// 실제 이미지 파일 저장 경로
 		String filePath = session.getServletContext().getRealPath(webPath);
 		
+		// 로그인한 회원 아이디를 updateMember에 추가
+		updateMember.setMemberId(loginMember.getMemberId());
 		
-		return null;
+		// 서비스 호출
+		int result = service.updateProfile(profileImg, webPath, filePath, loginMember, updateMember);
+		
+		String msg = null;
+		if(result > 0) {
+			msg = "수정 성공";
+			
+			loginMember.setMemberNick(updateMember.getMemberNick());
+		}else {
+			msg= "수정 실패";
+		}
+		ra.addAttribute("msg",msg);
+		
+		
+		return "redirect:profile";
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	// 비밀번호 변경 (account 페이지)
