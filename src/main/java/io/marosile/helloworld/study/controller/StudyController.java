@@ -16,17 +16,13 @@ public class StudyController {
 		return "study/studyMain";
 	}
 
+	/*위치확인하기 위한 것
 	@GetMapping("/mainTest")
 	public String studyMainTest(Model model) {
 
 		return "study/studyLocation";
 	}
-
-	@GetMapping("/Location")
-	public String studyMainLocation(Model model) {
-
-		return "study/studyLocation(write)";
-	}
+	*/
 
 
 	// 스터디 작성

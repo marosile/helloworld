@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -8,13 +9,23 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>스터디</title>
+
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+            integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+            crossorigin="anonymous"></script>
+
     <link rel="stylesheet" href="/resources/css/common/general.css">
     <link rel="stylesheet" href="/resources/css/index.css">
     <link rel="stylesheet" href="/resources/css/study/studyWrite.css">
 
-
-    <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=955d027ad541e959373216700e779cf3&libraries=services"></script>
+
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
 
 </head>
 <body>
@@ -41,27 +52,45 @@
                     </button>
 
                     <ul class="P-selectBox-role menuHidden" id=P-selectBox-role"">
-                        <li><button type="button" class="P-option-btn">프론트앤드</button></li>
-                        <li><button type="button" class="P-option-btn">백엔드</button></li>
-                        <li><button type="button" class="P-option-btn">디자인</button></li>
-                        <li><button type="button" class="P-option-btn">기획</button></li>
-                        <li><button type="button" class="P-option-btn">기타</button></li>
+                        <li>
+                            <button type="button" class="P-option-btn">프론트앤드</button>
+                        </li>
+                        <li>
+                            <button type="button" class="P-option-btn">백엔드</button>
+                        </li>
+                        <li>
+                            <button type="button" class="P-option-btn">디자인</button>
+                        </li>
+                        <li>
+                            <button type="button" class="P-option-btn">기획</button>
+                        </li>
+                        <li>
+                            <button type="button" class="P-option-btn">기타</button>
+                        </li>
                     </ul>
 
                 </div>
 
+<%--
                 <div class="P-body-category-purpose">
                     <button type="button" class="P-body-purpose-btn">목적
                         <i class="fa-solid fa-caret-down"></i>
                     </button>
 
                     <ul class="P-selectBox-purpose menuHidden">
-                        <li><button type="button" class="P-option-btn">포트폴리오/직무역량 강화</button></li>
-                        <li><button type="button" class="P-option-btn">창업/수익 창출</button></li>
-                        <li><button type="button" class="P-option-btn">네트워킹</button></li>
+                        <li>
+                            <button type="button" class="P-option-btn">포트폴리오/직무역량 강화</button>
+                        </li>
+                        <li>
+                            <button type="button" class="P-option-btn">창업/수익 창출</button>
+                        </li>
+                        <li>
+                            <button type="button" class="P-option-btn">네트워킹</button>
+                        </li>
                     </ul>
 
                 </div>
+--%>
 
                 <div class="P-body-category-count">
                     <button type="button" class="P-body-count-btn">인원
@@ -95,7 +124,7 @@
 
                 <h5><span class="required">*</span> 내용</h5>
                 <div id="P-body-content">
-                        <textarea name="" id="P-body-content-textarea" rows="1"
+                        <textarea name="" id="summernote" rows="1"
                                   placeholder="프로젝트 요약을 입력하세요.
 
 예시 - 온/오프라인으로 달리기 모임을 만들고 찾을 수 있는 앱을 기획 중입니다. 현재 기획자 1명, 백엔드 개발자 1명이 있고, 함께 하실 디자이너와 프론트 개발자를 찾고 있어요!"></textarea>
@@ -103,17 +132,11 @@
 
             </div>
 
-
             <div id="P-body-container-location">
-                <h5><span class="required">*</span> 위치</h5>
-                <div id="P-body-location">
-
-
-                    <input id="P-body-location-input" placeholder="위치를 작성해주세요.">
-                    <input type="button" id="P-locationBtn" onclick="sample5_execDaumPostcode()" value="주소 검색">
-                    <div id="map"></div>
-                </div>
+                <div class="h5"><span>*</span> 위치</div>
+                <div id="map"></div>
             </div>
+
 
             <div class="P-body-controller">
                 <div class="P-body-controller-Btn">
@@ -128,12 +151,76 @@
         </form>
     </div>
 
+    <script>
+    $(document).ready(function() {
 
+    var toolbar = [
+    // 글꼴 설정
+    ['fontname', ['fontname']],
+    // 글자 크기 설정
+    ['fontsize', ['fontsize']],
+    // 굵기, 기울임꼴, 밑줄,취소 선, 서식지우기
+    ['style', ['bold', 'italic', 'underline','strikethrough', 'clear']],
+    // 글자색
+    ['color', ['forecolor','color']],
+    // 표만들기
+    ['table', ['table']],
+    // 글머리 기호, 번호매기기, 문단정렬
+    ['para', ['ul', 'ol', 'paragraph']],
+    // 줄간격
+    ['height', ['height']],
+    // 그림첨부, 링크만들기, 동영상첨부
+    ['insert',['picture','link','video']],
+    // 코드보기, 확대해서보기, 도움말
+    ['view', ['codeview','fullscreen', 'help']]
+    ];
+
+    var setting = {
+    height : 300,
+    minHeight : null,
+    maxHeight : null,
+    focus : true,
+    lang : 'ko-KR',
+    toolbar : toolbar,
+    //콜백 함수
+    callbacks : {
+    onImageUpload : function(files, editor, welEditable) {
+    // 파일 업로드(다중업로드를 위해 반복문 사용)
+    for (var i = files.length - 1; i >= 0; i--) {
+    uploadSummernoteImageFile(files[i],
+    this);
+    }
+    }
+    }
+    };
+    $('#summernote').summernote(setting);
+    });
+
+    function uploadSummernoteImageFile(file, el) {
+    data = new FormData();
+    data.append("file", file);
+    $.ajax({
+    data : data,
+    type : "POST",
+    url : "uploadSummernoteImageFile",
+    contentType : false,
+    enctype : 'multipart/form-data',
+    processData : false,
+    success : function(data) {
+    $(el).summernote('editor.insertImage', data.url);
+    }
+    });
+    }
+
+    </script>
 
 </main>
 
 <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
-<script src="/resources/js/study/studyWrite.js"></script>
 <script src="/resources/js/common/general.js"></script>
+<script src="/resources/js/study/studyWrite.js"></script>
+<script src="/resources/js/board/board-write.js"></script>
+
+
 </body>
 </html>
