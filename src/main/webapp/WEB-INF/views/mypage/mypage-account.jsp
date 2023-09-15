@@ -43,7 +43,6 @@
                     </div>
                     <span class="authKeyMessage" id="authKeyMessage">asd</span>
                 </div>
-
             </div>
 
 

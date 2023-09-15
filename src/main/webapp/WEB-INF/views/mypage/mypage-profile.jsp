@@ -45,6 +45,8 @@
                         </div>
                     </c:if>
 
+                    <%-- 변경 제거 버튼 영역 --%>
+                    <input type="hidden" id="ddd" value="${loginMember.profileImg}">
                     <div class="Btn-area">
                         <div class="imageBtn-area">
                             <label for="imageInput" class="fa-solid fa-pencil" style="margin-top: 7px;">&nbsp;변경</label>

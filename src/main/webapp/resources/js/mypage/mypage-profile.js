@@ -98,6 +98,7 @@ if(imageInput != null){
     });
 
 
+
 }
 
 
@@ -144,25 +145,31 @@ memberNickname.addEventListener("input", () => {
 
         checkObj.memberNickname = false;
     }
-})
-
-
-/* ========= form 태그 제출 시 ========= */
-document.getElementById("profileFrm").addEventListener("submit", e => {
-
-    /* for(let key in checkObj){
-        if(!checkObj[key]){
-            switch(key){
-                case "memberNickname" : alert("닉네임이 유효하지 않습니다."); break;
-            }
-            e.preventDefault();
-            return;
-        }
-    } */
-
-
-
 });
+
+
+(()=>{
+    const ddd = document.getElementById("ddd");
+    console.log(ddd.value);
+    document.getElementById("profileFrm").addEventListener("submit", e => {
+    
+        /* for(let key in checkObj){
+            if(!checkObj[key]){
+                switch(key){
+                    case "memberNickname" : alert("닉네임이 유효하지 않습니다."); break;
+                }
+                e.preventDefault();
+                return;
+            }
+        } */
+        profileImage.setAttribute("src", ddd.value);
+    
+    
+    
+    
+    });
+
+})();
 
 
 

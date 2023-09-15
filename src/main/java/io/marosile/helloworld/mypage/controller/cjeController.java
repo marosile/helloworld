@@ -104,17 +104,9 @@ public class cjeController {
 	
 	
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	// 비밀번호 변경 (account 페이지)
+	/** 비밀번호 변경 (account 페이지)
+	 * @param currentPw
+	 */
 	@PostMapping("/account")
 	public String account(String currentPw, String newPw
 			, RedirectAttributes ra) {
