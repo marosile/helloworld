@@ -13,6 +13,9 @@
     <link rel="stylesheet" href="/resources/css/index.css">
     <link rel="stylesheet" href="/resources/css/board/board-detail.css">
     <link rel="stylesheet" href="/resources/css/board/reply.css">
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
 </head>
 <body>
     <jsp:include page="/WEB-INF/views/common/header.jsp"/>
@@ -76,7 +79,10 @@
                 </div>
             </div>
 
-
+              <script>
+                 const boardCode = "${boardCode}";  // js 사용
+                 const boardNo = "${boardNo}";
+            </script>
 
         </div>
         

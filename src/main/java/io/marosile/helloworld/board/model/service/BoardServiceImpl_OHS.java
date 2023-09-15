@@ -27,4 +27,10 @@ public class BoardServiceImpl_OHS implements BoardService_OHS {
 		return dao.boardInsert(board);
 	}
 
+	// 게시글 수정
+	@Override
+	public Board selectBoard(Map<String, Object> map) {
+		return null;
+	}
+
 }

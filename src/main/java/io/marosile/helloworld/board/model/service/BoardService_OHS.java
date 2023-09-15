@@ -20,4 +20,6 @@ public interface BoardService_OHS {
 	 * @return result
 	 */
 	int boardInsert(Board board);
+
+	Board selectBoard(Map<String, Object> map);
 }
