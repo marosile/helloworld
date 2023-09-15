@@ -9,6 +9,7 @@
 	<typeAliases>
 		<typeAlias type="io.marosile.helloworld.member.model.dto.Member" alias="Member" />
 		<typeAlias type="io.marosile.helloworld.board.model.dto.Board" alias="Board" />
+		<typeAlias type="io.marosile.helloworld.study.model.dto.Study" alias="Study" />
 	</typeAliases>
 
 	<mappers>

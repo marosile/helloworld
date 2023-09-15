@@ -37,7 +37,7 @@
                             스터디
                         </div>
                             <i class="fa-regular fa-heart" id="heart"></i>
-                            <i class="fa-solid fa-heart"></i>
+                          <%--   <i class="fa-solid fa-heart"></i> --%>
                     </div>
 
                     <div class="P-study-detail-title">
