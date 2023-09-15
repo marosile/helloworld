@@ -77,7 +77,11 @@
                     <a href="https://kauth.kakao.com/oauth/authorize?client_id=aac73a50e342183e31a5478826ffeffd&redirect_uri=http://localhost/member/login/kakao&response_type=code"><img src="/resources/images/kakao_login_medium_wide.png"></a>
                 </div>
                 <div id="my-signin2"></div>
-                <button>네이버 계정으로 로그인 하기</button>
+                <div class="google-button">
+                    <a href="https://accounts.google.com/o/oauth2/v2/auth?client_id=829784621579-9i247enb310blhhajovb5u9ggnfiglja.apps.googleusercontent.com&redirect_uri=http://localhost/member/login/google&response_type=code&scope=email%20profile%20openid&access_type=offline">구글 테스트</a>
+                </div>
+
+
             </div>
 
         </div>

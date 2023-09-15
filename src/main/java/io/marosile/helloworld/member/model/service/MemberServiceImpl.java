@@ -261,28 +261,26 @@ public class MemberServiceImpl implements MemberService {
 
     // 카카오톡 프로필 사진 넣어주기
     @Override
-    public Member imgChange(Member imgChange1) {
+    public Member imgChange(Member imgChange1, Member loginMember) {
 
-        String profileImage = imgChange1.getProfileImg();
+        String profileImage = imgChange1.getProfileImg(); // 카카오톡 프로필 이미지를 가져온다
         String kakaoBasicImg = "http://k.kakaocdn.net/dn/dpk9l1/btqmGhA2lKL/Oz0wDuJn1YV2DIn92f6DVK/img_640x640.jpg";
         String hwBasicImg = "/resources/images/user.png";
         // 기존 이미지를 저장할 변수 선언
-        // 기존 이미지를 저장하여 비교한다음에 바뀌면 들어가게 해줘야하는데 흠
-        // 근데 카톡에서 가져온 사진은 말이 안되긴하는데 흠
-        // 밑에 코드 실수한게 기본 사진을 db에 업데이트 시켜줘야 하는데 member dto에 세팅만 해줌
-        // --> 다시 로그인하면 바뀌지 않음 (수정해야함)
+        // -> loginMember의 프로필 이미지가 기본 이미지 일때
+        // --> 카카오톡 프로필 사진으로 변경해주고
+        // --> 아닌 경우에는 변경하지 않는다
 
         Member member = new Member();
         member.setMemberEmail(imgChange1.getMemberEmail());
-        member.setProfileImg(imgChange1.getProfileImg());
+        member.setProfileImg(imgChange1.getProfileImg()); // 카카오톡 프로필 이미지를 가져온다
 
         int result = 0;
 
-        if(profileImage.equals(kakaoBasicImg)){
-            member.setProfileImg(hwBasicImg);
+        if(hwBasicImg.equals(loginMember.getProfileImg())){
+
             System.out.println("프로필이미지가 기본 이미지 일 때 !");
 
-        }else{
             result = dao.imgChange(member);
             if(result > 0 ){
                 member.setProfileImg(imgChange1.getProfileImg());
@@ -291,6 +289,11 @@ public class MemberServiceImpl implements MemberService {
                 member.setProfileImg(hwBasicImg);
                 System.out.println("이미지변경 실패");
             }
+
+        }else{
+            member.setProfileImg(loginMember.getProfileImg());
+            System.out.println("프로필 이미지가 기본 이미지가 아닐 때 유지가 되는지 확인");
+
         }
 
 

@@ -60,5 +60,5 @@ public interface MemberService {
      * @param imgChange1
      * @return 카카오 로그인
      * */
-    Member imgChange(Member imgChange1);
+    Member imgChange(Member imgChange1, Member loginMember);
 }
