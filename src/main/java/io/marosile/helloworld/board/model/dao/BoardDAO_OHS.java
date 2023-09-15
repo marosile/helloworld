@@ -46,4 +46,16 @@ public class BoardDAO_OHS {
 		return result;
 	}
 
+
+	/** 게시글 수정
+	 * @param board
+	 * @return result
+	 */
+	public int boardUpdate(Board board) {
+		
+		int result = sqlSession.insert("boardMapper.boardUpdate", board);
+		
+		return result;
+	}
+
 }

@@ -175,5 +175,24 @@ public class Util {
     
  
     }
+    
+    	// Cross Site Scripting(XSS) 방지 
+	   public static String XSSHandling(String content) {
+	      
+	      // 스크립트나 마크업 언어에서 기호나 기능을 나타내는 문자를 변경 처리
+	      
+	      //   &  - &amp;
+	      //   <  - &lt;
+	      //   >  - &gt;
+	      //   "  - &quot;
+	      
+	      content = content.replaceAll("&", "&amp;");
+	      content = content.replaceAll("<", "&lt;");
+	      content = content.replaceAll(">", "&gt;");
+	      content = content.replaceAll("\"", "&quot;");
+	      
+	      return content;
+	      
+	   }
 
 }

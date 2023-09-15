@@ -23,9 +23,9 @@
 
 <body>
 
-    
-    <jsp:include page="/WEB-INF/views/common/header.jsp"/>
+    <jsp:include page="/WEB-INF/views/common/snack-bar.jsp"/>
 
+    <jsp:include page="/WEB-INF/views/common/header.jsp"/>
 
 
     <main id="main">
@@ -37,7 +37,7 @@
 
             <!-- 작성 or 수정 표시 -->
             <div id="boardWrite">
-                <div>게시글 작성</div>
+                <div>게시글 작성 </div>
             </div>
 
 
@@ -52,7 +52,8 @@
                 <!-- 제목 -->
                 <div id="boardTitleDiv">
                     <input type="text" id="boardTitle" name="boardTitle"
-                           placeholder="제목을 입력해주세요." value="${board.boardTitle}">
+                           placeholder="제목을 입력해주세요." value="${board.boardTitle}"
+                           maxlength="30">
                 </div>
 
 
@@ -111,8 +112,10 @@
 
 
  <script>
+    const boardCode = "${boardCode}";  // js 사용
 
 $(document).ready(function() {
+
 
 	var toolbar = [
 		    // 글꼴 설정
@@ -136,12 +139,13 @@ $(document).ready(function() {
 		  ];
 
           var setting = {
-            height : 300,
-            minHeight : null,
-            maxHeight : null,
+            width:900,
+            minHeight : 400,
+            maxHeight : 1000,
             focus : true,
             lang : 'ko-KR',
             toolbar : toolbar,
+            disableHtml: true,
             //콜백 함수
             callbacks : { 
             	onImageUpload : function(files, editor, welEditable) {
@@ -162,7 +166,7 @@ $(document).ready(function() {
 			$.ajax({
 				data : data,
 				type : "POST",
-				url : "uploadSummernoteImageFile",
+				url : "/board2/uploadSummernoteImageFile",
 				contentType : false,
 				enctype : 'multipart/form-data',
 				processData : false,
@@ -172,7 +176,7 @@ $(document).ready(function() {
 			});
 		}
         
-        const boardCode = "${boardCode}";  // js 사용
+
 
     </script>
     </main>
@@ -182,7 +186,7 @@ $(document).ready(function() {
 
     <script src="/resources/js/common/general.js"></script>
 
-    <script src="/resources/js/board/board-write.js"></script>
+    <script src="/resources/js/board/board-update.js"></script>
 
 </body>
 </html>

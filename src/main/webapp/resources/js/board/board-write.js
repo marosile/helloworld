@@ -7,14 +7,14 @@ const boardContent = document.getElementById("summernote");
 uploadForm.addEventListener("submit", (e) => {
 
     if(boardTitle.value.trim().length == 0){
-        alert("제목을 입력해주세요.");
+        snackbar('제목을 입력해주세요.', 'rgb(0, 128, 255)', '/resources/images/moon.png');
         e.preventDefault();
         boardTitle.focus();
         return;
     }
 
     if(boardContent.value.trim().length == 0){
-        alert("내용을 입력해주세요.");
+        snackbar('내용을 입력해주세요.', 'rgb(0, 128, 255)', '/resources/images/moon.png');
         e.preventDefault();
         boardContent.focus();
     } 
@@ -31,6 +31,7 @@ cancelButton.addEventListener("click", (e) => {
 
     if(confirm("정말 취소하시겠습니까? 작성한 내용은 저장되지 않습니다.")){
 
+        alert("게시글 작성 취소");
         // 확인
         location.href = "/board/" + boardCode;
     
