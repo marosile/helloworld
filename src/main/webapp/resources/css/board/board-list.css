@@ -67,19 +67,20 @@
 #postList{
     width:95%;
     display:flex;
-    height:75px;
+    height:130px;
     margin:10px 15px;
     align-items: center;
-    justify-content: space-between;
     text-align: center;
     overflow: hidden;
+
+    background-color: #e7e4e4da;
+    border-radius: 10px;
 }
 
 #postList > form{
     display:flex;
     width:100%;
     align-items: center;
-    justify-content: space-between;
     text-align: center;
     overflow: hidden;
 }
@@ -102,6 +103,8 @@
     border-radius: 10px;
     /* background-color: rgb(240, 240, 240); */
     color: black;
+
+    margin-left: 420px;
 }
 
 /* 검색바 담은 div */
@@ -422,5 +425,11 @@
 @keyframes spin {
     0% { transform: rotate(0deg); } /* 0% 위치에서 회전 각도 */
     100% { transform: rotate(360deg); } /* 100% 위치에서 회전 각도 (360도 = 한 바퀴) */
+}
+
+
+#list-logo{
+    width: 180px;
+    height: 180px;
 }
 

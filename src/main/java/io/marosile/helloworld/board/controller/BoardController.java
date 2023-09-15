@@ -48,6 +48,8 @@ public class BoardController {
 		return "board/board-list";
 	}
 	
+	
+	
 	// 게시글 목록 무한스크롤
 	@GetMapping(value = "/loadPosts", produces = "application/json; charset=UTF-8")
 	@ResponseBody
