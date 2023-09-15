@@ -66,6 +66,8 @@
 			
 		INTO BOARD_GENERAL (BOARD_NO, BOARD_CODE) VALUES(#{boardNo}, #{boardCode})
 		
+		
+		
 		SELECT 1 FROM DUAL
 
 	</insert>

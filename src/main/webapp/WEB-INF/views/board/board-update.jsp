@@ -34,7 +34,7 @@
 
             <!-- 작성 or 수정 표시 -->
             <div id="boardWrite">
-                <div>게시글 작성</div>
+                <div>게시글 수정</div>
             </div>
 
 
