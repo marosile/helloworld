@@ -19,8 +19,8 @@
         display: flex;
         flex-direction: column;
         border-radius: 10px;
-        margin-top: -40px;
-        margin-bottom: 50px;
+        margin-top: -25px;
+        margin-bottom: 30px;
         background-color: var(--bg-color-2);
         box-shadow: 0 0 20px 5px rgba(0, 0, 0, 0.2);
         text-align: center;
@@ -30,6 +30,7 @@
     }
 
     .snackbar:not(.snackbar:last-of-type) {
+        margin-top: -30px;
         scale: 0.85;
         box-shadow: 0 0 20px 5px rgba(0, 0, 0, 0.3);
     }
@@ -53,11 +54,11 @@
 
     @keyframes fadein {
         from {margin-bottom: 0; opacity: 0;}
-        to {margin-bottom: 50px; opacity: 1;}
+        to {margin-bottom: 30px; opacity: 1;}
     }
 
     @keyframes fadeout {
-        from {margin-bottom: 50px; opacity: 1;}
+        from {margin-bottom: 30px; opacity: 1;}
         to {margin-bottom: 0; opacity: 0;}
     }
 </style>
