@@ -26,7 +26,7 @@
 
         <section class="myPage-profile">
 
-            <form action="profile" method="POST" name="myPageFrm" id="profileFrm" enctype="multipart/form-data">
+            <form action="/mypage/profile" method="POST" name="myPageFrm" id="profileFrm" enctype="multipart/form-data">
 
                 <!-- =================== 프로필 이미지 영역 ==================== -->
                 <div class="profile-image-area">
@@ -34,21 +34,21 @@
                     <%-- 프로필사진 없을 때 --%>
                     <c:if test="${empty loginMember.profileImg}">
                         <div class="image-area">
-                            <img src="/resources/images/user.png" id="profileImage">
+                            <img src="/resources/images/user.png" id="profileImage" name="profileImg">
                         </div>
                     </c:if>
 
                     <%-- 프로필 사진 있을 때 --%>
                     <c:if test="${!empty loginMember.profileImg}">
                         <div class="image-area">
-                            <img src="${loginMember.profileImg}" id="profileImage">
+                            <img src="${loginMember.profileImg}" id="profileImage" name="profileImg">
                         </div>
                     </c:if>
 
                     <div class="Btn-area">
                         <div class="imageBtn-area">
                             <label for="imageInput" class="fa-solid fa-pencil" style="margin-top: 7px;">&nbsp;변경</label>
-                            <input type="file" name="profileImg" id="imageInput" accept="image/*">
+                            <input type="file" name="profileImg1" id="imageInput" accept="image/*">
                         </div>
                         <button type="button" id="deleteBtn" class="fa-regular fa-trash-can">&nbsp;제거</button>
                     </div>
@@ -134,7 +134,7 @@
                     <div class="nick-area">
                         <label>닉네임</label>
                         <input type="text" name="memberNick" id="memberNickname" maxlength="8"
-                        placeholder="닉네임을 입력해주세요.">
+                        value="${loginMember.memberNick}">
                     </div>
                     <span id="nickMessage"></span>
                 </div>

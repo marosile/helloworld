@@ -18,6 +18,7 @@ public class MyPageDAO {
 		
 		member.setProfileImg(loginMember.getProfileImg());
 		member.setMemberNick(updateMember.getMemberNick());
+		member.setMemberId(updateMember.getMemberId());
 		
 		return sqlSession.update("myPageMapper.updateProfile", member);
 	}
