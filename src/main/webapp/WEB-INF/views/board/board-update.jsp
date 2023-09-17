@@ -140,8 +140,7 @@ $(document).ready(function() {
 
           var setting = {
             width:900,
-            minHeight : 400,
-            maxHeight : 1000,
+            minHeight : 600,
             focus : true,
             lang : 'ko-KR',
             toolbar : toolbar,

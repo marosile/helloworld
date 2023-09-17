@@ -57,12 +57,10 @@
 
                 <c:if test="${boardCode == 3}">Q&A 게시판 💁‍♀️</c:if>
             </div>
-            <input type="hidden" name="boardName" value="${board[0].boardName}">
-            <div id="question">
 
             <button id="boardInsert">작성하기</button>
 
-            </div>
+            
             </form>
         </div>
 
@@ -293,9 +291,8 @@
                    <!-- 로딩이 5초걸리면 모달창 로딩중은 1초만 보이고 사라지는데 -->
                    <!-- 모달창이 사라져도 화면이 안바뀌는 이슈가 이씀 -->
 
-
             <script>
-                 const boardCode = "${boardCode}";  // js 사용
+                 const boardCode = "${boardCode}"; 
             </script>
 
 

@@ -42,7 +42,13 @@
 
             <!-- 게시판 이름 -->
             <div id="boardNameDiv">
-                <div>${boardName}</div>
+                <div>
+                    <c:if test="${boardCode == 1}">공지사항 🔊</c:if>
+
+                    <c:if test="${boardCode == 2}">자유 게시판 💬</c:if>
+    
+                    <c:if test="${boardCode == 3}">Q&A 게시판 💁‍♀️</c:if>
+                </div>
             </div>
 
 
@@ -135,8 +141,7 @@ $(document).ready(function() {
 
           var setting = {
             width:900,
-            minHeight : 400,
-            maxHeight : 1000,
+            minHeight : 500,
             focus : true,
             lang : 'ko-KR',
             toolbar : toolbar,

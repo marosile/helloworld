@@ -7,8 +7,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
-//임시임 
-
 @Getter
 @Setter
 @ToString
@@ -31,5 +29,6 @@ public class Board {
     private String memberId; 
     private String memberNickname;
 
-	
+
+    private List<Comment> commentList;
 }

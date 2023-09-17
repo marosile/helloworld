@@ -28,28 +28,19 @@ public class BoardDAO_PHJ {
 
 	// 북마크 확인 여부 조회
 	public int bookMarkCheck(Map<String, Object> map) {
-	    System.out.println("test2");
-	    
 		return sqlSession2.selectOne("boardMapper.bookMarkCheck", map);
 	}
 
 	// 북마크 삽입
 	public int insertBookMark(Map<String, Object> map) {
-	    System.out.println("test3");
-	    
 		return sqlSession2.insert("boardMapper.insertBookMark", map);
 	}
 
 	// 북마크 삭제
 	public int deleteBookMark(Map<String, Object> map) {
-	    System.out.println("test4");
-	    
 		return sqlSession2.delete("boardMapper.deleteBookMark", map);
 	}
 
-	
-	
-	
 	// 좋아요 여부 조회
 	public int likeCheck(Map<String, Object> map) {
 		return sqlSession2.selectOne("boardMapper.likeCheck", map);
