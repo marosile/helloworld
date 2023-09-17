@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-< !DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ko">
 
 <c:set var="study" value="${studyList}"/>
@@ -379,11 +379,16 @@
                             </c:when>
 
                             <c:otherwise>
+
+                            
                                 <c:forEach var="study" items="${study}">
+
+                                <a href="/study/detail/${study.boardNo}"> 
+
                                     <div class="P-study-area" id="P-study-area">
 
                                         <div class="P-study-main">
-                                            <span class="P-study-category">${study.location}</span>
+                                            <span class="P-study-category">스터디</span>
                                             <span class="P-like-btn">
                                                 <!--    <i class="fa-solid fa-heart"></i> 꽉찬하트 -->
                                                 <i class="fa-regular fa-heart"></i>
@@ -391,7 +396,10 @@
                                         </div>
 
                                         <div class="P-study-title">
-                                            <span class="PN"> 모집중</span>
+                                            <span class="PN"> 
+                                             <c:if test="${study.studyStatus == 'Y'}">모집중</c:if>
+                                             <c:if test="${study.studyStatus == 'N'}">모집완료</c:if>
+                                            </span>
                                             <span class="PS"> | </span>
                                             ${study.boardTitle}
                                         </div>

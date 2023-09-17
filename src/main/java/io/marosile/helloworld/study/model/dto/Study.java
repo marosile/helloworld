@@ -5,6 +5,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
+import java.util.List;
+
 @Getter
 @Setter
 @ToString
@@ -15,6 +17,7 @@ public class Study {
     private int studyNo;
     private String location;
     private String headCount;
+    private String studyStatus;
 
     // board
     private int boardNo;
@@ -33,6 +36,7 @@ public class Study {
     //tag
     private int tagNo;
     private String tagNm;
+
 
 
 
