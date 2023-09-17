@@ -1,11 +1,13 @@
 package io.marosile.helloworld.study.model.service;
 
+import io.marosile.helloworld.board.model.dto.Board;
 import io.marosile.helloworld.study.model.dao.StudyDAO;
 import io.marosile.helloworld.study.model.dto.Study;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class StudyServiceImpl implements StudyService{
@@ -23,21 +25,36 @@ public class StudyServiceImpl implements StudyService{
         return studyList;
     }
 
-    // 스터디 상세 조회
-    @Override
-    public List<Study> selectStudy(int studyNo) {
-
-        List<Study> study = dao.selectStudy(studyNo);
-
-        return study;
-    }
 
     // 스터디 게시글 삽입
     @Override
     public int studyInsert(Study study) {
 
+        // 스터디 시퀀스 조회 및 스터디 모집글 테이블에 insert
         int studyNumber = dao.studyInsert(study);
 
         return studyNumber;
     }
+
+
+    //  스터디 게시글 상세조회
+	@Override
+	public List<Study> studyDetail(int boardNo) {
+		
+		return dao.studyDetail(boardNo);
+	}
+
+
+	@Override
+	public List<Board> selectStudy(int boardNo) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	
+	
+
+
+	
 }

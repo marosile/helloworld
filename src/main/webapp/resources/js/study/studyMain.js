@@ -108,7 +108,7 @@ const studyArea = document.getElementsByClassName("P-study-area");
     for(let i=0; i<studyArea.length;i++){
         studyArea[i].addEventListener("click",()=>{
 
-            location.href ="/study/detail"
+            location.href ="detail"
         
         });
     }
