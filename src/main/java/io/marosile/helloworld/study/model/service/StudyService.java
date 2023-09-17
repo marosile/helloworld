@@ -15,8 +15,8 @@ public interface StudyService {
     int studyInsert(Study study);
 
     // 스터디 게시글 상세조회
-	List<Board> selectStudy(int boardNo);
+	Study studyDetail(Map<String, Object> map);
 
-	// 스터디 상세 좋회
-	List<Study> studyDetail(int boardNo);
+    // 좋아요 확인 여부 조회
+
 }

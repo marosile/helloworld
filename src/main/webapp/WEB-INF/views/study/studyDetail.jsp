@@ -43,18 +43,18 @@
 
                     <div class="P-study-detail-title">
                         <span class="PN"> 
-                        <c:if test="${studyDetail[0].studyStatus == 'Y'}">모집중</c:if>
-                        <c:if test="${studyDetail[0].studyStatus == 'N'}">모집완료</c:if>
+                        <c:if test="${studyDetail.studyStatus == 'Y'}">모집중</c:if>
+                        <c:if test="${studyDetail.studyStatus == 'N'}">모집완료</c:if>
                         </span>
                         <span class="PS"> | </span>
-                       ${studyDetail[0].boardTitle}
+                       ${studyDetail.boardTitle}
                     </div>
 
 
                     <div class="P-study-detail-location-area">
                         <span class="P-study-datail-location">
                             <i class="fa-solid fa-location-dot"></i>
-                             ${studyDetail[0].location}
+                             ${studyDetail.location}
                             <i class="fa-solid fa-angle-right"></i>
                         </span>
 
@@ -78,12 +78,12 @@
 
 
                 <div id="pDiv">
-                 ${studyDetail[0].boardContent}
+                 ${studyDetail.boardContent}
                 </div>
 
                 <!-- 작성일 -->
                 <div id="writeDate">
-                    ${studyDetail[0].createDate}
+                    ${studyDetail.createDate}
                 </div>
 
                 <div class="P-study-detail-container">
