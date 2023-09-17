@@ -11,7 +11,7 @@ update.addEventListener("click", ()=>{
 const list = document.getElementById("list");
 
 list.addEventListener("click", function(){
-    location.href= boardCode;
+    location.href = `/board/${boardCode}`;
 })
 
 

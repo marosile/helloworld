@@ -52,11 +52,7 @@ public class BoardController2 {
 	
 	// 게시글 작성 페이지로
 	@GetMapping("/{boardCode}/write")
-	public String boardWrite(@PathVariable("boardCode") int boardCode
-							,@RequestParam("boardName") String boardName
-							,Model model) {
-		System.out.println(boardName);
-		 model.addAttribute("boardName", boardName);
+	public String boardWrite(@PathVariable("boardCode") int boardCode) {
 		
 		return "board/board-write";
 	}
@@ -68,7 +64,7 @@ public class BoardController2 {
 							,@SessionAttribute("loginMember") Member loginMember
 							, RedirectAttributes ra) {
 		
-		board.setMemberId(loginMember.getMemberId()); // memberNo 가 없음;
+		board.setMemberId(loginMember.getMemberId());
 		board.setBoardCode(boardCode);
 		
 		System.out.println(board);
@@ -140,7 +136,7 @@ public class BoardController2 {
 		return path;
 	}
 	
-	@RequestMapping(value="/{boardCode}/uploadSummernoteImageFile", produces = "application/json; charset=utf8")
+	@RequestMapping(value="/uploadSummernoteImageFile", produces = "application/json; charset=utf8")
 	@ResponseBody
 	public String uploadSummernoteImageFile(@RequestParam("file") MultipartFile multipartFile, HttpServletRequest request )  {
 		JsonObject jsonObject = new JsonObject();

@@ -21,6 +21,7 @@
     <jsp:include page="/WEB-INF/views/common/header.jsp"/>
 	<main id="body-area">
 		<div id="main-area">
+
             <p>${board.boardName}</p>
             <p>🕊️ ${board.boardTitle}</p>
 
@@ -55,7 +56,7 @@
             <c:if test="${!empty likeCheck}">
                 <i class="fa-solid fa-heart fa-2xl" id="like" style="color:red"></i>
             </c:if>
-            <span>${board.likeCount}</span>
+            <span id="likeCount">${board.likeCount}</span>
 
             </div>
         </div>
