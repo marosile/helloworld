@@ -36,9 +36,9 @@ public class StudyDAO {
     }
 
 
-
-	public List<Study> studyDetail(int boardNo) {
-		
-		 return sqlSession.selectList("studyMapper.studyDetail",boardNo);
+	public Study studyDetail(Map<String, Object> map) {
+		 return sqlSession.selectOne("studyMapper.studyDetail",map);
 	}
+
+
 }

@@ -42,13 +42,25 @@ public class StudyController {
             , @PathVariable("boardNo") int boardNo
             , @SessionAttribute(value = "loginMember", required = false) Member loginMember
             , RedirectAttributes ra) {
-        
-    	List<Study> studyDetail = service.studyDetail(boardNo);
+    	
+		Map<String, Object> map = new HashMap<String, Object>();
+
+		map.put("boardNo", boardNo);
+		
+		Study studyDetail =service.studyDetail(map);
+
     	System.out.println("studyDetail"+studyDetail);
     	
     	 String path = null; 
     	 
     	 if(studyDetail != null){
+    		 
+ /*   		 if(loginMember != null) {
+    			 
+    			 map.put("memberId",loginMember.getMemberId());
+
+                 int result = service.likeCheck(map);
+    		 }*/
     		 
     		 path = "study/studyDetail";
     		 model.addAttribute("studyDetail",studyDetail);

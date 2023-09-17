@@ -37,24 +37,15 @@ public class StudyServiceImpl implements StudyService{
     }
 
 
-    //  스터디 게시글 상세조회
+    // 스터디 상세 보기
 	@Override
-	public List<Study> studyDetail(int boardNo) {
-		
-		return dao.studyDetail(boardNo);
+	public Study studyDetail(Map<String, Object> map) {
+
+		return dao.studyDetail(map);
 	}
 
-
-	@Override
-	public List<Board> selectStudy(int boardNo) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+    // 좋아요 여부 조회
 
 
-	
-	
 
-
-	
 }
