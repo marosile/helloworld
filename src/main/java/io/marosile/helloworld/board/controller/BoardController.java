@@ -54,6 +54,8 @@ public class BoardController {
 		return "board/board-list";
 	}
 	
+	
+	// 게시글 목록 조회(조회순)
 	@GetMapping(value = "/readCountList", produces = "application/json; charset=UTF-8")
 	@ResponseBody
 	public List<Board> readCountList(Model model, @RequestParam("boardCode") int boardCode) {
