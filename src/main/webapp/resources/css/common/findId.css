@@ -16,12 +16,9 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    position: relative;
 }
 
-/* 폼태그 */
-.findIdFrm{
-    margin-top: 50px;
-}
 
 /* 아이디 찾기 div*/
 .phoneAuth1{
@@ -109,3 +106,80 @@
     font-size: 14px;
     padding-left: 10px;
 }
+
+
+/* 아이디 찾기 결과창 모달로 띄우기*/
+/* 모달 */
+.idModal {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    display: none;
+    z-index: 50;
+
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.idModal.show {
+    display: flex;
+    animation-name: show;
+    animation-duration: 0.5s;
+    z-index: 500;
+}
+
+.idModal.hide{
+    animation-name: hide;
+    animation-duration: 0.5s;
+}
+
+@keyframes show {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+@keyframes hide {
+    from {opacity: 1;}
+    to {opacity: 0;}
+}
+
+
+#idModalClose {
+    position: absolute;
+    top: 70px;
+    right: 40px;
+
+    color: white;
+    font-size: 50px;
+    font-weight: bold;
+
+    transition-duration: 0.2s;
+    cursor: pointer;
+}
+
+#idModalClose:hover{
+    transform: scale(1.2);
+}
+
+.idModalDiv{
+    position: fixed;
+    border: 1px solid #ccc;
+    width: 100%;
+    height: 200px;
+    top: 300px;
+    /*left: 415px;*/
+    background-color: white;
+    border-radius: 10px;
+}
+
+.findIdSpan{
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 50px;
+    display: inline-block;
+}
+
+

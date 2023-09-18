@@ -73,7 +73,7 @@
                         <input type="text" name="inputTel2" id="inputTel2" class="inputClass" autocomplete="off">
                         <button id="btn2" type="button">인증하기</button>
                     </div>
-                    <span id="authKeyMessage">04:59</span>
+                    <span id="authKeyMessage"></span>
                     <span id="telAuthMessage"></span>
                 </div>
 

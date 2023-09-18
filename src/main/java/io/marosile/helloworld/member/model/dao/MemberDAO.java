@@ -49,4 +49,9 @@ public class MemberDAO {
         return sqlSession.update("memberMapper.imgChange", member);
     }
 
+    // 전화번호로 아이디 찾기
+    public String findIdTel(String inputTel) {
+
+        return sqlSession.selectOne("memberMapper.findIdTel", inputTel);
+    }
 }

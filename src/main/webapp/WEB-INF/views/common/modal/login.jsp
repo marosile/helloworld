@@ -61,13 +61,13 @@
 
             <div class="signUpLink">
                 <p>아직 회원이 아니신가요?</p>
-                <a href="#">회원가입</a>
+                <a href="/member/signUp">회원가입</a>
             </div>
             
             <div class="signUpLink">
-                <a href="#">아이디를 잊으셨나요?</a>
+                <a href="/member/findId">아이디를 잊으셨나요?</a>
                 <span>|</span>
-                <a href="#">비밀번호를 잊으셨나요?</a>
+                <a href="/member/findPw">비밀번호를 잊으셨나요?</a>
             </div>
                 
             <div class="snsLogin">

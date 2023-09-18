@@ -23,6 +23,8 @@ btn1.addEventListener("click", () => {
         "inputTel1": inputTel1.value
     }
 
+
+
     fetch("/phoneAuth", {
         method: "POST",
         headers: { "content-Type": "application/json" },
@@ -132,7 +134,7 @@ const inputId2 = document.getElementById("inputId2");
 
 
 
-/***************************** 전화번호 인증으로 찾기 **********************************/
+/***************************** 전화번호 인증으로 찾기 버튼!!!**********************************/
 document.getElementById("phoneFrm").addEventListener("submit", e => {
 
     // checkSignUp 모든 value가 true인지 검사
@@ -178,6 +180,9 @@ document.getElementById("phoneFrm").addEventListener("submit", e => {
     alert("실행 확인용 창");
 
 });
+
+
+
 
 
 /*************** 이메일 인증을 위한 form 태그 ************************/

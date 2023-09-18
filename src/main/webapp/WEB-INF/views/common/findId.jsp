@@ -35,30 +35,28 @@
 
 
         <div class="TelCertification">
-            <form action="#" class="findIdFrm" id="phoneFrm">
-            
-
-                <div class="phoneAuth1">
-                    <input type="text" id="inputTel1" class="phoneInput" placeholder="본인인증을 위한 휴대폰 번호 입력">
-        
-                    <button id="btn1" class="inputBtn" type="button">인증번호 발송</button>
-                </div>
-                    
-                <div class="phoneAuth1">
-                    <input type="text" id="inputTel2" class="phoneInput" placeholder="인증번호 입력">
-        
-                    <button id="btn2" class="inputBtn" type="button">인증하기</button>
-                </div>
-
-                <div class="telMessage">
-                    <span id="authKeyMessage"></span>
-                    <span id="telAuthMessage"></span>
-                </div>
 
 
-                <button id="findIdBtn1" class="findIdBtn">아이디 찾기</button>
+            <div class="phoneAuth1">
+                <input type="text" id="inputTel1" class="phoneInput" placeholder="본인인증을 위한 휴대폰 번호 입력">
 
-            </form>
+                <button id="btn1" class="inputBtn" type="button">인증번호 발송</button>
+            </div>
+
+            <div class="phoneAuth1">
+                <input type="text" id="inputTel2" class="phoneInput" placeholder="인증번호 입력">
+
+                <button id="btn2" class="inputBtn" type="button">인증하기</button>
+            </div>
+
+            <div class="telMessage">
+                <span id="authKeyMessage"></span>
+                <span id="telAuthMessage"></span>
+            </div>
+
+
+            <button id="findIdBtn1" class="findIdBtn" type="button">아이디 찾기</button>
+
         </div>
 
 
@@ -80,6 +78,7 @@
                 </div>
 
                 <div class="telMessage">
+                    <span id="authKeyMessage2"></span>
                     <span id="emailAuthMessage"></span>
                 </div>
 
@@ -88,6 +87,15 @@
             </form>
         </div>
 
+
+        <div class="idModal">
+            <span id="idModalClose">&times;</span>
+            <div class="idModalDiv">
+                <h2>해당 전화번호와 일치하는 아이디</h2>
+                <span class="findIdSpan">아이디 : </span>
+                <span id="findTelId" class="findIdSpan"></span>
+            </div>
+        </div>
             
 
         

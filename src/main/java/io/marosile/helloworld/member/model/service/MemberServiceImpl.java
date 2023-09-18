@@ -328,5 +328,13 @@ public class MemberServiceImpl implements MemberService {
         return loginMember;
     }
 
+    
+    // 아이디 찾기
+    @Override
+    public String findIdTel(String inputTel) {
+
+        return dao.findIdTel(inputTel);
+    }
+
 
 }

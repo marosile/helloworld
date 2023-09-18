@@ -74,6 +74,13 @@ public class lysController {
 		}
 		
 	}
+
+	@PostMapping("emailAuth")
+	@ResponseBody
+	public String emailAuth(@RequestBody Map<String, Object> inputEmail1
+							, Model model){
+		return null;
+	}
 	
 
 

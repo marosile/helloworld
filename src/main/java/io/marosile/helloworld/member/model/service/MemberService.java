@@ -69,4 +69,11 @@ public interface MemberService {
      * @return 구글 로그인 결과
      * */
     Member googleLogin(Map<String, String> userInfo);
+
+
+    /** 전화번호로 아이디 찾기
+     * @param inputTel
+     * @return 아이디
+     * */
+    String findIdTel(String inputTel);
 }
