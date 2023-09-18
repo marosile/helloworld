@@ -17,18 +17,22 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 
 
+@SessionAttributes({"loginMember"})
 @RequestMapping("/study")
 @Controller
-@SessionAttributes("loginMember")
 public class StudyController {
     @Autowired
     private StudyService service;
 
     // 스터디 메인 화면
     @GetMapping("/main")
-    public String studyMain(Model model) {
+    public String studyMain(Model model
+                , @SessionAttribute(value = "loginMember", required = false) Member loginMember) {
 
         List<Study> studyList = service.selectStudyList();
+
+
+        System.out.println("studyList:"+studyList);
 
 
         model.addAttribute("studyList", studyList);
@@ -40,7 +44,7 @@ public class StudyController {
     @GetMapping("/detail/{boardNo}")
     public String studyDatail(Model model
             , @PathVariable("boardNo") int boardNo
-            , @SessionAttribute(value = "loginMember", required = false) Member loginMember
+            , @SessionAttribute(value="loginMember",required = false) Member loginMember
             , RedirectAttributes ra) {
     	
 		Map<String, Object> map = new HashMap<String, Object>();
@@ -49,26 +53,44 @@ public class StudyController {
 		
 		Study studyDetail =service.studyDetail(map);
 
-    	System.out.println("studyDetail"+studyDetail);
-    	
-    	 String path = null; 
+        String path = null;
     	 
     	 if(studyDetail != null){
     		 
- /*   		 if(loginMember != null) {
+   		     if(loginMember != null) {
     			 
     			 map.put("memberId",loginMember.getMemberId());
 
                  int result = service.likeCheck(map);
-    		 }*/
-    		 
-    		 path = "study/studyDetail";
-    		 model.addAttribute("studyDetail",studyDetail);
+
+       
+                 // 좋아요 조회
+                 if(result>0){
+                     model.addAttribute("likeCheck","on");
+                     
+                     System.out.println("result:"+result);
+
+
+                 }
+    		 }
+                 path = "study/studyDetail";
+                 model.addAttribute("studyDetail",studyDetail);
+
+
     	 }else {
     		 path="redirect:/study/main";
     		 ra.addFlashAttribute("message","해당 게시글이 존재하지 않습니다.");
     	 }
 		return path;
+    }
+
+    // 좋아요 처리
+    @PostMapping("/detail/like")
+    @ResponseBody
+    public int like(@RequestBody Map<String, Object> map){
+
+    	System.out.println(map);
+        return service.like(map);
     }
 
 

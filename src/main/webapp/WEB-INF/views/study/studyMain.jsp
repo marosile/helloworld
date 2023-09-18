@@ -46,7 +46,7 @@
                         </div>
 
                         <div class="P-study-btn-area">
-                            <butto id="P-study-btn">모집글 작성하기</button>
+                            <button id="P-study-btn">모집글 작성하기</button>
                         </div>
                     </div>
                 </div>
@@ -390,8 +390,15 @@
                                         <div class="P-study-main">
                                             <span class="P-study-category">스터디</span>
                                             <span class="P-like-btn">
-                                                <!--    <i class="fa-solid fa-heart"></i> 꽉찬하트 -->
-                                                <i class="fa-regular fa-heart"></i>
+                                                
+                                                <c:if test="${study.likeCount == 0}">
+                                                    <i class="fa-regular fa-heart"></i>
+                                                </c:if>
+                                                
+                                                <c:if test="${study.likeCount == 1}">
+                                                   <i class="fa-solid fa-heart"></i>
+                                                </c:if>
+
                                             </span>
                                         </div>
 
@@ -421,7 +428,7 @@
                         </c:choose>
                         
 
-
+                    <input type="hidden" id="memberId" value="${loginMember.memberId}" />
 
                     </div>
                 </div>

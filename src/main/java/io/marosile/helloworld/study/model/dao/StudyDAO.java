@@ -1,6 +1,5 @@
 package io.marosile.helloworld.study.model.dao;
 
-import io.marosile.helloworld.board.model.dto.Board;
 import io.marosile.helloworld.study.model.dto.Study;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,10 +34,29 @@ public class StudyDAO {
         return result;
     }
 
-
+    // 스터디 게시글 상세 조회(태그해야함)
 	public Study studyDetail(Map<String, Object> map) {
 		 return sqlSession.selectOne("studyMapper.studyDetail",map);
 	}
 
+    
+    // 좋아요 여부 조회
+    public int likeCheck(Map<String, Object> map) {
+        return sqlSession.selectOne("studyMapper.likeCheck",map);
 
+    }
+    // 좋아요 삽입
+    public int insertStudyLike(Map<String, Object> map) {
+        return sqlSession.insert("studyMapper.insertStudyLike",map);
+    }
+
+    // 좋아요 삭제
+    public int deleteStudyLike(Map<String, Object> map) {
+        return sqlSession.delete("studyMapper.deleteStudyLike",map);
+    }
+
+
+	public int countStudyLike(Object boardNo) {
+		 return sqlSession.selectOne("studyMapper.countStudyLike",boardNo);
+	}
 }

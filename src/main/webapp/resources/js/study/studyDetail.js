@@ -1,42 +1,110 @@
 //채팅 클릭 시 채팅화면으로 이동
 const chatBtn = document.getElementById("contact-button");
 
-chatBtn.addEventListener("click",()=>{
+if(chatBtn!=null){
+    chatBtn.addEventListener("click", () => {
 
-    location.href="chatting"
-})
+        location.href = "chatting"
+    })
+}
 
-// 수정 버튼 시 
+
+// 수정 버튼 시
 const updateBtn = document.getElementById("updateBtn");
-updateBtn.addEventListener("click",()=>{
 
-    if(confirm("게시글을 수정하시겠습니까?")){
+if(updateBtn!=null){
 
-        location.href="/study/write"
-    }
+    updateBtn.addEventListener("click", () => {
+
+        if (confirm("게시글을 수정하시겠습니까?")) {
+
+            location.href = "/study/write"
+        }
 
 
-})
+    })
+}
 
-// 수정 버튼 시 
+// 삭제
 const deleteBtn = document.getElementById("deleteBtn");
-deleteBtn.addEventListener("click",()=>{
 
-    if(confirm("게시글을 삭제하시겠습니까?")){
+if(deleteBtn!=null){
+    deleteBtn.addEventListener("click", () => {
 
-        alert("게시글이 삭제되었습니다.")
-        location.href="/study/main"
-    }
+        if (confirm("게시글을 삭제하시겠습니까?")) {
 
-})
+            alert("게시글이 삭제되었습니다.")
+            location.href = "/study/main"
+        }
+
+    })
+}
+
 
 // 모집완료버튼 클릭 시
-const complete = document.getElementById("complete");
+const completeBtn = document.getElementById("completeBtn");
 
-complete.addEventListener("click",()=>{
+if(completeBtn!=null){
+    completeBtn.addEventListener("click", () => {
 
-        if(confirm("모집완료되신건가요 ?")){
+        if (confirm("모집완료되신건가요 ?")) {
             alert("🎉 축하합니다! 모집완료되었습니다.")
         }
-})
+    })
+}
 
+
+// 좋아요 클릭 시
+const like = document.getElementById("like");
+const countSpan = document.getElementById("count");
+const loginMemberId = document.getElementById("loginMemberId").value;
+const boardNo = document.getElementById("boardNo").value;
+
+like.addEventListener("click", e=>{
+
+    // 로그인 여부
+    if(loginMemberId == ""){
+        alert("로그인 후 이용해주세요");
+        return;
+   }
+
+    let check;
+
+    if( e.target.classList.contains("fa-regular")){ // 북마크 안눌렀을 때
+        check=0;
+    } else {  // 북마크 눌렀을 때
+        check=1;
+    }
+
+    const data = {
+        "memberId": loginMemberId,
+        "boardNo" : boardNo,
+        "likeCheck" : check
+    };
+
+    fetch("/study/detail/like",{
+        method: "POST",
+        headers:{"Content-Type" : "application/json" },
+        body : JSON.stringify(data)
+    })
+        .then( res => res.text())
+        .then( count => {
+
+
+            if(count == -1) { // DML 실패
+                alert("좋아요 실패 ㅜㅜ");
+                return;
+            }
+
+            e.target.classList.toggle("fa-regular");
+            e.target.classList.toggle("fa-solid");
+
+            countSpan.innerText = count;
+           
+
+
+        })
+        .catch( err => {
+            console.log("예외발생")
+        })
+})
