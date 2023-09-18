@@ -171,6 +171,8 @@ $(window).scroll(function() {
 const readCountList = document.getElementById("readCountList");
 
 readCountList.addEventListener("click", () => {
+    alert("test0");
+    console.log(boardCode);
 
     fetch("readCountList?boardCode=" + boardCode)
         .then(resp => {
@@ -180,46 +182,8 @@ readCountList.addEventListener("click", () => {
             return resp.json(); // Return the parsed JSON data
         })
         .then(rList => {
-
-            document.getElementById("post").innerHTML='';
-
-            rList.forEach( rList => { 
-
-
-            var postAppends = 
-                            '<a href="/board/'+ rList.boardCode+ '/'+ rList.boardNo+'">' +
-                                '<div class="posts">' +  
-                                           '<div class="postFirstpart">' +
-                                                '<img src="/resources/images/logo.svg" class="writerImages">' +
-                                                '<div class="firstPartRight">' +
-                                                        '<div>' + rList.memberId + '</div>' +
-                                                            '<div>'+ 
-                                                            '<span id="minute">' + rList.createDate + '</span>' +
-                                                        '</div>' +
-                                                    '</div>' +
-                                                '</div>' +
-
-                                                '<div class="postSecondPart">' + rList.boardTitle + '</div>' +
-                                                '<div class="postThirdPart" style="max-height:100px>' + rList.boardContent + '</div>' +
-                                                '<div class="postFourthPart">' + "#react #recoil #next.js" + '</div>' +
-                                                '<div class="postFifthPart">' + 
-                                                    '<div class="replyCount">' + "댓글 8" + '</div>' +
-                                                    '<div class="inquiryCount">' + "조회수" + rList.readCount+ '</div>' +
-                                                '</div>' +
-
-                                '</div>' + // 임시
-                                '</a>';
-                                            
-                        $('#post').append(postAppends); 
-                    });
+            console.log(rList);
+            alert("test1");
         })
         .catch(err => console.log(err));
-});
-
-
-const latest = document.getElementById("latest");
-
-latest.addEventListener("click", ()=>{
-
-    location.href = `/board/${boardCode}`;
 });
