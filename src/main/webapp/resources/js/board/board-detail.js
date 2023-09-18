@@ -20,6 +20,7 @@ const report = document.getElementById("report");
 const reportzone = document.getElementById("report-area");
 const close = document.getElementById("close");
 const reportBtn = document.getElementById("reportBtn");
+const cancelBtn = document.getElementById("cancelBtn");
 
 report.addEventListener("click", () => {
 
@@ -27,6 +28,11 @@ report.addEventListener("click", () => {
 })
 
 close.addEventListener("click", () => {
+
+    reportzone.classList.toggle("report-area");
+})
+
+cancelBtn.addEventListener("click", () => {
 
     reportzone.classList.toggle("report-area");
 })
@@ -44,12 +50,37 @@ deleteBtn.addEventListener("click", ()=>{
     }
 })
 
+
 reportBtn.addEventListener("click", ()=>{
 
-    if(confirm("정말 신고하시겠습니까??")){
+    const content = document.getElementById("report-content").value;
 
-        alert("게시글 신고가 완료 되었습니다.");
-        location.href="detail";
+    if(confirm("정말 신고하시겠습니까??")){
+        const data = {
+            "boardNo" : boardNo,
+            "memberId" : loginMemberId,
+            "content" : content
+        };
+        
+        // 신고글 작성
+        fetch("/board/report",{
+            method: "POST",
+            headers:{ "Content-Type" : "application/json" },
+            body:JSON.stringify(data)
+        })
+        .then( resp => resp.text())
+        .then( count => {
+            
+            console.log("count : " + count);
+            
+            
+            alert("게시글 신고가 완료 되었습니다.");
+            location.href=`/board/${boardCode}`;
+        })
+        .catch( err => {
+            console.log("예외 발생");
+            console.log(err);
+        })
 
     }
 })

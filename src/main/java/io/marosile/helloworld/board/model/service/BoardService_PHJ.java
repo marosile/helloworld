@@ -54,6 +54,20 @@ public interface BoardService_PHJ {
 	 * @return
 	 */
 	int updateReadCount(int boardNo);
+
+
+	/** 신고글 작성 
+	 * @param map
+	 * @return
+	 */
+	int insertReport(Map<String, Object> map);
+
+	
+	/** 게시글 목록 조회(조회순)
+	 * @param boardCode
+	 * @return
+	 */
+	List<Board> selectReadCountList(int boardCode);
 	
 
 }

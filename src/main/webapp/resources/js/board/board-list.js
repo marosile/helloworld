@@ -167,3 +167,22 @@ $(window).scroll(function() {
 */
         
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+const readCountList = document.getElementById("readCount-list");
+
+readCountList.addEventListener("click", ()=>{
+
+    console.log(boardCode);
+
+    fetch("/board/readCountList?boardCode=" + boardCode)
+    .then(resp => resp.json())
+    .then(rList => {
+        console.log(rList)
+
+
+    })
+    .catch( err => console.log(err));
+
+})
+
+

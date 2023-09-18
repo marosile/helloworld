@@ -220,7 +220,7 @@
 
             <div id="sortOptions">
                  <a href="#">- 최신순</a>
-                 <a href="#">- 조회순</a>
+                 <a href="#" id="readCount-list">- 조회순</a>
             </div>
 
             <!-- 임시 게시글 10개 -->
@@ -269,7 +269,7 @@
 
                                 <div class="postFifthPart">
                                     <div class="replyCount">댓글 5</div>
-                                    <div class="inquiryCount">조회 7</div>
+                                    <div class="inquiryCount">조회수 ${board.readCount}</div>
                                 </div>
                             </div>
                             </a>

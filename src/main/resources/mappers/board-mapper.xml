@@ -49,12 +49,31 @@
 		
 	<!-- 게시글 목록 조회 -->
 	<select id="selectBoardList" resultMap="boardResultMap">
-			SELECT B.BOARD_NO, B.MEMBER_ID, B.BOARD_TITLE, B.BOARD_CONTENT, B.CREATE_DT, B.MODIFY_DT, B.DELETED_FL, BG.BOARD_CODE
+			SELECT B.BOARD_NO, B.MEMBER_ID, B.BOARD_TITLE, B.BOARD_CONTENT, B.CREATE_DT, B.MODIFY_DT, B.DELETED_FL, B.READ_COUNT, BG.BOARD_CODE
 			FROM BOARD B
 			JOIN BOARD_GENERAL BG ON (B.BOARD_NO = BG.BOARD_NO)
 			WHERE BG.BOARD_CODE = #{boardCode}
 			ORDER BY B.BOARD_NO DESC
 	</select>
+	
+	<!-- 게시글 목록 조회(조회순) -->
+	<select id="selectReadCountList">
+			SELECT B.BOARD_NO, B.MEMBER_ID, B.BOARD_TITLE, B.BOARD_CONTENT, B.CREATE_DT, B.MODIFY_DT, B.DELETED_FL, B.READ_COUNT, BG.BOARD_CODE
+			FROM BOARD B
+			JOIN BOARD_GENERAL BG ON (B.BOARD_NO = BG.BOARD_NO)
+			WHERE BG.BOARD_CODE = #{boardCode}
+			ORDER BY READ_COUNT DESC
+	</select>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	<!-- 목록 스크롤 -->
 	<select id="loadPost" resultMap="boardResultMap">
@@ -176,6 +195,11 @@
 	   READ_COUNT = READ_COUNT + 1
 	   WHERE BOARD_NO = #{boardNo}
    </update>
+   
+   <!-- 신고글 작성 -->
+   <insert id="insertReport">
+   		INSERT INTO REPORT VALUES (SEQ_REPORT_NO.NEXTVAL, #{boardNo} , #{memberId} , #{content})
+   </insert>
    
    
    
