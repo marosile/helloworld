@@ -24,6 +24,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttribute;
+import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import io.marosile.helloworld.board.model.dto.Board;
@@ -31,6 +32,7 @@ import io.marosile.helloworld.board.model.service.BoardService_OHS;
 import io.marosile.helloworld.board.model.service.BoardService_PHJ;
 import io.marosile.helloworld.member.model.dto.Member;
 
+@SessionAttributes("loginMember")
 @RequestMapping("/board")
 @Controller
 public class BoardController {
