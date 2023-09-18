@@ -36,6 +36,7 @@ import com.google.gson.JsonObject;
 import io.marosile.helloworld.board.model.dto.Board;
 import io.marosile.helloworld.board.model.service.BoardService_OHS;
 import io.marosile.helloworld.board.model.service.BoardService_PHJ;
+import io.marosile.helloworld.board.model.service.TagService;
 import io.marosile.helloworld.member.model.dto.Member;
 
 
@@ -50,6 +51,10 @@ public class BoardController2 {
 	@Autowired
 	private BoardService_PHJ service2;
 	
+	@Autowired
+	private TagService service3;
+	
+	
 	// 게시글 작성 페이지로
 	@GetMapping("/{boardCode}/write")
 	public String boardWrite(@PathVariable("boardCode") int boardCode) {
@@ -62,7 +67,14 @@ public class BoardController2 {
 	public String boardWrite(@PathVariable("boardCode") int boardCode
 							,@ModelAttribute Board board
 							,@SessionAttribute("loginMember") Member loginMember
+							,@RequestParam(name = "tagInputs", required = false) List<String> tags
 							, RedirectAttributes ra) {
+		
+		System.out.println(tags);
+		
+	    if (tags != null && !tags.isEmpty()) {
+	       int result = service3.insertTags(tags); 
+	    }
 		
 		board.setMemberId(loginMember.getMemberId());
 		board.setBoardCode(boardCode);

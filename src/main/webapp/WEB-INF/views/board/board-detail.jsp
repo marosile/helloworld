@@ -111,7 +111,7 @@
                 </div>
             </div>
 
-              <script>
+            <script>
                  const boardCode = "${boardCode}";  // js 사용
                  const boardNo = "${boardNo}";
                  const loginMemberId = "${loginMember.memberId}"
