@@ -1,11 +1,15 @@
 package io.marosile.helloworld.board.controller;
 
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -37,7 +41,7 @@ public class BoardController {
 	@Autowired
 	private BoardService_PHJ service2;
 
-	// 게시글 목록 조회 (첫 조회 -> posts 10개)  
+	// 게시글 목록 조회 (첫 조회 -> posts 10개)
 	@GetMapping("/{boardCode:[1-3]}")
 	public String boardList(Model model, @PathVariable("boardCode") int boardCode) {
 
@@ -70,11 +74,12 @@ public class BoardController {
 
 	// 게시글 상세 조회
 	@GetMapping("/{boardCode}/{boardNo}")
-	public String boardDetail(@PathVariable("boardCode") int boardCode, @PathVariable("boardNo") int boardNo,
+	public String boardDetail(@PathVariable("boardCode") int boardCode
+			, @PathVariable("boardNo") int boardNo,
 			Model model, RedirectAttributes ra,
-			@SessionAttribute(value = "loginMember", required = false) Member loginMember, 
-			HttpServletRequest req,
-			HttpServletResponse resp) throws ParseException {
+			@SessionAttribute(value = "loginMember", required = false) Member loginMember
+			, HttpServletRequest req
+			,HttpServletResponse resp) throws ParseException {
 
 		Map<String, Object> map = new HashMap<String, Object>();
 
@@ -82,7 +87,7 @@ public class BoardController {
 		map.put("boardNo", boardNo);
 
 		Board board = service2.selectBoard(map);
-
+		
 		if(boardCode == 1) board.setBoardName("공지사항");
 		
 		if(boardCode == 2) board.setBoardName("자유 게시판");
@@ -111,10 +116,75 @@ public class BoardController {
 
 			}
 			
-			// --------------------------------------------------
+			// ---------- 조회수 -----------------------
 			
-			// 쿠키를 이용한 조회 수 
+			if(loginMember == null
+				|| loginMember.getMemberId() != board.getMemberId()) {
+				
+				Cookie c = null;
+				
+				Cookie[] cookies = req.getCookies();
+				
+				if(cookies != null) {
+					
+					for(Cookie cookie : cookies) {
+						if(cookie.getName().equals("readBoardNo")) {
+							c = cookie;
+							break;
+						}
+					}
+				}
+				
+				int result = 0;
+				
+				if(c == null) {
+					
+					c = new Cookie("readBoardNo","|" + boardNo + "|");		
+					
+					result = service2.updateReadCount(boardNo);
+					
+				}else {
+					
+					if(c.getValue().indexOf("|" + boardNo + "|")== -1) {
+
+					c.setValue(c.getValue() + "|" + boardNo + "|");
+					
+					result = service2.updateReadCount(boardNo);
+					
+				}
+			}
+			
+			if(result > 0) {
+				
+				board.setReadCount(board.getReadCount() + 1);
+				
+				System.out.println(board.getReadCount());
+				
+				c.setPath("/");
+				
+				Calendar cal = Calendar.getInstance(); // 싱글톤 패턴
+				cal.add(cal.DATE, 1);
+				
+				SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+				
+				Date a = new Date(); 
+				
+				Date temp = new Date(cal.getTimeInMillis());
+				
+				Date b = sdf.parse(sdf.format(temp));
+				
+				long diff = (b.getTime() - a.getTime()) / 1000;
+				
+				c.setMaxAge((int)diff);  
+				
+				resp.addCookie(c); 
+
+				}
+			}
+			
 			path = "board/board-detail";
+			
+			
 			model.addAttribute("board", board);
 
 		} else {
@@ -143,6 +213,4 @@ public class BoardController {
 		return service2.like(map);
 		
 	}
-	
-	
 }
