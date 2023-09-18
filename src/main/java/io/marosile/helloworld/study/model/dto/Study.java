@@ -37,8 +37,8 @@ public class Study {
     private int tagNo;
     private String tagNm;
 
-
-
+    // LIKE
+    private int likeCount;
 
 
 

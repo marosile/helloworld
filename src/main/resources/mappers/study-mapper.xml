@@ -21,25 +21,38 @@
         <result property="location" column="LOCATION"/>
         <result property="headCount" column="HEAD_COUNT"/>
         <result property="studyStatus" column="STUDY_STATUS"/>
+        <result property="likeCount" column="LIKE_COUNT"/>
 
     </resultMap>
 
 
     <!--스터디 목록 조회-->
     <select id="selectStudyList" resultMap="StudyResultMap">
-	SELECT
-	S.STUDY_STATUS,B.READ_COUNT,S.STUDY_NO,B.BOARD_NO,B.BOARD_TITLE,B.BOARD_CONTENT,S.LOCATION
-	FROM BOARD B
-	JOIN BOARD_STUDY S ON(B.BOARD_NO = S.BOARD_NO)
-	ORDER BY S.BOARD_NO DESC
+        SELECT B.READ_COUNT,S.STUDY_NO,B.BOARD_NO,B.BOARD_TITLE,B.BOARD_CONTENT,S.LOCATION,S.STUDY_STATUS
+         ,(SELECT COUNT(*) FROM "LIKE" L WHERE L.BOARD_NO = B.BOARD_NO) LIKE_COUNT
+        FROM BOARD B
+        JOIN BOARD_STUDY S ON(B.BOARD_NO = S.BOARD_NO)
+        ORDER BY S.BOARD_NO DESC
     </select>
 
     <!--스터디 상세 조회 -->
     <select id="studyDetail" resultMap="StudyResultMap">
-        SELECT S.STUDY_STATUS,B.BOARD_NO,B.MEMBER_ID,B.BOARD_TITLE,B.BOARD_CONTENT, B.CREATE_DT,B.MODIFY_DT,B.DELETED_FL, B.READ_COUNT, S.LOCATION,TO_CHAR(B.CREATE_DT,'YYYY"년" MM"월" DD"일" HH24"시" MI"분"')AS CREATE_DT
-             , (SELECT COUNT(*) FROM "LIKE" L WHERE L.BOARD_NO =S.BOARD_NO) LIKE_COUNT
+        SELECT S.STUDY_STATUS
+             , B.BOARD_NO
+             , M.MEMBER_NICK
+             , B.MEMBER_ID
+             , B.BOARD_TITLE
+             , B.BOARD_CONTENT
+             , B.CREATE_DT
+             , B.MODIFY_DT
+             , B.DELETED_FL
+             , B.READ_COUNT
+             , S.LOCATION
+             , TO_CHAR(B.CREATE_DT, 'YYYY"년" MM"월" DD"일" HH24"시" MI"분"') AS  CREATE_DT
+             , (SELECT COUNT(*) FROM "LIKE" L WHERE L.BOARD_NO = S.BOARD_NO) LIKE_COUNT
         FROM BOARD B
-        JOIN BOARD_STUDY S ON(B.BOARD_NO = S.BOARD_NO)
+                 JOIN BOARD_STUDY S ON (B.BOARD_NO = S.BOARD_NO)
+                 JOIN "MEMBER" M ON (B.MEMBER_ID = M.MEMBER_ID)
         WHERE S.BOARD_NO = #{boardNo}
         ORDER BY S.BOARD_NO DESC
     </select>
@@ -51,6 +64,33 @@
             SELECT SEQ_STUDY_NO.NEXTVAL FROM DUAL
         </selectKey>
     </insert>
+
+    <!-- 좋아요 확인 여부-->
+    <select id="likeCheck" resultType="_int">
+        SELECT COUNT(*)
+        FROM "LIKE" L
+        JOIN BOARD_STUDY S ON (L.BOARD_NO = S.BOARD_NO)
+        WHERE S.BOARD_NO = #{boardNo}
+        AND MEMBER_ID = #{memberId}
+    </select>
+
+    <!-- 좋아요 삽입-->
+    <insert id="insertStudyLike">
+        INSERT INTO "LIKE" VALUES(#{boardNo}, #{memberId})
+    </insert>
+
+    <!--좋아요 삭제-->
+    <delete id="deleteStudyLike">
+        DELETE FROM "LIKE"
+        WHERE BOARD_NO = #{boardNo}
+        AND MEMBER_ID = #{memberId}
+    </delete>
+
+    <!--좋아요 개수 조회-->
+    <select id="countStudyLike" resultType="_int">
+        SELECT COUNT(*) FROM "LIKE"
+        WHERE BOARD_NO =#{boardNo}
+    </select>
 
 
 
