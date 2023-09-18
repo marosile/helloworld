@@ -149,7 +149,7 @@ textarea:focus{
     width:95%;
     margin:25px 0;
     display:flex;
-    justify-content: space-between;
+    justify-content: space-around;
     height:250px;
 }
 
@@ -183,7 +183,7 @@ textarea:focus{
     height:100%;
     font-size:18px;
     margin-left:10px;
-    /* color: lightgray; */
+    cursor:pointer;
 }
 
 /* selects 담긴 div */
@@ -191,8 +191,15 @@ textarea:focus{
     width:88%;
     height:100%;
     display:flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
+}
+
+.tagInputs{
+    width: 12%;
+    height: 40px;
+    border-radius: 50px;
+    text-align: center;
 }
 
 /* selects */
@@ -239,3 +246,4 @@ textarea:focus{
 #header-category > a {
     font-size: 14.4px !important;
 }
+

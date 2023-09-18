@@ -31,6 +31,7 @@ public class Board {
     private String memberNickname;
     private String profileImage;
 
+    
 
     private List<Comment> commentList;
 }

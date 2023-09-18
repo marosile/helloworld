@@ -71,30 +71,7 @@
                     <div id="tagText"># 태그 선택</div>
 
                     <div id="tagsDiv">
-                        
-                        <select id="selectTag" name="tags" class="tagSelects">
-                            <option value="태그1">태그1</option>
-                            <option value="태그2">태그2</option>
-                            <option value="태그3">태그3</option>
-                            <option value="태그3">태그4</option>
-                            <option value="태그3">태그5</option>
-                        </select>
-
-                        <select id="selectTag" name="tags" class="tagSelects">
-                            <option value="태그1">태그1</option>
-                            <option value="태그2">태그2</option>
-                            <option value="태그3">태그3</option>
-                            <option value="태그3">태그4</option>
-                            <option value="태그3">태그5</option>
-                        </select>
-
-                        <select id="selectTag" name="tags" class="tagSelects">
-                            <option value="태그1">태그1</option>
-                            <option value="태그2">태그2</option>
-                            <option value="태그3">태그3</option>
-                            <option value="태그3">태그4</option>
-                            <option value="태그3">태그5</option>
-                        </select>
+                  
 
                     </div>
 
