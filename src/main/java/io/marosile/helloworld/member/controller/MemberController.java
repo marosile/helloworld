@@ -8,6 +8,7 @@ import io.marosile.helloworld.member.model.dto.GoogleOAuthRequest;
 import io.marosile.helloworld.member.model.dto.GoogleOAuthResponse;
 import io.marosile.helloworld.member.model.dto.Member;
 import io.marosile.helloworld.member.model.service.MemberService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -291,7 +292,7 @@ public class MemberController {
 		//model.addAllAttributes(userInfo);
 		//model.addAttribute("token", result.getAccessToken());
 
-		System.out.println("카카오이메일 : " + userInfo.get("email"));
+		System.out.println("구글이메일 : " + userInfo.get("email"));
 
 		// 구글 이메일과 같은 이메일이 있는지 확인
 		String memberEmail = String.valueOf(userInfo.get("email"));
@@ -329,8 +330,23 @@ public class MemberController {
 	}
 
 
+	/* 전화번호로 아이디 찾기 controller*/
+	@ResponseBody
+	@PostMapping(value="/findId/tel", produces="application/json; charset=UTF-8")
+	public String findIdTel(@RequestBody String inputTel){
+
+		return service.findIdTel(inputTel);
+	}
 
 
+	/* 이메일로 아이디 찾기 controller*/
+	@ResponseBody
+	@GetMapping("/findId/email")
+	public String findIdEmail(){
+
+
+		return null;
+	}
 
 
 

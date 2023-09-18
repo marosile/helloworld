@@ -265,6 +265,17 @@ let authSec = 59;
     /* 전화번호 인증 */
 
     btn1.addEventListener("click", () => {
+
+        // 전화번호가 입력이 되지 않은 경우
+        if(inputTel1.value.trim().length == 0){
+            inputTel1.value = "";
+            telMessage.innerText = "전화번호를 입력해주세요(- 제외)";
+            alert("전화번호를 입력해주세요(- 제외)");
+            telMessage.classList.remove("confirm", "error");
+            checkSignUp.inputTel1 = false;
+            return;
+        }
+
         authMin = 4;
         authSec = 59;
         
