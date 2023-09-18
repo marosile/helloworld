@@ -341,11 +341,11 @@ public class MemberController {
 
 	/* 이메일로 아이디 찾기 controller*/
 	@ResponseBody
-	@GetMapping("/findId/email")
-	public String findIdEmail(){
+	@PostMapping(value="/findId/email", produces="application/json; charset=UTF-8")
+	public String findIdEmail(@RequestBody String inputEmail){
 
 
-		return null;
+		return service.findIdEmail(inputEmail);
 	}
 
 

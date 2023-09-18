@@ -88,5 +88,13 @@
         AND DELETED_FL = 'N'
     </select>
 
+    <!-- 이메일로 아이디 찾기 -->
+    <select id="findIdEmail" parameterType="string" resultType="string">
+        SELECT MEMBER_ID
+        FROM "MEMBER"
+        WHERE MEMBER_EMAIL=#{inputEmail}
+        AND DELETED_FL = 'N'
+    </select>
+
     
 </mapper>

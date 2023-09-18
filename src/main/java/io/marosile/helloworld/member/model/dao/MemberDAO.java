@@ -54,4 +54,10 @@ public class MemberDAO {
 
         return sqlSession.selectOne("memberMapper.findIdTel", inputTel);
     }
+
+
+    // 이메일로 아이디 찾기
+    public String findIdEmail(String inputEmail) {
+        return sqlSession.selectOne("memberMapper.findIdEmail", inputEmail);
+    }
 }
