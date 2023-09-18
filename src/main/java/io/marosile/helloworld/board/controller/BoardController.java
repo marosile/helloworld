@@ -51,6 +51,22 @@ public class BoardController {
 
 		return "board/board-list";
 	}
+	
+	
+	// 게시글 목록 조회(조회순)
+	@GetMapping(value = "/readCountList")
+	@ResponseBody
+	public String readCountList(Model model, @PathVariable("boardCode") int boardCode) {
+		
+		System.out.println("boardCode : " + boardCode);
+		
+		
+		List<Board> readCountList = service2.selectReadCountList(boardCode);
+		
+		model.addAttribute("readCountList",readCountList);
+		
+		return "board/board-list";
+	}
 
 	// 게시글 목록 무한스크롤
 	@GetMapping(value = "/loadPosts", produces = "application/json; charset=UTF-8")
@@ -211,6 +227,13 @@ public class BoardController {
 	public int like(@RequestBody Map<String, Object> map) {
 		
 		return service2.like(map);
+	}
+	
+	// 신고글 작성
+	@PostMapping("/report")
+	@ResponseBody
+	public int insertReport(@RequestBody Map<String, Object> map) {
 		
+		return service2.insertReport(map);
 	}
 }

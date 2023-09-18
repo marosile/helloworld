@@ -66,5 +66,17 @@ public class BoardDAO_PHJ {
 		return sqlSession2.update("boardMapper.updateReadCount", boardNo);
 	}
 
+	// 신고글 작성
+	public int insertReport(Map<String, Object> map) {
+		return sqlSession2.insert("boardMapper.insertReport", map);
+	}
+
+	// 게시글 목록 조회(조회순)
+	public List<Board> selectReadCountList(int boardCode) {
+		return sqlSession2.selectList("boardMapper.selectReadCountList", boardCode);
+	}
+	
+	
+
 
 }

@@ -102,7 +102,7 @@
 
                 <div id="report-area2">
                     <p>게시글을 신고하는 이유를 작성해주세요 <i class="fa-solid fa-face-sad-tear"></i></p>
-                    <textarea></textarea>
+                    <textarea id="report-content"></textarea>
                 </div>
 
                 <div id="report-button-area">
@@ -132,4 +132,3 @@
     <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
 </body>
 </html>
->>>>>>> parent of 7cdfe93 (Revert "9/18 커밋")
