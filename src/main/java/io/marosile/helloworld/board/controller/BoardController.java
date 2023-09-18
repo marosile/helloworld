@@ -37,7 +37,7 @@ public class BoardController {
 	@Autowired
 	private BoardService_PHJ service2;
 
-	// 게시글 목록 조회 (첫 조회 -> posts 10개)
+	// 게시글 목록 조회 (첫 조회 -> posts 10개)  
 	@GetMapping("/{boardCode:[1-3]}")
 	public String boardList(Model model, @PathVariable("boardCode") int boardCode) {
 
