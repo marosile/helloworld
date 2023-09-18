@@ -30,17 +30,18 @@
                         </p>
 
                         <p class="reply-content">
-                            <i class="fa-solid fa-comment" id="comment"></i>${comment.commentContent}
+                            ${comment.commentContent}
                         </p>
 
                         <div class="reply-btn-area">
-
-                            <button onclick="showInsertComment(${comment.commentNo}, this)">답글</button>   
+                            <c:if test="${loginMember != null}">
+                                <button onclick="showInsertComment(${comment.commentNo}, this)">답글</button>   
+                            </c:if>
                         
-                                <c:if test="${loginMember.memberId == comment.memberId}" >
+                            <c:if test="${loginMember.memberId == comment.memberId}" >
                                 <button onclick="showUpdateComment(${comment.commentNo}, this)">수정</button>     
                                 <button onclick="deleteComment(${comment.commentNo})">삭제</button>
-                                </c:if>
+                            </c:if>
                         </div>
                     </li>
 
@@ -58,8 +59,8 @@
 
     </div>
 
-
-
     </div>
+    
+	<script src="/resources/js/board/reply.js"></script>
 
 
