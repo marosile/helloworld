@@ -20,4 +20,10 @@ public class CommentServiceImpl implements CommentService {
 		return dao.select(boardNo);
 	}
 
+	// 댓글 삽입
+	@Override
+	public int insert(Comment comment) {
+		return dao.insert(comment);
+	}
+
 }

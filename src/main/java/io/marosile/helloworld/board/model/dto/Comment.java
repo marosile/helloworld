@@ -13,10 +13,10 @@ public class Comment {
 	
 	private int commentNo;
     private int boardNo;
-    private int memberId;
+    private String memberId;
     private String commentContent;
-    private String CreateDate;
-    private String ModifyDate;
+    private String createDate;
+    private String modifyDate;
     private int parentNo;
     private String commentDeleteFlag;
     private String memberNickname;

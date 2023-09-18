@@ -9,51 +9,57 @@
 
             <ul id="reply-list">
 
-                <li class="reply-row">
-                    <p class="reply-writer">
-                        <img src="/resources/images/user.png">
-                        <span class="name">유저일</span>
-                        <span class="reply-date">(2023-09-01)</span>
-                    </p>
+                <c:forEach items="${board.commentList}" var="comment">
 
-                    <p class="reply-content"><i class="fa-solid fa-comment" id="comment"></i>댓글 내용</p>
+                    <li class="reply-row <c:if test='${comment.parentNo != 0}'>child-comment</c:if>">
 
-                    <div class="reply-btn-area">
-                        <button>수정</button>
-                        <button>삭제</button>
-                    </div>
-                </li>
+                        <p class="reply-writer">
 
-                 <li class="reply-row">
-                    <p class="reply-writer">
-                        <img src="/resources/images/user.png">
-                        <span class="name">유저일</span>
-                        <span class="reply-date">(2023-09-01)</span>
-                    </p>
+                        <c:if test="${empty comment.profileImage}">
+                                <img src="/resources/images/user.png">
+                        </c:if>
 
-                    <p class="reply-content"><i class="fa-solid fa-comment" id="comment"></i>댓글 내용</p>
+                        <c:if test="${!empty comment.profileImage}" >
+                                    <img src="${comment.profileImage}">
+                        </c:if>
 
-                    <div class="reply-btn-area">
-                        <button>수정</button>
-                        <button>삭제</button>
-                    </div>
-                </li>
+                        <span class="name">${comment.memberNickname}</span>
 
-                 <li class="reply-row">
-                    <p class="reply-writer">
-                        <img src="/resources/images/user.png">
-                        <span class="name">유저일</span>
-                        <span class="reply-date">(2023-09-01)</span>
-                    </p>
+                        <span class="reply-date">${comment.createDate}</span>
+                        
+                        </p>
 
-                    <p class="reply-content"><i class="fa-solid fa-comment" id="comment"></i>댓글 내용</p>
+                        <p class="reply-content">
+                            <i class="fa-solid fa-comment" id="comment"></i>${comment.commentContent}
+                        </p>
 
-                    <div class="reply-btn-area">
-                        <button>수정</button>
-                        <button>삭제</button>
-                    </div>
-                </li>
+                        <div class="reply-btn-area">
+
+                            <button onclick="showInsertComment(${comment.commentNo}, this)">답글</button>   
+                        
+                                <c:if test="${loginMember.memberId == comment.memberId}" >
+                                <button onclick="showUpdateComment(${comment.commentNo}, this)">수정</button>     
+                                <button onclick="deleteComment(${comment.commentNo})">삭제</button>
+                                </c:if>
+                        </div>
+                    </li>
+
+                </c:forEach>
 
             </ul>
-        </div>
+
+            <div class="comment-write-area">
+                <textarea id="commentContent"></textarea>
+                <button id="addComment">
+                    댓글<br>
+                    등록
+                </button>
+            </div>
+
     </div>
+
+
+
+    </div>
+
+

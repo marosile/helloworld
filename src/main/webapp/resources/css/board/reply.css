@@ -2,11 +2,12 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
  }
  
  .reply-list-area{
     width: 1000px;
-    height: 500px;
+    min-height: 120px;
     border: 1px solid var(--divider);
     border-radius: 10px;
     background-color: var(--bg-color-2);
@@ -31,6 +32,7 @@
     margin-top: 10px;
      width: 40px;
      height: 40px;
+     border-radius: 50px;
  }
 
  .name{
@@ -103,3 +105,31 @@
  #comment{
     margin-right: 8px;
  }
+
+.comment-write-area{
+   width:100%;
+   display:flex;
+   justify-content: center;
+   align-items: center;
+   height:80px;
+}
+
+.comment-write-area > #commentContent{
+   width:80%;
+   height:100%;
+   resize:none;
+   border:0;
+   outline:0;
+   border: 2px solid rgb(78, 80, 79);
+   border-radius: 5px;
+}
+
+.comment-write-area > #addComment{
+   width:100px;
+   height:100%;
+}
+
+ .child-comment{
+   padding-left : 50px;
+   position: relative;
+}
