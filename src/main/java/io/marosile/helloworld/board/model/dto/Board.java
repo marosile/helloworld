@@ -29,7 +29,7 @@ public class Board {
     // member
     private String memberId; 
     private String memberNickname;
-    private String profileImg;
+    private String profileImage;
 
 
     private List<Comment> commentList;
