@@ -47,14 +47,22 @@ main{
 }
 
 .email{
-    margin-left: 50px;
     margin-top: 40px;
-
 }
 
 /* 회원탈퇴 경계선 */
 .line{
     margin-top: 80px;
+}
+
+/* ---------이메일 -------- */
+/* 인증하기 버튼 */
+#checkAuthKeyBtn{
+    margin-left: 25px;
+    width: 200px;
+    height: 44px;
+    box-shadow: rgba(0, 0, 0, 0.05) 3px 3px 5px 2px;
+
 }
 
 /* 이메일 인증번호칸 아래 메세지*/
@@ -66,9 +74,12 @@ main{
 
 
 /* =============== =======비밀번호  ============== */
-/* 비밀번호 행 */
 .row{
     margin-top: 10px;
+}
+
+.pw-area{
+    margin-top: 30px;
 }
 
 

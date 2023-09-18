@@ -23,7 +23,7 @@ import oracle.jdbc.proxy.annotation.Post;
 
 @RequestMapping("/mypage")
 @Controller
-public class cjeController {
+public class CjeController {
 	
 	@Autowired
 	private MyPageService service;
@@ -92,6 +92,7 @@ public class cjeController {
 			
 			// 닉네임 동기화
 			loginMember.setMemberNick(updateMember.getMemberNick());
+			
 		}else {
 			
 			msg= "수정 실패";
