@@ -24,10 +24,12 @@ public class Board {
     private String boardName;
     private int check;
     private int likeCount;
+    private int readCount;
     
     // member
     private String memberId; 
     private String memberNickname;
+    private String profileImg;
 
 
     private List<Comment> commentList;
