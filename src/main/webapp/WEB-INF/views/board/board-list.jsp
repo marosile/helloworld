@@ -219,8 +219,8 @@
         </div>
 
             <div id="sortOptions">
-                 <a href="#">- 최신순</a>
-                 <a href="#" id="readCount-list">- 조회순</a>
+                 <div>- 최신순</div>
+                 <div id="readCountList">- 조회순</div>
             </div>
 
             <!-- 임시 게시글 10개 -->

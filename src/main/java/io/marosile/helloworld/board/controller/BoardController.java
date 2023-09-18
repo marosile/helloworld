@@ -54,22 +54,21 @@ public class BoardController {
 		return "board/board-list";
 	}
 	
-	
-	// 게시글 목록 조회(조회순)
-	@GetMapping(value = "/readCountList")
+	@GetMapping(value = "/readCountList", produces = "application/json; charset=UTF-8")
 	@ResponseBody
-	public String readCountList(Model model, @PathVariable("boardCode") int boardCode) {
-		
-		System.out.println("boardCode : " + boardCode);
-		
-		
-		List<Board> readCountList = service2.selectReadCountList(boardCode);
-		
-		model.addAttribute("readCountList",readCountList);
-		
-		return "board/board-list";
+	public List<Board> readCountList(Model model, @RequestParam("boardCode") int boardCode) {
+	    
+	    System.out.println("boardCode : " + boardCode);
+	    
+	    List<Board> readCountList = service2.selectReadCountList(boardCode);
+	    
+	    model.addAttribute("readCountList",readCountList);
+	    
+	    return readCountList;
 	}
+	
 
+	
 	// 게시글 목록 무한스크롤
 	@GetMapping(value = "/loadPosts", produces = "application/json; charset=UTF-8")
 	@ResponseBody
