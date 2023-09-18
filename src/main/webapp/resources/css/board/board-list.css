@@ -259,13 +259,16 @@
 }
 
 /* 최신순, 조회순 */
-#sortOptions > a{
+#sortOptions > div{
     display:block;
     text-decoration: none;
     color: #777;
     font-size: 18px;
     font-weight: bolder;
     margin-left:20px;
+
+    cursor: pointer;
+
 }
 
 /* 게시글 10개 담은 div */
