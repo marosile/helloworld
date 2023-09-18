@@ -219,7 +219,7 @@
         </div>
 
             <div id="sortOptions">
-                 <div id ="latest">- 최신순</div>
+                 <div>- 최신순</div>
                  <div id="readCountList">- 조회순</div>
             </div>
 
