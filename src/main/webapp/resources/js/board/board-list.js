@@ -168,21 +168,22 @@ $(window).scroll(function() {
         
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-const readCountList = document.getElementById("readCount-list");
+const readCountList = document.getElementById("readCountList");
 
-readCountList.addEventListener("click", ()=>{
-
+readCountList.addEventListener("click", () => {
+    alert("test0");
     console.log(boardCode);
 
-    fetch("/board/readCountList?boardCode=" + boardCode)
-    .then(resp => resp.json())
-    .then(rList => {
-        console.log(rList)
-
-
-    })
-    .catch( err => console.log(err));
-
-})
-
-
+    fetch("readCountList?boardCode=" + boardCode)
+        .then(resp => {
+            if (!resp.ok) {
+                throw new Error('HTTP 응답 실패');
+            }
+            return resp.json(); // Return the parsed JSON data
+        })
+        .then(rList => {
+            console.log(rList);
+            alert("test1");
+        })
+        .catch(err => console.log(err));
+});
