@@ -76,4 +76,10 @@ public interface MemberService {
      * @return 아이디
      * */
     String findIdTel(String inputTel);
+
+    /** 이메일로 아이디 찾기
+     * @param inputEmail
+     * @return 이메일 아이디 찾기
+     * */
+    String findIdEmail(String inputEmail);
 }

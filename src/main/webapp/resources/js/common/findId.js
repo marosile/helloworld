@@ -106,47 +106,52 @@ inputTel2.addEventListener("input", () => {
 /* 전화번호 인증 확인 */
 btn2.addEventListener("click", () => {
 
-    const data = {
-        "inputTel2": inputTel2.value
-    }
+    if(authMin > 0 || authSec > 0){ // 시간 제한이 지나지 않은 경우에만 인증번호 검사 진행
 
-    fetch("/phoneAuthCheck", {
-        method: "POST",
-        headers: { "content-Type": "application/json" },
-        body: JSON.stringify(data)
-    })
+        const data = {
+            "inputTel2": inputTel2.value
+        }
 
-        .then(resp => resp.text())
-
-        .then(result => {
-            if (result > 0) {
-
-                /* 원래는 체크 메시지를 회원가입에서만 쓰려고 했으나
-                다른곳에도 사용하게 되어 if(telAuthMessage != null) 조건문
-                지워버림
-                */
-
-                telAuthMessage.innerText ="인증번호 확인";
-                telAuthMessage.classList.add("confirm");
-                telAuthMessage.classList.remove("error");
-
-                checkPhoneAuth.inputTel2 = true;
-
-            } else { //인증번호가 일치하지 않을 때
-
-
-                telAuthMessage.innerText ="인증번호가 일치하지 않습니다";
-                telAuthMessage.classList.add("error");
-                telAuthMessage.classList.remove("confirm");
-
-                checkPhoneAuth.inputTel2 = false;
-
-
-            }
-
+        fetch("/phoneAuthCheck", {
+            method: "POST",
+            headers: { "content-Type": "application/json" },
+            body: JSON.stringify(data)
         })
 
-        .catch(err => console.log(err))
+            .then(resp => resp.text())
+
+            .then(result => {
+                if (result > 0) {
+
+                    /* 원래는 체크 메시지를 회원가입에서만 쓰려고 했으나
+                    다른곳에도 사용하게 되어 if(telAuthMessage != null) 조건문
+                    지워버림
+                    */
+
+                    telAuthMessage.innerText ="인증번호 확인";
+                    telAuthMessage.classList.add("confirm");
+                    telAuthMessage.classList.remove("error");
+
+                    checkPhoneAuth.inputTel2 = true;
+
+                } else { //인증번호가 일치하지 않을 때
+
+
+                    telAuthMessage.innerText ="인증번호가 일치하지 않습니다";
+                    telAuthMessage.classList.add("error");
+                    telAuthMessage.classList.remove("confirm");
+
+                    checkPhoneAuth.inputTel2 = false;
+
+
+                }
+
+            })
+
+            .catch(err => console.log(err))
+    }else{
+        alert("인증 시간이 만료되었습니다. 다시 시도해주세요.")
+    }
 
 });
 
@@ -255,6 +260,21 @@ const btn4 = document.getElementById("btn4");
 
 /* 전화번호 인증 타이머 */
 const authKeyMessage2 = document.getElementById("authKeyMessage2");
+const emailAuthMessage = document.getElementById("emailAuthMessage");
+
+
+// 전화번호 인증하기 유효성 검사 진행
+inputEmail2.addEventListener("input", () => {
+    if(inputEmail2.value.trim().length == 0){
+        inputEmail2.value = "";
+
+        emailAuthMessage.innerText = "";
+        emailAuthMessage.classList.remove("confirm", "error");
+
+        checkPhoneAuth.inputEmail2 = false;
+        return;
+    }
+})
 
 btn3.addEventListener("click", () => {
 
@@ -266,27 +286,162 @@ btn3.addEventListener("click", () => {
         return;
     }
 
-    const data = {
-        "inputEmail1" : inputEmail1.value
-    }
+
 
     fetch("/emailAuth" ,{
         method : "POST",
-        headers: { "content-Type": "application/json" },
-        body: JSON.stringify(data)
+        headers: { "content-Type": "application/text" },
+        body: inputEmail1.value
     })
         .then(resp => resp.text())
         .then(result => {
-            if(result > 0){
-                console.log("인증 번호가 발송되었습니다.")
+            if(result != null){
+                alert("인증 번호가 발송되었습니다.")
+                console.log(result);
             }else{
-                console.log("인증번호 발송 실패")
+                alert("인증번호 발송 실패")
             }
         })
         .catch(err => {
             console.log("이메일 발송 중 에러 발생");
             console.log(err);
         });
+
+    authKeyMessage2.innerText = "05:00";
+    authKeyMessage2.classList.remove("confirm");
+
+
+    authTimer = window.setInterval(()=>{
+
+
+        authKeyMessage2.innerText = "0" + authMin + ":" + (authSec<10 ? "0" + authSec : authSec);
+
+        // 남은 시간이 0분 0초인 경우
+        if(authMin == 0 && authSec == 0){
+            checkSignUp.authKey = false;
+            clearInterval(authTimer);
+            return;
+        }
+
+
+        // 0초인 경우
+        if(authSec == 0){
+            authSec = 60;
+            authMin--;
+        }
+
+        authSec--; // 1초 감소
+
+
+    }, 1000)
+
+})
+
+
+btn4.addEventListener("click", () => {
+
+    if(authMin > 0 || authSec > 0){ // 시간 제한이 지나지 않은 경우에만 인증번호 검사 진행
+
+        const data = {
+            "inputEmail2" : inputEmail2.value,
+            "inputEmail1" : inputEmail1.value
+        }
+
+
+        fetch("/emailAuthCheck", {
+            method : "POST",
+            headers: { "content-Type": "application/json" },
+            body: JSON.stringify(data)
+
+        })
+            .then(resp => resp.text())
+
+            .then(result => {
+
+                if(result > 0){
+                    emailAuthMessage.innerText ="인증되었습니다.";
+                    emailAuthMessage.classList.add("confirm");
+                    emailAuthMessage.classList.remove("error");
+
+                    checkPhoneAuth.inputEmail2 = true;
+
+                }else{
+                    emailAuthMessage.innerText ="인증번호가 일치하지 않습니다";
+                    emailAuthMessage.classList.add("error");
+                    emailAuthMessage.classList.remove("confirm");
+
+                    checkPhoneAuth.inputEmail2 = false;
+                }
+            })
+
+            .catch(err => {
+                console.log("이메일 발송 중 에러 발생");
+                console.log(err);
+            });
+
+    }else{
+        alert("인증 시간이 만료되었습니다. 다시 시도해주세요.")
+    }
+
+
+})
+
+
+/*************** 이메일 인증 아이디 찾기 버튼 클릭 시 ! ************************/
+document.getElementById("findIdBtn2").addEventListener("click", () => {
+// checkSignUp 모든 value가 true인지 검사
+    checkPhoneAuth.inputTel2=true;
+
+
+    for( let key in checkPhoneAuth ){
+
+        if(!checkPhoneAuth[key]){ // 각 key에 대한 value(true/false)를 얻어와
+            // false인 경우 == 유효하지 않다!
+
+            switch(key){
+                case "inputEmail2" : alert("이메일 인증을 해주세요"); break;
+            }
+
+            // 유효하지 않은 input 태그로 focus 이동
+            // - key를 input의 id와 똑같이 설정했음
+            document.getElementById(key).focus();
+
+            checkPhoneAuth.inputTel2=false;
+
+            // form 태그 기본 이벤트 제거
+            e.preventDefault();
+            return; // 함수 종료
+
+        }
+
+    }
+
+    fetch("/member/findId/email", {
+        method : 'POST',
+        headers : {'Content-Type' : 'application/text'},
+        body : inputEmail1.value
+    })
+        .then( resp => resp.text())
+        .then(findIdEmail =>{
+            if(findIdEmail != '') {
+                idModal.style.display = 'block';
+                findTelId.innerText = findIdEmail;
+
+                inputEmail1.value = '';
+                inputEmail2.value = '';
+                authKeyMessage2.innerText = '';
+
+            }else{
+                idModal.style.display = 'block';
+                findTelId.innerText = '일치하는 ID가 없습니다';
+
+                inputEmail1.value = '';
+                inputEmail2.value = '';
+                authKeyMessage2.innerText = '';
+            }
+
+        })
+        .catch(e => console.log(e))
 
 
 })
@@ -295,41 +450,7 @@ btn3.addEventListener("click", () => {
 
 
 
-/*************** 이메일 인증을 위한 form 태그 ************************/
-document.getElementById("emailFrm").addEventListener("submit", e => {
 
-
-
-    // // checkSignUp 모든 value가 true인지 검사
-    // checkPhoneAuth.inputTel2=true;
-    //
-    //
-    // for( let key in checkPhoneAuth ){
-    //
-    //     if(!checkPhoneAuth[key]){ // 각 key에 대한 value(true/false)를 얻어와
-    //         // false인 경우 == 유효하지 않다!
-    //
-    //         switch(key){
-    //             case "inputEmail2" : alert("이메일 인증을 해주세요"); break;
-    //         }
-    //
-    //         // 유효하지 않은 input 태그로 focus 이동
-    //         // - key를 input의 id와 똑같이 설정했음
-    //         document.getElementById(key).focus();
-    //
-    //         checkPhoneAuth.inputTel2=false;
-    //
-    //         // form 태그 기본 이벤트 제거
-    //         e.preventDefault();
-    //         return; // 함수 종료
-    //
-    //     }
-    //
-    // }
-    //
-    // alert("실행 확인용 창");
-
-});
 
 
 
@@ -339,6 +460,7 @@ const idModalClose = document.getElementById("idModalClose");
 idModalClose.addEventListener("click", () => {
     if(idModal != null){
         idModal.style.display = 'none';
+        location.reload(true);
     }
 
 });

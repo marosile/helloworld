@@ -64,27 +64,25 @@
 
         <div class="EmailCertification">
 
-            <form action="#" class="findIdFrm" id="emailFrm">
-                <div class="phoneAuth1">
-                    <input type="text" id="inputEmail1" class="phoneInput" placeholder="본인인증을 위한 이메일 입력">
-        
-                    <button id="btn3" class="inputBtn" type="button">인증번호 발송</button>
-                </div>
-                    
-                <div class="phoneAuth1">
-                    <input type="text" id="inputEmail2" class="phoneInput" placeholder="인증번호 입력">
-        
-                    <button id="btn4" class="inputBtn" type="button">인증하기</button>
-                </div>
+            <div class="phoneAuth1">
+                <input type="text" id="inputEmail1" class="phoneInput" placeholder="본인인증을 위한 이메일 입력">
 
-                <div class="telMessage">
-                    <span id="authKeyMessage2"></span>
-                    <span id="emailAuthMessage"></span>
-                </div>
+                <button id="btn3" class="inputBtn" type="button">인증번호 발송</button>
+            </div>
 
-                <button id="findIdBtn2" class="findIdBtn">아이디 찾기</button>
+            <div class="phoneAuth1">
+                <input type="text" id="inputEmail2" class="phoneInput" placeholder="인증번호 입력">
 
-            </form>
+                <button id="btn4" class="inputBtn" type="button">인증하기</button>
+            </div>
+
+            <div class="telMessage">
+                <span id="authKeyMessage2"></span>
+                <span id="emailAuthMessage"></span>
+            </div>
+
+            <button id="findIdBtn2" class="findIdBtn" type="button">아이디 찾기</button>
+
         </div>
 
 

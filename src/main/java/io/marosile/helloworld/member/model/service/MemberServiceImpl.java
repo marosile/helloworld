@@ -336,5 +336,10 @@ public class MemberServiceImpl implements MemberService {
         return dao.findIdTel(inputTel);
     }
 
+    @Override
+    public String findIdEmail(String inputEmail) {
+        return dao.findIdEmail(inputEmail);
+    }
+
 
 }
