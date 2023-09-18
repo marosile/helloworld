@@ -47,6 +47,13 @@ public interface BoardService_PHJ {
 	 * @return
 	 */
 	int like(Map<String, Object> map);
+
+
+	/** 조회 수 증가 서비스
+	 * @param boardNo
+	 * @return
+	 */
+	int updateReadCount(int boardNo);
 	
 
 }

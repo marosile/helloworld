@@ -74,6 +74,7 @@ public class BoardServiceImpl_PHJ implements BoardService_PHJ{
 	
 	
 	// 좋아요 처리 서비스 
+	@Transactional(rollbackFor = Exception.class)
 	@Override
 	public int like(Map<String, Object> map) {
 		int result = 0;
@@ -97,5 +98,15 @@ public class BoardServiceImpl_PHJ implements BoardService_PHJ{
 	    
 	    return count;
 	    
+	}
+
+	
+	// 조회수 증가 서비스
+	@Transactional(rollbackFor = Exception.class)
+	@Override
+	public int updateReadCount(int boardNo) {
+		
+		return dao.updateReadCount(boardNo);
+		
 	}
 }

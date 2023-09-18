@@ -1,3 +1,5 @@
+<<<<<<< HEAD
+=======
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <script src="https://kit.fontawesome.com/98acdabf0d.js" crossorigin="anonymous"></script>
@@ -22,20 +24,22 @@
 	<main id="body-area">
 		<div id="main-area">
 
+            <p>${board.boardName}</p>
             <p>🕊️ ${board.boardTitle}</p>
 
         <div id="heart">
             <div id="heart-left">
                 <div id="profile-image">
-                    <c:choose>
-                        <c:when test="${empty board.profileImg}">
-                            <img src="/resources/images/user.png" id="pic">
-                        </c:when>
 
-                        <c:otherwise>
-                            <img src="${board.profileImg}" id="pic">
-                        </c:otherwise>
-                    </c:choose>
+                <c:choose>
+                    <c:when test="${empty board.profileImage}">
+                        <img src="/resources/images/user.png" id="pic">
+                    </c:when>
+
+                    <c:otherwise>
+                        <img src="${board.profileImage}" id="pic">
+                    </c:otherwise>
+                </c:choose>
 
                     <div>${board.memberNickname}</div>
                 </div>
@@ -91,6 +95,7 @@
                 <button id="list">목록</button>
             </div>
             
+            
             <div class="report-area" id="report-area">
             <span id="close">&times</span>
 
@@ -128,3 +133,4 @@
     <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
 </body>
 </html>
+>>>>>>> parent of 7cdfe93 (Revert "9/18 커밋")

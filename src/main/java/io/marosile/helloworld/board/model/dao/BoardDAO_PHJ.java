@@ -61,5 +61,10 @@ public class BoardDAO_PHJ {
 		return sqlSession2.selectOne("boardMapper.countBoardLike", boardNo);
 	}
 
+	// 조회수 증가
+	public int updateReadCount(int boardNo) {
+		return sqlSession2.update("boardMapper.updateReadCount", boardNo);
+	}
+
 
 }

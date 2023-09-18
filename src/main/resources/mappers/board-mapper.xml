@@ -17,6 +17,8 @@
 		<result property="boardCode" column="BOARD_CODE" />
 		<result property="boardName" column="BOARD_NAME" />
 		<result property="likeCount" column="LIKE_COUNT" />
+		<result property="profileImage" column="PROFILE_IMG" />
+		<result property="readCount" column="READ_COUNT" />
 
 		<!-- 게시글 상세조회 할 때 -> 댓글 조회 -->
 		<collection property="commentList"
@@ -71,9 +73,8 @@
 	
 	<!-- 게시글 상세 조회 -->
 	<select id="selectBoard" resultMap="boardResultMap">
-			SELECT B.BOARD_NO, B.MEMBER_ID, B.BOARD_TITLE, B.BOARD_CONTENT, B.CREATE_DT, B.MODIFY_DT, B.DELETED_FL, B.READ_COUNT, M.MEMBER_NICK, BG.BOARD_CODE,
-			 (SELECT COUNT(*) FROM "LIKE" L WHERE L.BOARD_NO = B.BOARD_NO) LIKE_COUNT,
-			 PROFILE_IMG 
+			SELECT B.BOARD_NO, B.MEMBER_ID, B.BOARD_TITLE, B.BOARD_CONTENT, B.CREATE_DT, B.MODIFY_DT, B.DELETED_FL, B.READ_COUNT, M.MEMBER_NICK, M.PROFILE_IMG, BG.BOARD_CODE,
+			 (SELECT COUNT(*) FROM "LIKE" L WHERE L.BOARD_NO = B.BOARD_NO) LIKE_COUNT
 			FROM BOARD B
 			JOIN MEMBER M ON (B.MEMBER_ID = M.MEMBER_ID)
 			JOIN BOARD_GENERAL BG ON (B.BOARD_NO = BG.BOARD_NO)
@@ -168,5 +169,16 @@
 	   SELECT COUNT(*) FROM "LIKE"
 	   WHERE BOARD_NO = #{boardNo}
    </select>
+   
+   <!-- 조회 수 증가 -->
+   <update id="updateReadCount">
+  	   UPDATE BOARD SET
+	   READ_COUNT = READ_COUNT + 1
+	   WHERE BOARD_NO = #{boardNo}
+   </update>
+   
+   
+   
+   
 
 </mapper>
