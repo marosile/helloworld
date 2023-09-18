@@ -7,8 +7,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
-//임시임 
-
 @Getter
 @Setter
 @ToString
@@ -33,5 +31,6 @@ public class Board {
     private String memberNickname;
     private String profileImg;
 
-	
+
+    private List<Comment> commentList;
 }

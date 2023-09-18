@@ -22,7 +22,10 @@
 
 <body>
 
+    <jsp:include page="/WEB-INF/views/common/snack-bar.jsp"/>
+
     <jsp:include page="/WEB-INF/views/common/header.jsp"/>
+
 
     <main id="main">
     
@@ -39,7 +42,13 @@
 
             <!-- 게시판 이름 -->
             <div id="boardNameDiv">
-                <div>${boardName}</div>
+                <div>
+                    <c:if test="${boardCode == 1}">공지사항 🔊</c:if>
+
+                    <c:if test="${boardCode == 2}">자유 게시판 💬</c:if>
+    
+                    <c:if test="${boardCode == 3}">Q&A 게시판 💁‍♀️</c:if>
+                </div>
             </div>
 
 
@@ -47,7 +56,7 @@
 
                 <!-- 제목 -->
                 <div id="boardTitleDiv">
-                    <input type="text" id="boardTitle" name="boardTitle" placeholder="제목을 입력해주세요.">
+                    <input type="text" id="boardTitle" name="boardTitle" placeholder="제목을 입력해주세요." maxlength="30">
                 </div>
 
 
@@ -105,7 +114,6 @@
         </div>
 
 
-
  <script>
 
 $(document).ready(function() {
@@ -132,12 +140,12 @@ $(document).ready(function() {
 		  ];
 
           var setting = {
-            height : 300,
-            minHeight : null,
-            maxHeight : null,
+            width:900,
+            minHeight : 500,
             focus : true,
             lang : 'ko-KR',
             toolbar : toolbar,
+            disableHtml: true,
             //콜백 함수
             callbacks : { 
             	onImageUpload : function(files, editor, welEditable) {
@@ -158,7 +166,7 @@ $(document).ready(function() {
 			$.ajax({
 				data : data,
 				type : "POST",
-				url : "uploadSummernoteImageFile",
+				url : "/board2/uploadSummernoteImageFile",
 				contentType : false,
 				enctype : 'multipart/form-data',
 				processData : false,

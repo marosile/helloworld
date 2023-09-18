@@ -40,8 +40,8 @@ public class MemberDAO {
     }
 
     // 카카오에서 받아온 정보로 로그인
-    public Member kakaoLogin(String memberEmail) {
-        return sqlSession.selectOne("memberMapper.kakaoLogin", memberEmail);
+    public Member snsLogin(String memberEmail) {
+        return sqlSession.selectOne("memberMapper.snsLogin", memberEmail);
     }
 
     // 카카오에서 받아온 프로필 이미지로 변경

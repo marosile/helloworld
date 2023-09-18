@@ -38,7 +38,7 @@ public class BoardController {
 	private BoardService_PHJ service2;
 
 	// 게시글 목록 조회 (첫 조회 -> posts 10개)
-	@GetMapping("/{boardCode:[1-3]+}")
+	@GetMapping("/{boardCode:[1-3]}")
 	public String boardList(Model model, @PathVariable("boardCode") int boardCode) {
 
 		List<Board> boardList = service2.selectBoardList(boardCode);
@@ -63,10 +63,7 @@ public class BoardController {
 		parameters.put("start", start);
 		parameters.put("end", end);
 
-		// 데이터베이스에서 start부터 end까지의 게시글을 가져오기
 		List<Board> postList = service.loadPosts(parameters);
-
-		// model.addAttribute("postList", postList);
 
 		return postList;
 	}
@@ -85,6 +82,13 @@ public class BoardController {
 		map.put("boardNo", boardNo);
 
 		Board board = service2.selectBoard(map);
+
+		if(boardCode == 1) board.setBoardName("공지사항");
+		
+		if(boardCode == 2) board.setBoardName("자유 게시판");
+		
+		if(boardCode == 3) board.setBoardName("Q&A 게시판");
+
 
 		String path = null;
 
@@ -137,6 +141,7 @@ public class BoardController {
 	public int like(@RequestBody Map<String, Object> map) {
 		
 		return service2.like(map);
+		
 	}
 	
 	

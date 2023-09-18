@@ -2,7 +2,6 @@ main{
     margin: auto;
 
     width: 1000px;
-    height: 900px;
     border: 1px solid var(--divider);
     border-radius: 10px;
     background-color: var(--bg-color-2);
@@ -20,11 +19,13 @@ main{
 /* 인풋 박스들 */
 .rowE > input{
     width: 400px;
-    height: 40px;
+    height: 45px;
     border-radius: 5px;
     background-color: white;
-    margin-top: 5px;
+    margin-top: 10px;
     box-shadow: rgba(0, 0, 0, 0.05) 3px 3px 5px 2px;
+    font-size: initial;
+    color: #3f3d3d;
 }
 
 .row > input{
@@ -46,9 +47,7 @@ main{
 }
 
 .email{
-    margin-left: 50px;
-    margin-top: 50px;
-
+    margin-top: 40px;
 }
 
 /* 회원탈퇴 경계선 */
@@ -56,20 +55,31 @@ main{
     margin-top: 80px;
 }
 
+/* ---------이메일 -------- */
+/* 인증하기 버튼 */
+#checkAuthKeyBtn{
+    margin-left: 25px;
+    width: 200px;
+    height: 44px;
+    box-shadow: rgba(0, 0, 0, 0.05) 3px 3px 5px 2px;
 
+}
 
-/* ===================이메일=========== */
-.rowE{
-    margin-top: 20px;
-    margin-bottom: 30px;
+/* 이메일 인증번호칸 아래 메세지*/
+#authKeyMessage{
+    font-size: small;
 }
 
 
 
+
 /* =============== =======비밀번호  ============== */
-/* 비밀번호 행 */
 .row{
     margin-top: 10px;
+}
+
+.pw-area{
+    margin-top: 30px;
 }
 
 
@@ -78,6 +88,7 @@ main{
 .secession-area{
     margin-left: 50px;
     margin-top: 30px;
+    margin-bottom: 30px;
 }
 
 #agreeText{

@@ -102,3 +102,14 @@ var mySwiper = new Swiper('.swiper-container', {
 
 });
 
+// 목록 조회  id 중복이 안되니까 class로 가져오는것! 
+const studyArea = document.getElementsByClassName("P-study-area");
+
+    for(let i=0; i<studyArea.length;i++){
+        studyArea[i].addEventListener("click",()=>{
+
+            location.href ="detail"
+        
+        });
+    }
+

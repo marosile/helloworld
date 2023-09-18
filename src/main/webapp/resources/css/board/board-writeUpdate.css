@@ -6,11 +6,13 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    background-color: var(--bg-color-1) !important;
 }
 
 /* 메인 속 전부 다 담는 div */
 #main > #divContainer {
     width:1000px;
+    min-height: 900px;
     display:flex;
     flex-direction: column;
     align-items: center;
@@ -29,28 +31,30 @@
     justify-content: center;
     align-items: center;
     font-size:32px;
-    /* font-weight: bold; */
+    margin:10px 0;
 }
 
 /* 게시판 이름 담은 div */
 #boardNameDiv{
     width:95%;
     height:50px;
-    font-size:24px;
+    font-size:26px;
     display:flex;
     justify-content: flex-start;
     align-items: center;
     border-bottom: 1px solid lightgray;
+    margin-left:14px;
+    margin-bottom: 10px;
 }
 
 /* OO 게시판 */
 #boardNameDiv > div{
-    margin-left:7px;
+    margin-left:5px;
+    margin-bottom: 10px;
 }
 
 /* 제목 담은 div */
 #boardTitleDiv{
-    margin-top:15px;
     width:95%;
     height:50px;
     font-size:24px;
@@ -64,37 +68,24 @@
     background-color: white;
     width:100%;
     height:100%;
-    margin-left:2.5px;
-    font-size:20px;
+    margin-left:10px;
+    font-size:22px;
     border:0;
     border-radius:10px;
 }
 
 /* 제목을 입력해주세요. */
 #boardTitle::placeholder{
-    font-size:20px;
+    font-size:22px;
 }
 
 /* 내용 담은 div */
 #boardContent{
     margin-top:10px;
-    width:95%;
-    height:500px;
     border-radius: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
-}
-
-/* 내용 들어갈 textarea */
-#boardContent > textarea{
-    width:100%;
-    height:100%;
-    resize:none;
-    border-radius:10px;
-    padding:10px 10px;
-    border:2px solid rgb(240, 240, 240);
-    cursor:pointer;
 }
 
 textarea:hover{
@@ -237,5 +228,14 @@ textarea:focus{
 }
 
 #uploadForm{
-    width:100%;
+   width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 글씨가 작아짐.. */
+#header-category > a {
+    font-size: 14.4px !important;
 }

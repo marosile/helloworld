@@ -23,23 +23,34 @@
         <h1 class="Title">계정 관리</h1>
         <section>
 
+            <form action="account" method="POST" name="myPageFrm" id="accountFrm">
             <!-- ===================== 이메일 ======================== -->
-            <div class="email">
-                <div class="email-area">
-                    <div class="rowE">
-                        <label><h3>이메일 정보</h3></label>
-                        <input type="text" name="memberEmail" id="memberEmail" maxlength="30" autocomplete="off">
-                        <button id="sendAuthKeyBtn">이메일 인증</button>
+                <%-- 이메일 입력 --%>
+                <div class="email">
+                    <div class="email-area">
+                        <div class="rowE">
+                            <label><h3>이메일 정보</h3></label>
+                            <input type="text" name="memberEmail" id="memberEmail" 
+                            maxlength="30" autocomplete="off" value="${loginMember.memberEmail}">
+                            <button id="sendAuthKeyBtn">인증번호 받기</button>
+                        </div>
+                    </div>
+
+                <%-- 이메일 인증 번호 입력 --%>
+                    <div class="email-area">
+                        <div class="rowE">
+                            <input type="text" name="authKey" id="authKey" maxlength="6" autocomplete="off">
+                            <button id="checkAuthKeyBtn">인증하기</button>
+                        </div>
+                        <span class="authKeyMessage" id="authKeyMessage">asd</span>
                     </div>
                 </div>
-            </div>
 
 
 
             <!-- ============================  비번 ========================= -->
-            <form action="account" method="POST" name="myPageFrm" id="accountFrm">
-                <h3>비밀번호 변경</h3>
                 <div class="pw-area">
+                    <h3>비밀번호 변경</h3>
                     <div class="row">
                         <label>현재 비밀번호</label><br>
                         <input type="password" name="currnetPw" id="currentPw" maxlength="30">

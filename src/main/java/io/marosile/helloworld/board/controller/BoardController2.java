@@ -50,25 +50,24 @@ public class BoardController2 {
 	@Autowired
 	private BoardService_PHJ service2;
 	
-	// 게시글 작성
+	// 게시글 작성 페이지로
 	@GetMapping("/{boardCode}/write")
-	public String boardWrite(@PathVariable("boardCode") int boardCode
-							,@RequestParam("boardName") String boardName
-							,Model model) {
-		System.out.println(boardName);
-		 model.addAttribute("boardName", boardName);
+	public String boardWrite(@PathVariable("boardCode") int boardCode) {
 		
 		return "board/board-write";
 	}
 	
+	// 게시글 작성 
 	@PostMapping("/{boardCode}/write")
 	public String boardWrite(@PathVariable("boardCode") int boardCode
 							,@ModelAttribute Board board
 							,@SessionAttribute("loginMember") Member loginMember
 							, RedirectAttributes ra) {
 		
-		board.setMemberId(loginMember.getMemberId()); // memberNo 가 없음;
+		board.setMemberId(loginMember.getMemberId());
 		board.setBoardCode(boardCode);
+		
+		System.out.println(board);
 		
 		int boardNo = service.boardInsert(board);
 		
@@ -91,7 +90,7 @@ public class BoardController2 {
 		return path;
 	}
 	
-	// 게시글 수정
+	// 게시글 수정 페이지로
 	@GetMapping("/{boardCode}/{boardNo}/update")
 	public String boardUpdate(@PathVariable("boardCode") int boardCode
 						     ,@PathVariable("boardNo") int boardNo
@@ -110,19 +109,34 @@ public class BoardController2 {
 		return "board/board-update";
 	}
 	
+	// 게시글 수정
 	@PostMapping("/{boardCode}/{boardNo}/update")
 	public String boardUpdate(@PathVariable("boardCode") int boardCode
 							 ,@PathVariable("boardNo") int boardNo
 							 ,@SessionAttribute("loginMember") Member loginMember
+							 ,@ModelAttribute Board board
 							 ) {
 		
-		return "board/board-list";
+		System.out.println(board);
+		board.setMemberId(loginMember.getMemberId());
+		board.setMemberNickname(loginMember.getMemberNick());
+		
+		int result = service.boardUpdate(board);
+		
+		String path = "redirect:";
+		if(result == 1) {
+			System.out.println("성공");
+			path = "/board/board-detail";
+			
+		}else {
+			System.out.println("실패");
+			path = "/board/board-list";
+		}
+		
+		return path;
 	}
 	
-	
-	
-
-	@RequestMapping(value="/{boardCode}/uploadSummernoteImageFile", produces = "application/json; charset=utf8")
+	@RequestMapping(value="/uploadSummernoteImageFile", produces = "application/json; charset=utf8")
 	@ResponseBody
 	public String uploadSummernoteImageFile(@RequestParam("file") MultipartFile multipartFile, HttpServletRequest request )  {
 		JsonObject jsonObject = new JsonObject();

@@ -62,7 +62,7 @@ if(imageInput != null){
 
         // 파일한번 선택했다가 취소했을떄
         if(file == undefined){
-            console.log("파일선택취소");
+            console.log("파일 선택 취소");
             deleteCheck = -1;
             profileImage.setAttribute("src", originalImage);
             return;
@@ -98,6 +98,7 @@ if(imageInput != null){
     });
 
 
+
 }
 
 
@@ -111,6 +112,7 @@ const nickMessage = document.getElementById("nickMessage");
 
 // 닉네임이 입력이 되었을 때
 memberNickname.addEventListener("input", () => {
+
 
     // 닉네임 입력이 되지 않은 경우
     if(memberNickname.value.trim().length == 0){
@@ -143,24 +145,31 @@ memberNickname.addEventListener("input", () => {
 
         checkObj.memberNickname = false;
     }
-})
-
-
-/* ========= form 태그 제출 시 ========= */
-document.getElementById("profileFrm").addEventListener("submit", e => {
-
-    for(let key in checkObj){
-        if(!checkObj[key]){
-            switch(key){
-                case "memberNickname" : alert("닉네임이 유효하지 않습니다."); break;
-            }
-            e.preventDefault();
-            return;
-        }
-    }
-    
-
 });
+
+
+(()=>{
+    const ddd = document.getElementById("ddd");
+    console.log(ddd.value);
+    document.getElementById("profileFrm").addEventListener("submit", e => {
+    
+        /* for(let key in checkObj){
+            if(!checkObj[key]){
+                switch(key){
+                    case "memberNickname" : alert("닉네임이 유효하지 않습니다."); break;
+                }
+                e.preventDefault();
+                return;
+            }
+        } */
+        profileImage.setAttribute("src", ddd.value);
+    
+    
+    
+    
+    });
+
+})();
 
 
 

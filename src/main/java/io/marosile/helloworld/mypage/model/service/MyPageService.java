@@ -11,6 +11,7 @@ public interface MyPageService {
 	int updateProfile(MultipartFile profileImg, String webPath, 
 			String filePath, Member loginMember,
 			Member updateMember) throws IllegalStateException, IOException;
+	
 
 
 }

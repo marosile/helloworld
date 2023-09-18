@@ -21,7 +21,12 @@ public interface BoardService_OHS {
 	 */
 	int boardInsert(Board board);
 
+	/** 게시글 수정
+	 * @param board
+	 * @return result
+	 */
+	int boardUpdate(Board board);
+
 	
-	Board selectBoard(Map<String, Object> map);
 
 }

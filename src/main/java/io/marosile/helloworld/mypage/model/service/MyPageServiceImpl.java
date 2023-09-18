@@ -51,7 +51,6 @@ public class MyPageServiceImpl implements MyPageService {
 			loginMember.setProfileImg(temp);
 		}
 		
-		
 		return result;
 	}
 

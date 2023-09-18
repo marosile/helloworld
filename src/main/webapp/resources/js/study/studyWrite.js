@@ -213,7 +213,11 @@ function displayArea(area) {
 
 
         const location= document.getElementsByClassName('title')[0].innerHTML
-        console.log(location[0])
+        console.log(location)
+
+        const mapVal = document.getElementById("mapVal");
+
+        mapVal.value = location;
 
 
     });

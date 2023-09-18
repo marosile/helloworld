@@ -13,12 +13,15 @@
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"
             integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
             crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/color-thief/2.4.0/color-thief.min.js" integrity="sha512-r2yd2GP87iHAsf2K+ARvu01VtR7Bs04la0geDLbFlB/38AruUbA5qfmtXwXx6FZBQGJRogiPtEqtfk/fnQfaYA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
 </head>
 <body>
     <jsp:include page="/WEB-INF/views/common/header.jsp"/>
 	<main>
+        <div id="banner-background"></div>
         <div id="main">
-            <div id="banner" class="window">
+            <div id="banner">
                 <h1 id="title">일주일만에 끝내는 리액트 완벽 가이드</h1>
                 <div id="left">
                     <section id="lecture-info">
@@ -57,17 +60,15 @@
                 </section>
             </div>
         </div>
-        <div id="second">
-            <div id="promotion" class="window">
-                <img id="thumbnail" src="/resources/images/laptop.jpg">
-                <div id="pay">
-                    <div id="price">
-                        <p id="real-price"><strike>144000 원</strike></p>
-                        <p id="sale-price">116000 원</p>
-                    </div>
-                    <button id="store-button">장바구니에 담기</button>
-                    <button id="pay-button">지금 구매하기</button>
+        <div id="promotion">
+            <img id="thumbnail" src="/resources/images/terminal-5440620_1920.jpg">
+            <div id="pay">
+                <div id="price">
+                    <p id="real-price"><strike>144000 원</strike></p>
+                    <p id="sale-price">116000 원</p>
                 </div>
+                <button id="store-button">장바구니에 담기</button>
+                <button id="pay-button">지금 구매하기</button>
             </div>
         </div>
     </main>

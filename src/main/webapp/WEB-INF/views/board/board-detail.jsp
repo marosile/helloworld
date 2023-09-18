@@ -21,11 +21,7 @@
     <jsp:include page="/WEB-INF/views/common/header.jsp"/>
 	<main id="body-area">
 		<div id="main-area">
-            <p>
-            <c:if test="${boardCode == 1}">공지사항</c:if>
-            <c:if test="${boardCode == 2}">자유 게시판</c:if>
-            <c:if test="${boardCode == 3}">Q&A 게시판</c:if>
-            </p>
+
             <p>🕊️ ${board.boardTitle}</p>
 
         <div id="heart">
@@ -68,7 +64,7 @@
             <c:if test="${!empty likeCheck}">
                 <i class="fa-solid fa-heart fa-2xl" id="like" style="color:red"></i>
             </c:if>
-            <span>${board.likeCount}</span>
+            <span id="likeCount">${board.likeCount}</span>
 
             </div>
         </div>
@@ -76,8 +72,7 @@
         <div id="text">
 
             <div id="boardContent">
-                <pre>${boardContent}
-                </pre>
+                ${board.boardContent}
             </div>
 
          

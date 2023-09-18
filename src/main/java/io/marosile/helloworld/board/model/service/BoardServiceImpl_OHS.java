@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import io.marosile.helloworld.board.model.dao.BoardDAO_OHS;
 import io.marosile.helloworld.board.model.dto.Board;
+import io.marosile.helloworld.common.utility.Util;
 
 @Service
 public class BoardServiceImpl_OHS implements BoardService_OHS {
@@ -24,13 +25,19 @@ public class BoardServiceImpl_OHS implements BoardService_OHS {
 	// 게시글 삽입
 	@Override
 	public int boardInsert(Board board) {
+		
+		board.setBoardTitle(Util.XSSHandling(board.getBoardTitle()));
+		
 		return dao.boardInsert(board);
 	}
 
+	// 게시글 수정
 	@Override
-	public Board selectBoard(Map<String, Object> map) {
-
-		return null;
+	public int boardUpdate(Board board) {
+		
+		board.setBoardTitle(Util.XSSHandling(board.getBoardTitle()));
+		
+		return dao.boardUpdate(board);
 	}
 
 

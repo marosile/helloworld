@@ -237,7 +237,7 @@ public class MemberServiceImpl implements MemberService {
 
         String memberEmail = String.valueOf(userInfo.get("email"));
 
-        Member loginMember = dao.kakaoLogin(memberEmail);
+        Member loginMember = dao.snsLogin(memberEmail);
 
         if(loginMember != null){
 
@@ -301,6 +301,32 @@ public class MemberServiceImpl implements MemberService {
         return member;
     }
 
+    // 구글 로그인
+    @Override
+    public Member googleLogin(Map<String, String> userInfo) {
+
+        String memberEmail = String.valueOf(userInfo.get("email"));
+
+        Member loginMember = dao.snsLogin(memberEmail);
+
+        if(loginMember != null){
+
+            //아이디 비교하여 맞으면 로그인 진행
+            if(memberEmail.equals(loginMember.getMemberEmail())){
+
+                loginMember.setMemberEmail(memberEmail);
+
+                // 비밀번호를 유지하지 않기 위해서 로그인 정보에서 제거
+                loginMember.setMemberPw(null);
+
+            }else{
+                loginMember = null;
+            }
+
+        }
+
+        return loginMember;
+    }
 
 
 }
