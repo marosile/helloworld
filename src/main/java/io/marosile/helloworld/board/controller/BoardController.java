@@ -116,10 +116,16 @@ public class BoardController {
 
 		map.put("boardCode", boardCode);
 		map.put("boardNo", boardNo);
-
+		
+		// 일반게시판 = type 0
+		int boardType = 0;
+		map.put("boardType", boardType);
+		
 		Board board = service2.selectBoard(map);
 		
-		List<Tag> tagList = service3.tagSelect(boardNo);
+		List<Tag> tagList = service3.tagSelect(map);
+		
+		System.out.println(tagList);
 		
 		if(boardCode == 1) board.setBoardName("공지사항");
 		
@@ -218,6 +224,8 @@ public class BoardController {
 			
 			
 			model.addAttribute("board", board);
+			model.addAttribute("tagList", tagList);
+			
 
 		} else {
 			path = "redirect:/board/" + boardCode;
