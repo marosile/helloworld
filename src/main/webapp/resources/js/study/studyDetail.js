@@ -34,7 +34,7 @@ if(deleteBtn!=null){
         if (confirm("게시글을 삭제하시겠습니까?")) {
 
             alert("게시글이 삭제되었습니다.")
-            location.href = "/study/main"
+            location.href = location.pathname.replace("boardNo")+"/delete"
         }
 
     })
