@@ -75,6 +75,11 @@ public class BoardDAO_PHJ {
 	public List<Board> selectReadCountList(int boardCode) {
 		return sqlSession2.selectList("boardMapper.selectReadCountList", boardCode);
 	}
+
+	// 전체 게시글 top 10
+	public List<Board> getTopList() {
+		return sqlSession2.selectList("boardMapper.getTopList");
+	}
 	
 	
 
