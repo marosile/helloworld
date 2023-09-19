@@ -1,6 +1,7 @@
 package io.marosile.helloworld.board.model.service;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,11 +16,11 @@ public class TagServiceImpl implements TagService{
 	@Autowired
 	private TagDAO dao;
 
+
 	@Override
-	public List<Tag> tagSelect(int boardNo) {
-		return dao.tagSelect(boardNo);
+	public List<Tag> tagSelect(Map<String, Object> map) {
+		return dao.tagSelect(map);
 	}
-	
 	
 	@Transactional(rollbackFor = Exception.class)
 	@Override
@@ -36,10 +37,6 @@ public class TagServiceImpl implements TagService{
 			return result;
 	 
 		}
-
-
-
-
 
 	}
 
