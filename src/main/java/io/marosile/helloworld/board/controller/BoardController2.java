@@ -133,9 +133,17 @@ public class BoardController2 {
 		map.put("boardCode", boardCode);
 		map.put("boardNo", boardNo);
 		
+		int boardType = 0;
+		map.put("boardType", boardType);
+		
+		List<Tag> tagList = service3.tagSelect(map);
+		
+		System.out.println(tagList);
+		
 		Board board = service2.selectBoard(map);
 		
 		model.addAttribute("board", board);
+		model.addAttribute("tagList", tagList);
 		
 		return "board/board-update";
 	}
