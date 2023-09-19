@@ -51,16 +51,12 @@ public class BoardController {
 		
 		
 		List<Board> boardList = service2.selectBoardList(boardCode);
-		
 		List<Board> getTopList = service2.getTopList();
 		
 		
 		map.put("boardList",boardList);
 		map.put("getTopList",getTopList);
 		
-		
-		System.out.println("getTopList : " + getTopList);
-
 		model.addAttribute("map", map);
 
 		return "board/board-list";
