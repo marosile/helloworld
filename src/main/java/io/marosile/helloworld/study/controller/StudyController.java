@@ -177,11 +177,14 @@ public class StudyController {
         return "study/studyWrite";
     }
 
-    // 스터디 수정
-    @GetMapping("/update")
-    public String studyUpdate(Model model) {
+    // 스터디 수정 페이지로
+    @GetMapping("/detail/{boardNo}/update")
+    public String studyUpdate(Model model
+                            ,@PathVariable("boardNo") int boardNo) {
 
-        return "study/studyUpdate";
+        Map<String,Object> map = new HashMap<String,Object>();
+
+        return "study/studyWriteUpdate";
     }
 
     // 스터디 삭제
@@ -218,12 +221,4 @@ public class StudyController {
 
         return "study/studyChatting";
     }
-
-    // 스터디 목록 수정
-    @GetMapping("/detail/update")
-    public String studyDetailUpdate(Model model) {
-
-        return "study/studyDetailUpdate";
-    }
-}
 
