@@ -27,6 +27,7 @@ public class Board {
     private int check;
     private int likeCount;
     private int readCount;
+    private String tagName;
     
     // member
     private String memberId; 

@@ -221,4 +221,6 @@ public class StudyController {
 
         return "study/studyChatting";
     }
+    
+}
 

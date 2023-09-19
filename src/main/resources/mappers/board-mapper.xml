@@ -19,6 +19,7 @@
 		<result property="likeCount" column="LIKE_COUNT" />
 		<result property="profileImage" column="PROFILE_IMG" />
 		<result property="readCount" column="READ_COUNT" />
+		<result property="tagName" column="TAG_NM" />
 
 		<!-- 게시글 상세조회 할 때 -> 댓글 조회 -->
 		<collection property="commentList"
@@ -207,6 +208,36 @@
 	    ORDER BY READ_COUNT DESC)
     WHERE ROWNUM &lt; 11 
    </select>
+   
+   	<select id="selectTagList" resultMap="boardResultMap">
+		SELECT
+		  B.BOARD_NO,
+		  B.BOARD_TITLE,
+		  B.BOARD_CONTENT,
+		  COUNT(L.BOARD_NO) AS LIKE_COUNT,
+		  B.READ_COUNT,
+		  M.MEMBER_ID,
+		  MEMBER_NICK,
+		  PROFILE_IMG
+		  
+		FROM
+		  BOARD B
+		  LEFT JOIN "LIKE" L ON B.BOARD_NO = L.BOARD_NO
+		  JOIN TAG_RELATION TR ON B.BOARD_NO = TR.ITEM_NO
+		  JOIN TAG T ON TR.TAG_NO = T.TAG_NO
+		  JOIN MEMBER M ON M.MEMBER_ID = B.MEMBER_ID 
+		WHERE
+		  T.TAG_NM = #{type}
+		GROUP BY
+		  B.BOARD_NO, B.BOARD_TITLE, B.BOARD_CONTENT, B.READ_COUNT
+		  , M.MEMBER_ID,
+		  MEMBER_NICK,
+		  PROFILE_IMG
+		ORDER BY
+		  LIKE_COUNT DESC
+		FETCH FIRST 10 ROWS ONLY
+	</select>
+	
    
    
    
