@@ -13,6 +13,7 @@ import lombok.ToString;
 @NoArgsConstructor
 public class Board {
 
+	// board
 	private int boardNo;
     private String boardTitle;
     private String boardContent;
@@ -30,8 +31,13 @@ public class Board {
     private String memberId; 
     private String memberNickname;
     private String profileImage;
+    
+    // comment
+    private List<Comment> commentList;
+    
+    // tag
+    private List<Tag> tagList;
+
 
     
-
-    private List<Comment> commentList;
 }

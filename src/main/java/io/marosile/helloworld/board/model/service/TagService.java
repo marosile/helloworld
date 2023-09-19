@@ -2,12 +2,14 @@ package io.marosile.helloworld.board.model.service;
 
 import java.util.List;
 
+import io.marosile.helloworld.board.model.dto.Tag;
+
 public interface TagService {
 
 	/** 태그 삽입
-	 * @param tags
+	 * @param tagList
 	 * @return result
 	 */
-	int insertTags(List<String> tags);
+	int tagInsert(List<Tag> tagList);
 
 }
