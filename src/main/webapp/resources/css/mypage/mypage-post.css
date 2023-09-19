@@ -20,8 +20,8 @@ main{
     width: 800px;
     height: 500px;
     border-radius: 10px;
-    margin-left: 20px;
-    margin-top: 60px;
+    margin-left: 10px;
+    margin-top: 40px;
 
     overflow: auto;
     box-shadow: rgba(0, 0, 0, 0.05) 3px 3px 5px 2px;
