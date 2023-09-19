@@ -51,11 +51,17 @@ public class CjeController {
 	public String applications() {
 		return "mypage/mypage-applications";
 	}
-	// 북마크 페이지로 이동
+	// 북마크 페이지로 이동(커뮤니티)
 	@GetMapping("/bookmark")
 	public String bookmark() {
 		return "mypage/mypage-bookmark";
 	}
+	// 북마크 페이지로 이동(채용공고)
+	@GetMapping("/bookmark2")
+	public String bookmark2() {
+		return "mypage/mypage-bookmark2";
+	}
+	
 	// 나의 게시글
 	@GetMapping("/post")
 	public String post() {
