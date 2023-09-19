@@ -32,6 +32,7 @@
          ,(SELECT COUNT(*) FROM "LIKE" L WHERE L.BOARD_NO = B.BOARD_NO) LIKE_COUNT
         FROM BOARD B
         JOIN BOARD_STUDY S ON(B.BOARD_NO = S.BOARD_NO)
+        WHERE B.DELETED_FL = 'N'
         ORDER BY S.BOARD_NO DESC
     </select>
 
@@ -92,6 +93,17 @@
         WHERE BOARD_NO =#{boardNo}
     </select>
 
+    <!--조회수 조회-->
+    <update id="updateReadCount">
+        UPDATE BOARD SET
+        READ_COUNT = READ_COUNT+1
+        WHERE BOARD_NO= #{boardNo}
+    </update>
 
-
+    <!--게시글 삭제-->
+    <update id="studyDelete">
+        UPDATE BOARD SET
+        DELETED_FL = 'Y'
+        WHERE BOARD_NO = #{boardNo}
+    </update>
 </mapper>

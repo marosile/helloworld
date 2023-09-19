@@ -22,4 +22,10 @@ public interface StudyService {
     
     // 좋아요 처리 서비스
     int like(Map<String, Object> map);
+
+    // 조회수 조회
+    int updateReadCount(int boardNo);
+
+    //스터디 삭제
+    int studyDelete(Map<String, Object> map);
 }

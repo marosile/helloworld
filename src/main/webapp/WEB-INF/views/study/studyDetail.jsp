@@ -120,7 +120,7 @@
 
                     <p>
                         <i class="fa-regular fa-face-smile">  조회</i>
-                        <b>7,150</b>
+                        <b>${studyDetail.readCount}</b>
                     </p>
                 </div>
 

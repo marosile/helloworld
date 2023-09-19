@@ -113,3 +113,16 @@ const studyArea = document.getElementsByClassName("P-study-area");
         });
     }
 
+// 좋아요 클릭시
+const like = document.getElementById("like");
+
+
+like.addEventListener("click", e=>{
+
+    // 로그인 여부
+    if(loginMemberId == ""){
+        alert("로그인 후 이용해주세요");
+        location.href ="/member/login";
+    }
+
+})

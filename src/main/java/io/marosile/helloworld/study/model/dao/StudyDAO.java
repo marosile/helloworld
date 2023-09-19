@@ -55,8 +55,18 @@ public class StudyDAO {
         return sqlSession.delete("studyMapper.deleteStudyLike",map);
     }
 
-
+    //좋아요 수 조회
 	public int countStudyLike(Object boardNo) {
 		 return sqlSession.selectOne("studyMapper.countStudyLike",boardNo);
 	}
+
+    // 조회수 조회
+    public int updateReadCount(int boardNo) {
+        return sqlSession.update("studyMapper.updateReadCount",boardNo);
+    }
+
+    // 스터디 삭제
+    public int studyDelete(Map<String, Object> map) {
+        return sqlSession.update("studyMapper.studyDelete",map);
+    }
 }

@@ -76,4 +76,18 @@ public class StudyServiceImpl implements StudyService {
 
 	}
 
+	// 조회수 조회
+	@Override
+	@Transactional(rollbackFor = Exception.class)
+	public int updateReadCount(int boardNo) {
+		return dao.updateReadCount(boardNo);
+	}
+
+	// 스터디 삭제
+	@Override
+	@Transactional(rollbackFor = Exception.class)
+	public int studyDelete(Map<String, Object> map) {
+		return dao.studyDelete(map);
+	}
+
 }
