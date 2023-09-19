@@ -9,7 +9,7 @@ const pwBtn = document.getElementById("pwBtn");
 pwBtn.addEventListener("click", () => {
     // 비번 미작성시
     if(currentPw.value.trim() == ""){
-        alert("현재 비밀번호를 입력하세요");
+        alert("현재 비밀번호를 입력하세요.");
         e.preventDefault();
         currentPw.focus();
         currentPw.value = "";

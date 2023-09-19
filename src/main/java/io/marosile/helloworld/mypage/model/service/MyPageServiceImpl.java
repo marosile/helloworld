@@ -22,6 +22,8 @@ public class MyPageServiceImpl implements MyPageService {
 	@Autowired
 	private BCryptPasswordEncoder bcrypt;
 
+	/** 내정보 수정 (프사, 닉네임 변경)
+	 */
 	@Transactional(rollbackFor = {Exception.class})
 	@Override
 	public int updateProfile(MultipartFile profileImg, String webPath, String filePath, Member loginMember,
@@ -50,6 +52,33 @@ public class MyPageServiceImpl implements MyPageService {
 		}else {
 			loginMember.setProfileImg(temp);
 		}
+		
+		return result;
+	}
+
+	/** 비밀번호 변경(account)
+	 */
+	@Transactional(rollbackFor = Exception.class)
+	@Override
+	public int changePw(String currentPw, String newPw, String memberId) {
+		
+		String encPw = dao.selectEncPw(memberId);
+		
+		if(bcrypt.matches(currentPw, encPw)) {
+			
+			return dao.changePw(bcrypt.encode(newPw), memberId);
+		}
+		
+		return 0;
+	}
+
+	/** 회원 탈퇴 (account)
+	 */
+	@Transactional(rollbackFor = Exception.class)
+	@Override
+	public int secession(String memberId) {
+		
+		int result = dao.secession(memberId);
 		
 		return result;
 	}
