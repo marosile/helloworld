@@ -193,6 +193,16 @@
    		INSERT INTO REPORT VALUES (SEQ_REPORT_NO.NEXTVAL, #{boardNo} , #{memberId} , #{content})
    </insert>
    
+   <!-- 전체 게시글 조회수 top10 -->
+   <select id="getTopList" resultMap="boardResultMap">
+   		SELECT ROWNUM, BOARD_NO, BOARD_CODE, BOARD_TITLE, READ_COUNT
+		FROM (SELECT ROWNUM, BOARD_NO, BOARD_CODE, BOARD_TITLE, READ_COUNT
+		FROM BOARD 
+		JOIN BOARD_GENERAL USING (BOARD_NO)
+	    ORDER BY READ_COUNT DESC)
+    WHERE ROWNUM &lt; 11 
+   </select>
+   
    
    
    

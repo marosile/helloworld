@@ -46,10 +46,22 @@ public class BoardController {
 	// 게시글 목록 조회 (첫 조회 -> posts 10개)
 	@GetMapping("/{boardCode:[1-3]}")
 	public String boardList(Model model, @PathVariable("boardCode") int boardCode) {
-
+		
+		Map<String, Object> map = new HashMap<String, Object>();
+		
+		
 		List<Board> boardList = service2.selectBoardList(boardCode);
+		
+		List<Board> getTopList = service2.getTopList();
+		
+		
+		map.put("boardList",boardList);
+		map.put("getTopList",getTopList);
+		
+		
+		System.out.println("getTopList : " + getTopList);
 
-		model.addAttribute("boardList", boardList);
+		model.addAttribute("map", map);
 
 		return "board/board-list";
 	}
@@ -60,7 +72,6 @@ public class BoardController {
 	@ResponseBody
 	public List<Board> readCountList(Model model, @RequestParam("boardCode") int boardCode) {
 	    
-	    System.out.println("boardCode : " + boardCode);
 	    
 	    List<Board> readCountList = service2.selectReadCountList(boardCode);
 	    
@@ -177,7 +188,6 @@ public class BoardController {
 				
 				board.setReadCount(board.getReadCount() + 1);
 				
-				System.out.println(board.getReadCount());
 				
 				c.setPath("/");
 				
@@ -239,4 +249,28 @@ public class BoardController {
 		
 		return service2.insertReport(map);
 	}
+	
+	/*
+	 * // 전체 게시글 TOP 10
+	 * 
+	 * @PostMapping("/getTop")
+	 * 
+	 * @ResponseBody public List<Board> getTopList(Model model){
+	 * 
+	 * List<Board> getTopList = service2.getTopList();
+	 * 
+	 * model.addAttribute("getTopList", getTopList);
+	 * 
+	 * System.out.println("getTopList : " + getTopList);
+	 * 
+	 * return getTopList;
+	 * 
+	 * }
+	 * 
+	 */
+	
+	
+	
+	
+	
 }
