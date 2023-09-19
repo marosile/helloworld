@@ -63,39 +63,41 @@
                 </div>
 
                 <!-- 태그 설정 (자동완성하는거 어떻게 만들지 몰라서 일단 select 태그)-->
-                <div id="tagsContainer">
+                 <div id="tagsDiv">
+        <%-- 서버로부터 받은 태그 정보를 리스트로 가정 --%>
+                <c:forEach items="${tagList}" var="tag">
+                    <div>#${tag.tagName}</div>
+                </c:forEach>
+    </div>
 
-                    <div id="tagText"># 태그 선택</div>
+    <script>
+        // 서버로부터 받은 태그 정보를 JavaScript 변수로 파싱
+        const tagList = <c:out value="${tagList}" />;
+        
+        // 이전에 입력한 태그를 화면에 추가
+        const tagsDiv = document.getElementById("tagsDiv");
+        const maxTags = 5;
 
-                    <div id="tagsDiv">
-                        
-                        <select id="selectTag" name="tags" class="tagSelects">
-                            <option value="태그1">태그1</option>
-                            <option value="태그2">태그2</option>
-                            <option value="태그3">태그3</option>
-                            <option value="태그3">태그4</option>
-                            <option value="태그3">태그5</option>
-                        </select>
+        tagList.forEach((tag, index) => {
+            if (index < maxTags) {
+                const inputTag = document.createElement("input");
+                inputTag.type = "text";
+                inputTag.classList.add("tagInputs");
+                inputTag.setAttribute("name", "tagInputs");
+                inputTag.value = tag.tagName; // 이전에 입력한 태그 값을 설정
 
-                        <select id="selectTag" name="tags" class="tagSelects">
-                            <option value="태그1">태그1</option>
-                            <option value="태그2">태그2</option>
-                            <option value="태그3">태그3</option>
-                            <option value="태그3">태그4</option>
-                            <option value="태그3">태그5</option>
-                        </select>
+                // 각 태그에 고유한 placeholder 설정
+                inputTag.placeholder = `#${index + 1}번째 태그`;
 
-                        <select id="selectTag" name="tags" class="tagSelects">
-                            <option value="태그1">태그1</option>
-                            <option value="태그2">태그2</option>
-                            <option value="태그3">태그3</option>
-                            <option value="태그3">태그4</option>
-                            <option value="태그3">태그5</option>
-                        </select>
+                tagsDiv.appendChild(inputTag);
+            }
+        });
 
-                    </div>
-
-                </div>
+        // 이전에 입력한 태그 개수가 maxTags보다 많으면 나머지 태그는 추가하지 않음
+        if (tagList.length >= maxTags) {
+            snackbar('태그는 5개까지 입력 가능합니다.', 'rgb(0, 128, 255)', '/resources/images/moon.png');
+        }
+    </script>
 
                 <div id="buttonsArea">
     
