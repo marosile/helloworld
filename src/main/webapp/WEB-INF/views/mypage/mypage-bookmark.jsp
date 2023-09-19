@@ -32,7 +32,7 @@
 
                     <div class="top">
                         <!-- 임시 썸네일 당근 -->
-                        <img class="thumbnail" src="/resources/images/mypage/당근.png">
+                        <img class="thumbnail" src="/resources/images/member/당근.png">
                         <div class="companyName"><a>당근 마켓</a></div>
                     </div>
 

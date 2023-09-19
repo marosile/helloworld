@@ -86,7 +86,7 @@ public class CjeController {
 		// 실제 이미지 파일 저장 경로
 		String filePath = session.getServletContext().getRealPath(webPath);
 		
-		// 로그인한 회원 아이디를 updateMember에 추가
+		// 로그인한 회원 아이디 updateMember에 추가
 		updateMember.setMemberId(loginMember.getMemberId());
 		
 		// 서비스 호출

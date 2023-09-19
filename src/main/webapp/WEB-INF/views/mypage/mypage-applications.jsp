@@ -12,6 +12,8 @@
     <link rel="stylesheet" href="/resources/css/index.css">
     <link rel="stylesheet" href="/resources/css/mypage/mypage-applications.css">
     <link rel="stylesheet" href="/resources/css/mypage/mypage-nav.css">
+
+    <script src="https://kit.fontawesome.com/98acdabf0d.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <jsp:include page="/WEB-INF/views/common/header.jsp"/>
@@ -20,8 +22,63 @@
         <jsp:include page="/WEB-INF/views/mypage/mypage-nav.jsp"/>
         
         <h1 class="Title">지원이력</h1>
-        <section>
+        <section class="applications">
 
+            <div class="applicationsList">
+                
+                <!-- 왼쪽 -->
+                <div class="row1">
+
+                    <div class="top">
+                        <img class="thumbnail" src="/resources/images/member/당근.png">
+                        <div class="companyName"><a>당근 마켓</a></div>
+                    </div>
+
+                    <div class="mid">
+                        <div class="fa-solid fa-briefcase"> 신입 ~ 100년차</div>
+                        <div class="fa-solid fa-coins"> 연봉 정보 비공개</div>
+                    </div>
+
+                    <div class="bottom">
+                        <div class="fa-solid fa-desktop"> 사무실 출근</div>
+                        <div class="fa-solid fa-location-dot"> 서울 강남</div>
+                    </div>
+
+                    <div class="applyDate">
+                        <div class="fa-solid fa-calendar-days">&nbsp;지원일시 : </div>
+                    </div>
+
+                    
+
+                </div>
+
+    
+                <!-- 오룬쪽 -->
+                <div class="row1">
+
+                    <div class="top">
+                        <img class="thumbnail">
+                        <div class="companyName"><a>회사이름</a></div>
+                    </div>
+
+                    <div class="mid">
+                        <div class="fa-solid fa-briefcase"> 신입 ~ 100년차</div>
+                        <div class="fa-solid fa-coins"> 연봉 정보 비공개</div>
+                    </div>
+
+                    <div class="bottom">
+                        <div class="fa-solid fa-desktop"> 사무실 출근</div>
+                        <div class="fa-solid fa-location-dot"> 서울 강남</div>
+                    </div>
+
+                    <div class="applyDate">
+                        <div class="fa-solid fa-calendar-days">&nbsp;지원일시 : </div>
+                    </div>
+
+                </div>
+            </div>
+            
+        
         </section>
         
 
