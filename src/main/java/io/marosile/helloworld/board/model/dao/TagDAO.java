@@ -14,12 +14,14 @@ public class TagDAO {
 	@Autowired
 	private SqlSessionTemplate sqlSession;
 
+	// 태그 조회
+	public List<Tag> tagSelect(int boardNo) {
+		return null;
+	}
+	
+	// 태그 삽입
 	public int insertTag(Tag tag) {
-
 		return sqlSession.insert("tagMapper.tagInsert", tag);
 	}
-
-	
-
 	
 }

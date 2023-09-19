@@ -93,8 +93,14 @@ public class BoardController2 {
 		        tagList.add(tag);
 		    }
 		}
+
+		board.setTagList(tagList);
+		
+		System.out.println(board);
 		
 		int result = service3.tagInsert(tagList);
+
+		
 		
 		//String message = null;
 		String path = "redirect:";
