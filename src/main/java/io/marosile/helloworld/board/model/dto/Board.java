@@ -2,6 +2,7 @@ package io.marosile.helloworld.board.model.dto;
 
 import java.util.List;
 
+import edu.emory.mathcs.backport.java.util.Arrays;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -37,7 +38,6 @@ public class Board {
     
     // tag
     private List<Tag> tagList;
-
 
     
 }
