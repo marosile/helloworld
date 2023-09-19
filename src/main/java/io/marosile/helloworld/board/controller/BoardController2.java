@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.http.HttpHeaders;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -34,6 +35,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.google.gson.JsonObject;
 
 import io.marosile.helloworld.board.model.dto.Board;
+import io.marosile.helloworld.board.model.dto.Tag;
 import io.marosile.helloworld.board.model.service.BoardService_OHS;
 import io.marosile.helloworld.board.model.service.BoardService_PHJ;
 import io.marosile.helloworld.board.model.service.TagService;
@@ -67,21 +69,32 @@ public class BoardController2 {
 	public String boardWrite(@PathVariable("boardCode") int boardCode
 							,@ModelAttribute Board board
 							,@SessionAttribute("loginMember") Member loginMember
-							,@RequestParam(name = "tagInputs", required = false) List<String> tags
+							,@RequestParam(name = "tagInputs", required = false) List<String> tags // board안에 삽입
 							, RedirectAttributes ra) {
+
 		
-		System.out.println(tags);
-		
-	    if (tags != null && !tags.isEmpty()) {
-	       int result = service3.insertTags(tags); 
-	    }
-		
+
 		board.setMemberId(loginMember.getMemberId());
 		board.setBoardCode(boardCode);
 		
-		System.out.println(board);
 		
 		int boardNo = service.boardInsert(board);
+		
+		System.out.println(boardNo);
+
+		List<Tag> tagList = new ArrayList<>(); // 태그 객체를 저장할 리스트 생성
+
+		if (tags != null) {
+		    for (String tagName : tags) {
+		        Tag tag = new Tag();
+		        tag.setTagName(tagName);
+		        tag.setBoardNo(boardNo);
+		        tag.setBoardType(0);// 일반게시글 == 0
+		        tagList.add(tag);
+		    }
+		}
+		
+		int result = service3.tagInsert(tagList);
 		
 		//String message = null;
 		String path = "redirect:";

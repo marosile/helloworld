@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="tagMapper">
+
+<insert id="tagInsert" parameterType="Tag" useGeneratedKeys="true">
+    
+    <selectKey order="BEFORE" resultType="int" keyProperty="tagNo">
+        SELECT SEQ_TAG_NO.NEXTVAL FROM DUAL
+    </selectKey>
+
+	INSERT ALL
+	
+	INTO TAG (TAG_NO, TAG_NM) VALUES (#{tagNo}, #{tagName})
+	
+	INTO TAG_RELATION (TAG_NO, ITEM_TYPE, ITEM_NO) VALUES (${tagNo}, #{boardType}, #{boardNo})
+	
+	SELECT 1 FROM DUAL
+	
+	
+</insert>
+
+
+</mapper>
