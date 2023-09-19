@@ -125,6 +125,11 @@ public class BoardController {
 		
 		List<Tag> tagList = service3.tagSelect(map);
 		
+		List<String> tagNames = new ArrayList<>();
+		for (Tag tag : tagList) {
+		    tagNames.add(tag.getTagName());
+		}
+		
 		System.out.println(tagList);
 		
 		if(boardCode == 1) board.setBoardName("공지사항");
