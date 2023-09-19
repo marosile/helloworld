@@ -1,3 +1,4 @@
+
 /* 게시글 수정 */
 const update = document.getElementById("update"); 
 

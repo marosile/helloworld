@@ -4,6 +4,7 @@ const boardContent = document.getElementById("summernote");
 
 document.addEventListener("DOMContentLoaded", function() {
     const tagsDiv = document.getElementById("tagsDiv");
+    
     const maxTags = 5;
 
     document.getElementById("tagText").addEventListener("click", function() {
@@ -42,6 +43,7 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 });
+
 
 // form 제출 event 막기
 uploadForm.addEventListener("submit", (e) => {
