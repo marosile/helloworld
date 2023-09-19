@@ -15,6 +15,12 @@ public class TagServiceImpl implements TagService{
 	@Autowired
 	private TagDAO dao;
 
+	@Override
+	public List<Tag> tagSelect(int boardNo) {
+		return dao.tagSelect(boardNo);
+	}
+	
+	
 	@Transactional(rollbackFor = Exception.class)
 	@Override
 	public int tagInsert(List<Tag> tagList) {
@@ -30,6 +36,11 @@ public class TagServiceImpl implements TagService{
 			return result;
 	 
 		}
+
+
+
+
+
 	}
 
 

@@ -82,7 +82,7 @@
                 <div class="swiper-wrapper">
 
                     <!-- 나중에 for문 -->
-                    <c:forEach items="${getTopList}" var="TopList" begin="0" end="9" varStatus="loop">
+                    <c:forEach items="${getTopList}" var="TopList" begin="0" end="4" varStatus="loop">
 
                         <div class="swiper-slide">
                             <div class="post">
@@ -144,9 +144,9 @@
                                 <div class="postFirstpart">
                                     <img src="/resources/images/logo.svg" class="writerImages">
                                     <div class="firstPartRight">
-                                        <div>${board.memberId}</div>
+                                        <div>${board.memberNickname} </div>
                                         
-                                        <div>${board.memberNickname} 
+                                        <div>
                                             <span id="minute">${board.createDate}</span>
                                         </div>
 
@@ -162,7 +162,11 @@
                                 </div>
                         
                                 <div class="postFourthPart">
-                                    <div></div>#react #recoil #next.js
+
+                                        <c:forEach items="${board.tagList}" var="tag">
+                                           #${tag.tagName}
+                                        </c:forEach>
+
                                 </div>
 
                                 <div class="postFifthPart">
