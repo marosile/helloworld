@@ -70,12 +70,14 @@
 
             <div class="line"><hr></div>
 
-            <!-- ============================= 회원 탈퇴 ======================= -->
-            <div class="secession-area">
-                    
-                <h4>회원 탈퇴</h4>
+            <!-- ============================= 회원 탈퇴 =============================== -->
+            <form action="secession" method="POST" name="myPageFrm" id="secessionFrm">
+            
+                <div class="secession-area">
+                        
+                    <h4>회원 탈퇴</h4>
 
-                <pre id="agreeText">
+                    <pre id="agreeText">
 회원 탈퇴일로부터 계정과 닉네임을 포함한 계정 정보(아이디/이메일/닉네
 임) 모든 개인 정보는 30일 보관 후 완전히 삭제되며 
 더 이상 복구할 수 없게 됩니다.
@@ -102,15 +104,14 @@
 ③ 약관 내용 3
 
 ④ 약관 내용 4
-                </pre>
-
-                <div>
-                    <input type="checkbox" name="agree" id="agree">
-                    <label for="agree">계정 탈퇴에 관한 정책을 읽고 이에 동의합니다.</label>
-                    <button id="secessionBtn">회원 탈퇴</button>
+                    </pre>
+                    <div>
+                        <input type="checkbox" name="agree" id="agree">
+                        <label for="agree">계정 탈퇴에 관한 정책을 읽고 이에 동의합니다.</label>
+                        <button id="secessionBtn">회원 탈퇴</button>
+                    </div>
                 </div>
-
-            </div>
+            </form>
             
         
         </section>
