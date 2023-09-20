@@ -34,8 +34,18 @@
         <div id="main">
             <div id="content" class="window">
                 <form action="/lecture/create" method="post">
-                    <input id="title" name="title" placeholder="제목을 입력해 주세요">
-                    <textarea id="summernote" name="editordata"></textarea>
+                    <div>
+                        <img>
+                        <input type="image" name="lectureThumbnail" hidden>
+                        <div>
+                            제목 <input id="title" name="lectureTitle" placeholder="제목을 입력해 주세요">
+                            태그 <div></div>
+                            난이도 <input id="price" name="lectureDifficulty" placeholder="">
+                            수강 기간 <input id="price" name="lectureTimeLimit" placeholder="">
+                            가격 <input id="price" name="lecturePrice" placeholder="">
+                        </div>
+                    </div>
+                    <textarea id="summernote" name="lectureIntro"></textarea>
                 </form>
             </div>
             <div id="nav">
