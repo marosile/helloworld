@@ -253,6 +253,57 @@
 	<update id="boardDelete">
 		UPDATE BOARD SET DELETED_FL = 'Y' WHERE BOARD_NO = #{boardNo}
 	</update>
+	
+	<!-- 트렌드 목록 조회(메인화면) -->
+	<select id="selectTrandList" resultMap="boardResultMap">
+		SELECT
+			  B.BOARD_NO,
+			  B.BOARD_TITLE,
+			  B.BOARD_CONTENT,
+			  COUNT(L.BOARD_NO) AS LIKE_COUNT,
+			  B.READ_COUNT,
+			  M.MEMBER_ID,
+			  MEMBER_NICK,
+			  PROFILE_IMG
+			FROM
+			  BOARD B
+			  LEFT JOIN "LIKE" L ON B.BOARD_NO = L.BOARD_NO
+			  JOIN MEMBER M ON M.MEMBER_ID = B.MEMBER_ID 
+			GROUP BY
+			  B.BOARD_NO, B.BOARD_TITLE, B.BOARD_CONTENT, B.READ_COUNT
+			  , M.MEMBER_ID,
+			  MEMBER_NICK,
+			  PROFILE_IMG
+			ORDER BY
+			  LIKE_COUNT DESC
+		FETCH FIRST 10 ROWS ONLY
+	</select>
+	
+	
+	<!-- 트렌드 상세페이지 -->
+	<select id="selectTrandDetail" resultMap="boardResultMap">
+			SELECT B.MEMBER_ID, B.BOARD_TITLE, B.BOARD_CONTENT, B.CREATE_DT, B.DELETED_FL, B.READ_COUNT, M.MEMBER_NICK, M.PROFILE_IMG,
+			 (SELECT COUNT(*) FROM "LIKE" L WHERE L.BOARD_NO = B.BOARD_NO) LIKE_COUNT
+			FROM BOARD B
+			JOIN MEMBER M ON (B.MEMBER_ID = M.MEMBER_ID)
+			JOIN BOARD_GENERAL BG ON (B.BOARD_NO = BG.BOARD_NO)
+			WHERE B.BOARD_NO = #{boardNo}
+	</select>
+	
+	<!-- 트렌드 댓글 조회 -->
+	<select id="selectComment" resultMap="commentResultMap">
+		 SELECT LEVEL, C.* FROM
+			(SELECT COMMENT_NO, COMMENT_CONTENT,
+			       TO_CHAR(CREATE_DT, 'YYYY"년"MM"월"DD"일"HH"시"MM"분"SS"초"') CREATE_DT,
+			       BOARD_NO, COM.MEMBER_ID, MEM.MEMBER_NICK, MEM.PROFILE_IMG, COM.PARENT_NO, COM.DELETED_FL
+			FROM "COMMENT" COM
+			JOIN MEMBER MEM ON (COM.MEMBER_ID = MEM.MEMBER_ID)
+			WHERE BOARD_NO = #{boardNo}) C
+			WHERE DELETED_FL = 'N'
+			START WITH PARENT_NO IS NULL 
+			CONNECT BY PRIOR COMMENT_NO = PARENT_NO 
+			ORDER SIBLINGS BY COMMENT_NO
+	</select>
    
    
    
