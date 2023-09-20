@@ -124,5 +124,11 @@ public class BoardServiceImpl_PHJ implements BoardService_PHJ{
 		return dao.selectReadCountList(boardCode);
 	}
 
+	// 전체 게시판 조회수 top10
+	@Override
+	public List<Board> getTopList() {
+		return dao.getTopList();
+	}
+
 
 }

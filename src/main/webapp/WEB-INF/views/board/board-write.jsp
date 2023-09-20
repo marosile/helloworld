@@ -65,7 +65,6 @@
                      <textarea id="summernote" name="boardContent"></textarea>
                 </div>
 
-                <!-- 태그 설정 (자동완성하는거 어떻게 만들지 몰라서 일단 select 태그)-->
                 <div id="tagsContainer">
 
                     <div id="tagText"># 태그 선택</div>

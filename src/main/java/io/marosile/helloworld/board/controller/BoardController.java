@@ -28,8 +28,10 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import io.marosile.helloworld.board.model.dto.Board;
+import io.marosile.helloworld.board.model.dto.Tag;
 import io.marosile.helloworld.board.model.service.BoardService_OHS;
 import io.marosile.helloworld.board.model.service.BoardService_PHJ;
+import io.marosile.helloworld.board.model.service.TagService;
 import io.marosile.helloworld.member.model.dto.Member;
 
 @SessionAttributes("loginMember")
@@ -42,14 +44,25 @@ public class BoardController {
 
 	@Autowired
 	private BoardService_PHJ service2;
+	
+	@Autowired
+	private TagService service3;
 
 	// 게시글 목록 조회 (첫 조회 -> posts 10개)
 	@GetMapping("/{boardCode:[1-3]}")
 	public String boardList(Model model, @PathVariable("boardCode") int boardCode) {
-
+		
+		Map<String, Object> map = new HashMap<String, Object>();
+		
+		
 		List<Board> boardList = service2.selectBoardList(boardCode);
-
-		model.addAttribute("boardList", boardList);
+		List<Board> getTopList = service2.getTopList();
+		
+		
+		map.put("boardList",boardList);
+		map.put("getTopList",getTopList);
+		
+		model.addAttribute("map", map);
 
 		return "board/board-list";
 	}
@@ -60,7 +73,6 @@ public class BoardController {
 	@ResponseBody
 	public List<Board> readCountList(Model model, @RequestParam("boardCode") int boardCode) {
 	    
-	    System.out.println("boardCode : " + boardCode);
 	    
 	    List<Board> readCountList = service2.selectReadCountList(boardCode);
 	    
@@ -104,8 +116,19 @@ public class BoardController {
 
 		map.put("boardCode", boardCode);
 		map.put("boardNo", boardNo);
-
+		
+		// 일반게시판 = type 0
+		int boardType = 0;
+		map.put("boardType", boardType);
+		
 		Board board = service2.selectBoard(map);
+		
+		List<Tag> tagList = service3.tagSelect(map);
+		
+		List<String> tagNames = new ArrayList<>();
+		for (Tag tag : tagList) {
+		    tagNames.add(tag.getTagName());
+		}
 		
 		if(boardCode == 1) board.setBoardName("공지사항");
 		
@@ -177,7 +200,6 @@ public class BoardController {
 				
 				board.setReadCount(board.getReadCount() + 1);
 				
-				System.out.println(board.getReadCount());
 				
 				c.setPath("/");
 				
@@ -205,6 +227,8 @@ public class BoardController {
 			
 			
 			model.addAttribute("board", board);
+			model.addAttribute("tagList", tagList);
+			
 
 		} else {
 			path = "redirect:/board/" + boardCode;
@@ -239,4 +263,28 @@ public class BoardController {
 		
 		return service2.insertReport(map);
 	}
+	
+	/*
+	 * // 전체 게시글 TOP 10
+	 * 
+	 * @PostMapping("/getTop")
+	 * 
+	 * @ResponseBody public List<Board> getTopList(Model model){
+	 * 
+	 * List<Board> getTopList = service2.getTopList();
+	 * 
+	 * model.addAttribute("getTopList", getTopList);
+	 * 
+	 * System.out.println("getTopList : " + getTopList);
+	 * 
+	 * return getTopList;
+	 * 
+	 * }
+	 * 
+	 */
+	
+	
+	
+	
+	
 }

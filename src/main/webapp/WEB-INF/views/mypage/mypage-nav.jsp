@@ -11,13 +11,14 @@
 
         <li> <a href="/mypage/resume">이력서 관리</a> </li>
 
-        <li> <a href="/mypage/bookmark">북마크</a> </li>
+        <li> <a href="/mypage/applications">지원이력</a> </li>
+
+        <li> <a href="/mypage/bookmark">북마크 목록</a> </li>
 
         <li> <a href="/mypage/post">나의 게시글</a> </li>
 
-        <li> <a href="/mypage/like">좋아요</a> </li>
+        <li> <a href="/mypage/like">좋</a> </li>
 
-        <li> <a href="#">경력</a> </li>
         
     </ul>
 

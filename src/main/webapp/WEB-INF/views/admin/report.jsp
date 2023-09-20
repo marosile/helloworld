@@ -5,6 +5,10 @@
 
 <!DOCTYPE html>
 <html lang="ko">
+
+<c:set var="report" value="${reportList}" />
+
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -47,91 +51,17 @@
 
                 <form action="#">
                     <div class="tableDiv">
-                        <div class="row">
-                            <div class="box">
-                                <p id="title">쉽게 개발자 되는법!!!!</p>
-                                <p id="userId">ID : user01</p>
-                                <p id="content">욕설/비방글 유해한 게시글 입니다 🤬</p>
-                            </div>
-
-                            <div class="box">
-                                <p id="title">쉽게 개발자 되는법!!!!</p>
-                                <p id="userId">ID : user01</p>
-                                <p id="content">욕설/비방글 유해한 게시글 입니다 🤬</p>
-                            </div>
-                        </div>
 
                         <div class="row">
-                            <div class="box">
-                                <p id="title">쉽게 개발자 되는법!!!!</p>
-                                <p id="userId">ID : user01</p>
-                                <p id="content">욕설/비방글 유해한 게시글 입니다 🤬</p>
-                            </div>
 
+                    <c:forEach items="${report}" var="report">
                             <div class="box">
-                                <p id="title">쉽게 개발자 되는법!!!!</p>
-                                <p id="userId">ID : user01</p>
-                                <p id="content">욕설/비방글 유해한 게시글 입니다 🤬</p>
-                            </div>
+                                <p id="title">${report.boardTitle}</p>
+                                <p id="userId">${report.memberId}</p>
+                                <p id="content">${report.reportContent}</p>
+                            </div>    
+                    </c:forEach>
                         </div>
-
-                        <div class="row">
-                            <div class="box">
-                                <p id="title">쉽게 개발자 되는법!!!!</p>
-                                <p id="userId">ID : user01</p>
-                                <p id="content">욕설/비방글 유해한 게시글 입니다 🤬</p>
-                            </div>
-
-                            <div class="box">
-                                <p id="title">쉽게 개발자 되는법!!!!</p>
-                                <p id="userId">ID : user01</p>
-                                <p id="content">욕설/비방글 유해한 게시글 입니다 🤬</p>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="box">
-                                <p id="title">쉽게 개발자 되는법!!!!</p>
-                                <p id="userId">ID : user01</p>
-                                <p id="content">욕설/비방글 유해한 게시글 입니다 🤬</p>
-                            </div>
-
-                            <div class="box">
-                                <p id="title">쉽게 개발자 되는법!!!!</p>
-                                <p id="userId">ID : user01</p>
-                                <p id="content">욕설/비방글 유해한 게시글 입니다 🤬</p>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="box">
-                                <p id="title">쉽게 개발자 되는법!!!!</p>
-                                <p id="userId">ID : user01</p>
-                                <p id="content">욕설/비방글 유해한 게시글 입니다 🤬</p>
-                            </div>
-
-                            <div class="box">
-                                <p id="title">쉽게 개발자 되는법!!!!</p>
-                                <p id="userId">ID : user01</p>
-                                <p id="content">욕설/비방글 유해한 게시글 입니다 🤬</p>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="box">
-                                <p id="title">쉽게 개발자 되는법!!!!</p>
-                                <p id="userId">ID : user01</p>
-                                <p id="content">욕설/비방글 유해한 게시글 입니다 🤬</p>
-                            </div>
-
-                            <div class="box">
-                                <p id="title">쉽게 개발자 되는법!!!!</p>
-                                <p id="userId">ID : user01</p>
-                                <p id="content">욕설/비방글 유해한 게시글 입니다 🤬</p>
-                            </div>
-                        </div>
-
-
 
                     </div>
 

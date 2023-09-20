@@ -4,6 +4,7 @@ import io.marosile.helloworld.board.model.dto.Board;
 import io.marosile.helloworld.member.model.dto.Member;
 import io.marosile.helloworld.study.model.dto.Study;
 import io.marosile.helloworld.study.model.service.StudyService;
+import io.marosile.helloworld.study.model.service.StudyServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -30,186 +31,216 @@ public class StudyController {
     // 스터디 메인 화면
     @GetMapping("/main")
     public String studyMain(Model model
-                , @SessionAttribute(value = "loginMember", required = false) Member loginMember) {
+            , @SessionAttribute(value = "loginMember", required = false) Member loginMember) {
 
         List<Study> studyList = service.selectStudyList();
-
-
-        System.out.println("studyList:"+studyList);
-
 
         model.addAttribute("studyList", studyList);
 
         return "study/studyMain";
     }
 
- // 스터디 상세 조회
+    // 스터디 상세 조회
     @GetMapping("/detail/{boardNo}")
     public String studyDatail(Model model
             , @PathVariable("boardNo") int boardNo
-            , @SessionAttribute(value="loginMember",required = false) Member loginMember
+            , @SessionAttribute(value = "loginMember", required = false) Member loginMember
             , RedirectAttributes ra
             , HttpServletRequest req
             , HttpServletResponse resp) throws ParseException {
-    	
-		Map<String, Object> map = new HashMap<String, Object>();
 
-		map.put("boardNo", boardNo);
-		
-		Study studyDetail =service.studyDetail(map);
+        Map<String, Object> map = new HashMap<String, Object>();
+
+        map.put("boardNo", boardNo);
+
+        Study studyDetail = service.studyDetail(map);
+
+        System.out.println("studyDetail:"+studyDetail);
 
         String path = null;
-    	 
-    	 if(studyDetail != null){
-    		 
-   		     if(loginMember != null) {
-    			 
-    			 map.put("memberId",loginMember.getMemberId());
 
-                 int result = service.likeCheck(map);
+        if (studyDetail != null) {
 
-       
-                 // 좋아요 조회
-                 if(result>0){
-                     model.addAttribute("likeCheck","on");
-                     
-                     System.out.println("result:"+result);
+            if (loginMember != null) {
+
+                map.put("memberId", loginMember.getMemberId());
+
+                int result = service.likeCheck(map);
 
 
-                 }
-    		 }
+                // 좋아요 조회
+                if (result > 0) {
+                    model.addAttribute("likeCheck", "on");
 
-             // 조회
-             if(loginMember == null || loginMember.getMemberId()!=studyDetail.getMemberId()){
+                    System.out.println("result:" + result);
+                }
+            }
 
-                 Cookie c = null;
+            // 조회
+            if (loginMember == null || loginMember.getMemberId() != studyDetail.getMemberId()) {
 
-                 Cookie[] cookies = req.getCookies();
+                Cookie c = null;
 
-                 if(cookies != null){
-                     for(Cookie cookie : cookies){
-                         if(cookie.getName().equals("readBoardNo")){
-                             c = cookie;
-                             break;
-                         }
-                     }
-                 }
+                Cookie[] cookies = req.getCookies();
 
-                 int result = 0;
+                if (cookies != null) {
+                    for (Cookie cookie : cookies) {
+                        if (cookie.getName().equals("readBoardNo")) {
+                            c = cookie;
+                            break;
+                        }
+                    }
+                }
 
-                 if(c == null){
-                     c = new Cookie("readBoardNo","|"+boardNo+"|");
+                int result = 0;
 
-                     result = service.updateReadCount(boardNo);
-                 }else{
+                if (c == null) {
+                    c = new Cookie("readBoardNo", "|" + boardNo + "|");
 
-                     if(c.getValue().indexOf("|"+boardNo+"|")== -1){
-                         c.setValue(c.getValue()+"|"+boardNo+"|");
-                         result = service.updateReadCount(boardNo);
-                     }
-                 }
+                    result = service.updateReadCount(boardNo);
+                } else {
 
-                 if(result>0){
-                     studyDetail.setReadCount(studyDetail.getBoardNo());
+                    if (c.getValue().indexOf("|" + boardNo + "|") == -1) {
+                        c.setValue(c.getValue() + "|" + boardNo + "|");
+                        result = service.updateReadCount(boardNo);
+                    }
+                }
 
-                     c.setPath("/");
+                if (result > 0) {
+                    studyDetail.setReadCount(studyDetail.getBoardNo());
 
-                     Calendar cal = Calendar.getInstance();
-                     cal.add(cal.DATE,1);
+                    c.setPath("/");
 
-                     SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+                    Calendar cal = Calendar.getInstance();
+                    cal.add(cal.DATE, 1);
 
-                     Date a = new Date();
-                     Date temp = new Date(cal.getTimeInMillis());
+                    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 
-                     Date b = sdf.parse(sdf.format(temp));
-                     long diff = (b.getTime()-a.getTime())/1000;
+                    Date a = new Date();
+                    Date temp = new Date(cal.getTimeInMillis());
 
-                     c.setMaxAge((int)diff);
-                     resp.addCookie(c);
+                    Date b = sdf.parse(sdf.format(temp));
+                    long diff = (b.getTime() - a.getTime()) / 1000;
 
-                 }
+                    c.setMaxAge((int) diff);
+                    resp.addCookie(c);
 
-             }
-                 path = "study/studyDetail";
-                 model.addAttribute("studyDetail",studyDetail);
+                }
+
+            }
+            path = "study/studyDetail";
+            model.addAttribute("studyDetail", studyDetail);
 
 
-    	 }else {
-    		 path="redirect:/study/main";
-    		 ra.addFlashAttribute("message","해당 게시글이 존재하지 않습니다.");
-    	 }
-		return path;
+        } else {
+            path = "redirect:/study/main";
+            ra.addFlashAttribute("message", "해당 게시글이 존재하지 않습니다.");
+        }
+        return path;
     }
 
     // 좋아요 처리
     @PostMapping("/detail/like")
     @ResponseBody
-    public int like(@RequestBody Map<String, Object> map){
+    public int like(@RequestBody Map<String, Object> map) {
 
-    	System.out.println(map);
+        System.out.println(map);
         return service.like(map);
     }
 
 
-
     // 스터디 게시글 삽입 (주소이동)
-    @GetMapping("/write/{studyNo}")
-    public String studyWrite(Model model,
-                             @PathVariable("studyNo") int studyNo) {
+    @GetMapping("/write")
+    public String studyWrite(Model model) {
 
         return "study/studyWrite";
     }
 
 
     // 스터디 게시글 삽입
-    @PostMapping("/write/{studyNo}")
+    @PostMapping("/write")
     public String studyWrite(@ModelAttribute Study study
-            , @PathVariable("studyNo") int studyNo
             , @SessionAttribute("loginMember") Member loginMember
+            , @RequestParam("boardTitle") String boardTitle
             , RedirectAttributes ra) {
 
+        study.setMemberId(loginMember.getMemberId());
+        int boardNo = service.studyInsert(study);
+
+        String path = "redirect:";
+        String message = null;
+
+        if (boardNo > 0) {
+            message ="스터디 모집 작성되었습니다🎉";
+            path += "/study/detail/" + boardNo;
+        } else {
+            message ="스터디 모집 작성이 실패 되었습니다.";
+            path += "/write";
+        }
+        ra.addFlashAttribute("message", message);
+
+        return path;
+
+    }
+
+
+    // 스터디 수정 페이지로
+    @GetMapping("/detail/{boardNo}/update")
+    public String studyUpdate(Model model
+            , @PathVariable("boardNo") int boardNo) {
+
+        Map<String, Object> map = new HashMap<String, Object>();
+
+        map.put("boardNo", boardNo);
+
+        Study study = service.studyDetail(map);
+
+        model.addAttribute("study",study);
+
+        return "study/studyWriteUpdate";
+    }
+
+    // 게시글 수정
+    @PostMapping("/detail/update/{boardNo}")
+    public String StudyUpdate( @ModelAttribute Study study
+                            , @PathVariable("boardNo") int boardNo
+                            , @SessionAttribute("loginMember")Member loginMember) {
 
         study.setMemberId(loginMember.getMemberId());
 
-        int studyNumber = service.studyInsert(study);
+        int result = service.studyUpdate(study);
 
-        return "study/studyWrite";
+
+        return null;
+
     }
 
-    // 스터디 수정
-    @GetMapping("/update")
-    public String studyUpdate(Model model) {
-
-        return "study/studyUpdate";
-    }
 
     // 스터디 삭제
     @GetMapping("/detail/{boardNo}/delete")
-    public String studyDelete( Model model
-            ,@PathVariable("boardNo") int boardNo
-            ,RedirectAttributes ra){
-        Map<String,Object> map = new HashMap<String,Object>();
+    public String studyDelete(Model model
+            , @PathVariable("boardNo") int boardNo
+            , RedirectAttributes ra) {
+        Map<String, Object> map = new HashMap<String, Object>();
 
-        map.put("boardNo",boardNo);
+        map.put("boardNo", boardNo);
 
         int result = service.studyDelete(map);
 
         String path = "redirect:";
         String message = null;
 
-        if(result>0){
-            message="삭제되었습니다.";
+        if (result > 0) {
+            message = "삭제되었습니다.";
             path += "/study/main";
-        }else{
-            message="삭제 실패";
-            path += "/study/detail/"+boardNo;
+        } else {
+            message = "삭제 실패";
+            path += "/study/detail/" + boardNo;
         }
-        ra.addFlashAttribute("message",message);
+        ra.addFlashAttribute("message", message);
 
         return path;
     }
-
 
 
     // 스터디 체팅
@@ -218,12 +249,6 @@ public class StudyController {
 
         return "study/studyChatting";
     }
-
-    // 스터디 목록 수정
-    @GetMapping("/detail/update")
-    public String studyDetailUpdate(Model model) {
-
-        return "study/studyDetailUpdate";
-    }
+    
 }
 

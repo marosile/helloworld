@@ -68,6 +68,12 @@ public interface BoardService_PHJ {
 	 * @return
 	 */
 	List<Board> selectReadCountList(int boardCode);
+
+	
+	/** 전체 게시판 조회수 top 10
+	 * @return
+	 */
+	List<Board> getTopList();
 	
 
 }

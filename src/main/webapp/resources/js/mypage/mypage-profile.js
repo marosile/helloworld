@@ -41,6 +41,8 @@ const profileImage = document.getElementById("profileImage"); // img 태그
 const deleteBtn = document.getElementById("deleteBtn"); // 제거 버튼
 const imageInput = document.getElementById("imageInput"); // 인풋 태그
 
+const saveBtn = document.getElementById("saveBtn"); // 저장버튼
+
 let initCheck;
 let deleteCheck = -1;
 let originalImage;
@@ -107,8 +109,6 @@ if(imageInput != null){
 const memberNickname = document.getElementById("memberNickname");
 const nickMessage = document.getElementById("nickMessage");
 
-/* ☆★☆★ 입력전 닉네임이 수정하기 전 닉네임이랑 같을때 넘어가게 어떻게함!!!!!!!!!!*/
-
 
 // 닉네임이 입력이 되었을 때
 memberNickname.addEventListener("input", () => {
@@ -148,28 +148,7 @@ memberNickname.addEventListener("input", () => {
 });
 
 
-(()=>{
-    const ddd = document.getElementById("ddd");
-    console.log(ddd.value);
-    document.getElementById("profileFrm").addEventListener("submit", e => {
-    
-        /* for(let key in checkObj){
-            if(!checkObj[key]){
-                switch(key){
-                    case "memberNickname" : alert("닉네임이 유효하지 않습니다."); break;
-                }
-                e.preventDefault();
-                return;
-            }
-        } */
-        profileImage.setAttribute("src", ddd.value);
-    
-    
-    
-    
-    });
 
-})();
 
 
 
