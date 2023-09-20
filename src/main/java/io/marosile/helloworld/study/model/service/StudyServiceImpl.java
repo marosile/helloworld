@@ -1,6 +1,7 @@
 package io.marosile.helloworld.study.model.service;
 
 import io.marosile.helloworld.board.model.dto.Board;
+import io.marosile.helloworld.common.utility.Util;
 import io.marosile.helloworld.study.model.dao.StudyDAO;
 import io.marosile.helloworld.study.model.dto.Study;
 import jdk.jfr.TransitionTo;
@@ -24,16 +25,6 @@ public class StudyServiceImpl implements StudyService {
 		List<Study> studyList = dao.selectStudyList();
 
 		return studyList;
-	}
-
-	// 스터디 게시글 삽입
-	@Override
-	public int studyInsert(Study study) {
-
-		// 스터디 시퀀스 조회 및 스터디 모집글 테이블에 insert
-		int studyNumber = dao.studyInsert(study);
-
-		return studyNumber;
 	}
 
 	// 스터디 상세 보기
@@ -89,5 +80,24 @@ public class StudyServiceImpl implements StudyService {
 	public int studyDelete(Map<String, Object> map) {
 		return dao.studyDelete(map);
 	}
+
+	// 스터디 수정
+	@Override
+	public int studyUpdate(Study study) {
+
+		return 0;
+	}
+
+	// 게시글 삽입
+	@Override
+	@Transactional
+	public int studyInsert(Study study) {
+
+		study.setBoardTitle(Util.XSSHandling(study.getBoardTitle()));
+		int boardNo = dao.studyInsert(study);
+
+		return boardNo;
+	}
+
 
 }

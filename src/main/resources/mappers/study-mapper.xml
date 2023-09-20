@@ -5,8 +5,9 @@
     <!-- 임시 -->
     <resultMap type="Study" id="StudyResultMap">
 
-        <id property="boardNo" column="BOARD_NO"/>
+        <id property="studyNo" column="STUDY_NO"/>
 
+        <result property="boardNo" column="BOARD_NO"/>
         <result property="boardTitle" column="BOARD_TITLE"/>
         <result property="boardContent" column="BOARD_CONTENT"/>
         <result property="createDate" column="CREATE_DT"/>
@@ -17,7 +18,6 @@
         <result property="memberId" column="MEMBER_ID"/>
         <result property="memberNickname" column="MEMBER_NICK"/>
 
-        <result property="studyNo" column="STUDY_NO"/>
         <result property="location" column="LOCATION"/>
         <result property="headCount" column="HEAD_COUNT"/>
         <result property="studyStatus" column="STUDY_STATUS"/>
@@ -59,11 +59,17 @@
     </select>
 
     <!--스터디 삽입-->
-    <insert id="studyInsert" parameterType="Study" useGeneratedKeys="true">
-
-        <selectKey order="BEFORE" resultType="_int" keyProperty="studyNo">
-            SELECT SEQ_STUDY_NO.NEXTVAL FROM DUAL
+    <insert id="studyInsert" parameterType="Study">
+        <selectKey order="BEFORE" resultType="Study" keyProperty="studyNo,boardNo">
+            SELECT SEQ_STUDY_NO.NEXTVAL AS "studyNo", SEQ_BOARD_NO.NEXTVAL AS "boardNo" FROM DUAL
         </selectKey>
+        INSERT ALL
+            INTO STUDY VALUES(${studyNo}, #{boardTitle}, #{memberId}, DEFAULT)
+            INTO BOARD VALUES(${boardNo}, #{memberId}, #{boardTitle}, #{boardContent}, DEFAULT, NULL, DEFAULT, DEFAULT)
+            INTO BOARD_STUDY VALUES(${boardNo}, ${studyNo}, #{location}, ${headCount}, 'N')
+            INTO TAG_RELATION VALUES((SELECT TAG_NO FROM TAG WHERE TAG_NM = #{tagNm}), 0, ${boardNo})
+            INTO TAG_RELATION VALUES((SELECT TAG_NO FROM TAG WHERE TAG_NM = #{tagNm}), 1, ${studyNo})
+            SELECT * FROM DUAL
     </insert>
 
     <!-- 좋아요 확인 여부-->

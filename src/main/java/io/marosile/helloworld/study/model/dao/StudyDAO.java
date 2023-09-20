@@ -28,9 +28,10 @@ public class StudyDAO {
         // 스터디 시퀀스 조회 및 스터디 모집글 테이블에 insert
         int result = sqlSession.insert("studyMapper.studyInsert",study);
 
-        if(result>0){
-            result = study.getStudyNo();
+        if(result>0) {
+            result = study.getBoardNo();
         }
+
         return result;
     }
 
@@ -39,7 +40,7 @@ public class StudyDAO {
 		 return sqlSession.selectOne("studyMapper.studyDetail",map);
 	}
 
-    
+
     // 좋아요 여부 조회
     public int likeCheck(Map<String, Object> map) {
         return sqlSession.selectOne("studyMapper.likeCheck",map);

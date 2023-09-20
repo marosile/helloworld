@@ -11,8 +11,6 @@ public interface StudyService {
     // 스터디 목록 조회
     List<Study> selectStudyList();
     
-    // 스터디 게시글 삽입
-    int studyInsert(Study study);
 
     // 스터디 게시글 상세조회
 	Study studyDetail(Map<String, Object> map);
@@ -28,4 +26,12 @@ public interface StudyService {
 
     //스터디 삭제
     int studyDelete(Map<String, Object> map);
+
+    
+    // 스터디 수정
+    int studyUpdate(Study study);
+
+    // 스터디 삽입
+    int studyInsert(Study study);
+
 }
