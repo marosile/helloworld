@@ -115,6 +115,7 @@ if(imageInput != null){  // 만약에 화면에 imageInput이 있을 경우 -> �
     });
 
 
+    const profileImg2 = document.getElementsByName("profileImg2")[0];
 
     // 제거 버튼 눌렀을때
     deleteBtn.addEventListener("click", ()=> {
@@ -122,11 +123,14 @@ if(imageInput != null){  // 만약에 화면에 imageInput이 있을 경우 -> �
         profileImage.setAttribute("src", "/resources/images/user.png");
         // 프로필 이미지를 기본이미지로 추가
 
+        profileImg2.value = "/resources/images/user.png";
+
         imageInput.value = ""; 
         // file의 value 삭제
 
         deleteCheck = 0;
         // 딜리트 체크가 0이다 -> 프로필 삭제 한다 [제거 버튼]
+
     });
 
     document.getElementById("profileFrm").addEventListener("submit", e=>{

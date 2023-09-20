@@ -86,6 +86,8 @@ public class CjeController {
 						, Member updateMember // 수정할 멤버 닉네임
 						, RedirectAttributes ra
 						, HttpSession session
+						, @RequestParam(value="profileImg2", required = false) String profileImg2
+						, @RequestParam(value="profileImg3", required = false) String profileImg3
 						  ) throws IllegalStateException, IOException {
 		// 웹 접근 경로
 		String webPath = "/resources/images/member/";
@@ -97,6 +99,15 @@ public class CjeController {
 		
 		// 로그인한 회원 아이디 updateMember에 추가
 		updateMember.setMemberId(loginMember.getMemberId());
+
+		if(profileImg2.equals(profileImg3)){
+			loginMember.setProfileImg(profileImg3);
+		}
+
+		if(!profileImg2.equals(profileImg3)){
+			loginMember.setProfileImg(profileImg2);
+		}
+
 
 
 		// 서비스 호출
