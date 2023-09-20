@@ -18,7 +18,6 @@
     <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
 
-
 </head>
 
 <body>
@@ -68,10 +67,6 @@
 
                     <div id="tagsDiv">
 
-                        <c:forEach items="${tagListJson}" var="tagName" varStatus="loop">
-                            <input type="text" class="tagInputs" name="tagInputs" placeholder="#태그${loop.index + 1}" data-tag-name="${tagName}">
-                        </c:forEach>
-
                     </div>
 
                 </div>
@@ -85,7 +80,7 @@
                 </div>
             </form>
             <!-- 등록, 작성취소 버튼 -->
-
+    <input type="text" name="tagNums" value="${tagNums}"> <%-- 배열같이 생긴 문자열이 됨 --%>
 
         </div>
 
@@ -96,11 +91,10 @@ document.addEventListener("DOMContentLoaded", function() {
     const tagsDiv = document.getElementById("tagsDiv");
     const maxTags = 5;
 
-    const tagListJson = "${tagListJson}"; // JSON 형태의 문자열로 받음
+    const tagData = ${tagListJson};
+    console.log(tagData);
 
-    const tagData = JSON.parse(tagListJson); // JSON 데이터로 파싱
-
-    for (let i = 0; i < tagData.length; i++) {
+    for (let i = 0; i < tagData.length; i++) {  
         if (tagsDiv.children.length < maxTags) {
             const inputTag = document.createElement("input");
             inputTag.type = "text";
@@ -133,7 +127,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
             tagsDiv.appendChild(inputTag);
 
-            // 태그 추가 후에만 snackbar를 표시
             if (tagsDiv.children.length >= maxTags) {
                 snackbar('태그는 5개까지 입력 가능합니다.', 'rgb(0, 128, 255)', '/resources/images/moon.png');
             }

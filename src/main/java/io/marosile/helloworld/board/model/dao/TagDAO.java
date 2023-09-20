@@ -25,4 +25,9 @@ public class TagDAO {
 		return sqlSession.insert("tagMapper.tagInsert", tag);
 	}
 
+	// 태그 수정
+	public int updateTag(Tag tag) {
+		return sqlSession.update("tagMapper.tagUpdate", tag);
+	}
+
 }

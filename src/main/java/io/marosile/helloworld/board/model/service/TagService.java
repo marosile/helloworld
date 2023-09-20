@@ -20,5 +20,9 @@ public interface TagService {
 	int tagInsert(List<Tag> tagList);
 
 
-
+    /** 태그 수정
+     * @param tagList
+     * @return result
+     */
+    int tagUpdate(List<Tag> tagList);
 }

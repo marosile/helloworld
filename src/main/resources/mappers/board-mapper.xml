@@ -58,7 +58,7 @@
 			FROM BOARD B
 			JOIN BOARD_GENERAL BG ON (B.BOARD_NO = BG.BOARD_NO)
 			JOIN MEMBER M ON (B.MEMBER_ID = M.MEMBER_ID)
-			WHERE BG.BOARD_CODE = #{boardCode}
+			WHERE BG.BOARD_CODE = #{boardCode} AND B.DELETED_FL = 'N'
 			ORDER BY BOARD_NO DESC
 	</select>
 	
@@ -73,8 +73,8 @@
 			FROM BOARD B
 			JOIN BOARD_GENERAL BG ON (B.BOARD_NO = BG.BOARD_NO)
 			JOIN MEMBER M ON (B.MEMBER_ID = M.MEMBER_ID)
-			WHERE BG.BOARD_CODE = #{boardCode}
-			ORDER BY READ_COUNT DESC
+			WHERE BG.BOARD_CODE = #{boardCode} AND B.DELETED_FL = 'N'
+			ORDER BY READ_COUNT DESC 
 	</select>
 	
 	<!-- 목록 스크롤 -->
@@ -92,7 +92,7 @@
 					        FROM BOARD B
 					        JOIN MEMBER M ON B.MEMBER_ID = M.MEMBER_ID
 					        JOIN BOARD_GENERAL BG ON B.BOARD_NO = BG.BOARD_NO
-					        WHERE BG.BOARD_CODE = #{boardCode}
+					        WHERE BG.BOARD_CODE = #{boardCode} AND B.DELETED_FL = 'N'
 					        ORDER BY B.BOARD_NO DESC
 					    ) A 
 					)
@@ -249,6 +249,10 @@
 		FETCH FIRST 10 ROWS ONLY
 	</select>
 	
+	<!-- 게시글 삭제(update) -->
+	<update id="boardDelete">
+		UPDATE BOARD SET DELETED_FL = 'Y' WHERE BOARD_NO = #{boardNo}
+	</update>
    
    
    
