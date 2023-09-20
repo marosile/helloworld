@@ -66,6 +66,7 @@
                  JOIN "TAG" T ON(T.TAG_NO=TR.TAG_NO)
 
         WHERE S.BOARD_NO = #{boardNo}
+        AND ITEM_TYPE = 1
         ORDER BY S.BOARD_NO DESC
     </select>
 

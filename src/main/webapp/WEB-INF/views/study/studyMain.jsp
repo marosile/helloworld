@@ -4,7 +4,9 @@
 <!DOCTYPE html>
 <html lang="ko">
 
-<c:set var="study" value="${studyList}"/>
+<c:if test="${!empty studyList}">
+    <c:set var="study" value="${studyList}"/>
+</c:if>
 
 <head>
     <meta charset="UTF-8">
