@@ -70,4 +70,24 @@ public class StudyDAO {
     public int studyDelete(Map<String, Object> map) {
         return sqlSession.update("studyMapper.studyDelete",map);
     }
+
+    // 스터디 수정
+    public int studyUpdate(Study study) {
+
+        int result = sqlSession.update("studyMapper.studyUpdate1",study);
+
+        if (result > 0) {
+            result = sqlSession.update("studyMapper.studyUpdate2",study);
+        }
+        if (result > 0) {
+            result = sqlSession.update("studyMapper.studyUpdate3",study);
+        }
+        if (result > 0) {
+            result = sqlSession.update("studyMapper.studyUpdate4",study);
+        }
+        if (result > 0) {
+            result = sqlSession.update("studyMapper.studyUpdate5",study);
+        }
+        return result;
+    }
 }

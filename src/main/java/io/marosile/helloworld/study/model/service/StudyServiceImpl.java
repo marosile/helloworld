@@ -85,7 +85,9 @@ public class StudyServiceImpl implements StudyService {
 	@Override
 	public int studyUpdate(Study study) {
 
-		return 0;
+		study.setBoardTitle(Util.XSSHandling(study.getBoardTitle()));
+
+		return dao.studyUpdate(study);
 	}
 
 	// 게시글 삽입

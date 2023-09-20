@@ -40,20 +40,20 @@
             <i class="fa-regular fa-file-lines"></i> 스터디 모집하기
         </p>
 
-        <form action="/study/write/${studyNo}" method="post" class="P-body-category-top" enctype = "multipart/form-data">
-    
+        <form action="/study/detail/update/${boardNo}" method="POST" class="P-body-category-top" enctype = "multipart/form-data">
+
 
             <h5><span class="required">*</span> 카테고리</h5>
             <div class="P-body-category-area">
 
                 <div class="P-body-category-role">
 
-                    <button type="button" class="P-body-category-btn">모집분야
+                    <button type="button" class="P-body-category-btn" value="${study.tagNm}">모집분야
                         <i class="fa-solid fa-caret-down"></i>
                     </button>
 
-                    <ul class="P-selectBox-role menuHidden" id="P-selectBox-role" >
-                        <li><button type="button" class="P-option-btn" id="front" name="tagNm">프론트앤드</button>
+                    <ul class="P-selectBox-role menuHidden" id="P-selectBox-role">
+                        <li><button type="button" class="P-option-btn" id="front" name="tagNm">프론트엔드</button>
                         </li>
                         <li><button type="button" class="P-option-btn" id="back" name="tagNm">백엔드</button></li>
                         <li><button type="button" class="P-option-btn" id="design" name="tagNm">디자인</button></li>
@@ -62,6 +62,7 @@
                         <li><button type="button" class="P-option-btn" id="etc" name="tagNm">기타</button></li>
                    </ul>
 
+                    <input type="hidden" id="selectedRole" name="tagNm">
 
                 </div>
 
@@ -87,7 +88,7 @@
 --%>
 
                 <div class="P-body-category-count">
-                    <button type="button" class="P-body-count-btn">인원
+                    <button type="button" class="P-body-count-btn" ${study.headCount} >인원
                         <i class="fa-solid fa-caret-down"></i>
                     </button>
 
@@ -97,12 +98,13 @@
                             <div class="P-person">
                                 <span class="P-person-span">전체인원</span>
                                 <button type="button" id="P-minusBtn">-</button>
-                                <span id="count" name="headCount">1</span>
+                                <span id="count" name="headCount" >1</span>
                                 <button type="button" id="P-plusBtn">+</button>
                             </div>
                             <button type="button" id="P-personBtn">완료</button>
                         </div>
                     </ul>
+                    <input type="hidden" id="countInput" name="headCount" value="1">
                 </div>
 
             </div>
@@ -112,7 +114,7 @@
                 <h5><span class="required">*</span> 제목</h5>
 
                 <div id="P-body-title">
-                    <input id="P-body-title-textarea" placeholder="제목을 입력해주세요." name="boardTitle"></input>
+                    <input id="P-body-title-textarea" placeholder="제목을 입력해주세요." name="boardTitle" value="${study.boardTitle}"></input>
                     <br>
                 </div>
 
@@ -121,7 +123,7 @@
                         <textarea name="boardContent" id="summernote" rows="1"
                                   placeholder="프로젝트 요약을 입력하세요.
 
-예시 - 온/오프라인으로 달리기 모임을 만들고 찾을 수 있는 앱을 기획 중입니다. 현재 기획자 1명, 백엔드 개발자 1명이 있고, 함께 하실 디자이너와 프론트 개발자를 찾고 있어요!"></textarea>
+예시 - 온/오프라인으로 달리기 모임을 만들고 찾을 수 있는 앱을 기획 중입니다. 현재 기획자 1명, 백엔드 개발자 1명이 있고, 함께 하실 디자이너와 프론트 개발자를 찾고 있어요!">${study.boardContent}</textarea>
                 </div>
 
             </div>
@@ -134,9 +136,10 @@
             </div>
 
 
+
             <div class="P-body-controller">
                 <div class="P-body-controller-Btn">
-                    <button id="BtnModify">수정완료</button>
+                    <button id="BtnModify" type="submit">수정완료</button>
                     <button id="BtnDelete">수정취소</button>
                 </div>
 
