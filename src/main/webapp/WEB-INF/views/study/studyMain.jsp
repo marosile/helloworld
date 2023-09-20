@@ -4,8 +4,6 @@
 <!DOCTYPE html>
 <html lang="ko">
 
-<c:set var="study" value="${studyList}"/>
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -498,7 +496,7 @@
                         </c:choose>
 
                         <script>
-                            const boardNo = "${study.boardNo}"
+                            const boardNo = ${study.boardNo}
                             const loginMemberId = "${loginMember.memberId}"
                         </script>
 
