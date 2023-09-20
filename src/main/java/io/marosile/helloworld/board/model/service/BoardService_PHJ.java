@@ -61,19 +61,30 @@ public interface BoardService_PHJ {
 	 * @return
 	 */
 	int insertReport(Map<String, Object> map);
-
 	
 	/** 게시글 목록 조회(조회순)
 	 * @param boardCode
 	 * @return
 	 */
 	List<Board> selectReadCountList(int boardCode);
-
+	
+	/** 게시글 목록 조회(조회순 -> 최신순)
+	 * @param boardCode
+	 * @return
+	 */
+	List<Board> selectReadCountListBack(int boardCode);
 	
 	/** 전체 게시판 조회수 top 10
 	 * @return
 	 */
 	List<Board> getTopList();
+
+	/** 검색
+	 * @param boardCode
+	 * @param searchKeyword
+	 * @return List
+	 */
+	List<Board> searchBoardListSearch(Map<String, Object> map);
 	
 
 }

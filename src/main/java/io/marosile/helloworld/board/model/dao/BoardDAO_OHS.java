@@ -21,13 +21,20 @@ public class BoardDAO_OHS {
 		this.sqlSession = sqlSession;
 	}
 
-	/**
-	 * 무한스크롤
+	/** 무한스크롤 (최신순)
 	 * @param parameters
 	 * @return list
 	 */
-	public List<Board> loadPost(Map<String, Object> parameters) {
-		return sqlSession.selectList("loadPost", parameters);
+	public List<Board> loadPosts(Map<String, Object> parameters) {
+		return sqlSession.selectList("loadPosts", parameters);
+	}
+	
+	/** 무한스크롤 (조회순)
+	 * @param parameters
+	 * @return list
+	 */
+	public List<Board> loadPostsByReadCount(Map<String, Object> parameters) {
+		return sqlSession.selectList("loadPostsByReadCount", parameters);
 	}
 
 	/**
@@ -68,5 +75,6 @@ public class BoardDAO_OHS {
 		
 		return result;
 	}
+
 
 }
