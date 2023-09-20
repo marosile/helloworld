@@ -61,14 +61,33 @@
 
                 <div class="row1">
                     <div class="top">
-                        <img class="thumbnail" src="/resources/images/member/당근.png">
-                        <div class="companyName"><a>당근 마켓</a></div>
+                        <!-- 유저 프사 -->
+                        <img class="profileImage" src="/resources/images/user.png">
+                        <!-- 유저 닉네임 -->
+                        <div class="memberNick">유저일이다</div>
+                        <!-- 게시글 작성일 -->
+                        <div class="createDate">2023-05-05</div>
                     </div>
 
-                    
+                    <div class="bottom">
+                        <div class="title">제목이다 리액트 재 시험 대신 봐줄사람 구합니다....하고 제목이 더 길어 지면
+                            이렇게 됩니다
+                        </div>
 
-                    
+                        <div class="Count-area">
+                            <div class="viewCount">
+                                <i class="fa-regular fa-eye" id="vcon"></i>
+                                <div id="viewCount">30</div>
+                            </div>
+                            <div class="replyCount">
+                                <i class="fa-regular fa-comment-dots" id="rcon"></i>
+                                <div id="replyCount">3</div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+
+
     
                 
             </div>
