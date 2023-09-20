@@ -1,4 +1,3 @@
-
 // 스위퍼
 var mySwiper = new Swiper('.swiper-container', {
     slidesPerView: 3, // 한 화면에 보여질 슬라이드 개수
@@ -11,25 +10,46 @@ var mySwiper = new Swiper('.swiper-container', {
     
 });
 
-
 const postSecondPart = document.getElementsByClassName("postSecondPart");
 const postThirdPart = document.getElementsByClassName("postThirdPart");
 
 
-// 각각의 상세페이지로
-for (let i = 0; i < postSecondPart.length; i++) {
-    postSecondPart[i].addEventListener("click", () => {
-   
-    location.href = "detail";
-  });
-}
+// 검색창 이전 검색 기록을 남겨 놓기
+const boardSearch = document.querySelector("#boardSearch");
+const searchInput = document.querySelector("#searchInput");
+const searchQuery = document.querySelector("#searchQuery");
+const options = document.querySelectorAll("#searchKey > option");
 
-for (let i = 0; i < postThirdPart.length; i++) {
-    postThirdPart[i].addEventListener("click", () => {
-   
-    location.href = "detail";
-  });
-}
+// 즉시 실행
+(()=>{
+
+    const params = new URL(location.href).searchParams; //쿼리스트링 값 
+
+    const searchKeyword = params.get("searchKeyword"); 
+    
+    if(searchKeyword != null){ 
+        
+        searchInput.value = searchKeyword;
+    
+    }
+
+})();
+
+// 검색어 입력 없이 제출된 경우
+boardSearch.addEventListener("submit", e=>{
+    
+    if(searchQuery.value.trim().length == 0){ // 검색어 미입력 시
+        
+        e.preventDefault(); // submit 이벤트 제거
+        alert("검색어를 입력해주세요.");
+        location.href = location.pathname // 쿼리스트링 제외한 주소 /localhost/board/1 2 3 
+
+
+    }
+
+})
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 // 무한스크롤
 
@@ -55,6 +75,112 @@ var page = 2; // 처음 ajax 넘길 page 번호
         $('#loadingModal').css('display', 'none');
 
     }
+    
+    const recentSortButton = document.getElementById("recentSortButton");
+    const readCountSortButton = document.getElementById("readCountSortButton");
+
+    let isRecentSort = true; // 초기값
+
+    /** 최신순 정렬 클릭 이벤트 핸들러 */
+    recentSortButton.addEventListener("click", () => {
+        page = 2; // 페이지 번호 초기화
+        isRecentSort = true;
+        // 조회순 눌렀다가 최신순 누르면 redirect해서 화면이 올라가가지구 ajax로 가져오기
+        fetch("readCountListBack?boardCode=" + boardCode)
+        .then(resp => {
+            if (!resp.ok) {
+                throw new Error('HTTP 응답 실패');
+            }
+            return resp.json(); // Return the parsed JSON data
+        })
+        .then(rList => {
+
+            // 게시글들 비우기
+            document.getElementById("post").innerHTML='';
+
+            // 최신순 10개 가져오기 (mapper rownum)
+            rList.forEach( rList => { 
+
+            var postAppends = 
+                            '<a href="/board/'+ rList.boardCode+ '/'+ rList.boardNo+'">' +
+                                '<div class="posts">' +  
+                                           '<div class="postFirstpart">' +
+                                                '<img src="/resources/images/logo.svg" class="writerImages">' +
+                                                '<div class="firstPartRight">' +
+                                                        '<div>' + rList.memberId + '</div>' +
+                                                            '<div>'+ 
+                                                            '<span id="minute">' + rList.createDate + '</span>' +
+                                                        '</div>' +
+                                                    '</div>' +
+                                                '</div>' +
+
+                                                '<div class="postSecondPart">' +"rList.boardContent(임시)" + '</div>' +
+                                                '<div class="postThirdPart" style="max-height:100px>' + "rList.boardContent(임시)" + '</div>' +
+                                                '<div class="postFourthPart">' + "#react #recoil #next.js" + '</div>' +
+                                                '<div class="postFifthPart">' + 
+                                                    '<div class="replyCount">' + "댓글 8" + '</div>' +
+                                                    '<div class="inquiryCount">' + "조회수" + rList.readCount+ '</div>' +
+                                                '</div>' +
+
+                                '</div>' + // 임시
+                                '</a>';
+                                            
+                        $('#post').append(postAppends); 
+                    });
+        })
+        .catch(err => console.log(err));
+
+    });
+
+    /** 조회순 정렬 클릭 이벤트 핸들러 */
+    readCountSortButton.addEventListener("click", () => {
+        page = 2; // 페이지 번호 초기화    
+        isRecentSort = false;
+
+    fetch("readCountList?boardCode=" + boardCode)
+        .then(resp => {
+            if (!resp.ok) {
+                throw new Error('HTTP 응답 실패');
+            }
+            return resp.json(); // Return the parsed JSON data
+        })
+        .then(rList => {
+
+            // 게시글들 비우기
+            document.getElementById("post").innerHTML='';
+
+            // 조회순으로 10개 가져오기 (mapper rownum)
+            rList.forEach( rList => { 
+            var postAppends = 
+                            '<a href="/board/'+ rList.boardCode+ '/'+ rList.boardNo+'">' +
+                                '<div class="posts">' +  
+                                           '<div class="postFirstpart">' +
+                                                '<img src="/resources/images/logo.svg" class="writerImages">' +
+                                                '<div class="firstPartRight">' +
+                                                        '<div>' + rList.memberId + '</div>' +
+                                                            '<div>'+ 
+                                                            '<span id="minute">' + rList.createDate + '</span>' +
+                                                        '</div>' +
+                                                    '</div>' +
+                                                '</div>' +
+
+                                                '<div class="postSecondPart">' + rList.boardTitle + '</div>' +
+                                                '<div class="postThirdPart" style="max-height:100px>' + "rList.boardContent(임시)" + '</div>' +
+                                                '<div class="postFourthPart">' + "#react #recoil #next.js" + '</div>' +
+                                                '<div class="postFiftPart">' + 
+                                                    '<div class="replyCount">' + "댓글 8" + '</div>' +
+                                                    '<div class="inquiryCount">' + "조회수" + rList.readCount+ '</div>' +
+                                                '</div>' +
+
+                                '</div>' + // 임시
+                                '</a>';
+                                            
+                        $('#post').append(postAppends); 
+                    });
+        })
+        .catch(err => console.log(err));
+});
+
 
     /** 게시글 무한스크롤 */
     function loadMoreData() {
@@ -64,8 +190,12 @@ var page = 2; // 처음 ajax 넘길 page 번호
             isLoading = true;
 
             showLoadingModal();
-            
-            fetch('loadPosts?page=' + page + '&boardCode=' + boardCode,{
+
+            const url = isRecentSort
+            ? "loadPosts?page=" + page + "&boardCode=" + boardCode
+            : "loadPostsByReadCount?page=" + page + "&boardCode=" + boardCode; 
+          
+            fetch(url, { // fetch('loadPosts?page=' + page + '&boardCode=' + boardCode,{
                 method: 'GET',
                 headers: {'Content-Type': 'application/json'}
                 // data : x
@@ -118,14 +248,14 @@ var page = 2; // 처음 ajax 넘길 page 번호
                                                 '</div>' +
 
                                                 '<div class="postSecondPart">' + whatever.boardTitle + '</div>' +
-                                                '<div class="postThirdPart">' + whatever.boardContent + '</div>' +
+                                                '<div class="postThirdPart">' + "whatever.boardContent(임시)" + '</div>' +
                                                 '<div class="postFourthPart">' + tagNames + '</div>' +
                                                 '<div class="postFifthPart">' + 
                                                     '<div class="replyCount">' + "댓글 5" + '</div>' +
                                                     '<div class="inquiryCount">' + "조회 7" + '</div>' +
                                                 '</div>' +
 
-                                            '</div>'; // 임시
+                                            '</div>'; 
                                             
                         $('#post').append(postAppends); 
 
@@ -143,7 +273,6 @@ var page = 2; // 처음 ajax 넘길 page 번호
             });
         }
     }
-
 
 /** 스크롤 할 때마다 실행되는 함수 */
 $(window).scroll(function() { 
@@ -165,60 +294,4 @@ $(window).scroll(function() {
     스크롤을 아래로 내릴수록 스크롤 위치 값이 증가하게 됩니다. 끝까지 스크롤을 내리면 스크롤 위치는 HTML 문서의 높이인 3000과 같아집니다.
 */
         
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-const readCountList = document.getElementById("readCountList");
-
-readCountList.addEventListener("click", () => {
-
-    fetch("readCountList?boardCode=" + boardCode)
-        .then(resp => {
-            if (!resp.ok) {
-                throw new Error('HTTP 응답 실패');
-            }
-            return resp.json(); // Return the parsed JSON data
-        })
-        .then(rList => {
-
-            document.getElementById("post").innerHTML='';
-
-            rList.forEach( rList => { 
-
-
-            var postAppends = 
-                            '<a href="/board/'+ rList.boardCode+ '/'+ rList.boardNo+'">' +
-                                '<div class="posts">' +  
-                                           '<div class="postFirstpart">' +
-                                                '<img src="/resources/images/logo.svg" class="writerImages">' +
-                                                '<div class="firstPartRight">' +
-                                                        '<div>' + rList.memberId + '</div>' +
-                                                            '<div>'+ 
-                                                            '<span id="minute">' + rList.createDate + '</span>' +
-                                                        '</div>' +
-                                                    '</div>' +
-                                                '</div>' +
-
-                                                '<div class="postSecondPart">' + rList.boardTitle + '</div>' +
-                                                '<div class="postThirdPart" style="max-height:100px>' + rList.boardContent + '</div>' +
-                                                '<div class="postFourthPart">' + "#react #recoil #next.js" + '</div>' +
-                                                '<div class="postFifthPart">' + 
-                                                    '<div class="replyCount">' + "댓글 8" + '</div>' +
-                                                    '<div class="inquiryCount">' + "조회수" + rList.readCount+ '</div>' +
-                                                '</div>' +
-
-                                '</div>' + // 임시
-                                '</a>';
-                                            
-                        $('#post').append(postAppends); 
-                    });
-        })
-        .catch(err => console.log(err));
-});
-
-
-const latest = document.getElementById("latest");
-
-latest.addEventListener("click", ()=>{
-
-    location.href = `/board/${boardCode}`;
-});
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

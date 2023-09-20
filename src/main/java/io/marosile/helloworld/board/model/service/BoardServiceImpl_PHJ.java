@@ -123,12 +123,25 @@ public class BoardServiceImpl_PHJ implements BoardService_PHJ{
 	public List<Board> selectReadCountList(int boardCode) {
 		return dao.selectReadCountList(boardCode);
 	}
+	
+	// 게시글 목록 조회 서비스(조회순 -> 최신순)
+	@Override
+	public List<Board> selectReadCountListBack(int boardCode) {
+		return dao.selectReadCountListBack(boardCode);
+	}
+
+	// 검색
+	@Override
+	public List<Board> searchBoardListSearch(Map<String, Object> map) {
+		List<Board> boardList = dao.selectBoardListSearch(map);
+		
+		return boardList;
+	}
 
 	// 전체 게시판 조회수 top10
 	@Override
 	public List<Board> getTopList() {
 		return dao.getTopList();
 	}
-
 
 }

@@ -4,9 +4,11 @@
 <!DOCTYPE html>
 <html lang="ko">
 
+
 <c:if test="${!empty studyList}">
     <c:set var="study" value="${studyList}"/>
 </c:if>
+
 
 <head>
     <meta charset="UTF-8">
@@ -500,7 +502,7 @@
                         </c:choose>
 
                         <script>
-                            const boardNo = "${study.boardNo}"
+                            const boardNo = ${study.boardNo}
                             const loginMemberId = "${loginMember.memberId}"
                         </script>
 

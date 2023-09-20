@@ -50,14 +50,29 @@ public class BoardController {
 
 	// 게시글 목록 조회 (첫 조회 -> posts 10개)
 	@GetMapping("/{boardCode:[1-3]}")
-	public String boardList(Model model, @PathVariable("boardCode") int boardCode) {
-		
+	public String boardList(Model model
+						   ,@PathVariable("boardCode") int boardCode
+						   ,@RequestParam(value="searchKeyword", required=false) String searchKeyword) {
+		System.out.println(searchKeyword);
 		Map<String, Object> map = new HashMap<String, Object>();
 		
-		
-		List<Board> boardList = service2.selectBoardList(boardCode);
+		//List<Board> boardList = service2.selectBoardList(boardCode);
+		List<Board> boardList = new ArrayList<Board>();
 		List<Board> getTopList = service2.getTopList();
 		
+		if (searchKeyword != null && !searchKeyword.isEmpty()) {
+			
+			map.put("boardCode", boardCode);
+			map.put("searchKeyword", searchKeyword);
+	        System.out.println("검색어이씀");
+			// 검색어가 있는 경우
+			boardList = service2.searchBoardListSearch(map);
+			System.out.println(boardList);
+			
+			
+		} else {
+			boardList = service2.selectBoardList(boardCode);
+		}
 		
 		map.put("boardList",boardList);
 		map.put("getTopList",getTopList);
@@ -67,12 +82,12 @@ public class BoardController {
 		return "board/board-list";
 	}
 	
-	
 	// 게시글 목록 조회(조회순)
 	@GetMapping(value = "/readCountList", produces = "application/json; charset=UTF-8")
 	@ResponseBody
-	public List<Board> readCountList(Model model, @RequestParam("boardCode") int boardCode) {
-	    
+	public List<Board> readCountList(Model model
+									,@RequestParam("boardCode") int boardCode
+									) {
 	    
 	    List<Board> readCountList = service2.selectReadCountList(boardCode);
 	    
@@ -81,9 +96,19 @@ public class BoardController {
 	    return readCountList;
 	}
 	
-
+	// 게시글 목록 조회(조회순 -> 최신순)
+	@GetMapping(value = "/readCountListBack", produces = "application/json; charset=UTF-8")
+	@ResponseBody
+	public List<Board> readCountListBack(Model model, @RequestParam("boardCode") int boardCode) {
+	    
+	    List<Board> readCountList = service2.selectReadCountListBack(boardCode);
+	    
+	    model.addAttribute("readCountList",readCountList);
+	    
+	    return readCountList;
+	}
 	
-	// 게시글 목록 무한스크롤
+	// 게시글 목록 무한스크롤(최신순, 기본값)
 	@GetMapping(value = "/loadPosts", produces = "application/json; charset=UTF-8")
 	@ResponseBody
 	public List<Board> loadPosts(@RequestParam("page") int page, @RequestParam("boardCode") int boardCode) {
@@ -99,6 +124,26 @@ public class BoardController {
 		parameters.put("end", end);
 
 		List<Board> postList = service.loadPosts(parameters);
+
+		return postList;
+	}
+	
+	// 게시글 목록 무한스크롤(조회순)
+	@GetMapping(value = "/loadPostsByReadCount", produces = "application/json; charset=UTF-8")
+	@ResponseBody	
+	public List<Board> loadPostsByReadCount(@RequestParam("page") int page, @RequestParam("boardCode") int boardCode) {
+
+		int pageSize = 10; // 한 페이지에 표시할 게시글 수
+		int start = (page - 1) * pageSize + 1; // 첫 매핑 -> 11 두번째 매핑 -> 21 , ...
+		int end = page * pageSize; // 첫 매핑 -> 20, 두번째 매핑 -> 30 , ...
+
+		Map<String, Object> parameters = new HashMap<>();
+
+		parameters.put("boardCode", boardCode);
+		parameters.put("start", start);
+		parameters.put("end", end);
+
+		List<Board> postList = service.loadPostsByReadCount(parameters);
 
 		return postList;
 	}
@@ -263,28 +308,5 @@ public class BoardController {
 		
 		return service2.insertReport(map);
 	}
-	
-	/*
-	 * // 전체 게시글 TOP 10
-	 * 
-	 * @PostMapping("/getTop")
-	 * 
-	 * @ResponseBody public List<Board> getTopList(Model model){
-	 * 
-	 * List<Board> getTopList = service2.getTopList();
-	 * 
-	 * model.addAttribute("getTopList", getTopList);
-	 * 
-	 * System.out.println("getTopList : " + getTopList);
-	 * 
-	 * return getTopList;
-	 * 
-	 * }
-	 * 
-	 */
-	
-	
-	
-	
-	
+
 }
