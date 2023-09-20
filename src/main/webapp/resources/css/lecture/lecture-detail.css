@@ -27,6 +27,7 @@ main {
 
 #title {
     position: absolute;
+    width: 700px;
     padding: 10px 20px;
     font-size: 2rem;
 }
@@ -209,4 +210,14 @@ main {
 
 #lecture-nav > a:first-of-type {
     color: var(--text-color-1);
+}
+
+#payment-method {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 600px;
+    border-radius: 10px;
+    overflow: hidden;
+    transform: translate(-50%, -50%);
 }
