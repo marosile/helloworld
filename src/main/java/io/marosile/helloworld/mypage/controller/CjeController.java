@@ -89,6 +89,8 @@ public class CjeController {
 		// 웹 접근 경로
 		String webPath = "/resources/images/member/";
 		
+		
+		
 		// 실제 이미지 파일 저장 경로
 		String filePath = session.getServletContext().getRealPath(webPath);
 		
@@ -106,6 +108,7 @@ public class CjeController {
 			
 			// 닉네임 동기화
 			loginMember.setMemberNick(updateMember.getMemberNick());
+			
 			
 		}else {
 			
