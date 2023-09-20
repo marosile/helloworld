@@ -8,16 +8,16 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>스터디</title>
+    <title>스터디작성</title>
 
+    <link rel="stylesheet" href="/resources/css/common/general.css">
+    <link rel="stylesheet" href="/resources/css/index.css">
+    <link rel="stylesheet" href="/resources/css/study/studyWrite.css">
+    <script src="https://kit.fontawesome.com/98acdabf0d.js" crossorigin="anonymous"></script>
 
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"
             integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
             crossorigin="anonymous"></script>
-
-  <link rel="stylesheet" href="/resources/css/common/general.css">
-    <link rel="stylesheet" href="/resources/css/index.css">
-    <link rel="stylesheet" href="/resources/css/study/studyWrite.css">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=955d027ad541e959373216700e779cf3&libraries=services"></script>
@@ -30,7 +30,7 @@
 </head>
 <body>
 <jsp:include page="/WEB-INF/views/common/header.jsp"/>
-<jsp:include page="/WEB-INF/views/study/study-nav.jsp"/>
+
 
 
 <main id="P-body-area">
@@ -53,7 +53,7 @@
                     </button>
 
                     <ul class="P-selectBox-role menuHidden" id="P-selectBox-role" >
-                        <li><button type="button" class="P-option-btn" id="front">프론트엔트</button>
+                        <li><button type="button" class="P-option-btn" id="front">프론트엔드</button>
                         </li>
                         <li><button type="button" class="P-option-btn" id="back">백엔드</button></li>
                         <li><button type="button" class="P-option-btn" id="design">디자인</button></li>

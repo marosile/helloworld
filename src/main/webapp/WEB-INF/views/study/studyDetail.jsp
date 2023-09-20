@@ -55,9 +55,7 @@
 
                 <div class="P-study-detail-location-area">
                         <span class="P-study-datail-location">
-                            <i class="fa-solid fa-location-dot"></i>
-                             ${studyDetail.location}
-                            <i class="fa-solid fa-angle-right"></i>
+                             ${studyDetail.createDate}
                         </span>
 
                 </div>
@@ -82,19 +80,13 @@
 
             <!-- 작성일 -->
             <div id="writeDate">
-                ${studyDetail.createDate}
+               
             </div>
 
             <div class="P-study-detail-container">
                 <a href="">
                     <div class="P-study-detail-tag">
-                        <span># 백엔드</span>
-                    </div>
-                </a>
-
-                <a href="">
-                    <div class="P-study-detail-tag">
-                        <span># 프론트 앤드</span>
+                        <span># ${studyDetail.tagNm}</span>
                     </div>
                 </a>
             </div>

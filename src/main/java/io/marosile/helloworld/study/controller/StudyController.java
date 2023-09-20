@@ -5,6 +5,7 @@ import io.marosile.helloworld.member.model.dto.Member;
 import io.marosile.helloworld.study.model.dto.Study;
 import io.marosile.helloworld.study.model.service.StudyService;
 import io.marosile.helloworld.study.model.service.StudyServiceImpl;
+import org.apache.struts.chain.commands.servlet.SetOriginalURI;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,7 +22,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 
-@SessionAttributes({"loginMember"})
+@SessionAttributes({"loginMember","studyDetail"})
 @RequestMapping("/study")
 @Controller
 public class StudyController {
@@ -72,7 +73,6 @@ public class StudyController {
                 if (result > 0) {
                     model.addAttribute("likeCheck", "on");
 
-                    System.out.println("result:" + result);
                 }
             }
 
@@ -136,6 +136,7 @@ public class StudyController {
             path = "redirect:/study/main";
             ra.addFlashAttribute("message", "해당 게시글이 존재하지 않습니다.");
         }
+
         return path;
     }
 
@@ -144,7 +145,6 @@ public class StudyController {
     @ResponseBody
     public int like(@RequestBody Map<String, Object> map) {
 
-        System.out.println(map);
         return service.like(map);
     }
 
@@ -185,7 +185,7 @@ public class StudyController {
 
 
     // 스터디 수정 페이지로
-    @GetMapping("/detail/{boardNo}/update")
+    @GetMapping("/detail/update/{boardNo}")
     public String studyUpdate(Model model
             , @PathVariable("boardNo") int boardNo) {
 
@@ -204,15 +204,28 @@ public class StudyController {
     @PostMapping("/detail/update/{boardNo}")
     public String StudyUpdate( @ModelAttribute Study study
                             , @PathVariable("boardNo") int boardNo
-                            , @SessionAttribute("loginMember")Member loginMember) {
+                            , @SessionAttribute("loginMember")Member loginMember
+                            , @SessionAttribute("studyDetail") Study studyDetail
+                            , RedirectAttributes ra) {
 
         study.setMemberId(loginMember.getMemberId());
+        study.setStudyNo(studyDetail.getStudyNo());
+        study.setCreateDate(studyDetail.getCreateDate());
 
         int result = service.studyUpdate(study);
 
+        String path = "redirect:";
+        String message = null;
 
-        return null;
-
+        if(result > 0){
+            message ="스터디 모집글이 수정되었습니다";
+            path += "/study/detail/" + boardNo;
+        }else{
+            message="스터디 모집글 수정이 불가합니다 다시 시도 부탁 드립니다.";
+            path += "/detail/update";
+        }
+        ra.addFlashAttribute("message",message);
+        return path;
     }
 
 
@@ -249,6 +262,5 @@ public class StudyController {
 
         return "study/studyChatting";
     }
-    
 }
 

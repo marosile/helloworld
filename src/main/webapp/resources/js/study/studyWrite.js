@@ -211,10 +211,3 @@ function displayArea(area) {
     });
 
 }
-// 작성완료
-const titleTextarea = document.getElementById("P-body-title-textarea");
-const bodyContent = document.getElementById("P-body-content");
-
-const BtnModify = document.getElementById("BtnModify");
-
-
