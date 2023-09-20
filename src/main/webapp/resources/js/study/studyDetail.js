@@ -18,7 +18,7 @@ if(updateBtn!=null){
 
         if (confirm("게시글을 수정하시겠습니까?")) {
 
-            location.href = "/study/detail/"+boardNo +"/" +"update";
+            location.href = "/study/detail/update" + boardNo;
         }
 
 

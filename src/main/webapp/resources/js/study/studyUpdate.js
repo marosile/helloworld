@@ -211,10 +211,22 @@ function displayArea(area) {
     });
 
 }
-// 작성완료
-const titleTextarea = document.getElementById("P-body-title-textarea");
-const bodyContent = document.getElementById("P-body-content");
 
 const BtnModify = document.getElementById("BtnModify");
 
+if()
+BtnModify.addEventListener("click",()=>{
 
+    alert("모집글이 수정되었습니다.")
+    location.href = "/study/detail/"+boardNo
+})
+
+const BtnDelet = document.getElementById("BtnDelet");
+
+if(BtnDelet!=null){
+
+    BtnDelet.addEventListener("click",() =>{
+        if(confirm("정말 수정 취소하시겠습니까? "))
+            location.href="/study/deail/"+BtnDelet;
+    })
+}

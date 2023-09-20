@@ -48,7 +48,7 @@
 
                 <div class="P-body-category-role">
 
-                    <button type="button" class="P-body-category-btn">역할
+                    <button type="button" class="P-body-category-btn">모집분야
                         <i class="fa-solid fa-caret-down"></i>
                     </button>
 
@@ -136,8 +136,8 @@
 
             <div class="P-body-controller">
                 <div class="P-body-controller-Btn">
-                    <button id="BtnModify">작성완료</button>
-                    <button id="BtnDelete">작성취소</button>
+                    <button id="BtnModify">수정완료</button>
+                    <button id="BtnDelete">수정취소</button>
                 </div>
 
             </div>
@@ -213,7 +213,7 @@
 
 <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
 <script src="/resources/js/common/general.js"></script>
-<script src="/resources/js/study/studyWrite.js"></script>
+<script src="/resources/js/study/studyUpdate.js"></script>
 
 
 </body>
