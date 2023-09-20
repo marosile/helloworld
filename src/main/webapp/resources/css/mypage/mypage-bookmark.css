@@ -37,7 +37,7 @@ main{
 .row1{
     border: 1px solid #80808052;
     width: 850px;
-    height: 93px;
+    height: 90px;
     margin-right: 15px;
     margin-left: 15px;
     border-radius: 10px;
@@ -85,12 +85,14 @@ main{
     font-weight: 500;
 }
 
+.bottom > :nth-child(1){flex-basis: 90%;}
+.bottom > :nth-child(2){flex-basis: 10%;}
 
-/* ============================================수정하기 오른쪽으로 옮기는거 마진으로 X==================== */
+
+/* =======================수정하기 오른쪽으로 옮기는거 마진으로 X ====== */
 /* 조회수 댓글 묶음 */
 .Count-area{
     display: flex;
-    margin-left: 370px;
 }
 
 .Count-area > *{

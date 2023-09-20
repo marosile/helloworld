@@ -48,8 +48,6 @@
                         <div class="fa-solid fa-calendar-days">&nbsp;지원일시 : </div>
                     </div>
 
-                    
-
                 </div>
 
     
