@@ -14,9 +14,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.SessionAttribute;
 
 import io.marosile.helloworld.board.model.dto.Board;
 import io.marosile.helloworld.board.model.dto.Comment;
+import io.marosile.helloworld.member.model.dto.Member;
 import io.marosile.helloworld.trand.model.dto.Trand;
 import io.marosile.helloworld.trand.model.service.TrandService;
 
@@ -56,13 +58,14 @@ public class TrandController {
 	// 트렌드 상세
 	@GetMapping("/detail")
 	public String trandDetail(@RequestParam("boardNo") int boardNo
-							  , Model model) {
+							  , Model model
+							  ,@SessionAttribute(value="loginMember", required =false) Member loginMember) {
+		
 		
 		Map<String, Object> map = new HashMap<String, Object>();
 		
 		// 게시글 내용
 		Board trandDetail = service.selectTrandDetail(boardNo); 
-		
 		
 		// 댓글 내용
 		List<Comment> commentList = service.selectComment(boardNo);
@@ -70,6 +73,30 @@ public class TrandController {
 		// top10 목록
 		List<Board> List = service.selectTrandList();
 		
+		map.put("boardNo", boardNo);
+		
+		if(trandDetail != null) {
+			
+			if(loginMember != null ) {
+				
+				System.out.println(boardNo);
+				System.out.println(loginMember.getMemberId());
+				
+				map.put("memberId", loginMember.getMemberId());
+				
+				// 북마크 조회
+				int result = service.bookMarkCheck(map);
+				
+				if (result > 0)
+					model.addAttribute("bookMarkCheck", "on");
+				
+				// 좋아요 조회
+				int result2 = service.likeCheck(map);
+				
+				if (result2 > 0)
+					model.addAttribute("likeCheck", "on");
+			}
+		}
 		map.put("trandDetail", trandDetail);
 		map.put("commentList", commentList);
 		map.put("List", List);
@@ -78,5 +105,6 @@ public class TrandController {
 		
 		return "trand/trand-detail";
 	}
+	
 	
 }
