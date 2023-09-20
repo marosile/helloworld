@@ -9,6 +9,7 @@ import io.marosile.helloworld.member.model.dto.GoogleOAuthResponse;
 import io.marosile.helloworld.member.model.dto.Member;
 import io.marosile.helloworld.member.model.service.MemberService;
 
+import oracle.jdbc.proxy.annotation.Post;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -348,6 +349,65 @@ public class MemberController {
 		return service.findIdEmail(inputEmail);
 	}
 
+	/* 전화번호로 비밀번호 찾기 controller */
+	@ResponseBody
+	@PostMapping(value="/findPw/tel", produces="application/json; charset=UTF-8")
+	public int findPwTel(@RequestBody Map<String, Object> findPwTel){
+
+		return service.findPwTel(findPwTel);
+	}
+	
+	/* 이메일로 비밀번호 찾기 controller */
+	@ResponseBody
+	@PostMapping(value="/findPw/email", produces="application/json; charset=UTF-8")
+	public int findPwEmail(@RequestBody Map<String, Object> findPwEmail){
+
+		return service.findPwEmail(findPwEmail);
+	}
+
+
+
+	/* 새 비밀번호 재발급 Controller*/
+	@PostMapping("/findPw/newPw")
+	public String newPwChange(@RequestParam("memberPw") String memberPw
+							, @RequestParam("memberId1") String memberId1
+							, @RequestParam("memberId2") String memberId2){
+
+		System.out.println("memberId1 : " + memberId1);
+		System.out.println("memberId2 : " + memberId2);
+
+		Member member = new Member();
+
+		if(memberId1.equals("")){
+			member.setMemberId(memberId2);
+		}
+		if(memberId2.equals("")){
+			member.setMemberId(memberId1);
+		}
+
+
+		System.out.println("니 아이디가 뭐냐? : " + member.getMemberId());
+
+		member.setMemberPw(memberPw);
+
+		int result = service.newPwChange(member);
+
+		String path = "redirect:";
+
+		if(result > 0){
+			System.out.println("성공이여");
+			path += "/member/login";
+
+		}else{
+			System.out.println("실패여");
+			path += "/member/findPw";
+
+		}
+
+		return path;
+	}
+
+	
 
 
 }

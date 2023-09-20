@@ -182,4 +182,10 @@
     display: inline-block;
 }
 
+.TelCertification > div:nth-of-type(1){
+    margin-top: 50px;
+}
 
+.EmailCertification> div:nth-of-type(1){
+    margin-top: 50px;
+}

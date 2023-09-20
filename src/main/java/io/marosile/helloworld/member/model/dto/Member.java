@@ -22,4 +22,9 @@ public class Member {
     private String promotionFl;
     private String deleteFl;
 
+
+    // 비밀번호 찾기에서 사용할 변수
+    private String inputId;
+    private String inputTel;
+    private String inputEmail;
 }

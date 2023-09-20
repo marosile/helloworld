@@ -33,71 +33,100 @@
         </div>
 
 
-            <!-- 비밀번호 찾기를 눌렀을 때 DB에 아이디가 있는지 확인, 없으면 재요청하고 있으면 재발급 진행 -->
+        <!-- 비밀번호 찾기를 눌렀을 때 DB에 아이디가 있는지 확인, 없으면 재요청하고 있으면 재발급 진행 -->
+        <form action='/member/findPw/newPw' id="newPwFrm" method="POST">
 
             <div class="TelCertification">
-                <form action="#" class="findPwFrm" id="phoneFrm">
 
-                    <div class="findPwId">
-                        <input type="text" class="inputId" id="inputId1" placeholder="비밀번호 재발급할 ID를 입력 해주세요">
-                    </div>
+                <div class="findPwId">
+                    <input type="text" class="inputId" id="inputId1" name="memberId1" placeholder="비밀번호 재발급할 ID를 입력 해주세요">
+                </div>
 
-                    <div class="phoneAuth1">
-                        <input type="text" id="inputTel1" class="phoneInput" placeholder="본인인증을 위한 휴대폰 번호 입력">
+                <div class="phoneAuth1">
+                    <input type="text" id="inputTel1" class="phoneInput" placeholder="본인인증을 위한 휴대폰 번호 입력">
 
-                        <button id="btn1" class="inputBtn" type="button">인증번호 발송</button>
-                    </div>
+                    <button id="btn1" class="inputBtn" type="button">인증번호 발송</button>
+                </div>
 
-                    <div class="phoneAuth1">
-                        <input type="text" id="inputTel2" class="phoneInput" placeholder="인증번호 입력">
+                <div class="phoneAuth1">
+                    <input type="text" id="inputTel2" class="phoneInput" placeholder="인증번호 입력">
 
-                        <button id="btn2" class="inputBtn" type="button">인증하기</button>
+                    <button id="btn2" class="inputBtn" type="button">인증하기</button>
 
-                    </div>
+                </div>
 
-                    <div class="telMessage">
-                        <span id="authKeyMessage"></span>
-                        <span id="telAuthMessage"></span>
-                    </div>
+                <div class="telMessage">
+                    <span id="authKeyMessage"></span>
+                    <span id="telAuthMessage"></span>
+                </div>
 
 
-                    <button class="findPwBtn" id="findPwBtn1">비밀번호 찾기</button>
-
-                </form>
+                <button class="findPwBtn" id="findPwBtn1" type="button">비밀번호 찾기</button>
 
             </div>
 
 
             <div class="EmailCertification">
-                <form action="#" class="findPwFrm" id="emailFrm">
 
-                    <div class="findPwId">
-                        <input type="text" class="inputId" id="inputId2" placeholder="비밀번호 재발급할 ID를 입력 해주세요">
-                    </div>
+                <div class="findPwId">
+                    <input type="text" class="inputId" id="inputId2" name="memberId2" placeholder="비밀번호 재발급할 ID를 입력 해주세요">
+                </div>
 
-                    <div class="phoneAuth1">
-                        <input type="text" id="inputEmail1" class="phoneInput" placeholder="본인인증을 위한 이메일 입력">
+                <div class="phoneAuth1">
+                    <input type="text" id="inputEmail1" class="phoneInput" placeholder="본인인증을 위한 이메일 입력">
 
-                        <button id="btn3" class="inputBtn" type="button">인증번호 발송</button>
-                    </div>
+                    <button id="btn3" class="inputBtn" type="button">인증번호 발송</button>
+                </div>
 
-                    <div class="phoneAuth1">
-                        <input type="text" id="inputEmail2" class="phoneInput" placeholder="인증번호 입력">
+                <div class="phoneAuth1">
+                    <input type="text" id="inputEmail2" class="phoneInput" placeholder="인증번호 입력">
 
-                        <button id="btn4" class="inputBtn" type="button">인증하기</button>
+                    <button id="btn4" class="inputBtn" type="button">인증하기</button>
 
-                    </div>
+                </div>
 
-                    <div class="telMessage">
-                        <span id="emailAuthMessage"></span>
-                    </div>
+                <div class="telMessage">
+                    <span id="authKeyMessage2"></span>
+                    <span id="emailAuthMessage"></span>
+                </div>
 
 
-                    <button class="findPwBtn" id="findPwBtn2">비밀번호 찾기</button>
+                <button class="findPwBtn" id="findPwBtn2" type="button">비밀번호 찾기</button>
 
-                </form>
 
             </div>
+
+
+            <div class="pwModal">
+                <span id="pwModalClose">&times;</span>
+                <div class="pwModalDiv">
+
+                        <h2>새 비밀번호로 변경</h2>
+
+                        <div class="newPwDiv">
+                            <label for="newPw">새 비밀번호 : </label>
+                            <input type="text" id="newPw" name="memberPw" autocomplete="off">
+                            <div id="pwMessage">영어,숫자,특수문자(!,@,#,-,_) 6~20글자 사이로 입력해주세요</div>
+                        </div>
+
+                        <div class="newPwDiv">
+                            <label for="newPw2">새 비밀번호 확인 : </label>
+                            <input type="text" id="newPw2" autocomplete="off">
+                            <div id="pwCheckMessage"></div>
+                        </div>
+
+                        <button class="newPwBtn">새 비밀번호로 변경</button>
+
+
+                </div>
+
+
+
+            </div>
+
+        </form>
+
+
 
     </div>
     
