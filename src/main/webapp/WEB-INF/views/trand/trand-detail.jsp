@@ -7,6 +7,7 @@
 <c:set var="detail" value="${map.trandDetail}" />
 <c:set var="comment" value="${map.commentList}" />
 <c:set var="topList" value="${map.List}" />
+<c:set var="boardNo" value="${map.boardNo}" />
 
 <head>
     <meta charset="UTF-8">
@@ -21,6 +22,11 @@
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 </head>
 <body>
+
+<%
+        int i = 1;
+    %>
+
     
     <jsp:include page="/WEB-INF/views/common/header.jsp"/>
 
@@ -34,10 +40,8 @@
                 <!-- 이미지 + 제목 / 소개  -->
                 <div id="postHeader">
                     
-                    <div id="headerImage">
-                        <img src="/resources/images/user.png" 
-                             id="detailWriterImage">
-                    
+                    <div id="headerImage" >
+                        <img src="${detail.profileImage}" id="detailWriterImage">
                     </div>
                     
                     <div id="headerNameIntro">
@@ -53,26 +57,19 @@
 
                 <!-- 제목 -->
                 <div id="detailTitle">
-                    🕊️ JWT 기본 개념 이해하기
+                    🕊️ ${detail.boardTitle}
                 </div>
 
                 <!-- 내용 p태그 쓰는게 맞나 -->
                 <div id="pDiv">
-                    <p>📌JWT(Json Web Token)는 말그대로 웹에서 사용되는 JSON 형식의 토큰에 대한 표준 규격인데요. 주로 사용자의 인증(authentication) 또는 인가(authorization) 정보를 서버와 클라이언트 간에 안전하게 주고 받기 위해서 사용됩니다.<br><br>
-
-                        JWT 토큰 웹에서 보통 `Authorization` HTTP 헤더를 `Bearer 토큰`의 형태로 설정하여 클라이언트에서 서버로 전송되며, 서버에서는 토큰에 포함되어 있는 서명(signature) 정보를 통해서 위변조 여부를 빠르게 검증할 수 있게 됩니다.<br><br>
-                        
-                        JWT 토큰은 Base64로 인코딩이 되어 있어서 육안으로 보면 `eyJ`로 시작하는 아주 긴 문자열인데요. 온라인 디버거를 통해서 어렵지 않게 실제로 저장되어 있는 내용을 JSON 형태로 디코딩하여 확인해볼 수 있습니다.<br><br>
-                        
-                        이번 글에서는 JWT를 처음 접하시는 분들을 위해서 JWT의 기본 개념을 잡아보겠습니다.<br><br>
-                        
-                        📝 포스팅: https://www.daleseo.com/jwt/
+                    <p>
+                    ${detail.boardContent}
                     </p>
                 </div>
 
                 <!-- 작성일 -->
                 <div id="writeDate">
-                    2023년 8월 21일 오전 4:43
+                    ${detail.createDate}
                 </div>
 
                 <!-- 좋아요 북마크 수정 삭제 목록으로 div-->
@@ -81,20 +78,34 @@
                     <!-- 좋아요 북마크 -->
                     <div id="likeBookMark"> 
                     
-                            <div id="like">
-                                <div>
-                                    <i class="fa-solid fa-heart fa-2xl"></i>
-                                </div>  
-                                <div id="likeCount">
-                                    135
-                                </div>
-                            </div>
-
-                        <div id="bookMark">
+                        <%-- 좋아요 --%>
+                        <div id="like-area">
                             <div>
-                                <i class="fa-regular fa-bookmark fa-2xl"></i>
+                                <c:if test="${empty likeCheck}">
+                                    <i class="fa-regular fa-heart fa-2xl" id="like"></i>
+                                </c:if>
+
+                                <c:if test="${!empty likeCheck}">
+                                    <i class="fa-solid fa-heart fa-2xl" id="like" style="color:red"></i>
+                                </c:if>
+                                <div id="likeCount">${detail.likeCount}</div>
+                            </div>  
+                        
+                        </div>
+
+                        <%-- 북마크 --%>
+                        <div id="bookMark-area">
+                            <div>
+                                <c:if test="${empty bookMarkCheck}">
+                                    <i class="fa-regular fa-bookmark fa-2xl" id="bookMark"></i>
+                                </c:if>
+
+                                <c:if test="${!empty bookMarkCheck}">
+                                    <i class="fa-solid fa-bookmark fa-2xl" id="bookMark"></i>
+                                </c:if>
                             </div>
                         </div>
+
                     </div>
 
                     <div id="updateDeleteBack">
@@ -108,50 +119,43 @@
                 <!-- 댓글 -->
                 <div id="replyContainer">
 
-                    <div id="replyCount">
-                        댓글 수 : 2
-                    </div>
+                    <div id="replyCount"><i class="fa-solid fa-eye"></i>  ${detail.readCount}</div>
 
                     <!-- 댓글 하나하나 나중에 for문 -->
-                    <div class="replys">
+                    <c:choose>
+                        <c:when test="${empty comment}">
+                            <div class="replys">
+                                <div class="replyContents">
+                                    댓글이 없습니다. 첫 댓글을 작성해보세요 🤍
+                                </div>
+                             </div>
+                        </c:when>
 
-                        <div class="inReplyfirstDiv">
-                            <div><img src="/resources/images/user.png" class="replyImages"></div>
-                            <div>작성자</div>
-                            <div>(2023-09-04)</div>
-                        </div>
+                        <c:otherwise>
+                            <c:forEach items="${comment}" var="comment">
+                            <div class="replys">
 
-                        <div class="replyContents">
-                            댓글 내용입니다.
-                        </div>
+                                <div class="inReplyfirstDiv">
+                                    <div><img src="${comment.profileImage}" class="replyImages"></div>
+                                    <div id="replyWriter">${comment.memberId}</div>
+                                    <div id="replyCreateDate">(${comment.createDate})</div>
+                                </div>
 
-                        <div class="replyBtns">
-                            <button class="replyBtn">수정</button>
-                            <button class="replyBtn">삭제</button>
-                            <button class="replyBtn">대댓글</button>
-                        </div>
-                     
-                    </div>
+                                <div class="replyContents">
+                                    ${comment.commentContent}
+                                </div>
 
-                    <div class="replys">
-
-                        <div class="inReplyfirstDiv">
-                            <div><img src="/resources/images/user.png" class="replyImages"></div>
-                            <div id="replyWriter">작성자</div>
-                            <div id="replyCreateDate">(2023-09-04)</div>
-                        </div>
-
-                        <div class="replyContents">
-                            댓글 내용입니다.
-                        </div>
-
-                        <div class="replyBtns">
-                            <button class="replyBtn">수정</button>
-                            <button class="replyBtn">삭제</button>
-                            <button class="replyBtn">대댓글</button>
-                        </div>
-                     
-                    </div>
+                                <div class="replyBtns">
+                                    <button class="replyBtn">수정</button>
+                                    <button class="replyBtn">삭제</button>
+                                    <button class="replyBtn">대댓글</button>
+                                </div>
+                            
+                            </div>
+                            </c:forEach>
+                        </c:otherwise>
+                    </c:choose>    
+                    
 
                     <!-- 댓글 작성 div -->
                     <div id="replyWrite">
@@ -179,239 +183,42 @@
             <!-- 인기글 top 10 -->
             <div id="top10">
               
-                <div id="top10HeaderText">트렌드 인기 TOP 10</div>
+                <div id="top10HeaderText"> <img src="/resources/images/logo.svg" id="top10WritersImage">트렌드 인기 TOP 10</div>
                 <div></div>
 
                 <!-- 백엔드 할때 for문 돌리기 -->
-                <div class="top10Posts">
-                    
-                    <!-- 1~10 번호 -->
-                    <div class="numbers" style="color:orangered !important">1</div>
-
-                    <!-- 1~10 작성자 이미지 -->
-                    <div class="WriterImages">
-                        <img src="/resources/images/logo.svg" id="top10WritersImage">
-                    </div>
-
-                    <!-- 1~10 제목 + 작성자 + 간단소개???(ex:블로그 쓰는 개발자) -->
-                    <div class="top10Texts">
-                        <div class="top10Title">
-                            JWT 기본 개념 이해하기
-                        </div>
-
-                        <div class="top10WriterIntroduce">
-                            <span class="nickname">이명진</span> 블로그 쓰는 개발자 ✍️
-                        </div>
-                    </div>
-
-                </div>
-
-                                <div class="top10Posts">
-                    
-                    <!-- 1~10 번호 -->
-                    <div class="numbers" style="color:orangered !important">2</div>
-
-                    <!-- 1~10 작성자 이미지 -->
-                    <div class="WriterImages">
-                        <img src="/resources/images/logo.svg" id="top10WritersImage">
-                    </div>
-
-                    <!-- 1~10 제목 + 작성자 + 간단소개???(ex:블로그 쓰는 개발자) -->
-                    <div class="top10Texts">
-                        <div class="top10Title">
-                            JWT 기본 개념 이해하기
-                        </div>
-
-                        <div class="top10WriterIntroduce">
-                            <span class="nickname">이명진</span> 블로그 쓰는 개발자 ✍️
-                        </div>
-                    </div>
-
-                </div>
-                
-                <div class="top10Posts">
-                    
-                    <!-- 1~10 번호 -->
-                    <div class="numbers" style="color:orangered !important">3</div>
-
-                    <!-- 1~10 작성자 이미지 -->
-                    <div class="WriterImages">
-                        <img src="/resources/images/logo.svg" id="top10WritersImage">
-                    </div>
-
-                    <!-- 1~10 제목 + 작성자 + 간단소개???(ex:블로그 쓰는 개발자) -->
-                    <div class="top10Texts">
-                        <div class="top10Title">
-                            JWT 기본 개념 이해하기
-                        </div>
-
-                        <div class="top10WriterIntroduce">
-                            <span class="nickname">이명진</span> 블로그 쓰는 개발자 ✍️
-                        </div>
-                    </div>
-
-                </div>
+                <c:forEach items="${topList}" var="list">
 
                 <div class="top10Posts">
                     
                     <!-- 1~10 번호 -->
-                    <div class="numbers">4</div>
+                    <div class="numbers" style="color:orangered !important"> <%= i++ %> </div>
 
                     <!-- 1~10 작성자 이미지 -->
                     <div class="WriterImages">
-                        <img src="/resources/images/logo.svg" id="top10WritersImage">
+                        <img src="${list.profileImage}">
                     </div>
 
                     <!-- 1~10 제목 + 작성자 + 간단소개???(ex:블로그 쓰는 개발자) -->
                     <div class="top10Texts">
                         <div class="top10Title">
-                            JWT 기본 개념 이해하기
+                            ${list.boardTitle}
                         </div>
 
                         <div class="top10WriterIntroduce">
-                            <span class="nickname">이명진</span> 블로그 쓰는 개발자 ✍️
+                            <span class="nickname">👩 ${list.memberId}</span> ✍️ ${list.memberNickname}
                         </div>
                     </div>
 
                 </div>
 
-                <div class="top10Posts">
-                    
-                    <!-- 1~10 번호 -->
-                    <div class="numbers">5</div>
+                </c:forEach>
 
-                    <!-- 1~10 작성자 이미지 -->
-                    <div class="WriterImages">
-                        <img src="/resources/images/logo.svg" id="top10WritersImage">
-                    </div>
-
-                    <!-- 1~10 제목 + 작성자 + 간단소개???(ex:블로그 쓰는 개발자) -->
-                    <div class="top10Texts">
-                        <div class="top10Title">
-                            JWT 기본 개념 이해하기
-                        </div>
-
-                        <div class="top10WriterIntroduce">
-                            <span class="nickname">이명진</span> 블로그 쓰는 개발자 ✍️
-                        </div>
-                    </div>
-
-                </div>
-
-                <div class="top10Posts">
-                    
-                    <!-- 1~10 번호 -->
-                    <div class="numbers">6</div>
-
-                    <!-- 1~10 작성자 이미지 -->
-                    <div class="WriterImages">
-                        <img src="/resources/images/logo.svg" id="top10WritersImage">
-                    </div>
-
-                    <!-- 1~10 제목 + 작성자 + 간단소개???(ex:블로그 쓰는 개발자) -->
-                    <div class="top10Texts">
-                        <div class="top10Title">
-                            JWT 기본 개념 이해하기
-                        </div>
-
-                        <div class="top10WriterIntroduce">
-                            <span class="nickname">이명진</span> 블로그 쓰는 개발자 ✍️
-                        </div>
-                    </div>
-
-                </div>
-
-                <div class="top10Posts">
-                    
-                    <!-- 1~10 번호 -->
-                    <div class="numbers">7</div>
-
-                    <!-- 1~10 작성자 이미지 -->
-                    <div class="WriterImages">
-                        <img src="/resources/images/logo.svg" id="top10WritersImage">
-                    </div>
-
-                    <!-- 1~10 제목 + 작성자 + 간단소개???(ex:블로그 쓰는 개발자) -->
-                    <div class="top10Texts">
-                        <div class="top10Title">
-                            JWT 기본 개념 이해하기
-                        </div>
-
-                        <div class="top10WriterIntroduce">
-                            <span class="nickname">이명진</span> 블로그 쓰는 개발자 ✍️
-                        </div>
-                    </div>
-
-                </div>
-
-                <div class="top10Posts">
-                    
-                    <!-- 1~10 번호 -->
-                    <div class="numbers">8</div>
-
-                    <!-- 1~10 작성자 이미지 -->
-                    <div class="WriterImages">
-                        <img src="/resources/images/logo.svg" id="top10WritersImage">
-                    </div>
-
-                    <!-- 1~10 제목 + 작성자 + 간단소개???(ex:블로그 쓰는 개발자) -->
-                    <div class="top10Texts">
-                        <div class="top10Title">
-                            JWT 기본 개념 이해하기
-                        </div>
-
-                        <div class="top10WriterIntroduce">
-                            <span class="nickname">이명진</span> 블로그 쓰는 개발자 ✍️
-                        </div>
-                    </div>
-
-                </div>
-
-                <div class="top10Posts">
-                    
-                    <!-- 1~10 번호 -->
-                    <div class="numbers">9</div>
-
-                    <!-- 1~10 작성자 이미지 -->
-                    <div class="WriterImages">
-                        <img src="/resources/images/logo.svg" id="top10WritersImage">
-                    </div>
-
-                    <!-- 1~10 제목 + 작성자 + 간단소개???(ex:블로그 쓰는 개발자) -->
-                    <div class="top10Texts">
-                        <div class="top10Title">
-                            JWT 기본 개념 이해하기
-                        </div>
-
-                        <div class="top10WriterIntroduce">
-                            <span class="nickname">이명진</span> 블로그 쓰는 개발자 ✍️
-                        </div>
-                    </div>
-
-                </div>
-
-                <div class="top10Posts">
-                    
-                    <!-- 1~10 번호 -->
-                    <div class="numbers">10</div>
-
-                    <!-- 1~10 작성자 이미지 -->
-                    <div class="WriterImages">
-                        <img src="/resources/images/logo.svg" id="top10WritersImage">
-                    </div>
-
-                    <!-- 1~10 제목 + 작성자 + 간단소개???(ex:블로그 쓰는 개발자) -->
-                    <div class="top10Texts">
-                        <div class="top10Title">
-                            JWT 기본 개념 이해하기
-                        </div>
-
-                        <div class="top10WriterIntroduce">
-                            <span class="nickname">이명진</span> 블로그 쓰는 개발자 ✍️
-                        </div>
-                    </div>
-
-                </div>
+                 <script>
+                 const boardCode = "${detail.boardCode}";  // js 사용
+                 const boardNo = ${map.boardNo};
+                 const loginMemberId = "${loginMember.memberId}"
+            </script>
 
             </div>
 

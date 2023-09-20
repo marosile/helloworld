@@ -1,6 +1,7 @@
 package io.marosile.helloworld.trand.model.service;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -38,6 +39,18 @@ public class TrandServiceImpl implements TrandService {
 	@Override
 	public List<Comment> selectComment(int boardNo) {
 		return dao.selectComment(boardNo);
+	}
+
+	// 북마크 확인 여부 서비스 
+	@Override
+	public int bookMarkCheck(Map<String, Object> map) {
+		return dao.bookMarkCheck(map);
+	}
+
+	// 좋아요 확인 여부 서비스
+	@Override
+	public int likeCheck(Map<String, Object> map) {
+		return dao.likeCheck(map);
 	}
 	
 }

@@ -1,6 +1,7 @@
 package io.marosile.helloworld.trand.model.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -46,6 +47,22 @@ public class TrandDAO {
 	 */
 	public List<Comment> selectComment(int boardNo) {
 		return sqlSession.selectList("boardMapper.selectComment", boardNo);
+	}
+
+	/** 북마크 확인 여부 조회
+	 * @param map
+	 * @return
+	 */
+	public int bookMarkCheck(Map<String, Object> map) {
+		return sqlSession.selectOne("boardMapper.bookMarkCheck", map);
+	}
+
+	/** 좋아요 확인 여부 조회
+	 * @param map
+	 * @return
+	 */
+	public int likeCheck(Map<String, Object> map) {
+		return sqlSession.selectOne("boardMapper.likeCheck" , map);
 	}
 
 }
