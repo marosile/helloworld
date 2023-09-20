@@ -206,7 +206,8 @@ public class StudyController {
                             , @PathVariable("boardNo") int boardNo
                             , @SessionAttribute("loginMember")Member loginMember
                             , @SessionAttribute("studyDetail") Study studyDetail
-                            , RedirectAttributes ra) {
+                            , RedirectAttributes ra
+                            ,@RequestHeader(value="referer") String referer) {
 
         study.setMemberId(loginMember.getMemberId());
         study.setStudyNo(studyDetail.getStudyNo());
@@ -220,9 +221,11 @@ public class StudyController {
         if(result > 0){
             message ="스터디 모집글이 수정되었습니다";
             path += "/study/detail/" + boardNo;
+            System.out.println("성공");
         }else{
+            System.out.println("실패");
             message="스터디 모집글 수정이 불가합니다 다시 시도 부탁 드립니다.";
-            path += "/detail/update";
+            path += referer;
         }
         ra.addFlashAttribute("message",message);
         return path;
@@ -255,12 +258,22 @@ public class StudyController {
         return path;
     }
 
-
     // 스터디 체팅
     @GetMapping("/chatting")
     public String studyChatting(Model model) {
 
         return "study/studyChatting";
     }
+
+    // 모집완료처리
+    @PostMapping("/detail/completed")
+    @ResponseBody
+    public int completed(@RequestBody Map<String,Object> map){
+        return service.complete(map);
+    }
+
+
+
+
 }
 
