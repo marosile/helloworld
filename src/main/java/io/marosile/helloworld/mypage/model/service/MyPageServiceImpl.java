@@ -39,7 +39,8 @@ public class MyPageServiceImpl implements MyPageService {
 			loginMember.setProfileImg(webPath + rename);
 			
 		}else {
-			loginMember.setProfileImg(null);
+
+			loginMember.setProfileImg(loginMember.getProfileImg());
 		}
 		
 		int result = dao.updateProfile(loginMember, updateMember);

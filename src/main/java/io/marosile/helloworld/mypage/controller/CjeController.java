@@ -85,7 +85,8 @@ public class CjeController {
 						, @SessionAttribute("loginMember") Member loginMember // 로그인한회원
 						, Member updateMember // 수정할 멤버 닉네임
 						, RedirectAttributes ra
-						, HttpSession session) throws IllegalStateException, IOException {
+						, HttpSession session
+						  ) throws IllegalStateException, IOException {
 		// 웹 접근 경로
 		String webPath = "/resources/images/member/";
 		
@@ -96,7 +97,8 @@ public class CjeController {
 		
 		// 로그인한 회원 아이디 updateMember에 추가
 		updateMember.setMemberId(loginMember.getMemberId());
-		
+
+
 		// 서비스 호출
 		int result = service.updateProfile(profileImg, webPath, filePath, loginMember, updateMember);
 		
