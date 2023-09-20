@@ -16,10 +16,16 @@ public class BoardServiceImpl_OHS implements BoardService_OHS {
 	@Autowired
 	private BoardDAO_OHS dao;
 	
-	// 무한 스크롤
+	// 무한 스크롤 (최신순, 기본값)
 	@Override
 	public List<Board> loadPosts(Map<String, Object> parameters) {
-		return dao.loadPost(parameters);
+		return dao.loadPosts(parameters);
+	}
+	
+	// 무한 스크롤 (조회순)
+	@Override
+	public List<Board> loadPostsByReadCount(Map<String, Object> parameters) {
+		return dao.loadPostsByReadCount(parameters);
 	}
 
 	// 게시글 삽입
@@ -45,6 +51,8 @@ public class BoardServiceImpl_OHS implements BoardService_OHS {
 	public int boardDelete(int boardNo) {
 		return dao.boardDelete(boardNo);
 	}
+
+
 
 
 

@@ -65,11 +65,13 @@
             </form>
         </div>
 
-        <!-- 검색 바 -->
-        <div id="searchArea">
-            <input type="search" placeholder="키워드로 검색하기" id="searchInput">
-            <img src="/resources/images/board/search1.png" class="searchInputImage">
-        </div>
+        <form action="${boardCode}" method="get" id="boardSearch">
+            <div id="searchArea">
+                <input type="search" name="searchKeyword" placeholder="키워드로 검색하기" id="searchInput">
+                <input type="image" src="/resources/images/board/search1.png" alt="검색" id="searchInputImage">  
+            <%-- input image는 클릭하면 form을 제출함. alt 속성의 값은 이미지에 대한 간결한 설명 또는 목적--%>
+            </div>
+        </form>
 
         <div id="top10">
             <div id="top10TitleButton">
@@ -81,7 +83,6 @@
             <div class="swiper-container" id="swiper">
                 <div class="swiper-wrapper">
 
-                    <!-- 나중에 for문 -->
                     <c:forEach items="${getTopList}" var="TopList" begin="0" end="4" varStatus="loop">
 
                         <div class="swiper-slide">
@@ -117,8 +118,8 @@
         </div>
 
             <div id="sortOptions">
-                 <div id ="latest">- 최신순</div>
-                 <div id="readCountList">- 조회순</div>
+                 <div id ="recentSortButton">- 최신순</div>
+                 <div id="readCountSortButton">- 조회순</div>
             </div>
 
             <!-- 임시 게시글 10개 -->
@@ -159,7 +160,7 @@
                                 </div>
 
                                 <div class="postThirdPart">
-                                    ${board.boardContent}
+                                    <%-- ${board.boardContent} --%>
                                 </div>
                         
                                 <div class="postFourthPart">

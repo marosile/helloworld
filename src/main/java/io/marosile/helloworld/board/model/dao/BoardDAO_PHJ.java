@@ -76,12 +76,19 @@ public class BoardDAO_PHJ {
 		return sqlSession2.selectList("boardMapper.selectReadCountList", boardCode);
 	}
 
+	// 게시글 목록 조회(조회순 -> 최신순)
+	public List<Board> selectReadCountListBack(int boardCode) {
+		return sqlSession2.selectList("boardMapper.selectReadCountListBack", boardCode);
+	}
+	
 	// 전체 게시글 top 10
 	public List<Board> getTopList() {
 		return sqlSession2.selectList("boardMapper.getTopList");
 	}
-	
-	
 
+	// 검색
+	public List<Board> selectBoardListSearch(Map<String, Object> map) {
+		return sqlSession2.selectList("boardMapper.selectBoardListSearch", map);
+	}
 
 }
