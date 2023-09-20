@@ -18,7 +18,7 @@ if(updateBtn!=null){
 
         if (confirm("게시글을 수정하시겠습니까?")) {
 
-            location.href = "/study/write"
+            location.href = "/study/detail/update/"+boardNo;
         }
 
 
@@ -50,6 +50,10 @@ if(completeBtn!=null){
         if (confirm("모집완료되신건가요 ?")) {
             alert("🎉 축하합니다! 모집완료되었습니다.")
         }
+
+        
+
+
     })
 }
 

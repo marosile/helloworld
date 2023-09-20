@@ -3,7 +3,7 @@ const joinStudy = document.getElementById("P-study-btn");
 
 joinStudy.addEventListener("click",()=>{
 
-    location.href ="/study/write"
+    location.href ="/study/write";
 
 })
 

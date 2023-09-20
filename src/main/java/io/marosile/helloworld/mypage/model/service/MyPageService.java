@@ -8,9 +8,33 @@ import io.marosile.helloworld.member.model.dto.Member;
 
 public interface MyPageService {
 
+	/** 내 정보 수정(profile) (프로필 사진, 닉네임 수정)
+	 * @param profileImg
+	 * @param webPath
+	 * @param filePath
+	 * @param loginMember
+	 * @param updateMember
+	 * @return
+	 * @throws IllegalStateException
+	 * @throws IOException
+	 */
 	int updateProfile(MultipartFile profileImg, String webPath, 
 			String filePath, Member loginMember,
 			Member updateMember) throws IllegalStateException, IOException;
+
+	/** 비밀번호 변경(account)
+	 * @param currentPw
+	 * @param newPw
+	 * @param memberId
+	 * @return
+	 */
+	int changePw(String currentPw, String newPw, String memberId);
+
+	/** 회원 탈퇴 (account)
+	 * @param memberId
+	 * @return
+	 */
+	int secession(String memberId);
 	
 
 

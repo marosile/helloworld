@@ -4,10 +4,13 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.http.HttpHeaders;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
@@ -31,9 +34,11 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 
 import io.marosile.helloworld.board.model.dto.Board;
+import io.marosile.helloworld.board.model.dto.Tag;
 import io.marosile.helloworld.board.model.service.BoardService_OHS;
 import io.marosile.helloworld.board.model.service.BoardService_PHJ;
 import io.marosile.helloworld.board.model.service.TagService;
@@ -67,21 +72,27 @@ public class BoardController2 {
 	public String boardWrite(@PathVariable("boardCode") int boardCode
 							,@ModelAttribute Board board
 							,@SessionAttribute("loginMember") Member loginMember
-							,@RequestParam(name = "tagInputs", required = false) List<String> tags
+							,@RequestParam(name = "tagInputs", required = false) List<String> tags // board안에 삽입
 							, RedirectAttributes ra) {
-		
-		System.out.println(tags);
-		
-	    if (tags != null && !tags.isEmpty()) {
-	       int result = service3.insertTags(tags); 
-	    }
-		
+
 		board.setMemberId(loginMember.getMemberId());
 		board.setBoardCode(boardCode);
 		
-		System.out.println(board);
-		
 		int boardNo = service.boardInsert(board);
+
+		List<Tag> tagList = new ArrayList<>(); // 태그 객체를 저장할 리스트 생성
+
+		if (tags != null) {
+		    for (String tagName : tags) {
+		        Tag tag = new Tag();
+		        tag.setTagName(tagName);
+		        tag.setBoardNo(boardNo);
+		        tag.setBoardType(0);// 일반게시글 == 0
+		        tagList.add(tag);
+		    }
+		}
+		
+		int result = service3.tagInsert(tagList);
 		
 		//String message = null;
 		String path = "redirect:";
@@ -104,21 +115,34 @@ public class BoardController2 {
 	
 	// 게시글 수정 페이지로
 	@GetMapping("/{boardCode}/{boardNo}/update")
-	public String boardUpdate(@PathVariable("boardCode") int boardCode
-						     ,@PathVariable("boardNo") int boardNo
-						     , Model model
-									) {
-		
-		Map<String, Object> map = new HashMap<>();
-		
-		map.put("boardCode", boardCode);
-		map.put("boardNo", boardNo);
-		
-		Board board = service2.selectBoard(map);
-		
-		model.addAttribute("board", board);
-		
-		return "board/board-update";
+	public String boardUpdate(@PathVariable("boardCode") int boardCode,
+	                         @PathVariable("boardNo") int boardNo,
+	                         Model model) {
+	    Map<String, Object> map = new HashMap<>();
+	    
+	    map.put("boardCode", boardCode);
+	    map.put("boardNo", boardNo);
+	    int boardType = 0;
+	    map.put("boardType", boardType);
+	    
+	    List<Tag> tagList = service3.tagSelect(map);
+	    
+	    // 태그 이름 담기
+	    List<String> tagNames = new ArrayList<>(); 
+	    
+	    for (Tag tag : tagList) {
+	   	 tagNames.add(tag.getTagName()); 
+	   	}
+
+	    // 태그 목록을 JSON 형태로 변환하여 모델에 추가
+	    Gson gson = new Gson();
+	    String tagListJson = gson.toJson(tagNames);
+	    model.addAttribute("tagListJson", tagListJson);
+	    
+	    Board board = service2.selectBoard(map);
+	    model.addAttribute("board", board);
+
+	    return "board/board-update";
 	}
 	
 	// 게시글 수정
@@ -127,25 +151,75 @@ public class BoardController2 {
 							 ,@PathVariable("boardNo") int boardNo
 							 ,@SessionAttribute("loginMember") Member loginMember
 							 ,@ModelAttribute Board board
+							 ,@RequestParam(name = "tagInputs", required = false) List<String> tags
 							 ) {
 		
-		System.out.println(board);
+		Map<String, Object> map = new HashMap<>();
+		
+	    map.put("boardCode", boardCode);
+	    map.put("boardNo", boardNo);
+	    int boardType = 0;
+	    map.put("boardType", boardType);
+	    
+	    // 수정 페이지에서의 tagList 가져오기
+	    List<Tag> tagList = service3.tagSelect(map);
+	    
+
+	    
 		board.setMemberId(loginMember.getMemberId());
 		board.setMemberNickname(loginMember.getMemberNick());
 		
 		int result = service.boardUpdate(board);
 		
 		String path = "redirect:";
-		if(result == 1) {
-			System.out.println("성공");
-			path = "/board/board-detail";
+		if(result == 1) { // 게시글 수정 성공하면
 			
+		    // 수정에서 태그 변경했을때 
+		    for (int i = 0; i < tagList.size() && i < tags.size(); i++) {
+		        tagList.get(i).setTagName(tags.get(i));
+		    }
+		    
+			// 기존 태그 업데이트
+			int result2 = service3.tagUpdate(tagList);
+
+			 // 새로운 태그 추가
+			if (tags != null && !tags.isEmpty()) {
+				// 새로운 태그만 저장할 리스트 
+				List<Tag> newTagsList = new ArrayList<>();
+
+				// 중복 체크를 위한 기존 태그 목록 
+				List<Tag> existingTags = new ArrayList<>();
+
+				// 기존 태그 목록을 생성
+				for (Tag existingTag : tagList) {
+				    existingTags.add(existingTag);
+				}
+
+				for (String newTag : tags) {
+				    // 중복된 태그가 아니라면 새로운 태그 목록에 추가
+				    Tag tag = new Tag();
+				    tag.setBoardNo(boardNo);
+				    tag.setBoardType(0); // 일반게시글 == 0
+				    tag.setTagName(newTag);
+				    
+				    if (!existingTags.contains(tag)) {
+				        newTagsList.add(tag); // 포함 안하면 추가
+				    }
+				}
+
+				// 수정에서의 태그 추가 insert
+				int result3 = service3.tagInsert(newTagsList);
+			
+			path += "/board/" + boardCode + "/" + boardNo;
+
 		}else {
-			System.out.println("실패");
-			path = "/board/board-list";
+			
+			path +=  "/board/" + boardCode;
+		}
 		}
 		
 		return path;
+		
 	}
 	
 	@RequestMapping(value="/uploadSummernoteImageFile", produces = "application/json; charset=utf8")
@@ -181,4 +255,28 @@ public class BoardController2 {
 		String a = jsonObject.toString();
 		return a;
 	}
+	
+	
+	// 게시글 삭제
+	@GetMapping("/{boardCode}/{boardNo}/delete")
+	public String deleteBoard(@PathVariable("boardCode") int boardCode
+						  ,@PathVariable("boardNo") int boardNo) {
+		
+		String path = "redirect:";
+		
+		int result = service.boardDelete(boardNo);
+		
+		if(result == 1) {
+			
+			path +="/board/" + boardCode;
+			
+		}else {
+			
+			path +="/board/" + boardCode + boardNo;
+		}
+		
+		return path;
+		
+	}
+	
 }

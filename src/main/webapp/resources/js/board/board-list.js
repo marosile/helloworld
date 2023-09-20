@@ -31,21 +31,6 @@ for (let i = 0; i < postThirdPart.length; i++) {
   });
 }
 
-
-// 작성하기 버튼
-/* const boardInsert = document.getElementById("boardInsert");
-
-if(boardInsert != null){
-
-    boardInsert.addEventListener("click", () => {
-    
-        location.href = `/board2/${location.pathname.split("/")[2]}/write` ;
-    
-    })
-}
- */
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
 // 무한스크롤
 
 var page = 2; // 처음 ajax 넘길 page 번호
@@ -107,6 +92,20 @@ var page = 2; // 처음 ajax 넘길 page 번호
 
                     data.forEach( whatever => { // function(whatever) => {}
 
+                        var tagNames = whatever.tagList.filter(tag => tag.tagName !== null) // null이 아닌 태그만 필터링
+                        .map(tag => '#' + tag.tagName) // 각 태그에 #을 추가
+                        .join(', '); // 쉼표와 공백으로 구분된 문자열로 합침
+
+                        //tagList 배열에서 각 요소(태그 객체)의 tagName 속성만 추출하여 새로운 배열을 생성.
+
+                        /*  
+                            [
+                                { tagName: 'react' },
+                                { tagName: 'recoil' },    --------------- >>>>>>>  "#react, #recoil, #next.js"
+                                { tagName: 'next.js' }
+                            ]
+                        */
+
                         var postAppends = '<div class="posts">' +  
                                            '<div class="postFirstpart">' +
                                                 '<img src="/resources/images/logo.svg" class="writerImages">' +
@@ -120,7 +119,7 @@ var page = 2; // 처음 ajax 넘길 page 번호
 
                                                 '<div class="postSecondPart">' + whatever.boardTitle + '</div>' +
                                                 '<div class="postThirdPart">' + whatever.boardContent + '</div>' +
-                                                '<div class="postFourthPart">' + "#react #recoil #next.js" + '</div>' +
+                                                '<div class="postFourthPart">' + tagNames + '</div>' +
                                                 '<div class="postFifthPart">' + 
                                                     '<div class="replyCount">' + "댓글 5" + '</div>' +
                                                     '<div class="inquiryCount">' + "조회 7" + '</div>' +

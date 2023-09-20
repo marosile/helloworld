@@ -12,7 +12,14 @@
 		<typeAlias type="io.marosile.helloworld.board.model.dto.Comment" alias="Comment" />
 		<typeAlias type="io.marosile.helloworld.study.model.dto.Study" alias="Study" />
 		<typeAlias type="io.marosile.helloworld.lecture.model.dto.Lecture" alias="Lecture" />
+		<typeAlias type="io.marosile.helloworld.board.model.dto.Tag" alias="Tag" />
+		<typeAlias type="io.marosile.helloworld.admin.model.dto.AdminDTO" alias="Admin" />
+		<typeAlias type="io.marosile.helloworld.trand.model.dto.Trand" alias="Trand" />
 	</typeAliases>
+	
+	<typeHandlers>
+    	<typeHandler handler="io.marosile.helloworld.board.controller.TagListTypeHandler" javaType="java.util.List" jdbcType="VARCHAR" />
+	</typeHandlers>
 
 	<mappers>
 		<mapper resource="/mappers/member-mapper.xml" />
@@ -21,6 +28,9 @@
 		<mapper resource="/mappers/study-mapper.xml"/>
 		<mapper resource="/mappers/myPage-mapper.xml"/>
 		<mapper resource="/mappers/lecture-mapper.xml"/>
+		<mapper resource="/mappers/tag-mapper.xml"/>
+		<mapper resource="/mappers/admin-mapper.xml"/>
+		<mapper resource="/mappers/trand-mapper.xml"/>
 	</mappers>
 
 </configuration>

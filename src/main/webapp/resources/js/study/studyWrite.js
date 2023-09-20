@@ -3,20 +3,19 @@ const categoryBtn = document.querySelector('.P-body-category-btn');
 const selectBoxRole = document.querySelector('.P-selectBox-role');
 
 categoryBtn.addEventListener("click", () => {
-
     selectBoxRole.classList.toggle("menuHidden")
-
 });
 
 selectBoxRole.addEventListener("click", (e) => {
-
     if (e.target.nodeName === "BUTTON") {
-        categoryBtn.innerHTML = e.target.innerHTML;
+        const selectedRole = e.target.innerHTML; // 클릭한 버튼의 내용(예: "프론트앤드")을 가져옴
+        categoryBtn.innerHTML = selectedRole;
         selectBoxRole.classList.add("menuHidden")
+
+        // selectedRole 값을 해당 요소의 value 속성에 설정
+        document.getElementById("selectedRole").value = selectedRole;
     }
-
 });
-
 
 
 
@@ -52,6 +51,9 @@ const personBtn = document.getElementById("P-personBtn"); /* 완료버튼 */
 
 countBtn.addEventListener("click", () => {
     selectBoxCount.classList.toggle("menuHidden")
+
+
+
 })
 
 let count1 = 1
@@ -78,26 +80,12 @@ personBtn.addEventListener("click", (e) => {
     if (e.target.nodeName == "BUTTON") {
         selectBoxCount.classList.add("menuHidden")
         countBtn.innerText = "인원 : " + count1
+
+        document.getElementById('countInput').value = count1;
     }
 
 
 })
-
-
-
-// 작성완료
-const titleTextarea = document.getElementById("P-body-title-textarea");
-const bodyContent = document.getElementById("P-body-content");
-
-const BtnModify = document.getElementById("BtnModify");
-
-BtnModify.addEventListener("click", () => {
-
-    alert("게시글이 작성되었습니다.");
-    location.href="/study/main";
-
-})
-
 // 작성취소
 // 작성하기
 const BtnDelete = document.getElementById("BtnDelete");
@@ -221,5 +209,5 @@ function displayArea(area) {
 
 
     });
-}
 
+}

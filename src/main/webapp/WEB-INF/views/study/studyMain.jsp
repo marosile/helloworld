@@ -474,8 +474,8 @@
 
                             <div class="P-study-title">
                                             <span class="PN">
-                                             <c:if test="${study.studyStatus == 'Y'}">모집중</c:if>
-                                             <c:if test="${study.studyStatus == 'N'}">모집완료</c:if>
+                                             <c:if test="${study.studyStatus == 'N'}">모집중</c:if>
+                                             <c:if test="${study.studyStatus == 'Y'}">모집완료</c:if>
                                             </span>
                                 <span class="PS"> | </span>
                                     ${study.boardTitle}

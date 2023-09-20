@@ -27,6 +27,12 @@ public interface BoardService_OHS {
 	 */
 	int boardUpdate(Board board);
 
+	/** 게시글 삭제
+	 * @param map
+	 * @return result
+	 */
+	int boardDelete(int boardNo);
+
 	
 
 }

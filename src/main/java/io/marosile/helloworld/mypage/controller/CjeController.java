@@ -2,6 +2,8 @@ package io.marosile.helloworld.mypage.controller;
 
 import java.io.IOException;
 
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -43,11 +46,22 @@ public class CjeController {
 	public String resume() {
 		return "mypage/mypage-resume";
 	}
-	// 북마크 페이지로 이동
+	// 지원이력 이동
+	@GetMapping("/applications")
+	public String applications() {
+		return "mypage/mypage-applications";
+	}
+	// 북마크 페이지로 이동(커뮤니티)
 	@GetMapping("/bookmark")
 	public String bookmark() {
 		return "mypage/mypage-bookmark";
 	}
+	// 북마크 페이지로 이동(채용공고)
+	@GetMapping("/bookmark2")
+	public String bookmark2() {
+		return "mypage/mypage-bookmark2";
+	}
+	
 	// 나의 게시글
 	@GetMapping("/post")
 	public String post() {
@@ -78,7 +92,7 @@ public class CjeController {
 		// 실제 이미지 파일 저장 경로
 		String filePath = session.getServletContext().getRealPath(webPath);
 		
-		// 로그인한 회원 아이디를 updateMember에 추가
+		// 로그인한 회원 아이디 updateMember에 추가
 		updateMember.setMemberId(loginMember.getMemberId());
 		
 		// 서비스 호출
@@ -110,10 +124,73 @@ public class CjeController {
 	 */
 	@PostMapping("/account")
 	public String account(String currentPw, String newPw
+			, @SessionAttribute("loginMember") Member loginMember
 			, RedirectAttributes ra) {
+
+		String memberId = loginMember.getMemberId();
+		
+		int result = service.changePw(currentPw, newPw, memberId);
 		
 		String path = "redirect:";
-		String message = null;
+		String msg = null;
+		
+		if(result > 0) {
+			msg = "비밀번호가 변경 되었습니다.";
+			path += "profile";
+		}else {
+			msg = "현재 비밀번호가 일치하지 않습니다.";
+			path += "account";
+		}
+		ra.addFlashAttribute("message", msg);
+		
+		return path;
+	}
+	
+	
+	/** 회원 탈퇴(account)
+	 * @param loginMember
+	 * @param status
+	 * @param ra
+	 * @param session
+	 * @param resp
+	 * @return
+	 */
+	@PostMapping("/secession")
+	public String secession(@SessionAttribute("loginMember") Member loginMember
+							, SessionStatus status
+							, RedirectAttributes ra
+							, HttpSession session
+							, HttpServletResponse resp) {
+		
+		String memberId = loginMember.getMemberId();
+		
+		int result = service.secession(memberId);
+		
+		String msg = null;
+		String path = "redirect:";
+		
+		if(result >0 ) {
+			msg = "탈퇴 되었습니다.";
+			
+			// 메페 리다이렉트
+			path += "/";
+			
+			// 로그아웃
+			status.setComplete();
+			
+			Cookie cookie = new Cookie("saveId",loginMember.getMemberId());
+			cookie.setMaxAge(0);
+			cookie.setPath("/"); 
+			resp.addCookie(cookie);
+			
+		}
+		else {
+			msg = "탈퇴 실패";
+			
+			path += "account";
+		}
+		
+		ra.addFlashAttribute("msg", msg);
 		
 		return path;
 	}

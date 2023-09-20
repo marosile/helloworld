@@ -1,3 +1,4 @@
+
 /* 게시글 수정 */
 const update = document.getElementById("update"); 
 
@@ -45,8 +46,8 @@ deleteBtn.addEventListener("click", ()=>{
 
     if(confirm("정말 삭제하시겠습니까?")){
 
-        alert("게시글이 삭제 되었습니다.");
-        location.href= "/board/" + boardCode;
+        alert("컨트롤러로");
+        location.href= "/board2/" + boardCode + "/" + boardNo + "/delete" ;
     }
 })
 

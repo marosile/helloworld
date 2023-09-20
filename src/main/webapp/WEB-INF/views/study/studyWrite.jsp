@@ -8,16 +8,16 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>스터디</title>
-
-
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
-            integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
-            crossorigin="anonymous"></script>
+    <title>스터디작성</title>
 
     <link rel="stylesheet" href="/resources/css/common/general.css">
     <link rel="stylesheet" href="/resources/css/index.css">
     <link rel="stylesheet" href="/resources/css/study/studyWrite.css">
+    <script src="https://kit.fontawesome.com/98acdabf0d.js" crossorigin="anonymous"></script>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+            integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+            crossorigin="anonymous"></script>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=955d027ad541e959373216700e779cf3&libraries=services"></script>
@@ -30,7 +30,7 @@
 </head>
 <body>
 <jsp:include page="/WEB-INF/views/common/header.jsp"/>
-<jsp:include page="/WEB-INF/views/study/study-nav.jsp"/>
+
 
 
 <main id="P-body-area">
@@ -40,7 +40,7 @@
             <i class="fa-regular fa-file-lines"></i> 스터디 모집하기
         </p>
 
-        <form action="/study/write/${studyNo}" method="post" class="P-body-category-top" enctype = "multipart/form-data">
+        <form action="/study/write" method="post" class="P-body-category-top" enctype = "multipart/form-data" id="myForm">
     
 
             <h5><span class="required">*</span> 카테고리</h5>
@@ -48,19 +48,21 @@
 
                 <div class="P-body-category-role">
 
-                    <button type="button" class="P-body-category-btn">역할
+                    <button type="button" class="P-body-category-btn">모집분야
                         <i class="fa-solid fa-caret-down"></i>
                     </button>
 
                     <ul class="P-selectBox-role menuHidden" id="P-selectBox-role" >
-                        <li><button type="button" class="P-option-btn" id="front" name="tagNm">프론트앤드</button>
+                        <li><button type="button" class="P-option-btn" id="front">프론트엔드</button>
                         </li>
-                        <li><button type="button" class="P-option-btn" id="back" name="tagNm">백엔드</button></li>
-                        <li><button type="button" class="P-option-btn" id="design" name="tagNm">디자인</button></li>
-                        <li><button type="button" class="P-option-btn" id="Planning" name="tagNm">기획</button>
+                        <li><button type="button" class="P-option-btn" id="back">백엔드</button></li>
+                        <li><button type="button" class="P-option-btn" id="design">디자인</button></li>
+                        <li><button type="button" class="P-option-btn" id="Planning">기획</button>
                         </li>
-                        <li><button type="button" class="P-option-btn" id="etc" name="tagNm">기타</button></li>
+                        <li><button type="button" class="P-option-btn" id="etc">기타</button></li>
                    </ul>
+
+                       <input type="hidden" id="selectedRole" name="tagNm">
 
 
                 </div>
@@ -87,7 +89,7 @@
 --%>
 
                 <div class="P-body-category-count">
-                    <button type="button" class="P-body-count-btn">인원
+                    <button type="button" class="P-body-count-btn" name="personCount">인원
                         <i class="fa-solid fa-caret-down"></i>
                     </button>
 
@@ -102,6 +104,8 @@
                             </div>
                             <button type="button" id="P-personBtn">완료</button>
                         </div>
+
+                          <input type="hidden" id="countInput" name="headCount" value="1">
                     </ul>
                 </div>
 
@@ -138,7 +142,7 @@
                 <div class="P-body-controller-Btn">
                     <button id="BtnModify">작성완료</button>
                     <button id="BtnDelete">작성취소</button>
-                    <button id="referer">목록으로</button>
+
                 </div>
 
             </div>

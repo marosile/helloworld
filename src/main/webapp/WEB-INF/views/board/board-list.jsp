@@ -4,7 +4,8 @@
 <!DOCTYPE html>
 <html lang="ko">
 
-<c:set var="board" value="${boardList}" />
+<c:set var="board" value="${map.boardList}" />
+<c:set var="getTopList" value="${map.getTopList}" />
 
 
 <head>
@@ -81,140 +82,37 @@
                 <div class="swiper-wrapper">
 
                     <!-- 나중에 for문 -->
-                    <div class="swiper-slide">
-                        <div class="post">
-                            <div id="directionRow">
-                                <div>
-                                    <img src="/resources/images/board/number1.png" class="top10LevelImage">
-                                </div>  
-                                <div id="top10BoardTitle">  
-                                    <div class="top10Titles">제목입니다.제목입니다.</div>
-                                    <div class="top10Inquirys">조회 1500 댓글 35</div>
+                    <c:forEach items="${getTopList}" var="TopList" begin="0" end="4" varStatus="loop">
+
+                        <div class="swiper-slide">
+                            <div class="post">
+                                <div id="directionRow">
+                                    <div>
+                                        <img src="/resources/images/board/number${loop.index * 2 + 1}.png" class="top10LevelImage">
+                                    </div>  
+                                    <div id="top10BoardTitle">  
+                                        <div class="top10Titles">${getTopList[loop.index * 2].boardTitle}</div>
+                                        <div class="top10Inquirys">조회 ${getTopList[loop.index * 2].readCount} 댓글 35</div>
+                                    </div>
                                 </div>
                             </div>
-
-                        </div>
-                        
-                        <div class="post">
-                            <div id="directionRow">
-                                <div>
-                                    <img src="/resources/images/board/number2.png" class="top10LevelImage">
-                                </div>  
-                                <div id="top10BoardTitle">  
-                                    <div class="top10Titles">제목입니다.제목입니다.</div>
-                                    <div class="top10Inquirys">조회 1500 댓글 35</div>
+                            
+                            <div class="post">
+                                <div id="directionRow">
+                                    <div>
+                                        <img src="/resources/images/board/number${loop.index * 2 + 2}.png" class="top10LevelImage">
+                                    </div>  
+                                    <div id="top10BoardTitle">  
+                                        <div class="top10Titles">${getTopList[loop.index * 2 + 1].boardTitle}</div>
+                                        <div class="top10Inquirys">조회 ${getTopList[loop.index * 2 + 1].readCount} 댓글 35</div>
+                                    </div>
                                 </div>
                             </div>
-
                         </div>
-                    </div>
-
-                    <div class="swiper-slide">
-                        <div class="post">
-                            <div id="directionRow">
-                                <div>
-                                    <img src="/resources/images/board/number3.png" class="top10LevelImage">
-                                </div>  
-                                <div id="top10BoardTitle">  
-                                    <div class="top10Titles">제목입니다.제목입니다.</div>
-                                    <div class="top10Inquirys">조회 1500 댓글 35</div>
-                                </div>
-                            </div>
-
-                        </div>
-                        <div class="post">
-                            <div id="directionRow">
-                                <div>
-                                    <img src="/resources/images/board/number4.png" class="top10LevelImage">
-                                </div>  
-                                <div id="top10BoardTitle">  
-                                    <div class="top10Titles">제목입니다.제목입니다.</div>
-                                    <div class="top10Inquirys">조회 1500 댓글 35</div>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-
-                    <div class="swiper-slide">
-                        <div class="post">
-                            <div id="directionRow">
-                                <div>
-                                    <img src="/resources/images/board/number5.png" class="top10LevelImage">
-                                </div>  
-                                <div id="top10BoardTitle">  
-                                    <div class="top10Titles">제목입니다.제목입니다.</div>
-                                    <div class="top10Inquirys">조회 1500 댓글 35</div>
-                                </div>
-                            </div>
-
-                        </div>
-                        <div class="post">
-                            <div id="directionRow">
-                                <div>
-                                    <img src="/resources/images/board/number6.png" class="top10LevelImage">
-                                </div>  
-                                <div id="top10BoardTitle">  
-                                    <div class="top10Titles">제목입니다.제목입니다.</div>
-                                    <div class="top10Inquirys">조회 1500 댓글 35</div>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="post">
-                            <div id="directionRow">
-                                <div>
-                                    <img src="/resources/images/board/number7.png" class="top10LevelImage">
-                                </div>  
-                                <div id="top10BoardTitle">  
-                                    <div class="top10Titles">제목입니다.제목입니다.</div>
-                                    <div class="top10Inquirys">조회 1500 댓글 35</div>
-                                </div>
-                            </div>
-
-                        </div>
-                        <div class="post">
-                            <div id="directionRow">
-                                <div>
-                                    <img src="/resources/images/board/number8.png" class="top10LevelImage">
-                                </div>  
-                                <div id="top10BoardTitle">  
-                                    <div class="top10Titles">제목입니다.제목입니다.</div>
-                                    <div class="top10Inquirys">조회 1500 댓글 35</div>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="post">
-                            <div id="directionRow">
-                                <div>
-                                    <img src="/resources/images/board/number9.png" class="top10LevelImage">
-                                </div>  
-                                <div id="top10BoardTitle">  
-                                    <div class="top10Titles">제목입니다.제목입니다.</div>
-                                    <div class="top10Inquirys">조회 1500 댓글 35</div>
-                                </div>
-                            </div>
-
-                        </div>
-                        <div class="post">
-                            <div id="directionRow">
-                                <div>
-                                    <img src="/resources/images/board/number10.png" class="top10LevelImage">
-                                </div>  
-                                <div id="top10BoardTitle">  
-                                    <div class="top10Titles">제목입니다.제목입니다.</div>
-                                    <div class="top10Inquirys">조회 1500 댓글 35</div>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
+                    </c:forEach>
+                   
                 </div>
+                
             </div>
         </div>
 
@@ -246,9 +144,9 @@
                                 <div class="postFirstpart">
                                     <img src="/resources/images/logo.svg" class="writerImages">
                                     <div class="firstPartRight">
-                                        <div>${board.memberId}</div>
+                                        <div>${board.memberNickname} </div>
                                         
-                                        <div>${board.memberNickname} 
+                                        <div>
                                             <span id="minute">${board.createDate}</span>
                                         </div>
 
@@ -261,10 +159,15 @@
                                 </div>
 
                                 <div class="postThirdPart">
+                                    ${board.boardContent}
                                 </div>
                         
                                 <div class="postFourthPart">
-                                    <div></div>#react #recoil #next.js
+
+                                        <c:forEach items="${board.tagList}" var="tag">
+                                           #${tag.tagName}
+                                        </c:forEach>
+
                                 </div>
 
                                 <div class="postFifthPart">
