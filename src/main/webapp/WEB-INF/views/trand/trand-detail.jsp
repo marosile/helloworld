@@ -146,11 +146,15 @@
                                 </div>
 
                                 <div class="replyBtns">
-                                    <button class="replyBtn">수정</button>
-                                    <button class="replyBtn">삭제</button>
-                                    <button class="replyBtn">대댓글</button>
+                                    <c:if test="${loginMember.memberId == comment.memberId}" >
+                                        <button onclick="showUpdateComment(${comment.commentNo}, this)" class="replyBtn">수정</button>
+                                        <button onclick="deleteComment(${comment.commentNo})" class="replyBtn">삭제</button>
+                                    </c:if>
+
+                                    <c:if test="${loginMember != null}">
+                                        <button onclick="showInsertComment(${comment.commentNo}, this)" class="replyBtn">답글</button>
+                                    </c:if>
                                 </div>
-                            
                             </div>
                             </c:forEach>
                         </c:otherwise>
@@ -162,7 +166,7 @@
 
                         <!-- 작성 부분 -->
                         <div id="replyWriteContent">
-                            <input type="text" placeholder="댓글을 작성해주세요.">
+                            <input type="text" placeholder=" 💬 댓글을 작성해주세요.">
                         </div>
 
                         <!-- 버튼 부분 -->
