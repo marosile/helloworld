@@ -82,4 +82,26 @@ public interface MemberService {
      * @return 이메일 아이디 찾기
      * */
     String findIdEmail(String inputEmail);
+
+
+    /** 전화번호로 비밀번호 찾기
+     * @param findPwTel
+     * @return 전화번호로 비밀번호 찾기
+     * */
+    int findPwTel(Map<String, Object> findPwTel);
+
+    /** 이메일로 비밀번호 찾기
+     * @param findPwEmail
+     * @return 이메일로 비밀번호 찾기
+     * */
+    int findPwEmail(Map<String, Object> findPwEmail);
+
+
+    /** 새 비밀번호로 변경
+     * @param member
+     * @return 새 비밀번호로 변경
+     * */
+    int newPwChange(Member member);
+
+
 }

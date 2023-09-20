@@ -96,5 +96,28 @@
         AND DELETED_FL = 'N'
     </select>
 
-    
+    <!-- 전화번호로 비밀번호 찾기 -->
+    <select id="findPwTel" parameterType="Member" resultType="_int">
+        SELECT COUNT(*) FROM "MEMBER"
+        WHERE MEMBER_ID = #{inputId}
+          AND MEMBER_TEL = #{inputTel}
+          AND DELETED_FL = 'N'
+    </select>
+
+
+    <!-- 이메일로 비밀번호 찾기 -->
+    <select id="findPwEmail" parameterType="Member" resultType="_int">
+        SELECT COUNT(*) FROM "MEMBER"
+        WHERE MEMBER_ID = #{inputId}
+          AND MEMBER_EMAIL = #{inputEmail}
+          AND DELETED_FL = 'N'
+    </select>
+
+    <!-- 새 비밀번호로 변경 -->
+    <update id="newPwChange" parameterType="Member">
+        UPDATE "MEMBER"
+        SET MEMBER_PW = #{memberPw}
+        WHERE MEMBER_ID=  #{memberId}
+    </update>
+
 </mapper>

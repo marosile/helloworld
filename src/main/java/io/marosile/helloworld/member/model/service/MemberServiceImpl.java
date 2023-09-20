@@ -341,5 +341,29 @@ public class MemberServiceImpl implements MemberService {
         return dao.findIdEmail(inputEmail);
     }
 
+    @Override
+    public int findPwTel(Map<String, Object> findPwTel) {
+        return dao.findPwTel(findPwTel);
+    }
+
+    @Override
+    public int findPwEmail(Map<String, Object> findPwEmail) {
+        return dao.findPwEmail(findPwEmail);
+    }
+
+
+    @Transactional(rollbackFor = {Exception.class})
+    @Override
+    public int newPwChange(Member member) {
+
+        // 비밀번호 암호화
+        String encPw = bcrypt.encode(member.getMemberPw());
+        member.setMemberPw(encPw);
+
+        int result = dao.newPwChange(member);
+
+        return result;
+    }
+
 
 }
