@@ -14,7 +14,7 @@
             integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
             crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/color-thief/2.4.0/color-thief.min.js" integrity="sha512-r2yd2GP87iHAsf2K+ARvu01VtR7Bs04la0geDLbFlB/38AruUbA5qfmtXwXx6FZBQGJRogiPtEqtfk/fnQfaYA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
+    <script src="https://js.tosspayments.com/v1/payment-widget"></script>
 </head>
 <body>
     <jsp:include page="/WEB-INF/views/common/header.jsp"/>
@@ -22,12 +22,12 @@
         <div id="banner-background"></div>
         <div id="main">
             <div id="banner">
-                <h1 id="title">일주일만에 끝내는 리액트 완벽 가이드</h1>
+                <h1 id="title">${lecture.lectureTitle}</h1>
                 <div id="left">
                     <section id="lecture-info">
                         <p>7차시 구성</p>
-                        <p>난이도 · 중</p>
-                        <p>수강 기한 · 무제한</p>
+                        <p>난이도 · ${lecture.lectureDifficulty}</p>
+                        <p>수강 기한 · ${lecture.lectureTimeLimit}</p>
                     </section>
                     <section id="lecture-rating">
                         <div id="lecture-rating-star">
@@ -41,8 +41,9 @@
                         <span id="lecture-rating-score"></span>
                     </section>
                     <section id="lecture-tag">
-                        <a>#React</a>
-                        <a>#프론트엔드</a>
+                        <c:forEach var="item" items="${lecture.lectureTags}">
+                            <a>${item}</a>
+                        </c:forEach>
                     </section>
                 </div>
                 <%-- <div id="lecturer">
@@ -56,18 +57,17 @@
                     <a>수강평</a>
                     <a>커뮤니티</a>
                 </section>
-                <section id="content">
-                </section>
             </div>
         </div>
         <div id="promotion">
-            <img id="thumbnail" src="/resources/images/terminal-5440620_1920.jpg">
+            <img id="thumbnail" src="${lecture.lectureThumbnail}">
             <div id="pay">
                 <div id="price">
                     <p id="real-price"><strike>144000 원</strike></p>
                     <p id="sale-price">116000 원</p>
                 </div>
                 <button id="store-button">장바구니에 담기</button>
+                <div id="payment-method"></div>
                 <button id="pay-button">지금 구매하기</button>
             </div>
         </div>

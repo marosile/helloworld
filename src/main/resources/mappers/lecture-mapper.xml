@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="lectureMapper">
+
+    <resultMap id="lectureResultMap" type="Lecture">
+        <id property="lectureNo" column="LCTR_NO"/>
+        <result property="memberId" column="MEMBER_ID"></result>
+        <result property="lectureTitle" column="LCTR_TITLE"></result>
+        <result property="lectureIntro" column="LCTR_INTRO"></result>
+        <result property="lectureThumbnail" column="LCTR_THUMB"></result>
+        <result property="lectureDifficulty" column="LCTR_DIFF"></result>
+        <result property="lectureTimeLimit" column="LCTR_TIME_LIMIT"></result>
+        <collection property="lectureTags" select="selectLectureTagList"
+                    column="LCTR_NO" javaType="java.util.ArrayList">
+        </collection>
+    </resultMap>
+
+    <select id="selectLectureTagList" resultType="String">
+        SELECT TAG_NM
+          FROM TAG
+          JOIN TAG_RELATION USING(TAG_NO)
+         WHERE ITEM_TYPE = 2
+           AND ITEM_NO = ${lectureNo}
+    </select>
+
+    <select id="selectPopularLectureList" resultMap="lectureResultMap">
+        SELECT *
+          FROM LECTURE
+    </select>
+
+    <select id="selectRecentLectureList" resultMap="lectureResultMap">
+        SELECT *
+          FROM LECTURE
+         WHERE LCTR_NO = ${lectureNo}
+    </select>
+
+    <select id="selectLecture" resultMap="lectureResultMap">
+        SELECT *
+          FROM LECTURE
+         WHERE LCTR_NO = ${lectureNo}
+    </select>
+
+</mapper>

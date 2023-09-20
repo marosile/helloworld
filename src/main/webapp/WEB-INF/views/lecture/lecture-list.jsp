@@ -34,37 +34,30 @@
                 </section>
             </div>
         </section>
-        <div class="full-advertise-banner">THIS IS ADVERTISE BANNER</div>
+        <div class="full-advertise-banner">
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8530065988271987"
+                    crossorigin="anonymous"></script>
+            <!-- 2 -->
+            <ins class="adsbygoogle"
+                 style="display:inline-block;width:728px;height:90px"
+                 data-ad-client="ca-pub-8530065988271987"
+                 data-ad-slot="3966232020"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
         <section id="content" class="page">
             <div id="default">
                 <div id="popular">
                     <h2>인기 강의</h2>
-                    <ul class="container">
-                        <li class="card">
-                            <div class="card-front">
-                                <div class="card-thumbnail"></div>
-                                <div class="card-info">
-                                    <h3 class="card-title">일주일만에 끝내는 리액트 완벽 가이드</h3>
-                                    <div class="card-tags">
-                                        <a>#React</a>
-                                        <a>#프론트엔드</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card-back">
-                                <div class="card-detail"></div>
-                            </div>
-                        </li>
-                        <c:forEach begin="0" end="2" step="1">
-                            <li class="card">
+                    <ul id="popular-lecture-container">
+                        <c:forEach var="i" begin="0" end="3">
+                            <li class="card" key="${i}">
                                 <div class="card-front">
                                     <div class="card-thumbnail"></div>
                                     <div class="card-info">
                                         <h3 class="card-title"></h3>
                                         <div class="card-tags">
-                                            <a></a>
-                                            <a></a>
-                                            <a></a>
                                         </div>
                                     </div>
                                 </div>
@@ -77,7 +70,7 @@
                 </div>
                 <div id="latest">
                     <h2>최신 강의</h2>
-                    <ul class="container">
+                    <ul id="recent-lecture-container">
                         <c:forEach begin="0" end="3" step="1">
                             <li class="card">
                                 <div class="card-front">

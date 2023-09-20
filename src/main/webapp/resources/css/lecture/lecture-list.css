@@ -80,7 +80,7 @@ main {
     margin-top: 20px;
 }
 
-.container {
+#popular-lecture-container,#recent-lecture-container {
     display: flex;
     width: 100%;
     padding: 0;
@@ -97,6 +97,7 @@ main {
     overflow: hidden;
     cursor: pointer;
     transition-duration: 0.3s;
+    border: 1px solid var(--divider);
 }
 
 .card:hover {
@@ -110,8 +111,6 @@ main {
 
 .card-info {
     height: 105px;
-    border: 1px solid var(--divider);
-    border-top: none;
     transition-duration: 0.5s;
 }
 

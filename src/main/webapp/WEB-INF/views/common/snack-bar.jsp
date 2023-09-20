@@ -32,7 +32,6 @@
     .snackbar:not(.snackbar:last-of-type) {
         margin-top: -30px;
         scale: 0.85;
-        box-shadow: 0 0 20px 5px rgba(0, 0, 0, 0.3);
     }
 
     .snackbar > div:first-of-type {

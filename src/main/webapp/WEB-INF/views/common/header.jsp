@@ -27,26 +27,18 @@
                 </div>
             </div>
         </label>
-
         <c:choose>
             <c:when test="${empty loginMember}">
                 <div id="header-login" class="button" onClick="location.href='/member/login'">로그인</div>
                 <div id="header-signup" class="button" onClick="location.href='/member/signUp'">회원가입</div>
             </c:when>
-
             <c:otherwise>
                 <div id="header-login" class="button" onClick="location.href='/member/logout'">로그아웃</div>
                 <div id="header-signup" class="button" onClick="location.href='/mypage/profile'">마이페이지</div>
             </c:otherwise>
-
         </c:choose>
-
-
-
     </div>
 </header>
 
-<nav>
-</nav>
 
 <script src="/resources/js/common/header.js"></script>
