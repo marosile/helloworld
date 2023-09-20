@@ -45,6 +45,7 @@
                         </div>
                     </c:if>
 
+
                     <%-- 변경 제거 버튼 영역 --%>
                     <input type="hidden" id="ddd" value="${loginMember.profileImg}">
                     <div class="Btn-area">
