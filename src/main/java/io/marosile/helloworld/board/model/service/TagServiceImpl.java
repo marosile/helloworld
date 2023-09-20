@@ -27,18 +27,31 @@ public class TagServiceImpl implements TagService{
 	public int tagInsert(List<Tag> tagList) {
 			
 			int result = 0;
-			
-			for (int i = 0; i < tagList.size(); i++) {
-			    Tag tag = tagList.get(i);
+
+			for (Tag tag : tagList) {
 			    int insertResult = dao.insertTag(tag);
 			    result += insertResult;
 			}
-			
+
 			return result;
-	 
 		}
 
+	@Transactional(rollbackFor = Exception.class)
+	@Override
+	public int tagUpdate(List<Tag> tagList) {
+		
+		int result = 0;
+
+		for (Tag tag : tagList) {
+		    int insertResult = dao.updateTag(tag);
+		    result += insertResult;
+		}
+
+		return result;
+	
 	}
+
+}
 
 
 

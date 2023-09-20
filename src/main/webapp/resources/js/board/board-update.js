@@ -4,12 +4,14 @@
 // 수정하기
 const createOrUpdatePostButton = document.getElementById("createOrUpdatePostButton");
 
+/*
 createOrUpdatePostButton.addEventListener("click", () =>{
 
     alert("게시글이 수정되었습니다.");
     location.href = "/board/detail";
 
 })
+*/
 
 
 // 수정 취소
@@ -28,13 +30,7 @@ cancelButton.addEventListener("click", () => {
 
 })
 
-
-
-
-
-
 $(document).ready(function() {
-
 
 	var toolbar = [
 		    // 글꼴 설정

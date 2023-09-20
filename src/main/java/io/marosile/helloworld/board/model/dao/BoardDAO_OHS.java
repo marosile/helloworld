@@ -23,7 +23,6 @@ public class BoardDAO_OHS {
 
 	/**
 	 * 무한스크롤
-	 * 
 	 * @param parameters
 	 * @return list
 	 */
@@ -33,7 +32,6 @@ public class BoardDAO_OHS {
 
 	/**
 	 * 게시글 삽입
-	 * 
 	 * @param board
 	 * @return result
 	 */
@@ -50,7 +48,6 @@ public class BoardDAO_OHS {
 
 	/**
 	 * 게시글 수정
-	 * 
 	 * @param board
 	 * @return result
 	 */
@@ -58,6 +55,17 @@ public class BoardDAO_OHS {
 
 		int result = sqlSession.insert("boardMapper.boardUpdate", board);
 
+		return result;
+	}
+
+	/** 게시글 삭제
+	 * @param map
+	 * @return result
+	 */
+	public int boardDelete(int boardNo) {
+		
+		int result = sqlSession.update("boardMapper.boardDelete", boardNo);
+		
 		return result;
 	}
 

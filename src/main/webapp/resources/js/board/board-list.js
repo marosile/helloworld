@@ -31,21 +31,6 @@ for (let i = 0; i < postThirdPart.length; i++) {
   });
 }
 
-
-// 작성하기 버튼
-/* const boardInsert = document.getElementById("boardInsert");
-
-if(boardInsert != null){
-
-    boardInsert.addEventListener("click", () => {
-    
-        location.href = `/board2/${location.pathname.split("/")[2]}/write` ;
-    
-    })
-}
- */
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
 // 무한스크롤
 
 var page = 2; // 처음 ajax 넘길 page 번호

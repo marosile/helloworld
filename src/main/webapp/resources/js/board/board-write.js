@@ -38,7 +38,6 @@ document.addEventListener("DOMContentLoaded", function() {
             if (tagsDiv.children.length >= maxTags) {
                 snackbar('태그는 5개까지 입력 가능합니다.', 'rgb(0, 128, 255)', '/resources/images/moon.png');
             }
-
         
         }
     });

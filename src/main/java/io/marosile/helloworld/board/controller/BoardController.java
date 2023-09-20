@@ -130,8 +130,6 @@ public class BoardController {
 		    tagNames.add(tag.getTagName());
 		}
 		
-		System.out.println(tagList);
-		
 		if(boardCode == 1) board.setBoardName("공지사항");
 		
 		if(boardCode == 2) board.setBoardName("자유 게시판");

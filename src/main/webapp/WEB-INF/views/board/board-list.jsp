@@ -159,6 +159,7 @@
                                 </div>
 
                                 <div class="postThirdPart">
+                                    ${board.boardContent}
                                 </div>
                         
                                 <div class="postFourthPart">
