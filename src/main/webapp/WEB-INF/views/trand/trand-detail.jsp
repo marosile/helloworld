@@ -132,47 +132,68 @@
                         </c:when>
 
                         <c:otherwise>
-                            <c:forEach items="${comment}" var="comment">
-                            <div class="replys">
 
-                                <div class="inReplyfirstDiv">
-                                    <div><img src="${comment.profileImage}" class="replyImages"></div>
-                                    <div id="replyWriter">${comment.memberId}</div>
-                                    <div id="replyCreateDate">(${comment.createDate})</div>
-                                </div>
+                        <div class="reply-list-area">
 
-                                <div class="replyContents">
+                         <ul id="reply-list">
+
+                        
+                        <c:forEach items="${comment}" var="comment">
+
+                            <li class="reply-row <c:if test='${comment.parentNo != 0}'>child-comment</c:if>">
+
+                                <p class="reply-writer">
+
+                                <c:if test="${empty comment.profileImage}">
+                                        <img src="/resources/images/user.png">
+                                </c:if>
+
+                                <c:if test="${!empty comment.profileImage}" >
+                                            <img src="${comment.profileImage}">
+                                </c:if>
+
+                                <span class="name">${comment.memberNickname}</span>
+
+                                <span class="reply-date">${comment.createDate}</span>
+                                
+                                </p>
+
+                                <p class="reply-content">
                                     ${comment.commentContent}
-                                </div>
+                                </p>
 
-                                <div class="replyBtns">
-                                    <c:if test="${loginMember.memberId == comment.memberId}" >
-                                        <button onclick="showUpdateComment(${comment.commentNo}, this)" class="replyBtn">수정</button>
-                                        <button onclick="deleteComment(${comment.commentNo})" class="replyBtn">삭제</button>
-                                    </c:if>
-
+                                <div class="reply-btn-area">
                                     <c:if test="${loginMember != null}">
-                                        <button onclick="showInsertComment(${comment.commentNo}, this)" class="replyBtn">답글</button>
+                                        <button onclick="showInsertComment(${comment.commentNo}, this)">답글</button>   
+                                    </c:if>
+                                
+                                    <c:if test="${loginMember.memberId == comment.memberId}" >
+                                        <button onclick="showUpdateComment(${comment.commentNo}, this)" id="updateBtn">수정</button>     
+                                        <button onclick="deleteComment(${comment.commentNo})" id="deleteBtn">삭제</button>
                                     </c:if>
                                 </div>
-                            </div>
-                            </c:forEach>
+                            </li>
+
+                             </c:forEach>
+
+                        </ul>     
+                    </div>    
                         </c:otherwise>
                     </c:choose>    
                     
 
                     <!-- 댓글 작성 div -->
-                    <div id="replyWrite">
+                    <div class="comment-write-area" id="replyWrite">
 
                         <!-- 작성 부분 -->
-                        <div id="replyWriteContent">
+                        <%-- <div id="replyWriteContent"> --%>
                             <input type="text" placeholder=" 💬 댓글을 작성해주세요.">
-                        </div>
-
+                        <%-- </div>
+ --%>
                         <!-- 버튼 부분 -->
-                        <div id="replyWriteBtn">
-                            <button>작성하기</button>
-                        </div>
+                        <%-- <div id="replyWriteBtn"> --%>
+                            <button id="replyWriteBtn">작성하기</button>
+                        <%-- </div> --%>
 
                     </div>
 
