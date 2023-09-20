@@ -28,7 +28,7 @@ public class MyPageDAO {
 		return sqlSession.update("myPageMapper.updateProfile", member);
 	}
 
-	/** 비밀번호 변경 (조회)(account)
+	/** 비밀번호변경(조회)(account)
 	 * @param memberId
 	 * @return
 	 */
