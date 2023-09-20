@@ -3,6 +3,11 @@
 
 <!DOCTYPE html>
 <html lang="ko">
+
+<c:set var="detail" value="${map.trandDetail}" />
+<c:set var="comment" value="${map.commentList}" />
+<c:set var="topList" value="${map.List}" />
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -20,7 +25,7 @@
     <jsp:include page="/WEB-INF/views/common/header.jsp"/>
 
     <main id="main">
-    
+
         <!-- 글 상세div + 인기 탑 10 div -->
         <div id = "divContainer">
 
@@ -36,8 +41,8 @@
                     </div>
                     
                     <div id="headerNameIntro">
-                        <div id="nickName">달레</div>
-                        <div id="introduce">블로그쓰는 개발자✍️</div>
+                        <div id="nickName">${detail.memberId}</div>
+                        <div id="introduce">${detail.memberNickname}</div>
                     </div>
 
                     <div id="followButtonDiv">

@@ -3,6 +3,10 @@
 
 <!DOCTYPE html>
 <html lang="ko">
+
+<c:set var="list" value="${List}" />
+
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -18,6 +22,11 @@
 
 </head>
 <body>
+
+<%
+        int i = 1;
+    %>
+
     
     <jsp:include page="/WEB-INF/views/common/header.jsp"/>
 
@@ -54,233 +63,40 @@
             </div>
             <div id="right-area">
 
-                <div class="row-area">
+                <c:forEach items="${list}" var="list">
+                
+                    <div class="row-area">
+                        <div class="row1-1">
+                            <div class="number" style='color:#2188ff'> <%= i++ %> </div>
+                            <div class="profile"><img src="${list.profileImage}" id="userProfile"></div>
+                            <div class="name-area">
+                                <div class="name">${list.memberId}</div>
+                                <div class="nickname">${list.memberNickname}</div>
+                            </div>
+                        </div>
 
-                    <div class="row1-1">
-                        <div class="number" style='color:#2188ff'>1</div>
-                        <div class="profile"><img src="/resources/images/trand/userSample.jpg" id="userProfile"></div>
-                        <div class="name-area">
-                            <div class="name">조서희</div>
-                            <div class="nickname">백엔드 개발자</div>
+                        <div class="row1-2">
+                            <div class="text-area" data-boardNo="${list.boardNo}">
+                                <div class="title">🕊️ ${list.boardTitle} </div>
+                                <div class="content">${list.boardContent}</div>
+                            </div>
+                            <div class="picture"><img src="/resources/images/trand/sample.jpg" id="pic"></div>
                         </div>
-                    </div>
 
-                    <div class="row1-2">
-                        <div class="text-area">
-                            <div class="title">🕊️ 시니어 개발자가 되기 위한 백엔드 프로젝트 아이디어 | </div>
-                            <div class="content">백엔드 프로그래밍 기술을 향상시키고 시니어 수준의 개발자가 되는 데 도움이 되는 흥미로운 프로젝트 아이디어를 살펴봅시다.</div>
+                        <div class="row1-3">
+                            <div class="heart"><i class="fa-solid fa-heart"></i> ${list.likeCount}</div>
+                            <div class="bookmark"><i class="fa-solid fa-eye"></i>  ${list.readCount}</div>
+                            <input type="hidden" id="boardNo" name="boardNo" value="${list.boardNo}" />
                         </div>
-                        <div class="picture"><img src="/resources/images/trand/sample.jpg" id="pic"></div>
-                    </div>
 
-                    <div class="row1-3">
-                        <div class="heart"><i class="fa-solid fa-heart"></i>  65</div>
-                        <div class="bookmark"><i class="fa-regular fa-bookmark"></i>  30</div>
                     </div>
+                
+                </c:forEach>
 
-                </div>
-
-
-                <div class="row-area">
-                    <div class="row1-1">
-                        <div class="number" style='color:#1261bb91'>2</div>
-                        <div class="profile"><img src="/resources/images/trand/userSample.jpg" id="userProfile"></div>
-                        <div class="name-area">
-                            <div class="name">조서희</div>
-                            <div class="nickname">백엔드 개발자</div>
-                        </div>
-                    </div>
-                    <div class="row1-2">
-                        <div class="text-area">
-                            <div class="title">🕊️ 시니어 개발자가 되기 위한 백엔드 프로젝트 아이디어</div>
-                            <div class="content">백엔드 프로그래밍 기술을 향상시키고 시니어 수준의 개발자가 되는 데 도움이 되는 흥미로운 프로젝트 아이디어를 살펴봅시다.</div>
-                        </div>
-                        <div class="picture"><img src="/resources/images/trand/sample.jpg" id="pic"></div>
-                    </div>
-                    <div class="row1-3">
-                        <div class="heart"><i class="fa-solid fa-heart"></i>  65</div>
-                        <div class="bookmark"><i class="fa-regular fa-bookmark"></i>  30</div>
-                    </div>
-                </div>
-
-
-                <div class="row-area">
-                    <div class="row1-1">
-                        <div class="number" style='color:#08366bc5'>3</div>
-                        <div class="profile"><img src="/resources/images/trand/userSample.jpg" id="userProfile"></div>
-                        <div class="name-area">
-                            <div class="name">조서희</div>
-                            <div class="nickname">백엔드 개발자</div>
-                        </div>
-                    </div>
-                    <div class="row1-2">
-                        <div class="text-area">
-                            <div class="title">🕊️ 시니어 개발자가 되기 위한 백엔드 프로젝트 아이디어</div>
-                            <div class="content">백엔드 프로그래밍 기술을 향상시키고 시니어 수준의 개발자가 되는 데 도움이 되는 흥미로운 프로젝트 아이디어를 살펴봅시다.</div>
-                        </div>
-                        <div class="picture"><img src="/resources/images/trand/sample.jpg" id="pic"></div>
-                    </div>
-                    <div class="row1-3">
-                        <div class="heart"><i class="fa-solid fa-heart"></i>  65</div>
-                        <div class="bookmark"><i class="fa-regular fa-bookmark"></i>  30</div>
-                    </div>
-                </div>
-
-                <div class="row-area">
-                    <div class="row1-1">
-                        <div class="number">4</div>
-                        <div class="profile"><img src="/resources/images/trand/userSample.jpg" id="userProfile"></div>
-                        <div class="name-area">
-                            <div class="name">조서희</div>
-                            <div class="nickname">백엔드 개발자</div>
-                        </div>
-                    </div>
-                    <div class="row1-2">
-                        <div class="text-area">
-                            <div class="title">🕊️ 시니어 개발자가 되기 위한 백엔드 프로젝트 아이디어</div>
-                            <div class="content">백엔드 프로그래밍 기술을 향상시키고 시니어 수준의 개발자가 되는 데 도움이 되는 흥미로운 프로젝트 아이디어를 살펴봅시다.</div>
-                        </div>
-                        <div class="picture"><img src="/resources/images/trand/sample.jpg" id="pic"></div>
-                    </div>
-                    <div class="row1-3">
-                        <div class="heart"><i class="fa-solid fa-heart"></i>  65</div>
-                        <div class="bookmark"><i class="fa-regular fa-bookmark"></i>  30</div>
-                    </div>
-                </div>
-
-
-                <div class="row-area">
-                    <div class="row1-1">
-                        <div class="number">5</div>
-                        <div class="profile"><img src="/resources/images/trand/userSample.jpg" id="userProfile"></div>
-                        <div class="name-area">
-                            <div class="name">조서희</div>
-                            <div class="nickname">백엔드 개발자</div>
-                        </div>
-                    </div>
-                    <div class="row1-2">
-                        <div class="text-area">
-                            <div class="title">🕊️ 시니어 개발자가 되기 위한 백엔드 프로젝트 아이디어</div>
-                            <div class="content">백엔드 프로그래밍 기술을 향상시키고 시니어 수준의 개발자가 되는 데 도움이 되는 흥미로운 프로젝트 아이디어를 살펴봅시다.</div>
-                        </div>
-                        <div class="picture"><img src="/resources/images/trand/sample.jpg" id="pic"></div>
-                    </div>
-                    <div class="row1-3">
-                        <div class="heart"><i class="fa-solid fa-heart"></i>  65</div>
-                        <div class="bookmark"><i class="fa-regular fa-bookmark"></i>  30</div>
-                    </div>
-                </div>
-
-
-                <div class="row-area">
-                    <div class="row1-1">
-                        <div class="number">6</div>
-                        <div class="profile"><img src="/resources/images/trand/userSample.jpg" id="userProfile"></div>
-                        <div class="name-area">
-                            <div class="name">조서희</div>
-                            <div class="nickname">백엔드 개발자</div>
-                        </div>
-                    </div>
-                    <div class="row1-2">
-                        <div class="text-area">
-                            <div class="title">🕊️ 시니어 개발자가 되기 위한 백엔드 프로젝트 아이디어</div>
-                            <div class="content">백엔드 프로그래밍 기술을 향상시키고 시니어 수준의 개발자가 되는 데 도움이 되는 흥미로운 프로젝트 아이디어를 살펴봅시다.</div>
-                        </div>
-                        <div class="picture"><img src="/resources/images/trand/sample.jpg" id="pic"></div>
-                    </div>
-                    <div class="row1-3">
-                        <div class="heart"><i class="fa-solid fa-heart"></i>  65</div>
-                        <div class="bookmark"><i class="fa-regular fa-bookmark"></i>  30</div>
-                    </div>
-                </div>
-
-                <div class="row-area">
-                    <div class="row1-1">
-                        <div class="number">7</div>
-                        <div class="profile"><img src="/resources/images/trand/userSample.jpg" id="userProfile"></div>
-                        <div class="name-area">
-                            <div class="name">조서희</div>
-                            <div class="nickname">백엔드 개발자</div>
-                        </div>
-                    </div>
-                    <div class="row1-2">
-                        <div class="text-area">
-                            <div class="title">🕊️ 시니어 개발자가 되기 위한 백엔드 프로젝트 아이디어</div>
-                            <div class="content">백엔드 프로그래밍 기술을 향상시키고 시니어 수준의 개발자가 되는 데 도움이 되는 흥미로운 프로젝트 아이디어를 살펴봅시다.</div>
-                        </div>
-                        <div class="picture"><img src="/resources/images/trand/sample.jpg" id="pic"></div>
-                    </div>
-                    <div class="row1-3">
-                        <div class="heart"><i class="fa-solid fa-heart"></i>  65</div>
-                        <div class="bookmark"><i class="fa-regular fa-bookmark"></i>  30</div>
-                    </div>
-                </div>
-
-                <div class="row-area">
-                    <div class="row1-1">
-                        <div class="number">8</div>
-                        <div class="profile"><img src="/resources/images/trand/userSample.jpg" id="userProfile"></div>
-                        <div class="name-area">
-                            <div class="name">조서희</div>
-                            <div class="nickname">백엔드 개발자</div>
-                        </div>
-                    </div>
-                    <div class="row1-2">
-                        <div class="text-area">
-                            <div class="title">🕊️ 시니어 개발자가 되기 위한 백엔드 프로젝트 아이디어</div>
-                            <div class="content">백엔드 프로그래밍 기술을 향상시키고 시니어 수준의 개발자가 되는 데 도움이 되는 흥미로운 프로젝트 아이디어를 살펴봅시다.</div>
-                        </div>
-                        <div class="picture"><img src="/resources/images/trand/sample.jpg" id="pic"></div>
-                    </div>
-                    <div class="row1-3">
-                        <div class="heart"><i class="fa-solid fa-heart"></i>  65</div>
-                        <div class="bookmark"><i class="fa-regular fa-bookmark"></i>  30</div>
-                    </div>
-                </div>
-
-                <div class="row-area">
-                    <div class="row1-1">
-                        <div class="number">9</div>
-                        <div class="profile"><img src="/resources/images/trand/userSample.jpg" id="userProfile"></div>
-                        <div class="name-area">
-                            <div class="name">조서희</div>
-                            <div class="nickname">백엔드 개발자</div>
-                        </div>
-                    </div>
-                    <div class="row1-2">
-                        <div class="text-area">
-                            <div class="title">🕊️ 시니어 개발자가 되기 위한 백엔드 프로젝트 아이디어</div>
-                            <div class="content">백엔드 프로그래밍 기술을 향상시키고 시니어 수준의 개발자가 되는 데 도움이 되는 흥미로운 프로젝트 아이디어를 살펴봅시다.</div>
-                        </div>
-                        <div class="picture"><img src="/resources/images/trand/sample.jpg" id="pic"></div>
-                    </div>
-                    <div class="row1-3">
-                        <div class="heart"><i class="fa-solid fa-heart"></i>  65</div>
-                        <div class="bookmark"><i class="fa-regular fa-bookmark"></i>  30</div>
-                    </div>
-                </div>
-
-                         <div class="row-area">
-                    <div class="row1-1">
-                        <div class="number">10</div>
-                        <div class="profile"><img src="/resources/images/trand/userSample.jpg" id="userProfile"></div>
-                        <div class="name-area">
-                            <div class="name">조서희</div>
-                            <div class="nickname">백엔드 개발자</div>
-                        </div>
-                    </div>
-                    <div class="row1-2">
-                        <div class="text-area">
-                            <div class="title">🕊️ 시니어 개발자가 되기 위한 백엔드 프로젝트 아이디어</div>
-                            <div class="content">백엔드 프로그래밍 기술을 향상시키고 시니어 수준의 개발자가 되는 데 도움이 되는 흥미로운 프로젝트 아이디어를 살펴봅시다.</div>
-                        </div>
-                        <div class="picture"><img src="/resources/images/trand/sample.jpg" id="pic"></div>
-                    </div>
-                    <div class="row1-3">
-                        <div class="heart"><i class="fa-solid fa-heart"></i>  65</div>
-                        <div class="bookmark"><i class="fa-regular fa-bookmark"></i>  30</div>
-                    </div>
-                </div>
+             <script>
+                const boardNo = ${list.boardNo}
+            </script> 
+                    
             </div>
         </div>
 
