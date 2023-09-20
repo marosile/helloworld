@@ -37,7 +37,7 @@
 
             <!-- 작성 or 수정 표시 -->
             <div id="boardWrite">
-                <div>게시글 작성 </div>
+                <div>게시글 수정</div>
             </div>
 
 
@@ -62,40 +62,20 @@
                      <textarea id="summernote" name="boardContent">${board.boardContent}</textarea>
                 </div>
 
-                <!-- 태그 설정 (자동완성하는거 어떻게 만들지 몰라서 일단 select 태그)-->
                 <div id="tagsContainer">
 
                     <div id="tagText"># 태그 선택</div>
 
                     <div id="tagsDiv">
-                        
-                        <select id="selectTag" name="tags" class="tagSelects">
-                            <option value="태그1">태그1</option>
-                            <option value="태그2">태그2</option>
-                            <option value="태그3">태그3</option>
-                            <option value="태그3">태그4</option>
-                            <option value="태그3">태그5</option>
-                        </select>
 
-                        <select id="selectTag" name="tags" class="tagSelects">
-                            <option value="태그1">태그1</option>
-                            <option value="태그2">태그2</option>
-                            <option value="태그3">태그3</option>
-                            <option value="태그3">태그4</option>
-                            <option value="태그3">태그5</option>
-                        </select>
-
-                        <select id="selectTag" name="tags" class="tagSelects">
-                            <option value="태그1">태그1</option>
-                            <option value="태그2">태그2</option>
-                            <option value="태그3">태그3</option>
-                            <option value="태그3">태그4</option>
-                            <option value="태그3">태그5</option>
-                        </select>
+                        <c:forEach items="${tagListJson}" var="tagName" varStatus="loop">
+                            <input type="text" class="tagInputs" name="tagInputs" placeholder="#태그${loop.index + 1}" data-tag-name="${tagName}">
+                        </c:forEach>
 
                     </div>
 
                 </div>
+
 
                 <div id="buttonsArea">
     
@@ -110,70 +90,56 @@
         </div>
 
 
-
  <script>
-    const boardCode = "${boardCode}";  // js 사용
 
-$(document).ready(function() {
+document.addEventListener("DOMContentLoaded", function() {
+    const tagsDiv = document.getElementById("tagsDiv");
+    const maxTags = 5;
 
+    const tagListJson = "${tagListJson}"; // JSON 형태의 문자열로 받음
 
-	var toolbar = [
-		    // 글꼴 설정
-		    ['fontname', ['fontname']],
-		    // 글자 크기 설정
-		    ['fontsize', ['fontsize']],
-		    // 굵기, 기울임꼴, 밑줄,취소 선, 서식지우기
-		    ['style', ['bold', 'italic', 'underline','strikethrough', 'clear']],
-		    // 글자색
-		    ['color', ['forecolor','color']],
-		    // 표만들기
-		    ['table', ['table']],
-		    // 글머리 기호, 번호매기기, 문단정렬
-		    ['para', ['ul', 'ol', 'paragraph']],
-		    // 줄간격
-		    ['height', ['height']],
-		    // 그림첨부, 링크만들기, 동영상첨부
-		    ['insert',['picture','link','video']],
-		    // 코드보기, 확대해서보기, 도움말
-		    ['view', ['codeview','fullscreen', 'help']]
-		  ];
+    const tagData = JSON.parse(tagListJson); // JSON 데이터로 파싱
 
-          var setting = {
-            width:900,
-            minHeight : 600,
-            focus : true,
-            lang : 'ko-KR',
-            toolbar : toolbar,
-            disableHtml: true,
-            //콜백 함수
-            callbacks : { 
-            	onImageUpload : function(files, editor, welEditable) {
-            // 파일 업로드(다중업로드를 위해 반복문 사용)
-            for (var i = files.length - 1; i >= 0; i--) {
-            uploadSummernoteImageFile(files[i],
-            this);
-            		}
-            	}
+    for (let i = 0; i < tagData.length; i++) {
+        if (tagsDiv.children.length < maxTags) {
+            const inputTag = document.createElement("input");
+            inputTag.type = "text";
+            inputTag.classList.add("tagInputs");
+            inputTag.setAttribute("name", "tagInputs");
+
+            // 서버에서 받은 태그 데이터로 초기값 설정
+            inputTag.value = tagData[i];
+
+            // 각각의 input 요소에 다른 placeholder 설정
+            inputTag.placeholder = "#태그" + (i + 1);
+
+            tagsDiv.appendChild(inputTag);
+        }
+    }
+
+    document.getElementById("tagText").addEventListener("click", function() {
+        if (tagsDiv.children.length < maxTags) {
+            const inputTag = document.createElement("input");
+            inputTag.type = "text";
+
+            // 클래스 추가
+            inputTag.classList.add("tagInputs");
+
+            // name 추가 -> controller로
+            inputTag.setAttribute("name", "tagInputs");
+
+            // 각각의 input 요소에 다른 placeholder 설정
+            inputTag.placeholder = "#태그" + (tagsDiv.children.length + 1);
+
+            tagsDiv.appendChild(inputTag);
+
+            // 태그 추가 후에만 snackbar를 표시
+            if (tagsDiv.children.length >= maxTags) {
+                snackbar('태그는 5개까지 입력 가능합니다.', 'rgb(0, 128, 255)', '/resources/images/moon.png');
             }
-         };
-        $('#summernote').summernote(setting);
-        });
-        
-        function uploadSummernoteImageFile(file, el) {
-			data = new FormData();
-			data.append("file", file);
-			$.ajax({
-				data : data,
-				type : "POST",
-				url : "/board2/uploadSummernoteImageFile",
-				contentType : false,
-				enctype : 'multipart/form-data',
-				processData : false,
-				success : function(data) {
-					$(el).summernote('editor.insertImage', data.url);
-				}
-			});
-		}
+        }
+    });
+});
         
 
 
@@ -185,7 +151,7 @@ $(document).ready(function() {
 
     <script src="/resources/js/common/general.js"></script>
 
-    <script src="/resources/js/board/board-update.js"></script>
+    <script type="module" src="/resources/js/board/board-update.js"></script>
 
 </body>
 </html>

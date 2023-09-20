@@ -28,8 +28,10 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import io.marosile.helloworld.board.model.dto.Board;
+import io.marosile.helloworld.board.model.dto.Tag;
 import io.marosile.helloworld.board.model.service.BoardService_OHS;
 import io.marosile.helloworld.board.model.service.BoardService_PHJ;
+import io.marosile.helloworld.board.model.service.TagService;
 import io.marosile.helloworld.member.model.dto.Member;
 
 @SessionAttributes("loginMember")
@@ -42,6 +44,9 @@ public class BoardController {
 
 	@Autowired
 	private BoardService_PHJ service2;
+	
+	@Autowired
+	private TagService service3;
 
 	// 게시글 목록 조회 (첫 조회 -> posts 10개)
 	@GetMapping("/{boardCode:[1-3]}")
@@ -51,16 +56,12 @@ public class BoardController {
 		
 		
 		List<Board> boardList = service2.selectBoardList(boardCode);
-		
 		List<Board> getTopList = service2.getTopList();
 		
 		
 		map.put("boardList",boardList);
 		map.put("getTopList",getTopList);
 		
-		
-		System.out.println("getTopList : " + getTopList);
-
 		model.addAttribute("map", map);
 
 		return "board/board-list";
@@ -115,8 +116,21 @@ public class BoardController {
 
 		map.put("boardCode", boardCode);
 		map.put("boardNo", boardNo);
-
+		
+		// 일반게시판 = type 0
+		int boardType = 0;
+		map.put("boardType", boardType);
+		
 		Board board = service2.selectBoard(map);
+		
+		List<Tag> tagList = service3.tagSelect(map);
+		
+		List<String> tagNames = new ArrayList<>();
+		for (Tag tag : tagList) {
+		    tagNames.add(tag.getTagName());
+		}
+		
+		System.out.println(tagList);
 		
 		if(boardCode == 1) board.setBoardName("공지사항");
 		
@@ -215,6 +229,8 @@ public class BoardController {
 			
 			
 			model.addAttribute("board", board);
+			model.addAttribute("tagList", tagList);
+			
 
 		} else {
 			path = "redirect:/board/" + boardCode;

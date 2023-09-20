@@ -83,8 +83,9 @@
 
         <div id="tag-area">
             <div id="tag">
-                <div>#개발</div>
-                <div>#디자인</div>
+                <c:forEach items="${tagList}" var="tag">
+                    <div>#${tag.tagName}</div>
+                </c:forEach>
             </div>
 
             <div id="button-area">

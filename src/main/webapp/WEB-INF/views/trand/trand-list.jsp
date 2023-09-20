@@ -24,8 +24,6 @@
    <main id="body-area">
         <div id="main-area">
             <div id="left-area">
-            
-                <%-- <p id="main-title">HELLO, WORLD! 트렌드 🤍</p> --%>
 
                 <h1>
                     <span style="color:rgb(222, 143, 241)">H</span>
@@ -47,10 +45,10 @@
 
 
                 <div class="div1" id="tag-area">
-                    <div class="div2"><i class="fa-solid fa-calendar"></i> 개발</div>
-                    <div class="div2"><i class="fa-solid fa-arrow-pointer"></i> 디자인</div>
-                    <div class="div2"><i class="fa-solid fa-tag"></i> 마케팅</div>
-                    <div class="div2"><i class="fa-solid fa-building"></i> 비즈니스</div>
+                    <div class="div2" id="develope"><i class="fa-solid fa-calendar"></i>개발</div>
+                    <div class="div2" id = "design"><i class="fa-solid fa-arrow-pointer"></i>디자인</div>
+                    <div class="div2" id="marketing"><i class="fa-solid fa-tag"></i>마케팅</div>
+                    <div class="div2" id="business"><i class="fa-solid fa-building"></i>비즈니스</div>
                 </div>
 
             </div>

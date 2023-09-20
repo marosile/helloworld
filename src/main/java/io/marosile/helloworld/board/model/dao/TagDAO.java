@@ -1,6 +1,7 @@
 package io.marosile.helloworld.board.model.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,12 +15,14 @@ public class TagDAO {
 	@Autowired
 	private SqlSessionTemplate sqlSession;
 
+	// 태그 조회
+	public List<Tag> tagSelect(Map<String, Object> map) {
+		return sqlSession.selectList("tagMapper.tagSelect", map);
+	}
+	
+	// 태그 삽입
 	public int insertTag(Tag tag) {
-
 		return sqlSession.insert("tagMapper.tagInsert", tag);
 	}
 
-	
-
-	
 }

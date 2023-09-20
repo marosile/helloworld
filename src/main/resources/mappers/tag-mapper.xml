@@ -2,6 +2,24 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="tagMapper">
 
+	<!-- Tag ResultMap -->
+	<resultMap type="Tag" id="TagResultMap">
+
+		<id property="tagNo" column="TAG_NO" />
+
+		<result property="tagName" column="TAG_NM" />
+
+	</resultMap>
+
+<!-- 상세조회에서의? 태그 조회 -->
+<select id="tagSelect" resultMap="TagResultMap">
+	SELECT TAG_NM FROM TAG T 
+	JOIN TAG_RELATION TR ON TR.TAG_NO = T.TAG_NO
+	JOIN BOARD B ON B.BOARD_NO = TR.ITEM_NO
+	WHERE BOARD_NO = #{boardNo} AND ITEM_TYPE = #{boardType}
+</select>
+
+<!-- 일반 게시글 작성할 때 태그 삽입 -->
 <insert id="tagInsert" parameterType="Tag" useGeneratedKeys="true">
     
     <selectKey order="BEFORE" resultType="int" keyProperty="tagNo">
@@ -15,7 +33,6 @@
 	INTO TAG_RELATION (TAG_NO, ITEM_TYPE, ITEM_NO) VALUES (${tagNo}, #{boardType}, #{boardNo})
 	
 	SELECT 1 FROM DUAL
-	
 	
 </insert>
 

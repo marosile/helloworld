@@ -32,6 +32,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 
 import io.marosile.helloworld.board.model.dto.Board;
@@ -93,8 +94,14 @@ public class BoardController2 {
 		        tagList.add(tag);
 		    }
 		}
+
+		board.setTagList(tagList);
+		
+		System.out.println(board);
 		
 		int result = service3.tagInsert(tagList);
+
+		
 		
 		//String message = null;
 		String path = "redirect:";
@@ -115,23 +122,56 @@ public class BoardController2 {
 		return path;
 	}
 	
-	// 게시글 수정 페이지로
+	/*
+	 * // 게시글 수정 페이지로
+	 * 
+	 * @GetMapping("/{boardCode}/{boardNo}/update") public String
+	 * boardUpdate(@PathVariable("boardCode") int boardCode
+	 * ,@PathVariable("boardNo") int boardNo , Model model ) {
+	 * 
+	 * Map<String, Object> map = new HashMap<>();
+	 * 
+	 * map.put("boardCode", boardCode); map.put("boardNo", boardNo);
+	 * 
+	 * int boardType = 0; map.put("boardType", boardType);
+	 * 
+	 * List<Tag> tagList = service3.tagSelect(map);
+	 * 
+	 * List<String> tagNames = new ArrayList<>(); for (Tag tag : tagList) {
+	 * tagNames.add(tag.getTagName()); }
+	 * 
+	 * Board board = service2.selectBoard(map);
+	 * 
+	 * model.addAttribute("board", board); model.addAttribute("tagList", tagNames);
+	 * 
+	 * return "board/board-update"; }
+	 */
+	
 	@GetMapping("/{boardCode}/{boardNo}/update")
-	public String boardUpdate(@PathVariable("boardCode") int boardCode
-						     ,@PathVariable("boardNo") int boardNo
-						     , Model model
-									) {
-		
-		Map<String, Object> map = new HashMap<>();
-		
-		map.put("boardCode", boardCode);
-		map.put("boardNo", boardNo);
-		
-		Board board = service2.selectBoard(map);
-		
-		model.addAttribute("board", board);
-		
-		return "board/board-update";
+	public String boardUpdate(@PathVariable("boardCode") int boardCode,
+	                         @PathVariable("boardNo") int boardNo,
+	                         Model model) {
+	    Map<String, Object> map = new HashMap<>();
+	    map.put("boardCode", boardCode);
+	    map.put("boardNo", boardNo);
+	    int boardType = 0;
+	    map.put("boardType", boardType);
+	    List<Tag> tagList = service3.tagSelect(map);
+	    
+	    List<String> tagNames = new ArrayList<>(); 
+	    for (Tag tag : tagList) {
+	   	 tagNames.add(tag.getTagName()); 
+	   	 }
+
+	    // 태그 목록을 JSON 형태로 변환하여 모델에 추가
+	    Gson gson = new Gson();
+	    String tagListJson = gson.toJson(tagNames);
+	    model.addAttribute("tagListJson", tagListJson);
+
+	    Board board = service2.selectBoard(map);
+	    model.addAttribute("board", board);
+
+	    return "board/board-update";
 	}
 	
 	// 게시글 수정
