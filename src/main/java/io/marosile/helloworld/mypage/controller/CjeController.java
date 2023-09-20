@@ -92,8 +92,6 @@ public class CjeController {
 		// 웹 접근 경로
 		String webPath = "/resources/images/member/";
 		
-		
-		
 		// 실제 이미지 파일 저장 경로
 		String filePath = session.getServletContext().getRealPath(webPath);
 		
@@ -107,22 +105,16 @@ public class CjeController {
 		if(!profileImg2.equals(profileImg3)){
 			loginMember.setProfileImg(profileImg2);
 		}
-
-
-
+		
 		// 서비스 호출
 		int result = service.updateProfile(profileImg, webPath, filePath, loginMember, updateMember);
 		
 		String msg = null;
 		
 		if(result > 0) {
-			
 			msg = "수정 성공";
-			
 			// 닉네임 동기화
 			loginMember.setMemberNick(updateMember.getMemberNick());
-			
-			
 		}else {
 			
 			msg= "수정 실패";
@@ -138,8 +130,8 @@ public class CjeController {
 	/** 비밀번호 변경 (account 페이지)
 	 * @param currentPw
 	 */
-	@PostMapping("/account")
-	public String account(String currentPw, String newPw
+	@PostMapping("/changePw")
+	public String changePw(String currentPw, String newPw
 			, @SessionAttribute("loginMember") Member loginMember
 			, RedirectAttributes ra) {
 

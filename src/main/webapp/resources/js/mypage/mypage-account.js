@@ -5,8 +5,13 @@ const newPw = document.getElementById("newPw");
 const newPwConfirm = document.getElementById("newPwConfirm");
 const pwBtn = document.getElementById("pwBtn");
 
+
+
 /* 비밀번호 유효성 */
-pwBtn.addEventListener("click", () => {
+const changePwFrm = document.getElementById("changePwFrm"); // 비번 폼태그
+
+changePwFrm.addEventListener("submit", e => {
+    
     // 비번 미작성시
     if(currentPw.value.trim() == ""){
         alert("현재 비밀번호를 입력하세요.");

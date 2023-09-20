@@ -45,15 +45,16 @@
                         <span class="authKeyMessage" id="authKeyMessage">asd</span>
                     </div>
                 </div>
+            </form>
 
 
-
-            <!-- ============================  비번 ========================= -->
+            <!-- ================================  비번 ============================= -->
+            <form action="changePw" method="POST" name="myPageFrm" id="changePwFrm">
                 <div class="pw-area">
                     <h3>비밀번호 변경</h3>
                     <div class="row">
                         <label>현재 비밀번호</label><br>
-                        <input type="password" name="currnetPw" id="currentPw" maxlength="30">
+                        <input type="password" name="currentPw" id="currentPw" maxlength="30">
                     </div>
                     <div class="row">
                         <label>새 비밀번호</label><br>
