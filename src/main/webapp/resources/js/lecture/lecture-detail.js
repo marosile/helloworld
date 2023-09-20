@@ -43,7 +43,6 @@ window.addEventListener("scroll", function(e) {
 
 $('#lecture-rating-score').text('(' + score + ')');
 $('#star-filled').css('width', score * 20 + 'px');
-
 $('#store-button').click(() => { snackbar('장바구니에 담겼습니다.', 'rgb(20, 220, 80)', '/resources/images/shopping-cart.png') });
 $('#pay-button').click(() => {
     $('#payment-method').css('display', 'block');

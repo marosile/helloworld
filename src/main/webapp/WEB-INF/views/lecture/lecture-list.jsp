@@ -34,17 +34,7 @@
                 </section>
             </div>
         </section>
-        <div class="full-advertise-banner">
-            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8530065988271987"
-                    crossorigin="anonymous"></script>
-            <!-- 2 -->
-            <ins class="adsbygoogle"
-                 style="display:inline-block;width:728px;height:90px"
-                 data-ad-client="ca-pub-8530065988271987"
-                 data-ad-slot="3966232020"></ins>
-            <script>
-                (adsbygoogle = window.adsbygoogle || []).push({});
-            </script>
+        <div class="advertise-banner">
         </div>
         <section id="content" class="page">
             <div id="default">

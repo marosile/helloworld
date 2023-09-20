@@ -29,6 +29,11 @@ public class LectureController {
 		return "lecture/lecture-detail";
 	}
 
+	@GetMapping("/lecture/create")
+	public String lectureCreate() {
+		return "lecture/lecture-create";
+	}
+
 	@PostMapping("/lecture/populars")
 	@ResponseBody
 	public String popularLectureList() throws JsonProcessingException {

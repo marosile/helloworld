@@ -26,8 +26,14 @@
                 <div id="left">
                     <section id="lecture-info">
                         <p>7차시 구성</p>
-                        <p>난이도 · ${lecture.lectureDifficulty}</p>
-                        <p>수강 기한 · ${lecture.lectureTimeLimit}</p>
+                        <p>난이도 ·
+                            <c:choose>
+                                <c:when test="${lecture.lectureDifficulty == 0}">쉬움</c:when>
+                                <c:when test="${lecture.lectureDifficulty == 1}">보통</c:when>
+                                <c:otherwise>어려움</c:otherwise>
+                            </c:choose>
+                        </p>
+                        <p>수강 기한 · ${lecture.lectureTimeLimit} 일</p>
                     </section>
                     <section id="lecture-rating">
                         <div id="lecture-rating-star">
