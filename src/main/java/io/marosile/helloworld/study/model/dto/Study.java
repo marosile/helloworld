@@ -14,7 +14,7 @@ import java.util.List;
 public class Study {
 
     // board_study
-    private Integer studyNo;
+    private int studyNo;
     private String location;
     private String headCount;
     private String studyStatus;

@@ -76,18 +76,31 @@ public class StudyDAO {
 
         int result = sqlSession.update("studyMapper.studyUpdate1",study);
 
+        System.out.println("result1:"+result);
+
         if (result > 0) {
             result = sqlSession.update("studyMapper.studyUpdate2",study);
+
+            System.out.println("result2:"+result);
         }
         if (result > 0) {
             result = sqlSession.update("studyMapper.studyUpdate3",study);
+            System.out.println("result3:"+result);
         }
         if (result > 0) {
             result = sqlSession.update("studyMapper.studyUpdate4",study);
+            System.out.println("result4:"+result);
         }
         if (result > 0) {
             result = sqlSession.update("studyMapper.studyUpdate5",study);
+            System.out.println("result5:"+result);
         }
+        System.out.println("result6:"+result);
         return result;
+    }
+
+    // 모집완료
+    public int complete(Map<String, Object> map) {
+        return sqlSession.update("studyMapper.complete",map);
     }
 }

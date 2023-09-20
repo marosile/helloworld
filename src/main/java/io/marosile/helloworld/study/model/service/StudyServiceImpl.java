@@ -101,5 +101,10 @@ public class StudyServiceImpl implements StudyService {
 		return boardNo;
 	}
 
+	@Override
+	public int complete(Map<String, Object> map) {
+		return dao.complete(map);
+	}
+
 
 }

@@ -42,6 +42,8 @@ if(deleteBtn!=null){
 
 
 // 모집완료버튼 클릭 시
+
+// 모집완료버튼 클릭 시
 const completeBtn = document.getElementById("completeBtn");
 
 if(completeBtn!=null){
@@ -51,9 +53,25 @@ if(completeBtn!=null){
             alert("🎉 축하합니다! 모집완료되었습니다.")
         }
 
-        
+        const data = {
+            "boardNo" :boardNo
+        }
 
+        fetch("/study/detail/completed",{
+            method:"POST",
+            headers:{"Content-Type":"application/json"},
+            body:JSON.stringify(data)
+        })
+            .then(resp=> resp.text())
+            .then(result =>{
+                console.log(result)
 
+                if(result>0){
+
+                    location.reload(true);
+                }
+            })
+            .catch(e=>{console.log(e)})
     })
 }
 

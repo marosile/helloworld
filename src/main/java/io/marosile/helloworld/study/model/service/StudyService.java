@@ -34,4 +34,6 @@ public interface StudyService {
     // 스터디 삽입
     int studyInsert(Study study);
 
+    // 모집완료 조회
+    int complete(Map<String, Object> map);
 }
