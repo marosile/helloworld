@@ -1,5 +1,6 @@
 package io.marosile.helloworld.trand.controller;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -11,9 +12,11 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import io.marosile.helloworld.board.model.dto.Board;
+import io.marosile.helloworld.board.model.dto.Comment;
 import io.marosile.helloworld.trand.model.dto.Trand;
 import io.marosile.helloworld.trand.model.service.TrandService;
 
@@ -26,29 +29,53 @@ public class TrandController {
 	  private TrandService service;
 	 
 	
-	// 커리어리 트랜드 목록
+	// 트랜드 목록
 	@GetMapping("/list")
-	public String trandList() {
+	public String trandList(Model model) {
+		
+		List<Board> List = service.selectTrandList();
+		
+		model.addAttribute("List", List);
 			
 		return "trand/trand-list";
 	}
 	
+	
+	// 태그 눌렀을때 해당 태그 목록
 	@PostMapping("/tagList")
 	@ResponseBody
 	public List<Board> tagList(@RequestBody Map<String, Object> map){
 		
 		String type = (String) map.get("type");
 		
-		System.out.println(type);
-		
 		List<Board> tList = service.selectTagList(type);
 		
 		return tList;
 	} 
 	
-	// 커리어리 트렌드 상세
+	// 트렌드 상세
 	@GetMapping("/detail")
-	public String trandDetail() {
+	public String trandDetail(@RequestParam("boardNo") int boardNo
+							  , Model model) {
+		
+		Map<String, Object> map = new HashMap<String, Object>();
+		
+		// 게시글 내용
+		Board trandDetail = service.selectTrandDetail(boardNo); 
+		
+		
+		// 댓글 내용
+		List<Comment> commentList = service.selectComment(boardNo);
+		
+		// top10 목록
+		List<Board> List = service.selectTrandList();
+		
+		map.put("trandDetail", trandDetail);
+		map.put("commentList", commentList);
+		map.put("List", List);
+		
+		model.addAttribute("map", map);
+		
 		return "trand/trand-detail";
 	}
 	

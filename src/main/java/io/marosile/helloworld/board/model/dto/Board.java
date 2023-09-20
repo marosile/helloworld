@@ -39,6 +39,4 @@ public class Board {
     
     // tag
     private List<Tag> tagList;
-
-    
 }
