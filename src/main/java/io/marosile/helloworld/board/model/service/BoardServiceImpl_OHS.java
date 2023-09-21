@@ -52,6 +52,11 @@ public class BoardServiceImpl_OHS implements BoardService_OHS {
 		return dao.boardDelete(boardNo);
 	}
 
+	@Override
+	public List<Board> loadBoardList(Map<String, Object> parameters) {
+		return dao.loadBoardList(parameters);
+	}
+
 
 
 

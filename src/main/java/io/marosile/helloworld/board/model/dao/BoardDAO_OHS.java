@@ -76,5 +76,15 @@ public class BoardDAO_OHS {
 		return result;
 	}
 
+	/** 조회
+	 * @param parameters
+	 * @return
+	 */
+	public List<Board> loadBoardList(Map<String, Object> parameters) {
+		
+		return sqlSession.selectList("loadBoardList", parameters);
+	
+	}
+
 
 }
