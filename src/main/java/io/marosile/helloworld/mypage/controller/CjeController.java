@@ -108,7 +108,6 @@ public class CjeController {
 		
 		// 서비스 호출
 		int result = service.updateProfile(profileImg, webPath, filePath, loginMember, updateMember);
-		
 		String msg = null;
 		
 		if(result > 0) {
@@ -125,11 +124,16 @@ public class CjeController {
 		return "redirect:profile";
 	}
 	
+	/** 이메일 인증하기?
+	 */
+	
+	
 	
 	
 	/** 비밀번호 변경 (account 페이지)
 	 * @param currentPw
 	 */
+	
 	@PostMapping("/changePw")
 	public String changePw(String currentPw, String newPw
 			, @SessionAttribute("loginMember") Member loginMember
