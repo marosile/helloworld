@@ -113,8 +113,18 @@ public class BoardController {
 			parameters.put("end", end);
 		    parameters.put("sortType", sortType);
 		    parameters.put("searchKeyword", searchKeyword);
-
-			List<Board> postList = service.loadPosts(parameters);
+		    
+		    List<Board> postList = new ArrayList<>();
+		    
+		    if ("recent".equals(sortType)) {
+		        // 최신순으로 데이터를 가져오는 로직을 구현
+		        postList = service.loadRecentPosts(parameters);
+		    } 
+		    
+		    if ("readCount".equals(sortType)) {
+		        // 조회순으로 데이터를 가져오는 로직을 구현
+		        postList = service.loadReadCountPosts(parameters);
+		    }
 
 			return postList;
 		}

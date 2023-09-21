@@ -21,21 +21,6 @@ public class BoardDAO_OHS {
 		this.sqlSession = sqlSession;
 	}
 
-	/** 무한스크롤 (최신순)
-	 * @param parameters
-	 * @return list
-	 */
-	public List<Board> loadPosts(Map<String, Object> parameters) {
-		return sqlSession.selectList("loadPosts", parameters);
-	}
-	
-	/** 무한스크롤 (조회순)
-	 * @param parameters
-	 * @return list
-	 */
-	public List<Board> loadPostsByReadCount(Map<String, Object> parameters) {
-		return sqlSession.selectList("loadPostsByReadCount", parameters);
-	}
 
 	/**
 	 * 게시글 삽입
@@ -84,6 +69,24 @@ public class BoardDAO_OHS {
 		
 		return sqlSession.selectList("loadBoardList", parameters);
 	
+	}
+
+
+	/** 스크롤 - 최신
+	 * @param parameters
+	 * @return List
+	 */
+	public List<Board> loadRecentPosts(Map<String, Object> parameters) {
+		return sqlSession.selectList("loadRecentPosts", parameters);
+	}
+
+
+	/** 스크롤 - 조회
+	 * @param parameters
+	 * @return List
+	 */
+	public List<Board> loadReadCountPosts(Map<String, Object> parameters) {
+		return sqlSession.selectList("loadReadCountPosts", parameters);
 	}
 
 

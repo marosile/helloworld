@@ -8,18 +8,6 @@ import io.marosile.helloworld.board.model.dto.Board;
 public interface BoardService_OHS {
 
 
-	/** 무한스크롤(최신순, 기본값)
-	 * @param parameters
-	 * @return List
-	 */
-	List<Board> loadPosts(Map<String, Object> parameters);
-	
-
-	/** 무한스크롤(조회순)
-	 * @param parameters
-	 * @return List
-	 */
-	List<Board> loadPostsByReadCount(Map<String, Object> parameters);
 
 	/** 게시글 삽입
 	 * @param board
@@ -45,6 +33,19 @@ public interface BoardService_OHS {
 	 * @return
 	 */
 	List<Board> loadBoardList(Map<String, Object> parameters);
+
+
+	/** 무한스크롤 - 최신순
+	 * @param parameters
+	 * @return List
+	 */
+	List<Board> loadRecentPosts(Map<String, Object> parameters);
+
+	/** 무한스크롤 - 조회순
+	 * @param parameters
+	 * @return List
+	 */
+	List<Board> loadReadCountPosts(Map<String, Object> parameters);
 
 
 	
