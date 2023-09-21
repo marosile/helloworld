@@ -550,10 +550,14 @@ followBtn.addEventListener("click", () => {
 close.addEventListener("click", () => {
 
     followArea.classList.toggle("follow-area");
+    location.reload();
 })
 
 var iconElement = document.querySelector('#followBtn2 i'); 
 
+const followSpan = document.getElementById("followSpan");
+const followingSpan = document.getElementById("followingSpan");
+console.log(followSpan +"1");
 /* 팔로우 */
 followBtn2.addEventListener("click", e=>{
 
@@ -594,6 +598,15 @@ followBtn2.addEventListener("click", e=>{
 
         iconElement.classList.toggle("fa-user-plus");
         iconElement.classList.toggle("fa-check");
+        if(followSpan != null){
+            
+            followSpan.innerText = '팔로잉';
+            console.log(followSpan +"2");
+        }
+        if(followingSpan != null){
+            
+            followSpan.innerText = '팔로우';
+        }
 
     })
     .catch( err => {

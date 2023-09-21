@@ -37,6 +37,7 @@ public class TrandController {
 		
 		List<Board> List = service.selectTrandList();
 		
+		
 		model.addAttribute("List", List);
 			
 		return "trand/trand-list";

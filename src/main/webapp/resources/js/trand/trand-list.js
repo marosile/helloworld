@@ -325,3 +325,18 @@ function init() {
 }
 
 init();
+
+var boardContent = boardContent; // 예제 데이터
+var maxLength = 20;
+
+var truncatedText = truncateText(boardContent, maxLength);
+
+document.getElementById("content").textContent = truncatedText;
+
+function truncateText(text, maxLength) { // 매개변수명 수정: text
+  if (text.length > maxLength) {
+      return text.slice(0, maxLength) + '...'; // text로 수정: maxLength 이상인 경우 일부 문자를 자르고 '...'을 추가
+  } else {
+      return text; // maxLength 이하인 경우 그대로 반환
+  }
+}
