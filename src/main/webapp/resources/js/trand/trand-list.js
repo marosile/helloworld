@@ -43,7 +43,7 @@ develope.addEventListener("click", ()=>{
                                         '<div class="title">' + tList.boardTitle + '</div>' +
                                         '<div class="content">' + tList.boardContent + '</div>' +
                                     '</div>' +
-                                    '<div class="picture">' + '<img src="/resources/images/trand/sample.jpg" id="pic">' + '</div>' +
+                                    '<div class="picture">' + '<img src="/resources/images/img_2102_0.jpg" id="pic">' + '</div>' +
                               '</div>' +
 
                               '<div class="row1-3">' +
@@ -113,7 +113,7 @@ design.addEventListener("click", ()=>{
                                     '<div class="title">' + tList.boardTitle + '</div>' +
                                     '<div class="content">' + tList.boardContent + '</div>' +
                                 '</div>' +
-                                '<div class="picture">' + '<img src="/resources/images/trand/sample.jpg" id="pic">' + '</div>' +
+                                '<div class="picture">' + '<img src="/resources/images/gg.jpg" id="pic">' + '</div>' +
                           '</div>' +
 
                           '<div class="row1-3">' +
@@ -183,7 +183,7 @@ marketing.addEventListener("click", ()=>{
                                     '<div class="title">' + tList.boardTitle + '</div>' +
                                     '<div class="content">' + tList.boardContent + '</div>' +
                                 '</div>' +
-                                '<div class="picture">' + '<img src="/resources/images/trand/sample.jpg" id="pic">' + '</div>' +
+                                '<div class="picture">' + '<img src="/resources/images/ww.jpg" id="pic">' + '</div>' +
                           '</div>' +
 
                           '<div class="row1-3">' +
@@ -254,7 +254,7 @@ business.addEventListener("click", ()=>{
                                     '<div class="title">' + tList.boardTitle + '</div>' +
                                     '<div class="content">' + tList.boardContent + '</div>' +
                                 '</div>' +
-                                '<div class="picture">' + '<img src="/resources/images/trand/sample.jpg" id="pic">' + '</div>' +
+                                '<div class="picture">' + '<img src="/resources/images/ff.png" id="pic">' + '</div>' +
                           '</div>' +
 
                           '<div class="row1-3">' +
