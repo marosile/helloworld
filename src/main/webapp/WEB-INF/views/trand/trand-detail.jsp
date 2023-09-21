@@ -87,12 +87,12 @@
                     <%-- 팔로우 안했거나 로그인 x --%>
                     <c:if test="${empty followCheck}">
                         <button id="followBtn2"><i class="fa-solid fa-user-plus"></i> 
-                        <div id="followSpan">팔로우</div></button>
+                        <span id="followSpan">팔로우</span></button>
                     </c:if>
 
                     <c:if test="${!empty followCheck}">
                         <button id="followBtn2" class="fa-check"><i class="fa-solid fa-check"></i> 
-                        <div id="followingSpan">팔로잉</div></button>
+                        <span id="followingSpan">팔로잉</span></button>
                     </c:if>
 
                         <button id="messageBtn"><i class="fa-regular fa-comment-dots"></i> 메시지</button>

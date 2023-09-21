@@ -82,6 +82,14 @@
 .content{
     margin-left: 15px;
     font-size: 14px;
+
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis; 
+}
+
+.content span{
+    font-size: 14px;
 }
 
 .row1-2{
