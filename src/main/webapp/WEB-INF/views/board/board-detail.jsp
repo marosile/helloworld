@@ -97,7 +97,7 @@
                 <button id="list">목록</button>
             </div>
             
-            
+            <%-- 신고 모달창 --%>
             <div class="report-area" id="report-area">
             <span id="close">&times</span>
 

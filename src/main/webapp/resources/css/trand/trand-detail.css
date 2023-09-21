@@ -40,6 +40,7 @@
     height:40px;
     
     border-radius: 50%;
+    cursor: pointer;
 }
 
 /* 이름 + 소개 */
@@ -336,6 +337,7 @@
 /* 이름 */
  .top10WriterIntroduce > span{
     font-size:12px;
+    font-weight: bold;
 
 } 
 
@@ -444,6 +446,7 @@
     font-size: 17px;
     margin-left: 35px;
     margin-top: 5px;
+    margin-bottom: 10px;
  }
  
 
@@ -576,4 +579,124 @@
     background-color: white;
     border: 2px solid rgb(78, 80, 79);
     color: rgb(78, 80, 79);
+}
+
+
+
+
+/* 팔로우 모달창 */
+#follow-button-area{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#followBtn2{
+    width: 90px;
+    height: 40px;
+
+    background-color: rgba(147, 147, 204, 0.856);
+
+
+    margin-right: 10px;
+    margin-top: 10px;
+}
+
+
+
+#messageBtn{
+    width: 90px;
+    height: 40px;
+
+    margin-right: 10px;
+    margin-top: 10px;
+}
+
+.report-area{
+    display: none;
+}
+
+#follow-area{
+    position: fixed;
+    margin: auto;
+    top: 200px;
+    left: 490px;
+    z-index: 1200;
+    background-color: rgb(255, 255, 255);
+    border: 1px inset rgb(0, 0, 0);
+    border-radius: 10px;
+    width: 310px;
+    height: 470px;
+}
+
+.follow-area{
+    display: none;
+}
+
+#close{
+    font-size: 30px;
+    display: flex;
+    justify-content: end;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+#followImage{
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+    border: 1px solid #a5a3a3;
+
+    align-items: center;
+    margin-left: 30px;
+}
+
+#follow-id{
+    font-size: 23px;
+    font-weight: bold;
+
+    margin-left: 20px;
+    margin-top: 20px;
+    margin-bottom: 3px;
+}
+
+#follow-nick{
+    font-size: 15px;
+
+    margin-left: 20px;
+    margin-bottom: 20px;
+}
+
+#follow-zone{
+    display: flex;
+    height: 100px;
+
+    margin-left: 20px;
+    font-size: 16px;
+}
+
+#follow-zone span{
+    font-weight: bold;
+}
+
+#follow-image-area{
+    height: 150px;
+}
+
+#follower{
+    width: 120px;
+}
+
+#follow-button-area button:hover{
+    background-color: rgb(129, 129, 214);
+    color: white;
+}
+
+.followBtn{
+    background-color: rgba(37, 37, 54, 0.856);
+    color: white;
+
+    width:65px;
+    height:50%;
+    border-radius: 10px;
 }

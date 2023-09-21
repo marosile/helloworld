@@ -49,11 +49,56 @@
                         <div id="introduce">${detail.memberNickname}</div>
                     </div>
 
-                    <div id="followButtonDiv">
-                        <button id="followBtn">팔로우</button>
-                    </div>
+
+                    
+                    <c:if test="${empty followCheck}">
+                        <div id="followButtonDiv">
+                            <button id="followBtn">팔로우</button>
+                        </div>
+                    </c:if>
+
+                    <c:if test="${!empty followCheck}">
+                        <div id="followButtonDiv">
+                            <button id="followBtn" class="followBtn">팔로잉</button>
+                        </div>
+                    </c:if>
+
 
                 </div>
+
+                <%-- 팔로우 모달창 --%>
+                <div class="follow-area" id="follow-area">
+                <span id="close">&times</span>
+
+                    <div id="follow-image-area">
+                        <img src="${detail.profileImage}" id="followImage">
+                    </div>
+                    <div>
+                        <p id="follow-id"> ${detail.memberId}</p>
+                        <p id="follow-nick"> 😎 ${detail.memberNickname}</p>
+                    </div>
+                    <div id="follow-zone">
+                        <p id="follower">팔로워 <span>10,869</span></p>
+                        <p id="following">팔로잉 <span>28</span></p>
+                    </div>
+  
+                    <div id="follow-button-area">
+
+                    <%-- 팔로우 안했거나 로그인 x --%>
+                    <c:if test="${empty followCheck}">
+                        <button id="followBtn2"><i class="fa-solid fa-user-plus"></i> 팔로우</button>
+                    </c:if>
+
+                    <c:if test="${!empty followCheck}">
+                        <button id="followBtn2" class="fa-check"><i class="fa-solid fa-check"></i> 팔로잉</button>
+                    </c:if>
+
+                        <button id="messageBtn"><i class="fa-regular fa-comment-dots"></i> 메시지</button>
+                    </div>
+                </div>
+
+
+
 
                 <!-- 제목 -->
                 <div id="detailTitle">
@@ -211,7 +256,7 @@
                 <div class="top10Posts">
                     
                     <!-- 1~10 번호 -->
-                    <div class="numbers" style="color:orangered !important"> <%= i++ %> </div>
+                    <div class="numbers" style="color:rgba(53, 14, 85, 0.685) !important"> <%= i++ %> </div>
 
                     <!-- 1~10 작성자 이미지 -->
                     <div class="WriterImages">
@@ -225,7 +270,7 @@
                         </div>
 
                         <div class="top10WriterIntroduce">
-                            <span class="nickname">👩 ${list.memberId}</span> ✍️ ${list.memberNickname}
+                            <span class="nickname"> ${list.memberId}</span>  ${list.memberNickname}
                         </div>
                     </div>
 
@@ -233,9 +278,10 @@
 
                 </c:forEach>
 
-                 <script>
+            <script>
                  const boardCode = "${detail.boardCode}";  // js 사용
                  const boardNo = ${map.boardNo};
+                 const memberId = "${detail.memberId}";
                  const loginMemberId = "${loginMember.memberId}"
             </script>
 
