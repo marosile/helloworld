@@ -529,6 +529,81 @@ alert("답글 등록에 실패했습니다...");
 }
 
 
+// 팔로우 모달창
+const user = document.getElementById("detailWriterImage");  // 유저 프로필
+const followBtn = document.getElementById("followBtn");  // 팔로우 버튼
+const followArea = document.getElementById("follow-area");  // 팔로우 모달창
+const close = document.getElementById("close"); // x버튼
+const followBtn2 = document.getElementById("followBtn2");  // 모달안에 팔로우 버튼
+const messageBtn = document.getElementById("messageBtn");  // 모달 안에 메시지 버튼 
+
+user.addEventListener("click", () => {
+
+    followArea.classList.toggle("follow-area");
+})
+
+followBtn.addEventListener("click", () => {
+
+    followArea.classList.toggle("follow-area");
+})
+
+close.addEventListener("click", () => {
+
+    followArea.classList.toggle("follow-area");
+})
+
+var iconElement = document.querySelector('#followBtn2 i'); 
+
+/* 팔로우 */
+followBtn2.addEventListener("click", e=>{
+
+    // 로그인 여부
+    if(loginMemberId == ""){
+         alert("로그인 후 이용해주세요");
+         return;
+    }
+
+    let check;
+
+    if( iconElement.classList.contains('fa-user-plus') ){ // 북마크 안눌렀을 때
+        check=0;
+    } else {  // 북마크 눌렀을 때
+        check=1;
+    }
+
+
+
+    const data = {
+        "memberId": loginMemberId,
+        "userId" : memberId,
+        "followCheck" : check
+    };
+
+    fetch("/board/follow",{
+        method: "POST",
+        headers:{"Content-Type" : "application/json" },
+        body : JSON.stringify(data)
+    })
+    .then( res => res.text())
+    .then( count => {
+
+        if(count == -1) { // DML 실패
+            alert("fail");
+            return;
+        }
+
+        iconElement.classList.toggle("fa-user-plus");
+        iconElement.classList.toggle("fa-check");
+
+    })
+    .catch( err => {
+        console.log("예외발생")
+    })
+})
+
+
+
+
 
 
 

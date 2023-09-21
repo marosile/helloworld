@@ -52,5 +52,11 @@ public class TrandServiceImpl implements TrandService {
 	public int likeCheck(Map<String, Object> map) {
 		return dao.likeCheck(map);
 	}
+
+	// 팔로우 확인 여부 서비스 
+	@Override
+	public int followCheck(Map<String, Object> map) {
+		return dao.followCheck(map);
+	}
 	
 }

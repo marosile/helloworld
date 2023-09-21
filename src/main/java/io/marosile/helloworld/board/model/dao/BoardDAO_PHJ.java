@@ -91,4 +91,15 @@ public class BoardDAO_PHJ {
 		return sqlSession2.selectList("boardMapper.selectBoardListSearch", map);
 	}
 
+	// 팔로우 삽입 
+	public int insertFollow(Map<String, Object> map) {
+		return sqlSession2.insert("boardMapper.insertFollow", map);
+	}
+
+	// 팔로우 삭제
+	public int deleteFollow(Map<String, Object> map) {
+		return sqlSession2.delete("boardMapper.deleteFollow" , map);
+	}
+
+
 }

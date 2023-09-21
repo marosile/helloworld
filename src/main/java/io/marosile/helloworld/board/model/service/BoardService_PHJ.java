@@ -85,6 +85,12 @@ public interface BoardService_PHJ {
 	 * @return List
 	 */
 	List<Board> searchBoardListSearch(Map<String, Object> map);
+
+	/** 팔로우 처리 서비스 
+	 * @param map
+	 * @return
+	 */
+	int follow(Map<String, Object> map);
 	
 
 }

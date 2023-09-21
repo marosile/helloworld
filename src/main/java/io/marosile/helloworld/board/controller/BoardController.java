@@ -292,6 +292,14 @@ public class BoardController {
 	    return service2.bookMark(map);
 	}
 	
+	// 팔로우 처리
+	@PostMapping("/follow")
+	@ResponseBody
+	public int follow(@RequestBody Map<String, Object> map) {
+				
+		return service2.follow(map);
+	}
+	
 	
 	// 좋아요 처리
 	@PostMapping("/like")

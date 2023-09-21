@@ -20,6 +20,8 @@
 		<result property="profileImage" column="PROFILE_IMG" />
 		<result property="readCount" column="READ_COUNT" />
 		<result property="tagName" column="TAG_NM" />
+		<result property="followFrom" column="FOLLOW_FROM" />
+		<result property="followTo" column="FOLLOW_TO" />
 		<result property="tagList" column="TAGS" javaType="java.util.List" jdbcType="VARCHAR" typeHandler="io.marosile.helloworld.board.controller.TagListTypeHandler" />
 
 		<!-- 게시글 상세조회 할 때 -> 댓글 조회 -->
@@ -233,6 +235,24 @@
 		AND MEMBER_ID = #{memberId}
 	</delete>
 	
+	<!-- 팔로우 확인 여부 -->
+	<select id="followCheck" resultType="_int">
+		SELECT COUNT(*) FROM FOLLOW
+		WHERE FOLLOW_FROM = #{userId}
+		AND FOLLOW_TO = #{memberId}
+	</select>
+	
+	<!-- 팔로우 테이블 삽입 -->
+	<insert id="insertFollow">
+		INSERT INTO FOLLOW VALUES ( #{userId}, #{memberId} )
+	</insert>
+	
+	<!-- 팔로우 테이블 삭제 -->
+	<delete id="deleteFollow">
+		DELETE FROM FOLLOW
+		WHERE FOLLOW_FROM = #{userId}
+		AND FOLLOW_TO = #{memberId}
+	</delete>
 	
 	<!-- 좋아요 확인 여부 -->
 	<select id="likeCheck" resultType="_int">

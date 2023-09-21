@@ -67,6 +67,8 @@ public class TrandController {
 		// 게시글 내용
 		Board trandDetail = service.selectTrandDetail(boardNo); 
 		
+		String boardUserId = trandDetail.getMemberId();
+		
 		// 댓글 내용
 		List<Comment> commentList = service.selectComment(boardNo);
 		
@@ -79,22 +81,23 @@ public class TrandController {
 			
 			if(loginMember != null ) {
 				
-				System.out.println(boardNo);
-				System.out.println(loginMember.getMemberId());
-				
 				map.put("memberId", loginMember.getMemberId());
+				map.put("userId", boardUserId);
 				
 				// 북마크 조회
 				int result = service.bookMarkCheck(map);
-				
 				if (result > 0)
 					model.addAttribute("bookMarkCheck", "on");
 				
 				// 좋아요 조회
 				int result2 = service.likeCheck(map);
-				
 				if (result2 > 0)
 					model.addAttribute("likeCheck", "on");
+				
+				// 팔로우 조회
+				int result3 = service.followCheck(map);
+				if (result3 > 0) 
+					model.addAttribute("followCheck", "on");
 			}
 		}
 		map.put("trandDetail", trandDetail);

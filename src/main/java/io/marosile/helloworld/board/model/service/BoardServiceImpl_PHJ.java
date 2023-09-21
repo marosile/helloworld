@@ -63,6 +63,29 @@ public class BoardServiceImpl_PHJ implements BoardService_PHJ{
 	    
 	    return result;
 	}
+	
+	// 팔로우 처리 서비스 
+	@Transactional
+	@Override
+	public int follow(Map<String, Object> map) {
+		
+		int result = 0;
+		
+	    Object followCheckObj = map.get("followCheck");
+	    
+	    if(followCheckObj instanceof Integer) {
+	        Integer followCheck = (Integer) followCheckObj;
+	        
+	        if (followCheck == 0) {
+	        	result = dao.insertFollow(map);
+	        } else {
+				 result = dao.deleteFollow(map);
+	        }
+	       
+	        if (result == 0) return -1;
+	    }
+		return result;
+	}
 
 	
 	// 좋아요 여부 조회
@@ -70,8 +93,6 @@ public class BoardServiceImpl_PHJ implements BoardService_PHJ{
 	public int likeCheck(Map<String, Object> map) {
 		return dao.likeCheck(map);
 	}
-
-	
 	
 	// 좋아요 처리 서비스 
 	@Transactional(rollbackFor = Exception.class)
@@ -98,7 +119,6 @@ public class BoardServiceImpl_PHJ implements BoardService_PHJ{
 	    int count = dao.countBoardLike(map.get("boardNo"));
 	    
 	    return count;
-	    
 	}
 
 	
@@ -143,5 +163,8 @@ public class BoardServiceImpl_PHJ implements BoardService_PHJ{
 	public List<Board> getTopList() {
 		return dao.getTopList();
 	}
+
+
+
 
 }
