@@ -94,8 +94,7 @@
                 </c:forEach>
 
              <script>
-                const boardNo = ${list.boardNo}
-                const boardContent = ${list.boardContent}
+                const boardNo = ${list.boardNo};
             </script> 
                     
             </div>
