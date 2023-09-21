@@ -1,5 +1,14 @@
+// 조회방법 처음 버튼 요소
 const searchMember = document.getElementById("searchMember");
+
+// key 있는 ul태그
 const searchMenu = document.getElementById("searchMenu");
+
+// form 태그
+const searchMemberMenu = document.getElementById("searchMemberMenu");
+
+// 검색 input 태그
+const searchInput = document.getElementById("searchInput");
 
 // searchMember.addEventListener("click", () => {
 
@@ -61,6 +70,10 @@ searchMenu.addEventListener("click", (e) => {
         searchMember.append(img);
     }
 
+    console.log("음? 이게 머지?? == " + e.target.innerHTML);
+    console.log("이건또 머냐 ? : " + searchId.innerHTML);
+    // 값이 같을 때 조건을 주면 되겠다
+
 });
 
 
@@ -95,5 +108,97 @@ $(document).ready(function(){
         }
         
     });
+
+
+    // // 각 버튼 클릭 이벤트 처리
+    // $('.sidebarMenu').click(function () {
+    //     var keyValue = $(this).data('key-value');
+    //     var queryValue = $('#searchInput').val();
+    //
+    //     // URL을 생성
+    //     var url = "/admin/adminMember/search?key=" + keyValue + "&query=" + queryValue;
+    //
+    //     // 페이지 이동
+    //     window.location.href = url;
+    // });
+
+})
+
+
+/* 관리자 회원 탈퇴 */
+$(document).ready(function () {
+
+    // 탈퇴 버튼 클릭 시
+    $("#searchMemberBtn").click((e) => {
+
+        if(confirm("정말 삭제 하시겠습니까?")){
+
+            // 체크된 체크박스 요소를 선택한다.
+            var checkedCheckboxes = $('input[name="memberCheck"]:checked');
+
+            // 체크된 체크박스 요소의 memberId 값을 얻어옵니다.
+            var memberIds = [];
+
+            checkedCheckboxes.each(function () {
+                var memberId = $(this).closest('tr').find('td:eq(2)').text();
+                memberIds.push(memberId);
+            });
+
+
+            // memberId 배열을 출력합니다.
+            console.log("선택된 memberId 목록: " + memberIds);
+
+
+
+            $.ajax({
+                type : 'post',
+                url : '/admin/adminMember/deleteMember',
+                data : { "memberIdList" : memberIds },
+                traditional : true,
+                // contentType : 'application/x-www-form-urlencoded; charset=UTF-8',
+                dataType : 'json',
+                success : function(result){
+
+                    if(result > 0){
+
+                        location.reload(true);
+                        alert("삭제 완료");
+                    }else{
+                        alert("삭제 실패");
+                    }
+
+
+
+                },
+                error : function(err){
+                    console.log(err);
+                }
+
+            })
+
+            //e.preventDefault();
+            //$("[name='memberCheck']:checked").parent().parent().remove();
+        };
+        e.preventDefault();
+        //location.reload(true);
+
+    });
+
+    
+
+});
+
+
+// 검색어 입력 없이 제출된 경우
+searchMemberMenu.addEventListener("submit", e=> {
+
+    if(searchInput.value.trim().length == 0){ // 검색어 미입력 시
+        e.preventDefault(); // form 기본 이벤트 제거
+
+        location.href = location.pathname // 해당 게시판 1페이지로 이동
+
+        // location.pathname = 쿼리스트링을 제외한 실제 주소
+
+    }
 
 })

@@ -1,6 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
+<c:set var="memberList" value="${map.memberList}"/>
+<c:set var="memberCount" value="${map.memberCount}"/>
+<c:set var="searchCount" value="${map.listCount}"/>
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -18,6 +22,10 @@
 
     <jsp:include page="/WEB-INF/views/common/header.jsp"/>
 
+    <c:if test="${!empty param.key}">
+        <c:set var="sp" value="&key=${param.key}&query=${param.query}"/>
+    </c:if>
+
     <div class="adminMemberAll">
         <h1>회원 관리</h1>
         
@@ -27,30 +35,47 @@
 
 
             <div class="adminMemberDisplay">
+
+                <%-- 검색창 --%>
                 
-                <form action="#" id="searchMemberMenu" class="searchMemberMenu">
+                <form action="/admin/adminMember" id="searchMemberMenu" class="searchMemberMenu">
+
                     <div class="adminSearchDiv">
                         <button type="button" name="searchMember" id="searchMember">조회 방법
                             <img src="/resources/images/admin/sort.png">
                         </button>
-                        <ul class="searchMenu menuHidden" id="searchMenu">
-                            <li><button type="button" class="sidebarMenu" id="searchId">아이디</button></li>
-                            <li><button type="button" class="sidebarMenu" id="searchPw">이메일</button></li>
-                            <li><button type="button" class="sidebarMenu" id="searchTel">전화번호</button></li>
-                            <li><button type="button" class="sidebarMenu" id="searchNickname">닉네임</button></li>
+                        <ul class="searchMenu menuHidden" id="searchMenu" name="key">
+                            <li><button type="button" class="sidebarMenu" name="key" id="searchId" value="아이디">아이디</button></li>
+                            <li><button type="button" class="sidebarMenu" name="key" id="searchPw" value="이메일">이메일</button></li>
+                            <li><button type="button" class="sidebarMenu" name="key" id="searchTel" value="전화번호">전화번호</button></li>
+                            <li><button type="button" class="sidebarMenu" name="key" id="searchNickname" value="닉네임">닉네임</button></li>
                         </ul>
-    
+
+
+
                     </div>
 
-                    <input type="text" id="searchInput"> 
+                    <input type="text" id="searchInput" name="query">
                     <button id="searchBtn"><img src="/resources/images/admin/search.png"></button>
 
                 </form>
 
+
                 <div class="checkNumber">
                     <div>
                         <span>총 회원수 : </span>
-                        <span>0명</span>
+                        <c:choose>
+                            <c:when test="${empty memberList}">
+                                <span>0명</span>
+                            </c:when>
+
+                            <c:otherwise>
+                                <span>${memberCount}명</span>
+
+                            </c:otherwise>
+
+                        </c:choose>
+
                     </div>
                     <div>
                         <span>검색된 회원수 : </span>
@@ -58,7 +83,7 @@
                     </div>
                 </div>
 
-                <form action="#" id="adminMemberForm">
+                <form action="/admin/adminMember/deleteMember" id="adminMemberForm" method="post">
                     <div class="tableDiv">
                     
 
@@ -68,30 +93,41 @@
                                     <th><input type="checkbox" name="memberCheckAll" id="memberCheckAll"></th>
                                     <th>번호</th>
                                     <th>아이디</th>
-                                    <th>이름</th>
                                     <th>전화번호</th>
+                                    <th>이메일</th>
                                     <th>닉네임</th>
+                                    <th>가입일</th>
                                 </tr>
                             </thead>
                             
                             <tbody>
-                                <tr class="adminTr">
-                                    <td><input type="checkbox" name="memberCheck"></td>
-                                    <td>1</td>
-                                    <td>아이디입니다</td>
-                                    <td>유저일</td>
-                                    <td>01012341234</td>
-                                    <td>닉네임입니다</td>
-                                </tr>
-                            
-                                <tr class="adminTr">
-                                    <td><input type="checkbox" name="memberCheck"></td>
-                                    <td>2</td>
-                                    <td>아이디2</td>
-                                    <td>유저이</td>
-                                    <td>01012341234</td>
-                                    <td>닉네임2</td>
-                                </tr>
+
+                                <c:choose>
+                                    <c:when test="${empty memberList}">
+                                        <tr>
+                                            <th colspan="8">게시글이 존재하지 않습니다.</th>
+                                        </tr>
+                                    </c:when>
+
+                                    <c:otherwise>
+                                        <c:forEach items="${memberList}" var="memberList">
+                                            <tr class="adminTr">
+                                                <td><input type="checkbox" name="memberCheck"></td>
+                                                <td>${memberList.rowNum}</td>
+                                                <td>${memberList.memberId}</td>
+                                                <td>${memberList.memberTel}</td>
+                                                <td>${memberList.memberEmail}</td>
+                                                <td>${memberList.memberNick}</td>
+                                                <td>${memberList.enrollDate}</td>
+                                            </tr>
+
+
+                                        </c:forEach>
+
+                                    </c:otherwise>
+
+                                </c:choose>
+
                             </tbody>
                         
                         
@@ -102,10 +138,7 @@
                     <button id="searchMemberBtn">선택한 회원 탈퇴</button>
                 </form>
 
-                <!-- 임시 페이지네이션 -->
-                <div id="pagination">
-                    << < 1 2 3 4 5 6 7 8 9 10 > >>
-                </div>
+
             </div>
 
         </div>
