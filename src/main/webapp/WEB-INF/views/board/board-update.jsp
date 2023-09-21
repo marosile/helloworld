@@ -89,8 +89,9 @@
     
                 </div>
             </form>
+            
             <!-- 등록, 작성취소 버튼 -->
-    <input type="text" name="tagNums" value="${tagNums}"> <%-- 배열같이 생긴 문자열이 됨 --%>
+            <input type="hidden" name="tagNums" value="${tagNums}"> <%-- 배열같이 생긴 문자열이 됨? --%>
 
         </div>
 

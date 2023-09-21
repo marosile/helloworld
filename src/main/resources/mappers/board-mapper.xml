@@ -207,6 +207,12 @@
 		WHERE BOARD_NO = #{boardNo}	
 	</update>
 	
+	<update id="boardDelete">
+		UPDATE BOARD SET
+		DELETED_FL = 'Y'
+		WHERE BOARD_NO = ${boardNo}
+	</update>
+	
 	<!-- 북마크 확인 여부 -->
 	<select id="bookMarkCheck" resultType="_int">
 		SELECT COUNT(*) FROM BOOKMARK
@@ -380,13 +386,4 @@
 			ORDER SIBLINGS BY COMMENT_NO
 	</select>
 	
-	
-	
-	
-	
-   
-   
-   
-   
-
 </mapper>

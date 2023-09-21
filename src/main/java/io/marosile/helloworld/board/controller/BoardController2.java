@@ -209,13 +209,14 @@ public class BoardController2 {
 
 				// 수정에서의 태그 추가 insert
 				int result3 = service3.tagInsert(newTagsList);
-			
+				
 			path += "/board/" + boardCode + "/" + boardNo;
 
 		}else {
 			
-			path +=  "/board/" + boardCode;
+			path +=  "/board/" + boardCode ;
 		}
+			
 		}
 		
 		return path;
@@ -267,7 +268,7 @@ public class BoardController2 {
 		int result = service.boardDelete(boardNo);
 		
 		if(result == 1) {
-			
+			System.out.println("Test");
 			path +="/board/" + boardCode;
 			
 		}else {

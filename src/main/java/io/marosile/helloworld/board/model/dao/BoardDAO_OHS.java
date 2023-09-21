@@ -76,7 +76,7 @@ public class BoardDAO_OHS {
 		return result;
 	}
 
-	/** 조회
+	/** 최신순, 조회순 조회
 	 * @param parameters
 	 * @return
 	 */
