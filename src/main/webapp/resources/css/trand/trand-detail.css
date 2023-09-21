@@ -341,7 +341,7 @@
 
 #replyWrite{
     display:flex;
-    border:1px solid rgb(240, 240, 240);
+    
 }
 
 #replyWriteContent{
@@ -392,7 +392,6 @@
     /* width: 1000px; */
     min-height: 120px;
     border: 1px solid var(--divider);
-    border-radius: 10px;
     background-color: var(--bg-color-2);
     transition-duration: 0.5s;
 
@@ -410,7 +409,6 @@
  }
  
  .reply-row{
-     padding: 5px 5px;
      border-bottom: 1px solid #ccc;
  }
  
@@ -445,7 +443,7 @@
  .reply-content{
     font-size: 17px;
     margin-left: 35px;
-    margin-top: 10px;
+    margin-top: 5px;
  }
  
 
@@ -453,14 +451,13 @@
  .reply-btn-area > button{
      width: 50px;
      height: 30px;
-     margin-right: 10px;
-     margin-bottom: 10px;
+     margin-right: 5px;
+     margin-bottom: 5px;
  
      font-weight: bold;
      color: white;
-     background-color: rgb(78, 80, 79);
-     border: 0;
-     border-radius: 3px;
+     background-color: rgb(124, 128, 126);
+    
  
      cursor: pointer;
  }
@@ -499,7 +496,7 @@
    display:flex;
    justify-content: center;
    align-items: center;
-   height:80px;
+   height:50px;
    margin:15px 0;
 }
 
@@ -509,8 +506,7 @@
    resize:none;
    border:0;
    outline:0;
-   border: 2px solid rgb(78, 80, 79);
-   border-radius: 5px;
+   border: 2px solid rgba(122, 124, 123, 0.39);
 }
 
 .comment-write-area > #addComment{
@@ -542,4 +538,42 @@
    margin: 8px 0;
 }
 
+#updateBtn{
+    width: 50px;
+     height: 30px;
+     margin-right: 5px;
+     margin-bottom: 5px;
+ 
+     font-weight: bold;
+     color: white;
+     background-color: rgb(124, 128, 126);
+    
+ 
+     cursor: pointer;
+}
 
+#updateBtn:hover{
+    background-color: white;
+    border: 2px solid rgb(78, 80, 79);
+    color: rgb(78, 80, 79);
+}
+
+#deleteBtn{
+    width: 50px;
+     height: 30px;
+     margin-right: 5px;
+     margin-bottom: 5px;
+ 
+     font-weight: bold;
+     color: white;
+     background-color: rgb(124, 128, 126);
+    
+ 
+     cursor: pointer;
+}
+
+#deleteBtn:hover{
+    background-color: white;
+    border: 2px solid rgb(78, 80, 79);
+    color: rgb(78, 80, 79);
+}
