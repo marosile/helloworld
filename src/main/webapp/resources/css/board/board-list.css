@@ -276,9 +276,7 @@
 #sortOptions > div{
     display:block;
     text-decoration: none;
-    color: #777;
     font-size: 18px;
-    font-weight: bolder;
     margin-left:20px;
 
     cursor: pointer;
@@ -450,3 +448,7 @@
     height: 180px;
 }
 
+.selected{
+    font-weight: bold;
+    color: black;
+}

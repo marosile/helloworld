@@ -86,29 +86,35 @@
                     <c:forEach items="${getTopList}" var="TopList" begin="0" end="4" varStatus="loop">
 
                         <div class="swiper-slide">
-                            <div class="post">
-                                <div id="directionRow">
-                                    <div>
-                                        <img src="/resources/images/board/number${loop.index * 2 + 1}.png" class="top10LevelImage">
-                                    </div>  
-                                    <div id="top10BoardTitle">  
-                                        <div class="top10Titles">${getTopList[loop.index * 2].boardTitle}</div>
-                                        <div class="top10Inquirys">조회 ${getTopList[loop.index * 2].readCount} 댓글 35</div>
+
+                            <a href="/board/${getTopList[loop.index * 2].boardCode}/${getTopList[loop.index * 2].boardNo}">
+                                <div class="post">
+                                    <div id="directionRow">
+                                        <div>
+                                            <img src="/resources/images/board/number${loop.index * 2 + 1}.png" class="top10LevelImage">
+                                        </div>  
+                                        <div id="top10BoardTitle">  
+                                            <div class="top10Titles">${getTopList[loop.index * 2].boardTitle}</div>
+                                            <div class="top10Inquirys">조회 ${getTopList[loop.index * 2].readCount} 댓글 ${getTopList[loop.index * 2].commentCount}</div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
+                            </a>
                             
-                            <div class="post">
-                                <div id="directionRow">
-                                    <div>
-                                        <img src="/resources/images/board/number${loop.index * 2 + 2}.png" class="top10LevelImage">
-                                    </div>  
-                                    <div id="top10BoardTitle">  
-                                        <div class="top10Titles">${getTopList[loop.index * 2 + 1].boardTitle}</div>
-                                        <div class="top10Inquirys">조회 ${getTopList[loop.index * 2 + 1].readCount} 댓글 35</div>
+                            <a href="/board/${getTopList[loop.index * 2 + 1].boardCode}/${getTopList[loop.index * 2 + 1].boardNo}">
+                                <div class="post">
+                                    <div id="directionRow">
+                                        <div>
+                                            <img src="/resources/images/board/number${loop.index * 2 + 2}.png" class="top10LevelImage">
+                                        </div>  
+                                        <div id="top10BoardTitle">  
+                                            <div class="top10Titles">${getTopList[loop.index * 2 + 1].boardTitle}</div>
+                                            <div class="top10Inquirys">조회 ${getTopList[loop.index * 2 + 1].readCount} 댓글 ${getTopList[loop.index * 2 + 1].commentCount}</div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
+                            </a>
+
                         </div>
                     </c:forEach>
                    
@@ -118,14 +124,14 @@
         </div>
 
             <div id="sortOptions">
-                 <div id ="recentSortButton">- 최신순</div>
+                 <div id ="recentSortButton" class="selected">- 최신순</div>
                  <div id="readCountSortButton">- 조회순</div>
             </div>
 
             <!-- 임시 게시글 10개 -->
             <div id="post">
                 
-                <!-- for문 돌릴거 첫화면 -> 10개만 -->
+                <!-- 첫화면 -> 10개 -->
                    <c:choose>
                         <c:when test="${empty board}">
                             <style>
@@ -177,7 +183,7 @@
                                 </div>
 
                                 <div class="postFifthPart">
-                                    <div class="replyCount">댓글 5</div>
+                                    <div class="replyCount">댓글 ${board.commentCount}</div>
                                     <div class="inquiryCount">조회수 ${board.readCount}</div>
                                 </div>
                             </div>

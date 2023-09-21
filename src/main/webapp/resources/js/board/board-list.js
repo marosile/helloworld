@@ -82,8 +82,15 @@ function hideLoadingModal() {
 
     let isRecentSort = true; // 초기값 (조회순, 최신순 구분)
 
-    function handleSortClick() {
+    function handleSortClick(e) {
         // Set the sorting type based on the clicked button
+
+        recentSortButton.classList.remove("selected");
+        readCountSortButton.classList.remove("selected");
+    
+        // Add the 'selected' class to the clicked button
+        e.target.classList.add("selected");
+
         isRecentSort = this.id === "recentSortButton";
     
         searchKeyword = searchInput.value;
