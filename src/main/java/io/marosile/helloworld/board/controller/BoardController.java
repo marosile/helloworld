@@ -67,7 +67,7 @@ public class BoardController {
 		    map.put("getTopList", getTopList);
 		    model.addAttribute("searchKeyword", searchKeyword);
 		    model.addAttribute("map", map);
-
+		    System.out.println(map);
 		    return "board/board-list";
 		}
 		

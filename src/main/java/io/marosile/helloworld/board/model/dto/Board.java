@@ -36,7 +36,7 @@ public class Board {
     
     // comment
     private List<Comment> commentList;
-    
+    private int commentCount;
     // tag
     private List<Tag> tagList;
 }

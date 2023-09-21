@@ -22,6 +22,7 @@
 		<result property="tagName" column="TAG_NM" />
 		<result property="followFrom" column="FOLLOW_FROM" />
 		<result property="followTo" column="FOLLOW_TO" />
+		<result property="commentCount" column="COMMENT_COUNT" />
 		<result property="tagList" column="TAGS" javaType="java.util.List" jdbcType="VARCHAR" typeHandler="io.marosile.helloworld.board.controller.TagListTypeHandler" />
 
 		<!-- 게시글 상세조회 할 때 -> 댓글 조회 -->
@@ -53,7 +54,18 @@
 	<!-- 게시글 목록 조회 10(최신순,기본값), 검색유무 확인 -->
 	<select id="selectBoardList" resultMap="boardResultMap" parameterType="map">
 	
-	    SELECT B.BOARD_NO, B.MEMBER_ID, B.BOARD_TITLE, B.BOARD_CONTENT, B.CREATE_DT, B.MODIFY_DT, B.DELETED_FL, B.READ_COUNT, BG.BOARD_CODE, M.MEMBER_NICK
+	    SELECT B.BOARD_NO, B.MEMBER_ID, B.BOARD_TITLE, B.BOARD_CONTENT, B.MODIFY_DT, B.DELETED_FL, B.READ_COUNT, BG.BOARD_CODE, M.MEMBER_NICK
+	          , <![CDATA[
+		            CASE  
+		               WHEN SYSDATE - B.CREATE_DT < 1/24/60
+		               THEN FLOOR( (SYSDATE - B.CREATE_DT) * 24 * 60 * 60 ) || '초 전'
+		               WHEN SYSDATE - B.CREATE_DT < 1/24
+		               THEN FLOOR( (SYSDATE - B.CREATE_DT) * 24 * 60) || '분 전'
+		               WHEN SYSDATE - B.CREATE_DT < 1
+		               THEN FLOOR( (SYSDATE - B.CREATE_DT) * 24) || '시간 전'
+		               ELSE TO_CHAR(B.CREATE_DT, 'YYYY-MM-DD')
+		            END AS CREATE_DT
+	           ]]> 
 	          ,(SELECT COUNT(*) FROM "COMMENT" C WHERE C.BOARD_NO = B.BOARD_NO) COMMENT_COUNT
 	          ,(SELECT LISTAGG(T.TAG_NM, ', ') WITHIN GROUP (ORDER BY T.TAG_NM) 
 	          FROM TAG_RELATION TR
@@ -103,6 +115,7 @@
 	    
 	</select>
 	
+	
 	<!-- 목록 스크롤 (최신순, 기본값) -->
 	<select id="loadPosts" resultMap="boardResultMap" parameterType="map">
 	    SELECT * FROM (
@@ -140,6 +153,7 @@
 	    )
 	    WHERE rnum BETWEEN #{start} AND #{end}
 	</select>
+	
 	<!-- 게시글 상세 조회 -->
 	<select id="selectBoard" resultMap="boardResultMap">
 			SELECT B.BOARD_NO, B.MEMBER_ID, B.BOARD_TITLE, B.BOARD_CONTENT, B.CREATE_DT, B.MODIFY_DT, B.DELETED_FL, B.READ_COUNT, M.MEMBER_NICK, M.PROFILE_IMG, BG.BOARD_CODE,
@@ -271,12 +285,16 @@
    
    <!-- 전체 게시글 조회수 top10 -->
    <select id="getTopList" resultMap="boardResultMap">
-   		SELECT ROWNUM, BOARD_NO, BOARD_CODE, BOARD_TITLE, READ_COUNT
-		FROM (SELECT ROWNUM, BOARD_NO, BOARD_CODE, BOARD_TITLE, READ_COUNT
-		FROM BOARD 
-		JOIN BOARD_GENERAL USING (BOARD_NO)
-	    ORDER BY READ_COUNT DESC)
-    WHERE ROWNUM &lt; 11 
+    
+		SELECT ROWNUM, BOARD_NO, BOARD_CODE, BOARD_TITLE, READ_COUNT, COMMENT_COUNT
+		FROM (
+		    SELECT ROWNUM, B.BOARD_NO, BG.BOARD_CODE, B.BOARD_TITLE, B.READ_COUNT,
+		           (SELECT COUNT(*) FROM "COMMENT" C WHERE C.BOARD_NO = B.BOARD_NO) AS COMMENT_COUNT
+		    FROM BOARD B
+		        JOIN BOARD_GENERAL BG ON (B.BOARD_NO = BG.BOARD_NO)
+		          ORDER BY READ_COUNT DESC)
+		WHERE ROWNUM &lt; 11    
+	
    </select>
    
    
