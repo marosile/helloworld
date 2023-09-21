@@ -84,11 +84,9 @@
             </div>
 
             <div class="P-study-detail-container">
-                <a href="">
                     <div class="P-study-detail-tag">
                         <span># ${studyDetail.tagNm}</span>
                     </div>
-                </a>
             </div>
 
 

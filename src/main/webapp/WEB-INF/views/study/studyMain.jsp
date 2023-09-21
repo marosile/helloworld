@@ -434,6 +434,7 @@
                 <div class="P-study">
 
                     <c:choose>
+
                     <c:when test="${empty study}">
                         <div>
                             게시글이 존재하지 않습니다.
@@ -447,8 +448,8 @@
 
                     <a href="/study/detail/${study.boardNo}">
 
-                        <div class="P-study-area" id="P-study-area">
 
+                        <div class="P-study-area" id="P-study-area">
                             <div class="P-study-main">
                                 <span class="P-study-category">스터디</span>
                                 <span class="P-like-btn">
@@ -470,7 +471,6 @@
                                     </c:if>
 
                                 </span>
-
 
                             </div>
 
@@ -494,17 +494,18 @@
 
                         </div>
 
+                    </a>
                         </c:forEach>
 
                         </c:otherwise>
                         </c:choose>
 
+
+
                         <script>
                             const boardNo = "${study.boardNo}"
                             const loginMemberId = "${loginMember.memberId}"
                         </script>
-
-
 
                 </div>
             </div>

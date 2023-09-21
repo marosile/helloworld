@@ -46,6 +46,7 @@ public class StudyController {
     public String studyDatail(Model model
             , @PathVariable("boardNo") int boardNo
             , @SessionAttribute(value = "loginMember", required = false) Member loginMember
+
             , RedirectAttributes ra
             , HttpServletRequest req
             , HttpServletResponse resp) throws ParseException {
@@ -54,9 +55,11 @@ public class StudyController {
 
         map.put("boardNo", boardNo);
 
+
         Study studyDetail = service.studyDetail(map);
 
         System.out.println("studyDetail:"+studyDetail);
+
 
         String path = null;
 
@@ -203,15 +206,18 @@ public class StudyController {
     // 게시글 수정
     @PostMapping("/detail/update/{boardNo}")
     public String StudyUpdate( @ModelAttribute Study study
-                            , @PathVariable("boardNo") int boardNo
-                            , @SessionAttribute("loginMember")Member loginMember
-                            , @SessionAttribute("studyDetail") Study studyDetail
-                            , RedirectAttributes ra
-                            ,@RequestHeader(value="referer") String referer) {
+            , @PathVariable("boardNo") int boardNo
+            , @SessionAttribute("loginMember")Member loginMember
+            , @SessionAttribute("studyDetail") Study studyDetail
+            , RedirectAttributes ra
+            ,@RequestHeader(value="referer") String referer) {
 
         study.setMemberId(loginMember.getMemberId());
         study.setStudyNo(studyDetail.getStudyNo());
         study.setCreateDate(studyDetail.getCreateDate());
+        // 태그가 수정이 안됨!
+
+        System.out.println(study);
 
         int result = service.studyUpdate(study);
 
@@ -272,8 +278,4 @@ public class StudyController {
         return service.complete(map);
     }
 
-
-
-
 }
-
