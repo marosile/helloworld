@@ -236,3 +236,7 @@ tbody tr:last-child{
 #pagination{
     text-align: center;
 }
+
+.selectHidden{
+    display: none;
+}

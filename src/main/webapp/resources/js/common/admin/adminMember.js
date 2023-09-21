@@ -17,9 +17,13 @@ const searchInput = document.getElementById("searchInput");
 // });
 
 const searchId = document.getElementById("searchId");
-const searchPw = document.getElementById("searchPw");
+const searchId1 = document.getElementById("searchId1");
+const searchEmail = document.getElementById("searchEmail");
+const searchEmail1 = document.getElementById("searchEmail1");
 const searchTel = document.getElementById("searchTel");
+const searchTel1 = document.getElementById("searchTel1");
 const searchNickname = document.getElementById("searchNickname");
+const searchNickname1 = document.getElementById("searchNickname1");
 
 /* 사진 */
 const img = document.createElement("img");
@@ -70,11 +74,30 @@ searchMenu.addEventListener("click", (e) => {
         searchMember.append(img);
     }
 
-    console.log("음? 이게 머지?? == " + e.target.innerHTML);
-    console.log("이건또 머냐 ? : " + searchId.innerHTML);
-    // 값이 같을 때 조건을 주면 되겠다
 
 });
+
+
+
+// 도전간다
+searchId.addEventListener("click", ()=>{
+    searchId1.selected = true;
+    console.log("아이디 버튼 클릭 됨?")
+})
+searchEmail.addEventListener("click", () => {
+    searchEmail1.selected = true;
+    console.log("이메일 버튼 클릭 됨?")
+})
+
+searchTel.addEventListener("click", () => {
+    searchTel1.selected = true;
+    console.log("전화번호 버튼 클릭 됨?")
+})
+
+searchNickname.addEventListener("click", () => {
+    searchNickname1.selected = true;
+    console.log("닉네임 버튼 클릭 됨?")
+})
 
 
 
@@ -184,7 +207,7 @@ $(document).ready(function () {
 
     });
 
-    
+
 
 });
 
