@@ -253,7 +253,7 @@
             <!-- 인기글 top 10 -->
             <div id="top10">
               
-                <div id="top10HeaderText"> <img src="/resources/images/logo.svg" id="top10WritersImage">트렌드 인기 TOP 10</div>
+                <div id="top10HeaderText">트렌드 인기 TOP 10</div>
                 <div></div>
 
                 <!-- 백엔드 할때 for문 돌리기 -->

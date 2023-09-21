@@ -26,7 +26,7 @@
 		<div id="main-area">
 
             <p>${board.boardName}</p>
-            <p>🕊️ ${board.boardTitle}</p>
+            <p>${board.boardTitle}</p>
 
         <div id="heart">
             <div id="heart-left">
