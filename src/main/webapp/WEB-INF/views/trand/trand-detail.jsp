@@ -135,49 +135,46 @@
 
                         <div class="reply-list-area">
 
-                         <ul id="reply-list">
+                            <ul id="reply-list">
+                            
+                                <c:forEach items="${comment}" var="comment">
 
-                        
-                        <c:forEach items="${comment}" var="comment">
+                                    <li class="reply-row <c:if test='${comment.parentNo != 0}'>child-comment</c:if>">
 
-                            <li class="reply-row <c:if test='${comment.parentNo != 0}'>child-comment</c:if>">
+                                        <p class="reply-writer">
 
-                                <p class="reply-writer">
+                                        <c:if test="${empty comment.profileImage}">
+                                                <img src="/resources/images/user.png">
+                                        </c:if>
 
-                                <c:if test="${empty comment.profileImage}">
-                                        <img src="/resources/images/user.png">
-                                </c:if>
+                                        <c:if test="${!empty comment.profileImage}" >
+                                                    <img src="${comment.profileImage}">
+                                        </c:if>
 
-                                <c:if test="${!empty comment.profileImage}" >
-                                            <img src="${comment.profileImage}">
-                                </c:if>
+                                        <span class="name">${comment.memberNickname}</span>
+                                        <span class="reply-date">${comment.createDate}</span>
+                                        
+                                        </p>
 
-                                <span class="name">${comment.memberNickname}</span>
+                                        <p class="reply-content">
+                                            ${comment.commentContent}
+                                        </p>
 
-                                <span class="reply-date">${comment.createDate}</span>
-                                
-                                </p>
+                                        <div class="reply-btn-area">
+                                            <c:if test="${loginMember != null}">
+                                                <button onclick="showInsertComment(${comment.commentNo}, this)">답글</button>   
+                                            </c:if>
+                                        
+                                            <c:if test="${loginMember.memberId == comment.memberId}" >
+                                                <button onclick="showUpdateComment(${comment.commentNo}, this)" class="updateBtn">수정</button>     
+                                                <button onclick="deleteComment(${comment.commentNo})" class="deleteBtn">삭제</button>
+                                            </c:if>
+                                        </div>
+                                    </li>
+                                </c:forEach>
 
-                                <p class="reply-content">
-                                    ${comment.commentContent}
-                                </p>
-
-                                <div class="reply-btn-area">
-                                    <c:if test="${loginMember != null}">
-                                        <button onclick="showInsertComment(${comment.commentNo}, this)">답글</button>   
-                                    </c:if>
-                                
-                                    <c:if test="${loginMember.memberId == comment.memberId}" >
-                                        <button onclick="showUpdateComment(${comment.commentNo}, this)" id="updateBtn">수정</button>     
-                                        <button onclick="deleteComment(${comment.commentNo})" id="deleteBtn">삭제</button>
-                                    </c:if>
-                                </div>
-                            </li>
-
-                             </c:forEach>
-
-                        </ul>     
-                    </div>    
+                            </ul>        
+                        </div>    
                         </c:otherwise>
                     </c:choose>    
                     
@@ -187,19 +184,16 @@
 
                         <!-- 작성 부분 -->
                         <%-- <div id="replyWriteContent"> --%>
-                            <input type="text" placeholder=" 💬 댓글을 작성해주세요.">
+                            <textarea placeholder=" 💬 댓글을 작성해주세요." id="commentContent"></textarea>
                         <%-- </div>
  --%>
                         <!-- 버튼 부분 -->
                         <%-- <div id="replyWriteBtn"> --%>
-                            <button id="replyWriteBtn">작성하기</button>
+                            <button id="addComment">작성하기</button>
                         <%-- </div> --%>
 
                     </div>
-
-
                 </div>
-
             </div>
             
 
