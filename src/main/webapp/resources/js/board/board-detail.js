@@ -55,7 +55,7 @@ if(deleteBtn != null){
         if(confirm("정말 삭제하시겠습니까?")){
     
             alert("게시글이 삭제 되었습니다.");
-            location.href= "/board/" + boardCode;
+            location.href= "/board2/" + boardCode + "/" + boardNo + "/delete";
         }
     })
 }
