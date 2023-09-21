@@ -73,23 +73,33 @@ function hideLoadingModal() {
     var page = 2; // 처음 ajax 넘길 page 번호
     var searchKeyword = null;
     var isLoading = false;
+    var isEndOfData = false;
+    var tf = true;
     
     const recentSortButton = document.getElementById("recentSortButton");
     const readCountSortButton = document.getElementById("readCountSortButton");
 
-    recentSortButton.addEventListener("click", handleSortClick);
-    readCountSortButton.addEventListener("click", handleSortClick);
+    recentSortButton.addEventListener("click", (e) => {
+        handleSortClick(e);
+        tf = true;
+        page = 2;
+    });
+    
+    // readCountSortButton 클릭 이벤트 핸들러
+    readCountSortButton.addEventListener("click", (e) => {
+        handleSortClick(e); // false는 조회순을 나타냅니다.
+        tf = false;
+        page = 2;
+    });
 
     let isRecentSort = true; // 초기값 (조회순, 최신순 구분)
 
     function handleSortClick(e) {
-        // Set the sorting type based on the clicked button
 
         recentSortButton.classList.remove("selected");
         readCountSortButton.classList.remove("selected");
     
-        // Add the 'selected' class to the clicked button
-        e.target.classList.add("selected");
+        //e.target.classList.add("selected");
 
         isRecentSort = this.id === "recentSortButton";
     
@@ -130,8 +140,8 @@ function hideLoadingModal() {
                                                         '</div>' +
                                                     '</div>' +
     
-                                                    '<div class="postSecondPart">' +rList.boardContent + '</div>' +
-                                                    '<div class="postThirdPart" style="max-height:100px>' + "rList.boardContent(임시)" + '</div>' +
+                                                    '<div class="postSecondPart">' +rList.boardTitle + '</div>' +
+                                                    '<div class="postThirdPart">' + rList.boardContent + '</div>' +
                                                     '<div class="postFourthPart">' + tagNames + '</div>' +
                                                     '<div class="postFifthPart">' + 
                                                         '<div class="replyCount">' + "댓글 8" + '</div>' +
@@ -155,14 +165,15 @@ function hideLoadingModal() {
             
             isLoading = true;
 
-            showLoadingModal();
-            isRecentSort = this.id === "recentSortButton";
-    
             searchKeyword = searchInput.value;
     
+            console.log(tf);
+
+            
+
             // Make the fetch request based on the sorting type (recent or read count)
             const url= `loadPosts?page=${page}&boardCode=${boardCode}
-                        &sortType=${isRecentSort ? "recent" : "readCount"}&searchKeyword=${searchKeyword}`;
+                        &sortType=${tf ? "recent" : "readCount"}&searchKeyword=${searchKeyword}`;
           
             fetch(url, { // fetch('loadPosts?page=' + page + '&boardCode=' + boardCode,{
                 method: 'GET',
@@ -182,6 +193,8 @@ function hideLoadingModal() {
             .then(data => { // js 객체
 
                 if (data.length > 0) { // 데이터 확인
+
+                    showLoadingModal();
 
                     console.log(data);
                     //(10) [{…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}]
@@ -229,13 +242,17 @@ function hideLoadingModal() {
                                             '</a>' ; 
                                             
                         $('#post').append(postAppends); 
-
+                            console.log("Test1");
                     });
+                
                     page++; // 11~20, 21~30 구분을 위함 (controller)
+                
+                }else{
+                    console.log("test2");
+                    isEndOfData = true;
                 }
 
                 isLoading = false;
-                /* hideLoadingModal();  */
             
             })
             .catch(function(error) {
@@ -247,7 +264,7 @@ function hideLoadingModal() {
 
 /** 스크롤 할 때마다 실행되는 함수 */
 $(window).scroll(function() { 
-    if ($(window).scrollTop() + $(window).height() >= $(document).height() - 100) {
+    if (!isEndOfData && $(window).scrollTop() + $(window).height() >= $(document).height() - 100) {
         // 스크롤이 페이지 하단에 도달하면 추가 데이터 로드
         loadMoreData();
     }

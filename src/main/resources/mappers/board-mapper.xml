@@ -115,8 +115,61 @@
 	    
 	</select>
 	
+	<!-- 최신순 정렬 -->
+	<select id="loadRecentPosts" resultMap="boardResultMap" parameterType="map">
+	    SELECT * FROM (
+	        SELECT A.*, ROWNUM AS rnum FROM (
+	            SELECT
+	                B.BOARD_NO, B.MEMBER_ID, B.BOARD_TITLE, B.BOARD_CONTENT, B.CREATE_DT, B.MODIFY_DT, B.DELETED_FL, B.READ_COUNT, BG.BOARD_CODE, M.MEMBER_NICK,
+	                (SELECT COUNT(*) FROM "COMMENT" C WHERE C.BOARD_NO = B.BOARD_NO) COMMENT_COUNT,
+	                ( SELECT LISTAGG(T.TAG_NM, ', ') WITHIN GROUP (ORDER BY T.TAG_NM)
+	                  FROM TAG_RELATION TR
+	                  JOIN TAG T ON TR.TAG_NO = T.TAG_NO
+	                  WHERE TR.ITEM_NO = B.BOARD_NO
+	                ) TAGS
+	            FROM BOARD B
+	            JOIN MEMBER M ON B.MEMBER_ID = M.MEMBER_ID
+	            JOIN BOARD_GENERAL BG ON B.BOARD_NO = BG.BOARD_NO
+	            WHERE BG.BOARD_CODE = #{boardCode} AND B.DELETED_FL = 'N'
+	            <if test="searchKeyword != null and searchKeyword != ''">
+	                AND (B.BOARD_TITLE LIKE '%' || #{searchKeyword} || '%' OR B.BOARD_CONTENT LIKE '%' || #{searchKeyword} || '%')
+	            </if>
+	            ORDER BY BOARD_NO DESC
+	        ) A 
+	    )
+	    WHERE rnum BETWEEN #{start} AND #{end}
+	</select>
 	
-	<!-- 목록 스크롤 (최신순, 기본값) -->
+	
+	<!-- 조회순 정렬 -->
+	<select id="loadReadCountPosts" resultMap="boardResultMap" parameterType="map">
+	    SELECT * FROM (
+	        SELECT A.*, ROWNUM AS rnum FROM (
+	            SELECT
+	                B.BOARD_NO, B.MEMBER_ID, B.BOARD_TITLE, B.BOARD_CONTENT, B.CREATE_DT, B.MODIFY_DT, B.DELETED_FL, B.READ_COUNT, BG.BOARD_CODE, M.MEMBER_NICK,
+	                (SELECT COUNT(*) FROM "COMMENT" C WHERE C.BOARD_NO = B.BOARD_NO) COMMENT_COUNT,
+	                ( SELECT LISTAGG(T.TAG_NM, ', ') WITHIN GROUP (ORDER BY T.TAG_NM)
+	                  FROM TAG_RELATION TR
+	                  JOIN TAG T ON TR.TAG_NO = T.TAG_NO
+	                  WHERE TR.ITEM_NO = B.BOARD_NO
+	                ) TAGS
+	            FROM BOARD B
+	            JOIN MEMBER M ON B.MEMBER_ID = M.MEMBER_ID
+	            JOIN BOARD_GENERAL BG ON B.BOARD_NO = BG.BOARD_NO
+	            WHERE BG.BOARD_CODE = #{boardCode} AND B.DELETED_FL = 'N'
+	            <if test="searchKeyword != null and searchKeyword != ''">
+	                AND (B.BOARD_TITLE LIKE '%' || #{searchKeyword} || '%' OR B.BOARD_CONTENT LIKE '%' || #{searchKeyword} || '%')
+	            </if>
+	            ORDER BY READ_COUNT DESC
+	        ) A 
+	    )
+	    WHERE rnum BETWEEN #{start} AND #{end}
+	</select>
+
+
+	
+	
+<!-- 	
 	<select id="loadPosts" resultMap="boardResultMap" parameterType="map">
 	    SELECT * FROM (
 	        SELECT A.*, ROWNUM AS rnum FROM (
@@ -152,7 +205,7 @@
 	        ) A 
 	    )
 	    WHERE rnum BETWEEN #{start} AND #{end}
-	</select>
+	</select> -->
 	
 	<!-- 게시글 상세 조회 -->
 	<select id="selectBoard" resultMap="boardResultMap">
