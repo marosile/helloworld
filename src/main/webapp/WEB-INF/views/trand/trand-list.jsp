@@ -77,8 +77,8 @@
 
                         <div class="row1-2">
                             <div class="text-area" data-boardNo="${list.boardNo}">
-                                <div class="title">🕊️ ${list.boardTitle} </div>
-                                <div class="content">${list.boardContent}</div>
+                                <div class="title">${list.boardTitle} </div>
+                                <div class="content" id="content">${list.boardContent}</div>
                             </div>
                             <div class="picture"><img src="/resources/images/trand/sample.jpg" id="pic"></div>
                         </div>
@@ -95,6 +95,7 @@
 
              <script>
                 const boardNo = ${list.boardNo}
+                const boardContent = ${list.boardContent}
             </script> 
                     
             </div>

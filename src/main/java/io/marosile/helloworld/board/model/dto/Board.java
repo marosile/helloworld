@@ -29,6 +29,10 @@ public class Board {
     private int readCount;
     private String tagName;
     
+    // follow
+    private String followTo;
+    private String followFrom;
+    
     // member
     private String memberId; 
     private String memberNickname;

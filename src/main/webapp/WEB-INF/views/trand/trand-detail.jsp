@@ -86,11 +86,13 @@
 
                     <%-- 팔로우 안했거나 로그인 x --%>
                     <c:if test="${empty followCheck}">
-                        <button id="followBtn2"><i class="fa-solid fa-user-plus"></i> 팔로우</button>
+                        <button id="followBtn2"><i class="fa-solid fa-user-plus"></i> 
+                        <div id="followSpan">팔로우</div></button>
                     </c:if>
 
                     <c:if test="${!empty followCheck}">
-                        <button id="followBtn2" class="fa-check"><i class="fa-solid fa-check"></i> 팔로잉</button>
+                        <button id="followBtn2" class="fa-check"><i class="fa-solid fa-check"></i> 
+                        <div id="followingSpan">팔로잉</div></button>
                     </c:if>
 
                         <button id="messageBtn"><i class="fa-regular fa-comment-dots"></i> 메시지</button>
@@ -102,7 +104,7 @@
 
                 <!-- 제목 -->
                 <div id="detailTitle">
-                    🕊️ ${detail.boardTitle}
+                 ${detail.boardTitle}
                 </div>
 
                 <!-- 내용 p태그 쓰는게 맞나 -->
@@ -122,34 +124,35 @@
                     
                     <!-- 좋아요 북마크 -->
                     <div id="likeBookMark"> 
-                    
-                        <%-- 좋아요 --%>
-                        <div id="like-area">
-                            <div>
-                                <c:if test="${empty likeCheck}">
-                                    <i class="fa-regular fa-heart fa-2xl" id="like"></i>
-                                </c:if>
-
-                                <c:if test="${!empty likeCheck}">
-                                    <i class="fa-solid fa-heart fa-2xl" id="like" style="color:red"></i>
-                                </c:if>
-                                <div id="likeCount">${detail.likeCount}</div>
-                            </div>  
-                        
-                        </div>
 
                         <%-- 북마크 --%>
                         <div id="bookMark-area">
                             <div>
                                 <c:if test="${empty bookMarkCheck}">
-                                    <i class="fa-regular fa-bookmark fa-2xl" id="bookMark"></i>
+                                    <i class="fa-regular fa-bookmark fa-xl" id="bookMark"></i>
                                 </c:if>
 
                                 <c:if test="${!empty bookMarkCheck}">
-                                    <i class="fa-solid fa-bookmark fa-2xl" id="bookMark"></i>
+                                    <i class="fa-solid fa-bookmark fa-xl" id="bookMark"></i>
                                 </c:if>
                             </div>
+
                         </div>
+                            <%-- 좋아요 --%>
+                            <div id="like-area">
+                                <div>
+                                <c:if test="${empty likeCheck}">
+                                    <i class="fa-regular fa-heart fa-xl" id="like"></i>
+                                </c:if>
+
+                                <c:if test="${!empty likeCheck}">
+                                    <i class="fa-solid fa-heart fa-xl" id="like"></i>
+                                </c:if>
+                                <div id="likeCount">${detail.likeCount}</div>
+                            </div>  
+                        </div>
+
+
 
                     </div>
 
@@ -164,7 +167,10 @@
                 <!-- 댓글 -->
                 <div id="replyContainer">
 
-                    <div id="replyCount"><i class="fa-solid fa-eye"></i>  ${detail.readCount}</div>
+                    <div id="replyCount">
+                    <i class="fa-solid fa-eye"></i>  ${detail.readCount}
+                    
+                    </div>
 
                     <!-- 댓글 하나하나 나중에 for문 -->
                     <c:choose>
