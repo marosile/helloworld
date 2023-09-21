@@ -101,5 +101,10 @@ public class BoardDAO_PHJ {
 		return sqlSession2.delete("boardMapper.deleteFollow" , map);
 	}
 
+	// 게시글 목록 조회
+	public List<Board> selectBoardList(Map<String, Object> map) {
+		return sqlSession2.selectList("boardMapper.selectBoardList", map);
+	}
+
 
 }

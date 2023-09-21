@@ -40,6 +40,13 @@ public interface BoardService_OHS {
 	int boardDelete(int boardNo);
 
 
+	/** 조회순 최신순 10개 , 검색어 확인
+	 * @param parameters
+	 * @return
+	 */
+	List<Board> loadBoardList(Map<String, Object> parameters);
+
+
 	
 
 }

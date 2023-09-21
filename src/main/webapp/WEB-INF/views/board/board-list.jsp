@@ -126,12 +126,17 @@
             <div id="post">
                 
                 <!-- for문 돌릴거 첫화면 -> 10개만 -->
-                <c:choose>
-                    <c:when test="${empty board}">
-                        <div>
-                            게시글이 존재하지 않습니다.
-                        </div>
-                    </c:when>
+                   <c:choose>
+                        <c:when test="${empty board}">
+                            <style>
+                                #post { display:flex; font-weight:bold; font-size:20px; margin-top:0;}
+                                #sortOptions {display:none;}
+                                #top10 {margin: 20px 0;}
+                            </style>
+                            <div id="post">
+                                '${searchKeyword}' 에 대한 게시글이 존재하지 않습니다.
+                            </div>
+                        </c:when>
 
                     <c:otherwise>
 
@@ -197,6 +202,7 @@
 
             <script>
                  const boardCode = "${boardCode}"; 
+                 const boardList = "${board}"
             </script>
 
 

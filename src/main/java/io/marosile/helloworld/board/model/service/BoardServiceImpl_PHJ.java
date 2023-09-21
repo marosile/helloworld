@@ -17,12 +17,10 @@ public class BoardServiceImpl_PHJ implements BoardService_PHJ{
 	private BoardDAO_PHJ dao;
 	
 	
-	// 게시글 목록 조회
+	// 게시글 목록 조회(검색 및 미검색)
 	@Override
-	public List<Board> selectBoardList(int boardCode) {
-		
-		List<Board> boardList = dao.selectBoardList(boardCode);
-		
+	public List<Board> selectBoardList(Map<String, Object> map) {
+		List<Board> boardList = dao.selectBoardList(map);
 		return boardList;
 	}
 
@@ -138,17 +136,6 @@ public class BoardServiceImpl_PHJ implements BoardService_PHJ{
 		return dao.insertReport(map);
 	}
 
-	// 게시글 목록 조회 서비스(조회순)
-	@Override
-	public List<Board> selectReadCountList(int boardCode) {
-		return dao.selectReadCountList(boardCode);
-	}
-	
-	// 게시글 목록 조회 서비스(조회순 -> 최신순)
-	@Override
-	public List<Board> selectReadCountListBack(int boardCode) {
-		return dao.selectReadCountListBack(boardCode);
-	}
 
 	// 검색
 	@Override

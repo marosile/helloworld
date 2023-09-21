@@ -8,10 +8,10 @@ import io.marosile.helloworld.board.model.dto.Board;
 public interface BoardService_PHJ {
 
 	/** 게시판 목록 조회
-	 * @param boardCode
+	 * @param map
 	 * @return
 	 */
-	List<Board> selectBoardList(int boardCode);
+	List<Board> selectBoardList(Map<String, Object> map);
 
 	
 	/** 게시글 상세 조회
@@ -61,18 +61,6 @@ public interface BoardService_PHJ {
 	 * @return
 	 */
 	int insertReport(Map<String, Object> map);
-	
-	/** 게시글 목록 조회(조회순)
-	 * @param boardCode
-	 * @return
-	 */
-	List<Board> selectReadCountList(int boardCode);
-	
-	/** 게시글 목록 조회(조회순 -> 최신순)
-	 * @param boardCode
-	 * @return
-	 */
-	List<Board> selectReadCountListBack(int boardCode);
 	
 	/** 전체 게시판 조회수 top 10
 	 * @return
