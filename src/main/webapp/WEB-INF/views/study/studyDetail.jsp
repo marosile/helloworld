@@ -126,72 +126,7 @@
 
 
             <!-- 댓글 -->
-            <div id="replyContainer">
-
-                <div id="replyCount">
-                    댓글 : 2
-                </div>
-
-                <!-- 댓글 하나하나 나중에 for문 -->
-                <div class="replys">
-
-                    <div class="inReplyfirstDiv">
-                        <div><img src="/resources/images/user.png" class="replyImages"></div>
-                        <div id="replyWriter">작성자
-                            <div id="replyCreateDate">(2023-09-04)</div>
-                        </div>
-
-                    </div>
-
-                    <div class="replyContents">
-                        댓글 내용입니다.
-                    </div>
-
-                    <div class="replyBtns">
-                        <button class="replyBtn" id="replyUpdateBtn">수정</button>
-                        <button class="replyBtn" id="replyDeleteBtn">삭제</button>
-                        <button class="replyBtn" id="replyBtn">대댓글</button>
-                    </div>
-
-                </div>
-
-                <div class="replys">
-
-                    <div class="inReplyfirstDiv">
-                        <div><img src="/resources/images/user.png" class="replyImages"></div>
-                        <div id="replyWriter">작성자</div>
-                        <div id="replyCreateDate">(2023-09-04)</div>
-                    </div>
-
-                    <div class="replyContents">
-                        댓글 내용입니다.
-                    </div>
-
-                    <div class="replyBtns">
-                        <button class="replyBtn">수정</button>
-                        <button class="replyBtn">삭제</button>
-                        <button class="replyBtn">대댓글</button>
-                    </div>
-
-                </div>
-
-                <!-- 댓글 작성 div -->
-                <div id="replyWrite">
-
-                    <!-- 작성 부분 -->
-                    <div id="replyWriteContent">
-                        <input type="text" placeholder="댓글을 작성해주세요.">
-                    </div>
-
-                    <!-- 버튼 부분 -->
-                    <div id="replyWriteBtn">
-                        <button>작성하기</button>
-                    </div>
-
-                </div>
-
-
-            </div>
+            <jsp:include page="/WEB-INF/views/study/studyReply.jsp"/>
 
         </div>
 

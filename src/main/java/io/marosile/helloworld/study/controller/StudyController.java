@@ -58,7 +58,6 @@ public class StudyController {
 
         Study studyDetail = service.studyDetail(map);
 
-        System.out.println("studyDetail:"+studyDetail);
 
 
         String path = null;
@@ -133,6 +132,7 @@ public class StudyController {
             }
             path = "study/studyDetail";
             model.addAttribute("studyDetail", studyDetail);
+            System.out.println("studyDetail:"+studyDetail);
 
 
         } else {
