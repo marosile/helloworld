@@ -22,30 +22,30 @@
 
         <h1 class="Title">계정 관리</h1>
         <section>
-
-            <form action="account" method="POST" name="myPageFrm" id="accountFrm">
             <!-- ===================== 이메일 ======================== -->
-                <%-- 이메일 입력 --%>
-                <div class="email">
-                    <div class="email-area">
-                        <div class="rowE">
-                            <label><h3>이메일 정보</h3></label>
-                            <input type="text" name="memberEmail" id="memberEmail" 
-                            maxlength="30" autocomplete="off" value="${loginMember.memberEmail}">
-                            <button id="sendAuthKeyBtn">인증번호 받기</button>
-                        </div>
-                    </div>
-
-                <%-- 이메일 인증 번호 입력 --%>
-                    <div class="email-area">
-                        <div class="rowE">
-                            <input type="text" name="authKey" id="authKey" maxlength="6" autocomplete="off">
-                            <button id="checkAuthKeyBtn">인증하기</button>
-                        </div>
-                        <span class="authKeyMessage" id="authKeyMessage">asd</span>
+            <%-- 이메일 입력 --%>
+            <div class="email">
+                <div class="email-area">
+                    <div class="rowE">
+                        <label><h3>이메일 정보</h3></label>
+                        <input type="text" name="memberEmail" id="memberEmail" 
+                        maxlength="30" autocomplete="off" value="${loginMember.memberEmail}">
+                        <button id="sendAuthKeyBtn">인증번호 받기</button>
                     </div>
                 </div>
-            </form>
+                <span id="guide">* 이메일 변경은 변경한 이메일로 인증 번호 메일이 발송되고 인증번호 입력을 통해 인증을 정상적으로 완료한 후 최종적으로 반영됩니다.</span>
+
+            <%-- 이메일 인증 번호 입력 --%>
+                <div class="email-area">
+                    <div class="rowE">
+                        <input type="text" name="authKey" id="authKey" maxlength="6" autocomplete="off" 
+                        placeholder=" 인증번호 입력">
+                        <button id="checkAuthKeyBtn">인증하고 변경하기</button>
+                    </div>
+                    <span class="authKeyMessage" id="authKeyMessage"></span>
+                    <span class="authKeyMessage" id="emailAuthMessage"></span>
+                </div>
+            </div>
 
 
             <!-- ================================  비번 ============================= -->

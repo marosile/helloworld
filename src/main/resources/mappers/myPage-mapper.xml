@@ -36,7 +36,7 @@
    
    
    <!-- 비밀번호 조회 -->
-   <select id="selectEncPw" parameterType="_int" resultType="string">
+   <select id="selectEncPw" resultType="string">
 		SELECT MEMBER_PW FROM MEMBER WHERE MEMBER_ID = #{memberId}
    </select>
    
@@ -53,6 +53,14 @@
    <update id="secession">
    		UPDATE MEMBER SET
    		DELETED_FL = 'Y'
+   		WHERE MEMBER_ID = #{memberId}
+   </update>
+   
+   
+   <!-- 이메일 업데이트 -->
+   <update id="updateEmail">
+   		UPDATE MEMBER SET
+   		MEMBER_EMAIL = #{memberEmail}
    		WHERE MEMBER_ID = #{memberId}
    </update>
    
