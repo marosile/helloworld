@@ -31,7 +31,9 @@ public class AdminController {
 	// 관리자 메인 페이지 
 	@GetMapping("/adminMember")
 	public String adminMember(Model model
-							  , @RequestParam Map<String, Object> paramMap) {
+							  , @RequestParam Map<String, Object> paramMap
+								) {
+
 
 
 		System.out.println(paramMap);

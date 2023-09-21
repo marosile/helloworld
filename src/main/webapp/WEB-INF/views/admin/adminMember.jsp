@@ -3,7 +3,7 @@
 
 <c:set var="memberList" value="${map.memberList}"/>
 <c:set var="memberCount" value="${map.memberCount}"/>
-<c:set var="searchCount" value="${map.listCount}"/>
+<c:set var="searchCount" value="${map.searchCount}"/>
 
 <!DOCTYPE html>
 <html lang="ko">
@@ -45,15 +45,22 @@
                             <img src="/resources/images/admin/sort.png">
                         </button>
                         <ul class="searchMenu menuHidden" id="searchMenu" name="key">
-                            <li><button type="button" class="sidebarMenu" name="key" id="searchId" value="아이디">아이디</button></li>
-                            <li><button type="button" class="sidebarMenu" name="key" id="searchPw" value="이메일">이메일</button></li>
-                            <li><button type="button" class="sidebarMenu" name="key" id="searchTel" value="전화번호">전화번호</button></li>
-                            <li><button type="button" class="sidebarMenu" name="key" id="searchNickname" value="닉네임">닉네임</button></li>
+                            <li><button type="button" class="sidebarMenu" name="key1" id="searchId" value="아이디">아이디</button></li>
+                            <li><button type="button" class="sidebarMenu" name="key2" id="searchEmail" value="이메일">이메일</button></li>
+                            <li><button type="button" class="sidebarMenu" name="key3" id="searchTel" value="전화번호">전화번호</button></li>
+                            <li><button type="button" class="sidebarMenu" name="key4" id="searchNickname" value="닉네임">닉네임</button></li>
                         </ul>
 
-
-
+                        <select name="key" class="selectHidden">
+                            <option value="아이디" id="searchId1">아이디</option>
+                            <option value="이메일" id="searchEmail1">이메일</option>
+                            <option value="전화번호" id="searchTel1">전화번호</option>
+                            <option value="닉네임" id="searchNickname1">닉네임</option>
+                        </select>
                     </div>
+
+
+
 
                     <input type="text" id="searchInput" name="query">
                     <button id="searchBtn"><img src="/resources/images/admin/search.png"></button>
@@ -79,7 +86,18 @@
                     </div>
                     <div>
                         <span>검색된 회원수 : </span>
-                        <span>0명</span>
+                        <c:choose>
+                            <c:when test="${empty searchCount}">
+                                <span>0명</span>
+                            </c:when>
+
+                            <c:otherwise>
+                                <span>${searchCount}명</span>
+
+                            </c:otherwise>
+
+                        </c:choose>
+
                     </div>
                 </div>
 
