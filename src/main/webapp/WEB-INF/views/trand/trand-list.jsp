@@ -80,12 +80,12 @@
                                 <div class="title">${list.boardTitle} </div>
                                 <div class="content" id="content">${list.boardContent}</div>
                             </div>
-                            <div class="picture"><img src="/resources/images/trand/sample.jpg" id="pic"></div>
+                            <div class="picture"><img src="/resources/images/logo.png" id="pic2"></div>
                         </div>
 
                         <div class="row1-3">
-                            <div class="heart"><i class="fa-solid fa-heart"></i> ${list.likeCount}</div>
-                            <div class="bookmark"><i class="fa-solid fa-eye"></i>  ${list.readCount}</div>
+                            <div class="heart"><i class="fa-solid fa-heart"></i> 좋아요 ${list.likeCount}</div>
+                            <div class="bookmark"><i class="fa-solid fa-eye"></i> 조회 ${list.readCount}</div>
                             <input type="hidden" id="boardNo" name="boardNo" value="${list.boardNo}" />
                         </div>
 
