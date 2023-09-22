@@ -21,7 +21,9 @@
             
             <h2>로그인</h2>
 
-            <form action="/member/login" class="loginFrm" id="loginFrm" method="post">
+            <span id="idModalClose">&times;</span>
+
+            <form action="/member/login" class="loginFrm" id="loginFrm">
 
                 <div class="login-inputAll">
                     <label for="login-inputEmail" class="login-inputName">아이디</label>
@@ -58,7 +60,7 @@
 
 
 
-                <button id="loginBtn">로그인</button>
+                <button id="loginBtn" type="button">로그인</button>
 
             </form>
 
@@ -73,21 +75,22 @@
                 <span>|</span>
                 <a href="/member/findPw">비밀번호를 잊으셨나요?</a>
             </div>
-                
+
             <div class="snsLogin">
                 <h3>SNS로그인</h3>
                 <div class="kakao-button">
-                    <a href="https://kauth.kakao.com/oauth/authorize?client_id=aac73a50e342183e31a5478826ffeffd&redirect_uri=http://localhost/member/login/kakao&response_type=code">
+                    <a href="https://kauth.kakao.com/oauth/authorize?client_id=aac73a50e342183e31a5478826ffeffd&redirect_uri=http://localhost/member/login/kakao&response_type=code" id="kakaoLogin">
                         <img src="/resources/images/kakao_login_medium_wide.png">
                     </a>
                 </div>
                 <div class="google-button">
-                    <a href="${googleUrl}">
+                    <a href="https://accounts.google.com/o/oauth2/v2/auth?client_id=829784621579-9i247enb310blhhajovb5u9ggnfiglja.apps.googleusercontent.com&redirect_uri=http://localhost/member/login/google&response_type=code&scope=email%20profile%20openid&access_type=offline" id="googleLogin">
                         <img src="/resources/images/btn_google_light_normal_ios.png">
                         <span>구글 로그인</span>
                     </a>
                 </div>
 
+<%--                <input type="checkbox" id="autoLogin1" name="autoLogin">--%>
 
             </div>
 

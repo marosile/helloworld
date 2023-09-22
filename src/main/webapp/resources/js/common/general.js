@@ -49,7 +49,7 @@ function preventScroll(b) {
         "width": "",
         "top": ""});
     window.scrollTo(0, scrollY);
-    scrollY = null;
+scrollY = null;
 }
 
 function getContextPath() {
