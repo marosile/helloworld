@@ -171,7 +171,7 @@
                                 </div>
 
                                 <div class="postThirdPart">
-                                    ${board.boardContent} 
+                                    ${board.boardContent}... 
                                 </div>
                         
                                 <div class="postFourthPart">

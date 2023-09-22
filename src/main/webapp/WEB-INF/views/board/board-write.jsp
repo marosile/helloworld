@@ -71,7 +71,7 @@
 
                 <!-- 내용 -->
                 <div id="boardContent">
-                     <textarea id="summernote" name="boardContent"></textarea>
+                     <textarea id="summernote" name="boardContent" maxlength="4000"></textarea>
                 </div>
 
                 <div id="tagsContainer">

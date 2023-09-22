@@ -80,33 +80,36 @@ function hideLoadingModal() {
     const readCountSortButton = document.getElementById("readCountSortButton");
 
     recentSortButton.addEventListener("click", (e) => {
-        handleSortClick(e);
+        handleSortClick(e, true);
         tf = true;
         page = 2;
     });
     
     // readCountSortButton 클릭 이벤트 핸들러
     readCountSortButton.addEventListener("click", (e) => {
-        handleSortClick(e); // false는 조회순을 나타냅니다.
+        handleSortClick(e, false); // false는 조회순을 나타냅니다.
         tf = false;
         page = 2;
     });
 
     let isRecentSort = true; // 초기값 (조회순, 최신순 구분)
 
-    function handleSortClick(e) {
+    function handleSortClick(e, isRecent) {
 
-        recentSortButton.classList.remove("selected");
-        readCountSortButton.classList.remove("selected");
-    
-        //e.target.classList.add("selected");
+        console.log("handle");
 
-        isRecentSort = this.id === "recentSortButton";
+        recentSortButton.classList.toggle("selected");
+        readCountSortButton.classList.toggle("selected");
     
+        if (isRecent !== undefined) {
+            isRecentSort = isRecent; // isRecent 값이 전달되면 해당 값으로 설정
+        }
+
         searchKeyword = searchInput.value;
 
-        // Make the fetch request based on the sorting type (recent or read count)
-        const url = `getBoardList?boardCode=${boardCode}&sortType=${isRecentSort ? "recent" : "readCount"}&searchKeyword=${searchKeyword}`;
+        const sortType = isRecentSort ? "recent" : "readCount"; // 정렬 타입 설정
+        console.log(sortType);
+        const url = `getBoardList?boardCode=${boardCode}&sortType=${sortType}&searchKeyword=${searchKeyword}`;
     
         fetch(url)
             .then(resp => {
@@ -116,7 +119,7 @@ function hideLoadingModal() {
                 return resp.json(); // Return the parsed JSON data
             })
             .then(rList => {
-
+                console.log(rList);
                 // 게시글들 비우기
                 document.getElementById("post").innerHTML='';
     
@@ -169,13 +172,10 @@ function hideLoadingModal() {
     
             console.log(tf);
 
-            
-
-            // Make the fetch request based on the sorting type (recent or read count)
             const url= `loadPosts?page=${page}&boardCode=${boardCode}
                         &sortType=${tf ? "recent" : "readCount"}&searchKeyword=${searchKeyword}`;
           
-            fetch(url, { // fetch('loadPosts?page=' + page + '&boardCode=' + boardCode,{
+            fetch(url, { 
                 method: 'GET',
                 headers: {'Content-Type': 'application/json'}
                 // data : x
@@ -217,8 +217,7 @@ function hideLoadingModal() {
                                 { tagName: 'next.js' }
                             ]
                         */
-                            console.log(boardCode);
-                            console.log(whatever.boardNo);
+
                         var postAppends =  `<a href="/board/${boardCode}/${whatever.boardNo}">` +
                                                 '<div class="posts">' +  
                                                 '<div class="postFirstpart">' +
