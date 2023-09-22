@@ -133,17 +133,7 @@ $(document).ready(function(){
     });
 
 
-    // // 각 버튼 클릭 이벤트 처리
-    // $('.sidebarMenu').click(function () {
-    //     var keyValue = $(this).data('key-value');
-    //     var queryValue = $('#searchInput').val();
-    //
-    //     // URL을 생성
-    //     var url = "/admin/adminMember/search?key=" + keyValue + "&query=" + queryValue;
-    //
-    //     // 페이지 이동
-    //     window.location.href = url;
-    // });
+
 
 })
 

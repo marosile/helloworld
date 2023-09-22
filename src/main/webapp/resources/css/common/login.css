@@ -69,6 +69,8 @@
     display: block;
     border-radius: 10px;
     border: none;
+    background: linear-gradient(90deg, rgba(200, 100, 255, 0.5), rgba(0, 128, 255, 0.5));
+    color: white;
 }
 
 /* loginMain아래 모든 a태그 */

@@ -41,14 +41,14 @@
                 <form action="/admin/adminMember" id="searchMemberMenu" class="searchMemberMenu">
 
                     <div class="adminSearchDiv">
-                        <button type="button" name="searchMember" id="searchMember">조회 방법
+                        <button type="button" name="searchMember" id="searchMember">아이디
                             <img src="/resources/images/admin/sort.png">
                         </button>
                         <ul class="searchMenu menuHidden" id="searchMenu" name="key">
-                            <li><button type="button" class="sidebarMenu" name="key1" id="searchId" value="아이디">아이디</button></li>
-                            <li><button type="button" class="sidebarMenu" name="key2" id="searchEmail" value="이메일">이메일</button></li>
-                            <li><button type="button" class="sidebarMenu" name="key3" id="searchTel" value="전화번호">전화번호</button></li>
-                            <li><button type="button" class="sidebarMenu" name="key4" id="searchNickname" value="닉네임">닉네임</button></li>
+                            <li><button type="button" class="sidebarMenu"  id="searchId" value="아이디">아이디</button></li>
+                            <li><button type="button" class="sidebarMenu"  id="searchEmail" value="이메일">이메일</button></li>
+                            <li><button type="button" class="sidebarMenu"  id="searchTel" value="전화번호">전화번호</button></li>
+                            <li><button type="button" class="sidebarMenu"  id="searchNickname" value="닉네임">닉네임</button></li>
                         </ul>
 
                         <select name="key" class="selectHidden">
@@ -69,6 +69,11 @@
 
 
                 <div class="checkNumber">
+
+                    <c:if test="${!empty param.key}" >
+                        <h3>"${param.query}" 검색결과</h3>
+                    </c:if>
+
                     <div>
                         <span>총 회원수 : </span>
                         <c:choose>
