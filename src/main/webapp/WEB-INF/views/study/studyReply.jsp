@@ -1,3 +1,5 @@
+
+
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
@@ -5,16 +7,16 @@
 
 <div id="replyContainer">
 
-    <div id="replyCount">
-        댓글 : 5
-    </div>
+    <%--    <div id="replyCount">
+            댓글 : 5
+        </div>--%>
 
     <ul class="reply-list">
 
         <!-- 댓글 하나하나 나중에 for문 -->
         <c:forEach items="${studyDetail.studyCommentList}" var="comment">
 
-            <li class="replys" id="reply-list <c:if test='${comment.parentNo != 0}'>child-comment</c:if>">
+            <li class="reply-row <c:if test='${comment.parentNo != 0}'>child-comment</c:if>">
 
                 <div class="inReplyfirstDiv">
 
@@ -40,7 +42,7 @@
                 <div class="replyBtns">
 
                     <c:if test="${loginMember!=null}">
-                        <button class="replyBtn" id="replyBtn" onclick="showInsertComment(${comment.commentNo}, this)">대댓글</button>
+                        <button class="replyBtn" id="replyBtn" onclick="showInsertComment(${comment.commentNo}, this)">댓글</button>
                     </c:if>
 
                     <c:if test="${loginMember.memberId==comment.memberId}">
@@ -72,8 +74,3 @@
 </div>
 
 <script src="/resources/js/study/studyReply.js"></script>
-
-
-
-
-

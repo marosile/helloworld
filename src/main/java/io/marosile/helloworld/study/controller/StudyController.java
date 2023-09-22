@@ -55,10 +55,9 @@ public class StudyController {
 
         map.put("boardNo", boardNo);
 
-
         Study studyDetail = service.studyDetail(map);
 
-
+        System.out.println("studyDetail:"+studyDetail);
 
         String path = null;
 
@@ -109,7 +108,7 @@ public class StudyController {
                 }
 
                 if (result > 0) {
-                    studyDetail.setReadCount(studyDetail.getBoardNo());
+                    studyDetail.setReadCount(studyDetail.getReadCount());
 
                     c.setPath("/");
 
@@ -217,7 +216,6 @@ public class StudyController {
         study.setCreateDate(studyDetail.getCreateDate());
         // 태그가 수정이 안됨!
 
-        System.out.println(study);
 
         int result = service.studyUpdate(study);
 
