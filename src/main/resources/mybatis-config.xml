@@ -16,6 +16,8 @@
 		<typeAlias type="io.marosile.helloworld.admin.model.dto.AdminDTO" alias="Admin" />
 		<typeAlias type="io.marosile.helloworld.trand.model.dto.Trand" alias="Trand" />
 		<typeAlias type="io.marosile.helloworld.study.model.dto.studyComment" alias = "studyComment"/>
+		<typeAlias type="io.marosile.helloworld.recruit.model.dto.Company" alias = "company"/>
+		<typeAlias type="io.marosile.helloworld.recruit.model.dto.Recruit" alias = "recruit"/>
 		<!-- <typrAlias type="io.marosile.helloworld.mypage.model.dto.BookmarkList" alias="BookmarkList" />
 		<typrAlias type="io.marosile.helloworld.mypage.model.dto.BookmarkList2" alias="BookmarkList2" /> -->
 	</typeAliases>
@@ -35,6 +37,7 @@
 		<mapper resource="/mappers/admin-mapper.xml"/>
 		<mapper resource="/mappers/trand-mapper.xml"/>
 		<mapper resource="/mappers/studyComment-mapper.xml"/>
+		<mapper resource="/mappers/recruit-mapper.xml"/>
 	</mappers>
 
 </configuration>
