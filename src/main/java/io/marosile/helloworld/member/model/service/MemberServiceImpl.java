@@ -171,7 +171,7 @@ public class MemberServiceImpl implements MemberService {
 
         Member loginMember = dao.login(inputMember);
 
-        if(loginMember != null){
+        if(loginMember != null && inputMember.getMemberPw() != null){
 
             // 비밀번호가 그대로 db에 들어가면 해킹의 위험이 있다
             // -> 암호화 진행해야 함

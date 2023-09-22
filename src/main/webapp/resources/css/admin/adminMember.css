@@ -49,7 +49,8 @@
 }
 
 #searchMember:hover{
-    background-color: red;
+    background: linear-gradient(90deg, rgba(200, 100, 255, 0.5), rgba(0, 128, 255, 0.5));
+    color: white;
 }
 
 #searchMember > img{
@@ -77,7 +78,9 @@
     position: absolute;
     margin: 9px;
     left: 5px;
-    z-index : 100;
+    z-index : 2;
+
+
 }
 
 
@@ -101,12 +104,11 @@
 /* ul태그 */
 .searchMenu{
     padding: 0;
-    border: 1px solid red;
+    border: 1px solid #ccc;
     height: 161.8px;
     width: 150px;
     margin: 10px auto auto auto;
     border-radius: 5px;
-
 }
 
 .menuHidden{
@@ -119,6 +121,13 @@
     width: 148px;
     list-style: none;
     margin: auto;
+
+
+
+}
+
+.searchMenu:hover{
+    background-color: white;
 
 }
 
@@ -133,10 +142,13 @@
     cursor: pointer;
     border-bottom: 1px solid #ccc;
     border-radius: 5px;
+
+
 }
 
 .sidebarMenu:hover{
-    background-color: red;
+    background: linear-gradient(90deg, rgba(200, 100, 255, 0.5), rgba(0, 128, 255, 0.5));
+    color: white;
 }
 
 /* 검색 버튼 */
@@ -166,11 +178,18 @@
     display: flex;
     justify-content: right;
     width: 95%;
+    position: relative;
 }
 
 .checkNumber > div{
     margin-left: 15px;
     padding: 10px 0;
+}
+
+.checkNumber > h3{
+    position: absolute;
+    left: 30px;
+    top: 7px;
 }
 
 /*********** 테이블있는 부분 **************/

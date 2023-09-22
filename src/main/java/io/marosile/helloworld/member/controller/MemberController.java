@@ -77,6 +77,7 @@ public class MemberController {
 						, Model model
 						, @RequestHeader(value="referer") String referer
 						, @RequestParam(value="idSave", required = false) String idSave
+						, @RequestParam(value="autoLogin", required = false) String autoLogin
 						, HttpServletResponse resp
 						){
 
@@ -96,17 +97,30 @@ public class MemberController {
 			// 쿠키를 이용한 아이디 저장
 			Cookie cookie = new Cookie("idSave", loginMember.getMemberId());
 
+			Cookie autoLoginCookie = new Cookie("autoLogin", loginMember.getMemberId());
+
 			if(idSave != null){
 				// 한달동안 유지되는 쿠키 생성
 				cookie.setMaxAge(60 * 60 * 24 * 30);
 			} else{
 				cookie.setMaxAge(0);
 			}
+
+			if(autoLoginCookie != null){
+				// 한달동안 유지되는 쿠키 생성
+				autoLoginCookie.setMaxAge(60 * 60 * 24 * 30);
+			} else{
+				autoLoginCookie.setMaxAge(0);
+			}
+
 			
 			// 클라이언트가 어떤 요청을 할 때 쿠키가 첨부될 지 확인
 			cookie.setPath("/");
+			autoLoginCookie.setPath("/");
+
 
 			resp.addCookie(cookie);
+			resp.addCookie(autoLoginCookie);
 
 		}else{
 			System.out.println("로그인 실패");
@@ -119,9 +133,28 @@ public class MemberController {
 
 	// 로그아웃 실행 컨트롤러
 	@GetMapping("/logout")
-	public String logout(SessionStatus status){
+	public String logout(SessionStatus status, HttpServletRequest request, HttpServletResponse resp){
 
 		status.setComplete();
+
+//		Cookie[] cookies = request.getCookies();
+//
+//		if (cookies != null) {
+//			for (Cookie cookie : cookies) {
+//				if ("autoLogin".equals(cookie.getName())) {
+//					String cookieValue = cookie.getValue();
+//					cookie.setValue(null);
+//				}
+//			}
+//		}
+
+
+		Cookie autoLoginCookie = new Cookie("autoLogin", null);
+		autoLoginCookie.setMaxAge(0);
+		autoLoginCookie.setPath("/");
+
+		resp.addCookie(autoLoginCookie);
+
 
 		return "redirect:/";
 	}

@@ -38,6 +38,10 @@
                     <c:set var="chk" value="checked"/>
                 </c:if>
 
+                <c:if test="${!empty cookie.autoLogin.value}">
+                    <c:set var="chk1" value="checked"/>
+                </c:if>
+
                 <div class="login-saveId">
                     <div>
                         <input type="checkbox" id="idSave" name="idSave" ${chk}>
@@ -45,7 +49,7 @@
                     </div>
 
                     <div>
-                        <input type="checkbox" id="autoLogin" name="autoLogin">
+                        <input type="checkbox" id="autoLogin" name="autoLogin" ${chk1}>
                         <label for="autoLogin">자동 로그인</label>
                     </div>
 
