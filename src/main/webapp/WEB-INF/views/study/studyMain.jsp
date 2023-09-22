@@ -343,6 +343,8 @@
                         </c:otherwise>
                     </c:choose>
 
+                    <input type="hidden" id="loginMemberId" value="${loginMember.memberId}" />
+
 
                     <script>
                         const boardNo = ${study.boardNo}

@@ -1,10 +1,15 @@
 // 모집하기눌렀을때
 const joinStudy = document.getElementById("P-study-btn");
+const loginMemberId = document.getElementById("loginMemberId").value;
 
 joinStudy.addEventListener("click", () => {
 
+    if(loginMemberId==""){
+        alert("로그인 후 이용해주세요")
+    }else{
+        location.href = "/study/write";
+    }
 
-    location.href = "/study/write";
 
 
 })
@@ -117,7 +122,7 @@ if(like != null){
     like.addEventListener("click",e=>{
 
 
-        if(loginMemberId == ""){
+        if(loginMemberIdloginMemberId == ""){
             alert("로그인 후 이용해주세요");
             return;
         }
