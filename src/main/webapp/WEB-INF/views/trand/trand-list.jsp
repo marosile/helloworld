@@ -58,6 +58,7 @@
                     <div class="div2" id = "design"><i class="fa-solid fa-arrow-pointer"></i>디자인</div>
                     <div class="div2" id="marketing"><i class="fa-solid fa-tag"></i>마케팅</div>
                     <div class="div2" id="business"><i class="fa-solid fa-building"></i>비즈니스</div>
+                    <div class="div2" id="plan"><i class="fa-solid fa-rectangle-list"></i>기획</div>
                 </div>
 
             </div>

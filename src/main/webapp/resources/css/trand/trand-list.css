@@ -13,7 +13,7 @@
     top: 90px;
     
     width: 380px;
-    height: 500px;
+    height: 480px;
     border: 1px solid var(--divider);
     border-radius: 10px;
     background-color: var(--bg-color-2);
@@ -214,10 +214,11 @@
 .div2 {
     font-size: 20px;
     font-weight: bold;
-    color: gray;
+    color: rgba(63, 62, 62, 0.808);
     
     margin-left: 20px;
-    margin-top: 30px;
+    margin-top: 40px;
+    margin-bottom: 30px;
 }
 
 .div1{
@@ -227,13 +228,15 @@
 i{
     margin-right: 8px;
     margin-left: 8px;
+
+    color: rgba(63, 62, 62, 0.808);
 }
 
 
 /* 타이틀 실험중 */
 
 h1 {
-    margin-top: 20px;
+    margin-top: 30px;
     margin-left: 18px;
     margin-bottom: 15px;
 }

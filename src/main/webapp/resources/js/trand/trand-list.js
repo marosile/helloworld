@@ -4,6 +4,78 @@ const develope = document.getElementById("develope");
 const design = document.getElementById("design");
 const marketing = document.getElementById("marketing");
 const business = document.getElementById("business");
+const plan = document.getElementById("plan");
+
+plan.addEventListener("click", ()=>{
+
+  const type = plan.textContent;
+
+  const data = { "type" : type };
+
+  fetch("/trand/tagList",{
+      method: "POST",
+      headers:{ "Content-Type" : "application/json" },
+      body:JSON.stringify(data)
+  })
+  .then( resp => resp.json())
+  .then( tList => {
+
+    document.getElementById("right-area").innerHTML='';
+    var i = 1;
+
+    tList.forEach ( tList => {
+
+          
+
+          var postAppends = 
+                        '<div class="row-area">' +
+                              '<div class="row1-1">' +
+                                  '<div class="number">' + i++ + '</div>' +
+                                  '<div class="profile">' + '<img src="' + tList.profileImage +'" id="userProfile">' + '</div>' +
+                                  '<div class="name-area">' +
+                                         '<div class="name">' + tList.memberId + '</div>' +
+                                         '<div class="nickname">' + tList.memberNickname + '</div>' +
+                                  '</div>' +
+                              '</div>' +
+
+                              '<div class="row1-2">' + 
+                                    '<div class="text-area" data-boardNo='+ tList.boardNo + '>' +
+                                        '<div class="title">' + tList.boardTitle + '</div>' +
+                                        '<div class="content">' + tList.boardContent + '</div>' +
+                                    '</div>' +
+                                    '<div class="picture">' + '<img src="/resources/images/img_2102_0.jpg" id="pic">' + '</div>' +
+                              '</div>' +
+
+                              '<div class="row1-3">' +
+                                    '<div class="heart">' + '<i class="fa-solid fa-heart">'+'</i>'+ tList.likeCount + '</div>' +
+                                    '<div class="bookmark">' + '<i class="fa-solid fa-eye">' + '</i>' + tList.readCount + '</div>' +
+                              '</div>' +
+                        '</div>';      
+
+                    $('#right-area').append(postAppends);  
+    });
+
+
+            
+const textArea = document.getElementsByClassName("text-area");
+
+// 각각의 상세페이지로
+for (let i = 0; i < textArea.length; i++) {
+  textArea[i].addEventListener("click", (e) => {
+
+    const boardNo = e.currentTarget.getAttribute("data-boardno");
+
+    location.href = "detail?boardNo=" + boardNo;
+  });
+}
+
+  })
+  .catch( err => {
+    console.log("예외발생");
+  })
+
+});
+
 
 
 develope.addEventListener("click", ()=>{
