@@ -32,4 +32,8 @@ public class Member {
     private int memberNum;
     // 관리자에서 사용할 회원 번호
     private int rowNum;
+
+    // 쿠키에 담아둘 값들
+    private String idSave;
+    private String autoLogin;
 }
