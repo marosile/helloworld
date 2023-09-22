@@ -1,10 +1,12 @@
 package io.marosile.helloworld.mypage.model.service;
 
 import java.io.IOException;
+import java.util.List;
 
 import org.springframework.web.multipart.MultipartFile;
 
 import io.marosile.helloworld.member.model.dto.Member;
+import io.marosile.helloworld.mypage.model.dto.BookmarkList;
 
 public interface MyPageService {
 
@@ -35,6 +37,13 @@ public interface MyPageService {
 	 * @return
 	 */
 	int secession(String memberId);
+
+	
+	
+	/** 북마크 리스트 조회 (채용공고)
+	 * @return
+	 */
+	//List<BookmarkList> selectBookmark();
 	
 
 
