@@ -174,7 +174,17 @@
                     <!-- 공유하기 및 문의하기 버튼 -->
                     <div class="P-profile-buttons">
                         <button id="contact-button">채팅하기</button>
-                        <button id="share-button">팔로우하기</button>
+
+                        <c:if test="${empty }">
+                            <button id="share-button">팔로우</button>
+                        </c:if>
+
+                        <c:if test="${!empty }">
+                            <button id="share-button">팔로잉</button>
+                        </c:if>
+
+
+
                     </div>
                 </div>
 
