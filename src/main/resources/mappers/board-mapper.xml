@@ -204,7 +204,7 @@
 		INSERT ALL
 		
 		INTO BOARD (BOARD_NO, MEMBER_ID, BOARD_TITLE, BOARD_CONTENT, CREATE_DT, DELETED_FL, READ_COUNT)
-		VALUES(#{boardNo}, #{memberId}, #{boardTitle}, #{boardContent}, DEFAULT, DEFAULT, #{boardCode})
+		VALUES(#{boardNo}, #{memberId}, #{boardTitle}, #{boardContent}, DEFAULT, DEFAULT, 0)
 			
 		INTO BOARD_GENERAL (BOARD_NO, BOARD_CODE) VALUES(#{boardNo}, #{boardCode})
 		

@@ -9,12 +9,16 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.SessionAttribute;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
+import io.marosile.helloworld.member.model.dto.Member;
 import io.marosile.helloworld.recruit.model.dto.Recruit;
 import io.marosile.helloworld.recruit.model.service.RecruitService_PHJ;
 
 
 @Controller
+@SessionAttributes("loginMember")
 @RequestMapping("/recruit") // 채용 공고 controller
 public class RecruitController {
 
@@ -23,14 +27,14 @@ public class RecruitController {
 	
 	
 	@GetMapping("/list")
-	private String recruitTestMainOrRecruitDetail() {
+	private String recruitTestMainOrRecruitDetail(@SessionAttribute("loginMember") Member loginMember) {
 		
 		// 테스트 했는지 조회
 		// if result == 1 -> 테스트 메인 jsp로
 		// else -> 내 매칭 공고 jsp로
 		
 		// 임시 : 테스트 메인으로
-		return "recruit/employment-test/employment-main";
+		return "recruit/employment-test";
 	}
 	
 	// jsp 1개로 합칠건데 일단 5개로 나뉨
