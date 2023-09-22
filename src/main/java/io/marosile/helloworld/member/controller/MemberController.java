@@ -17,6 +17,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.client.RestTemplate;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import javax.servlet.http.Cookie;
@@ -156,7 +157,10 @@ public class MemberController {
 	// 로그아웃 실행 컨트롤러
 	@GetMapping("/logout")
 	public String logout(SessionStatus status, HttpServletRequest request, HttpServletResponse resp
-						, @RequestHeader(value="referer") String referer){
+						, @RequestHeader(value="referer") String referer
+						,RedirectAttributes ra
+	){
+
 
 		status.setComplete();
 
@@ -178,6 +182,7 @@ public class MemberController {
 
 		resp.addCookie(autoLoginCookie);
 
+		ra.addFlashAttribute("messgae", "로그아웃 되었습니다.");
 
 		return "redirect:"+referer;
 	}
@@ -313,6 +318,7 @@ public class MemberController {
 	/***************************************** 구글 로그인 응답 후 진행 **********************************************/
 	@RequestMapping(value = "/login/google", method = RequestMethod.GET)
 	public String googleAuth(Model model, @RequestParam(value = "code") String authCode, HttpServletRequest request
+//							, @RequestHeader(value="referer") String referer
 							, HttpServletResponse resp)
 			throws Exception {
 
