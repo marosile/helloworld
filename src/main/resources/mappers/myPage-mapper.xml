@@ -78,11 +78,15 @@
    <!-- 특정 회원 커뮤니티 북마크 목록 조회 -->
    <select id="selectBookmark" resultMap="bookmark_rm" >
    		SELECT M.PROFILE_IMG, MEMBER_NICK , TO_CHAR(CREATE_DT, 'YYYY-MM-DD')AS CREATE_DT, 
-        		BOARD_TITLE, B.READ_COUNT, (SELECT COUNT(*) FROM "COMMENT")AS COMMENT_COUNT
+        		BOARD_TITLE, B.READ_COUNT, 
+        		(SELECT COUNT(*) FROM "COMMENT")AS COMMENT_COUNT
 		FROM BOOKMARK BM
-		JOIN MEMBER M ON (M.MEMBER_ID = BM.MEMBER_ID)
-		JOIN BOARD B ON (B.BOARD_NO = BM.BOARD_NO)
+		JOIN MEMBER M ON (M.MEMBER_ID = BM.MEMBER_ID )
+		JOIN BOARD B ON (B.BOARD_NO = BM.BOARD_NO )
 		WHERE M.MEMBER_ID = #{memberId}
+		AND EXISTS (SELECT 1
+          			FROM BOARD_GENERAL BG
+               		WHERE B.BOARD_NO = BG.BOARD_NO)
    </select>
    
    <!-- <select id="selectBookmark2" resultMap="bookmark_rm">
