@@ -2,8 +2,8 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="myPageMapper">
 
-	<!-- 북마크(커뮤니티) resultMap-->
-	<!-- <resultMap type="BookmarkList" id="bookmark_rm">
+	<!-- BookmarkList(커뮤니티)에 대한 resultMap-->
+	<resultMap type="BookmarkList" id="bookmark_rm">
 	
 		<id property="boardNo" column ="BOARD_NO"/>
 		
@@ -19,11 +19,13 @@
 				select="selectCommentList" column="BOARD_NO"
 				javaType="java.util.ArrayList" ofType="Comment">
 		</collection>
-	</resultMap> -->
+	</resultMap>
+	
+	
 	
 	
 	<!-- 북마크(채용공고) resultMap -->
-	<!-- <resultMap type="BookmarkList2" id="bookmark_rm2">
+	<resultMap type="BookmarkList2" id="bookmark_rm2">
 	
 		<id property="boardNo" column ="BOARD_NO"/>
 		
@@ -34,7 +36,7 @@
 		<result property="salaryExpect" column="SALARY_EXPECT" />
 		<result property="employeeType" column="EMPL_TYPE" />
 		<result property="employeeLocation" column="EMPL_LOCATION" />
-	</resultMap> -->
+	</resultMap>
 	
 
 
@@ -73,13 +75,24 @@
    </update>
    
    
-   <!-- 북마크 목록 조회 -->
-   <!-- <select id="bookmarkList">
-   		SELECT B.BOARD_NO, B.BOARD_TITLE, B.CREATE_DT, B.READ_COUNT 
-        FROM BOARD B
-        JOIN BOOKMARK BM ON BM.BOARD_NO = B.BOARD_NO
-        WHERE BM.MEMBER_ID = #{memberId}
+   <!-- 특정 회원 커뮤니티 북마크 목록 조회 -->
+   <select id="selectBookmark" resultMap="bookmark_rm" >
+   		SELECT M.PROFILE_IMG, MEMBER_NICK , TO_CHAR(CREATE_DT, 'YYYY-MM-DD')AS CREATE_DT, 
+        		BOARD_TITLE, B.READ_COUNT, (SELECT COUNT(*) FROM "COMMENT")AS COMMENT_COUNT
+		FROM BOOKMARK BM
+		JOIN MEMBER M ON (M.MEMBER_ID = BM.MEMBER_ID)
+		JOIN BOARD B ON (B.BOARD_NO = BM.BOARD_NO)
+		WHERE M.MEMBER_ID = #{memberId}
+   </select>
+   
+   <!-- <select id="selectBookmark2" resultMap="bookmark_rm">
+   		
+   
+   
+   
    </select> -->
+   
+   
 	
 
 
