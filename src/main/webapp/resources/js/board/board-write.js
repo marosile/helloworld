@@ -30,7 +30,6 @@ document.addEventListener("DOMContentLoaded", function() {
             } else {
                 inputTag.placeholder = "#태그5";
             }
-            // 나머지 태그에 대해서도 필요한 만큼 추가 설정 가능
 
             tagsDiv.appendChild(inputTag);
 

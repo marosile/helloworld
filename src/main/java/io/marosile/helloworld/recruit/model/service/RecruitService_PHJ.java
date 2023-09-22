@@ -1,5 +1,5 @@
 package io.marosile.helloworld.recruit.model.service;
 
-public interface RecruitService {
+public interface RecruitService_PHJ {
 
 }
