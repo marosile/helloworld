@@ -28,25 +28,25 @@
 */
 const checkSignUp = {
 
-    // "inputId" : false,
-    // "inputEmail" : false,
-    // "inputTel1" : false,
-    // "inputTel2" : false,
-    // "inputNickname" : false,
-    // "inputPw" : false,
-    // "inputConfirmPw" : false,
-    // "essentialCheck" : false,
-    // "authKey" : false
+    "inputId" : false,
+    "inputEmail" : false,
+    "inputTel1" : false,
+    "inputTel2" : false,
+    "inputNickname" : false,
+    "inputPw" : false,
+    "inputConfirmPw" : false,
+    "essentialCheck" : false,
+    "authKey" : false
 
-    "inputId" : true,
-    "inputEmail" : true,
-    "inputTel1" : true,
-    "inputTel2" : true,
-    "inputNickname" : true,
-    "inputPw" : true,
-    "inputConfirmPw" : true,
-    "essentialCheck" : true,
-    "authKey" : true
+    // "inputId" : true,
+    // "inputEmail" : true,
+    // "inputTel1" : true,
+    // "inputTel2" : true,
+    // "inputNickname" : true,
+    // "inputPw" : true,
+    // "inputConfirmPw" : true,
+    // "essentialCheck" : true,
+    // "authKey" : true
     // 실험용
 
 };
@@ -270,7 +270,7 @@ let authSec = 59;
         if(inputTel1.value.trim().length == 0){
             inputTel1.value = "";
             telMessage.innerText = "전화번호를 입력해주세요(- 제외)";
-            alert("전화번호를 입력해주세요(- 제외)");
+            snackbar("전화번호를 입력해주세요(- 제외)", 'rgb(0, 128, 255)', '/resources/images/moon.png')
             telMessage.classList.remove("confirm", "error");
             checkSignUp.inputTel1 = false;
             return;
@@ -294,10 +294,10 @@ let authSec = 59;
             .then(resp => resp.text())
             .then(result => {
                 if (result != null) {
-                    alert("인증번호가 발송되었습니다.");
+                    snackbar("인증번호가 발송되었습니다.", 'rgb(0, 128, 255)', '/resources/images/moon.png')
                     return;
                 } else {
-                    alert("인증번호 발송 실패")
+                    snackbar("인증번호 발송 실패", 'rgb(0, 128, 255)', '/resources/images/moon.png')
                     return;
                 }
                 
@@ -339,7 +339,7 @@ let authSec = 59;
             }, 1000)
 
     }   else{
-            alert("전화번호 형식이 일치하지 않거나 중복입니다. 다시 입력해주세요");
+            snackbar("전화번호 형식이 일치하지 않거나 중복입니다. 다시 입력해주세요", 'rgb(0, 128, 255)', '/resources/images/moon.png');
             inputTel1.focus();
     }
 });
@@ -409,7 +409,7 @@ btn2.addEventListener("click", () => {
         .catch(err => console.log(err))
 
     }else{
-        alert("인증 시간이 만료되었습니다. 다시 시도해주세요.")
+        snackbar("인증 시간이 만료되었습니다. 다시 시도해주세요.", 'rgb(0, 128, 255)', '/resources/images/moon.png');
     }
 
 
