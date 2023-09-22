@@ -4,6 +4,11 @@
 
 <!DOCTYPE html>
 <html lang="ko">
+
+<c:set var="recruit" value="${recruitList}" />
+
+
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -22,102 +27,23 @@
     <main id="body-area">
         <div id="main-area">
 
-            <div class="row-area">
-                <div class="box">
-                    <div id="row1">
-                        <div id="photo"><img src="/resources/images/mypage/당근.png"></div>
-                        <div id="title-area">
-                            <div id="title">당근마켓</div>
-                            <div id="subTitle">Software Engineer, Frontend</div>
-                        </div>
-                        <div id="click">상세보기</div>
-                    </div>
-                </div>
 
-                <div class="box">
-                    <div id="row1">
-                        <div id="photo"><img src="/resources/images/mypage/당근.png"></div>
-                        <div id="title-area">
-                            <div id="title">당근마켓</div>
-                            <div id="subTitle">Software Engineer, Frontend</div>
+            <c:forEach items="${recruit}" var = "r">
+                <div class="row-area">
+                    <div class="box">
+                        <div id="row1">
+                            <div id="photo"><img src="${r.companyLogo}"></div>
+                            <div id="title-area">
+                                <div id="title">${r.companyName}</div>
+                                <div id="subTitle">${r.jobField}</div>
+                            </div>
+                            <a href="/recruit/moreDetail?boardNo=${r.boardNo}"><div id="click">상세보기</div></a>
                         </div>
-                        <div id="click">상세보기</div>
                     </div>
                 </div>
-            </div>
+            </c:forEach>
 
-            <div class="row-area">
-                <div class="box">
-                    <div id="row1">
-                        <div id="photo"><img src="/resources/images/mypage/당근.png"></div>
-                        <div id="title-area">
-                            <div id="title">당근마켓</div>
-                            <div id="subTitle">Software Engineer, Frontend</div>
-                        </div>
-                        <div id="click">상세보기</div>
-                    </div>
-                </div>
 
-                <div class="box">
-                    <div id="row1">
-                        <div id="photo"><img src="/resources/images/mypage/당근.png"></div>
-                        <div id="title-area">
-                            <div id="title">당근마켓</div>
-                            <div id="subTitle">Software Engineer, Frontend</div>
-                        </div>
-                        <div id="click">상세보기</div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row-area">
-                <div class="box">
-                    <div id="row1">
-                        <div id="photo"><img src="/resources/images/mypage/당근.png"></div>
-                        <div id="title-area">
-                            <div id="title">당근마켓</div>
-                            <div id="subTitle">Software Engineer, Frontend</div>
-                        </div>
-                        <div id="click">상세보기</div>
-                    </div>
-                </div>
-
-                <div class="box">
-                    <div id="row1">
-                        <div id="photo"><img src="/resources/images/mypage/당근.png"></div>
-                        <div id="title-area">
-                            <div id="title">당근마켓</div>
-                            <div id="subTitle">Software Engineer, Frontend</div>
-                        </div>
-                        <div id="click">상세보기</div>
-                    </div>
-                </div>
-            </div>
-
-                        <div class="row-area">
-                <div class="box">
-                    <div id="row1">
-                        <div id="photo"><img src="/resources/images/mypage/당근.png"></div>
-                        <div id="title-area">
-                            <div id="title">당근마켓</div>
-                            <div id="subTitle">Software Engineer, Frontend</div>
-                        </div>
-                        <div id="click">상세보기</div>
-                    </div>
-                </div>
-
-                <div class="box">
-                    <div id="row1">
-                        <div id="photo"><img src="/resources/images/mypage/당근.png"></div>
-                        <div id="title-area">
-                            <div id="title">당근마켓</div>
-                            <div id="subTitle">Software Engineer, Frontend</div>
-                        </div>
-                        <div id="click">상세보기</div>
-                    </div>
-                </div>
-                
-            </div>
         </div>
     </main>
 

@@ -19,4 +19,10 @@ public class RecruitServiceImpl_PHJ implements RecruitService_PHJ{
 	public List<Recruit> allRecruitList() {
 		return dao.allRecruitList();
 	}
+
+	// 상세의 상세페이지
+	@Override
+	public Recruit moreDetail(int boardNo) {
+		return dao.moreDetail(boardNo);
+	}
 }
