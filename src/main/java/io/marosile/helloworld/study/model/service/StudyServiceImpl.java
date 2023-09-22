@@ -106,5 +106,11 @@ public class StudyServiceImpl implements StudyService {
 		return dao.complete(map);
 	}
 
+	// TOP 10위
+	@Override
+	public List<Study> studyTopList() {
+		return dao.studyTopList();
+	}
+
 
 }

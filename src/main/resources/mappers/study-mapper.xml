@@ -199,6 +199,17 @@
         WHERE BOARD_NO = #{boardNo}
     </update>
 
+    <!--top10위-->
+    <select id="studyTopList" resultMap="StudyResultMap">
+        SELECT ROWNUM, B.READ_COUNT, B.BOARD_NO, B.BOARD_TITLE, B.BOARD_CONTENT, S.STUDY_STATUS, (
+        SELECT COUNT(*) FROM "LIKE" L WHERE L.BOARD_NO = B.BOARD_NO
+        ) AS LIKE_COUNT
+        FROM BOARD B
+        JOIN BOARD_STUDY S ON (B.BOARD_NO = S.BOARD_NO)
+        WHERE ROWNUM &lt; 11 AND S.STUDY_STATUS = 'N'
+        ORDER BY LIKE_COUNT DESC, S.BOARD_NO DESC
+</select>
+
 
 
 </mapper>

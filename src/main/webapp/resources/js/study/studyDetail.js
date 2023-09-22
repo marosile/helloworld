@@ -90,9 +90,9 @@ like.addEventListener("click", e=>{
 
     let check;
 
-    if( e.target.classList.contains("fa-regular")){ // 북마크 안눌렀을 때
+    if( e.target.classList.contains("fa-regular")){
         check=0;
-    } else {  // 북마크 눌렀을 때
+    } else {
         check=1;
     }
 
