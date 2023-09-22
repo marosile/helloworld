@@ -1,10 +1,13 @@
 package io.marosile.helloworld.recruit.contorller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import io.marosile.helloworld.recruit.model.dto.Recruit;
 import io.marosile.helloworld.recruit.model.service.RecruitService_PHJ;
 
 
@@ -67,6 +70,11 @@ public class RecruitController {
 	// 전체 매칭 공고
 	@GetMapping("/allNoticeList")
 	public String allNoticeList() {
+		
+		 List<Recruit> recruitList = service.allRecruitList();
+		 
+		 
+		 
 		return "recruit/allnotice-list";
 	}
 	
@@ -81,7 +89,7 @@ public class RecruitController {
 	@GetMapping("/moreDetail")
 	public String recruitDetail() {
 		return "recruit/recruit-moreDetail";
-	}//d
+	}
 	
 	// 채용 공고 등록
 	@GetMapping("/post")
