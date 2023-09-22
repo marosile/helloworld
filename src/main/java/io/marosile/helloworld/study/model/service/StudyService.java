@@ -36,4 +36,7 @@ public interface StudyService {
 
     // 모집완료 조회
     int complete(Map<String, Object> map);
+
+    // TOP 10위
+    List<Study> studyTopList();
 }

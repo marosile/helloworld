@@ -1,9 +1,16 @@
 // 모집하기눌렀을때
 const joinStudy = document.getElementById("P-study-btn");
+const loginMemberId = document.getElementById("loginMemberId").value;
 
-joinStudy.addEventListener("click",()=>{
+joinStudy.addEventListener("click", () => {
 
-    location.href ="/study/write";
+    if(loginMemberId==""){
+        alert("로그인 후 이용해주세요")
+    }else{
+        location.href = "/study/write";
+    }
+
+
 
 })
 
@@ -27,8 +34,6 @@ selectBoxRole.addEventListener("click", (e) => {
 });
 
 
-
-
 // 카테고리 - 목적 클릭 했을때
 const purposeBtn = document.querySelector('.P-body-purpose-btn');
 const selectBoxPurpose = document.querySelector('.P-selectBox-purpose');
@@ -46,7 +51,6 @@ selectBoxPurpose.addEventListener("click", (e) => {
         selectBoxPurpose.classList.add("menuHidden")
     }
 })
-
 
 
 // 카테고리 - 인원 클릭 했을때
@@ -89,8 +93,6 @@ personBtn.addEventListener("click", (e) => {
 })
 
 
-
-
 var mySwiper = new Swiper('.swiper-container', {
     slidesPerView: 2, // 한 화면에 보여질 슬라이드 개수
     slidesPerGroup: 2,    // 한 번에 그룹으로 넘어갈 슬라이드 개수
@@ -102,7 +104,7 @@ var mySwiper = new Swiper('.swiper-container', {
 
 });
 
-// 목록 조회  id 중복이 안되니까 class로 가져오는것! 
+// 목록 조회  id 중복이 안되니까 class로 가져오는것!
 /*const studyArea = document.getElementsByClassName("P-study-area");
 
     for(let i=0; i<studyArea.length;i++){
@@ -113,16 +115,55 @@ var mySwiper = new Swiper('.swiper-container', {
         });
     }*/
 
-// 좋아요 클릭시
+
 const like = document.getElementById("like");
 
+if(like != null){
+    like.addEventListener("click",e=>{
 
-like.addEventListener("click", e=>{
 
-    // 로그인 여부
-    if(loginMemberId == ""){
-        alert("로그인 후 이용해주세요");
-        location.href ="/member/login";
-    }
+        if(loginMemberIdloginMemberId == ""){
+            alert("로그인 후 이용해주세요");
+            return;
+        }
 
-})
+
+        let check;
+
+        if(e.target.classList.contains("fa-regular")){
+            check=0
+        }else{
+            check=1;
+        }
+
+        const data = {
+            "memberId":loginMemberId,
+            "boardNo" :boardNo,
+            "likeCheck" : check
+        }
+
+
+        fetch("/study/main/like",{
+            method: "POST",
+            headers:{"Content-Type" : "application/json" },
+            body : JSON.stringify(data)
+        })
+            .then( res => res.text())
+            .then( count => {
+
+                if(count == -1) { // DML 실패
+                    alert("좋아요 실패 ㅜㅜ");
+                    return;
+                }
+                e.target.classList.toggle("fa-regular");
+                e.target.classList.toggle("fa-solid");
+                countSpan.innerText = count;
+
+            })
+            .catch( err => {
+                console.log("예외발생")
+            })
+
+
+    })
+}

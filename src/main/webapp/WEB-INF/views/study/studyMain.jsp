@@ -218,217 +218,59 @@
                     <div class="swiper-button-next"></div>
                 </div>
 
+
                 <div class="swiper-container" id="swiper">
                     <div class="swiper-wrapper">
 
-                        <!-- 나중에 for문 -->
-                        <div class="swiper-slide">
+                        <c:forEach items="${studyTopList}" var="TopList" begin="0" end="4" varStatus="loop">
 
-                            <div class="post">
+                            <div class="swiper-slide">
 
-                                <div class="P-study-popular-container-f">
-                                    <div class="P-study-popular-category">
-                                        <img src="/resources/images/board/number1.png"
-                                             class="top10LevelImage">
-                                    </div>
+                                    <%--위칸--%>
+                                <a href="detail/${studyTopList[loop.index*2].boardNo}">
+                                    <div class="post">
+                                        <div class="P-study-popular-container-f">
+                                            <div class="P-study-popular-category">
+                                                <img src="/resources/images/board/number${loop.index * 2 + 1}.png"
+                                                     class="top10LevelImage">
+                                            </div>
 
-                                    <div>
-                                        <div class="P-study-popular-title">
-                                            Hello World 웹 개발 같이해요!
-
+                                            <div>
+                                                <div class="P-study-popular-title">
+                                                        ${studyTopList[loop.index*2].boardTitle}
+                                                </div>
+                                                <div class="P-study-popular-content">
+                                                        ${studyTopList[loop.index*2].boardContent}
+                                                </div>
+                                            </div>
                                         </div>
-                                        <div class="P-study-popular-content">
-                                            개발자를 위한 커뮤니티를 만들고 싶은데 같이 만들어봐요!
-                                        </div>
-                                    </div>
-                                </div>
 
+                                    </div>
+                                </a>
+
+                                    <%--아래칸--%>
+                                <a href="detail/${studyTopList[loop.index*2+1].boardNo}">
+                                    <div class="post">
+                                        <div class="P-study-popular-container-f">
+                                            <div class="P-study-popular-category">
+                                                <img src="/resources/images/board/number${loop.index * 2 + 2}.png"
+                                                     class="top10LevelImage">
+                                            </div>
+
+                                            <div>
+                                                <div class="P-study-popular-title">
+                                                        ${studyTopList[loop.index*2+1].boardTitle}
+                                                </div>
+                                                <div class="P-study-popular-content">
+                                                        ${studyTopList[loop.index*2+1].boardContent}
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </a>
                             </div>
-
-                            <div class="post">
-
-                                <div class="P-study-popular-container-f">
-                                    <div class="P-study-popular-category">
-                                        <img src="/resources/images/board/number2.png"
-                                             class="top10LevelImage">
-                                    </div>
-
-                                    <div>
-                                        <div class="P-study-popular-title">
-                                            Hello World 웹 개발 같이해요!
-
-                                        </div>
-                                        <div class="P-study-popular-content">
-                                            개발자를 위한 커뮤니티를 만들고 싶은데 같이 만들어봐요!
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                        <div class="swiper-slide">
-                            <div class="post">
-                                <div class="P-study-popular-container-f">
-                                    <div class="P-study-popular-category">
-                                        <img src="/resources/images/board/number3.png"
-                                             class="top10LevelImage">
-                                    </div>
-
-                                    <div>
-                                        <div class="P-study-popular-title">
-                                            Hello World 웹 개발 같이해요!
-
-                                        </div>
-                                        <div class="P-study-popular-content">
-                                            개발자를 위한 커뮤니티를 만들고 싶은데 같이 만들어봐요!
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-                            <div class="post">
-                                <div class="P-study-popular-container-f">
-                                    <div class="P-study-popular-category">
-                                        <img src="/resources/images/board/number4.png"
-                                             class="top10LevelImage">
-                                    </div>
-
-                                    <div>
-                                        <div class="P-study-popular-title">
-                                            Hello World 웹 개발 같이해요!
-
-                                        </div>
-                                        <div class="P-study-popular-content">
-                                            개발자를 위한 커뮤니티를 만들고 싶은데 같이 만들어봐요!
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-
-                        <div class="swiper-slide">
-                            <div class="post">
-                                <div class="P-study-popular-container-f">
-                                    <div class="P-study-popular-category">
-                                        <img src="/resources/images/board/number5.png"
-                                             class="top10LevelImage">
-                                    </div>
-
-                                    <div>
-                                        <div class="P-study-popular-title">
-                                            Hello World 웹 개발 같이해요!
-
-                                        </div>
-                                        <div class="P-study-popular-content">
-                                            개발자를 위한 커뮤니티를 만들고 싶은데 같이 만들어봐요!
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-                            <div class="post">
-                                <div class="P-study-popular-container-f">
-                                    <div class="P-study-popular-category">
-                                        <img src="/resources/images/board/number6.png"
-                                             class="top10LevelImage">
-                                    </div>
-
-                                    <div>
-                                        <div class="P-study-popular-title">
-                                            Hello World 웹 개발 같이해요!
-
-                                        </div>
-                                        <div class="P-study-popular-content">
-                                            개발자를 위한 커뮤니티를 만들고 싶은데 같이 만들어봐요!
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="post">
-                                <div class="P-study-popular-container-f">
-                                    <div class="P-study-popular-category">
-                                        <img src="/resources/images/board/number7.png"
-                                             class="top10LevelImage">
-                                    </div>
-
-                                    <div>
-                                        <div class="P-study-popular-title">
-                                            Hello World 웹 개발 같이해요!
-
-                                        </div>
-                                        <div class="P-study-popular-content">
-                                            개발자를 위한 커뮤니티를 만들고 싶은데 같이 만들어봐요!
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-                            <div class="post">
-                                <div class="P-study-popular-container-f">
-                                    <div class="P-study-popular-category">
-                                        <img src="/resources/images/board/number8.png"
-                                             class="top10LevelImage">
-                                    </div>
-
-                                    <div>
-                                        <div class="P-study-popular-title">
-                                            Hello World 웹 개발 같이해요!
-
-                                        </div>
-                                        <div class="P-study-popular-content">
-                                            개발자를 위한 커뮤니티를 만들고 싶은데 같이 만들어봐요!
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="post">
-                                <div class="P-study-popular-container-f">
-                                    <div class="P-study-popular-category">
-                                        <img src="/resources/images/board/number9.png"
-                                             class="top10LevelImage">
-                                    </div>
-
-                                    <div>
-                                        <div class="P-study-popular-title">
-                                            Hello World 웹 개발 같이해요!
-
-                                        </div>
-                                        <div class="P-study-popular-content">
-                                            개발자를 위한 커뮤니티를 만들고 싶은데 같이 만들어봐요!
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-                            <div class="post">
-                                <div class="P-study-popular-container-f">
-                                    <div class="P-study-popular-category">
-                                        <img src="/resources/images/board/number10.png"
-                                             class="top10LevelImage">
-                                    </div>
-
-                                    <div>
-                                        <div class="P-study-popular-title">
-                                            Hello World 웹 개발 같이해요!
-
-                                        </div>
-                                        <div class="P-study-popular-content">
-                                            개발자를 위한 커뮤니티를 만들고 싶은데 같이 만들어봐요!
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
+                        </c:forEach>
                     </div>
                 </div>
 
@@ -437,77 +279,77 @@
 
                     <c:choose>
 
-                    <c:when test="${empty study}">
-                        <div>
-                            게시글이 존재하지 않습니다.
-                        </div>
-                    </c:when>
-
-                    <c:otherwise>
-
-
-                    <c:forEach var="study" items="${study}">
-
-                    <a href="/study/detail/${study.boardNo}">
-
-
-                        <div class="P-study-area" id="P-study-area">
-                            <div class="P-study-main">
-                                <span class="P-study-category">스터디</span>
-                                <span class="P-like-btn">
-                                    <c:if test="${!empty loginMember}">
-
-                                        <!-- 로그인한 사용자인 경우 -->
-                                        <c:if test="${study.likeCount == 0}">
-                                            <i class="fa-regular fa-heart" id="like" ></i>
-                                        </c:if>
-                                        <c:if test="${study.likeCount == 1}">
-                                            <i class="fa-solid fa-heart" id="like"></i>
-                                        </c:if>
-
-                                    </c:if>
-
-                                    <c:if test="${empty loginMember}">
-                                        <!-- 로그인하지 않은 사용자인 경우 -->
-                                        <i class="fa-regular fa-heart" id="like"></i>
-                                    </c:if>
-
-                                </span>
-
+                        <c:when test="${empty study}">
+                            <div>
+                                게시글이 존재하지 않습니다.
                             </div>
+                        </c:when>
 
-                            <div class="P-study-title">
+                        <c:otherwise>
+
+
+                            <c:forEach var="study" items="${study}">
+
+                                <a href="/study/detail/${study.boardNo}">
+
+
+                                    <div class="P-study-area" id="P-study-area">
+                                        <div class="P-study-main">
+                                            <span class="P-study-category">스터디</span>
+
+                                        <c:if test="${!empty loginMember}">
+                                            <!-- 로그인한 사용자인 경우 -->
+                                            <c:if test="${study.likeCount == 0}">
+                                               <button id="like"><i class="fa-regular fa-heart" ></i></button>
+                                            </c:if>
+                                            <c:if test="${study.likeCount == 1}">
+                                                <button id="like"><i class="fa-solid fa-heart" ></i></button>
+                                            </c:if>
+                                        </c:if>
+
+                                        <c:if test="${empty loginMember}">
+                                            <!-- 로그인하지 않은 사용자인 경우 -->
+                                            <button id="like"><i class="fa-regular fa-heart"></i></button>
+
+                                        </c:if>
+
+
+
+                                        </div>
+
+                                        <div class="P-study-title">
                                             <span class="PN">
                                              <c:if test="${study.studyStatus == 'N'}">모집중</c:if>
                                              <c:if test="${study.studyStatus == 'Y'}">모집완료</c:if>
                                             </span>
-                                <span class="PS"> | </span>
-                                    ${study.boardTitle}
-                            </div>
+                                            <span class="PS"> | </span>
+                                                ${study.boardTitle}
+                                        </div>
 
-                            <div class="P-study-content">
-                                    ${study.boardContent}
-                            </div>
+                                        <div class="P-study-content">
+                                                ${study.boardContent}
+                                        </div>
 
-                            <div class="P-study-common">
-                                <p><span>👍 좋아요 ${study.likeCount}</span></p>
-                                <p><span>💬 댓글 </span></p>
-                            </div>
+                                        <div class="P-study-common">
+                                            <p><span>👍 좋아요 ${study.likeCount} </span></p>
+                                            <p><span>👀 조회수 ${study.readCount} </span></p>
+                                        </div>
 
-                        </div>
+                                    </div>
 
-                    </a>
-                        </c:forEach>
+                                </a>
+                            </c:forEach>
 
                         </c:otherwise>
-                        </c:choose>
+                    </c:choose>
+
+                    <input type="hidden" id="loginMemberId" value="${loginMember.memberId}" />
 
 
-
-                        <script>
-                            const boardNo = ${study.boardNo}
-                            const loginMemberId = "${loginMember.memberId}"
-                        </script>
+                    <script>
+                        const boardNo = ${study.boardNo}
+                        const loginMemberId= "${loginMember.memberId}"
+                    </script>
 
                 </div>
             </div>
@@ -516,9 +358,9 @@
 
 
 </main>
+<script src="/resources/js/study/studyMain.js"></script>
 <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
 <script src="/resources/js/common/general.js"></script>
-<script src="/resources/js/study/studyMain.js"></script>
 
 
 </body>

@@ -36,7 +36,12 @@ public class StudyController {
 
         List<Study> studyList = service.selectStudyList();
 
+        // TOP 10위
+        List<Study> studyTopList = service.studyTopList();
+        System.out.println("studyTopList"+studyTopList);
+
         model.addAttribute("studyList", studyList);
+        model.addAttribute("studyTopList",studyTopList);
 
         return "study/studyMain";
     }
@@ -56,6 +61,7 @@ public class StudyController {
         map.put("boardNo", boardNo);
 
         Study studyDetail = service.studyDetail(map);
+
 
         System.out.println("studyDetail:"+studyDetail);
 
@@ -141,6 +147,7 @@ public class StudyController {
 
         return path;
     }
+
 
     // 좋아요 처리
     @PostMapping("/detail/like")

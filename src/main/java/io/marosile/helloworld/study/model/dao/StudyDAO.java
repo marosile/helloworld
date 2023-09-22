@@ -100,4 +100,9 @@ public class StudyDAO {
     public int complete(Map<String, Object> map) {
         return sqlSession.update("studyMapper.complete",map);
     }
+
+    // TOP10
+    public List<Study> studyTopList() {
+        return  sqlSession.selectList("studyMapper.studyTopList");
+    }
 }
