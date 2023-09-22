@@ -75,18 +75,23 @@ public class StudyDAO {
     public int studyUpdate(Study study) {
 
         int result = sqlSession.update("studyMapper.studyUpdate1",study);
-
+            System.out.println("studyUpdate1:"+result);
         if (result > 0) {
             result = sqlSession.update("studyMapper.studyUpdate2",study);
+            System.out.println("studyUpdate2:"+result);
+
         }
         if (result > 0) {
             result = sqlSession.update("studyMapper.studyUpdate3",study);
+            System.out.println("studyUpdate3:"+result);
         }
         if (result > 0) {
             result = sqlSession.update("studyMapper.studyUpdate4",study);
+            System.out.println("studyUpdate4:"+result);
         }
         if (result > 0) {
             result = sqlSession.update("studyMapper.studyUpdate5",study);
+            System.out.println("studyUpdate5:"+result);
         }
         return result;
     }

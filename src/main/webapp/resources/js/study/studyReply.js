@@ -1,22 +1,19 @@
-
-
-
+// 댓글 목록 조회
 selectStudyCommentList = () =>{
 
     fetch("/commentStudy?boardNo="+boardNo)
         .then(resp => resp.json())
         .then(sList =>{
 
-            location.reload(true);
 
             console.log(sList);
-            const commentList = document.getElementById("reply-area");
+            const commentList = document.getElementById("reply-list");
             commentList.innerHTML="";
 
             for(let comment of sList){
 
                 const commentRow = document.createElement("li");
-                commentRow.classList.add("replys");
+                commentRow.classList.add("reply-row");
 
                 if(comment.parentNo != 0){
                     commentRow.classList.add("child-comment")
@@ -152,7 +149,7 @@ function deleteComment(commentNo){
 
                 location.reload(true);
                 if(result > 0){
-                    alert("삭제되었습니다");
+                    alert("삭제되었습니다.");
                     selectStudyCommentList(); // 목록을 다시 조회해서 삭제된 글을 제거
                 }else{
                     alert("삭제 실패");
@@ -162,10 +159,86 @@ function deleteComment(commentNo){
 
     }
 }
-// 댓글 수정(AJAX)
-/*
-let beforeCommentRow
+// 댓글 수정 화면 전환
+let beforeCommentRow;
 
+function showUpdateComment(commentNo, btn){
+
+    const temp = document.getElementsByClassName("update-textarea");
+
+    if(temp.length > 0){
+
+        if(confirm("다른 댓글이 수정 중입니다. 현재 댓글을 수정 하시겠습니까?")){
+
+            temp[0].parentElement.innerHTML = beforeCommentRow;
+
+        }else{
+            return;
+        }
+    }
+
+    // 1. 댓글 수정이 클릭된 행을 선택
+    const commentRow = btn.parentElement.parentElement; // 수정 버튼의 부모의 부모
+
+    // 2. 행 내용 삭제 전 현재 상태를 저장(백업) (문자열)
+    beforeCommentRow = commentRow.innerHTML;
+
+    // 3. 댓글에 작성되어 있던 내용만 얻어오기 -> 새롭게 생성된 textarea 추가될 예정
+    let beforeContent = commentRow.children[1].innerHTML;
+
+    //let beforeContent = btn.parentElement.previousElementSibling.innerHTML; 도 가능
+
+    // 4. 댓글 행 내부 내용을 모두 삭제
+    commentRow.innerHTML = "";
+
+    // 5. textarea 요소 생성 + 클래스 추가  +  **내용 추가**
+    const textarea = document.createElement("textarea");
+    textarea.classList.add("update-textarea");
+
+    // ******************************************
+    // XSS 방지 처리 해제
+    beforeContent =  beforeContent.replaceAll("&amp;", "&");
+    beforeContent =  beforeContent.replaceAll("&lt;", "<");
+    beforeContent =  beforeContent.replaceAll("&gt;", ">");
+    beforeContent =  beforeContent.replaceAll("&quot;", "\"");
+
+    // ******************************************
+    textarea.value = beforeContent; // 내용 추가
+
+    // 6. commentRow에 생성된 textarea 추가
+    commentRow.append(textarea);
+
+    // 7. 버튼 영역 + 수정/취소 버튼 생성
+    const commentBtnArea = document.createElement("div");
+    commentBtnArea.classList.add("replyBtns");
+
+
+    const updateBtn = document.createElement("button");
+    updateBtn.innerText = "수정";
+    updateBtn.setAttribute("onclick", "updateComment("+commentNo+", this)");
+
+
+    const cancelBtn = document.createElement("button");
+    cancelBtn.innerText = "취소";
+    cancelBtn.setAttribute("onclick", "updateCancel(this)");
+
+    // 8. 버튼영역에 버튼 추가 후
+    //    commentRow(행)에 버튼영역 추가
+    commentBtnArea.append(updateBtn, cancelBtn);
+    commentRow.append(commentBtnArea);
+
+}
+
+// 댓글 수정 취소
+function updateCancel(btn){
+    if(confirm("댓글 수정을 취소하시겠습니까?")){
+        btn.parentElement.parentElement.innerHTML=beforeCommentRow;
+    }
+}
+
+
+
+// 댓글 수정(AJAX)
 function updateComment(commentNo,btn){
 
     const commentContent = btn.parentElement.previousElementSibling.value;
@@ -182,6 +255,7 @@ function updateComment(commentNo,btn){
         .then(result => {
 
             if(result>0){
+                location.reload(true);
                 alert("댓글이 수정되었습니다.");
                 selectStudyCommentList()
 
@@ -190,6 +264,92 @@ function updateComment(commentNo,btn){
             }
 
         })
+
+
         .catch(e=>console.log(e))
 }
-*/
+// 답글 작성 화면 추가 (답글 작성은 1개만 가능)
+function showInsertComment(parentNo,btn){
+    const temp = document.getElementsByClassName("commentInsertContent");
+
+    if(temp.length>0){
+        if(confirm("다른 답글 작성중입니다. 현재 댓글에 답글을 작성하시겠습니까?")){
+            temp[0].nextElementSibling.remove();
+            temp[0].remove();
+
+        }else{
+            return;
+        }
+    }
+
+    const textarea = document.createElement("textarea");
+    textarea.classList.add("commentInsertContent")
+
+    btn.parentElement.after(textarea);
+
+    const commentBtnArea = document.createElement("div");
+    commentBtnArea.classList.add("replyBtns");
+
+    const insertBtn = document.createElement("button");
+    insertBtn.innerText="등록";
+    insertBtn.setAttribute("onclick","insertChildComment("+parentNo+",this)");
+
+    const cancleBtn = document.createElement("button")
+    cancleBtn.innerText="취소";
+    cancleBtn.setAttribute("onclick","insertCancel(this)")
+
+    commentBtnArea.append(insertBtn,cancleBtn);
+
+    textarea.after(commentBtnArea)
+
+}
+// 답글 작성 취소
+function insertCancel(btn){
+
+    btn.parentElement.parentElement.remove();
+    btn.parentElement.remove();
+
+}
+// 답글 등록
+function insertChildComment(parentNo,btn){
+
+    const commentContent = btn.parentElement.previousElementSibling.value
+
+    if(commentContent.trim().length==0){
+
+        console.log(commentContent);
+        alert("답글 작성 후 등록 버튼을 클릭해주세요.");
+        btn.parentElement.parentElement.value="";
+        btn.parentElement.parentElement.focus();
+        return;
+    }
+
+    const data = {
+        "commentContent" :commentContent,
+        "boardNo" :boardNo,
+        "parentNo":parentNo,
+        "memberId": loginMemberId
+    }
+
+    fetch("/commentStudy",{
+        method:"POST",
+        headers:{"Content-Type":"application/json"},
+        body : JSON.stringify(data)
+    })
+        .then(resp=>resp.text())
+        .then(result=>{
+            if(result>0){
+                location.reload(true);
+                alert("댓글 등록이 완료되었습니다.")
+                return;
+
+            }else{
+                alert("댓글 등록 실패")
+            }
+
+        })
+        .catch(err=>console.log(err))
+
+}
+
+
