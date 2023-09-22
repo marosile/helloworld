@@ -128,3 +128,14 @@ like.addEventListener("click", e=>{
             console.log("예외발생")
         })
 })
+
+// 목록으로
+const goToBackBtn = document.getElementById("goToBackBtn");
+
+if (goToBackBtn!=null){
+
+    goToBackBtn.addEventListener("click",function (){
+        location.href = `/study/main`;
+    })
+
+}
