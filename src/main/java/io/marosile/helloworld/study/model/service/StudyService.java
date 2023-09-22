@@ -10,14 +10,14 @@ public interface StudyService {
 
     // 스터디 목록 조회
     List<Study> selectStudyList();
-    
+
 
     // 스터디 게시글 상세조회
-	Study studyDetail(Map<String, Object> map);
+    Study studyDetail(Map<String, Object> map);
 
     // 좋아요 여부 조회
     int likeCheck(Map<String, Object> map);
-    
+
     // 좋아요 처리 서비스
     int like(Map<String, Object> map);
 
@@ -27,7 +27,7 @@ public interface StudyService {
     //스터디 삭제
     int studyDelete(Map<String, Object> map);
 
-    
+
     // 스터디 수정
     int studyUpdate(Study study);
 

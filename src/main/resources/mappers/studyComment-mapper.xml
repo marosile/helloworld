@@ -17,14 +17,14 @@
     <!--댓글 삭제-->
     <update id="delete">
         UPDATE "COMMENT" SET
-        DELETED_FL ='Y'
+            DELETED_FL ='Y'
         WHERE COMMENT_NO = #{commentNo}
     </update>
 
     <!--댓글수정-->
     <update id="update">
         UPDATE "COMMENT" SET
-        COMMENT_CONTENT = #{commentContent}
+            COMMENT_CONTENT = #{commentContent}
         WHERE COMMENT_NO = #{commentNo}
     </update>
 

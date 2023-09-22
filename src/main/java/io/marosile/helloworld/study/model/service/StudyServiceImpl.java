@@ -48,22 +48,22 @@ public class StudyServiceImpl implements StudyService {
 		int result = 0;
 
 		Object likeCheckObj = map.get("likeCheck");
-	    
-	    if (likeCheckObj instanceof Integer) {
-	    	Integer likeCheckObj2 = (Integer) likeCheckObj;
-	    
-	        if (likeCheckObj2 == 0) {
-	            result = dao.insertStudyLike(map);
-	        } else {
-	            result = dao.deleteStudyLike(map);
-	        }
-	        
-	        if (result == 0) return -1;
-	        
-	    }
 
-	    int count = dao.countStudyLike(map.get("boardNo"));
-	    return count;
+		if (likeCheckObj instanceof Integer) {
+			Integer likeCheckObj2 = (Integer) likeCheckObj;
+
+			if (likeCheckObj2 == 0) {
+				result = dao.insertStudyLike(map);
+			} else {
+				result = dao.deleteStudyLike(map);
+			}
+
+			if (result == 0) return -1;
+
+		}
+
+		int count = dao.countStudyLike(map.get("boardNo"));
+		return count;
 
 	}
 

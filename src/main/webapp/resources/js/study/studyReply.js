@@ -163,6 +163,7 @@ function deleteComment(commentNo){
     }
 }
 // 댓글 수정(AJAX)
+/*
 let beforeCommentRow
 
 function updateComment(commentNo,btn){
@@ -191,3 +192,4 @@ function updateComment(commentNo,btn){
         })
         .catch(e=>console.log(e))
 }
+*/
