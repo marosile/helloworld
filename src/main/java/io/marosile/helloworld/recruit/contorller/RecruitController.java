@@ -18,7 +18,6 @@ import io.marosile.helloworld.recruit.model.service.RecruitService_PHJ;
 
 
 @Controller
-@SessionAttributes("loginMember")
 @RequestMapping("/recruit") // 채용 공고 controller
 public class RecruitController {
 
@@ -27,7 +26,7 @@ public class RecruitController {
 	
 	
 	@GetMapping("/list")
-	private String recruitTestMainOrRecruitDetail(@SessionAttribute("loginMember") Member loginMember) {
+	private String recruitTestMainOrRecruitDetail() {
 		
 		// 테스트 했는지 조회
 		// if result == 1 -> 테스트 메인 jsp로
