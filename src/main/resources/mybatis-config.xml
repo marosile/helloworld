@@ -18,8 +18,8 @@
 		<typeAlias type="io.marosile.helloworld.study.model.dto.studyComment" alias = "studyComment"/>
 		<typeAlias type="io.marosile.helloworld.recruit.model.dto.Company" alias = "company"/>
 		<typeAlias type="io.marosile.helloworld.recruit.model.dto.Recruit" alias = "recruit"/>
-		<!-- <typrAlias type="io.marosile.helloworld.mypage.model.dto.BookmarkList" alias="BookmarkList" />
-		<typrAlias type="io.marosile.helloworld.mypage.model.dto.BookmarkList2" alias="BookmarkList2" /> -->
+		<typeAlias type="io.marosile.helloworld.mypage.model.dto.BookmarkList" alias="BookmarkList" />
+		<typeAlias type="io.marosile.helloworld.mypage.model.dto.BookmarkList2" alias="BookmarkList2" />
 	</typeAliases>
 	
 	<typeHandlers>

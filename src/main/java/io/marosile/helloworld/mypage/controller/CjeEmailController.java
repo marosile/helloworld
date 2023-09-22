@@ -107,11 +107,11 @@ public class CjeEmailController {
 					// result 가 0이하면 실패라고 떠야하는데 왜!! 실패했다고 안떠!
 					message = "이메일 변경 실패";
 					
-					System.out.println(message + "else문 msg입니다?");
+					//System.out.println(message + "else문 msg입니다?");
 				}
 				ra.addFlashAttribute("message", message);
 				
-				System.out.println(message + ":::::또시작이니?");				
+				//System.out.println(message + ":::::또시작이니?");				
 				return result;
 				
 			}

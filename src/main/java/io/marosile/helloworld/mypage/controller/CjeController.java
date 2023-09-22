@@ -23,6 +23,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import io.marosile.helloworld.member.model.dto.Member;
 import io.marosile.helloworld.mypage.model.dto.BookmarkList;
+import io.marosile.helloworld.mypage.model.dto.BookmarkList2;
 import io.marosile.helloworld.mypage.model.service.MyPageService;
 import oracle.jdbc.proxy.annotation.Post;
 
@@ -58,18 +59,28 @@ public class CjeController {
 	
 	// 북마크 페이지로 이동(커뮤니티)
 	@GetMapping("/bookmark")
-	public String bookmark(/*Model model*/) {
+	public String bookmark(Model model, @SessionAttribute(value = "loginMember", required = false) Member loginMember ) {
 		
-		//List<BookmarkList> bookmarkList = service.selectBookmark();
 		
-		//model.addAttribute("bookmarkList", bookmarkList);
+		String memberId = loginMember.getMemberId();
+		
+		List<BookmarkList> bookmarkList = service.selectBookmark(memberId);
+		
+		model.addAttribute("bookmarkList", bookmarkList);
 		
 		return "mypage/mypage-bookmark";
 	}
 	
 	// 북마크 페이지로 이동(채용공고)
 	@GetMapping("/bookmark2")
-	public String bookmark2() {
+	public String bookmark2(Model model, @SessionAttribute(value = "loginMember", required = false) Member loginMember) {
+		
+		String memberId = loginMember.getMemberId();
+		
+		List<BookmarkList2> bookmarkList2 = service.selectBookmark2(memberId);
+		
+		model.addAttribute("bookmarkList2", bookmarkList2);
+		
 		return "mypage/mypage-bookmark2";
 	}
 	
@@ -134,10 +145,6 @@ public class CjeController {
 		
 		return "redirect:profile";
 	}
-	
-	/** 이메일 인증하기?
-	 */
-	
 	
 	
 	
@@ -217,10 +224,6 @@ public class CjeController {
 		
 		return path;
 	}
-	
-	
-	
-	
 	
 	
 	
