@@ -1,6 +1,7 @@
 package io.marosile.helloworld.mypage.controller;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletResponse;
@@ -21,6 +22,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import io.marosile.helloworld.member.model.dto.Member;
+import io.marosile.helloworld.mypage.model.dto.BookmarkList;
 import io.marosile.helloworld.mypage.model.service.MyPageService;
 import oracle.jdbc.proxy.annotation.Post;
 
@@ -56,11 +58,11 @@ public class CjeController {
 	
 	// 북마크 페이지로 이동(커뮤니티)
 	@GetMapping("/bookmark")
-	public String bookmark(Model model) {
+	public String bookmark(/*Model model*/) {
 		
+		//List<BookmarkList> bookmarkList = service.selectBookmark();
 		
-		
-		
+		//model.addAttribute("bookmarkList", bookmarkList);
 		
 		return "mypage/mypage-bookmark";
 	}

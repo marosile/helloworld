@@ -2,6 +2,7 @@ package io.marosile.helloworld.mypage.model.service;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -12,6 +13,7 @@ import org.springframework.web.multipart.MultipartFile;
 import io.marosile.helloworld.common.utility.Util;
 import io.marosile.helloworld.member.model.dto.Member;
 import io.marosile.helloworld.mypage.model.dao.MyPageDAO;
+import io.marosile.helloworld.mypage.model.dto.BookmarkList;
 
 @Service
 public class MyPageServiceImpl implements MyPageService {
@@ -83,6 +85,14 @@ public class MyPageServiceImpl implements MyPageService {
 		
 		return result;
 	}
+
+	/** 북마크 조회
+	 *
+	 */
+	//@Override
+	//public List<BookmarkList> selectBookmark() {
+		//return dao.selectBookmark();
+	//}
 
 	
 
