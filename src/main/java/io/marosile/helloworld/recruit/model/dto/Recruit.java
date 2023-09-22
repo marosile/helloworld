@@ -28,5 +28,9 @@ public class Recruit {
     private String employmentType; // 고용 형태 (인턴, 계약직, 정규직)
     
     private String employmentBenefits; // 복리 후생
+    
+	private String companyName; //회사 이름
+
+    
 
 }
