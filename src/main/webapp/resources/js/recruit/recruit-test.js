@@ -5,6 +5,18 @@ let currentJobIndex = 1;
 for (let i = 1; i <= 6; i++) {
     document.getElementById(`button${i}`).addEventListener("click", (function(index) {
       return function() {
+       
+        if (index == 1) { // 1번째 버튼 누를 때 부터 divContainer 클래스 제거
+            
+            if(loginMember == ''){
+                //snackbar('로그인 후 이용해주세요.', 'rgb(0, 128, 255)', '/resources/images/moon.png');
+                alert("로그인해줘");
+                return;
+            }
+      
+            document.getElementById("divContainer").classList.remove("job-postings-container");
+        }
+
         // 현재 표시 중인 DIV에 active 클래스 제거
         document.getElementById(`job-posting-${currentJobIndex}`).classList.remove("active");
   
@@ -14,9 +26,6 @@ for (let i = 1; i <= 6; i++) {
         // 다음 채용공고에 active 클래스 추가
         document.getElementById(`job-posting-${currentJobIndex}`).classList.add("active");
   
-        if (index == 1) { // 1번째 버튼 누를 때 부터 divContainer 클래스 제거
-          document.getElementById("divContainer").classList.remove("job-postings-container");
-        }
       }
     })(i));
   }

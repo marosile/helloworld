@@ -184,6 +184,10 @@
 
     <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
 
+    <script>
+        const loginMember = "${loginMember}"; 
+    </script>
+
     <script src="/resources/js/common/general.js"></script>
     <script src="/resources/js/recruit/recruit-test.js"></script>
 
