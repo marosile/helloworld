@@ -1,5 +1,6 @@
 package io.marosile.helloworld.study.model.dto;
 
+import io.marosile.helloworld.board.model.dto.Comment;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -39,6 +40,10 @@ public class Study {
 
     // LIKE
     private int likeCount;
+
+
+    //comment
+    private List<studyComment> studyCommentList;
 
 
 

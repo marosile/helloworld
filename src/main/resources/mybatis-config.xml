@@ -15,6 +15,7 @@
 		<typeAlias type="io.marosile.helloworld.board.model.dto.Tag" alias="Tag" />
 		<typeAlias type="io.marosile.helloworld.admin.model.dto.AdminDTO" alias="Admin" />
 		<typeAlias type="io.marosile.helloworld.trand.model.dto.Trand" alias="Trand" />
+		<typeAlias type="io.marosile.helloworld.study.model.dto.studyComment" alias = "studyComment"/>
 	</typeAliases>
 	
 	<typeHandlers>
@@ -31,6 +32,7 @@
 		<mapper resource="/mappers/tag-mapper.xml"/>
 		<mapper resource="/mappers/admin-mapper.xml"/>
 		<mapper resource="/mappers/trand-mapper.xml"/>
+		<mapper resource="/mappers/studyComment-mapper.xml"/>
 	</mappers>
 
 </configuration>

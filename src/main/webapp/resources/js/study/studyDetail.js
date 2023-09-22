@@ -42,8 +42,6 @@ if(deleteBtn!=null){
 
 
 // 모집완료버튼 클릭 시
-
-// 모집완료버튼 클릭 시
 const completeBtn = document.getElementById("completeBtn");
 
 if(completeBtn!=null){
