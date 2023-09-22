@@ -77,6 +77,7 @@
     position: absolute;
     margin: 9px;
     left: 5px;
+    z-index : 100;
 }
 
 
@@ -105,7 +106,7 @@
     width: 150px;
     margin: 10px auto auto auto;
     border-radius: 5px;
-    
+
 }
 
 .menuHidden{
@@ -118,6 +119,7 @@
     width: 148px;
     list-style: none;
     margin: auto;
+
 }
 
 
@@ -174,11 +176,24 @@
 /*********** 테이블있는 부분 **************/
 .tableDiv{
     border: 1px solid #ccc;
-    height: 800px;
+    height: 662px;
     border-radius: 10px;
     width: 95%;
     margin: auto;
+    overflow: auto;
+    position: relative;
 }
+
+.tableDiv::-webkit-scrollbar {
+    display: none; /* 크롬, 사파리, 오페라, 엣지 */
+}
+
+thead > tr {
+    position: sticky;
+    top: 0;
+    background-color: white;
+}
+
 
 table{
     width: 100%;
@@ -220,4 +235,8 @@ tbody tr:last-child{
 /* 임시 페이지네이션 */
 #pagination{
     text-align: center;
+}
+
+.selectHidden{
+    display: none;
 }

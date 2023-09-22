@@ -27,4 +27,9 @@ public class Member {
     private String inputId;
     private String inputTel;
     private String inputEmail;
+
+    // 관리자에서 사용할 전체 회원 수
+    private int memberNum;
+    // 관리자에서 사용할 회원 번호
+    private int rowNum;
 }

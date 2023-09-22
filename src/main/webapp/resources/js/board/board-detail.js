@@ -1,18 +1,24 @@
 /* 게시글 수정 */
 const update = document.getElementById("update"); 
 
-update.addEventListener("click", ()=>{
-
-    location.href="/board2/" + boardCode + "/" + boardNo + "/update";
-}); 
+if(update != null){
+    update.addEventListener("click", ()=>{
+    
+        location.href="/board2/" + boardCode + "/" + boardNo + "/update";
+    }); 
+}
 
 
 /* 게시글 목록으로 */
 const list = document.getElementById("list");
 
-list.addEventListener("click", function(){
-    location.href = `/board/${boardCode}`;
-})
+if(list != null){
+
+    list.addEventListener("click", function(){
+        location.href = `/board/${boardCode}`;
+    })
+
+}
 
 
 /* 게시글 신고 모달창 */
@@ -22,68 +28,74 @@ const close = document.getElementById("close");
 const reportBtn = document.getElementById("reportBtn");
 const cancelBtn = document.getElementById("cancelBtn");
 
-report.addEventListener("click", () => {
-
-    reportzone.classList.toggle("report-area");
-})
-
-close.addEventListener("click", () => {
-
-    reportzone.classList.toggle("report-area");
-})
-
-cancelBtn.addEventListener("click", () => {
-
-    reportzone.classList.toggle("report-area");
-})
+if(report != null){
+    report.addEventListener("click", () => {
+    
+        reportzone.classList.toggle("report-area");
+    })
+    
+    close.addEventListener("click", () => {
+    
+        reportzone.classList.toggle("report-area");
+    })
+    
+    cancelBtn.addEventListener("click", () => {
+    
+        reportzone.classList.toggle("report-area");
+    })
+}
 
 
 /* 게시글 삭제 */
 const deleteBtn = document.getElementById("deleteBtn");
 
-deleteBtn.addEventListener("click", ()=>{
+if(deleteBtn != null){
+    deleteBtn.addEventListener("click", ()=>{
+    
+        if(confirm("정말 삭제하시겠습니까?")){
+    
+            alert("게시글이 삭제 되었습니다.");
+            location.href= "/board2/" + boardCode + "/" + boardNo + "/delete";
+        }
+    })
+}
 
-    if(confirm("정말 삭제하시겠습니까?")){
 
-        alert("게시글이 삭제 되었습니다.");
-        location.href= "/board/" + boardCode;
-    }
-})
-
-
-reportBtn.addEventListener("click", ()=>{
-
-    const content = document.getElementById("report-content").value;
-
-    if(confirm("정말 신고하시겠습니까??")){
-        const data = {
-            "boardNo" : boardNo,
-            "memberId" : loginMemberId,
-            "content" : content
-        };
-        
-        // 신고글 작성
-        fetch("/board/report",{
-            method: "POST",
-            headers:{ "Content-Type" : "application/json" },
-            body:JSON.stringify(data)
-        })
-        .then( resp => resp.text())
-        .then( count => {
+if(reportBtn != null){
+    reportBtn.addEventListener("click", ()=>{
+    
+        const content = document.getElementById("report-content").value;
+    
+        if(confirm("정말 신고하시겠습니까??")){
+            const data = {
+                "boardNo" : boardNo,
+                "memberId" : loginMemberId,
+                "content" : content
+            };
             
-            console.log("count : " + count);
-            
-            
-            alert("게시글 신고가 완료 되었습니다.");
-            location.href=`/board/${boardCode}`;
-        })
-        .catch( err => {
-            console.log("예외 발생");
-            console.log(err);
-        })
-
-    }
-})
+            // 신고글 작성
+            fetch("/board/report",{
+                method: "POST",
+                headers:{ "Content-Type" : "application/json" },
+                body:JSON.stringify(data)
+            })
+            .then( resp => resp.text())
+            .then( count => {
+                
+                console.log("count : " + count);
+                
+                
+                alert("게시글 신고가 완료 되었습니다.");
+                location.href=`/board/${boardCode}`;
+            })
+            .catch( err => {
+                console.log("예외 발생");
+                console.log(err);
+            })
+    
+        }
+    })
+}
 
 
 /* 북마크 */

@@ -76,12 +76,35 @@ public class BoardDAO_PHJ {
 		return sqlSession2.selectList("boardMapper.selectReadCountList", boardCode);
 	}
 
+	// 게시글 목록 조회(조회순 -> 최신순)
+	public List<Board> selectReadCountListBack(int boardCode) {
+		return sqlSession2.selectList("boardMapper.selectReadCountListBack", boardCode);
+	}
+	
 	// 전체 게시글 top 10
 	public List<Board> getTopList() {
 		return sqlSession2.selectList("boardMapper.getTopList");
 	}
-	
-	
+
+	// 검색
+	public List<Board> selectBoardListSearch(Map<String, Object> map) {
+		return sqlSession2.selectList("boardMapper.selectBoardListSearch", map);
+	}
+
+	// 팔로우 삽입 
+	public int insertFollow(Map<String, Object> map) {
+		return sqlSession2.insert("boardMapper.insertFollow", map);
+	}
+
+	// 팔로우 삭제
+	public int deleteFollow(Map<String, Object> map) {
+		return sqlSession2.delete("boardMapper.deleteFollow" , map);
+	}
+
+	// 게시글 목록 조회
+	public List<Board> selectBoardList(Map<String, Object> map) {
+		return sqlSession2.selectList("boardMapper.selectBoardList", map);
+	}
 
 
 }

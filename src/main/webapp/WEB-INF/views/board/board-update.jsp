@@ -13,10 +13,20 @@
     <link rel="stylesheet" href="/resources/css/board/board-writeUpdate.css">
 
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+        
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.20/summernote-lite.min.js"
+            integrity="sha512-lVkQNgKabKsM1DA/qbhJRFQU8TuwkLF2vSN3iU/c7+iayKs08Y8GXqfFxxTZr1IcpMovXnf2N/ZZoMgmZep1YQ=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.20/summernote-lite.min.css"
+          integrity="sha512-ZbehZMIlGA8CTIOtdE+M81uj3mrcgyrh6ZFeG33A4FHECakGrOsTPlPQ8ijjLkxgImrdmSVUHn1j+ApjodYZow=="
+          crossorigin="anonymous"
+          referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.20/lang/summernote-ko-KR.min.js"
+            integrity="sha512-Zg4LEmUTxIodfMffiwHk5HUeapoVo2VTSGZS5q6ttOMseXr/ZbkiBgV2lyds3UQFPAX05AlF8RIpszT3l7BXKA=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"></script>
 
 </head>
 
@@ -79,8 +89,9 @@
     
                 </div>
             </form>
+            
             <!-- 등록, 작성취소 버튼 -->
-    <input type="text" name="tagNums" value="${tagNums}"> <%-- 배열같이 생긴 문자열이 됨 --%>
+            <input type="hidden" name="tagNums" value="${tagNums}"> <%-- 배열같이 생긴 문자열이 됨? --%>
 
         </div>
 
@@ -88,6 +99,7 @@
  <script>
 
 document.addEventListener("DOMContentLoaded", function() {
+    console.log("jsp - script test")
     const tagsDiv = document.getElementById("tagsDiv");
     const maxTags = 5;
 
@@ -132,7 +144,66 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         }
     });
-});
+
+	console.log("jstest");
+	var toolbar = [
+		    // 글꼴 설정
+		    ['fontname', ['fontname']],
+		    // 글자 크기 설정
+		    ['fontsize', ['fontsize']],
+		    // 굵기, 기울임꼴, 밑줄,취소 선, 서식지우기
+		    ['style', ['bold', 'italic', 'underline','strikethrough', 'clear']],
+		    // 글자색
+		    ['color', ['forecolor','color']],
+		    // 표만들기
+		    ['table', ['table']],
+		    // 글머리 기호, 번호매기기, 문단정렬
+		    ['para', ['ul', 'ol', 'paragraph']],
+		    // 줄간격
+		    ['height', ['height']],
+		    // 그림첨부, 링크만들기, 동영상첨부
+		    ['insert',['picture','link','video']],
+		    // 코드보기, 확대해서보기, 도움말
+		    ['view', ['codeview','fullscreen', 'help']]
+		  ];
+
+          var setting = {
+            width:900,
+            minHeight : 600,
+            focus : true,
+            lang : 'ko-KR',
+            toolbar : toolbar,
+            disableHtml: true,
+            //콜백 함수
+            callbacks : { 
+            	onImageUpload : function(files, editor, welEditable) {
+            // 파일 업로드(다중업로드를 위해 반복문 사용)
+            for (var i = files.length - 1; i >= 0; i--) {
+            uploadSummernoteImageFile(files[i],
+            this);
+            		}
+            	}
+            }
+         };
+        $('#summernote').summernote(setting);
+        });
+
+        function uploadSummernoteImageFile(file, el) {
+			data = new FormData();
+			data.append("file", file);
+			$.ajax({
+				data : data,
+				type : "POST",
+				url : "/board2/uploadSummernoteImageFile",
+				contentType : false,
+				enctype : 'multipart/form-data',
+				processData : false,
+				success : function(data) {
+					$(el).summernote('editor.insertImage', data.url);
+				}
+			});
+		}
+
         
 
 

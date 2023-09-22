@@ -2,6 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="myPageMapper">
 
+	<!-- 프사, 닉네임 수정 -->
 	<update id="updateProfile" parameterType="Member">
 		UPDATE MEMBER SET
 		PROFILE_IMG = #{profileImg},
@@ -12,7 +13,7 @@
 	
 	
 	<!-- 이메일 인증 영역 -->
-	<update id="updateAuthKey">
+	<!-- <update id="updateAuthKey">
       UPDATE  "AUTH_KEY" SET
       CODE = #{authKey},
       CREATE_TIME = sysdate
@@ -27,11 +28,15 @@
       SELECT COUNT(*) FROM "AUTH_KEY"
       WHERE EMAIL = #{email}
       AND CODE = #{inputKey}
-   </select>
+   </select> -->
+   
+   
+   
+   
    
    
    <!-- 비밀번호 조회 -->
-   <select id="selectEncPw" parameterType="_int" resultType="string">
+   <select id="selectEncPw" resultType="string">
 		SELECT MEMBER_PW FROM MEMBER WHERE MEMBER_ID = #{memberId}
    </select>
    
@@ -42,10 +47,20 @@
 		WHERE MEMBER_ID = #{memberId}
    </update>
    
+   
+   
    <!-- 회원탈퇴 -->
    <update id="secession">
    		UPDATE MEMBER SET
    		DELETED_FL = 'Y'
+   		WHERE MEMBER_ID = #{memberId}
+   </update>
+   
+   
+   <!-- 이메일 업데이트 -->
+   <update id="updateEmail">
+   		UPDATE MEMBER SET
+   		MEMBER_EMAIL = #{memberEmail}
    		WHERE MEMBER_ID = #{memberId}
    </update>
    

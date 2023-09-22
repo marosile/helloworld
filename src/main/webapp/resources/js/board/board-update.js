@@ -1,6 +1,3 @@
-
-
-
 // 수정하기
 const createOrUpdatePostButton = document.getElementById("createOrUpdatePostButton");
 
@@ -12,7 +9,6 @@ createOrUpdatePostButton.addEventListener("click", () =>{
 
 })
 */
-
 
 // 수정 취소
 const cancelButton = document.getElementById("cancelButton");
@@ -30,8 +26,8 @@ cancelButton.addEventListener("click", () => {
 
 })
 
-$(document).ready(function() {
-
+/* $(document).ready(function() {
+	console.log("jstest");
 	var toolbar = [
 		    // 글꼴 설정
 		    ['fontname', ['fontname']],
@@ -89,3 +85,4 @@ $(document).ready(function() {
 				}
 			});
 		}
+ */

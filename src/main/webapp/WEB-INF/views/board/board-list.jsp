@@ -65,11 +65,13 @@
             </form>
         </div>
 
-        <!-- 검색 바 -->
-        <div id="searchArea">
-            <input type="search" placeholder="키워드로 검색하기" id="searchInput">
-            <img src="/resources/images/board/search1.png" class="searchInputImage">
-        </div>
+        <form action="${boardCode}" method="get" id="boardSearch">
+            <div id="searchArea">
+                <input type="search" name="searchKeyword" placeholder="키워드로 검색하기" id="searchInput">
+                <input type="image" src="/resources/images/board/search1.png" alt="검색" id="searchInputImage">  
+            <%-- input image는 클릭하면 form을 제출함. alt 속성의 값은 이미지에 대한 간결한 설명 또는 목적--%>
+            </div>
+        </form>
 
         <div id="top10">
             <div id="top10TitleButton">
@@ -81,33 +83,38 @@
             <div class="swiper-container" id="swiper">
                 <div class="swiper-wrapper">
 
-                    <!-- 나중에 for문 -->
                     <c:forEach items="${getTopList}" var="TopList" begin="0" end="4" varStatus="loop">
 
                         <div class="swiper-slide">
-                            <div class="post">
-                                <div id="directionRow">
-                                    <div>
-                                        <img src="/resources/images/board/number${loop.index * 2 + 1}.png" class="top10LevelImage">
-                                    </div>  
-                                    <div id="top10BoardTitle">  
-                                        <div class="top10Titles">${getTopList[loop.index * 2].boardTitle}</div>
-                                        <div class="top10Inquirys">조회 ${getTopList[loop.index * 2].readCount} 댓글 35</div>
+
+                            <a href="/board/${getTopList[loop.index * 2].boardCode}/${getTopList[loop.index * 2].boardNo}">
+                                <div class="post">
+                                    <div id="directionRow">
+                                        <div>
+                                            <img src="/resources/images/board/number${loop.index * 2 + 1}.png" class="top10LevelImage">
+                                        </div>  
+                                        <div id="top10BoardTitle">  
+                                            <div class="top10Titles">${getTopList[loop.index * 2].boardTitle}</div>
+                                            <div class="top10Inquirys">조회 ${getTopList[loop.index * 2].readCount} 댓글 ${getTopList[loop.index * 2].commentCount}</div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
+                            </a>
                             
-                            <div class="post">
-                                <div id="directionRow">
-                                    <div>
-                                        <img src="/resources/images/board/number${loop.index * 2 + 2}.png" class="top10LevelImage">
-                                    </div>  
-                                    <div id="top10BoardTitle">  
-                                        <div class="top10Titles">${getTopList[loop.index * 2 + 1].boardTitle}</div>
-                                        <div class="top10Inquirys">조회 ${getTopList[loop.index * 2 + 1].readCount} 댓글 35</div>
+                            <a href="/board/${getTopList[loop.index * 2 + 1].boardCode}/${getTopList[loop.index * 2 + 1].boardNo}">
+                                <div class="post">
+                                    <div id="directionRow">
+                                        <div>
+                                            <img src="/resources/images/board/number${loop.index * 2 + 2}.png" class="top10LevelImage">
+                                        </div>  
+                                        <div id="top10BoardTitle">  
+                                            <div class="top10Titles">${getTopList[loop.index * 2 + 1].boardTitle}</div>
+                                            <div class="top10Inquirys">조회 ${getTopList[loop.index * 2 + 1].readCount} 댓글 ${getTopList[loop.index * 2 + 1].commentCount}</div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
+                            </a>
+
                         </div>
                     </c:forEach>
                    
@@ -117,20 +124,25 @@
         </div>
 
             <div id="sortOptions">
-                 <div id ="latest">- 최신순</div>
-                 <div id="readCountList">- 조회순</div>
+                 <div id ="recentSortButton" class="selected">- 최신순</div>
+                 <div id="readCountSortButton">- 조회순</div>
             </div>
 
             <!-- 임시 게시글 10개 -->
             <div id="post">
                 
-                <!-- for문 돌릴거 첫화면 -> 10개만 -->
-                <c:choose>
-                    <c:when test="${empty board}">
-                        <div>
-                            게시글이 존재하지 않습니다.
-                        </div>
-                    </c:when>
+                <!-- 첫화면 -> 10개 -->
+                   <c:choose>
+                        <c:when test="${empty board}">
+                            <style>
+                                #post { display:flex; font-weight:bold; font-size:20px; margin-top:0;}
+                                #sortOptions {display:none;}
+                                #top10 {margin: 20px 0;}
+                            </style>
+                            <div id="post">
+                                '${searchKeyword}' 에 대한 게시글이 존재하지 않습니다.
+                            </div>
+                        </c:when>
 
                     <c:otherwise>
 
@@ -159,7 +171,7 @@
                                 </div>
 
                                 <div class="postThirdPart">
-                                    ${board.boardContent}
+                                    ${board.boardContent} 
                                 </div>
                         
                                 <div class="postFourthPart">
@@ -171,7 +183,7 @@
                                 </div>
 
                                 <div class="postFifthPart">
-                                    <div class="replyCount">댓글 5</div>
+                                    <div class="replyCount">댓글 ${board.commentCount}</div>
                                     <div class="inquiryCount">조회수 ${board.readCount}</div>
                                 </div>
                             </div>
@@ -196,6 +208,7 @@
 
             <script>
                  const boardCode = "${boardCode}"; 
+                 const boardList = "${board}"
             </script>
 
 

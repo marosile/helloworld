@@ -40,6 +40,7 @@
     height:40px;
     
     border-radius: 50%;
+    cursor: pointer;
 }
 
 /* 이름 + 소개 */
@@ -262,9 +263,11 @@
     display:flex;
     justify-content: center;
     align-items: center;
-    font-size:20px;
+    font-size:18px;
     font-weight:bold;
     height:5%;
+    
+    margin-bottom: 10px;
 }
 
 /* top10에서의 1개 div */
@@ -280,7 +283,8 @@
 
 /* 번호 */
 .numbers{
-    font-size:30px;
+    font-size: 23px;
+    font-weight:  bold;
     display:flex;
     height:100%;
     width:20%;
@@ -300,9 +304,12 @@
 
 /* top10 작성자이미지 */
 .WriterImages > img{
-    width:35px;
-    height:35px;
+    width:40px;
+    height:40px;
     border-radius: 50%;
+
+    border: 1px solid #e0dede;
+
 }
 
 #top10WritersImage{
@@ -324,8 +331,7 @@
 
 /* 제목 */
 .top10Title{
-    font-size:15px;
-    font-weight: bold;
+    font-size: 13px;
 }
 
 /* 이름 + 소개 */
@@ -336,12 +342,13 @@
 /* 이름 */
  .top10WriterIntroduce > span{
     font-size:12px;
+    font-weight: bold;
 
 } 
 
 #replyWrite{
     display:flex;
-    border:1px solid rgb(240, 240, 240);
+    
 }
 
 #replyWriteContent{
@@ -378,4 +385,323 @@
 
 #like:hover{
     cursor: pointer;
+}
+
+* {box-sizing: border-box;}
+#reply-area{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+ }
+ 
+ .reply-list-area{
+    /* width: 1000px; */
+    min-height: 120px;
+    border: 1px solid var(--divider);
+    background-color: var(--bg-color-2);
+    transition-duration: 0.5s;
+
+    margin-bottom: 50px;
+
+ }
+
+ .reply-writer{
+   display:flex;
+ }
+ 
+ #reply-list{
+     padding: 0;
+     list-style: none;
+ }
+ 
+ .reply-row{
+     border-bottom: 1px solid #ccc;
+ }
+ 
+ .reply-writer > img{
+    margin-left: 20px;
+    margin-top: 10px;
+     width: 40px;
+     height: 40px;
+     border-radius: 50px;
+ }
+ 
+ .reply-writer > span{
+    font-weight: bold;
+    margin-left: 10px;
+    display: flex;
+    margin-left: 8px;
+    margin-top: 10px;
+    justify-content: center;
+    align-items: center;
+ }
+ 
+ .reply-date{
+     font-size: 0.8em;
+     color: #aaa;
+ }
+ 
+ .reply-btn-area{
+     display: flex;
+     justify-content: flex-end;
+ }
+
+ .reply-content{
+    font-size: 17px;
+    margin-left: 35px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+ }
+ 
+
+
+ .reply-btn-area > button{
+     width: 50px;
+     height: 30px;
+     margin-right: 5px;
+     margin-bottom: 5px;
+ 
+     font-weight: bold;
+     color: white;
+     background-color: rgb(124, 128, 126);
+    
+ 
+     cursor: pointer;
+ }
+ 
+ .reply-btn-area > button:hover{
+     background-color: white;
+     border: 2px solid rgb(78, 80, 79);
+     color: rgb(78, 80, 79);
+ }
+
+ .reply-data{
+    font-size: 12px;
+    color: gray;
+ }
+
+ .reply-nick{
+    font-size: 20px;
+ }
+
+ .fa-regular fa-comment{
+    margin-left: 5px;
+    margin-right: 8px;
+ }
+
+ .fa-solid fa-comment{
+    margin-left: 5px;
+    margin-right: 8px;
+ }
+
+ #comment{
+    margin-right: 8px;
+ }
+
+.comment-write-area{
+   width:100%;
+   display:flex;
+   justify-content: center;
+   align-items: center;
+   height:50px;
+   margin:15px 0;
+}
+
+.comment-write-area > #commentContent{
+   width:80%;
+   height:100%;
+   resize:none;
+   border:0;
+   outline:0;
+   border: 2px solid rgba(122, 124, 123, 0.39);
+}
+
+.comment-write-area > #addComment{
+   width:100px;
+   height:100%;
+}
+
+ .child-comment{
+   padding-left : 50px;
+   position: relative;
+}
+
+.update-textarea{
+   resize: none;
+   border: 2px solid lightgray;
+   width: 100%;
+   height: 75px;
+   border-radius: 10px;
+   margin: 8px 0;
+
+}
+
+.commentInsertContent{
+   resize: none;
+   border: 2px solid lightgray;
+   width: 100%;
+   height: 75px;
+   border-radius: 10px;
+   margin: 8px 0;
+}
+
+#updateBtn{
+    width: 50px;
+     height: 30px;
+     margin-right: 5px;
+     margin-bottom: 5px;
+ 
+     font-weight: bold;
+     color: white;
+     background-color: rgb(124, 128, 126);
+    
+ 
+     cursor: pointer;
+}
+
+#updateBtn:hover{
+    background-color: white;
+    border: 2px solid rgb(78, 80, 79);
+    color: rgb(78, 80, 79);
+}
+
+#deleteBtn{
+    width: 50px;
+     height: 30px;
+     margin-right: 5px;
+     margin-bottom: 5px;
+ 
+     font-weight: bold;
+     color: white;
+     background-color: rgb(124, 128, 126);
+    
+ 
+     cursor: pointer;
+}
+
+#deleteBtn:hover{
+    background-color: white;
+    border: 2px solid rgb(78, 80, 79);
+    color: rgb(78, 80, 79);
+}
+
+
+
+
+/* 팔로우 모달창 */
+#follow-button-area{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#followBtn2{
+    width: 90px;
+    height: 40px;
+
+    background-color: rgba(147, 147, 204, 0.856);
+
+
+    margin-right: 10px;
+    margin-top: 10px;
+}
+
+
+
+#messageBtn{
+    width: 90px;
+    height: 40px;
+
+    margin-right: 10px;
+    margin-top: 10px;
+}
+
+.report-area{
+    display: none;
+}
+
+#follow-area{
+    position: fixed;
+    margin: auto;
+    top: 200px;
+    left: 490px;
+    z-index: 1200;
+    background-color: rgb(255, 255, 255);
+    border: 1px inset rgb(0, 0, 0);
+    border-radius: 10px;
+    width: 310px;
+    height: 470px;
+}
+
+.follow-area{
+    display: none;
+}
+
+#close{
+    font-size: 30px;
+    display: flex;
+    justify-content: end;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+#followImage{
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+    border: 1px solid #a5a3a3;
+
+    align-items: center;
+    margin-left: 30px;
+}
+
+#follow-id{
+    font-size: 23px;
+    font-weight: bold;
+
+    margin-left: 20px;
+    margin-top: 20px;
+    margin-bottom: 3px;
+}
+
+#follow-nick{
+    font-size: 15px;
+
+    margin-left: 20px;
+    margin-bottom: 20px;
+}
+
+#follow-zone{
+    display: flex;
+    height: 100px;
+
+    margin-left: 20px;
+    font-size: 16px;
+}
+
+#follow-zone span{
+    font-weight: bold;
+}
+
+#follow-image-area{
+    height: 150px;
+}
+
+#follower{
+    width: 120px;
+}
+
+#follow-button-area button:hover{
+    background-color: rgb(129, 129, 214);
+    color: white;
+}
+
+.followBtn{
+    background-color: rgba(37, 37, 54, 0.856);
+    color: white;
+
+    width:65px;
+    height:50%;
+    border-radius: 10px;
 }

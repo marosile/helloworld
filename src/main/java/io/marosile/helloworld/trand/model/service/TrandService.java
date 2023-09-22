@@ -32,19 +32,23 @@ public interface TrandService {
 	 * @return
 	 */
 	List<Comment> selectComment(int boardNo);
-
 	
 	/** 북마크 확인 여부 서비스
 	 * @param map
 	 * @return
 	 */
 	int bookMarkCheck(Map<String, Object> map);
-
 	
 	/** 좋아요 조회
 	 * @param map
 	 * @return
 	 */
 	int likeCheck(Map<String, Object> map);
+
+	/** 팔로우 조회
+	 * @param map
+	 * @return
+	 */
+	int followCheck(Map<String, Object> map);
 
 }

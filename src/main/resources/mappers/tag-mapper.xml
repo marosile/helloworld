@@ -21,7 +21,7 @@
     WHERE B.BOARD_NO = #{boardNo} AND tr.ITEM_TYPE = #{boardType}
 </select>
 
-<!-- 일반 게시글 작성할 때 태그 삽입 -->
+<!-- 일반 게시글 작성할 때의 태그 삽입 -->
 <insert id="tagInsert" parameterType="Tag" useGeneratedKeys="true">
     
     <selectKey order="BEFORE" resultType="int" keyProperty="tagNo">
@@ -38,6 +38,7 @@
 	
 </insert>
 
+<!-- 일반 게시글 수정에서의 태그 수정 -->
 <update id="tagUpdate" parameterType="Tag" >
 
 	MERGE INTO TAG t

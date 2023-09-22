@@ -65,4 +65,12 @@ public class TrandDAO {
 		return sqlSession.selectOne("boardMapper.likeCheck" , map);
 	}
 
+	/** 팔로우 확인 여부 조회
+	 * @param map
+	 * @return
+	 */
+	public int followCheck(Map<String, Object> map) {
+		return sqlSession.selectOne("boardMapper.followCheck", map);
+	}
+
 }

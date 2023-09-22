@@ -47,6 +47,7 @@ public class EmailController {
 
             if(emailCheck.get("inputEmail2").equals(emailAuth)){
                 session.setComplete();
+
                 return 1;
             }
 

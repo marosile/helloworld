@@ -49,15 +49,62 @@
                         <div id="introduce">${detail.memberNickname}</div>
                     </div>
 
-                    <div id="followButtonDiv">
-                        <button id="followBtn">팔로우</button>
-                    </div>
+
+                    
+                    <c:if test="${empty followCheck}">
+                        <div id="followButtonDiv">
+                            <button id="followBtn">팔로우</button>
+                        </div>
+                    </c:if>
+
+                    <c:if test="${!empty followCheck}">
+                        <div id="followButtonDiv">
+                            <button id="followBtn" class="followBtn">팔로잉</button>
+                        </div>
+                    </c:if>
+
 
                 </div>
 
+                <%-- 팔로우 모달창 --%>
+                <div class="follow-area" id="follow-area">
+                <span id="close">&times</span>
+
+                    <div id="follow-image-area">
+                        <img src="${detail.profileImage}" id="followImage">
+                    </div>
+                    <div>
+                        <p id="follow-id"> ${detail.memberId}</p>
+                        <p id="follow-nick"> 😎 ${detail.memberNickname}</p>
+                    </div>
+                    <div id="follow-zone">
+                        <p id="follower">팔로워 <span>10,869</span></p>
+                        <p id="following">팔로잉 <span>28</span></p>
+                    </div>
+  
+                    <div id="follow-button-area">
+
+                    <%-- 팔로우 안했거나 로그인 x --%>
+                    <c:if test="${empty followCheck}">
+                        <button id="followBtn2"><i class="fa-solid fa-user-plus"></i> 
+                        <span id="followSpan">팔로우</span></button>
+                    </c:if>
+
+                    <c:if test="${!empty followCheck}">
+                        <button id="followBtn2" class="fa-check"><i class="fa-solid fa-check"></i> 
+                        <span id="followingSpan">팔로잉</span></button>
+                    </c:if>
+
+                        <button id="messageBtn"><i class="fa-regular fa-comment-dots"></i> 메시지</button>
+                    </div>
+                </div>
+
+
+
+
                 <!-- 제목 -->
                 <div id="detailTitle">
-                    🕊️ ${detail.boardTitle}
+                 ${detail.boardTitle}
                 </div>
 
                 <!-- 내용 p태그 쓰는게 맞나 -->
@@ -77,34 +124,35 @@
                     
                     <!-- 좋아요 북마크 -->
                     <div id="likeBookMark"> 
-                    
-                        <%-- 좋아요 --%>
-                        <div id="like-area">
-                            <div>
-                                <c:if test="${empty likeCheck}">
-                                    <i class="fa-regular fa-heart fa-2xl" id="like"></i>
-                                </c:if>
-
-                                <c:if test="${!empty likeCheck}">
-                                    <i class="fa-solid fa-heart fa-2xl" id="like" style="color:red"></i>
-                                </c:if>
-                                <div id="likeCount">${detail.likeCount}</div>
-                            </div>  
-                        
-                        </div>
 
                         <%-- 북마크 --%>
                         <div id="bookMark-area">
                             <div>
                                 <c:if test="${empty bookMarkCheck}">
-                                    <i class="fa-regular fa-bookmark fa-2xl" id="bookMark"></i>
+                                    <i class="fa-regular fa-bookmark fa-xl" id="bookMark"></i>
                                 </c:if>
 
                                 <c:if test="${!empty bookMarkCheck}">
-                                    <i class="fa-solid fa-bookmark fa-2xl" id="bookMark"></i>
+                                    <i class="fa-solid fa-bookmark fa-xl" id="bookMark"></i>
                                 </c:if>
                             </div>
+
                         </div>
+                            <%-- 좋아요 --%>
+                            <div id="like-area">
+                                <div>
+                                <c:if test="${empty likeCheck}">
+                                    <i class="fa-regular fa-heart fa-xl" id="like"></i>
+                                </c:if>
+
+                                <c:if test="${!empty likeCheck}">
+                                    <i class="fa-solid fa-heart fa-xl" id="like"></i>
+                                </c:if>
+                                <div id="likeCount">${detail.likeCount}</div>
+                            </div>  
+                        </div>
+
+
 
                     </div>
 
@@ -119,7 +167,10 @@
                 <!-- 댓글 -->
                 <div id="replyContainer">
 
-                    <div id="replyCount"><i class="fa-solid fa-eye"></i>  ${detail.readCount}</div>
+                    <div id="replyCount">
+                    <i class="fa-solid fa-eye"></i>  ${detail.readCount}
+                    
+                    </div>
 
                     <!-- 댓글 하나하나 나중에 for문 -->
                     <c:choose>
@@ -132,53 +183,68 @@
                         </c:when>
 
                         <c:otherwise>
-                            <c:forEach items="${comment}" var="comment">
-                            <div class="replys">
 
-                                <div class="inReplyfirstDiv">
-                                    <div><img src="${comment.profileImage}" class="replyImages"></div>
-                                    <div id="replyWriter">${comment.memberId}</div>
-                                    <div id="replyCreateDate">(${comment.createDate})</div>
-                                </div>
+                        <div class="reply-list-area">
 
-                                <div class="replyContents">
-                                    ${comment.commentContent}
-                                </div>
+                            <ul id="reply-list">
+                            
+                                <c:forEach items="${comment}" var="comment">
 
-                                <div class="replyBtns">
-                                    <c:if test="${loginMember.memberId == comment.memberId}" >
-                                        <button onclick="showUpdateComment(${comment.commentNo}, this)" class="replyBtn">수정</button>
-                                        <button onclick="deleteComment(${comment.commentNo})" class="replyBtn">삭제</button>
-                                    </c:if>
+                                    <li class="reply-row <c:if test='${comment.parentNo != 0}'>child-comment</c:if>">
 
-                                    <c:if test="${loginMember != null}">
-                                        <button onclick="showInsertComment(${comment.commentNo}, this)" class="replyBtn">답글</button>
-                                    </c:if>
-                                </div>
-                            </div>
-                            </c:forEach>
+                                        <p class="reply-writer">
+
+                                        <c:if test="${empty comment.profileImage}">
+                                                <img src="/resources/images/user.png">
+                                        </c:if>
+
+                                        <c:if test="${!empty comment.profileImage}" >
+                                                    <img src="${comment.profileImage}">
+                                        </c:if>
+
+                                        <span class="name">${comment.memberNickname}</span>
+                                        <span class="reply-date">${comment.createDate}</span>
+                                        
+                                        </p>
+
+                                        <p class="reply-content">
+                                            ${comment.commentContent}
+                                        </p>
+
+                                        <div class="reply-btn-area">
+                                            <c:if test="${loginMember != null}">
+                                                <button onclick="showInsertComment(${comment.commentNo}, this)">답글</button>   
+                                            </c:if>
+                                        
+                                            <c:if test="${loginMember.memberId == comment.memberId}" >
+                                                <button onclick="showUpdateComment(${comment.commentNo}, this)" class="updateBtn">수정</button>     
+                                                <button onclick="deleteComment(${comment.commentNo})" class="deleteBtn">삭제</button>
+                                            </c:if>
+                                        </div>
+                                    </li>
+                                </c:forEach>
+
+                            </ul>        
+                        </div>    
                         </c:otherwise>
                     </c:choose>    
                     
 
                     <!-- 댓글 작성 div -->
-                    <div id="replyWrite">
+                    <div class="comment-write-area" id="replyWrite">
 
                         <!-- 작성 부분 -->
-                        <div id="replyWriteContent">
-                            <input type="text" placeholder=" 💬 댓글을 작성해주세요.">
-                        </div>
-
+                        <%-- <div id="replyWriteContent"> --%>
+                            <textarea placeholder=" 💬 댓글을 작성해주세요." id="commentContent"></textarea>
+                        <%-- </div>
+ --%>
                         <!-- 버튼 부분 -->
-                        <div id="replyWriteBtn">
-                            <button>작성하기</button>
-                        </div>
+                        <%-- <div id="replyWriteBtn"> --%>
+                            <button id="addComment">작성하기</button>
+                        <%-- </div> --%>
 
                     </div>
-
-
                 </div>
-
             </div>
             
 
@@ -187,7 +253,7 @@
             <!-- 인기글 top 10 -->
             <div id="top10">
               
-                <div id="top10HeaderText"> <img src="/resources/images/logo.svg" id="top10WritersImage">트렌드 인기 TOP 10</div>
+                <div id="top10HeaderText">트렌드 인기 TOP 10</div>
                 <div></div>
 
                 <!-- 백엔드 할때 for문 돌리기 -->
@@ -196,7 +262,7 @@
                 <div class="top10Posts">
                     
                     <!-- 1~10 번호 -->
-                    <div class="numbers" style="color:orangered !important"> <%= i++ %> </div>
+                    <div class="numbers" style="color:rgba(53, 14, 85, 0.685) !important"> <%= i++ %> </div>
 
                     <!-- 1~10 작성자 이미지 -->
                     <div class="WriterImages">
@@ -210,7 +276,7 @@
                         </div>
 
                         <div class="top10WriterIntroduce">
-                            <span class="nickname">👩 ${list.memberId}</span> ✍️ ${list.memberNickname}
+                            <span class="nickname"> ${list.memberId}</span>  ${list.memberNickname}
                         </div>
                     </div>
 
@@ -218,9 +284,10 @@
 
                 </c:forEach>
 
-                 <script>
+            <script>
                  const boardCode = "${detail.boardCode}";  // js 사용
                  const boardNo = ${map.boardNo};
+                 const memberId = "${detail.memberId}";
                  const loginMemberId = "${loginMember.memberId}"
             </script>
 

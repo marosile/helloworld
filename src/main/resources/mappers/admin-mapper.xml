@@ -12,6 +12,23 @@
 		<result property="reportContent" column="REPORT_CONTENT" />
 
 	</resultMap>
+
+	<!-- 멤버 resultMap -->
+	<resultMap id="member_rm" type="Member">
+
+		<id property="memberId" column="MEMBER_ID"/>
+
+		<result property="memberPw" column="MEMBER_PW"/>
+		<result property="memberNick" column="MEMBER_NICK"/>
+		<result property="memberEmail" column="MEMBER_EMAIL"/>
+		<result property="memberTel" column="MEMBER_TEL"/>
+		<result property="profileImg" column="PROFILE_IMG"/>
+		<result property="enrollDate" column="ENROLL_DT"/>
+		<result property="promotionFl" column="PROMOTION_FL"/>
+		<result property="deleteFl" column="DELETED_FL"/>
+
+		<result property="rowNum" column="ROWNUM"/>
+	</resultMap>
 	
 	
 	<!-- 신고글 목록 조회 -->
@@ -23,6 +40,88 @@
 		AND R.MEMBER_ID IS NOT NULL
 	</select>
 
+	<!-- 관리자 회원 목록 조회 -->
+	<select id="searchMemberList" resultMap="member_rm">
+		SELECT ROWNUM, MEMBER_ID, MEMBER_NICK, MEMBER_EMAIL, MEMBER_TEL,
+			   TO_CHAR(ENROLL_DT, 'YYYY-MM-DD') ENROLL_DT
+		FROM "MEMBER"
+		WHERE DELETED_FL = 'N'
+		ORDER BY ROWNUM DESC
+	</select>
+
+	<!-- 관리자 회원 탈퇴 -->
+	<update id="deleteMember">
+		UPDATE "MEMBER"
+		SET DELETED_FL = 'Y'
+		WHERE MEMBER_ID=#{memberId}
+	</update>
+
+
+	<!-- 검색 조건이 일치하는 회원 수 조회 -->
+	<select id="getListCount" resultType="_int">
+		SELECT COUNT(*)
+		FROM "MEMBER"
+
+		WHERE DELETED_FL='N'
+
+		<choose>
+			<when test='key == "아이디"'>
+				AND MEMBER_ID LIKE '%${query}%'
+			</when>
+
+			<when test='key == "이메일"'>
+				AND MEMBER_EMAIL LIKE '%${query}%'
+			</when>
+
+			<when test='key == "전화번호"'>
+				AND MEMBER_TEL LIKE '%${query}%'
+			</when>
+
+			<when test='key == "닉네임"'>
+				AND MEMBER_NICK LIKE '%${query}%'
+			</when>
+
+		</choose>
+
+	</select>
+
+	<!-- 관리자 회원 목록 조회 -->
+	<select id="searchMemberList1" resultMap="member_rm">
+		SELECT ROWNUM, MEMBER_ID, MEMBER_NICK, MEMBER_EMAIL, MEMBER_TEL,
+			   TO_CHAR(ENROLL_DT, 'YYYY-MM-DD') ENROLL_DT
+		FROM "MEMBER"
+		WHERE DELETED_FL = 'N'
+
+		<choose>
+			<when test='key == "아이디"'>
+				AND MEMBER_ID LIKE '%${query}%'
+			</when>
+
+			<when test='key == "이메일"'>
+				AND MEMBER_EMAIL LIKE '%${query}%'
+			</when>
+
+			<when test='key == "전화번호"'>
+				AND MEMBER_TEL LIKE '%${query}%'
+			</when>
+
+			<when test='key == "닉네임"'>
+				AND MEMBER_NICK LIKE '%${query}%'
+			</when>
+
+		</choose>
+
+		ORDER BY ROWNUM DESC
+
+
+	</select>
+
+
+
+	<select id="memberCount" resultType="_int">
+		SELECT COUNT(*) FROM "MEMBER"
+		WHERE DELETED_FL='N'
+	</select>
 
 
 </mapper>

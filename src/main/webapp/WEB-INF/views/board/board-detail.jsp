@@ -26,7 +26,7 @@
 		<div id="main-area">
 
             <p>${board.boardName}</p>
-            <p>🕊️ ${board.boardTitle}</p>
+            <p>${board.boardTitle}</p>
 
         <div id="heart">
             <div id="heart-left">
@@ -91,13 +91,18 @@
             </div>
 
             <div id="button-area">
-                <button id="report"><i class="fa-regular fa-face-angry" style="color: rgb(177, 175, 175)"></i> 신고</button>
-                <button id="update">수정</button>
-                <button id="deleteBtn">삭제</button>
+                <c:if test="${loginMember != null && loginMember.memberId != board.memberId}">
+                    <button id="report"><i class="fa-regular fa-face-angry" style="color: rgb(177, 175, 175)"></i> 신고</button>
+                </c:if>
+
+                <c:if test="${loginMember.memberId == board.memberId}">
+                    <button id="update">수정</button>
+                    <button id="deleteBtn">삭제</button>
+                </c:if>
                 <button id="list">목록</button>
             </div>
             
-            
+            <%-- 신고 모달창 --%>
             <div class="report-area" id="report-area">
             <span id="close">&times</span>
 

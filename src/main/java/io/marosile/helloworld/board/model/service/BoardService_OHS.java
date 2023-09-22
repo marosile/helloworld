@@ -7,13 +7,7 @@ import io.marosile.helloworld.board.model.dto.Board;
 
 public interface BoardService_OHS {
 
-	/** 무한스크롤
-	 * @param start
-	 * @param end
-	 * @return list
-	 */
-	
-	List<Board> loadPosts(Map<String, Object> parameters);
+
 
 	/** 게시글 삽입
 	 * @param board
@@ -32,6 +26,27 @@ public interface BoardService_OHS {
 	 * @return result
 	 */
 	int boardDelete(int boardNo);
+
+
+	/** 조회순 최신순 10개 , 검색어 확인
+	 * @param parameters
+	 * @return
+	 */
+	List<Board> loadBoardList(Map<String, Object> parameters);
+
+
+	/** 무한스크롤 - 최신순
+	 * @param parameters
+	 * @return List
+	 */
+	List<Board> loadRecentPosts(Map<String, Object> parameters);
+
+	/** 무한스크롤 - 조회순
+	 * @param parameters
+	 * @return List
+	 */
+	List<Board> loadReadCountPosts(Map<String, Object> parameters);
+
 
 	
 
