@@ -2,6 +2,48 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="trandMapper">
 
+	<!-- recruit ResultMap -->
+	<resultMap type="recruit" id="recruitResultMap">
+	
+		<id property="companyNo" column="CMPN_NO" />
+
+		<result property="jobField" column="POSITION" />
+		<result property="companyLogo" column="CMPN_LOGO" />
+		<result property="experiencePeriod" column="EXPR_PERIOD" />
+		<result property="workConditions" column="EMPL_TYPE" />
+		<result property="workConditionsDetail" column="EMPL_CNDT" />
+		<result property="selectionProcess" column="ENTR_EXAM" />
+		<result property="employmentType" column="JOB_TYPE" />
+		<result property="employmentBenefits" column="BENEFIT" />
+		
+		<result property="companyName" column="CMPN_NM" />
+		<result property="companyLogo" column="CMPN_LOGO" />
+		<result property="companyAddress" column="CMPN_ADDR" />
+		<result property="companyIntroduce" column="CMPN_INTRO" />
+		
+		<result property="boardNo" column="BOARD_NO" />
+		<result property="boardTitle" column="BOARD_TITLE" />
+		<result property="boardContent" column="BOARD_CONTENT" />
+	</resultMap>
+	
+	
+	<!-- 전체 채용 공고 조회 -->
+	<select id="allRecruitList" resultMap="recruitResultMap">
+		SELECT BOARD_NO, CMPN_NO, CMPN_LOGO, CMPN_NM, POSITION
+		FROM BOARD_RECRUIT
+		JOIN COMPANY USING (CMPN_NO)
+	</select>
+	
+	<!-- 상세의 상세페이지 -->
+	<select id="moreDetail" resultMap="recruitResultMap">
+		SELECT BOARD_TITLE, BOARD_CONTENT, EMPL_CNDT, ENTR_EXAM, BENEFIT, POSITION, JOB_TYPE, CMPN_ADDR, CMPN_NO, CMPN_INTRO, 
+			CMPN_NM, CMPN_LOGO
+			FROM BOARD
+			JOIN BOARD_RECRUIT USING (BOARD_NO)
+			JOIN COMPANY USING (CMPN_NO)
+		WHERE BOARD_NO = #{boardNo}
+	</select>
+
 
 
    

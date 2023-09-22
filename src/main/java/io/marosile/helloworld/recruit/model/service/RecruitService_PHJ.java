@@ -11,4 +11,10 @@ public interface RecruitService_PHJ {
 	 */
 	List<Recruit> allRecruitList();
 
+	/** 상세의 상세페이지
+	 * @param boardNo
+	 * @return
+	 */
+	Recruit moreDetail(int boardNo);
+
 }

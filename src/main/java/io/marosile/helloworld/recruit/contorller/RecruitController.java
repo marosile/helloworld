@@ -4,8 +4,11 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import io.marosile.helloworld.recruit.model.dto.Recruit;
 import io.marosile.helloworld.recruit.model.service.RecruitService_PHJ;
@@ -69,11 +72,11 @@ public class RecruitController {
 	
 	// 전체 매칭 공고
 	@GetMapping("/allNoticeList")
-	public String allNoticeList() {
+	public String allNoticeList(Model model) {
 		
 		 List<Recruit> recruitList = service.allRecruitList();
 		 
-		 
+		 model.addAttribute("recruitList", recruitList);
 		 
 		return "recruit/allnotice-list";
 	}
@@ -87,7 +90,18 @@ public class RecruitController {
 	
 	// 상세의 상세페이지
 	@GetMapping("/moreDetail")
-	public String recruitDetail() {
+	public String recruitDetail(@RequestParam("boardNo") int boardNo
+								, Model model) {
+		
+		Recruit recruit = service.moreDetail(boardNo);
+		
+		String logo = recruit.getCompanyLogo();
+		
+		System.out.println(logo);
+		
+		model.addAttribute("recruit", recruit);
+		
+		
 		return "recruit/recruit-moreDetail";
 	}
 	

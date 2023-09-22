@@ -24,6 +24,14 @@ public class RecruitDAO_PHJ {
 	public List<Recruit> allRecruitList() {
 		return sqlSession.selectList("trandMapper.allRecruitList");
 	}
+
+	/** 상세의 상세페이지
+	 * @param boardNo
+	 * @return
+	 */
+	public Recruit moreDetail(int boardNo) {
+		return sqlSession.selectOne("trandMapper.moreDetail", boardNo );
+	}
 	
 	
 }

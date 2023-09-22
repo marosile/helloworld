@@ -7,16 +7,19 @@
 }
 
 
-#main-area{
+#main-area {
     border: 1px solid black;
- 
     width: 1050px;
     height: 650px;
     border: 1px solid var(--divider);
     border-radius: 10px;
     background-color: var(--bg-color-2);
-    transition-duration: 0.5s;   
-
+    transition-duration: 0.5s;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(460px, 1fr));
+    gap: 5px;
+    grid-row-gap: 10px; /* 위 아래 간격 조정 */
+    justify-content: center;
     margin-top: 5px;
 }
 
@@ -48,7 +51,7 @@
     height: 50%;
     font-size: 18px;
     font-weight: bold;
-    line-height: 45px;
+    width: 210px;
 }
 
 
