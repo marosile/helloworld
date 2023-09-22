@@ -9,7 +9,7 @@ public interface StudyCommentService {
     // 댓글 삽입
     int insert(studyComment comment);
 
-   // 댓글 목록 조회
+    // 댓글 목록 조회
     List<studyComment> select(int boardNo);
 
     //댓글 삭제

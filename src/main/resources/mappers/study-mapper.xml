@@ -72,9 +72,9 @@
     <!--스터디 목록 조회-->
     <select id="selectStudyList" resultMap="StudyResultMap">
         SELECT B.READ_COUNT,S.STUDY_NO,B.BOARD_NO,B.BOARD_TITLE,B.BOARD_CONTENT,S.LOCATION,S.STUDY_STATUS
-         ,(SELECT COUNT(*) FROM "LIKE" L WHERE L.BOARD_NO = B.BOARD_NO) LIKE_COUNT
+             ,(SELECT COUNT(*) FROM "LIKE" L WHERE L.BOARD_NO = B.BOARD_NO) LIKE_COUNT
         FROM BOARD B
-        JOIN BOARD_STUDY S ON(B.BOARD_NO = S.BOARD_NO)
+                 JOIN BOARD_STUDY S ON(B.BOARD_NO = S.BOARD_NO)
         WHERE B.DELETED_FL = 'N'
         ORDER BY S.BOARD_NO DESC
     </select>
@@ -117,12 +117,12 @@
             SELECT SEQ_STUDY_NO.NEXTVAL AS "studyNo", SEQ_BOARD_NO.NEXTVAL AS "boardNo" FROM DUAL
         </selectKey>
         INSERT ALL
-            INTO STUDY VALUES(${studyNo}, #{boardTitle}, #{memberId}, DEFAULT)
-            INTO BOARD VALUES(${boardNo}, #{memberId}, #{boardTitle}, #{boardContent}, DEFAULT, NULL, DEFAULT, DEFAULT)
-            INTO BOARD_STUDY VALUES(${boardNo}, ${studyNo}, #{location}, ${headCount}, 'N')
-            INTO TAG_RELATION VALUES((SELECT TAG_NO FROM TAG WHERE TAG_NM = #{tagNm}), 0, ${boardNo})
-            INTO TAG_RELATION VALUES((SELECT TAG_NO FROM TAG WHERE TAG_NM = #{tagNm}), 1, ${boardNo})
-            SELECT * FROM DUAL
+        INTO STUDY VALUES(${studyNo}, #{boardTitle}, #{memberId}, DEFAULT)
+        INTO BOARD VALUES(${boardNo}, #{memberId}, #{boardTitle}, #{boardContent}, DEFAULT, NULL, DEFAULT, DEFAULT)
+        INTO BOARD_STUDY VALUES(${boardNo}, ${studyNo}, #{location}, ${headCount}, 'N')
+        INTO TAG_RELATION VALUES((SELECT TAG_NO FROM TAG WHERE TAG_NM = #{tagNm}), 0, ${boardNo})
+        INTO TAG_RELATION VALUES((SELECT TAG_NO FROM TAG WHERE TAG_NM = #{tagNm}), 1, ${boardNo})
+        SELECT * FROM DUAL
     </insert>
 
     <!--스터디 수정-->
@@ -141,22 +141,22 @@
     <update id="studyUpdate4" parameterType="Study">
         UPDATE TAG_RELATION SET TAG_NO = ${tagNo}
         WHERE ITEM_NO = ${boardNo}
-        AND ITEM_TYPE = 0
+          AND ITEM_TYPE = 0
     </update>
 
     <update id="studyUpdate5" parameterType="Study">
         UPDATE TAG_RELATION SET TAG_NO = ${tagNo}
         WHERE ITEM_NO = ${boardNo}
-        AND ITEM_TYPE = 1
+          AND ITEM_TYPE = 1
     </update>
 
     <!-- 좋아요 확인 여부-->
     <select id="likeCheck" resultType="_int">
         SELECT COUNT(*)
         FROM "LIKE" L
-        JOIN BOARD_STUDY S ON (L.BOARD_NO = S.BOARD_NO)
+                 JOIN BOARD_STUDY S ON (L.BOARD_NO = S.BOARD_NO)
         WHERE S.BOARD_NO = #{boardNo}
-        AND MEMBER_ID = #{memberId}
+          AND MEMBER_ID = #{memberId}
     </select>
 
     <!-- 좋아요 삽입-->
@@ -168,7 +168,7 @@
     <delete id="deleteStudyLike">
         DELETE FROM "LIKE"
         WHERE BOARD_NO = #{boardNo}
-        AND MEMBER_ID = #{memberId}
+          AND MEMBER_ID = #{memberId}
     </delete>
 
     <!--좋아요 개수 조회-->
@@ -180,18 +180,18 @@
     <!--조회수 조회-->
     <update id="updateReadCount">
         UPDATE BOARD SET
-        READ_COUNT = READ_COUNT+1
+            READ_COUNT = READ_COUNT+1
         WHERE BOARD_NO= #{boardNo}
     </update>
 
     <!--게시글 삭제-->
     <update id="studyDelete">
         UPDATE BOARD SET
-        DELETED_FL = 'Y'
+            DELETED_FL = 'Y'
         WHERE BOARD_NO = #{boardNo}
     </update>
 
-     <!--모집완료-->
+    <!--모집완료-->
     <update id="complete">
         UPDATE BOARD_STUDY SET STUDY_STATUS = 'Y'
         WHERE BOARD_NO = #{boardNo}

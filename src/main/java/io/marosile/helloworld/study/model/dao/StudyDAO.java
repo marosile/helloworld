@@ -36,9 +36,9 @@ public class StudyDAO {
     }
 
     // 스터디 게시글 상세 조회(태그해야함)
-	public Study studyDetail(Map<String, Object> map) {
-		 return sqlSession.selectOne("studyMapper.studyDetail",map);
-	}
+    public Study studyDetail(Map<String, Object> map) {
+        return sqlSession.selectOne("studyMapper.studyDetail",map);
+    }
 
 
     // 좋아요 여부 조회
@@ -57,9 +57,9 @@ public class StudyDAO {
     }
 
     //좋아요 수 조회
-	public int countStudyLike(Object boardNo) {
-		 return sqlSession.selectOne("studyMapper.countStudyLike",boardNo);
-	}
+    public int countStudyLike(Object boardNo) {
+        return sqlSession.selectOne("studyMapper.countStudyLike",boardNo);
+    }
 
     // 조회수 조회
     public int updateReadCount(int boardNo) {

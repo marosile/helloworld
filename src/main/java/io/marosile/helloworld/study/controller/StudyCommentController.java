@@ -13,7 +13,7 @@ public class StudyCommentController {
 
     @Autowired
     private StudyCommentService service;
-    
+
     // 댓글 작성
     @PostMapping(value = "/commentStudy")
     public int insert(@RequestBody studyComment comment){

@@ -44,7 +44,7 @@ public class StudyController {
     // 스터디 상세 조회
     @GetMapping("/detail/{boardNo}")
     public String studyDatail(Model model
-            , @RequestParam("boardNo") int boardNo
+            , @PathVariable("boardNo") int boardNo
             , @SessionAttribute(value = "loginMember", required = false) Member loginMember
 
             , RedirectAttributes ra
