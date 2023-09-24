@@ -18,6 +18,7 @@
 		<typeAlias type="io.marosile.helloworld.study.model.dto.studyComment" alias = "studyComment"/>
 		<typeAlias type="io.marosile.helloworld.recruit.model.dto.Company" alias = "company"/>
 		<typeAlias type="io.marosile.helloworld.recruit.model.dto.Recruit" alias = "recruit"/>
+		<typeAlias type="io.marosile.helloworld.recruit.model.dto.EmploymentTest" alias = "EmploymentTest"/>
 		<typeAlias type="io.marosile.helloworld.mypage.model.dto.BookmarkList" alias="BookmarkList" />
 		<typeAlias type="io.marosile.helloworld.mypage.model.dto.BookmarkList2" alias="BookmarkList2" />
 	</typeAliases>
