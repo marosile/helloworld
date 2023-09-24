@@ -62,6 +62,7 @@ public class StudyController {
     @PostMapping("/detail/follow")
     @ResponseBody
     public int follow(@RequestBody Map<String, Object> map) {
+        System.out.println("팔로우처리"+map);
 
         return service.follow(map);
     }
