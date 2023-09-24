@@ -129,10 +129,10 @@
         
     </div>
     
+    <jsp:include page="/WEB-INF/views/board/reply.jsp"/>            
     
 </main>
 
-    <jsp:include page="/WEB-INF/views/board/reply.jsp"/>            
         
 	
 	<script src="/resources/js/common/general.js"></script>

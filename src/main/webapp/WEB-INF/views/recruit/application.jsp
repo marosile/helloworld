@@ -16,8 +16,13 @@
 
 <body>
     <jsp:include page="/WEB-INF/views/common/header.jsp"/>
+    
+    <jsp:include page="/WEB-INF/views/recruit/recruit-nav.jsp"/>
+
        <main id="body-area">
+
             <div id="main-area">
+                
                 <p id="title3"><i class="fa-solid fa-building"></i></i> 기업 담당자 신청</p>
                 <div id="company-name">기업명</div>
                 <div class="info">

@@ -29,7 +29,12 @@ public class Recruit {
 	
 	private String boardTitle; // 채용 공고 제목
 	private String boardContent; // 채용 공고 내용
+	
+	private String memberId;
+
+	private String companyId;
+    private int companyMcount;
+    private String companyCreateDt;
 
     
-
 }

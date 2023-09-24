@@ -8,8 +8,6 @@
 		INSERT INTO "COMMENT"
 		VALUES (SEQ_COMMENT_NO.NEXTVAL, #{boardNo}, #{memberId},#{commentContent}, SYSDATE, DEFAULT,  
 
-	 	<!-- 동적 sql : if문  -->
-	 	
 	 	<!-- 부모 댓글 -->
 	 	<if test="parentNo == 0">NULL</if>
 

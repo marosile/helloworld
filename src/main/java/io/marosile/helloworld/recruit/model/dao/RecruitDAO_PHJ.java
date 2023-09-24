@@ -22,7 +22,7 @@ public class RecruitDAO_PHJ {
 	 * @return
 	 */
 	public List<Recruit> allRecruitList() {
-		return sqlSession.selectList("trandMapper.allRecruitList");
+		return sqlSession.selectList("recruitMapper.allRecruitList");
 	}
 
 	/** 상세의 상세페이지
@@ -30,7 +30,7 @@ public class RecruitDAO_PHJ {
 	 * @return
 	 */
 	public Recruit moreDetail(int boardNo) {
-		return sqlSession.selectOne("trandMapper.moreDetail", boardNo );
+		return sqlSession.selectOne("recruitMapper.moreDetail", boardNo );
 	}
 	
 	

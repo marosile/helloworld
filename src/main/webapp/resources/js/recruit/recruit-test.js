@@ -64,12 +64,8 @@ var slider = document.getElementById("slider");
 slider.addEventListener("input", function() {
 
     // 선택한 원래 값 10진수 정수로 변환
-    var originalValue = parseInt(this.value, 10);
+    question2 = parseInt(this.value, 10);
     
-    // 5의 배수로 조정된 값을 계산
-    question2 = Math.round(originalValue / 5) * 5; // 전역 변수 업데이트
-    
-    // 조정된 값을 다시 input에 설정
     this.value = question2;
     console.log(question2);
 });
@@ -82,32 +78,28 @@ var question3= "";
 
 // 선택지 클릭 이벤트 핸들러
 document.getElementById("salaryChoice1").addEventListener("click", function() {
-    alert("test");
-    question3= "최소 2700만";
+    question3= "2700";
 });
 
 document.getElementById("salaryChoice2").addEventListener("click", function() {
-    question3= "최소 3000만";
+    question3= "3000";
 });
 
 document.getElementById("salaryChoice3").addEventListener("click", function() {
-    question3= "최소 3500만";
+    question3= "3500";
 });
 
 document.getElementById("salaryChoice4").addEventListener("click", function() {
-    question3= "최소 4000만";
+    question3= "4000";
 });
 
 document.getElementById("salaryChoice5").addEventListener("click", function() {
-    question3= "최소 5000만";
+    question3= "5000";
 });
 
 document.getElementById("salaryChoice6").addEventListener("click", function() {
-    question3= "최소 7000만";
+    question3= "7000";
 });
-
-
-
 
 // test4
 
@@ -127,8 +119,6 @@ document.getElementById("workConditionsChoice3").addEventListener("click", funct
 
 
 
-
-// test5
 
 var question5 = "";
 

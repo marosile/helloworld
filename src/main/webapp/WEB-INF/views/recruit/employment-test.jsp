@@ -77,17 +77,17 @@
                 <p id="question">몇 년차 채용 공고를 보여드릴까요? 🔎</p>
 
                 <p id="term">신입-1년</p>
-                <input type="range" id="slider" min="0" max="70" list="marks">
+                <input type="range" id="slider" min="0" max="8" list="marks">
                 <datalist id="marks">
                     <option value="0">전체</option>
-                    <option value="05">신입</option>
-                    <option value="10">1년</option>
-                    <option value="20">2년</option>
-                    <option value="30">3년</option>
-                    <option value="40">4년</option>
-                    <option value="50">5년</option>
-                    <option value="60">6년</option>
-                    <option value="70">7년+</option>
+                    <option value="1">신입</option>
+                    <option value="2">1년</option>
+                    <option value="3">2년</option>
+                    <option value="4">3년</option>
+                    <option value="5">4년</option>
+                    <option value="6">5년</option>
+                    <option value="7">6년</option>
+                    <option value="8">7년+</option>
                 </datalist>
 
                 <div class="btn-container">

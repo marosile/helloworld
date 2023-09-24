@@ -27,14 +27,16 @@ public class Tag {
     
     // TAG_RELATION
     
+    
+    
+    
+    // 태그 중복 방지
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Tag tag = (Tag) o;
-        return boardNo == tag.boardNo &&
-               boardType == tag.boardType &&
-               Objects.equals(tagName, tag.tagName);
+        return boardNo == tag.boardNo && boardType == tag.boardType && Objects.equals(tagName, tag.tagName);
     }
 
     @Override
