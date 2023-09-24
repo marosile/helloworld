@@ -56,8 +56,10 @@ public class StudyServiceImpl implements StudyService {
 
 			if (likeCheckObj2 == 0) {
 				result = dao.insertStudyLike(map);
+				System.out.println("좋아요삽입"+result);
 			} else {
 				result = dao.deleteStudyLike(map);
+				System.out.println("좋아요취소"+result);
 			}
 
 			if (result == 0) return -1;
@@ -168,10 +170,11 @@ public class StudyServiceImpl implements StudyService {
 
 			if (followCheck == 0) {
 				result = dao.insertFollow(map);
-				System.out.println("삽입"+result);
+				System.out.println("팔로잉함! "+result);
+
 			} else {
 				result = dao.deleteFollow(map);
-				System.out.println("삭제"+result);
+				System.out.println("팔로잉 끊김"+result);
 			}
 
 		}

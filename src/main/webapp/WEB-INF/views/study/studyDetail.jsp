@@ -194,14 +194,13 @@
                         <button id="contact-button">채팅하기</button>
 
                         <c:if test="${empty followCheck}">
-                            <button id="share-button"><i class="fa-solid fa-user-plus"></i>
-                                <span id="followSpan">팔로우</span></button>
+                            <button id="share-button"><i class="fa-solid fa-user-plus">
+                                    <span id="followSpan">팔로우</span></i></button>
                         </c:if>
 
                         <c:if test="${!empty followCheck}">
-                            <button id="share-button" class="fa-check"><i class="fa-solid fa-check"></i>
-                                <span id="followingSpan">팔로잉</span></button>
-                            </button>
+                            <button id="share-button"><i class="fa-solid fa-check">
+                                <span id="followingSpan">팔로잉</span></i></button>
                         </c:if>
 
 
