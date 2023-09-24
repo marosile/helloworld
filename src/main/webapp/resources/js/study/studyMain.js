@@ -25,16 +25,17 @@ categoryBtn.addEventListener("click", () => {
 });
 
 selectBoxRole.addEventListener("click", (e) => {
-
     if (e.target.nodeName === "BUTTON") {
-        categoryBtn.innerHTML = e.target.innerHTML;
+        const selectedRole = e.target.innerHTML; // 클릭한 버튼의 내용(예: "프론트앤드")을 가져옴
+        categoryBtn.innerHTML = selectedRole;
         selectBoxRole.classList.add("menuHidden")
-    }
 
+        // selectedRole 값을 해당 요소의 value 속성에 설정
+        document.getElementById("selectedRole").value = selectedRole;
+    }
 });
 
-
-// 카테고리 - 목적 클릭 했을때
+// 카테고리 - 위치를 클릭 했을떄
 const purposeBtn = document.querySelector('.P-body-purpose-btn');
 const selectBoxPurpose = document.querySelector('.P-selectBox-purpose');
 
@@ -47,8 +48,11 @@ purposeBtn.addEventListener("click", () => {
 selectBoxPurpose.addEventListener("click", (e) => {
 
     if (e.target.nodeName == "BUTTON") {
-        purposeBtn.innerHTML = e.target.innerHTML;
+        const seoulGuList = e.target.innerHTML;
+        purposeBtn.innerHTML = seoulGuList;
         selectBoxPurpose.classList.add("menuHidden")
+
+        document.getElementById("seoulGuList").value=seoulGuList;
     }
 })
 
@@ -89,9 +93,12 @@ personBtn.addEventListener("click", (e) => {
     if (e.target.nodeName == "BUTTON") {
         selectBoxCount.classList.add("menuHidden")
         countBtn.innerText = "인원 : " + count1
-    }
-})
 
+        document.getElementById('countInput').value = count1;
+    }
+
+
+})
 
 var mySwiper = new Swiper('.swiper-container', {
     slidesPerView: 2, // 한 화면에 보여질 슬라이드 개수
@@ -167,3 +174,4 @@ if(like != null){
 
     })
 }
+

@@ -559,7 +559,7 @@ const followSpan = document.getElementById("followSpan");
 const followingSpan = document.getElementById("followingSpan");
 console.log(followSpan +"1");
 /* 팔로우 */
-followBtn2.addEventListener("click", e=>{
+iconElement.addEventListener("click", e=>{
 
     // 로그인 여부
     if(loginMemberId == ""){
@@ -590,6 +590,8 @@ followBtn2.addEventListener("click", e=>{
     })
     .then( res => res.text())
     .then( count => {
+
+        location.reload(true)
 
         if(count == -1) { // DML 실패
             alert("fail");

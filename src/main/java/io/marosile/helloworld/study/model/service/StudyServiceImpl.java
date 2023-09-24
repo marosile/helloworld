@@ -1,14 +1,13 @@
 package io.marosile.helloworld.study.model.service;
 
-import io.marosile.helloworld.board.model.dto.Board;
 import io.marosile.helloworld.common.utility.Util;
 import io.marosile.helloworld.study.model.dao.StudyDAO;
 import io.marosile.helloworld.study.model.dto.Study;
-import jdk.jfr.TransitionTo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -20,11 +19,14 @@ public class StudyServiceImpl implements StudyService {
 
 	// 스터디 목록 조회
 	@Override
-	public List<Study> selectStudyList() {
+	public Map<String, Object> selectStudyList() {
 
 		List<Study> studyList = dao.selectStudyList();
 
-		return studyList;
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("studyList",studyList);
+
+		return map;
 	}
 
 	// 스터디 상세 보기
@@ -110,6 +112,70 @@ public class StudyServiceImpl implements StudyService {
 	@Override
 	public List<Study> studyTopList() {
 		return dao.studyTopList();
+	}
+
+	@Override
+	public Map<String, Object> studySearch(Map<String, Object> paramMap) {
+
+
+		// 서울 전체 검색
+		List<Study> locationAll = dao.selectSearchAllLocation(paramMap);
+
+		// 위치 검색
+		List<Study> location = dao.selectSearchLocation(paramMap);
+
+		// 포지션 검색
+		List<Study> postion = dao.selectSearchPostion(paramMap);
+
+		// 인원 검색
+		List<Study> person = dao.selectSearchPerson(paramMap);
+
+		// 전체 검색
+		List<Study> listAll = dao.selectStudyList(paramMap);
+
+		// 전체 검색 + 서울 전체검색
+		List<Study> listAllSeoul = dao.listAllSeoul(paramMap);
+
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("studyList",locationAll);
+		map.put("location",location);
+		map.put("tagNm",postion);
+		map.put("headCount",person);
+		map.put("listAll",listAll);
+		map.put("listAllSeoul",listAllSeoul);
+
+		return map;
+	}
+
+	// 팔로우 조회
+	@Override
+	public int followCheck(Map<String, Object> map) {
+		return dao.followCheck(map);
+
+	}
+
+	// 팔로우 처리 서비스
+	@Override
+	@Transactional(rollbackFor = Exception.class)
+	public int follow(Map<String, Object> map) {
+
+		int result = 0;
+
+		Object followCheckObj = map.get("followCheck");
+
+		if(followCheckObj instanceof Integer) {
+			Integer followCheck = (Integer) followCheckObj;
+
+			if (followCheck == 0) {
+				result = dao.insertFollow(map);
+				System.out.println("삽입"+result);
+			} else {
+				result = dao.deleteFollow(map);
+				System.out.println("삭제"+result);
+			}
+
+		}
+		return result;
 	}
 
 
