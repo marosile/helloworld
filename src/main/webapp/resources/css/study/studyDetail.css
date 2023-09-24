@@ -90,7 +90,28 @@
 }
 
 
+#studyInfoArea{
+    height: 130px;
+    padding: 15px 10px;
+    display: flex;
+    background: #fafafa;
 
+}
+
+.studyContainer{
+    font-size: .875rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+}
+
+.studyTag{
+    font-size: 1.25rem;
+    font-weight: 700;
+
+}
 
 /* 제목 */
 #detailTitle {
@@ -431,3 +452,4 @@
 .fa-heart {
     cursor: pointer;
 }
+

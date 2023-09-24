@@ -105,4 +105,49 @@ public class StudyDAO {
     public List<Study> studyTopList() {
         return  sqlSession.selectList("studyMapper.studyTopList");
     }
+
+    // 위치 전체 검색 리스트
+    public List<Study> selectSearchAllLocation(Map<String, Object> paramMap) {
+        return sqlSession.selectList("studyMapper.selectSearchAllLocation",paramMap);
+    }
+
+    // 위치 검색 리스트
+    public List<Study> selectSearchLocation(Map<String, Object> paramMap) {
+        return sqlSession.selectList("studyMapper.selectSearchLocation",paramMap);
+    }
+
+    // 포지션 검색 리스트
+    public List<Study> selectSearchPostion(Map<String, Object> paramMap) {
+        return sqlSession.selectList("studyMapper.selectSearchPostion",paramMap);
+    }
+
+    // 인원만 검색
+    public List<Study> selectSearchPerson(Map<String, Object> paramMap) {
+        return sqlSession.selectList("studyMapper.selectSearchPerson",paramMap);
+    }
+
+    //위치, 포지션, 인원 모두 검색
+    public List<Study> selectStudyList(Map<String, Object> paramMap) {
+        return sqlSession.selectList("studyMapper.selectSearchlistAll",paramMap);
+    }
+
+    //서울 전체, 포지션, 인원 검색
+    public List<Study> listAllSeoul(Map<String, Object> paramMap) {
+        return sqlSession.selectList("studyMapper.listAllSeoul",paramMap);
+    }
+
+    public int followCheck(Map<String, Object> map) {
+        return sqlSession.selectOne("studyMapper.followCheck",map);
+    }
+
+    // 팔로우 삽입
+    public int insertFollow(Map<String, Object> map) {
+        return sqlSession.insert("studyMapper.insertFollow",map);
+    }
+
+    // 팔로우 삭제
+    public int deleteFollow(Map<String, Object> map) {
+        return sqlSession.delete("studyMapper.deleteFollow",map);
+    }
 }
+

@@ -73,7 +73,6 @@ if(completeBtn!=null){
     })
 }
 
-
 // 좋아요 클릭 시
 const like = document.getElementById("like");
 const countSpan = document.getElementById("count");
@@ -127,6 +126,65 @@ like.addEventListener("click", e=>{
         .catch( err => {
             console.log("예외발생")
         })
+})
+
+
+// 팔로우 클릭 시
+var followElement = document.getElementById("share-button");
+
+const followSpan = document.getElementById("followSpan");
+const followingSpan = document.getElementById("followingSpan");
+const userId = document.getElementById("userId").value;
+
+followElement.addEventListener("click",e=>{
+
+    if(loginMemberId==""){
+        alert("로그인 후 이용해주세요")
+        return;
+    }
+
+    let check;
+
+    if(followElement.classList.contains('fa-user-plus')){ // 팔로우를 안눌렀을떄
+        check=0;
+    }else{
+        check=1;
+    }
+
+    const data={
+        "memberId" :loginMemberId,
+        "userId" : userId,
+        "followCheck" : check
+    }
+    fetch("/study/detail/follow",{
+        method:"POST",
+        headers:{"Content-Type":"application/json"},
+        body:JSON.stringify(data)
+    })
+        .then(resp => resp.text())
+        .then(result=>{
+
+            if(result == -1){
+                alert("팔로우 실패")
+                return;
+            }
+
+            followElement.classList.toggle("fa-user-plus");
+            followElement.classList.toggle("fa-check");
+
+            if(followSpan != null){
+
+                followSpan.innerText = '팔로잉';
+                console.log(followSpan +"2");
+            }
+            if(followingSpan != null){
+
+                followSpan.innerText = '팔로우';
+            }
+
+        })
+        .catch(e=>console.log(e))
+
 })
 
 // 목록으로
