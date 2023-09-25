@@ -32,7 +32,6 @@ public class RecruitServiceImpl_OHS implements RecruitService_OHS{
 		return dao.insertMyStacksToTag(myStacks);
 	}
 
-
 	// 채용공고 테스트 했는지 확인
 	@Transactional
 	@Override
@@ -51,5 +50,11 @@ public class RecruitServiceImpl_OHS implements RecruitService_OHS{
 	public int companyInsert(Company company) {
 		company.setCompanyIntroduce(Util.XSSHandling(company.getCompanyIntroduce()));
 		return dao.companyInsert(company);
+	}
+
+	@Override
+	public Company selectMyCompanyInfo(String memberId) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

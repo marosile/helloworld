@@ -41,4 +41,6 @@ public interface RecruitService_OHS {
 	 */
 	int companyInsert(Company company);
 
+	Company selectMyCompanyInfo(String memberId);
+
 }
