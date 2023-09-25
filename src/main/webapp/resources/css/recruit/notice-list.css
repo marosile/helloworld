@@ -91,12 +91,12 @@ i{
 }
 
 #click{
-    width: 200px;
+    width: 400px;
     height: 30px;
     border-radius: 5px;
     line-height: 30px;
 
-    background-color: rgba(3, 3, 14, 0.808);
+    background-color: rgba(14, 14, 73, 0.658);
     color: white;
     
     font-weight: bold;

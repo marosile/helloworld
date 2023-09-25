@@ -41,7 +41,6 @@
         
             <div class="swiper-container">
 
-
             <div class="swiper-wrapper">
             <c:forEach items="${map.matching}" var="recruit">
                 <div class="swiper-slide">
@@ -135,14 +134,14 @@
                     <!-- 사람이미지 + 신입 + 내용-->
                     <div class="personInfo">
                         <div class="marginDiv"></div>
-                        <p>🤵 ${recruit.boardContent}</p>
+                        <p class="content-area">🤵 ${recruit.boardContent}</p>
                     </div>
 
 
                     <!-- 사람이미지 + 경력 -->
                     <div class="personInfo" id="personInfo2">
                         <div class="marginDiv"></div>
-                        <p>👩‍💼 ${recruit.workConditionsDetail}
+                        <p class="content-area">👩‍💼 근무조건 <br>${recruit.workConditionsDetail}
                         </p>
                     </div>
 
