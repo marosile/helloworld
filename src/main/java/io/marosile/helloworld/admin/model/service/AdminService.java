@@ -32,4 +32,9 @@ public interface AdminService {
 	Map<String, Object> selectBoardList(Map<String, Object> paramMap);
 
 
+	// 기업 담당자 자격 신청 목록
+	List<AdminDTO> recruitList();
+
+	// 기업 담당자 자격 신청 상세 페이지
+	AdminDTO recruitOfficerDetail(String userId);
 }
