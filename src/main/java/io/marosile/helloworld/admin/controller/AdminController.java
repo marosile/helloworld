@@ -103,14 +103,19 @@ public class AdminController {
 	
 	// 채용 담당자 관리
 	@GetMapping("/recruitOfficer")
-	public String recruitOfficer() {
+	public String recruitOfficer(Model model) {
+
+		List<AdminDTO> recruitList = service.recruitList();
+		model.addAttribute("recruitList", recruitList);
 		
 		return "admin/recruitOfficer";
 	}
 	
 	// 채용 담당자 관리 - 상세페이지
-	@GetMapping("/recruitOfficer/detail")
-	public String recruitOfficerDetail() {
+	@GetMapping("/recruitOfficer/detail/{userId}")
+	public String recruitOfficerDetail(@PathVariable("userId") String userId) {
+
+		AdminDTO adminDTO = service.recruitOfficerDetail(userId);
 		
 		return "admin/recruitOfficer-detail";
 	}

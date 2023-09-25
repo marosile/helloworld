@@ -11,6 +11,17 @@
 		<result property="memberId" column="MEMBER_ID" />
 		<result property="reportContent" column="REPORT_CONTENT" />
 
+
+		<result property="cmpnNo" column="CMPN_NO" />
+		<result property="userId" column="MEMBER_ID" />
+		<result property="cmpnNm" column="CMPN_NM" />
+		<result property="cmpnAddr" column="CMPN_ADDR" />
+		<result property="cmpnLogo" column="CMPN_LOGO" />
+		<result property="cmpnIntro" column="CMPN_INTRO" />
+		<result property="cmpnMCount" column="CMPN_MCOUNT" />
+		<result property="cmpnFl" column="CMPN_FL" />
+		<result property="userTel" column="MEMBER_TEL" />
+
 	</resultMap>
 
 	<!-- 멤버 resultMap -->
@@ -121,6 +132,19 @@
 	<select id="memberCount" resultType="_int">
 		SELECT COUNT(*) FROM "MEMBER"
 		WHERE DELETED_FL='N'
+	</select>
+
+	<!-- 관리자 기업담당자 자격 신청 목록 -->
+	<select id="recruitList" resultMap="adminResultMap">
+		SELECT CMPN_NO, MEMBER_ID, CMPN_NM, CMPN_ADDR, CMPN_LOGO, CMPN_INTRO, CMPN_MCOUNT, CMPN_FL FROM "COMPANY"
+		WHERE CMPN_FL = 'N'
+		ORDER BY CMPN_NO
+	</select>
+
+	<!-- 관리자 기업담당자 자격 신청 위한 전화번호 조회-->
+	<select id="userTel" resultType="string">
+		SELECT MEMBER_TEL FROM "MEMBER"
+		WHERE MEMBER_ID = #{userId}
 	</select>
 
 

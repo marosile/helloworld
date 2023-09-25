@@ -4,11 +4,11 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import io.marosile.helloworld.admin.model.dao.AdminDAO;
 import io.marosile.helloworld.member.model.dto.Member;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import io.marosile.helloworld.admin.model.dao.Admin;
 import io.marosile.helloworld.admin.model.dto.AdminDTO;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -16,7 +16,7 @@ import org.springframework.transaction.annotation.Transactional;
 public class AdminServiceImpl implements AdminService {
 	
 	@Autowired
-	private Admin dao;
+	private AdminDAO dao;
 
 	// 신고글 목록 조회
 	@Override
@@ -71,6 +71,19 @@ public class AdminServiceImpl implements AdminService {
 
 		return map;
 
+	}
+
+	// 관리자 기업 담당자 자격 신청 service
+	@Override
+	public List<AdminDTO> recruitList() {
+		return dao.recruitList();
+	}
+
+
+	// 기업 담당자 자격 신청 상세 페이지
+	@Override
+	public AdminDTO recruitOfficerDetail(String userId) {
+		return dao.recruitOfficerDetail(userId);
 	}
 
 }

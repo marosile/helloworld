@@ -1,5 +1,6 @@
 package io.marosile.helloworld.admin.model.dao;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -11,7 +12,7 @@ import org.springframework.stereotype.Repository;
 import io.marosile.helloworld.admin.model.dto.AdminDTO;
 
 @Repository
-public class Admin {
+public class AdminDAO {
 	
 	@Autowired
 	private SqlSessionTemplate sqlSession;
@@ -63,5 +64,33 @@ public class Admin {
 	// 전체 회원 수 조회
 	public int memberCount() {
 		return sqlSession.selectOne("adminMapper.memberCount");
+	}
+
+
+	// 관리자 기업 담당자 자격 신청 dao
+	public List<AdminDTO> recruitList() {
+
+		List<AdminDTO> recruitList = sqlSession.selectList("adminMapper.recruitList");
+
+
+		if(recruitList != null){
+			for(AdminDTO adminDTO : recruitList){
+
+				/* 향상된 for문을 통해 반복하여 전화번호를 가져온다 */
+				String userTel = sqlSession.selectOne("adminMapper.userTel", adminDTO);
+
+				adminDTO.setUserTel(userTel);
+
+			}
+
+		}
+
+		return recruitList;
+	}
+
+
+	// 기업 담당자 자격 신청 상세 페이지
+	public AdminDTO recruitOfficerDetail(String userId) {
+		return null;
 	}
 }
