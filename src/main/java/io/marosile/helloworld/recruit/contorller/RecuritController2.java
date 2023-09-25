@@ -7,6 +7,7 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -31,7 +32,8 @@ public class RecuritController2 {
 	// 채용공고 결과
 	@PostMapping("/testResult")
 	public String test1(@ModelAttribute EmploymentTest EmploymentTest
-					   ,@SessionAttribute("loginMember") Member loginMember){
+					   ,@SessionAttribute("loginMember") Member loginMember
+					   ,Model model){
 		
 		System.out.println(EmploymentTest);
 
@@ -50,13 +52,13 @@ public class RecuritController2 {
 		
 		List<Recruit> matchingRecruitList = service.matchingRecruit(EmploymentTest);
 		
-		System.out.println(matchingRecruitList);
+		map.put("matching", matchingRecruitList);
+		
+		model.addAttribute("matching", map);
 		
 		 // 비교 조회해서 LIST에담아서 JSP로 가져가야함
 		
 		 // 채용공고 비교 조회했을때 tag들 담아와서 내 question6=[JAVA, Spring, Visual studio Code, JavaScript, Oracle, JQuery] 와 밑에 return한 jsp 비교
-		
-		
 		
 		return "recruit/employment-resultAndRecruitDetail";
 		
