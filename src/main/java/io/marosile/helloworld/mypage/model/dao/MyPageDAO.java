@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 import io.marosile.helloworld.member.model.dto.Member;
 import io.marosile.helloworld.mypage.model.dto.BookmarkList;
 import io.marosile.helloworld.mypage.model.dto.BookmarkList2;
+import io.marosile.helloworld.mypage.model.dto.PostList;
 
 @Repository
 public class MyPageDAO {
@@ -74,6 +75,14 @@ public class MyPageDAO {
 	 */
 	public List<BookmarkList2> selectBookmark2(String memberId) {
 		return sqlSession.selectList("myPageMapper.selectBookmark2", memberId);
+	}
+
+	/** 나의 게시글 목록 조회
+	 * @param memberId
+	 * @return
+	 */
+	public List<PostList> selectPostList(String memberId) {
+		return sqlSession.selectList("myPageMapper.selectPostList", memberId);
 	}
 
 	

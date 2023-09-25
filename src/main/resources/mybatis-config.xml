@@ -21,6 +21,7 @@
 		<typeAlias type="io.marosile.helloworld.recruit.model.dto.EmploymentTest" alias = "EmploymentTest"/>
 		<typeAlias type="io.marosile.helloworld.mypage.model.dto.BookmarkList" alias="BookmarkList" />
 		<typeAlias type="io.marosile.helloworld.mypage.model.dto.BookmarkList2" alias="BookmarkList2" />
+		<typeAlias type="io.marosile.helloworld.mypage.model.dto.PostList" alias="PostList" />
 	</typeAliases>
 	
 	<typeHandlers>
