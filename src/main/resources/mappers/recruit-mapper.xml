@@ -108,11 +108,6 @@
 	    WHERE MEMBER_ID = #{memberId}
 	</select>
    	
-	<!-- 채용 담당자 등록 신청 (insert 후 fl로 구분) -->
-	<insert id="companyInsert">
-		INSERT INTO COMPANY VALUES (SEQ_CMPN_NO.NEXTVAL, #{memberId}, #{companyName}, #{companyAddress}, #{companyLogo}, #{companyIntroduce}, ${companyMcount}, DEFAULT)
-	</insert>
-	
 	<!-- 로그인한 회원의 채용 리스트 조회 -->
 	<select id="noticeList" resultMap="recruitResultMap">
 		SELECT RS.MEMBER_ID, BR.BOARD_NO, BR.POSITION, BR.EXPR_PERIOD, BR.EMPL_TYPE, 
