@@ -55,6 +55,9 @@
                 <div id="companyInfo1">
                     <div><img src="/resources/images/recruit/companyImageEx.jpg" id="companyImg"></div>
                     <div id="companyName">${recruit.companyName}</div>
+                    <div id="aplly-btn-area">
+                        <a href="moreDetail?boardNo=${recruit.boardNo}"><button id="apply-btn">지원하기</button></a>
+                    </div>
                 </div>
 
                 <!-- 직무(웹 백엔드 개발자) -->

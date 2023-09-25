@@ -69,6 +69,25 @@
     margin-left:10px;
 }
 
+/* 지원하기 버튼 */
+#apply-btn{
+    width: 80px;
+    height: 30px;
+    margin-left: 700px;
+
+    font-size: 15px;
+    font-weight: bold;
+}
+
+/* 지원하기 버튼 */
+#apply-btn:hover{
+    background-color: rgba(180, 220, 60, 0.5);
+    border: 1px solid lightgreen;
+
+    color: white;
+}
+
+
 /* 직무 */
 #jobTitle{
     height:80px;
