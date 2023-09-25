@@ -32,4 +32,10 @@ public class RecruitServiceImpl_PHJ implements RecruitService_PHJ{
 	public EmploymentTest selectResume(String memberId) {
 		return dao.selectResume(memberId);
 	}
+
+	// 로그인한 회원의 채용 리스트 조회
+	@Override
+	public List<Recruit> noticeList(String memberId) {
+		return dao.noticeList(memberId);
+	}
 }
