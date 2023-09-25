@@ -73,60 +73,71 @@ if(completeBtn!=null){
     })
 }
 
-// 좋아요 클릭 시
-const like = document.getElementById("like");
-const countSpan = document.getElementById("count");
-const loginMemberId = document.getElementById("loginMemberId").value;
-const boardNo = document.getElementById("boardNo").value;
+// 목록으로
+const goToBackBtn = document.getElementById("goToBackBtn");
 
-like.addEventListener("click", e=>{
+if (goToBackBtn!=null){
 
-    // 로그인 여부
-    if(loginMemberId == ""){
-        alert("로그인 후 이용해주세요");
-        return;
-   }
-
-    let check;
-
-    if( e.target.classList.contains("fa-regular")){
-        check=0; // 좋아요 안 눌른 상태
-    } else {
-        check=1;
-    }
-
-    const data = {
-        "memberId": loginMemberId,
-        "boardNo" : boardNo,
-        "likeCheck" : check
-    };
-
-    fetch("/study/detail/like",{
-        method: "POST",
-        headers:{"Content-Type" : "application/json" },
-        body : JSON.stringify(data)
+    goToBackBtn.addEventListener("click",function (){
+        location.href = `/study/main`;
     })
-        .then( res => res.text())
-        .then( count => {
 
+}
 
-            if(count == -1) { // DML 실패
-                alert("좋아요 실패 ㅜㅜ");
-                return;
-            }
+    // 좋아요 클릭 시
+    const like = document.getElementById("like");
+    const countSpan = document.getElementById("count");
+    const loginMemberId = document.getElementById("loginMemberId").value;
+    const boardNo = document.getElementById("boardNo").value;
 
-            e.target.classList.toggle("fa-regular");
-            e.target.classList.toggle("fa-solid");
+    like.addEventListener("click", e=>{
 
-            countSpan.innerText = count;
-           
+        // 로그인 여부
+        if(loginMemberId == ""){
+            alert("로그인 후 이용해주세요");
+            return;
+       }
 
+        let check;
 
+        if( e.target.classList.contains("fa-regular")){
+            check=0; // 좋아요 안 눌른 상태
+        } else {
+            check=1;
+        }
+
+        const data = {
+            "memberId": loginMemberId,
+            "boardNo" : boardNo,
+            "likeCheck" : check
+        };
+
+        fetch("/study/detail/like",{
+            method: "POST",
+            headers:{"Content-Type" : "application/json" },
+            body : JSON.stringify(data)
         })
-        .catch( err => {
-            console.log("예외발생")
-        })
-})
+            .then( res => res.text())
+            .then( count => {
+
+
+                if(count == -1) { // DML 실패
+                    alert("좋아요 실패 ㅜㅜ");
+                    return;
+                }
+
+                e.target.classList.toggle("fa-regular");
+                e.target.classList.toggle("fa-solid");
+
+                countSpan.innerText = count;
+
+
+
+            })
+            .catch( err => {
+                console.log("예외발생")
+            })
+    })
 
 
 // 팔로우 클릭 시
@@ -175,10 +186,12 @@ followElement.addEventListener("click",e=>{
             if(followSpan != null){
 
                 followSpan.innerText = '팔로우';
+                location.reload(true);
             }
             if(followingSpan != null){
 
-                followSpan.innerText = '팔로잉';
+                followingSpan.innerText = '팔로잉';
+                location.reload(true);
             }
 
 
@@ -188,13 +201,3 @@ followElement.addEventListener("click",e=>{
 
 })
 
-// 목록으로
-const goToBackBtn = document.getElementById("goToBackBtn");
-
-if (goToBackBtn!=null){
-
-    goToBackBtn.addEventListener("click",function (){
-        location.href = `/study/main`;
-    })
-
-}

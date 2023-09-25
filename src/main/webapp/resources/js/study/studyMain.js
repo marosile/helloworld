@@ -1,3 +1,4 @@
+
 // 모집하기눌렀을때
 const joinStudy = document.getElementById("P-study-btn");
 const loginMemberId = document.getElementById("loginMemberId").value;
@@ -34,6 +35,8 @@ selectBoxRole.addEventListener("click", (e) => {
         document.getElementById("selectedRole").value = selectedRole;
     }
 });
+
+
 
 // 카테고리 - 위치를 클릭 했을떄
 const purposeBtn = document.querySelector('.P-body-purpose-btn');
@@ -122,56 +125,50 @@ var mySwiper = new Swiper('.swiper-container', {
         });
     }*/
 
+// 각 like 버튼에 대한 이벤트 핸들러를 추가
+const likeButtons = document.querySelectorAll(".like-button");
 
-const like = document.getElementById("like");
+likeButtons.forEach(likeButton => {
+    likeButton.addEventListener("click", e => {
+        e.preventDefault();
 
-if(like != null){
-    like.addEventListener("click",e=>{
-
-
-        if(loginMemberIdloginMemberId == ""){
+        if (loginMemberId == "") {
             alert("로그인 후 이용해주세요");
             return;
         }
 
-
         let check;
 
-        if(e.target.classList.contains("fa-regular")){
-            check=0
-        }else{
-            check=1;
+        if (likeButton.querySelector("i").classList.contains("fa-regular")) {
+            check = 0;
+        } else {
+            check = 1;
         }
 
         const data = {
-            "memberId":loginMemberId,
-            "boardNo" :boardNo,
-            "likeCheck" : check
+            "memberId": loginMemberId,
+            "boardNo": likeButton.id.replace("like", ""), // like 버튼의 ID에서 숫자 부분을 추출
+            "likeCheck": check
         }
 
-
-        fetch("/study/main/like",{
+        fetch("/study/main/like", {
             method: "POST",
-            headers:{"Content-Type" : "application/json" },
-            body : JSON.stringify(data)
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(data)
         })
-            .then( res => res.text())
-            .then( count => {
-
-                if(count == -1) { // DML 실패
+            .then(res => res.text())
+            .then(count => {
+                if (count == -1) { // DML 실패
                     alert("좋아요 실패 ㅜㅜ");
                     return;
                 }
-                e.target.classList.toggle("fa-regular");
-                e.target.classList.toggle("fa-solid");
-                countSpan.innerText = count;
-
+                likeButton.querySelector("i").classList.toggle("fa-regular");
+                likeButton.querySelector("i").classList.toggle("fa-solid");
+                // 좋아요 개수를 업데이트하는 부분 (생략)
             })
-            .catch( err => {
-                console.log("예외발생")
+            .catch(err => {
+                console.log("예외 발생");
             })
-
-
-    })
-}
+    });
+});
 

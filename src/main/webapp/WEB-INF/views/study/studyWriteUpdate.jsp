@@ -56,7 +56,7 @@
 
                 <div class="P-body-category-role">
 
-                    <button type="button" class="P-body-category-btn" value="${study.tagNm}">모집분야
+                    <button type="button" class="P-body-category-btn">${study.tagNm}
                         <i class="fa-solid fa-caret-down"></i>
                     </button>
 
@@ -70,7 +70,8 @@
                         <li><button type="button" class="P-option-btn" id="etc" name="tagNm">기타</button></li>
                    </ul>
 
-                    <input type="hidden" id="selectedRole" name="tagNm">
+                    <input type="hidden" id="selectedRole" name="tagNm" value="${study.tagNm}">
+                    <input type="hidden" name="select1" value="${study.tagNm}">
 
                 </div>
 
@@ -96,7 +97,7 @@
 --%>
 
                 <div class="P-body-category-count">
-                    <button type="button" class="P-body-count-btn" ${study.headCount} >인원
+                    <button type="button" class="P-body-count-btn">${study.headCount}
                         <i class="fa-solid fa-caret-down"></i>
                     </button>
 
