@@ -113,11 +113,38 @@ public class AdminController {
 	
 	// 채용 담당자 관리 - 상세페이지
 	@GetMapping("/recruitOfficer/detail/{userId}")
-	public String recruitOfficerDetail(@PathVariable("userId") String userId) {
+	public String recruitOfficerDetail(@PathVariable("userId") String userId
+										, Model model
+	) {
 
-		AdminDTO adminDTO = service.recruitOfficerDetail(userId);
+		AdminDTO recruitOfficerDetail = service.recruitOfficerDetail(userId);
+
+		model.addAttribute("recruitOfficerDetail",recruitOfficerDetail);
 		
 		return "admin/recruitOfficer-detail";
+	}
+
+	@GetMapping("/recruitOfficer/detail/update")
+	public String recruitOfficerUpdate(@ModelAttribute AdminDTO cmpnInfo){
+		System.out.println("왜???안대??");
+		System.out.println("dd::" + cmpnInfo);
+		
+		/* N -> Y 로 업데이트 실행*/
+		int result = service.recruitOfficerUpdate(cmpnInfo);
+
+		String path = "redirect:";
+
+		if(result > 0){
+			result = service.recruitOfficerInsert(cmpnInfo);
+
+			if(result > 0){
+				path += "/admin/recruitOfficer";
+				System.out.println("성공");
+			}
+		}
+
+		
+		return path;
 	}
 
 }
