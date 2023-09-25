@@ -60,6 +60,14 @@ public class RecruitDAO_OHS {
 	public int companyInsert(Company company) {
 		return sqlSession.insert("recruitMapper.companyInsert", company);
 	}
+
+	/** 내 회사 공고 가져오기
+	 * @param memberId
+	 * @return Company
+	 */
+	public Company selectMyCompanyInfo(String memberId) {
+		return sqlSession.selectOne("recruitMapper.selectMyCompanyInfo", memberId);
+	}
 	
 	
 	

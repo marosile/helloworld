@@ -20,5 +20,6 @@ public class Company {
 	private String companyLogo; // 회사 로고
 	private String companyIntroduce; // 회사 소개
 	private int companyMcount;  // 사원수
+	private String companyFl; // 담당자로 등록 여부
 
 }

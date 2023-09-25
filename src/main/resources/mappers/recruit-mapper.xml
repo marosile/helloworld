@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="recruitMapper">
 
-	<!-- recruit ResultMap -->
+		<!-- recruit ResultMap -->
 	<resultMap type="recruit" id="recruitResultMap">
 	
 		<id property="companyNo" column="CMPN_NO" />
@@ -16,6 +16,7 @@
 		<result property="employmentType" column="JOB_TYPE" />
 		<result property="employmentBenefits" column="BENEFIT" />
 		
+		<result property="companyNo" column="CMPN_NO" />
 		<result property="companyId" column="CMPN_ID" />
 		<result property="companyName" column="CMPN_NM" />
 		<result property="companyLogo" column="CMPN_LOGO" />
@@ -31,29 +32,53 @@
 		<result property="memberId" column="MEMBER_ID" />
 		
 	</resultMap>
+	
+	<resultMap type="company" id="companyResultMap">
+	
+		<id property="companyNo" column="CMPN_NO" />
+		
+		<result property="memberId" column="MEMBER_ID" />
+		<result property="companyName" column="CMPN_NM" />
+		<result property="companyLogo" column="CMPN_LOGO" />
+		<result property="companyAddress" column="CMPN_ADDR" />
+		<result property="companyIntroduce" column="CMPN_INTRO" />
+		<result property="companyMcount" column="CMPN_MCOUNT" />
+		<result property="companyFl" column="CMPN_FL" />
 
+	</resultMap>
+
+	<!-- 담당자의 회사 정보 가져오기 -->
+	<select id="selectMyCompanyInfo" resultMap = "companyResultMap">
+		
+		SELECT * FROM COMPANY WHERE MEMBER_ID = #{memberId}
+	
+	</select>
+
+	<!-- 내 매칭 공고 ( 조건 : 2개이상 일치 ) -->
 	<select id="matchingRecruit" resultMap = "recruitResultMap">
-	    SELECT B.BOARD_CONTENT, RS.MEMBER_ID, BR.BOARD_NO, BR.POSITION,
-	    BR.EXPR_PERIOD, BR.EMPL_TYPE, BR.EMPL_CNDT,BR.ENTR_EXAM,BR.JOB_TYPE,
-	    BR.BENEFIT, CP.CMPN_NO, CP.MEMBER_ID AS CMPN_ID, CP.CMPN_NM, CP.CMPN_ADDR,
-	    CP.CMPN_LOGO,CP.CMPN_INTRO,CP.CMPN_MCOUNT
-	    FROM BOARD B JOIN BOARD_RECRUIT BR ON B.BOARD_NO = BR.BOARD_NO
-	    JOIN RESUME RS ON RS."POSITION" = BR."POSITION" JOIN COMPANY CP ON BR.CMPN_NO = CP.CMPN_NO
-	    WHERE
+		SELECT RS.MEMBER_ID, BR.BOARD_NO, BR.POSITION, BR.EXPR_PERIOD, BR.EMPL_TYPE, BR.EMPL_CNDT, BR.ENTR_EXAM, BR.JOB_TYPE, BR.BENEFIT,
+        CP.CMPN_NO, CP.MEMBER_ID AS CMPN_ID, CP.CMPN_NM, CP.CMPN_ADDR, CMPN_LOGO, CMPN_INTRO, CMPN_MCOUNT
+		FROM BOARD_RECRUIT BR
+		JOIN RESUME RS ON RS."POSITION" = BR."POSITION" 
+		JOIN COMPANY CP ON BR.CMPN_NO = CP.CMPN_NO
+		WHERE
 	    (
 	        (#{question1} = BR."POSITION" AND #{question2} = BR.EXPR_PERIOD) OR
 	        (#{question1} = BR."POSITION" AND #{question4} = BR.EMPL_TYPE) OR
 	        (#{question1} = BR."POSITION" AND #{question5} = CP.CMPN_ADDR) OR
 	        (#{question2} = BR.EXPR_PERIOD AND #{question4} = BR.EMPL_TYPE) OR
 	        (#{question2} = BR.EXPR_PERIOD AND #{question5} = CP.CMPN_ADDR) OR
-	        (#{question4} = BR.EMPL_TYPE AND #{question5} = CP.CMPN_ADDR)
+	        (#{question4} = BR.EMPL_TYPE AND #{question5}= CP.CMPN_ADDR)
 	    )
 	    AND RS.MEMBER_ID = #{memberId}
 	</select>
 	
+	<!-- 채용 담당자 등록 신청 (insert 후 fl로 구분) -->
+	<insert id="companyInsert">
+		INSERT INTO COMPANY VALUES (SEQ_CMPN_NO.NEXTVAL, #{memberId}, #{companyName}, #{companyAddress}, 
+		'/resources/images/recruit/' || #{companyLogo}, #{companyIntroduce}, ${companyMcount}, DEFAULT)
+	</insert>
 
-
-	
 	<!-- 전체 채용 공고 조회 -->
 	<select id="allRecruitList" resultMap="recruitResultMap">
 		SELECT BOARD_NO, CMPN_NO, CMPN_LOGO, CMPN_NM, POSITION
