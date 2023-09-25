@@ -53,6 +53,8 @@ public class RecuritController2 {
 		
 		map.put("matching", matchingRecruitList);
 		
+		System.out.println(matchingRecruitList);
+		
 		model.addAttribute("map", map);
 		
 		 // 비교 조회해서 LIST에담아서 JSP로 가져가야함
