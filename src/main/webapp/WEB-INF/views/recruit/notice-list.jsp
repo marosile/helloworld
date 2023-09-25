@@ -45,9 +45,7 @@
                             </div>
                         </div>
                         <div id="row3">
-                            <a href="/recruit/moreDetail?boardNo=${r.boardNo}"><div id="click">상세보기</div></a>
-                            <a href="/recruit/moreDetail?boardNo=${r.boardNo}"><div id="click">삭제</div></a>
-                            <div id="deleteBtn">삭제</div>
+                            <a href="/recruit/moreDetail?boardNo=${list.boardNo}"><div id="click">상세보기</div></a>
                         </div>
                     </div>
                 </div>

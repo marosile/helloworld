@@ -56,21 +56,22 @@
 
 	<!-- 내 매칭 공고 ( 조건 : 2개이상 일치 ) -->
 	<select id="matchingRecruit" resultMap = "recruitResultMap">
-		SELECT RS.MEMBER_ID, BR.BOARD_NO, BR.POSITION, BR.EXPR_PERIOD, BR.EMPL_TYPE, BR.EMPL_CNDT, BR.ENTR_EXAM, BR.JOB_TYPE, BR.BENEFIT,
-        CP.CMPN_NO, CP.MEMBER_ID AS CMPN_ID, CP.CMPN_NM, CP.CMPN_ADDR, CMPN_LOGO, CMPN_INTRO, CMPN_MCOUNT
-		FROM BOARD_RECRUIT BR
-		JOIN RESUME RS ON RS."POSITION" = BR."POSITION" 
-		JOIN COMPANY CP ON BR.CMPN_NO = CP.CMPN_NO
-		WHERE
-	    (
-	        (#{question1} = BR."POSITION" AND #{question2} = BR.EXPR_PERIOD) OR
-	        (#{question1} = BR."POSITION" AND #{question4} = BR.EMPL_TYPE) OR
-	        (#{question1} = BR."POSITION" AND #{question5} = CP.CMPN_ADDR) OR
-	        (#{question2} = BR.EXPR_PERIOD AND #{question4} = BR.EMPL_TYPE) OR
-	        (#{question2} = BR.EXPR_PERIOD AND #{question5} = CP.CMPN_ADDR) OR
-	        (#{question4} = BR.EMPL_TYPE AND #{question5}= CP.CMPN_ADDR)
-	    )
-	    AND RS.MEMBER_ID = #{memberId}
+		SELECT B.BOARD_CONTENT, RS.MEMBER_ID, BR.BOARD_NO, BR.POSITION,
+		    BR.EXPR_PERIOD, BR.EMPL_TYPE, BR.EMPL_CNDT,BR.ENTR_EXAM,BR.JOB_TYPE,
+		    BR.BENEFIT, CP.CMPN_NO, CP.MEMBER_ID AS CMPN_ID, CP.CMPN_NM, CP.CMPN_ADDR,
+		    CP.CMPN_LOGO,CP.CMPN_INTRO,CP.CMPN_MCOUNT
+		    FROM BOARD B JOIN BOARD_RECRUIT BR ON B.BOARD_NO = BR.BOARD_NO
+		    JOIN RESUME RS ON RS."POSITION" = BR."POSITION" JOIN COMPANY CP ON BR.CMPN_NO = CP.CMPN_NO
+		    WHERE
+		    (
+		        (#{question1} = BR."POSITION" AND #{question2} = BR.EXPR_PERIOD) OR
+		        (#{question1} = BR."POSITION" AND #{question4} = BR.EMPL_TYPE) OR
+		        (#{question1} = BR."POSITION" AND #{question5} = CP.CMPN_ADDR) OR
+		        (#{question2} = BR.EXPR_PERIOD AND #{question4} = BR.EMPL_TYPE) OR
+		        (#{question2} = BR.EXPR_PERIOD AND #{question5} = CP.CMPN_ADDR) OR
+		        (#{question4} = BR.EMPL_TYPE AND #{question5} = CP.CMPN_ADDR)
+		    )
+    AND RS.MEMBER_ID = #{memberId}
 	</select>
 	
 	<!-- 채용 담당자 등록 신청 (insert 후 fl로 구분) -->
@@ -110,22 +111,22 @@
    	
 	<!-- 로그인한 회원의 채용 리스트 조회 -->
 	<select id="noticeList" resultMap="recruitResultMap">
-		SELECT RS.MEMBER_ID, BR.BOARD_NO, BR.POSITION, BR.EXPR_PERIOD, BR.EMPL_TYPE, 
-        CP.CMPN_NO, CP.MEMBER_ID AS CMPN_ID, CP.CMPN_NM, CP.CMPN_ADDR, CMPN_LOGO
-		FROM BOARD_RECRUIT BR
-		JOIN RESUME RS ON RS."POSITION" = BR."POSITION" 
-		JOIN COMPANY CP ON BR.CMPN_NO = CP.CMPN_NO
-		WHERE
+		SELECT B.BOARD_CONTENT, RS.MEMBER_ID, BR.BOARD_NO, BR.POSITION,
+	    BR.EXPR_PERIOD, BR.EMPL_TYPE, BR.EMPL_CNDT,BR.ENTR_EXAM,BR.JOB_TYPE,
+	    BR.BENEFIT, CP.CMPN_NO, CP.MEMBER_ID AS CMPN_ID, CP.CMPN_NM, CP.CMPN_ADDR,
+	    CP.CMPN_LOGO,CP.CMPN_INTRO,CP.CMPN_MCOUNT
+	    FROM BOARD B JOIN BOARD_RECRUIT BR ON B.BOARD_NO = BR.BOARD_NO
+	    JOIN RESUME RS ON RS."POSITION" = BR."POSITION" JOIN COMPANY CP ON BR.CMPN_NO = CP.CMPN_NO
+	    WHERE
 	    (
 	        (#{question1} = BR."POSITION" AND #{question2} = BR.EXPR_PERIOD) OR
 	        (#{question1} = BR."POSITION" AND #{question4} = BR.EMPL_TYPE) OR
 	        (#{question1} = BR."POSITION" AND #{question5} = CP.CMPN_ADDR) OR
 	        (#{question2} = BR.EXPR_PERIOD AND #{question4} = BR.EMPL_TYPE) OR
 	        (#{question2} = BR.EXPR_PERIOD AND #{question5} = CP.CMPN_ADDR) OR
-	        (#{question4} = BR.EMPL_TYPE AND #{question5}= CP.CMPN_ADDR)
+	        (#{question4} = BR.EMPL_TYPE AND #{question5} = CP.CMPN_ADDR)
 	    )
 	    AND RS.MEMBER_ID = #{memberId}
-	    AND C.CMPN_FL = 'N'
 	</select>
    
    
