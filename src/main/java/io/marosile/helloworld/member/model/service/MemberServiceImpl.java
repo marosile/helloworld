@@ -365,5 +365,10 @@ public class MemberServiceImpl implements MemberService {
         return result;
     }
 
+    @Override
+    public Member getMemberById(String memberId) {
+        return dao.getMemberById(memberId);
+    }
+
 
 }

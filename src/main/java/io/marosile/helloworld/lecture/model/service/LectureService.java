@@ -11,4 +11,10 @@ public interface LectureService {
     List<Lecture> recentLectureList();
 
     Lecture lectureDetail(int lectureNo);
+
+    int insertLecture(Lecture lecture);
+
+    int updateLecture(Lecture lecture);
+
+    int deleteLecture(int lectureNo);
 }

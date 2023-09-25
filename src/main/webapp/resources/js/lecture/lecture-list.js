@@ -7,15 +7,21 @@ $('.card').click(function() {
 (() => {
     $.ajax({
         url: '/lecture/populars',
-        type: 'POST',
+        type: 'post',
         dataType: 'json',
         success: (result) => {
             for(let i = 0; i < result.length; i++) {
                 $('#popular-lecture-container [key=' + i + ']').attr('lecture-no', result[i].lectureNo);
                 $('#popular-lecture-container [key=' + i + '] .card-thumbnail').css({'background' : 'url(' + result[i].lectureThumbnail + ')', 'background-size' : 'cover'});
                 $('#popular-lecture-container [key=' + i + '] .card-title').text(result[i].lectureTitle);
+                $('#popular-lecture-container [key=' + i + '] .card-lecturer-icon').attr('src', result[i].lecturer.profileImg);
+                $('#popular-lecture-container [key=' + i + '] .card-lecturer').text(result[i].lecturer.memberNick);
+                const price = result[i].lecturePrice;
+                $('#popular-lecture-container [key=' + i + '] .card-price').text(price > 0 ? '₩ ' + price.toLocaleString('ko-KR') : '무료');
+                let count = 0;
                 for (let j of result[i].lectureTags) {
-                    $('#popular-lecture-container [key=' + i + '] .card-tags').append('<a>' + j + '</a>');
+                    if (count++ == 3) break;
+                    $('#popular-lecture-container [key=' + i + '] .card-tags').append('<a>#' + j + '</a>');
                 }
             }
         },

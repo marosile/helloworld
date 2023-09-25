@@ -117,7 +117,13 @@
     <update id="newPwChange" parameterType="Member">
         UPDATE "MEMBER"
         SET MEMBER_PW = #{memberPw}
-        WHERE MEMBER_ID=  #{memberId}
+        WHERE MEMBER_ID =  #{memberId}
     </update>
+
+    <select id="getMemberById" resultMap="member_rm">
+        SELECT *
+          FROM MEMBER
+         WHERE MEMBER_ID = #{memberId}
+    </select>
 
 </mapper>

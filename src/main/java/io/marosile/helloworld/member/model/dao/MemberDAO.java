@@ -92,4 +92,6 @@ public class MemberDAO {
     }
 
 
+    public Member getMemberById(String memberId) { return sqlSession.selectOne("memberMapper.getMemberById", memberId); }
+
 }

@@ -9,7 +9,8 @@
         <result property="lectureIntro" column="LCTR_INTRO"></result>
         <result property="lectureThumbnail" column="LCTR_THUMB"></result>
         <result property="lectureDifficulty" column="LCTR_DIFF"></result>
-        <result property="lectureTimeLimit" column="LCTR_TIME_LIMIT"></result>
+        <result property="lecturePrice" column="LCTR_PRICE"></result>
+        <result property="lectureSale" column="LCTR_SALE"></result>
         <collection property="lectureTags" select="selectLectureTagList"
                     column="LCTR_NO" javaType="java.util.ArrayList">
         </collection>
@@ -39,5 +40,35 @@
           FROM LECTURE
          WHERE LCTR_NO = ${lectureNo}
     </select>
+
+    <insert id="insertLecture" useGeneratedKeys="true">
+        <selectKey order="BEFORE" resultType="_int" keyProperty="lectureNo">
+            SELECT SEQ_LCTR_NO.NEXTVAL FROM DUAL
+        </selectKey>
+        INSERT ALL
+        INTO LECTURE VALUES(${lectureNo}, #{memberId}, #{lectureTitle}, #{lectureIntro}, #{lectureThumbnail}, ${lectureDifficulty}, ${lecturePrice}, DEFAULT, DEFAULT)
+        <foreach collection="lectureTags" item="tagNm">
+             INTO TAG_RELATION VALUES((SELECT TAG_NO FROM TAG WHERE TAG_NM = #{tagNm}), 2, ${lectureNo})
+        </foreach>
+        SELECT * FROM DUAL
+    </insert>
+
+    <update id="updateLecture">
+        UPDATE LECTURE
+           SET MEMBER_ID = #{memberId},
+               LCTR_TITLE = #{lectureTitle},
+               LCTR_INTRO = #{lectureIntro},
+               LCTR_THUMB = #{lectureThumbnail},
+               LCTR_DIFF = ${lectureDifficulty},
+               LCTR_PRICE = ${lecturePrice},
+               LCTR_SALE = ${lectureSale},
+               CREATE_DT = SYSDATE
+         WHERE LCTR_NO = ${lectureNo}
+    </update>
+
+    <delete id="deleteLecture">
+        DELETE FROM LECTURE
+         WHERE LCTR_NO = ${lectureNo}
+    </delete>
 
 </mapper>

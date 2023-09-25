@@ -4,6 +4,7 @@ import io.marosile.helloworld.lecture.model.dao.LectureDAO;
 import io.marosile.helloworld.lecture.model.dto.Lecture;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -27,5 +28,17 @@ public class LectureServiceImpl implements LectureService {
     public Lecture lectureDetail(int lectureNo) {
         return dao.selectLecture(lectureNo);
     }
+
+    @Override
+    @Transactional
+    public int insertLecture(Lecture lecture) { return dao.insertLecture(lecture); }
+
+    @Override
+    @Transactional
+    public int updateLecture(Lecture lecture) { return dao.updateLecture(lecture); }
+
+    @Override
+    @Transactional
+    public int deleteLecture(int lectureNo) { return dao.deleteLecture(lectureNo); }
 
 }

@@ -24,4 +24,12 @@ public class LectureDAO {
     public Lecture selectLecture(int lectureNo) {
         return sqlSession.selectOne("lectureMapper.selectLecture", lectureNo);
     }
+
+    public int insertLecture(Lecture lecture) {
+        return sqlSession.insert("lectureMapper.insertLecture", lecture) > 0 ? lecture.getLectureNo() : 0;
+    }
+
+    public int updateLecture(Lecture lecture) { return sqlSession.update("lectureMapper.updateLecture", lecture); }
+
+    public int deleteLecture(int lectureNo) { return sqlSession.update("lectureMapper.deleteLecture", lectureNo); };
 }

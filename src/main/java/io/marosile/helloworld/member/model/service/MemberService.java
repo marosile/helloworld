@@ -103,5 +103,5 @@ public interface MemberService {
      * */
     int newPwChange(Member member);
 
-
+    Member getMemberById(String memberId);
 }

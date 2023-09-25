@@ -47,7 +47,11 @@
                                     <div class="card-thumbnail"></div>
                                     <div class="card-info">
                                         <h3 class="card-title"></h3>
-                                        <div class="card-tags">
+                                        <div class="card-tags"></div>
+                                        <div class="card-info-2">
+                                            <img class="card-lecturer-icon" src="/resources/images/lecture/lecturer.png">
+                                            <p class="card-lecturer"></p>
+                                            <p class="card-price"></p>
                                         </div>
                                     </div>
                                 </div>
