@@ -24,4 +24,10 @@ public interface RecruitService_PHJ {
 	 */
 	EmploymentTest selectResume(String memberId);
 
+	/** 로그인한 멤버의 채용 리스트 조회
+	 * @param memberId
+	 * @return
+	 */
+	List<Recruit> noticeList(String memberId);
+
 }

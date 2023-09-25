@@ -135,14 +135,14 @@
                     <!-- 사람이미지 + 신입 + 내용-->
                     <div class="personInfo">
                         <div class="marginDiv"></div>
-                        <p>🤵 ${recruit.workConditionsDetail}</p>
+                        <p>🤵 ${recruit.boardContent}</p>
                     </div>
 
 
                     <!-- 사람이미지 + 경력 -->
                     <div class="personInfo" id="personInfo2">
                         <div class="marginDiv"></div>
-                        <p>👩‍💼 ${recruit.selectionProcess}
+                        <p>👩‍💼 ${recruit.workConditionsDetail}
                         </p>
                     </div>
 
@@ -150,7 +150,7 @@
                     </div>
 
                     <!-- 주요업무 -->
-                    <div id="responsibilities">
+<%--                     <div id="responsibilities">
                         
                         <div id="responsibilitiesTitle">주요업무</div>
                         
@@ -161,7 +161,7 @@
 
                         <p>- 웹 서비스와 EMS(OAM) 관련 업무를 담당하고 개발합니다.</p>
 
-                    </div>
+                    </div> --%>
 
                 </div>
             </c:forEach>  

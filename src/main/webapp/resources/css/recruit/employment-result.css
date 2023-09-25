@@ -73,7 +73,7 @@
 #apply-btn{
     width: 80px;
     height: 30px;
-    margin-left: 700px;
+    margin-left: 650px;
 
     font-size: 15px;
     font-weight: bold;
@@ -85,6 +85,10 @@
     border: 1px solid lightgreen;
 
     color: white;
+}
+
+#aplly-btn-area{
+    width: 100px;
 }
 
 
@@ -275,7 +279,7 @@
 
 /* 신입, 경력, 내용 */
 .personInfo{
-    height:150px;
+    height:250px;
     margin-bottom: 20px;
 }
 
@@ -288,6 +292,7 @@
 p{
     font-size:15px;
     margin-left:10px;
+    margin-top: 30px;
 }
 
 /* 경력 div 만 */

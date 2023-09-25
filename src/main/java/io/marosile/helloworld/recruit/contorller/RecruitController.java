@@ -59,13 +59,9 @@ public class RecruitController {
 				
 				EmploymentTest EmploymentTest = service.selectResume(memberId);
 				
-				System.out.println(EmploymentTest);
-				
 				Map<String, Object> map = new HashMap<>();
 				
 				List<Recruit> matchingRecruitList = service2.matchingRecruit(EmploymentTest);
-				
-				System.out.println(matchingRecruitList);
 				
 				map.put("matching", matchingRecruitList);
 				
@@ -90,7 +86,21 @@ public class RecruitController {
 	
 	// 내 매칭 공고
 	@GetMapping("/noticeList")
-	public String noticeList() {
+	public String noticeList(@SessionAttribute("loginMember") Member loginMember
+							,Model model) {
+		
+		String memberId = loginMember.getMemberId();
+		
+		EmploymentTest EmploymentTest = service.selectResume(memberId);
+		
+		Map<String, Object> map = new HashMap<>();
+		
+		List<Recruit> matchingRecruitList = service2.matchingRecruit(EmploymentTest);
+		
+		map.put("matching", matchingRecruitList);
+		
+		 model.addAttribute("map", map); 
+		
 		return "recruit/notice-list";
 	}
 	
@@ -135,6 +145,8 @@ public class RecruitController {
 	public String application() {
 		return "recruit/application";
 	}
+	
+	
 	
 	// 기업 담당자 신청 등록
 		@PostMapping("/application")

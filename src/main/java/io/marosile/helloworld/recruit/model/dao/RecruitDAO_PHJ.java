@@ -41,6 +41,14 @@ public class RecruitDAO_PHJ {
 	public EmploymentTest selectResume(String memberId) {
 		return sqlSession.selectOne("employmentMapper.selectResume", memberId);
 	}
+
+	/** 로그인한 회원의 채용 리스트 조회
+	 * @param memberId
+	 * @return
+	 */
+	public List<Recruit> noticeList(String memberId) {
+		return sqlSession.selectList("recruitMapper.noticeList", memberId);
+	}
 	
 	
 }
