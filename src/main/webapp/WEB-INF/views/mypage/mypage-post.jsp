@@ -3,6 +3,9 @@
 
 <!DOCTYPE html>
 <html lang="ko">
+
+<c:set var="postList" value="${postList}" />
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -21,10 +24,8 @@
         
         <h1 class="Title">나의 게시글</h1>
         <section>
-
             <div class="postList">
                 <table class="tb">
-                    
                     <thead>
                         <tr>
                             <th>제목</th>
@@ -36,54 +37,28 @@
                     </thead>
 
                     <tbody>
-                        <tr>
-                            <td><a>제목이다</a></td>
-                            <td>작성일이고</td>
-                            <td>조회수고</td>
-                            <td>댓글임</td>
-                            <td>좋아오</td>
-                        </tr>
 
-                        <tr>
-                            <td><a>제목이다</a></td>
-                            <td>작성일이고</td>
-                            <td>조회수고</td>
-                            <td>댓글임</td>
-                            <td>좋아오</td>
-                        </tr>
+                        <c:choose>
+                            <c:when test="${empty postList}">
+                                <div>게시글 목록이 존재하지 않습니다.</div>
+                            </c:when>
 
-                        <tr>
-                            <td><a>제목이다</a></td>
-                            <td>작성일이고</td>
-                            <td>조회수고</td>
-                            <td>댓글임</td>
-                            <td>좋아오</td>
-                        </tr>
-
-
+                            <c:otherwise>
+                                <c:forEach items="${postList}" var="postList">
+                                        <tr>
+                                            <td><a>${postList.boardTitle}</a></td>
+                                            <td>${postList.createDate}</td>
+                                            <td>${postList.readCount}</td>
+                                            <td>${postList.commentCount}</td>
+                                            <td>${postList.likeCount}</td>
+                                        </tr>
+                                </c:forEach>
+                            </c:otherwise>
+                        </c:choose>
                     </tbody>
 
-
                 </table>
-
-
-
-
-
-
             </div>
-
-                
-
-
-
-
-
-
-
-        
-        
-        
         
         </section>
         

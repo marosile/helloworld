@@ -8,6 +8,7 @@ import org.springframework.web.multipart.MultipartFile;
 import io.marosile.helloworld.member.model.dto.Member;
 import io.marosile.helloworld.mypage.model.dto.BookmarkList;
 import io.marosile.helloworld.mypage.model.dto.BookmarkList2;
+import io.marosile.helloworld.mypage.model.dto.PostList;
 
 public interface MyPageService {
 
@@ -52,6 +53,12 @@ public interface MyPageService {
 	 * @return
 	 */
 	List<BookmarkList2> selectBookmark2(String memberId);
+
+	/** 나의 게시글 목록 조회
+	 * @param memberId
+	 * @return
+	 */
+	List<PostList> selectPostList(String memberId);
 	
 
 
