@@ -123,7 +123,6 @@ if(idModalClose != null){
         if(modalArea != null){
             modalArea.style.display = 'none';
             preventScroll(false)
-            location.reload(true);
         }
 
     });
