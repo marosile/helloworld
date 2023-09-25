@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import io.marosile.helloworld.recruit.model.dao.RecruitDAO_PHJ;
+import io.marosile.helloworld.recruit.model.dto.EmploymentTest;
 import io.marosile.helloworld.recruit.model.dto.Recruit;
 
 @Service
@@ -24,5 +25,11 @@ public class RecruitServiceImpl_PHJ implements RecruitService_PHJ{
 	@Override
 	public Recruit moreDetail(int boardNo) {
 		return dao.moreDetail(boardNo);
+	}
+
+	// 로그인한 회원의 이력서 정보 조회
+	@Override
+	public EmploymentTest selectResume(String memberId) {
+		return dao.selectResume(memberId);
 	}
 }

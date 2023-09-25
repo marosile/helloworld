@@ -4,6 +4,6 @@ const btn = document.getElementById("btn");
 
 btn.addEventListener("click", () => {
 
-    location.href = "moreDetail";
+    location.href = "moreDetail?boardNo="+boardNo;
 
 })

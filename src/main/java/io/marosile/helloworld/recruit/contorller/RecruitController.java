@@ -1,6 +1,8 @@
 package io.marosile.helloworld.recruit.contorller;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -13,6 +15,7 @@ import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import io.marosile.helloworld.member.model.dto.Member;
+import io.marosile.helloworld.recruit.model.dto.EmploymentTest;
 import io.marosile.helloworld.recruit.model.dto.Recruit;
 import io.marosile.helloworld.recruit.model.service.RecruitService_OHS;
 import io.marosile.helloworld.recruit.model.service.RecruitService_PHJ;
@@ -31,7 +34,8 @@ public class RecruitController {
 	
 	
 	@GetMapping("/list")
-	private String recruitTestMainOrRecruitDetail(@SessionAttribute(value = "loginMember", required = false) Member loginMember) {
+	private String recruitTestMainOrRecruitDetail(@SessionAttribute(value = "loginMember", required = false) Member loginMember
+												,Model model) {
 		
 		// 테스트 했는지 조회
 		
@@ -44,10 +48,18 @@ public class RecruitController {
 			int result = service2.checkMyResume(memberId); // 테스트 했는지 확인
 			
 			if(result == 1) { // 테스트 했다면 내 매칭 공고 상세페이지
-			
-
-				path = "recruit/employment-resultAndRecruitDetail";
 				
+				EmploymentTest EmploymentTest = service.selectResume(memberId);
+				
+				Map<String, Object> map = new HashMap<>();
+				
+				List<Recruit> matchingRecruitList = service2.matchingRecruit(EmploymentTest);
+				
+				map.put("matching", matchingRecruitList);
+				
+				 model.addAttribute("map", map); 
+				
+				path = "recruit/employment-resultAndRecruitDetail";
 			}
 		}
 		return path;
