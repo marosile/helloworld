@@ -1,6 +1,7 @@
 const cancelRegistration = document.getElementById("cancelRegistration");
 const registerCompany = document.getElementById("registerCompany");
 const goToList = document.getElementById("goToList");
+const recruitForm = document.getElementById("recruitForm");
 
 // 반려
 cancelRegistration.addEventListener("click", () => {
@@ -18,18 +19,24 @@ cancelRegistration.addEventListener("click", () => {
 })
 
 // 등록
-registerCompany.addEventListener("click", () => {
+// registerCompany.addEventListener("click", () => {
+//
+//     if(confirm("채용 담당자로 등록하시겠습니까?")){
+//
+//         //location.href = "/admin/recruitOfficer/detail/update";
+//         // 등록 문자 보내기
+//
+//         //alert("등록되었습니다.");
 
-    if(confirm("채용 담당자로 등록하시겠습니까?")){
+//     }
+//
+// })
 
-        // 등록 문자 보내기
-
-        alert("등록되었습니다.");
-
-        location.href = "/admin/recruitOfficer";
-        
+// 서버에 폼태그가 제출될 때
+recruitForm.addEventListener("submit", (e) => {
+    if(!confirm("채용 담당자로 등록하시겠습니까?")){
+        e.preventDefault();
     }
-
 })
 
 

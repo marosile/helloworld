@@ -147,5 +147,27 @@
 		WHERE MEMBER_ID = #{userId}
 	</select>
 
+	<!-- 관리자 상세 페이지 조회-->
+	<select id="recruitOfficerDetail" resultMap="adminResultMap">
+		SELECT CMPN_NO, MEMBER_ID, CMPN_NM, CMPN_ADDR, CMPN_LOGO, CMPN_INTRO, CMPN_MCOUNT, CMPN_FL, MEMBER_TEL
+		FROM COMPANY
+				 JOIN MEMBER USING(MEMBER_ID)
+		WHERE CMPN_FL = 'N'
+		  AND MEMBER_ID = #{userId}
+		ORDER BY CMPN_NO
+	</select>
+
+	<!-- 관리자 기업 담당 업데이트 -->
+	<update id="recruitOfficerUpdate" >
+		UPDATE COMPANY SET CMPN_FL='Y'
+		WHERE MEMBER_ID = #{userId}
+	</update>
+
+	<!-- 관리자 기업 담당 추가 -->
+	<insert id="recruitOfficerInsert">
+		INSERT INTO AUTHORITY
+		VALUES(2, #{userId})
+	</insert>
+
 
 </mapper>

@@ -91,6 +91,18 @@ public class AdminDAO {
 
 	// 기업 담당자 자격 신청 상세 페이지
 	public AdminDTO recruitOfficerDetail(String userId) {
-		return null;
+
+		return sqlSession.selectOne("adminMapper.recruitOfficerDetail", userId);
+	}
+
+	// 기업 담당자 업데이트
+	public int recruitOfficerUpdate(AdminDTO cmpnInfo) {
+		return sqlSession.update("adminMapper.recruitOfficerUpdate", cmpnInfo);
+	}
+
+
+	// 기업 담당자 승인 회원 자격 테이블에 추가
+	public int recruitOfficerInsert(AdminDTO cmpnInfo) {
+		return sqlSession.insert("adminMapper.recruitOfficerInsert", cmpnInfo);
 	}
 }

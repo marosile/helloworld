@@ -86,4 +86,18 @@ public class AdminServiceImpl implements AdminService {
 		return dao.recruitOfficerDetail(userId);
 	}
 
+
+	// 기업 담당자 업데이트
+	@Transactional
+	@Override
+	public int recruitOfficerUpdate(AdminDTO cmpnInfo) {
+		return dao.recruitOfficerUpdate(cmpnInfo);
+	}
+
+	// 기업 담당자 승인 회원 자격 테이블에 추가
+	@Override
+	public int recruitOfficerInsert(AdminDTO cmpnInfo) {
+		return dao.recruitOfficerInsert(cmpnInfo);
+	}
+
 }

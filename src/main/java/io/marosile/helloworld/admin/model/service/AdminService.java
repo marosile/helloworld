@@ -37,4 +37,10 @@ public interface AdminService {
 
 	// 기업 담당자 자격 신청 상세 페이지
 	AdminDTO recruitOfficerDetail(String userId);
+
+	// 기업 담당자 승인 업데이트 버튼
+	int recruitOfficerUpdate(AdminDTO cmpnInfo);
+
+	// 기업 담당자 승인 회원 자격 테이블에 추가
+	int recruitOfficerInsert(AdminDTO cmpnInfo);
 }
