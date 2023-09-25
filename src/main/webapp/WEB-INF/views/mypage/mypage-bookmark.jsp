@@ -26,6 +26,7 @@
 
         <h1 class="Title">북마크</h1>
 
+        <%-- 채용으로 가는 전환 버튼 --%>
         <div class="change">
             <h4><span id="community">커뮤니티</span> | <span id="chae"><a href="/mypage/bookmark2">채용공고</a></span></h4>
         </div>
@@ -46,11 +47,11 @@
                         
                             <div class="row1">
                                 <div class="top">
-                                    <!-- 유저 프사 -->
+                                    <%-- 유저 프사 --%>
                                     <img class="profileImage" src="${bookmarkList.profileImage}">
-                                    <!-- 유저 닉네임 -->
+                                    <%-- 유저 닉네임 --%>
                                     <div class="memberNick">${bookmarkList.memberNickname}</div>
-                                    <!-- 게시글 작성일 -->
+                                    <%-- 게시글 작성일 --%>
                                     <div class="createDate">${bookmarkList.createDate}</div>
                                 </div>
 

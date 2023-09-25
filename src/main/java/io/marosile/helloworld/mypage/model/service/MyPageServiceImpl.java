@@ -87,7 +87,7 @@ public class MyPageServiceImpl implements MyPageService {
 		return result;
 	}
 
-	/** 북마크 조회
+	/** 북마크 조회 (커뮤니티)
 	 *
 	 */
 	@Override
@@ -95,7 +95,7 @@ public class MyPageServiceImpl implements MyPageService {
 		return dao.selectBookmark(memberId);
 	}
 
-	/** 북마크 조회2
+	/** 북마크 조회2 (채용)
 	 */
 	@Override
 	public List<BookmarkList2> selectBookmark2(String memberId) {

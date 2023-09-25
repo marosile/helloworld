@@ -18,12 +18,15 @@ public class BookmarkList2 {
 	// COMPANY
 	private String companyLogo; 	 // 회사 로고
 	private String companyName; 	 // 회사 이름
+	private String companyAddress; 	 // 회사 이름
 	
-	// RESUME
-	private String experiencePeriod; // 경력 기간
-	private String salaryExpect; 	 // 연봉 정보
-	private String employeeType; 	 // 업무 형태
-	private String employeeLocation; // 근무 지역
+	
+	// BOARD_RECRUIT
+	private String experiencePeriod; // 신입 ~ 몇년차
+	private String employeeType; 	 // 근무형태 (사무실, 집)
+	
+	
+	
 	
 
 }
