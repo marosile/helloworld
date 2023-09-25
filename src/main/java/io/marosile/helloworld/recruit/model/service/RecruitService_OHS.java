@@ -3,6 +3,9 @@ package io.marosile.helloworld.recruit.model.service;
 import java.util.List;
 import java.util.Map;
 
+import org.springframework.web.multipart.MultipartFile;
+
+import io.marosile.helloworld.recruit.model.dto.Company;
 import io.marosile.helloworld.recruit.model.dto.EmploymentTest;
 import io.marosile.helloworld.recruit.model.dto.Recruit;
 
@@ -31,5 +34,11 @@ public interface RecruitService_OHS {
 	 * @return List
 	 */
 	List<Recruit> matchingRecruit(EmploymentTest employmentTest);
+
+	/** 기업담당자 신청
+	 * @param company
+	 * @return result
+	 */
+	int companyInsert(Company company);
 
 }
