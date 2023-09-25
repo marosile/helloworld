@@ -49,10 +49,12 @@ btn1.addEventListener("click", () => {
         .then(resp => resp.text())
         .then(result => {
             if (result != null) {
-                alert("인증번호가 발송되었습니다.");
+                snackbar("인증번호가 발송되었습니다.", 'rgb(0, 128, 255)', '/resources/images/moon.png');
+                // alert("인증번호가 발송되었습니다.");
                 return;
             } else {
-                alert("인증번호 발송 실패")
+                snackbar("인증번호 발송 실패", 'rgb(0, 128, 255)', '/resources/images/moon.png');
+                // alert("인증번호 발송 실패")
                 return;
             }
 
@@ -153,7 +155,8 @@ btn2.addEventListener("click", () => {
             .catch(err => console.log(err))
 
     }else{
-        alert("인증 시간이 만료되었습니다. 다시 시도해주세요.")
+        snackbar("인증 시간이 만료되었습니다. 다시 시도해주세요.", 'rgb(0, 128, 255)', '/resources/images/moon.png');
+        // alert("인증 시간이 만료되었습니다. 다시 시도해주세요.")
     }
 
 });
@@ -210,8 +213,10 @@ document.getElementById("findPwBtn1").addEventListener("click", (e) => {
             // false인 경우 == 유효하지 않다!
 
             switch(key){
-                case "inputId1" : alert("비밀번호 재발급할 ID를 입력해주세요"); break;
-                case "inputTel2" : alert("전화번호 인증을 해주세요"); break;
+                case "inputId1" : snackbar("비밀번호 재발급할 ID를 입력해주세요", 'rgb(0, 128, 255)', '/resources/images/moon.png'); break;
+                    // alert("비밀번호 재발급할 ID를 입력해주세요"); break;
+                case "inputTel2" : snackbar("전화번호 인증을 해주세요", 'rgb(0, 128, 255)', '/resources/images/moon.png'); break;
+                    // alert("전화번호 인증을 해주세요"); break;
             }
 
             // 유효하지 않은 input 태그로 focus 이동
@@ -255,7 +260,8 @@ document.getElementById("findPwBtn1").addEventListener("click", (e) => {
 
             }else{
                 //idModal.style.display = 'block';
-                alert("일치하는 아이디, 전화번호가 아니거나 전화번호 인증이 안되었습니다.")
+                snackbar("일치하는 아이디, 전화번호가 아니거나 전화번호 인증이 안되었습니다.", 'rgb(0, 128, 255)', '/resources/images/moon.png');
+                // alert("일치하는 아이디, 전화번호가 아니거나 전화번호 인증이 안되었습니다.")
                 authKeyMessage.innerText = '';
             }
 
@@ -295,7 +301,8 @@ btn3.addEventListener("click", () => {
     authSec = 59;
 
     if(inputEmail1.value.trim().length == 0){
-        alert("이메일을 입력 해주세요");
+        snackbar("이메일을 입력 해주세요", 'rgb(0, 128, 255)', '/resources/images/moon.png');
+        // alert("이메일을 입력 해주세요");
         return;
     }
 
@@ -308,10 +315,12 @@ btn3.addEventListener("click", () => {
         .then(resp => resp.text())
         .then(result => {
             if(result != null){
-                alert("인증 번호가 발송되었습니다.")
+                snackbar("인증 번호가 발송되었습니다.", 'rgb(0, 128, 255)', '/resources/images/moon.png');
+                // alert("인증 번호가 발송되었습니다.")
                 console.log(result);
             }else{
-                alert("인증번호 발송 실패")
+                snackbar("인증번호 발송 실패", 'rgb(0, 128, 255)', '/resources/images/moon.png');
+                // alert("인증번호 발송 실패")
             }
         })
         .catch(err => {
@@ -392,7 +401,8 @@ btn4.addEventListener("click", () => {
             });
 
     }else{
-        alert("인증 시간이 만료되었습니다. 다시 시도해주세요.")
+        snackbar("인증 시간이 만료되었습니다. 다시 시도해주세요.", 'rgb(0, 128, 255)', '/resources/images/moon.png');
+        // alert("인증 시간이 만료되었습니다. 다시 시도해주세요.")
     }
 
 
@@ -416,8 +426,10 @@ document.getElementById("findPwBtn2").addEventListener("click", (e) => {
                 // false인 경우 == 유효하지 않다!
 
                 switch(key){
-                    case "inputId2" : alert("비밀번호 재발급할 ID를 입력해주세요"); break;
-                    case "inputEmail2" : alert("이메일 인증을 해주세요"); break;
+                    case "inputId2" : snackbar("비밀번호 재발급할 ID를 입력해주세요", 'rgb(0, 128, 255)', '/resources/images/moon.png'); break;
+                        // alert("비밀번호 재발급할 ID를 입력해주세요"); break;
+                    case "inputEmail2" : snackbar("이메일 인증을 해주세요", 'rgb(0, 128, 255)', '/resources/images/moon.png'); break;
+                        // alert("이메일 인증을 해주세요"); break;
                 }
 
                 // 유효하지 않은 input 태그로 focus 이동
@@ -459,7 +471,8 @@ document.getElementById("findPwBtn2").addEventListener("click", (e) => {
                     console.log("실패이야?")
                     //pwModal.style.display = 'none';
 
-                    alert("일치하는 아이디, 이메일이 아니거나 이메일 인증이 안되었습니다.")
+                    snackbar("일치하는 아이디, 이메일이 아니거나 이메일 인증이 안되었습니다.", 'rgb(0, 128, 255)', '/resources/images/moon.png');
+                    // alert("일치하는 아이디, 이메일이 아니거나 이메일 인증이 안되었습니다.")
 
                     authKeyMessage2.innerText = '';
                 }
@@ -631,8 +644,10 @@ newPwFrm.addEventListener("submit", (e) => {
             // false인 경우 == 유효하지 않다!
 
             switch(key){
-                case "newPw" : alert("비밀번호가 유효하지 않습니다."); break;
-                case "newPw2" : alert("비밀번호 확인이 유효하지 않습니다."); break;
+                case "newPw" : snackbar("비밀번호가 유효하지 않습니다.", 'rgb(0, 128, 255)', '/resources/images/moon.png'); break;
+                    // alert("비밀번호가 유효하지 않습니다."); break;
+                case "newPw2" : snackbar("비밀번호 확인이 유효하지 않습니다.", 'rgb(0, 128, 255)', '/resources/images/moon.png'); break;
+                    // alert("비밀번호 확인이 유효하지 않습니다."); break;
             }
 
             document.getElementById(key).focus();
@@ -652,13 +667,17 @@ newPwFrm.addEventListener("submit", (e) => {
 /* x누를 시 modal창 display none으로 만들기*/
 const pwModalClose = document.getElementById("pwModalClose");
 
-pwModalClose.addEventListener("click", () => {
-    if(pwModal != null){
-        pwModal.style.display = 'none';
-        // location.reload(true);
-    }
+if(pwModalClose != null){
+    pwModalClose.addEventListener("click", () => {
+        if(pwModal != null){
+            pwModal.style.display = 'none';
+            // location.reload(true);
+        }
+    });
+}
 
-});
+
+
 
 
 

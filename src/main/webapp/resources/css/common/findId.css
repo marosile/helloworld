@@ -147,7 +147,7 @@
 }
 
 
-#idModalClose {
+#idFindModalClose {
     position: absolute;
     top: 70px;
     right: 40px;
@@ -160,7 +160,7 @@
     cursor: pointer;
 }
 
-#idModalClose:hover{
+#idFindModalClose:hover{
     transform: scale(1.2);
 }
 

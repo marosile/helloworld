@@ -270,7 +270,8 @@ let authSec = 59;
         if(inputTel1.value.trim().length == 0){
             inputTel1.value = "";
             telMessage.innerText = "전화번호를 입력해주세요(- 제외)";
-            snackbar("전화번호를 입력해주세요(- 제외)", 'rgb(0, 128, 255)', '/resources/images/moon.png')
+            snackbar("전화번호를 입력해주세요(- 제외)", 'rgb(0, 128, 255)', '/resources/images/moon.png');
+            // alert("전화번호를 입력해주세요(- 제외)");
             telMessage.classList.remove("confirm", "error");
             checkSignUp.inputTel1 = false;
             return;
@@ -295,9 +296,12 @@ let authSec = 59;
             .then(result => {
                 if (result != null) {
                     snackbar("인증번호가 발송되었습니다.", 'rgb(0, 128, 255)', '/resources/images/moon.png')
+                    // alert("인증번호가 발송되었습니다.")
                     return;
+
                 } else {
                     snackbar("인증번호 발송 실패", 'rgb(0, 128, 255)', '/resources/images/moon.png')
+                    // alert("인증번호 발송 실패");
                     return;
                 }
                 
@@ -340,6 +344,7 @@ let authSec = 59;
 
     }   else{
             snackbar("전화번호 형식이 일치하지 않거나 중복입니다. 다시 입력해주세요", 'rgb(0, 128, 255)', '/resources/images/moon.png');
+            // alert("전화번호 형식이 일치하지 않거나 중복입니다. 다시 입력해주세요");
             inputTel1.focus();
     }
 });
@@ -410,6 +415,7 @@ btn2.addEventListener("click", () => {
 
     }else{
         snackbar("인증 시간이 만료되었습니다. 다시 시도해주세요.", 'rgb(0, 128, 255)', '/resources/images/moon.png');
+        // alert("인증 시간이 만료되었습니다. 다시 시도해주세요.");
     }
 
 
@@ -682,21 +688,21 @@ document.getElementById("mainFrm").addEventListener("submit", e => {
                 // false인 경우 == 유효하지 않다!
 
             switch(key){
-                case "inputId" : alert("아이디가 유효하지 않습니다."); break;
+                case "inputId" : snackbar("아이디가 유효하지 않습니다.", 'rgb(0, 128, 255)', '/resources/images/moon.png'); break;
 
-                case "inputEmail" : alert("이메일이 유효하지 않습니다."); break;
+                case "inputEmail" : snackbar("이메일이 유효하지 않습니다.", 'rgb(0, 128, 255)', '/resources/images/moon.png'); break;
 
-                case "inputTel1" : alert("전화번호가 확인되지 않습니다."); break;
+                case "inputTel1" : snackbar("전화번호가 유효하지 않습니다.", 'rgb(0, 128, 255)', '/resources/images/moon.png'); break;
 
-                case "inputTel2" : alert("전화번호 인증을 해주세요"); break;
+                case "inputTel2" : snackbar("전화번호 인증을 해주세요", 'rgb(0, 128, 255)', '/resources/images/moon.png'); break;
 
-                case "inputNickname" : alert("닉네임이 유효하지 않습니다."); break;
+                case "inputNickname" : snackbar("닉네임이 유효하지 않습니다.", 'rgb(0, 128, 255)', '/resources/images/moon.png'); break;
 
-                case "inputPw" : alert("비밀번호가 유효하지 않습니다."); break;
+                case "inputPw" : snackbar("비밀번호가 유효하지 않습니다.", 'rgb(0, 128, 255)', '/resources/images/moon.png'); break;
 
-                case "inputConfirmPw" : alert("비밀번호 확인이 유효하지 않습니다."); break;
+                case "inputConfirmPw" : snackbar("비밀번호 확인이 유효하지 않습니다.", 'rgb(0, 128, 255)', '/resources/images/moon.png'); break;
 
-                case "essentialCheck" : alert("필수 항목에 동의해주세요."); break;
+                case "essentialCheck" : snackbar("필수 항목에 동의해주세요.", 'rgb(0, 128, 255)', '/resources/images/moon.png'); break;
 
 
             }
@@ -713,6 +719,8 @@ document.getElementById("mainFrm").addEventListener("submit", e => {
             return; // 함수 종료
 
         }
+
+
 
     }
 

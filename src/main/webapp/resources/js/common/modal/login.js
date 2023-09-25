@@ -62,7 +62,8 @@ if(loginBtn != null){
                     snackbar('환영합니다!', 'rgb(0, 128, 255)', '/resources/images/moon.png')
                     modalArea.style.display = "none";
                     preventScroll(false);
-                    loginChange.innerHTML = "<div id='header-mypage' class='button' onClick='location.href=`/mypage/profile`'>마이페이지</div>"
+                    // loginChange.innerHTML = "<div id='header-mypage' class='button' onClick='location.href=`/mypage/profile`'>마이페이지</div>"
+                    location.reload(true);
 
                     headerLogin.innerText = "로그아웃"
                     

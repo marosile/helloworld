@@ -22,7 +22,7 @@
     
         <div class="radioList">
             <label for="findTel" class="findTelLabel">
-                <input type="radio" name="findIdRadio" id="findTel" checked>휴대폰 인증
+                <input type="radio" name="findIdRadio" id="findTel" checked>전화번호 인증
                 <label for="findTel" class="findTelShape"></label>
             </label>
                 
@@ -87,7 +87,7 @@
 
 
         <div class="idModal">
-            <span id="idModalClose">&times;</span>
+            <span id="idFindModalClose">&times;</span>
             <div class="idModalDiv">
                 <h2>해당 전화번호와 일치하는 아이디</h2>
                 <span class="findIdSpan">아이디 : </span>
