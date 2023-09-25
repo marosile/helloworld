@@ -31,16 +31,29 @@
         </label>
         <c:choose>
             <c:when test="${empty loginMember}">
-                <div id="header-login" class="button" onClick="location.href='/member/login'">로그인</div>
-                <div id="header-signup" class="button" onClick="location.href='/member/signUp'">회원가입</div>
+                <div id="header-login" class="button">로그인</div>
+                <div class="loginChange">
+                    <div id="header-signup" class="button" onClick="location.href='/member/signUp'">회원가입</div>
+                </div>
             </c:when>
             <c:otherwise>
-                <div id="header-login" class="button" onClick="location.href='/member/logout'">로그아웃</div>
-                <div id="header-signup" class="button" onClick="location.href='/mypage/profile'">마이페이지</div>
+                <div id="header-logout" class="button" onClick="location.href='/member/logout'">로그아웃</div>
+                <div class="loginChange">
+                    <div id="header-mypage" class="button" onClick="location.href='/mypage/profile'">마이페이지</div>
+                </div>
             </c:otherwise>
         </c:choose>
     </div>
 </header>
 
+<body>
+    <div class="modalArea">
+        <div>
+            <jsp:include page="/WEB-INF/views/common/modal/login.jsp"/>
+        </div>
+    </div>
+</body>
+
 
 <script src="/resources/js/common/header.js"></script>
+<script src="/resources/js/common/modal/login.js"></script>

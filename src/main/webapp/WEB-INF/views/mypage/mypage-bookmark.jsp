@@ -3,6 +3,9 @@
 
 <!DOCTYPE html>
 <html lang="ko">
+
+<c:set var="bookmarkList" value="${bookmarkList}" />
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -29,68 +32,50 @@
 
         <section class="bookmark">
 
-            <div class="bookmarkList">
-                <div class="row1">
-                    <div class="top">
-                        <!-- 유저 프사 -->
-                        <img class="profileImage" src="/resources/images/user.png">
-                        <!-- 유저 닉네임 -->
-                        <div class="memberNick">유저일이다</div>
-                        <!-- 게시글 작성일 -->
-                        <div class="createDate">2023-05-05</div>
-                    </div>
+            <c:choose>
+                <%-- 북마크가 비어있다면 --%>
+                <c:when test="${empty bookmarkList}">
+                    <div>북마크 목록이 존재하지 않습니다.</div>
+                </c:when>
 
-                    <div class="bottom">
-                        <div class="title">제목이다 리액트 재 시험 대신 봐줄사람 구합니다....</div>
+                <%-- 비어있지 않다면 --%>
+                <c:otherwise>
+                    <div class="bookmarkList">
 
-                        <div class="Count-area">
-                            <div class="viewCount">
-                                <i class="fa-regular fa-eye" id="vcon"></i>
-                                <div id="viewCount">30</div>
+                        <c:forEach items="${bookmarkList}" var="bookmarkList">
+                        
+                            <div class="row1">
+                                <div class="top">
+                                    <!-- 유저 프사 -->
+                                    <img class="profileImage" src="${bookmarkList.profileImage}">
+                                    <!-- 유저 닉네임 -->
+                                    <div class="memberNick">${bookmarkList.memberNickname}</div>
+                                    <!-- 게시글 작성일 -->
+                                    <div class="createDate">${bookmarkList.createDate}</div>
+                                </div>
+
+                                <div class="bottom">
+                                    <div class="title">${bookmarkList.boardTitle}</div>
+
+                                    <div class="Count-area">
+                                        <div class="viewCount">
+                                            <i class="fa-regular fa-eye" id="vcon"></i>
+                                            <div id="viewCount">${bookmarkList.readCount}</div>
+                                        </div>
+                                        <div class="replyCount">
+                                            <i class="fa-regular fa-comment-dots" id="rcon"></i>
+                                            <div id="replyCount">${bookmarkList.commentCount}</div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="replyCount">
-                                <i class="fa-regular fa-comment-dots" id="rcon"></i>
-                                <div id="replyCount">3</div>
-                            </div>
-                        </div>
+                        
+                        </c:forEach>
                     </div>
-                </div>
+                </c:otherwise>
 
+            </c:choose>
 
-
-
-                <div class="row1">
-                    <div class="top">
-                        <!-- 유저 프사 -->
-                        <img class="profileImage" src="/resources/images/user.png">
-                        <!-- 유저 닉네임 -->
-                        <div class="memberNick">유저일이다</div>
-                        <!-- 게시글 작성일 -->
-                        <div class="createDate">2023-05-05</div>
-                    </div>
-
-                    <div class="bottom">
-                        <div class="title">제목이다 리액트 재 시험 대신 봐줄사람 구합니다....하고 제목이 더 길어 지면
-                            이렇게 됩니다
-                        </div>
-
-                        <div class="Count-area">
-                            <div class="viewCount">
-                                <i class="fa-regular fa-eye" id="vcon"></i>
-                                <div id="viewCount">30</div>
-                            </div>
-                            <div class="replyCount">
-                                <i class="fa-regular fa-comment-dots" id="rcon"></i>
-                                <div id="replyCount">3</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-    
-                
-            </div>
             
         
         </section>

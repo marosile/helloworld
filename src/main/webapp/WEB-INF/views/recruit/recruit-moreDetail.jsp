@@ -4,6 +4,9 @@
 
 <!DOCTYPE html>
 <html lang="ko">
+
+<c:set var="recruit" value="${recruit}" />
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -21,86 +24,51 @@
 
         <div id="body-area">
             <div id="left">
-                <div id="main-title">[캐시워크] 프론트엔드개발 채용전환형 인턴</div>
-                <div id="photo">
-                    <div>이미지</div>
+                <div id="company-name">
+                    <img src="${recruit.companyLogo}">
+                    <div>${recruit.companyName}</div>
                 </div>
-                <div class="info">
-                    <makr> 회사정보 </makr>
+
+
+                <div id="main-title">${recruit.boardTitle}</div>
+
+                <div class="company-info">
+                    <makr> <i class="fa-regular fa-building"></i> 회사정보 </makr>
                     <div class="article">
                         <p>회사소개</p>
                         <li>
-                            넛지헬스케어는 행동경제학 이론을 실생활에 적용하여 비만, 당뇨, 고혈압과 같은 만성질환을 예방하고 관리할 수 있도록 돕는 것을 목표로 2016년 설립되었습니다.
-                            현재는 대한민국 국민 3명 중 1명이 사용하고 있는 국민 건강앱 [캐시워크]를 개발한 디지털 헬스케어 스타트업 입니다.
-                        </li>
-                        <li>
-                            현재는 대한민국 국민 3명 중 1명이 사용하고 있는 국민 건강앱 [캐시워크]를 개발한 디지털 헬스케어 스타트업 입니다.
+                            ${recruit.companyIntroduce}
                         </li>
                     </div>
                 </div>
                 <div class="info">
-                    <makr>모집부문 및 상세내용</makr>
+                    <makr><i class="fa-solid fa-file-lines"></i> 모집부문 및 상세내용</makr>
                     <div class="article">
-                        <p>업무내용</p>
                         <li>
-                            자사 WEB/CMS 프론트엔드 개발
+                            ${recruit.boardContent}
                         </li>
+                    </div>
+                </div>
+                <div class="Detail">
+                    <makr><i class="fa-solid fa-check"></i> 근무조건</makr>
+                    <div class="article">
                         <li>
-                            프로젝트 단위로 신규 업무 진행
+                            ${recruit.selectionProcess}
                         </li>
-
-                        <p>지원자격</p>
+                    </div>
+                </div>
+                <div class="selectionProcess">
+                    <makr><i class="fa-solid fa-pen-to-square"></i> 전형절차</makr>
+                    <div class="article">
                         <li>
-                            웹 표준, 웹 접근성, 반응형 개발 가능하신 분
-                        </li>
-                        <li>
-                            새로운 기술에 두려워하지 않고 꾸준히 노력하는 분
+                            ${recruit.selectionProcess}
                         </li>
                     </div>
                 </div>
                 <div class="info">
-                    <makr>근무조건</makr>
+                    <makr><i class="fa-regular fa-face-smile-wink"></i> 복리후생</makr>
                     <div class="article">
-                        <li>
-                            근무일시: 주 5일(월~금) 09:00~18:00 (시차출퇴근제 운영)
-                        </li>
-                        <li>
-                            근무형태: 인턴직 - 3개월 후 평가를 통해 정규직 전환 가능
-                        </li>
-                        <li class="important">
-                            ⇒ 정규직 전환 후 계속 근로가능자 必 : 졸업자 또는 졸업예정자
-                        </li>
-                    </div>
-                </div>
-                <div class="info">
-                    <makr>전형절차</makr>
-                    <div class="article">
-                        <li>
-                            서류전형 → 1차 인터뷰 → 처우협의 및 최종합격
-                        </li>
-                        <li class="important">
-                            ⇒ 지원 포지션 별로 코딩테스트가 있을 수 있습니다. (인터뷰 일정 어레인지 시 별도안내)
-                        </li>
-                        <li class="important">
-                            ⇒ 전형과정 중 동의를 통해 레퍼런스체크를 진행할 수 있습니다.
-                        </li>
-                    </div>
-                </div>
-                <div class="info">
-                    <makr>복리후생</makr>
-                    <div class="article">
-                        <li>
-                            프리미엄 프라이데이 운영 (매월 마지막 주 금요일 오전 근무만)
-                        </li>
-                        <li>
-                            1층 임직원용 카페테리아 운영 (전 메뉴 50% 무제한 할인)
-                        </li>
-                        <li>
-                            스낵바 (음료, 스낵 등이 무한 제공)
-                        </li>
-                        <li>
-                            경조 휴가 및 경조사비 지원
-                        </li>
+                        ${recruit.employmentBenefits}
                     </div>
                 </div>
             </div>
@@ -108,7 +76,7 @@
                 <div id="box">
                     <div class="row">
                         <div>직군</div>
-                        <div>Frontend</div>
+                        <div>${recruit.jobField}</div>
                     </div>
     
                     <div class="row">
@@ -118,12 +86,12 @@
     
                     <div class="row">
                         <div>고용형태</div>
-                        <div>인턴</div>
+                        <div>${recruit.employmentType}</div>
                     </div>
     
                     <div class="row">
                         <div>근무지</div>
-                        <div>주소</div>
+                        <div>${recruit.companyAddress}</div>
                     </div>
     
                     <div id="map-area">

@@ -1,10 +1,14 @@
 package io.marosile.helloworld.mypage.model.dao;
 
+import java.util.List;
+
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import io.marosile.helloworld.member.model.dto.Member;
+import io.marosile.helloworld.mypage.model.dto.BookmarkList;
+import io.marosile.helloworld.mypage.model.dto.BookmarkList2;
 
 @Repository
 public class MyPageDAO {
@@ -52,11 +56,24 @@ public class MyPageDAO {
 
 	/** 회원탈퇴(account)
 	 * @param memberId
-	 * @return
 	 */
 	public int secession(String memberId) {
 		
 		return sqlSession.update("myPageMapper.secession", memberId);
+	}
+
+	/** 북마크 리스트 조회(커뮤니티)
+	 * @return
+	 */
+	public List<BookmarkList> selectBookmark(String memberId) {
+		return sqlSession.selectList("myPageMapper.selectBookmark", memberId);
+	}
+
+	/** 북마크 리스트 조회 (채용공고)
+	 * @param memberId
+	 */
+	public List<BookmarkList2> selectBookmark2(String memberId) {
+		return sqlSession.selectList("myPageMapper.selectBookmark2", memberId);
 	}
 
 	

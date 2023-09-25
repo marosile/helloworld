@@ -73,7 +73,6 @@ if(completeBtn!=null){
     })
 }
 
-
 // 좋아요 클릭 시
 const like = document.getElementById("like");
 const countSpan = document.getElementById("count");
@@ -90,9 +89,9 @@ like.addEventListener("click", e=>{
 
     let check;
 
-    if( e.target.classList.contains("fa-regular")){ // 북마크 안눌렀을 때
-        check=0;
-    } else {  // 북마크 눌렀을 때
+    if( e.target.classList.contains("fa-regular")){
+        check=0; // 좋아요 안 눌른 상태
+    } else {
         check=1;
     }
 
@@ -128,3 +127,74 @@ like.addEventListener("click", e=>{
             console.log("예외발생")
         })
 })
+
+
+// 팔로우 클릭 시
+var followElement =  document.querySelector('#share-button i');
+
+const followSpan = document.getElementById("followSpan");
+const followingSpan = document.getElementById("followingSpan");
+const userId = document.getElementById("userId").value;
+
+followElement.addEventListener("click",e=>{
+
+    if(loginMemberId==""){
+        alert("로그인 후 이용해주세요")
+        return;
+    }
+
+    let check;
+
+    if(followElement.classList.contains("fa-user-plus")){ // 팔로우를 안눌렀을떄
+        check=0;
+    }else{ // 팔로우를 클릭 했을때 -> 팔로잉
+        check=1;
+    }
+
+    const data={
+        "memberId" :loginMemberId,
+        "userId" : userId,
+        "followCheck" : check
+    }
+    fetch("/study/detail/follow",{
+        method: "POST",
+        headers:{"Content-Type" : "application/json" },
+        body : JSON.stringify(data)
+    })
+        .then(resp => resp.text())
+        .then(result=>{
+
+            if(result == -1){
+                alert("팔로우 실패")
+                return;
+            }
+
+            followElement.classList.toggle("fa-user-plus");
+            followElement.classList.toggle("fa-check");
+
+            if(followSpan != null){
+
+                followSpan.innerText = '팔로우';
+            }
+            if(followingSpan != null){
+
+                followSpan.innerText = '팔로잉';
+            }
+
+
+
+        })
+        .catch(e=>console.log(e))
+
+})
+
+// 목록으로
+const goToBackBtn = document.getElementById("goToBackBtn");
+
+if (goToBackBtn!=null){
+
+    goToBackBtn.addEventListener("click",function (){
+        location.href = `/study/main`;
+    })
+
+}

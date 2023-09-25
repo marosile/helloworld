@@ -208,7 +208,7 @@
 
             <script>
                  const boardCode = "${boardCode}"; 
-                 const boardList = "${board}"
+                 const boardList = "${board}";
             </script>
 
 

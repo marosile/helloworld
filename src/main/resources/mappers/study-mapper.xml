@@ -7,6 +7,8 @@
 
         <id property="studyNo" column="STUDY_NO"/>
 
+        <result property="followFrom" column="FOLLOW_FROM" />
+        <result property="followTo" column="FOLLOW_TO" />
         <result property="boardNo" column="BOARD_NO"/>
         <result property="boardTitle" column="BOARD_TITLE"/>
         <result property="boardContent" column="BOARD_CONTENT"/>
@@ -76,6 +78,7 @@
         FROM BOARD B
                  JOIN BOARD_STUDY S ON(B.BOARD_NO = S.BOARD_NO)
         WHERE B.DELETED_FL = 'N'
+        AND S.STUDY_STATUS='N'
         ORDER BY S.BOARD_NO DESC
     </select>
 
@@ -108,6 +111,7 @@
 
         WHERE B.BOARD_NO = #{boardNo}
           AND TR.ITEM_TYPE = 1
+
         ORDER BY S.BOARD_NO DESC
     </select>
 
@@ -139,13 +143,13 @@
     </update>
 
     <update id="studyUpdate4" parameterType="Study">
-        UPDATE TAG_RELATION SET TAG_NO = ${tagNo}
+        UPDATE TAG_RELATION SET TAG_NO = (SELECT TAG_NO FROM TAG WHERE TAG_NM = #{tagNm})
         WHERE ITEM_NO = ${boardNo}
           AND ITEM_TYPE = 0
     </update>
 
     <update id="studyUpdate5" parameterType="Study">
-        UPDATE TAG_RELATION SET TAG_NO = ${tagNo}
+        UPDATE TAG_RELATION SET TAG_NO = (SELECT TAG_NO FROM TAG WHERE TAG_NM = #{tagNm})
         WHERE ITEM_NO = ${boardNo}
           AND ITEM_TYPE = 1
     </update>
@@ -196,6 +200,271 @@
         UPDATE BOARD_STUDY SET STUDY_STATUS = 'Y'
         WHERE BOARD_NO = #{boardNo}
     </update>
+
+    <!--top10위-->
+    <select id="studyTopList" resultMap="StudyResultMap">
+        SELECT ROWNUM, B.READ_COUNT, B.BOARD_NO, B.BOARD_TITLE, B.BOARD_CONTENT, S.STUDY_STATUS, (
+        SELECT COUNT(*) FROM "LIKE" L WHERE L.BOARD_NO = B.BOARD_NO
+        ) AS LIKE_COUNT
+        FROM BOARD B
+        JOIN BOARD_STUDY S ON (B.BOARD_NO = S.BOARD_NO)
+        WHERE ROWNUM &lt; 11 AND S.STUDY_STATUS = 'N'
+        ORDER BY LIKE_COUNT DESC, S.BOARD_NO DESC
+    </select>
+
+    <!--위치 전체 검색-->
+    <select id="selectSearchAllLocation" resultMap="StudyResultMap">
+        SELECT ROWNUM,S.STUDY_STATUS
+        , B.BOARD_NO
+        , M.MEMBER_NICK
+        , S.HEAD_COUNT
+        , B.MEMBER_ID
+        , B.BOARD_TITLE
+        , B.BOARD_CONTENT
+        , B.CREATE_DT
+        , B.MODIFY_DT
+        , B.DELETED_FL
+        , B.READ_COUNT
+        , S.LOCATION
+        , S.STUDY_NO
+        , T.TAG_NM
+        , TR.TAG_NO
+        , B.MODIFY_DT
+        , TO_CHAR(B.CREATE_DT, 'YYYY"년" MM"월" DD"일" HH24"시" MI"분"') AS  CREATE_DT
+        , (SELECT COUNT(*) FROM "LIKE" L WHERE L.BOARD_NO = S.BOARD_NO) LIKE_COUNT
+
+        FROM BOARD B
+        JOIN "MEMBER" M ON (B.MEMBER_ID = M.MEMBER_ID)
+        JOIN BOARD_STUDY S ON (B.BOARD_NO = S.BOARD_NO)
+        JOIN TAG_RELATION TR ON (B.BOARD_NO = TR.ITEM_NO)
+        JOIN TAG T ON (TR.TAG_NO = T.TAG_NO)
+
+        WHERE TR.ITEM_TYPE = 1
+        ORDER BY ROWNUM DESC
+    </select>
+
+    <!--위치만 검색-->
+    <select id="selectSearchLocation" resultMap="StudyResultMap">
+        SELECT ROWNUM,S.STUDY_STATUS
+             , B.BOARD_NO
+             , M.MEMBER_NICK
+             , S.HEAD_COUNT
+             , B.MEMBER_ID
+             , B.BOARD_TITLE
+             , B.BOARD_CONTENT
+             , B.CREATE_DT
+             , B.MODIFY_DT
+             , B.DELETED_FL
+             , B.READ_COUNT
+             , S.LOCATION
+             , S.STUDY_NO
+             , T.TAG_NM
+             , TR.TAG_NO
+             , B.MODIFY_DT
+             , TO_CHAR(B.CREATE_DT, 'YYYY"년" MM"월" DD"일" HH24"시" MI"분"') AS  CREATE_DT
+             , (SELECT COUNT(*) FROM "LIKE" L WHERE L.BOARD_NO = S.BOARD_NO) LIKE_COUNT
+
+        FROM BOARD B
+                 JOIN "MEMBER" M ON (B.MEMBER_ID = M.MEMBER_ID)
+                 JOIN BOARD_STUDY S ON (B.BOARD_NO = S.BOARD_NO)
+                 JOIN TAG_RELATION TR ON (B.BOARD_NO = TR.ITEM_NO)
+                 JOIN TAG T ON (TR.TAG_NO = T.TAG_NO)
+
+        WHERE TR.ITEM_TYPE = 1
+        AND S.HEAD_COUNT =1
+
+        <choose>
+            <when test="location">
+                AND S.LOCATION LIKE '%{query}%'
+            </when>
+        </choose>
+
+        ORDER BY ROWNUM DESC
+    </select>
+
+    <!--포지션 검색-->
+    <select id="selectSearchPostion" resultMap="StudyResultMap">
+        SELECT ROWNUM,S.STUDY_STATUS
+        , B.BOARD_NO
+        , M.MEMBER_NICK
+        , S.HEAD_COUNT
+        , B.MEMBER_ID
+        , B.BOARD_TITLE
+        , B.BOARD_CONTENT
+        , B.CREATE_DT
+        , B.MODIFY_DT
+        , B.DELETED_FL
+        , B.READ_COUNT
+        , S.LOCATION
+        , S.STUDY_NO
+        , T.TAG_NM
+        , TR.TAG_NO
+        , B.MODIFY_DT
+        , TO_CHAR(B.CREATE_DT, 'YYYY"년" MM"월" DD"일" HH24"시" MI"분"') AS  CREATE_DT
+        , (SELECT COUNT(*) FROM "LIKE" L WHERE L.BOARD_NO = S.BOARD_NO) LIKE_COUNT
+
+        FROM BOARD B
+        JOIN "MEMBER" M ON (B.MEMBER_ID = M.MEMBER_ID)
+        JOIN BOARD_STUDY S ON (B.BOARD_NO = S.BOARD_NO)
+        JOIN TAG_RELATION TR ON (B.BOARD_NO = TR.ITEM_NO)
+        JOIN TAG T ON (TR.TAG_NO = T.TAG_NO)
+
+        WHERE TR.ITEM_TYPE = 1
+        AND S.HEAD_COUNT =1
+
+        <choose>
+            <when test="tagNm">
+                AND T.TAG_NM LIKE '%{query}%'
+            </when>
+        </choose>
+
+        ORDER BY ROWNUM DESC
+    </select>
+
+    <!--인원만 검색-->
+    <select id="selectSearchPerson" resultMap="StudyResultMap">
+        SELECT ROWNUM,S.STUDY_STATUS
+        , B.BOARD_NO
+        , M.MEMBER_NICK
+        , S.HEAD_COUNT
+        , B.MEMBER_ID
+        , B.BOARD_TITLE
+        , B.BOARD_CONTENT
+        , B.CREATE_DT
+        , B.MODIFY_DT
+        , B.DELETED_FL
+        , B.READ_COUNT
+        , S.LOCATION
+        , S.STUDY_NO
+        , T.TAG_NM
+        , TR.TAG_NO
+        , B.MODIFY_DT
+        , TO_CHAR(B.CREATE_DT, 'YYYY"년" MM"월" DD"일" HH24"시" MI"분"') AS  CREATE_DT
+        , (SELECT COUNT(*) FROM "LIKE" L WHERE L.BOARD_NO = S.BOARD_NO) LIKE_COUNT
+
+        FROM BOARD B
+        JOIN "MEMBER" M ON (B.MEMBER_ID = M.MEMBER_ID)
+        JOIN BOARD_STUDY S ON (B.BOARD_NO = S.BOARD_NO)
+        JOIN TAG_RELATION TR ON (B.BOARD_NO = TR.ITEM_NO)
+        JOIN TAG T ON (TR.TAG_NO = T.TAG_NO)
+
+        WHERE TR.ITEM_TYPE = 1
+        AND S.HEAD_COUNT =1
+
+        <choose>
+            <when test="headCount">
+                AND S.HEAD_COUNT LIKE '%{query}%'
+            </when>
+        </choose>
+
+        ORDER BY ROWNUM DESC
+    </select>
+
+
+    <!--위치, 포지션, 인원 모두 검색-->
+    <select id="selectSearchlistAll" resultMap="StudyResultMap">
+        SELECT ROWNUM,S.STUDY_STATUS
+        , B.BOARD_NO
+        , M.MEMBER_NICK
+        , S.HEAD_COUNT
+        , B.MEMBER_ID
+        , B.BOARD_TITLE
+        , B.BOARD_CONTENT
+        , B.CREATE_DT
+        , B.MODIFY_DT
+        , B.DELETED_FL
+        , B.READ_COUNT
+        , S.LOCATION
+        , S.STUDY_NO
+        , T.TAG_NM
+        , TR.TAG_NO
+        , B.MODIFY_DT
+        , TO_CHAR(B.CREATE_DT, 'YYYY"년" MM"월" DD"일" HH24"시" MI"분"') AS  CREATE_DT
+        , (SELECT COUNT(*) FROM "LIKE" L WHERE L.BOARD_NO = S.BOARD_NO) LIKE_COUNT
+
+        FROM BOARD B
+        JOIN "MEMBER" M ON (B.MEMBER_ID = M.MEMBER_ID)
+        JOIN BOARD_STUDY S ON (B.BOARD_NO = S.BOARD_NO)
+        JOIN TAG_RELATION TR ON (B.BOARD_NO = TR.ITEM_NO)
+        JOIN TAG T ON (TR.TAG_NO = T.TAG_NO)
+
+        WHERE TR.ITEM_TYPE = 1
+        AND S.HEAD_COUNT =1
+
+        <choose>
+            <when test="location">
+                AND S.LOCATION LIKE '%{query}%'
+            </when>
+
+            <when test="tagNm">
+                AND T.TAG_NM LIKE '%{query}%'
+            </when>
+
+            <when test="headCount">
+                AND S.HEAD_COUNT LIKE '%{query}%'
+            </when>
+        </choose>
+
+        ORDER BY ROWNUM DESC
+    </select>
+
+    <!--서울 전체, 포지션, 인원 검색-->
+    <select id="listAllSeoul" resultMap="StudyResultMap">
+        SELECT ROWNUM,S.STUDY_STATUS
+             , B.BOARD_NO
+             , M.MEMBER_NICK
+             , S.HEAD_COUNT
+             , B.MEMBER_ID
+             , B.BOARD_TITLE
+             , B.BOARD_CONTENT
+             , B.CREATE_DT
+             , B.MODIFY_DT
+             , B.DELETED_FL
+             , B.READ_COUNT
+             , S.LOCATION
+             , S.STUDY_NO
+             , T.TAG_NM
+             , TR.TAG_NO
+             , B.MODIFY_DT
+             , TO_CHAR(B.CREATE_DT, 'YYYY"년" MM"월" DD"일" HH24"시" MI"분"') AS  CREATE_DT
+             , (SELECT COUNT(*) FROM "LIKE" L WHERE L.BOARD_NO = S.BOARD_NO) LIKE_COUNT
+
+        FROM BOARD B
+                 JOIN "MEMBER" M ON (B.MEMBER_ID = M.MEMBER_ID)
+                 JOIN BOARD_STUDY S ON (B.BOARD_NO = S.BOARD_NO)
+                 JOIN TAG_RELATION TR ON (B.BOARD_NO = TR.ITEM_NO)
+                 JOIN TAG T ON (TR.TAG_NO = T.TAG_NO)
+
+        WHERE TR.ITEM_TYPE = 1
+
+        <choose>
+            <when test="tagNm">
+                AND T.TAG_NM LIKE '%{query}%'
+            </when>
+
+            <when test="headCount">
+                AND S.HEAD_COUNT LIKE '%{query}%'
+            </when>
+        </choose>
+        ORDER BY ROWNUM DESC
+    </select>
+
+    <!--팔로우 조회-->
+    <select id="followCheck" resultType="_int">
+        SELECT COUNT(*) FROM FOLLOW
+        WHERE FOLLOW_FROM = #{userId}
+          AND FOLLOW_TO = #{memberId}
+    </select>
+
+    <insert id="insertFollow">
+        INSERT INTO FOLLOW VALUES ( #{userId}, #{memberId} )
+    </insert>
+
+    <delete id="deleteFollow">
+        DELETE FROM FOLLOW
+        WHERE FOLLOW_FROM = #{userId}
+        AND FOLLOW_TO = #{memberId}
+    </delete>
 
 
 

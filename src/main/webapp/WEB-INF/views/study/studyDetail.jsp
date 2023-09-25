@@ -44,7 +44,7 @@
                 </div>
 
                 <div class="P-study-detail-title">
-                        <span class="PN"> 
+                        <span class="PN" style="color: ${studyDetail.studyStatus == 'Y' ? 'gray' : 'royalblue'}">
                         <c:if test="${studyDetail.studyStatus == 'N'}">모집중</c:if>
                         <c:if test="${studyDetail.studyStatus == 'Y'}">모집완료</c:if>
                         </span>
@@ -55,14 +55,32 @@
 
                 <div class="P-study-detail-location-area">
                         <span class="P-study-datail-location">
-                             ${studyDetail.createDate}
+                            ${studyDetail.createDate}
                         </span>
 
                 </div>
             </div>
 
             <div id="studyInfoArea">
-                <div id="studyInfoRole">
+
+                <div class="studyContainer">
+                    <div class="studyInfoRole">📍 같이 공부하고 싶은 위치</div>
+                    <div class="studyTag">${studyDetail.location}</div>
+                </div>
+
+                <div class="studyContainer">
+                    <div class="studyInfoRole">
+                        📝 같이 공부할 분야
+                    </div>
+                    <div class="studyTag">${studyDetail.tagNm}</div>
+
+                </div>
+
+                <div class="studyContainer">
+                    <div class="studyInfoRole">
+                        💻 같이 공부 할 인원 수
+                    </div>
+                    <div class="studyTag">${studyDetail.headCount}명</div>
 
                 </div>
             </div>
@@ -80,14 +98,14 @@
 
             <!-- 작성일 -->
             <div id="writeDate">
-               
+
             </div>
 
-            <div class="P-study-detail-container">
-                    <div class="P-study-detail-tag">
-                        <span># ${studyDetail.tagNm}</span>
-                    </div>
-            </div>
+            <%--            <div class="P-study-detail-container">
+                            <div class="P-study-detail-tag">
+                                <span># ${studyDetail.tagNm}</span>
+                            </div>
+                        </div>--%>
 
 
             <!-- 좋아요 북마크 수정 삭제 목록으로 div-->
@@ -109,7 +127,7 @@
                     <p>&nbsp • &nbsp</p>
 
                     <p>
-                        <i class="fa-regular fa-face-smile">  조회</i>
+                        <i class="fa-regular fa-face-smile"> 조회</i>
                         <b>${studyDetail.readCount}</b>
                     </p>
                 </div>
@@ -174,17 +192,29 @@
                     <!-- 공유하기 및 문의하기 버튼 -->
                     <div class="P-profile-buttons">
                         <button id="contact-button">채팅하기</button>
-                        <button id="share-button">팔로우하기</button>
+
+                        <c:if test="${empty followCheck}">
+                            <button id="share-button"><i class="fa-solid fa-user-plus">
+                                    <span id="followSpan">팔로우</span></i></button>
+                        </c:if>
+
+                        <c:if test="${!empty followCheck}">
+                            <button id="share-button"><i class="fa-solid fa-check">
+                                <span id="followingSpan">팔로잉</span></i></button>
+                        </c:if>
+
+
                     </div>
                 </div>
 
-              
+
             </c:if>
 
-            <input type="hidden" id="loginMemberId" value="${loginMember.memberId}" />
-            <input type="hidden" id="boardNo" value="${studyDetail.boardNo}" />
+            <input type="hidden" id="loginMemberId" value="${loginMember.memberId}"/>
+            <input type="hidden" id="boardNo" value="${studyDetail.boardNo}"/>
+            <input type="hidden" id="userId" value="${studyDetail.memberId}"/>
 
-         
+
         </div>
 
 

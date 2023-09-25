@@ -23,20 +23,7 @@
 
             <h1>회원가입</h1>
 
-            <div>
-                SNS회원가입
-            </div>
-            <div>
-                <button>카카오로 로그인</button>
-                <button>Google 계정으로 로그인</button>
-                <button>네이버 계정으로 로그인</button>
-            </div>
 
-            <hr>
-
-            <button class="signUpEmailBtn" type="button">
-                회원 가입하기 ∧
-            </button>
 
             <!-- 이메일로 시작하기 버튼 눌렀을 때 나와야 하는 div -->
             <div>

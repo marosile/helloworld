@@ -5,6 +5,7 @@ import io.marosile.helloworld.member.model.dto.Member;
 import io.marosile.helloworld.study.model.dto.Study;
 import io.marosile.helloworld.study.model.service.StudyService;
 import io.marosile.helloworld.study.model.service.StudyServiceImpl;
+import oracle.jdbc.proxy.annotation.Post;
 import org.apache.struts.chain.commands.servlet.SetOriginalURI;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -32,13 +33,38 @@ public class StudyController {
     // 스터디 메인 화면
     @GetMapping("/main")
     public String studyMain(Model model
-            , @SessionAttribute(value = "loginMember", required = false) Member loginMember) {
+            , @SessionAttribute(value = "loginMember", required = false) Member loginMember
+            , @RequestParam Map<String, Object> paramMap) {
 
-        List<Study> studyList = service.selectStudyList();
+        System.out.println(paramMap);
+        Map<String, Object> map = new HashMap<>();
 
-        model.addAttribute("studyList", studyList);
+        if (paramMap.get("location") == null && paramMap.get("location") == null && paramMap.get("location") == null) {
+            // 목록 띄워주기
+            map = service.selectStudyList();
+            System.out.println("map"+map);
+        } else { //검색어가 있을 경우
+            map = service.studySearch(paramMap);
+            System.out.println(map);
+        }
+
+        // TOP 10위
+        List<Study> studyTopList = service.studyTopList();
+        System.out.println("studyTopList" + studyTopList);
+
+        model.addAttribute("studyTopList", studyTopList);
+        model.addAttribute("map", map);
 
         return "study/studyMain";
+    }
+
+    // 팔로우 처리
+    @PostMapping("/detail/follow")
+    @ResponseBody
+    public int follow(@RequestBody Map<String, Object> map) {
+        System.out.println("팔로우처리"+map);
+
+        return service.follow(map);
     }
 
     // 스터디 상세 조회
@@ -55,10 +81,10 @@ public class StudyController {
 
         map.put("boardNo", boardNo);
 
-
         Study studyDetail = service.studyDetail(map);
 
 
+        System.out.println("studyDetail:"+studyDetail);
 
         String path = null;
 
@@ -67,14 +93,17 @@ public class StudyController {
             if (loginMember != null) {
 
                 map.put("memberId", loginMember.getMemberId());
+                map.put("userId", studyDetail.getMemberId());
 
                 int result = service.likeCheck(map);
-
-
                 // 좋아요 조회
                 if (result > 0) {
                     model.addAttribute("likeCheck", "on");
-
+                }
+                // 팔로우 조회
+                int result2 = service.followCheck(map);
+                if(result2>0){
+                    model.addAttribute("followCheck","on");
                 }
             }
 
@@ -109,7 +138,7 @@ public class StudyController {
                 }
 
                 if (result > 0) {
-                    studyDetail.setReadCount(studyDetail.getBoardNo());
+                    studyDetail.setReadCount(studyDetail.getReadCount());
 
                     c.setPath("/");
 
@@ -143,10 +172,12 @@ public class StudyController {
         return path;
     }
 
+
     // 좋아요 처리
     @PostMapping("/detail/like")
     @ResponseBody
     public int like(@RequestBody Map<String, Object> map) {
+        System.out.println("좋아요처리"+map);
 
         return service.like(map);
     }
@@ -217,7 +248,6 @@ public class StudyController {
         study.setCreateDate(studyDetail.getCreateDate());
         // 태그가 수정이 안됨!
 
-        System.out.println(study);
 
         int result = service.studyUpdate(study);
 

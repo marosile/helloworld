@@ -17,18 +17,20 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.client.RestTemplate;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.net.http.HttpResponse;
 import java.util.HashMap;
 import java.util.Map;
 
 
 @Controller
 @RequestMapping("/member")
-@SessionAttributes("loginMember")
+@SessionAttributes({"loginMember", "autoLogin"})
 public class MemberController {
 
 	@Autowired
@@ -53,18 +55,21 @@ public class MemberController {
 	}
 	
 	// 로그인 화면
+	// 모달로 바꾸면서 필요 없어졌으나 구글 url이 안먹힌다.. 직접 넣어줘야할듯해보임
 	@GetMapping("/login")
 	public String login(Model model) {
 
 		// 구글 로그인 URL 생성하여 사용할 수 있게 진행
-		String googleUrl = "https://accounts.google.com/o/oauth2/v2/auth?"
-				+ "client_id=" + "829784621579-9i247enb310blhhajovb5u9ggnfiglja.apps.googleusercontent.com"
-				+ "&redirect_uri=" + "http://localhost/member/login/google"
-				+ "&response_type=code"
-				+ "&scope=" + "email%20profile%20openid"
-				+ "&access_type=offline";
+//		String googleUrl = "https://accounts.google.com/o/oauth2/v2/auth?"
+//				+ "client_id=" + "829784621579-9i247enb310blhhajovb5u9ggnfiglja.apps.googleusercontent.com"
+//				+ "&redirect_uri=" + "http://localhost/member/login/google"
+//				+ "&response_type=code"
+//				+ "&scope=" + "email%20profile%20openid"
+//				+ "&access_type=offline";
+//
+//		model.addAttribute("googleUrl", googleUrl);
 
-		model.addAttribute("googleUrl", googleUrl);
+
 
 		return "common/modal/login";
 	}
@@ -72,68 +77,90 @@ public class MemberController {
 
 	
 	// 로그인 실행 컨트롤러
+	@ResponseBody
 	@PostMapping("/login")
-	public String login(Member inputMember
-						, Model model
-						, @RequestHeader(value="referer") String referer
-						, @RequestParam(value="idSave", required = false) String idSave
-						, @RequestParam(value="autoLogin", required = false) String autoLogin
+	public String login(
+			//Member inputMember
+						Model model
+						//, @RequestHeader(value="referer") String referer
+						//, @RequestParam(value="idSave", required = false) String idSave
+						//, @RequestParam(value="autoLogin", required = false) String autoLogin
+						, @RequestBody Member inputMember
 						, HttpServletResponse resp
 						){
 
-		Member loginMember = service.login(inputMember);
-		System.out.println("referer = " +referer);
+//		System.out.println("inputMember::" + inputMember);
+//		System.out.println("idSave::" + inputMember.getIdSave());
+//		System.out.println("autoLogin::" + inputMember.getAutoLogin());
 
-		String path = "redirect:";
+		Member loginMember = service.login(inputMember);
+
+//		String path = "redirect:";
+		String result = "0";
 
 		if(loginMember != null){ // 성공시
 
 			System.out.println("로그인 성공");
 			// 메인페이지 이동
-			path += "/";
+//			path += "/";
 
 			model.addAttribute("loginMember", loginMember);
+
 
 			// 쿠키를 이용한 아이디 저장
 			Cookie cookie = new Cookie("idSave", loginMember.getMemberId());
 
 			Cookie autoLoginCookie = new Cookie("autoLogin", loginMember.getMemberId());
 
-			if(idSave != null){
+//			System.out.println(cookie);
+//			System.out.println(autoLoginCookie);
+//
+//			System.out.println("idSave::" + inputMember.getIdSave());
+//			System.out.println("autoLogin::" + inputMember.getAutoLogin());
+
+
+			if(inputMember.getIdSave().equals("true")){
 				// 한달동안 유지되는 쿠키 생성
 				cookie.setMaxAge(60 * 60 * 24 * 30);
 			} else{
 				cookie.setMaxAge(0);
 			}
 
-			if(autoLoginCookie != null){
+			if(inputMember.getAutoLogin().equals("true")){
 				// 한달동안 유지되는 쿠키 생성
 				autoLoginCookie.setMaxAge(60 * 60 * 24 * 30);
+
 			} else{
 				autoLoginCookie.setMaxAge(0);
+
 			}
 
-			
 			// 클라이언트가 어떤 요청을 할 때 쿠키가 첨부될 지 확인
 			cookie.setPath("/");
 			autoLoginCookie.setPath("/");
 
-
 			resp.addCookie(cookie);
 			resp.addCookie(autoLoginCookie);
 
+			result = "1";
+
 		}else{
 			System.out.println("로그인 실패");
-			path += referer;
+//			path += referer;
+			result = "0";
 
 		}
 
-		return path;
+		return result;
 	}
 
 	// 로그아웃 실행 컨트롤러
 	@GetMapping("/logout")
-	public String logout(SessionStatus status, HttpServletRequest request, HttpServletResponse resp){
+	public String logout(SessionStatus status, HttpServletRequest request, HttpServletResponse resp
+						, @RequestHeader(value="referer") String referer
+						,RedirectAttributes ra
+	){
+
 
 		status.setComplete();
 
@@ -155,8 +182,9 @@ public class MemberController {
 
 		resp.addCookie(autoLoginCookie);
 
+		ra.addFlashAttribute("messgae", "로그아웃 되었습니다.");
 
-		return "redirect:/";
+		return "redirect:"+referer;
 	}
 
 
@@ -165,6 +193,7 @@ public class MemberController {
 	@PostMapping("/signUp")
 	public String signUp(Member inputMember
 						, @RequestParam(value="promotionFl") String promotionFl
+						 , RedirectAttributes ra
 						){
 
 		// 마케팅동의 담아주기
@@ -179,10 +208,12 @@ public class MemberController {
 
 		if(result > 0){ //성공
 			System.out.println("회원가입 성공!");
+			ra.addFlashAttribute("message", "회원가입이 완료되었습니다.");
 			path += "/";
 
 		}else{
 			System.out.println("회원가입 실패!");
+			ra.addFlashAttribute("message", "회원가입에 실패하셨습니다.");
 			path += "signUp";
 		}
 
@@ -219,7 +250,9 @@ public class MemberController {
 	@RequestMapping(value = "/login/kakao", method = RequestMethod.GET)
 	public String kakaoLogin(@RequestParam(value = "code", required = false) String code
 //							, @RequestHeader(value="referer") String referer
-							, Model model) throws Throwable {
+							, Model model
+							, HttpServletResponse resp
+	) throws Throwable {
 
 		// 1번
 		System.out.println("code:" + code);
@@ -287,7 +320,9 @@ public class MemberController {
 
 	/***************************************** 구글 로그인 응답 후 진행 **********************************************/
 	@RequestMapping(value = "/login/google", method = RequestMethod.GET)
-	public String googleAuth(Model model, @RequestParam(value = "code") String authCode, HttpServletRequest request)
+	public String googleAuth(Model model, @RequestParam(value = "code") String authCode, HttpServletRequest request
+//							, @RequestHeader(value="referer") String referer
+							, HttpServletResponse resp)
 			throws Exception {
 
 		//HTTP Request를 위한 RestTemplate
@@ -348,6 +383,7 @@ public class MemberController {
 				// 메인페이지 이동
 				path += "/";
 
+
 				model.addAttribute("loginMember", loginMember);
 
 
@@ -404,7 +440,8 @@ public class MemberController {
 	@PostMapping("/findPw/newPw")
 	public String newPwChange(@RequestParam("memberPw") String memberPw
 							, @RequestParam("memberId1") String memberId1
-							, @RequestParam("memberId2") String memberId2){
+							, @RequestParam("memberId2") String memberId2
+							, RedirectAttributes ra){
 
 		System.out.println("memberId1 : " + memberId1);
 		System.out.println("memberId2 : " + memberId2);
@@ -429,10 +466,12 @@ public class MemberController {
 
 		if(result > 0){
 			System.out.println("성공이여");
-			path += "/member/login";
+			ra.addFlashAttribute("message", "비밀번호 재발급에 성공하셨습니다.");
+			path += "/";
 
 		}else{
 			System.out.println("실패여");
+			ra.addFlashAttribute("message", "비밀번호 재발급에 실패하셨습니다.");
 			path += "/member/findPw";
 
 		}

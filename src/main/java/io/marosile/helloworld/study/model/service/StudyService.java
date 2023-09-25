@@ -9,8 +9,7 @@ import java.util.Map;
 public interface StudyService {
 
     // 스터디 목록 조회
-    List<Study> selectStudyList();
-
+    Map<String, Object> selectStudyList();
 
     // 스터디 게시글 상세조회
     Study studyDetail(Map<String, Object> map);
@@ -36,4 +35,17 @@ public interface StudyService {
 
     // 모집완료 조회
     int complete(Map<String, Object> map);
+
+    // TOP 10위
+    List<Study> studyTopList();
+
+    // 검색기능
+    Map<String, Object> studySearch(Map<String, Object> paramMap);
+
+
+    // 팔로우 조회
+    int followCheck(Map<String, Object> map);
+
+    // 팔로우 처리
+    int follow(Map<String, Object> map);
 }
