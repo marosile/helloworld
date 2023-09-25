@@ -34,6 +34,7 @@ public class Recruit {
 	private String boardContent; // 채용 공고 내용
 	
 	private String memberId;
+	private int boardType;
 
     
 }

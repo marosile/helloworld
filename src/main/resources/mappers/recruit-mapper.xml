@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="recruitMapper">
 
-		<!-- recruit ResultMap -->
+	<!-- recruit ResultMap -->
 	<resultMap type="recruit" id="recruitResultMap">
 	
 		<id property="companyNo" column="CMPN_NO" />
@@ -33,6 +33,7 @@
 		
 	</resultMap>
 	
+	<!-- company resultmap  -->
 	<resultMap type="company" id="companyResultMap">
 	
 		<id property="companyNo" column="CMPN_NO" />
@@ -49,9 +50,7 @@
 
 	<!-- 담당자의 회사 정보 가져오기 -->
 	<select id="selectMyCompanyInfo" resultMap = "companyResultMap">
-		
 		SELECT * FROM COMPANY WHERE MEMBER_ID = #{memberId}
-	
 	</select>
 
 	<!-- 내 매칭 공고 ( 조건 : 2개이상 일치 ) -->
@@ -71,7 +70,7 @@
 		        (#{question2} = BR.EXPR_PERIOD AND #{question5} = CP.CMPN_ADDR) OR
 		        (#{question4} = BR.EMPL_TYPE AND #{question5} = CP.CMPN_ADDR)
 		    )
-    AND RS.MEMBER_ID = #{memberId}
+    	AND RS.MEMBER_ID = #{memberId}
 	</select>
 	
 	<!-- 채용 담당자 등록 신청 (insert 후 fl로 구분) -->
@@ -129,6 +128,24 @@
 	    AND RS.MEMBER_ID = #{memberId}
 	</select>
    
-   
+    <!-- 채용공고 삽입 -->
+    <insert id="recruitInsert" parameterType="recruit" useGeneratedKeys="true">
+		
+		<selectKey order="BEFORE" resultType="_int" keyProperty="boardNo">
+			SELECT SEQ_BOARD_NO.NEXTVAL FROM DUAL
+		</selectKey>
+		
+		INSERT ALL
+		
+		INTO BOARD (BOARD_NO, MEMBER_ID, BOARD_TITLE, BOARD_CONTENT, CREATE_DT, DELETED_FL, READ_COUNT)
+		VALUES(#{boardNo}, #{memberId}, #{boardTitle}, #{boardContent}, DEFAULT, DEFAULT, 0)
+			
+		INTO BOARD_RECRUIT (BOARD_NO, CMPN_NO, POSITION, EXPR_PERIOD, EMPL_TYPE, JOB_TYPE, EMPL_CNDT, ENTR_EXAM, BENEFIT, SALARYINFO ) 
+		VALUES(#{boardNo}, #{companyNo}, #{jobField}, #{experiencePeriod}, #{workConditions}, #{employmentType}, #{workConditionsDetail}
+			  ,#{selectionProcess}, #{employmentBenefits}, #{salaryInfo} )
+		
+		SELECT 1 FROM DUAL
+   	
+   </insert>
 
 </mapper>
