@@ -32,10 +32,9 @@
 		<result property="memberId" column="MEMBER_ID" />
 		<result property="companyLogo" column="CMPN_LOGO" />
 		<result property="companyName" column="CMPN_NM" />
+		<result property="companyAddress" column="CMPN_ADDR" />
 		<result property="experiencePeriod" column="EXPR_PERIOD" />
-		<result property="salaryExpect" column="SALARY_EXPECT" />
 		<result property="employeeType" column="EMPL_TYPE" />
-		<result property="employeeLocation" column="EMPL_LOCATION" />
 	</resultMap>
 	
 
@@ -89,12 +88,18 @@
                		WHERE B.BOARD_NO = BG.BOARD_NO)
    </select>
    
-   <!-- <select id="selectBookmark2" resultMap="bookmark_rm">
-   		
+   <!-- 채용 북마크 조회 -->
    
-   
-   
-   </select> -->
+   <select id="selectBookmark2" resultMap="bookmark_rm2">
+   		SELECT CMPN_LOGO, CMPN_NM, EXPR_PERIOD, EMPL_TYPE, CMPN_ADDR
+		FROM BOOKMARK BM
+		JOIN COMPANY C ON (C.MEMBER_ID = BM.MEMBER_ID)
+		JOIN BOARD_RECRUIT BR ON (BM.BOARD_NO = BR.BOARD_NO)
+		WHERE C.MEMBER_ID = #{memberId}
+		AND EXISTS (SELECT 1
+		                 FROM BOARD_RECRUIT BR
+		                 WHERE BM.BOARD_NO = BR.BOARD_NO)
+   </select>
    
    
 	

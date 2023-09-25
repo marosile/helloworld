@@ -46,7 +46,7 @@
                     </c:if>
 
                         <input type="hidden" name="profileImg2" value="${loginMember.profileImg}"/>
-                        <input type="hidden" name="profileImg3" value="/resources/images/user.png"/>
+                        <input type="hidden" name="profileImg3" value="/resources/images/user.png"/> 
 
                     <%-- 변경 제거 버튼 영역 --%>
                     <input type="hidden" id="ddd" value="${loginMember.profileImg}">

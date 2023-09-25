@@ -3,6 +3,9 @@
 
 <!DOCTYPE html>
 <html lang="ko">
+
+<c:set var="bookmarkList2" value="${bookmarkList2}" />
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -18,7 +21,6 @@
 <body>
     <jsp:include page="/WEB-INF/views/common/header.jsp"/>
 	<main>
-        <!-- 마이페이지 nav -->
         <jsp:include page="/WEB-INF/views/mypage/mypage-nav.jsp"/>
 
         <h1 class="Title">북마크</h1>
@@ -29,60 +31,40 @@
 
         <section class="bookmark">
 
-            <div class="bookmarkList">
-                
-                <!-- 왼쪽 -->
-                <div class="row1">
-                    <div class="top">
-                        <!-- 임시 썸네일 당근 -->
-                        <img class="thumbnail" src="/resources/images/member/당근.png">
-                        <div class="companyName"><a>당근 마켓</a></div>
-                    </div>
+            <c:choose>
+                <div class="bookmarkList">
+                    <c:when test="${empty bookmarkList2}">
+                        <div>북마크 목록이 존재하지 않습니다.</div>
+                    </c:when>
 
-                    <div class="mid">
-                        <div class="fa-solid fa-briefcase"> 신입 ~ 100년차</div>
-                        <div class="fa-solid fa-coins"> 연봉 정보 비공개</div>
-                    </div>
 
-                    <div class="bottom">
-                        <div class="fa-solid fa-desktop"> 사무실 출근</div>
-                        <div class="fa-solid fa-location-dot"> 서울 강남</div>
-                    </div>
+                    <c:otherwise>
+                        <c:forEach items="${bookmarkList2}" var="bookmarkList2">
+                            <div class="row1">
+                                <div class="top">
+                                    <img class="thumbnail" src="${bookmarkList2.companyLogo}">
+                                    <div class="companyName"><a href="#">${bookmarkList2.companyName}</a></div>
+                                </div>
 
-                    <!-- 버튼 영역 -->
-                    <div class="Btn-area">
-                        <button id="goBtn"><a>상세 보기</a></button>
-                        <button id="deleteBtn">삭제 하기</button>
-                    </div>
+                                <div class="mid">
+                                    <div class="fa-solid fa-briefcase"> ${bookmarkList2.experiencePeriod}</div>
+                                    <div class="fa-solid fa-coins"> 연봉 정보 비공개</div>
+                                </div>
+
+                                <div class="bottom">
+                                    <div class="fa-solid fa-desktop"> ${bookmarkList2.employeeType}</div>
+                                    <div class="fa-solid fa-location-dot"> ${bookmarkList2.companyAddress}</div>
+                                </div>
+
+                                <div class="Btn-area">
+                                    <button id="goBtn">상세 보기</button>
+                                    <button id="deleteBtn">삭제 하기</button>
+                                </div>
+                            </div>
+                        </c:forEach>
+                    </c:otherwise>
                 </div>
-
-    
-                <!-- 오룬쪽 -->
-                <div class="row1">
-
-                    <div class="top">
-                        <img class="thumbnail">
-                        <div class="companyName"><a>회사이름</a></div>
-                    </div>
-
-                    <div class="mid">
-                        <div class="fa-solid fa-briefcase"> 신입 ~ 100년차</div>
-                        <div class="fa-solid fa-coins"> 연봉 정보 비공개</div>
-                    </div>
-
-                    <div class="bottom">
-                        <div class="fa-solid fa-desktop"> 사무실 출근</div>
-                        <div class="fa-solid fa-location-dot"> 서울 강남</div>
-                    </div>
-
-                    <!-- 버튼 영역 -->
-                    <div class="Btn-area">
-                        <button id="goBtn2"><a>상세 보기</a></button>
-                        <button id="deleteBtn2">삭제 하기</button>
-                    </div>
-
-                </div>
-            </div>
+            </c:choose>
             
         
         </section>
