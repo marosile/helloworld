@@ -45,10 +45,7 @@ public class RecruitController {
 			
 			if(result == 1) { // 테스트 했다면 내 매칭 공고 상세페이지
 			
-				// controller2에있는 matchingRecruitList 사용
-				
-				//
-				
+
 				path = "recruit/employment-resultAndRecruitDetail";
 				
 			}
