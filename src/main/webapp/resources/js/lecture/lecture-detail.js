@@ -1,7 +1,6 @@
 const clientKey = 'test_ck_DnyRpQWGrNm2y5nZLYeVKwv1M9EN';
 const customerKey = 'jWbG1yqmfIh2uiG59pPd7';
 const paymentWidget = PaymentWidget(clientKey, customerKey);
-// const paymentWidget = PaymentWidget(clientKey, PaymentWidget.ANONYMOUS)
 
 const score = 4.7;
 
@@ -36,7 +35,13 @@ function getProferTextColor(color) {
             { value: lecture.lecturePrice, currency: 'KRW', country: 'KR' },
             { variantKey: 'DEFAULT' }
         );
-        paymentWidget.renderAgreement('#agreement')
+        const paymentAgreement = paymentWidget.renderAgreement('#agreement');
+        const agreementStatus = paymentAgreement.getAgreementStatus();
+        paymentAgreement.on('change', agreementStatus => {
+            const paymentButton = $('#payment-button > button:last-of-type');
+            if (agreementStatus.agreedRequiredTerms) paymentButton.css({'border' : 'none', 'background-color' : 'rgb(0, 128, 255)', 'color' : 'rgb(255, 255, 255)', 'pointer-events' : 'auto'});
+            else paymentButton.css({'border' : '', 'background-color' : '', 'color' : '', 'pointer-events' : ''});
+        })
     });
 })();
 
@@ -57,35 +62,39 @@ window.addEventListener("scroll", function(e) {
 });
 
 function addToCart() {
+    if (loginMember === undefined) {
+        modalArea.style.display = "block";
+        return;
+    }
     snackbar('장바구니에 담겼습니다.', 'rgb(20, 220, 80)', '/resources/images/shopping-cart.png');
 }
 
 let isInPurchase = false;
 
 function purchase() {
+    if (loginMember === undefined) {
+        modalArea.style.display = "block";
+        return;
+    }
     if (isInPurchase) {
         isInPurchase = false;
         $('#payment').css('display', 'none');
         preventScroll(false);
         switchOverlay(false);
-    } else {
-        isInPurchase = true;
-        $('#payment').css('display', 'block');
-        preventScroll(true);
-        switchOverlay(true);
+        return;
     }
+    isInPurchase = true;
+    $('#payment').css('display', 'block');
+    preventScroll(true);
+    switchOverlay(true);
 }
 
 function requestPurchase() {
-    if (loginMember === undefined) {
-
-        return;
-    }
     paymentWidget.requestPayment({
         orderId: 'AD8aZDpbzXs4EQa-UkIX6',
         orderName: lecture.lectureTitle,
-        successUrl: location.href + "?lectureNo",
-        failUrl: location.origin + "/fail",
+        successUrl: location.origin + "/purchase/success",
+        failUrl: location.origin + "/purchase/fail",
         customerEmail: loginMember.memberEmail,
         customerName: loginMember.memberNick,
     });

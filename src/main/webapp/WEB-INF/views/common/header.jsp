@@ -39,7 +39,7 @@
             <c:otherwise>
                 <div id="header-logout" class="button" onClick="location.href='/member/logout'">로그아웃</div>
                 <div class="loginChange">
-                    <div id="header-mypage" class="button" onClick="location.href='/mypage/profile'">마이페이지</div>
+                    <img src="${loginMember.profileImg}" id="header-mypage" onClick="location.href='/mypage/profile'">
                 </div>
             </c:otherwise>
         </c:choose>

@@ -19,8 +19,9 @@
 </head>
 <body>
     <script>
+        let loginMember;
         <c:if test="${!empty loginMember}">
-            let loginMember = {'memberId' : '<c:out value="${loginMember.memberId}"/>',
+            loginMember = {'memberId' : '<c:out value="${loginMember.memberId}"/>',
                                 'memberNick' : '<c:out value="${loginMember.memberNick}"/>',
                                 'memberEmail' : '<c:out value="${loginMember.memberEmail}"/>'};
             console.log(loginMember)
