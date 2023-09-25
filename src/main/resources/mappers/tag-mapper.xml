@@ -67,32 +67,7 @@
 		WHERE tr.ITEM_NO = ${boardNo} AND t.TAG_NO = ${tagNo}
 	</update>
 
-	<select id="tagSelect" resultMap="TagResultMap">
-	    SELECT T.TAG_NO, TAG_NM, tr.ITEM_NO, tr.ITEM_TYPE FROM TAG T 
-	    JOIN TAG_RELATION TR ON TR.TAG_NO = T.TAG_NO
-	    JOIN BOARD B ON B.BOARD_NO = TR.ITEM_NO
-	    WHERE B.BOARD_NO = #{boardNo} AND tr.ITEM_TYPE = #{boardType}
-	</select>
-	
-	<!-- 일반 게시글 작성할 때의 태그 삽입 -->
-	<insert id="tagInsert" parameterType="Tag" useGeneratedKeys="true">
-	    
-	    <selectKey order="BEFORE" resultType="int" keyProperty="tagNo">
-	        SELECT SEQ_TAG_NO.NEXTVAL FROM DUAL
-	    </selectKey>
-	
-		INSERT ALL
-		
-		INTO TAG (TAG_NO, TAG_NM) VALUES (#{tagNo}, #{tagName})
-		
-		INTO TAG_RELATION (TAG_NO, ITEM_TYPE, ITEM_NO) VALUES (${tagNo}, #{boardType}, #{boardNo})
-		
-		SELECT 1 FROM DUAL
-		
-	</insert>
-	
 	<!-- 채용공고 테스트 했을 때의 태그 삽입 // 안함 -->
-	
 	<insert id="insertMyStacksToTag" parameterType="java.util.Map">
 	
 		<selectKey order="BEFORE" resultType="int" keyProperty="tagNo">
@@ -105,17 +80,5 @@
 	        #{entry.value}
 	    </foreach>
 	</insert>
-	
-	<!-- 일반 게시글 수정에서의 태그 수정 -->
-	<update id="tagUpdate" parameterType="Tag" >
-	
-		MERGE INTO TAG t
-		USING TAG_RELATION tr ON (t.TAG_NO = tr.TAG_NO)
-		WHEN MATCHED THEN
-			
-		UPDATE SET t.TAG_NM = #{tagName} 	
-		WHERE tr.ITEM_NO = ${boardNo} AND t.TAG_NO = ${tagNo}
-	
-	</update>
 
 </mapper>
