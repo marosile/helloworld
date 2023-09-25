@@ -59,9 +59,13 @@ public class RecruitController {
 				
 				EmploymentTest EmploymentTest = service.selectResume(memberId);
 				
+				System.out.println(EmploymentTest);
+				
 				Map<String, Object> map = new HashMap<>();
 				
 				List<Recruit> matchingRecruitList = service2.matchingRecruit(EmploymentTest);
+				
+				System.out.println(matchingRecruitList);
 				
 				map.put("matching", matchingRecruitList);
 				
@@ -71,13 +75,6 @@ public class RecruitController {
 			}
 		}
 		return path;
-	}
-	
-	
-	// 채용 결과 페이지 == 내 매칭 공고 상세 페이지
-	@GetMapping("/testResultAndRecuritDetail")
-	public String recruitResult() {
-		return "recruit/employment-test/employment-resultAndRecruitDetail";
 	}
 	
 	// 전체 매칭 공고
@@ -116,7 +113,13 @@ public class RecruitController {
 	
 	// 채용 공고 등록
 	@GetMapping("/post")
-	public String postRecruit() {
+	public String postRecruit(@SessionAttribute("loginMember") Member loginMember) {
+		
+		// 기업 정보 가지고 오기
+		String memberId = loginMember.getMemberId();
+		
+		Company myCompany = service2.selectMyCompanyInfo(memberId);
+		
 		return "recruit/recruit-post";
 	}
 	
