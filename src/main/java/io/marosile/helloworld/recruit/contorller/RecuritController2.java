@@ -64,15 +64,5 @@ public class RecuritController2 {
 		
 	}
 	
-	/*
-	 * for (String item : EmploymentTest.getQuestion6()) {
-	 * myStacks.put("question6Tags_" + item, item);
-	 * 
-	 * 
-	 * int result2 = service.insertMyStacksToTag(myStacks); }
-	 * 
-	 * System.out.println(myStacks);
-	 */
-	
 }
 

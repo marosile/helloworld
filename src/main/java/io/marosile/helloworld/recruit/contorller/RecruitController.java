@@ -23,6 +23,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.multipart.MultipartFile;
 
 import io.marosile.helloworld.board.model.dto.Tag;
+import io.marosile.helloworld.board.model.service.TagService;
 import io.marosile.helloworld.member.model.dto.Member;
 import io.marosile.helloworld.recruit.model.dto.Company;
 import io.marosile.helloworld.recruit.model.dto.EmploymentTest;
@@ -41,6 +42,9 @@ public class RecruitController {
 	
 	@Autowired
 	private RecruitService_OHS service2;
+	
+	@Autowired
+	private TagService service3;
 	
 	
 	@GetMapping("/list")
@@ -63,11 +67,30 @@ public class RecruitController {
 				
 				Map<String, Object> map = new HashMap<>();
 				
+				// 매칭 공고들 가져오기
 				List<Recruit> matchingRecruitList = service2.matchingRecruit(EmploymentTest);
 				
-				map.put("matching", matchingRecruitList);
 				
-				 model.addAttribute("map", map); 
+				
+				List<Tag> tagList = new ArrayList<>();
+				
+				int boardType = 2;
+				
+				// 매칭 공고들의 tag들 가져오기
+				
+				for(Recruit rec : matchingRecruitList) {
+					rec.setBoardType(boardType);
+					System.out.println(rec);
+					tagList = service3.tagSelects2(rec);
+				}
+				
+				System.out.println("tagList 제발 : " + tagList);
+				
+				
+				map.put("matching", matchingRecruitList);
+				System.out.println(map);
+				
+				model.addAttribute("map", map); 
 				
 				path = "recruit/employment-resultAndRecruitDetail";
 			}
@@ -119,7 +142,6 @@ public class RecruitController {
 		
 		model.addAttribute("recruit", recruit);
 		
-		
 		return "recruit/recruit-moreDetail";
 	}
 	
@@ -147,26 +169,28 @@ public class RecruitController {
 		
 		recruit.setMemberId(loginMember.getMemberId());
 		
-		System.out.println(recruit);
-		
 		// Recruit(boardNo=0, jobField=직무입니다, experiencePeriod=경력기간이요, workConditions=출근장소여부요, workConditionsDetail=근무조건요, selectionProcess=전형절차요, 
 		// employmentType=고용형태요, employmentBenefits=복리후생이요, salaryInfo=연봉정보요, companyNo=1, companyName=null, companyLogo=null, 
 		// companyAddress=null, companyIntroduce=null, companyId=null, companyMcount=0, companyCreateDt=null, boardTitle=제목입니다, boardContent=자격요건요, memberId=user01)
 
-		int result = service2.recruitInsert(recruit);
-		
-		List<Tag> tagList = new ArrayList<>(); // 태그 객체를 저장할 리스트 생성
-		
-		/*
-		 * if (tags != null) { for (String tagName : tags) { Tag tag = new Tag();
-		 * tag.setTagName(tagName); tag.setBoardNo(boardNo); tag.setBoardType(0);//
-		 * 일반게시글 == 0 tagList.add(tag); } }
-		 */
-		
-		if( result > 0) {
+		int boardNo = service2.recruitInsert(recruit);
+	
+		if( boardNo > 0 ) { // dao에서 boardNo 담았음
+			
 			// 태그 삽입
+			List<Tag> tagList = new ArrayList<>(); // 태그 객체를 저장할 리스트 생성
+			
+			if (tags != null) {
+			    for (String tagName : tags) {
+			        Tag tag = new Tag();
+			        tag.setTagName(tagName);
+			        tag.setBoardNo(boardNo);
+			        tag.setBoardType(2); // 채용공고 == 2
+			        tagList.add(tag);
+			    }
+			}
+			int result = service3.tagInsert2(tagList); // 태그 삽입
 		}
-		
 		return "recruit/allnotice-list";
 	}
 	
@@ -182,8 +206,6 @@ public class RecruitController {
 	public String application() {
 		return "recruit/application";
 	}
-	
-	
 	
 	// 기업 담당자 신청 등록
 		@PostMapping("/application")
@@ -211,14 +233,11 @@ public class RecruitController {
 
 		        int result = service2.companyInsert(company);
 		        
-		        
 		    } catch (IOException e) {
 		        e.printStackTrace();
 		    }
 			
-			
 			return "recruit/notice-list";
 		}
-
 	
 }

@@ -28,8 +28,6 @@
 <body>
 <%int i = 1;%>
 
-
-
     <jsp:include page="/WEB-INF/views/common/header.jsp"/>
 
     <jsp:include page="/WEB-INF/views/recruit/recruit-nav.jsp"/>

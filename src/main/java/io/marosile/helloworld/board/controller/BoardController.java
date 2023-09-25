@@ -80,7 +80,6 @@ public class BoardController {
 									   ,@RequestParam(value = "sortType", defaultValue = "recent") String sortType
 									   ,@RequestParam(value = "searchKeyword", required = false) String searchKeyword) {
 			
-			
 		    Map<String, Object> parameters = new HashMap<>();
 		    
 		    parameters.put("boardCode", boardCode);
