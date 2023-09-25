@@ -505,5 +505,24 @@ datalist{
 }
 
 
+.clicked {
+  cursor: pointer;
+
+  background-color: #6192c279;
+
+  text-align: center;
+
+  line-height: 50px;
+
+  margin-bottom: 20px;
+  margin-left: 50px;
+
+  font-size: 20px;
+  font-weight: bold;
+
+
+
+}
+
 
 
