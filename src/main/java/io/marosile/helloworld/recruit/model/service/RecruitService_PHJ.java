@@ -2,6 +2,7 @@ package io.marosile.helloworld.recruit.model.service;
 
 import java.util.List;
 
+import io.marosile.helloworld.recruit.model.dto.EmploymentTest;
 import io.marosile.helloworld.recruit.model.dto.Recruit;
 
 public interface RecruitService_PHJ {
@@ -16,5 +17,11 @@ public interface RecruitService_PHJ {
 	 * @return
 	 */
 	Recruit moreDetail(int boardNo);
+
+	/** 로그인한 회원의 이력서 정보 조회
+	 * @param memberId
+	 * @return
+	 */
+	EmploymentTest selectResume(String memberId);
 
 }
