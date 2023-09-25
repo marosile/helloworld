@@ -2,6 +2,7 @@ package io.marosile.helloworld.recruit.contorller;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -21,6 +22,7 @@ import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.multipart.MultipartFile;
 
+import io.marosile.helloworld.board.model.dto.Tag;
 import io.marosile.helloworld.member.model.dto.Member;
 import io.marosile.helloworld.recruit.model.dto.Company;
 import io.marosile.helloworld.recruit.model.dto.EmploymentTest;
@@ -121,16 +123,51 @@ public class RecruitController {
 		return "recruit/recruit-moreDetail";
 	}
 	
-	// 채용 공고 등록
+	// 채용 공고 등록 페이지로
 	@GetMapping("/post")
-	public String postRecruit(@SessionAttribute("loginMember") Member loginMember) {
+	public String postRecruit(@SessionAttribute("loginMember") Member loginMember
+						     ,Model model) {
 		
 		// 기업 정보 가지고 오기
 		String memberId = loginMember.getMemberId();
 		
 		Company myCompany = service2.selectMyCompanyInfo(memberId);
 		
+		model.addAttribute("company", myCompany);
+		
 		return "recruit/recruit-post";
+	}
+	
+	// 채용 공고 등록
+	@PostMapping("/post")
+	public String postRecruit(@SessionAttribute("loginMember") Member loginMember
+							 ,@ModelAttribute("recruit") Recruit recruit
+							 ,@RequestParam(name = "tagInputs", required = false) List<String> tags) {
+		
+		
+		recruit.setMemberId(loginMember.getMemberId());
+		
+		System.out.println(recruit);
+		
+		// Recruit(boardNo=0, jobField=직무입니다, experiencePeriod=경력기간이요, workConditions=출근장소여부요, workConditionsDetail=근무조건요, selectionProcess=전형절차요, 
+		// employmentType=고용형태요, employmentBenefits=복리후생이요, salaryInfo=연봉정보요, companyNo=1, companyName=null, companyLogo=null, 
+		// companyAddress=null, companyIntroduce=null, companyId=null, companyMcount=0, companyCreateDt=null, boardTitle=제목입니다, boardContent=자격요건요, memberId=user01)
+
+		int result = service2.recruitInsert(recruit);
+		
+		List<Tag> tagList = new ArrayList<>(); // 태그 객체를 저장할 리스트 생성
+		
+		/*
+		 * if (tags != null) { for (String tagName : tags) { Tag tag = new Tag();
+		 * tag.setTagName(tagName); tag.setBoardNo(boardNo); tag.setBoardType(0);//
+		 * 일반게시글 == 0 tagList.add(tag); } }
+		 */
+		
+		if( result > 0) {
+			// 태그 삽입
+		}
+		
+		return "recruit/allnotice-list";
 	}
 	
 	// 이력서 등록

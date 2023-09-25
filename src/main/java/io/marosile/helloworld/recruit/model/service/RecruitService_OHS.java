@@ -41,6 +41,16 @@ public interface RecruitService_OHS {
 	 */
 	int companyInsert(Company company);
 
+	/** 회사정보 가져오기
+	 * @param memberId
+	 * @return company
+	 */
 	Company selectMyCompanyInfo(String memberId);
+
+	/** 채용공고 삽입
+	 * @param recruit
+	 * @return result
+	 */
+	int recruitInsert(Recruit recruit);
 
 }
