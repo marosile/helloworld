@@ -14,9 +14,6 @@
 
    <script src="https://kit.fontawesome.com/98acdabf0d.js" crossorigin="anonymous"></script>
    
-    
-
-    <!-- 이전 다음 페이지 넘기는거 커리어리에선 전체 스위퍼로함 -->
 </head>
 
 <body>

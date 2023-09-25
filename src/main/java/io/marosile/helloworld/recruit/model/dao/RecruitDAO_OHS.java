@@ -7,6 +7,7 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import io.marosile.helloworld.recruit.model.dto.Company;
 import io.marosile.helloworld.recruit.model.dto.EmploymentTest;
 import io.marosile.helloworld.recruit.model.dto.Recruit;
 
@@ -50,6 +51,14 @@ public class RecruitDAO_OHS {
 	 */
 	public List<Recruit> matchingRecruit(EmploymentTest employmentTest) {
 		return sqlSession.selectList("recruitMapper.matchingRecruit", employmentTest);
+	}
+
+	/** 기업 담당자 등록 신청
+	 * @param company
+	 * @return result
+	 */
+	public int companyInsert(Company company) {
+		return sqlSession.insert("recruitMapper.companyInsert", company);
 	}
 	
 	

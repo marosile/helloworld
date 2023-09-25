@@ -6,8 +6,11 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.multipart.MultipartFile;
 
+import io.marosile.helloworld.common.utility.Util;
 import io.marosile.helloworld.recruit.model.dao.RecruitDAO_OHS;
+import io.marosile.helloworld.recruit.model.dto.Company;
 import io.marosile.helloworld.recruit.model.dto.EmploymentTest;
 import io.marosile.helloworld.recruit.model.dto.Recruit;
 
@@ -41,5 +44,12 @@ public class RecruitServiceImpl_OHS implements RecruitService_OHS{
 	@Override
 	public List<Recruit> matchingRecruit(EmploymentTest employmentTest) {
 		return dao.matchingRecruit(employmentTest);
+	}
+
+	// 기업 담당자 등록 신청
+	@Override
+	public int companyInsert(Company company) {
+		company.setCompanyIntroduce(Util.XSSHandling(company.getCompanyIntroduce()));
+		return dao.companyInsert(company);
 	}
 }
