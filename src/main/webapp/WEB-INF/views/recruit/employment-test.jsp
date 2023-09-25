@@ -139,7 +139,7 @@
 
             <div id="main-area">
                 <p id="number">5/6</p>
-                <p id="question2">선호 하는 근무 지역을 모두 선택해주세요. 🗾</p>
+                <p id="question2">선호 하는 근무 지역을 선택해주세요. 🗾</p>
                 
                 <div class="answer" id="regionChoice1">✔️ 서울 전체</div>
                 <div class="answer" id="regionChoice2">✔️ 서울 종로</div>
