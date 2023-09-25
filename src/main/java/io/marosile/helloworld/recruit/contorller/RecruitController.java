@@ -1,20 +1,28 @@
 package io.marosile.helloworld.recruit.contorller;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.multipart.MultipartFile;
 
 import io.marosile.helloworld.member.model.dto.Member;
+import io.marosile.helloworld.recruit.model.dto.Company;
 import io.marosile.helloworld.recruit.model.dto.EmploymentTest;
 import io.marosile.helloworld.recruit.model.dto.Recruit;
 import io.marosile.helloworld.recruit.model.service.RecruitService_OHS;
@@ -124,5 +132,41 @@ public class RecruitController {
 	public String application() {
 		return "recruit/application";
 	}
+	
+	// 기업 담당자 신청 등록
+		@PostMapping("/application")
+		public String postApplication(@RequestParam(value = "image", required=false) MultipartFile image
+									 ,@SessionAttribute("loginMember") Member loginMember 
+									 ,@ModelAttribute Company company
+									 ,HttpSession session) {
+			
+			company.setMemberId(loginMember.getMemberId());
+			
+			company.setCompanyLogo(image.getOriginalFilename());
+			
+			String webPath = "/resources/images/recruit/";
+			String filePath = session.getServletContext().getRealPath(webPath); // 실제 저장 경로
+		    
+			try {
+		        // 파일 저장 경로와 파일 이름 설정
+				String savePath = filePath + File.separator + company.getCompanyLogo();
+		        File saveFile = new File(savePath);
+
+		        // 파일을 지정된 경로에 저장
+		        image.transferTo(saveFile);
+
+		        System.out.println("company : " + company);
+
+		        int result = service2.companyInsert(company);
+		        
+		        
+		    } catch (IOException e) {
+		        e.printStackTrace();
+		    }
+			
+			
+			return "recruit/notice-list";
+		}
+
 	
 }
