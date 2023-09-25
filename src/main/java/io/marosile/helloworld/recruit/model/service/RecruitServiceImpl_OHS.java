@@ -54,7 +54,6 @@ public class RecruitServiceImpl_OHS implements RecruitService_OHS{
 
 	@Override
 	public Company selectMyCompanyInfo(String memberId) {
-		// TODO Auto-generated method stub
-		return null;
+		return dao.selectMyCompanyInfo(memberId);
 	}
 }
