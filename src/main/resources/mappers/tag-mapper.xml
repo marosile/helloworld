@@ -4,15 +4,68 @@
 
 	<!-- Tag ResultMap -->
 	<resultMap type="Tag" id="TagResultMap">
-
 		<id property="tagNo" column="TAG_NO" />
-
 		<result property="tagName" column="TAG_NM" />
 		<result property="boardNo" column="ITEM_NO" />
 		<result property="boardType" column="ITEM_TYPE" />
-
 	</resultMap>
 
+	<select id="selectTagList" resultType="String">
+		SELECT TAG_NM
+		  FROM TAG
+	</select>
+
+	<insert id="insertTag">
+		INSERT INTO TAG (TAG_NO, TAG_NM)
+		SELECT SEQ_TAG_NO.NEXTVAL, #{tag} FROM dual
+		WHERE NOT EXISTS (SELECT 1
+						    FROM TAG
+						   WHERE TAG_NM = #{tag})
+	</insert>
+
+	<insert id="insertTagRelation">
+		INSERT INTO TAG_RELATION VALUES((SELECT TAG_NO FROM TAG WHERE TAG_NM = #{tag}), ${itemType}, ${itemNo})
+	</insert>
+
+	<insert id="deleteTagRelation">
+		DELETE FROM TAG_RELATION
+		 WHERE TAG_NO = (SELECT TAG_NO FROM TAG WHERE TAG_NM = #{tag})
+		   AND ITEM_TYPE = ${itemType}
+		   AND ITEM_NO = ${itemNo}
+	</insert>
+
+	<insert id="deleteTagRelations">
+		DELETE FROM TAG_RELATION
+		WHERE ITEM_TYPE = ${itemType}
+		  AND ITEM_NO = ${itemNo}
+	</insert>
+
+	<select id="tagSelect" resultMap="TagResultMap">
+		SELECT T.TAG_NO, TAG_NM, tr.ITEM_NO, tr.ITEM_TYPE FROM TAG T
+		JOIN TAG_RELATION TR ON TR.TAG_NO = T.TAG_NO
+		JOIN BOARD B ON B.BOARD_NO = TR.ITEM_NO
+		WHERE B.BOARD_NO = #{boardNo} AND tr.ITEM_TYPE = #{boardType}
+	</select>
+
+	<!-- 일반 게시글 작성할 때의 태그 삽입 -->
+	<insert id="tagInsert" parameterType="Tag" useGeneratedKeys="true">
+		<selectKey order="BEFORE" resultType="int" keyProperty="tagNo">
+			SELECT SEQ_TAG_NO.NEXTVAL FROM DUAL
+		</selectKey>
+		INSERT ALL
+		INTO TAG (TAG_NO, TAG_NM) VALUES (#{tagNo}, #{tagName})
+		INTO TAG_RELATION (TAG_NO, ITEM_TYPE, ITEM_NO) VALUES (${tagNo}, #{boardType}, #{boardNo})
+		SELECT 1 FROM DUAL
+	</insert>
+
+	<!-- 일반 게시글 수정에서의 태그 수정 -->
+	<update id="tagUpdate" parameterType="Tag" >
+		MERGE INTO TAG t
+		USING TAG_RELATION tr ON (t.TAG_NO = tr.TAG_NO)
+		WHEN MATCHED THEN
+		UPDATE SET t.TAG_NM = #{tagName}
+		WHERE tr.ITEM_NO = ${boardNo} AND t.TAG_NO = ${tagNo}
+	</update>
 
 	<select id="tagSelect" resultMap="TagResultMap">
 	    SELECT T.TAG_NO, TAG_NM, tr.ITEM_NO, tr.ITEM_TYPE FROM TAG T 
@@ -64,5 +117,5 @@
 		WHERE tr.ITEM_NO = ${boardNo} AND t.TAG_NO = ${tagNo}
 	
 	</update>
-	
+
 </mapper>

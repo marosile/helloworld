@@ -5,6 +5,8 @@
 
 <jsp:include page="/WEB-INF/views/common/snack-bar.jsp"/>
 
+<div id="modal-overlay"></div>
+
 <header>
     <div id="header-left">
         <img id="header-logo" src="/resources/images/logo.svg" onclick="location.href='/'">

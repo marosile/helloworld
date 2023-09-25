@@ -95,6 +95,7 @@ main {
     display: flex;
     flex-direction: column;
     width: 224px;
+    border-radius: 5px;
     overflow: hidden;
     cursor: pointer;
     transition-duration: 0.3s;
@@ -111,21 +112,53 @@ main {
 }
 
 .card-info {
-    height: 105px;
+    height: 110px;
     transition-duration: 0.5s;
 }
 
 .card-title {
-    height: 75px;
+    height: 50px;
     padding: 5px 8px;
-    font-size: 1rem;
-    font-weight: 500;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 20px;
 }
 
 .card-tags {
     display: flex;
-    height: 30px;
-    padding-bottom: 8px;
+    align-items: center;
+    height: 25px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.card-info-2 {
+    display: flex;
+    align-items: center;
+    height: 35px;
+}
+
+.card-lecturer-icon {
+    height: 16px;
+    border-radius: 50%;
+    margin-left: 6px;
+    background-color: rgb(200, 200, 200);
+    transition-duration: 0.5s;
+}
+.card-lecturer {
+    width: 100%;
+    margin-left: 5px;
+    color: var(--text-color-2);
+    font-size: 12px;
+    transition-duration: 0.5s;
+}
+
+.card-price {
+    margin-right: 8px;
+    color: rgb(0, 128, 255);
+    font-size: 17px;
+    font-weight: 500;
+    white-space: nowrap;
 }
 
 .card-tags > a {
@@ -133,8 +166,9 @@ main {
     margin-left: 8px;
     background-color: rgba(0, 0, 0, 0.1);
     color: var(--text-color-1);
-    font-size: 0.7rem;
+    font-size: 11px;
     cursor: pointer;
+    transition-duration: 0.5s;
 } html.dark .card-tags > a {
     background-color: rgba(255, 255, 255, 0.1);
 }
