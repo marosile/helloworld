@@ -7,10 +7,37 @@ const btn2 = document.getElementById("btn2");
 
 const telAuthMessage = document.getElementById("telAuthMessage");
 
+/* 휴대전화 <-> 이메일 인증 변경하는 js */
+
+const TelCertification = document.getElementsByClassName("TelCertification")[0]
+const EmailCertification = document.getElementsByClassName("EmailCertification")[0]
+
+document.getElementById("findTel").addEventListener("change", e =>{
+    e.target.checked;
+
+    TelCertification.style.display = "block";
+    EmailCertification.style.display = "none";
+});
+
+document.getElementById("findEmail").addEventListener("change", e=>{
+    e.target.checked;
+
+    EmailCertification.style.display = "block";
+    TelCertification.style.display = "none";
+
+});
+
+
+
+
 /* 아이디 전화번호 / 이메일 인증 유효성 검사 */
 const checkPhoneAuth = {
     "inputTel2" : false,
     "inputEmail2" : false
+
+    // "inputTel2" : true,
+    // "inputEmail2" : true
+    //실험용
 };
 
 
@@ -31,7 +58,8 @@ btn1.addEventListener("click", () => {
     authSec = 59;
     
     if(inputTel1.value.trim().length == 0){
-        alert("전화번호를 입력 해주세요");
+        snackbar("전화번호를 입력 해주세요", 'rgb(0, 128, 255)', '/resources/images/moon.png');
+        // alert("전화번호를 입력 해주세요");
         return;
     }
 
@@ -44,10 +72,12 @@ btn1.addEventListener("click", () => {
         .then(resp => resp.text())
         .then(result => {
             if (result != null) {
-                alert("인증번호가 발송되었습니다.");
+                snackbar("인증번호가 발송되었습니다.", 'rgb(0, 128, 255)', '/resources/images/moon.png');
+                // alert("인증번호가 발송되었습니다.");
                 return;
             } else {
-                alert("인증번호 발송 실패")
+                snackbar("인증번호가 발송 실패", 'rgb(0, 128, 255)', '/resources/images/moon.png');
+                // alert("인증번호 발송 실패")
                 return;
             }
 
@@ -150,7 +180,8 @@ btn2.addEventListener("click", () => {
 
             .catch(err => console.log(err))
     }else{
-        alert("인증 시간이 만료되었습니다. 다시 시도해주세요.")
+        snackbar("인증 시간이 만료되었습니다. 다시 시도해주세요.", 'rgb(0, 128, 255)', '/resources/images/moon.png');
+        // alert("인증 시간이 만료되었습니다. 다시 시도해주세요.")
     }
 
 });
@@ -159,26 +190,6 @@ btn2.addEventListener("click", () => {
 
 
 
-
-/* 휴대전화 <-> 이메일 인증 변경하는 js */
-
-const TelCertification = document.getElementsByClassName("TelCertification")[0]
-const EmailCertification = document.getElementsByClassName("EmailCertification")[0]
-
-document.getElementById("findTel").addEventListener("change", e =>{
-    e.target.checked;
-
-    TelCertification.style.display = "block";
-    EmailCertification.style.display = "none";
-});
-
-document.getElementById("findEmail").addEventListener("change", e=>{
-    e.target.checked;
-
-    EmailCertification.style.display = "block";
-    TelCertification.style.display = "none";
-
-});
 
 
 /***********************************************/
@@ -201,7 +212,8 @@ document.getElementById("findIdBtn1").addEventListener("click", () => {
             // false인 경우 == 유효하지 않다!
 
             switch(key){
-                case "inputTel2" : alert("전화번호 인증을 해주세요"); break;
+                case "inputTel2" : snackbar("전화번호 인증을 해주세요", 'rgb(0, 128, 255)', '/resources/images/moon.png'); break;
+                    // alert("전화번호 인증을 해주세요"); break;
             }
 
             // 유효하지 않은 input 태그로 focus 이동
@@ -282,7 +294,8 @@ btn3.addEventListener("click", () => {
     authSec = 59;
 
     if(inputEmail1.value.trim().length == 0){
-        alert("이메일을 입력 해주세요");
+        snackbar("이메일을 입력 해주세요", 'rgb(0, 128, 255)', '/resources/images/moon.png');
+        // alert("이메일을 입력 해주세요");
         return;
     }
 
@@ -296,10 +309,12 @@ btn3.addEventListener("click", () => {
         .then(resp => resp.text())
         .then(result => {
             if(result != null){
-                alert("인증 번호가 발송되었습니다.")
+                snackbar("인증 번호가 발송되었습니다.", 'rgb(0, 128, 255)', '/resources/images/moon.png');
+                // alert("인증 번호가 발송되었습니다.")
                 console.log(result);
             }else{
-                alert("인증번호 발송 실패")
+                snackbar("인증번호 발송 실패", 'rgb(0, 128, 255)', '/resources/images/moon.png');
+                // alert("인증번호 발송 실패")
             }
         })
         .catch(err => {
@@ -380,7 +395,8 @@ btn4.addEventListener("click", () => {
             });
 
     }else{
-        alert("인증 시간이 만료되었습니다. 다시 시도해주세요.")
+        snackbar("인증 시간이 만료되었습니다. 다시 시도해주세요.", 'rgb(0, 128, 255)', '/resources/images/moon.png');
+        // alert("인증 시간이 만료되었습니다. 다시 시도해주세요.")
     }
 
 
@@ -399,7 +415,8 @@ document.getElementById("findIdBtn2").addEventListener("click", () => {
             // false인 경우 == 유효하지 않다!
 
             switch(key){
-                case "inputEmail2" : alert("이메일 인증을 해주세요"); break;
+                case "inputEmail2" : snackbar("이메일 인증을 해주세요", 'rgb(0, 128, 255)', '/resources/images/moon.png'); break;
+                    // alert("이메일 인증을 해주세요"); break;
             }
 
             // 유효하지 않은 input 태그로 focus 이동
@@ -454,15 +471,18 @@ document.getElementById("findIdBtn2").addEventListener("click", () => {
 
 
 /* x누를 시 modal창 display none으로 만들기*/
-const idModalClose = document.getElementById("idModalClose");
+const idFindModalClose = document.getElementById("idFindModalClose");
 
-idModalClose.addEventListener("click", () => {
-    if(idModal != null){
-        idModal.style.display = 'none';
-        location.reload(true);
-    }
+if(idFindModalClose != null){
+    idFindModalClose.addEventListener("click", () => {
+        if(idModal != null){
+            idModal.style.display = 'none';
+            location.reload(true);
+        }
 
-});
+    });
+}
+
 
 
 

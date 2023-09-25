@@ -193,6 +193,7 @@ public class MemberController {
 	@PostMapping("/signUp")
 	public String signUp(Member inputMember
 						, @RequestParam(value="promotionFl") String promotionFl
+						 , RedirectAttributes ra
 						){
 
 		// 마케팅동의 담아주기
@@ -207,10 +208,12 @@ public class MemberController {
 
 		if(result > 0){ //성공
 			System.out.println("회원가입 성공!");
+			ra.addFlashAttribute("message", "회원가입이 완료되었습니다.");
 			path += "/";
 
 		}else{
 			System.out.println("회원가입 실패!");
+			ra.addFlashAttribute("message", "회원가입에 실패하셨습니다.");
 			path += "signUp";
 		}
 
@@ -437,7 +440,8 @@ public class MemberController {
 	@PostMapping("/findPw/newPw")
 	public String newPwChange(@RequestParam("memberPw") String memberPw
 							, @RequestParam("memberId1") String memberId1
-							, @RequestParam("memberId2") String memberId2){
+							, @RequestParam("memberId2") String memberId2
+							, RedirectAttributes ra){
 
 		System.out.println("memberId1 : " + memberId1);
 		System.out.println("memberId2 : " + memberId2);
@@ -462,10 +466,12 @@ public class MemberController {
 
 		if(result > 0){
 			System.out.println("성공이여");
-			path += "/member/login";
+			ra.addFlashAttribute("message", "비밀번호 재발급에 성공하셨습니다.");
+			path += "/";
 
 		}else{
 			System.out.println("실패여");
+			ra.addFlashAttribute("message", "비밀번호 재발급에 실패하셨습니다.");
 			path += "/member/findPw";
 
 		}
