@@ -3,6 +3,7 @@
 <script src="https://kit.fontawesome.com/98acdabf0d.js" crossorigin="anonymous"></script>
 
 
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -13,6 +14,9 @@
     <link rel="stylesheet" href="/resources/css/common/general.css">
     <link rel="stylesheet" href="/resources/css/admin/recuritOfficer.css">
     <link rel="stylesheet" href="/resources/css/admin/adminSidebar.css">
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
 </head>
 <body>
 
@@ -27,176 +31,51 @@
 
 
             <div class="adminMemberDisplay">
+
+                <div class="listChange">
+                    <a href="/admin/recruitOfficer">신청 현황</a>
+                    <span>|</span>
+                    <a href="/admin/recruitOfficerCurr">현재 기업 담당자 리스트</a>
+                </div>
+
                 
-                <form action="#" id="searchMemberMenu" class="searchMemberMenu">
-                    <div class="adminSearchDiv">
-                        <button type="button" name="searchMember" id="searchMember">조회 방법
-                            <img src="/resources/images/admin/sort.png">
-                        </button>
-                        <ul class="searchMenu menuHidden" id="searchMenu">
-                            <li><button type="button" class="sidebarMenu" id="searchId">이름</button></li>
-                            <li><button type="button" class="sidebarMenu" id="searchId">아이디</button></li>
-                            <li><button type="button" class="sidebarMenu" id="searchId">제목</button></li>
-                        </ul>
-    
-                    </div>
 
-                    <input type="text" id="searchInput"> 
-                    <button id="searchBtn"><img src="/resources/images/admin/search.png"></button>
-
-                </form>
-
-                <form action="#">
                     <div class="tableDiv">
                         <div class="row">
-                            <div class="box">
-                                <p id="title">네오사피엔스</p>
-                                <p id="user-name">이름 : 오형석</p>
 
-                                <h4>기업설명</h4>
-                                <p id="introduce">네오사피엔스는 음성·언어 분야의 인공지능 원천기술을 개발하고 있습니다.</p>
 
-                                <h4>내용</h4>
-                                <p id="content">신입 채용 및 경력 직원 채용 희망합니다 🐰</p>
-                            </div>
+                            <c:forEach items="${recruitList}" var="recruitList">
+                                <a href="/admin/recruitOfficer/detail/${recruitList.userId}">
+                                    <div class="box">
+                                        <h4>기업명</h4>
+                                        <div class="cmpnNmLogo">
+                                            <img src='${recruitList.cmpnLogo}' class="cmpnLogo"/>
+                                            <span id="cmpnNm">${recruitList.cmpnNm}</span>
+                                        </div>
 
-                            <div class="box">
-                                <p id="title">네오사피엔스</p>
-                                <p id="user-name">이름 : 오형석</p>
+                                        <div id="userId">담당자 : ${recruitList.userId}</div>
+                                        <div id="userTel">연락처 : ${recruitList.userTel}</div>
 
-                                <h4>기업설명</h4>
-                                <p id="introduce">네오사피엔스는 음성·언어 분야의 인공지능 원천기술을 개발하고 있습니다.</p>
+                                        <h4>기업설명</h4>
+                                        <div id="cmpnAddr">주소 : ${recruitList.cmpnAddr}</div>
+                                        <div id="cmpnMCount">사원수 : ${recruitList.cmpnMCount}</div>
 
-                                <h4>내용</h4>
-                                <p id="content">신입 채용 및 경력 직원 채용 희망합니다 🐰</p>
-                            </div>
+                                        <h4>상세설명</h4>
+                                        <div id="cmpnIntro">${recruitList.cmpnIntro}</div>
+
+
+                                    </div>
+                                </a>
+                            </c:forEach>
+
+
                         </div>
 
-                        <div class="row">
-                            <div class="box">
-                                <p id="title">네오사피엔스</p>
-                                <p id="user-name">이름 : 오형석</p>
 
-                                <h4>기업설명</h4>
-                                <p id="introduce">네오사피엔스는 음성·언어 분야의 인공지능 원천기술을 개발하고 있습니다.</p>
-
-                                <h4>내용</h4>
-                                <p id="content">신입 채용 및 경력 직원 채용 희망합니다 🐰</p>
-                            </div>
-
-                            <div class="box">
-                                <p id="title">네오사피엔스</p>
-                                <p id="user-name">이름 : 오형석</p>
-
-                                <h4>기업설명</h4>
-                                <p id="introduce">네오사피엔스는 음성·언어 분야의 인공지능 원천기술을 개발하고 있습니다.</p>
-
-                                <h4>내용</h4>
-                                <p id="content">신입 채용 및 경력 직원 채용 희망합니다 🐰</p>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="box">
-                                <p id="title">네오사피엔스</p>
-                                <p id="user-name">이름 : 오형석</p>
-
-                                <h4>기업설명</h4>
-                                <p id="introduce">네오사피엔스는 음성·언어 분야의 인공지능 원천기술을 개발하고 있습니다.</p>
-
-                                <h4>내용</h4>
-                                <p id="content">신입 채용 및 경력 직원 채용 희망합니다 🐰</p>
-                            </div>
-
-                            <div class="box">
-                                <p id="title">네오사피엔스</p>
-                                <p id="user-name">이름 : 오형석</p>
-
-                                <h4>기업설명</h4>
-                                <p id="introduce">네오사피엔스는 음성·언어 분야의 인공지능 원천기술을 개발하고 있습니다.</p>
-
-                                <h4>내용</h4>
-                                <p id="content">신입 채용 및 경력 직원 채용 희망합니다 🐰</p>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="box">
-                                <p id="title">네오사피엔스</p>
-                                <p id="user-name">이름 : 오형석</p>
-
-                                <h4>기업설명</h4>
-                                <p id="introduce">네오사피엔스는 음성·언어 분야의 인공지능 원천기술을 개발하고 있습니다.</p>
-
-                                <h4>내용</h4>
-                                <p id="content">신입 채용 및 경력 직원 채용 희망합니다 🐰</p>
-                            </div>
-
-                            <div class="box">
-                                <p id="title">네오사피엔스</p>
-                                <p id="user-name">이름 : 오형석</p>
-
-                                <h4>기업설명</h4>
-                                <p id="introduce">네오사피엔스는 음성·언어 분야의 인공지능 원천기술을 개발하고 있습니다.</p>
-
-                                <h4>내용</h4>
-                                <p id="content">신입 채용 및 경력 직원 채용 희망합니다 🐰</p>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="box">
-                                <p id="title">네오사피엔스</p>
-                                <p id="user-name">이름 : 오형석</p>
-
-                                <h4>기업설명</h4>
-                                <p id="introduce">네오사피엔스는 음성·언어 분야의 인공지능 원천기술을 개발하고 있습니다.</p>
-
-                                <h4>내용</h4>
-                                <p id="content">신입 채용 및 경력 직원 채용 희망합니다 🐰</p>
-                            </div>
-
-                            <div class="box">
-                                <p id="title">네오사피엔스</p>
-                                <p id="user-name">이름 : 오형석</p>
-
-                                <h4>기업설명</h4>
-                                <p id="introduce">네오사피엔스는 음성·언어 분야의 인공지능 원천기술을 개발하고 있습니다.</p>
-
-                                <h4>내용</h4>
-                                <p id="content">신입 채용 및 경력 직원 채용 희망합니다 🐰</p>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="box">
-                                <p id="title">네오사피엔스</p>
-                                <p id="user-name">이름 : 오형석</p>
-
-                                <h4>기업설명</h4>
-                                <p id="introduce">네오사피엔스는 음성·언어 분야의 인공지능 원천기술을 개발하고 있습니다.</p>
-
-                                <h4>내용</h4>
-                                <p id="content">신입 채용 및 경력 직원 채용 희망합니다 🐰</p>
-                            </div>
-
-                            <div class="box">
-                                <p id="title">네오사피엔스</p>
-                                <p id="user-name">이름 : 오형석</p>
-
-                                <h4>기업설명</h4>
-                                <p id="introduce">네오사피엔스는 음성·언어 분야의 인공지능 원천기술을 개발하고 있습니다.</p>
-
-                                <h4>내용</h4>
-                                <p id="content">신입 채용 및 경력 직원 채용 희망합니다 🐰</p>
-                            </div>
-                        </div>
 
                        
                     </div>
 
-                    <button></button>
-                </form>
 
             </div>
 

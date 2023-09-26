@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="employmentMapper">
+
+	<!-- emploment ResultMap -->
+	<resultMap type="EmploymentTest" id="employmentTestMap">
+	
+		<id property="memberId" column="MEMBER_ID" />
+
+		<result property="question1" column="POSITION" />
+		<result property="question2" column="EXPR_PERIOD" />
+		<result property="question3" column="SALARY_EXPECT" />
+		<result property="question4" column="EMPL_TYPE" />
+		<result property="question5" column="EMPL_LOCAITON" />
+		<result property="question6" column="FIELD" />
+	</resultMap>
+	
+	<select id="selectResume" resultMap="employmentTestMap">
+		SELECT MEMBER_ID, POSITION, EXPR_PERIOD, EMPL_TYPE, EMPL_LOCATION, SALARY_EXPECT, FIELD
+		FROM RESUME
+		WHERE MEMBER_ID = #{memberId}
+	</select>
+
+   
+
+</mapper>

@@ -15,6 +15,7 @@ import io.marosile.helloworld.member.model.dto.Member;
 import io.marosile.helloworld.mypage.model.dao.MyPageDAO;
 import io.marosile.helloworld.mypage.model.dto.BookmarkList;
 import io.marosile.helloworld.mypage.model.dto.BookmarkList2;
+import io.marosile.helloworld.mypage.model.dto.PostList;
 
 @Service
 public class MyPageServiceImpl implements MyPageService {
@@ -87,7 +88,7 @@ public class MyPageServiceImpl implements MyPageService {
 		return result;
 	}
 
-	/** 북마크 조회
+	/** 북마크 조회 (커뮤니티)
 	 *
 	 */
 	@Override
@@ -95,11 +96,18 @@ public class MyPageServiceImpl implements MyPageService {
 		return dao.selectBookmark(memberId);
 	}
 
-	/** 북마크 조회2
+	/** 북마크 조회2 (채용)
 	 */
 	@Override
 	public List<BookmarkList2> selectBookmark2(String memberId) {
 		return dao.selectBookmark2(memberId);
+	}
+
+	/** 나의 게시글 목록 조회
+	 */
+	@Override
+	public List<PostList> selectPostList(String memberId) {
+		return dao.selectPostList(memberId);
 	}
 
 	

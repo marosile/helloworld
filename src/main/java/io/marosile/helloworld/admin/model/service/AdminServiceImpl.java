@@ -4,11 +4,11 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import io.marosile.helloworld.admin.model.dao.AdminDAO;
 import io.marosile.helloworld.member.model.dto.Member;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import io.marosile.helloworld.admin.model.dao.Admin;
 import io.marosile.helloworld.admin.model.dto.AdminDTO;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -16,7 +16,7 @@ import org.springframework.transaction.annotation.Transactional;
 public class AdminServiceImpl implements AdminService {
 	
 	@Autowired
-	private Admin dao;
+	private AdminDAO dao;
 
 	// 신고글 목록 조회
 	@Override
@@ -71,6 +71,66 @@ public class AdminServiceImpl implements AdminService {
 
 		return map;
 
+	}
+
+	// 관리자 기업 담당자 자격 신청 service
+	@Override
+	public List<AdminDTO> recruitList() {
+		return dao.recruitList();
+	}
+
+
+	// 기업 담당자 자격 신청 상세 페이지
+	@Override
+	public AdminDTO recruitOfficerDetail(String userId) {
+		return dao.recruitOfficerDetail(userId);
+	}
+
+
+	// 기업 담당자 업데이트
+	@Transactional
+	@Override
+	public int recruitOfficerUpdate(AdminDTO cmpnInfo) {
+		return dao.recruitOfficerUpdate(cmpnInfo);
+	}
+
+	@Transactional
+	// 기업 담당자 승인 회원 자격 테이블에 추가
+	@Override
+	public int recruitOfficerInsert(AdminDTO cmpnInfo) {
+		return dao.recruitOfficerInsert(cmpnInfo);
+	}
+
+	// 현재 등록되어있는 담당자 리스트 뽑아오기
+	@Override
+	public List<AdminDTO> recruitListCurr() {
+		return dao.recruitListCurr();
+	}
+
+	@Transactional
+	// 기업 담당자 삭제 시키기
+	@Override
+	public int recruitOfficerDelete(AdminDTO cmpnInfo) {
+		return dao.recruitOfficerDelete(cmpnInfo);
+	}
+
+	@Transactional
+	// autority 테이블에서 삭제
+	@Override
+	public int recruitOfficerDelete2(AdminDTO cmpnInfo) {
+		return dao.recruitOfficerDelete2(cmpnInfo);
+	}
+
+	// 반려하기
+	@Override
+	public int recruitCancel(String userId) {
+		return dao.recruitCancel(userId);
+	}
+
+	// 전화번호 조회
+	@Override
+	public String findUserTel(String userId) {
+		return dao.findUserTel(userId);
 	}
 
 }

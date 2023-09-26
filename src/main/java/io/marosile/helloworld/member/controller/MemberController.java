@@ -106,6 +106,8 @@ public class MemberController {
 //			path += "/";
 
 			model.addAttribute("loginMember", loginMember);
+			
+			System.out.println(loginMember + ":::::::::::로그인 멤버 담기니?");
 
 
 			// 쿠키를 이용한 아이디 저장

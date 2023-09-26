@@ -39,12 +39,14 @@
 
 #recruitNo > span{
     display: block;
-    width: 35px;
+    width: 50px;
     height: 30px;
     text-align: center;
-    color: rgb(120, 120, 120);
-    font-size:16px;
+    font-size:18px;
+}
 
+#currentPageNo{
+    font-weight:bold;
 }
 
 /* 이미지, 회사명 */
@@ -68,6 +70,29 @@
     align-items: center;
     margin-left:10px;
 }
+
+/* 지원하기 버튼 */
+#apply-btn{
+    width: 80px;
+    height: 35px;
+    margin-left: 700px;
+    font-size: 15px;
+    font-weight: bold;
+    border: 2px solid black;
+}
+
+/* 지원하기 버튼 */
+#apply-btn:hover{
+    background-color: rgba(180, 220, 60, 0.5);
+    border: 1px solid lightgreen;
+
+    color: white;
+}
+
+#aplly-btn-area{
+    width: 100px;
+}
+
 
 /* 직무 */
 #jobTitle{
@@ -99,12 +124,14 @@
     width:100px;
     height:35px;
     background-color: rgba(180, 220, 60, 0.5);
-    border:1px solid lightgreen;
+    border:1px solid rgba(180, 220, 60, 0.5);
     border-radius: 10px;
     display:flex;
     justify-content: center;
     align-items: center;
-    font-size:14px;
+    font-size:15px;
+    color:black;
+    font-weight: bold;
 }
 
 /* 내가 안가진 태그? */
@@ -117,7 +144,7 @@
     display:flex;
     justify-content: center;
     align-items: center;
-    font-size:14px;
+    font-size:15px;
 }
 
 /* 기업 간단 설명 */
@@ -163,27 +190,7 @@
     height:20px;
 }
 
-/* 매칭 퍼센트와 설명 몇가지 */
-#matchingInfo{
-    height:150px;
-    flex-direction: column;
-}
 
-/* OOO님과 매칭률 */
-#matching{
-    font-size:24px;
-    width:100%;
-    height:40px;
-}
-
-/* 00.0% */
-#percent{
-    width:100%;
-    font-size:32px;
-    font-weight: bold;
-    height:50px;
-    margin-bottom: 10px;
-}
 
 /* 기업 정보 4개 통 div */
 #companyInfo2{
@@ -194,8 +201,9 @@
 }
 
 #widthDiv{
-    width:70%;
-    display:flex;
+    width: 100%;
+    height: 40px;
+    display: flex;
     justify-content: flex-start;
 }
 
@@ -205,6 +213,7 @@
     justify-content: center;
     align-items: center;
     margin-right: 25px;
+    width:275px;
 }
 
 .greenChecks{
@@ -256,7 +265,7 @@
 
 /* 신입, 경력, 내용 */
 .personInfo{
-    height:100px;
+    height:250px;
     margin-bottom: 20px;
 }
 
@@ -266,14 +275,15 @@
 }
 
 /* 내용 */
-p{
+.content-area{
     font-size:15px;
     margin-left:10px;
+    margin-top: 30px;
 }
 
 /* 경력 div 만 */
 #personInfo2{
-    height:140px;
+    height:200px;
 }
 
 /* 플러스요인 div */

@@ -23,11 +23,8 @@
 </head>
 <body>
 
-<%
-        int i = 1;
-    %>
+<%int i = 1;%>
 
-    
     <jsp:include page="/WEB-INF/views/common/header.jsp"/>
 
    <main id="body-area">

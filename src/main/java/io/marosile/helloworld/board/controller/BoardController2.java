@@ -4,8 +4,10 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.http.HttpHeaders;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -164,8 +166,6 @@ public class BoardController2 {
 	    // 수정 페이지에서의 tagList 가져오기
 	    List<Tag> tagList = service3.tagSelect(map);
 	    
-
-	    
 		board.setMemberId(loginMember.getMemberId());
 		board.setMemberNickname(loginMember.getMemberNick());
 		
@@ -228,18 +228,16 @@ public class BoardController2 {
 	public String uploadSummernoteImageFile(@RequestParam("file") MultipartFile multipartFile, HttpServletRequest request )  {
 		JsonObject jsonObject = new JsonObject();
 		
-        /*
-		 * String fileRoot = "C:\\summernote_image\\"; // 외부경로로 저장을 희망할때.
-		 */
-		
-		// 내부경로로 저장
-		String contextRoot = new HttpServletRequestWrapper(request).getRealPath("/");
-		System.out.println(contextRoot);
-		String fileRoot = contextRoot+"resources/fileupload/";
+		ServletContext context = request.getServletContext();
+		String fileRoot = context.getRealPath("/resources/fileupload/");
 		
 		String originalFileName = multipartFile.getOriginalFilename();	//오리지날 파일명
 		String extension = originalFileName.substring(originalFileName.lastIndexOf("."));	//파일 확장자
-		String savedFileName = UUID.randomUUID() + extension;	//저장될 파일 명
+		
+	    SimpleDateFormat dateFormat = new SimpleDateFormat("yyyyMMddHHmmss");
+	    String currentDateTime = dateFormat.format(new Date());
+	    
+		String savedFileName = currentDateTime + extension;	//저장될 파일 명
 		
 		File targetFile = new File(fileRoot + savedFileName);	
 		try {
@@ -268,16 +266,13 @@ public class BoardController2 {
 		int result = service.boardDelete(boardNo);
 		
 		if(result == 1) {
+			
 			System.out.println("Test");
 			path +="/board/" + boardCode;
 			
 		}else {
-			
 			path +="/board/" + boardCode + boardNo;
 		}
-		
 		return path;
-		
 	}
-	
 }

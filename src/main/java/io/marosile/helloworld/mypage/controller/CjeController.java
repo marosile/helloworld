@@ -24,6 +24,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import io.marosile.helloworld.member.model.dto.Member;
 import io.marosile.helloworld.mypage.model.dto.BookmarkList;
 import io.marosile.helloworld.mypage.model.dto.BookmarkList2;
+import io.marosile.helloworld.mypage.model.dto.PostList;
 import io.marosile.helloworld.mypage.model.service.MyPageService;
 import oracle.jdbc.proxy.annotation.Post;
 
@@ -63,10 +64,14 @@ public class CjeController {
 		
 		
 		String memberId = loginMember.getMemberId();
+		//System.out.println(memberId + "::북1 로그인 멤버"); // 로그인 멤버 잘나옴
+		
 		
 		List<BookmarkList> bookmarkList = service.selectBookmark(memberId);
+		// System.out.println(bookmarkList + ":: 북1 북맠리스트1"); // 보드 넘버, 아이디, 닉네임, 프사 게시글, 게시글 제목 
 		
 		model.addAttribute("bookmarkList", bookmarkList);
+		// System.out.println(bookmarkList + "::북1 모델후 북리스트1"); //보드 넘버, 아이디, 닉네임, 프사 게시글, 게시글 제목 등등
 		
 		return "mypage/mypage-bookmark";
 	}
@@ -75,18 +80,35 @@ public class CjeController {
 	@GetMapping("/bookmark2")
 	public String bookmark2(Model model, @SessionAttribute(value = "loginMember", required = false) Member loginMember) {
 		
-		String memberId = loginMember.getMemberId();
+		String memberId = loginMember.getMemberId(); // 로그인 멤버 잘 가지고옴
+		
+		// System.out.println(loginMember + "북마크2 로그인 멤버"); // 로그인 멤버 담김
 		
 		List<BookmarkList2> bookmarkList2 = service.selectBookmark2(memberId);
 		
+		System.out.println(bookmarkList2 + "::북2 북마크 리스트2");
+		
 		model.addAttribute("bookmarkList2", bookmarkList2);
+		
+		System.out.println(bookmarkList2 + "::북2 북리스트 2");
 		
 		return "mypage/mypage-bookmark2";
 	}
 	
 	// 나의 게시글
 	@GetMapping("/post")
-	public String post() {
+	public String post(Model model, @SessionAttribute(value = "loginMember", required = false) Member loginMember) {
+		
+		String memberId = loginMember.getMemberId();
+		
+		System.out.println(memberId + "::::이게 안담기나?");
+		
+		List<PostList> postList = service.selectPostList(memberId);
+		
+		model.addAttribute("postList", postList);
+		
+		System.out.println(postList + "아휴 하기실헝");
+		
 		return "mypage/mypage-post";
 	}
 	// 좋아요

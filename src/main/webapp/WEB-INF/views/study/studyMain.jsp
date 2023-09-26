@@ -10,7 +10,6 @@
 </c:if>
 
 
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -23,13 +22,13 @@
 
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 
 </head>
 
 <body>
 
 <jsp:include page="/WEB-INF/views/common/header.jsp"/>
-<jsp:include page="/WEB-INF/views/study/study-nav.jsp"/>
 
 
 <main>
@@ -57,162 +56,126 @@
             </div>
 
 
-            <form action="/study/main">
-            <div class="P-body-category-top">
-                <div class="P-body-category-area">
+            <form action="/study/main" method="GET">
+                <div class="P-body-category-top">
+                    <div class="P-body-category-area">
 
-                    <div class="P-body-category-purpose">
-                        <button type="button" class="P-body-purpose-btn">위치
-                            <i class="fa-solid fa-caret-down"></i>
-                        </button>
+                        <div class="P-body-category-purpose">
+                            <button type="button" class="P-body-purpose-btn">위치
+                                <i class="fa-solid fa-caret-down"></i>
+                            </button>
 
-                        <ul class="P-selectBox-purpose menuHidden">
+                            <ul class="P-selectBox-purpose menuHidden">
 
-                            <li>
-                                <button type="button" class="P-option-btn" name="seoulGu">서울전체</button>
-                            </li>
+                                <li>
+                                    <button type="button" class="P-option-btn" name="seoulGu">서울전체</button>
+                                </li>
 
-                            <li>
-                                <button type="button" class="P-option-btn" name="seoulGu" id="gangnam-gu" value="강남구">강남구</button>
-                            </li>
-                            <li>
-                                <button type="button" class="P-option-btn" name="seoulGu" id="gangdong-gu" value="강동구">강동구</button>
-                            </li>
-                            <li>
-                                <button type="button" class="P-option-btn" name="seoulGu" id="gangbuk-gu" value="강북구">강북구</button>
-                            </li>
-                            <li>
-                                <button type="button" class="P-option-btn" name="seoulGu" id="gangseo-gu" value="강서구">강서구</button>
-                            </li>
-                            <li>
-                                <button type="button" class="P-option-btn" name="seoulGu" id="gwanak-gu" value="관악구">관악구</button>
-                            </li>
-                            <li>
-                                <button type="button" class="P-option-btn" name="seoulGu" id="gwangjin-gu" value="광진구">광진구</button>
-                            </li>
-                            <li>
-                                <button type="button" class="P-option-btn" name="seoulGu" id="guro-gu" value="구로구">구로구</button>
-                            </li>
-                            <li>
-                                <button type="button" class="P-option-btn" name="seoulGu" id="geumcheon-gu" value="금천구">금천구</button>
-                            </li>
-                            <li>
-                                <button type="button" class="P-option-btn" name="seoulGu" id="nowon-gu" value="노원구">노원구</button>
-                            </li>
-                            <li>
-                                <button type="button" class="P-option-btn" name="seoulGu" id="dobong-gu" value="도봉구">도봉구</button>
-                            </li>
-                            <li>
-                                <button type="button" class="P-option-btn" name="seoulGu" id="dongdaemun-gu" value="동대문구">동대문구</button>
-                            </li>
-                            <li>
-                                <button type="button" class="P-option-btn" name="seoulGu" id="dongjak-gu" value="동작구">동작구</button>
-                            </li>
-                            <li>
-                                <button type="button" class="P-option-btn" name="seoulGu" id="mapo-gu" value="마포구">마포구</button>
-                            </li>
-                            <li>
-                                <button type="button" class="P-option-btn" name="seoulGu" id="seodaemun-gu" value="서대문구">서대문구</button>
-                            </li>
-                            <li>
-                                <button type="button" class="P-option-btn" name="seoulGu" id="seochogu" value="서초구">서초구</button>
-                            </li>
-                            <li>
-                                <button type="button" class="P-option-btn" name="seoulGu" id="seongdong-gu" value="성동구">성동구</button>
-                            </li>
-                            <li>
-                                <button type="button" class="P-option-btn" name="seoulGu" id="seongbuk-gu" value="성북구">성북구</button>
-                            </li>
-                            <li>
-                                <button type="button" class="P-option-btn" name="seoulGu" id="songpa-gu" value="송파구">송파구</button>
-                            </li>
-                            <li>
-                                <button type="button" class="P-option-btn" name="seoulGu" id="yangcheon-gu" value="양천구">양천구</button>
-                            </li>
-                            <li>
-                                <button type="button" class="P-option-btn" name="seoulGu" id="yeongdeungpo-gu" value="영등포구">영등포구
-                                </button>
-                            </li>
-                            <li>
-                                <button type="button" class="P-option-btn" name="seoulGu" id="yongsan-gu" value="용산구">용산구</button>
-                            </li>
-                            <li>
-                                <button type="button" class="P-option-btn" name="seoulGu" id="eunpyeong-gu" value="은평구">은평구</button>
-                            </li>
-                            <li>
-                                <button type="button" class="P-option-btn" name="seoulGu" id="jongno-gu" value="종로구">종로구</button>
-                            </li>
-                            <li>
-                                <button type="button" class="P-option-btn" name="seoulGu" id="jung-gu" value="중구">중구</button>
-                            </li>
-                            <li>
-                                <button type="button" class="P-option-btn" name="seoulGu" id="jungrang-gu" value="중랑구">중랑구</button>
-                            </li>
+                                <li>
+                                    <button type="button" class="P-option-btn" name="seoulGu" id="gangnam-gu" value="강남구">강남구</button>
+                                </li>
+                                <li>
+                                    <button type="button" class="P-option-btn" name="seoulGu" id="gangdong-gu" value="강동구">강동구</button>
 
-                        </ul>
-                        <input type="hidden" id="seoulGuList" name="location">
+                                </li>
+                                <li>
+                                    <button type="button" class="P-option-btn" name="seoulGu" id="gangbuk-gu" value="강북구">강북구</button>
 
-                    </div>
+                                </li>
+                                <li>
+                                    <button type="button" class="P-option-btn" name="seoulGu" id="gangseo-gu" value="강서구">강서구</button>
+                                </li>
+                                <li>
+                                    <button type="button" class="P-option-btn" name="seoulGu" id="gwanak-gu" value="관악구">관악구</button>
+                                </li>
+                                <li>
+                                    <button type="button" class="P-option-btn" name="seoulGu" id="gwangjin-gu" value="광진구">광진구</button>
+                                </li>
+                                <li>
+                                    <button type="button" class="P-option-btn" name="seoulGu" id="guro-gu" value="구로구">구로구</button>
+                                </li>
+                                <li>
+                                    <button type="button" class="P-option-btn" name="seoulGu" id="geumcheon-gu" value="금천구">금천구</button>
+                                </li>
+                                <li><button type="button" class="P-option-btn" name="seoulGu" id="dongdaemun-gu" value="동대문구">동대문구</button></li>
+                                <li><button type="button" class="P-option-btn" name="seoulGu" id="dongjak-gu" value="동작구">동작구</button></li>
+                                <li><button type="button" class="P-option-btn" name="seoulGu" id="mapo-gu" value="마포구">마포구</button></li>
+                                <li><button type="button" class="P-option-btn" name="seoulGu" id="seodaemun-gu" value="서대문구">서대문구</button></li>
+                                <li><button type="button" class="P-option-btn" name="seoulGu" id="seochogu" value="서초구">서초구</button></li>
+                                <li><button type="button" class="P-option-btn" name="seoulGu" id="seongdong-gu" value="성동구">성동구</button></li>
+                                <li><button type="button" class="P-option-btn" name="seoulGu" id="seongbuk-gu" value="성북구">성북구</button></li>
+                                <li><button type="button" class="P-option-btn" name="seoulGu" id="songpa-gu" value="송파구">송파구</button></li>
+                                <li><button type="button" class="P-option-btn" name="seoulGu" id="yangcheon-gu" value="양천구">양천구</button></li>
+                                <li><button type="button" class="P-option-btn" name="seoulGu" id="yeongdeungpo-gu" value="영등포구">영등포구</button></li>
+                                <li><button type="button" class="P-option-btn" name="seoulGu" id="yongsan-gu" value="용산구">용산구</button></li>
+                                <li><button type="button" class="P-option-btn" name="seoulGu" id="eunpyeong-gu" value="은평구">은평구</button></li>
+                                <li><button type="button" class="P-option-btn" name="seoulGu" id="jongno-gu" value="종로구">종로구</button></li>
+                                <li><button type="button" class="P-option-btn" name="seoulGu" id="jung-gu" value="중구">중구</button></li>
+                                <li><button type="button" class="P-option-btn" name="seoulGu" id="jungrang-gu" value="중랑구">중랑구</button></li>
+                            <input type="hidden" id="seoulGuList" name="location">
+                            </ul>
+
+                        </div>
 
 
-                    <div class="P-body-category-role">
+                        <div class="P-body-category-role">
 
-                        <button type="button" class="P-body-category-btn">포지션
-                            <i class="fa-solid fa-caret-down"></i>
-                        </button>
+                            <button type="button" class="P-body-category-btn">포지션
+                                <i class="fa-solid fa-caret-down"></i>
+                            </button>
 
-                        <ul class="P-selectBox-role menuHidden" id=P-selectBox-role"">
-                            <li>
-                                <button type="button" class="P-option-btn" name="position" id="front">프론트앤드</button>
-                            </li>
-                            <li>
-                                <button type="button" class="P-option-btn" name="position" id="back">백엔드</button>
-                            </li>
-                            <li>
-                                <button type="button" class="P-option-btn" name="position" id="design">디자인</button>
-                            </li>
-                            <li>
-                                <button type="button" class="P-option-btn" name="position"id="Planning">기획</button>
-                            </li>
-                            <li>
-                                <button type="button" class="P-option-btn" name="position" id="etc">기타</button>
-                            </li>
-                        </ul>
+                            <ul class="P-selectBox-role menuHidden" id=P-selectBox-role"">
+                                <li>
+                                    <button type="button" class="P-option-btn" name="position" id="front">프론트앤드</button>
+                                </li>
+                                <li>
+                                    <button type="button" class="P-option-btn" name="position" id="back">백엔드</button>
+                                </li>
+                                <li>
+                                    <button type="button" class="P-option-btn" name="position" id="design">디자인</button>
+                                </li>
+                                <li>
+                                    <button type="button" class="P-option-btn" name="position" id="Planning">기획</button>
+                                </li>
+                                <li>
+                                    <button type="button" class="P-option-btn" name="position" id="etc">기타</button>
+                                </li>
+                            </ul>
 
-                        <input type="hidden" id="selectedRole" name="tagNm">
-
-
-                    </div>
+                            <input type="hidden" id="selectedRole" name="tagNm">
 
 
-                    <div class="P-body-category-count">
-                        <button type="button" class="P-body-count-btn">인원
-                            <i class="fa-solid fa-caret-down"></i>
-                        </button>
+                        </div>
 
-                        <ul class="P-selectBox-count menuHidden">
 
-                            <div class="P-CountPerson">
-                                <div class="P-person">
-                                    <span class="P-person-span">전체인원</span>
-                                    <button type="button" id="P-minusBtn">-</button>
-                                    <span id="count">1</span>
-                                    <button type="button" id="P-plusBtn">+</button>
+                        <div class="P-body-category-count">
+                            <button type="button" class="P-body-count-btn">인원
+                                <i class="fa-solid fa-caret-down"></i>
+                            </button>
+
+                            <ul class="P-selectBox-count menuHidden">
+
+                                <div class="P-CountPerson">
+                                    <div class="P-person">
+                                        <span class="P-person-span">전체인원</span>
+                                        <button type="button" id="P-minusBtn">-</button>
+                                        <span id="count">1</span>
+                                        <button type="button" id="P-plusBtn">+</button>
+                                    </div>
+                                    <button type="button" id="P-personBtn">완료</button>
                                 </div>
-                                <button type="button" id="P-personBtn">완료</button>
-                            </div>
-                        </ul>
+                            </ul>
 
-                        <input type="hidden" id="countInput" name="headCount" >
+                            <input type="hidden" id="countInput" name="headCount">
+
+                        </div>
+
+                        <div>
+                            <button id="searchBtn">검색</button>
+                        </div>
 
                     </div>
-
-                    <div>
-                        <button id="searchBtn" onclick="">검색</button>
-                    </div>
-
                 </div>
-            </div>
             </form>
 
             <div class="TOP">
@@ -298,32 +261,27 @@
 
 
                             <c:forEach var="study" items="${study}">
-
                                 <a href="/study/detail/${study.boardNo}">
-
-
                                     <div class="P-study-area" id="P-study-area">
                                         <div class="P-study-main">
                                             <span class="P-study-category">스터디</span>
 
-                                        <c:if test="${!empty loginMember}">
-                                            <!-- 로그인한 사용자인 경우 -->
-                                            <c:if test="${study.likeCount == 0}">
-                                               <button id="like"><i class="fa-regular fa-heart" ></i></button>
+                                            <c:if test="${!empty loginMember}">
+                                                <!-- 로그인한 사용자인 경우 -->
+                                                <c:choose>
+                                                    <c:when test="${study.likeCount == 0}">
+                                                        <button class="like-button" id="like${study.boardNo}"><i class="fa-regular fa-heart"></i></button>
+                                                    </c:when>
+                                                    <c:otherwise>
+                                                        <button class="like-button" id="like${study.boardNo}"><i class="fa-solid fa-heart"></i></button>
+                                                    </c:otherwise>
+                                                </c:choose>
                                             </c:if>
-                                            <c:if test="${study.likeCount == 1}">
-                                                <button id="like"><i class="fa-solid fa-heart" ></i></button>
+
+                                            <c:if test="${empty loginMember}">
+                                                <!-- 로그인하지 않은 사용자인 경우 -->
+                                                <button class="like-button" id="like${study.boardNo}"><i class="fa-regular fa-heart"></i></button>
                                             </c:if>
-                                        </c:if>
-
-                                        <c:if test="${empty loginMember}">
-                                            <!-- 로그인하지 않은 사용자인 경우 -->
-                                            <button id="like"><i class="fa-regular fa-heart"></i></button>
-
-                                        </c:if>
-
-
-
                                         </div>
 
                                         <div class="P-study-title">
@@ -352,12 +310,13 @@
                         </c:otherwise>
                     </c:choose>
 
-                    <input type="hidden" id="loginMemberId" value="${loginMember.memberId}" />
+                    <input type="hidden" id="loginMemberId" value="${loginMember.memberId}"/>
 
 
                     <script>
-                        const boardNo = ${study.boardNo}
-                        const loginMemberId= "${loginMember.memberId}"
+                        const boardNo =
+                        ${study.boardNo}
+                        const loginMemberId = "${loginMember.memberId}"
                     </script>
 
                 </div>

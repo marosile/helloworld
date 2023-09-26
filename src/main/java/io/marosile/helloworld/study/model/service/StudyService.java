@@ -48,4 +48,7 @@ public interface StudyService {
 
     // 팔로우 처리
     int follow(Map<String, Object> map);
+
+    // 좋아요 처리 (메인)
+    int mainLike(Map<String, Object> map);
 }

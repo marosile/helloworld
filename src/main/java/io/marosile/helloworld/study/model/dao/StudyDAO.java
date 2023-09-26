@@ -76,6 +76,7 @@ public class StudyDAO {
 
         int result = sqlSession.update("studyMapper.studyUpdate1",study);
             System.out.println("studyUpdate1:"+result);
+
         if (result > 0) {
             result = sqlSession.update("studyMapper.studyUpdate2",study);
             System.out.println("studyUpdate2:"+result);
@@ -86,12 +87,20 @@ public class StudyDAO {
             System.out.println("studyUpdate3:"+result);
         }
         if (result > 0) {
-            result = sqlSession.update("studyMapper.studyUpdate4",study);
-            System.out.println("studyUpdate4:"+result);
+
+            if(!study.getSelect1().equals(study.getTagNm())){ // 현재선택한것과 = 내가 이전에 선택한것이 같지 않으면 update할거야!
+                result = sqlSession.update("studyMapper.studyUpdate4",study);
+                System.out.println("studyUpdate4:"+result);
+
+            }
+
         }
         if (result > 0) {
-            result = sqlSession.update("studyMapper.studyUpdate5",study);
-            System.out.println("studyUpdate5:"+result);
+
+            if(!study.getSelect1().equals(study.getTagNm())){ // 현재선택한것과 = 내가 이전에 선택한것이 같지 않으면 update할거야!
+                result = sqlSession.update("studyMapper.studyUpdate5",study);
+                System.out.println("studyUpdate5:"+result);
+            }
         }
         return result;
     }
@@ -106,36 +115,6 @@ public class StudyDAO {
         return  sqlSession.selectList("studyMapper.studyTopList");
     }
 
-    // 위치 전체 검색 리스트
-    public List<Study> selectSearchAllLocation(Map<String, Object> paramMap) {
-        return sqlSession.selectList("studyMapper.selectSearchAllLocation",paramMap);
-    }
-
-    // 위치 검색 리스트
-    public List<Study> selectSearchLocation(Map<String, Object> paramMap) {
-        return sqlSession.selectList("studyMapper.selectSearchLocation",paramMap);
-    }
-
-    // 포지션 검색 리스트
-    public List<Study> selectSearchPostion(Map<String, Object> paramMap) {
-        return sqlSession.selectList("studyMapper.selectSearchPostion",paramMap);
-    }
-
-    // 인원만 검색
-    public List<Study> selectSearchPerson(Map<String, Object> paramMap) {
-        return sqlSession.selectList("studyMapper.selectSearchPerson",paramMap);
-    }
-
-    //위치, 포지션, 인원 모두 검색
-    public List<Study> selectStudyList(Map<String, Object> paramMap) {
-        return sqlSession.selectList("studyMapper.selectSearchlistAll",paramMap);
-    }
-
-    //서울 전체, 포지션, 인원 검색
-    public List<Study> listAllSeoul(Map<String, Object> paramMap) {
-        return sqlSession.selectList("studyMapper.listAllSeoul",paramMap);
-    }
-
     public int followCheck(Map<String, Object> map) {
         return sqlSession.selectOne("studyMapper.followCheck",map);
     }
@@ -148,6 +127,21 @@ public class StudyDAO {
     // 팔로우 삭제
     public int deleteFollow(Map<String, Object> map) {
         return sqlSession.delete("studyMapper.deleteFollow",map);
+    }
+
+    // 위치 검색
+    public List<Study> selectSearch(Map<String, Object> paramMap) {
+        return sqlSession.selectList("studyMapper.selectSearch",paramMap);
+    }
+
+    // 포지션만 검색
+    public List<Study> selectSearchPostion(Map<String, Object> paramMap) {
+        return sqlSession.selectList("studyMapper.selectSearchPostion",paramMap);
+    }
+
+    // 인원만 검색
+    public List<Study> selectSearchPerson(Map<String, Object> paramMap) {
+        return sqlSession.selectList("studyMapper.selectSearchPerson",paramMap);
     }
 }
 

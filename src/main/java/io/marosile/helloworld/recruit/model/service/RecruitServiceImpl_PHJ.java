@@ -1,11 +1,13 @@
 package io.marosile.helloworld.recruit.model.service;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import io.marosile.helloworld.recruit.model.dao.RecruitDAO_PHJ;
+import io.marosile.helloworld.recruit.model.dto.EmploymentTest;
 import io.marosile.helloworld.recruit.model.dto.Recruit;
 
 @Service
@@ -24,5 +26,23 @@ public class RecruitServiceImpl_PHJ implements RecruitService_PHJ{
 	@Override
 	public Recruit moreDetail(int boardNo) {
 		return dao.moreDetail(boardNo);
+	}
+
+	// 로그인한 회원의 이력서 정보 조회
+	@Override
+	public EmploymentTest selectResume(String memberId) {
+		return dao.selectResume(memberId);
+	}
+
+	// 로그인한 회원의 채용 리스트 조회
+	@Override
+	public List<Recruit> noticeList(String memberId) {
+		return dao.noticeList(memberId);
+	}
+
+	// 북마크 확인 여부 서비스
+	@Override
+	public int bookMarkCheck(Map<String, Object> map) {
+		return dao.bookMarkCheck(map);
 	}
 }

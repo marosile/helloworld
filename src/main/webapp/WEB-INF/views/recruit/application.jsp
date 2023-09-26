@@ -11,7 +11,10 @@
     <title>기업 담당자 지원서 작성</title>
     <link rel="stylesheet" href="/resources/css/common/general.css">
     <link rel="stylesheet" href="/resources/css/index.css">
-    <link rel="stylesheet" href="/resources/css/application.css">
+    <link rel="stylesheet" href="/resources/css/recruit/application.css">
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
 </head>
 
 <body>
@@ -21,27 +24,65 @@
 
        <main id="body-area">
 
-            <div id="main-area">
-                
-                <p id="title3"><i class="fa-solid fa-building"></i></i> 기업 담당자 신청</p>
-                <div id="company-name">기업명</div>
-                <div class="info">
-                    <span>오형석</span><span>과장</span><span>010-1234-5678</span>
+            <form action="application" method="POST" 
+              class="board-write" id="boardWriteFrm" enctype="multipart/form-data">
+
+                <div id="main-area">
+                    
+                    <div id="title3"> 
+                        기업 담당자 신청
+                    </div>
+
+                    <div id="companyNameImg">
+
+                        <div class="img-box">
+                            <div class="boardImg thumbnail">
+                                <label for="img0">
+                                    <img class="preview" src="">
+                                </label>
+                                <input type="file" name="image" class="inputImage" id="img0" accept="image/*">
+                                <span class="delete-image">&times;</span>
+                            </div>
+                        </div>
+
+                        <input type="text" placeholder="기업 로고와 기업명을 작성해주세요." 
+                         maxlength="60" name="companyName" class="companyName">
+
+                    </div>
+                    
+                    <div class="info">
+                        <span>담당자ID : ${loginMember.memberId}</span><span id="tel">담당자 전화번호 : ${loginMember.memberTel}</span>
+                    </div>
+
+                    <div class="info2">
+
+                        <div>
+                            <i class="fa-solid fa-location-dot"></i>
+                            <input type="text" placeholder="회사 주소를 작성해주세요." name="companyAddress" id="cmpnAddress">
+                        </div>
+
+                        <div><i class="fa-solid fa-users"></i>
+                            <input type="text" placeholder="사원수를 작성해주세요." name="companyMcount" id="cmpnMcount">
+                        </div>
+
+                    </div>
+
+                    <div id="explain">
+                       <textarea placeholder="🔥회사 소개를 작성해주세요." name="companyIntroduce" id="cmpnIntro"></textarea>
+                    </div>
+                    
+                    <div id="companyHome">
+                        <div id ="companyhome2">
+                            <input type="text" name= "companyHomePageAddress" placeholder="회사 홈페이지 주소를 작성해주세요.">
+                        </div>
+                    </div>
+
+                    <button id="sub">신청</button>
+                    <button id="go-to-list">목록으로</button>
+        
                 </div>
-                <div id="explain">
-                    네오사피엔스는 음성·언어 분야의 인공지능 원천기술을 개발하고 있습니다. 우리의 인공지능 성우 서비스 '타입캐스트'는 2019년 11월 정식 론칭 이래, 수많은 콘텐츠 창작자와 기업들의 더빙 툴로 사랑받고 있습니다.
-                </div>
-                <div class="info">
-                    <span><i class="fa-solid fa-location-dot"></i>서울특별시 강남구 삼성동169</span><span><i class="fa-solid fa-users"></i>63명</span>
-                </div>
-                <div id="content">
-                    신입 채용 및 경력 직원 채용 희망합니다 🐰
-                </div>
-                
-                <button id="sub">신청</button>
-                <button id="go-to-list">목록으로</button>
-      
-            </div>
+
+            </form>
             
         </main> 
 

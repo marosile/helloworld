@@ -87,13 +87,44 @@ personBtn.addEventListener("click", (e) => {
 
 })
 // 작성취소
-// 작성하기
+
 const BtnDelete = document.getElementById("BtnDelete");
 
 BtnDelete.addEventListener("click", () => {
 
     if(confirm("작성취소하시겠습니까? 작성한 내용은 저장되지 않습니다.")){
         location.href="/study/main";
+    }
+})
+// 작성하기
+const BtnModify = document.getElementById("BtnModify");
+const titleTextarea = document.getElementById("P-body-title-textarea");
+const summernote = document.getElementById("summernote");
+const selectedRole = document.getElementById("selectedRole");
+
+BtnModify.addEventListener("click",e =>{
+
+    const selectedCategory = selectedRole.value;
+
+    if (!selectedCategory) {
+        alert("카테고리를 선택하세요.");
+        e.preventDefault(); // 폼 제출을 막습니다.
+        return;
+    }
+
+    if(titleTextarea.value.trim().length==0){
+        alert("제목을 입력해주세요.")
+        titleTextarea.value=""
+        titleTextarea.focus();
+        e.preventDefault();
+    }
+
+    if(summernote.value.trim().length==0){
+        alert("내용을 입력해주세요")
+        summernote.value=""
+        summernote.focus();
+        e.preventDefault();
+        return;
     }
 })
 
@@ -192,22 +223,17 @@ function displayArea(area) {
     // 다각형에 click 이벤트를 등록하고 이벤트가 발생하면 다각형의 이름과 면적을 인포윈도우에 표시합니다
     kakao.maps.event.addListener(polygon, 'click', function(mouseEvent) {
         var content = '<div class="info">' +
-            '   <div class="title" name="location">' + area.name + '</div>' +
+            '   <div class="title" name="location">' + area.name + '</div>' + '</div>';
 
-            '</div>';
-
+        polygon.setOptions({fillColor: '#09f'});
         infowindow.setContent(content);
         infowindow.setPosition(mouseEvent.latLng);
         infowindow.setMap(map);
 
-
+        // 값 가져가기
         const location= document.getElementsByClassName('title')[0].innerHTML
-        console.log(location)
-
         const mapVal = document.getElementById("mapVal");
-
         mapVal.value = location;
-
 
     });
 

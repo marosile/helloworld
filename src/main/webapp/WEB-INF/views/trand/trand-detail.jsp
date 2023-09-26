@@ -107,7 +107,7 @@
                  ${detail.boardTitle}
                 </div>
 
-                <!-- 내용 p태그 쓰는게 맞나 -->
+                <%-- 내용 --%>
                 <div id="pDiv">
                     <p>
                     ${detail.boardContent}

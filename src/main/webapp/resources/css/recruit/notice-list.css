@@ -8,6 +8,13 @@
 
 
 #main-area{
+    
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(460px, 1fr));
+    gap: 5px;
+    grid-row-gap: 10px; /* 위 아래 간격 조정 */
+    justify-content: center;
+    margin-top: 5px;
  
     width: 1200px;
     height: 750px;
@@ -82,6 +89,25 @@ i{
 
     margin-left: 10px;
 }
+
+#click{
+    width: 400px;
+    height: 30px;
+    border-radius: 5px;
+    line-height: 30px;
+
+    background-color: rgba(14, 14, 73, 0.658);
+    color: white;
+    
+    font-weight: bold;
+    font-size: 13px;
+    
+    text-align: center;
+
+    margin-left: 10px;
+}
+
+
 
 #photo{
     width: 100px;

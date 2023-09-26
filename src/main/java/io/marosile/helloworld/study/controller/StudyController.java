@@ -36,21 +36,20 @@ public class StudyController {
             , @SessionAttribute(value = "loginMember", required = false) Member loginMember
             , @RequestParam Map<String, Object> paramMap) {
 
-        System.out.println(paramMap);
         Map<String, Object> map = new HashMap<>();
+        System.out.println(paramMap);
 
-        if (paramMap.get("location") == null && paramMap.get("location") == null && paramMap.get("location") == null) {
+        if (paramMap.get("location") == null && paramMap.get("tagNm") == null && paramMap.get("headCount") == null) {
             // 목록 띄워주기
             map = service.selectStudyList();
-            System.out.println("map"+map);
+
         } else { //검색어가 있을 경우
             map = service.studySearch(paramMap);
-            System.out.println(map);
+            System.out.println("검색결과"+map);
         }
 
         // TOP 10위
         List<Study> studyTopList = service.studyTopList();
-        System.out.println("studyTopList" + studyTopList);
 
         model.addAttribute("studyTopList", studyTopList);
         model.addAttribute("map", map);
@@ -183,6 +182,17 @@ public class StudyController {
     }
 
 
+    // 메인에서 좋아요 처리
+    @PostMapping("/main/like")
+    @ResponseBody
+    public int mainLike(@RequestBody Map<String, Object> map) {
+
+        System.out.println("좋아요메인처리"+map);
+
+        return service.mainLike(map);
+    }
+
+
     // 스터디 게시글 삽입 (주소이동)
     @GetMapping("/write")
     public String studyWrite(Model model) {
@@ -241,15 +251,20 @@ public class StudyController {
             , @SessionAttribute("loginMember")Member loginMember
             , @SessionAttribute("studyDetail") Study studyDetail
             , RedirectAttributes ra
-            ,@RequestHeader(value="referer") String referer) {
+            ,@RequestHeader(value="referer") String referer
+            /*,@RequestParam ("select1") String select1*/) {
 
         study.setMemberId(loginMember.getMemberId());
         study.setStudyNo(studyDetail.getStudyNo());
         study.setCreateDate(studyDetail.getCreateDate());
-        // 태그가 수정이 안됨!
 
+        System.out.println(study.getSelect1()); // 내가 이전에 선택한것 
+        System.out.println(study.getTagNm()); // 내가 현재 선택한것 
+        System.out.println(studyDetail.getTagNm()); // 기존에 있었던 값이네
 
         int result = service.studyUpdate(study);
+
+        studyDetail.setTagNm(study.getTagNm());
 
         String path = "redirect:";
         String message = null;

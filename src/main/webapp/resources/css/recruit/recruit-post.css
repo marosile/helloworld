@@ -23,6 +23,15 @@
     padding: 20px 40px;
 }
 
+#divContainer > form{
+    width:100%;
+    height:100%;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
 /* 타이틀 */
 #title{
     font-size:30px;
@@ -40,12 +49,17 @@
     border-radius: 5px;
 }
 
+/*  */
+#companyInfo1 img{
+    width:80px;
+    height:60px;
+}
+
 /* 이미지 */
 #companyImage{
     position: relative;
-    border:3px solid rgb(240, 240, 240);
     border-radius: 5px;
-    width:120px;
+    width:80px;
     height:60px;
 }
 
@@ -85,6 +99,13 @@
     border-radius: 5px;
     height:60px;
     width:350px;
+    display:flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+#companyName > span{
+    margin-left:5px;
+    font-size:22px;
 }
 
 /* 이름 input */
@@ -92,6 +113,25 @@
     width:100%;
     height:100%;
     outline:0;
+    border:0;
+}
+
+/* 직무명 div */
+#boardTitleDiv{
+    height:70px;
+    border:3px solid rgb(240, 240, 240);
+    border-radius: 5px;
+    width:100%;
+    display:flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top:30px;
+}
+
+/* 직무명 input */
+#boardTitleInput{
+    width:40%;
+    height:100%;
     border:0;
 }
 
@@ -155,16 +195,17 @@
     width: 100%;
     border: 3px solid rgb(240, 240, 240);
     display: flex; 
+    border-radius: 5px;
 }
 
 /* 기업 소개 textarea */
-#companyIntroduce > textarea {
+#companyIntroduce > textarea{
     resize: none;
-    height: 100%;
+    height: 90%;
     width: 100%;
     border: 0;
     outline: 0;
-    padding:5px 5px;
+    margin:5px 5px;
 }
 
 /* 정보 4개 담은 div */
@@ -191,6 +232,22 @@
     width:100%;
     height:100%;
     margin-left:5px;
+    border: 3px solid rgb(240, 240, 240) !important;
+    display:flex;
+    align-items: center;
+}
+
+.infos > textarea{
+    resize:none;
+    outline:none;
+    border:0;
+    width:100%;
+    height:90%;
+    text-align: start;
+    line-height: 50px;
+    font-size: 16px;
+    font-weight: bold;
+    margin-left: 2px;
 }
 
 /* 정보 하나하나의 inputs */
@@ -198,8 +255,9 @@
     width:100%;
     height:100%;
     outline:0 !important;
-    border: 3px solid rgb(240, 240, 240) !important;
+    border:0 !important;
     border-radius: 5px;
+    
 }
 
 .infoInputs::placeholder{
@@ -220,7 +278,7 @@
 #qualificationAndresponsibilities{
     margin:30px;
     width:100%;
-    height:644px;
+    min-height:644px;
     border: 3px solid rgb(240, 240, 240);
     border-radius: 5px;
 }
@@ -234,6 +292,10 @@
     padding: 10px 10px;
     border:0;
     border-bottom: 2px solid rgb(240, 240, 240);
+}
+
+#qualrespTextArea4{
+    border-bottom: 0;
 }
 
 #buttonsArea{
@@ -254,4 +316,51 @@
 .btns:hover{
     color: rgb(0, 128, 255);
     border: 2px solid rgb(0, 128, 255);
+}
+
+/* 태그 전체 container */
+#tagsContainer{
+    width:100%;
+    height:80px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    border:3px solid rgb(240, 240, 240);
+    border-radius: 5px;
+    margin-top:30px;
+    margin-bottom: 20px;
+}
+
+#tagText{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 14%;
+    height: 70%;
+    font-size: 16px;
+    margin-left: 10px;
+    cursor: pointer;
+    border: 3px solid lightgray;
+    border-radius: 10px;
+}
+
+#tagText:hover{
+    color: rgb(0, 128, 255);
+    border: 3px solid rgb(0, 128, 255);
+}
+
+#tagsDiv{
+    width:82%;
+    height:100%;
+    display:flex;
+    justify-content: space-around;
+    align-items: center;
+    cursor:pointer;
+}
+
+.tagInputs{
+    width: 12%;
+    height: 40px;
+    border-radius: 50px;
+    text-align: center;
 }

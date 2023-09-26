@@ -21,9 +21,6 @@
 		</collection>
 	</resultMap>
 	
-	
-	
-	
 	<!-- 북마크(채용공고) resultMap -->
 	<resultMap type="BookmarkList2" id="bookmark_rm2">
 	
@@ -32,13 +29,31 @@
 		<result property="memberId" column="MEMBER_ID" />
 		<result property="companyLogo" column="CMPN_LOGO" />
 		<result property="companyName" column="CMPN_NM" />
+		<result property="companyAddress" column="CMPN_ADDR" />
 		<result property="experiencePeriod" column="EXPR_PERIOD" />
-		<result property="salaryExpect" column="SALARY_EXPECT" />
 		<result property="employeeType" column="EMPL_TYPE" />
-		<result property="employeeLocation" column="EMPL_LOCATION" />
 	</resultMap>
 	
-
+	
+	<!-- 게시글 목록 resultMap -->
+	<resultMap type="PostList" id="post_rm">
+	
+		<id property="boardNo" column ="BOARD_NO"/>
+		
+		<result property="boardTitle" column="BOARD_TITLE" />
+		<result property="createDate" column="CREATE_DT" />
+		<result property="readCount" column="READ_COUNT" />
+		<result property="likeCount" column="LIKE_COUNT" />
+		<result property="commentCount" column="COMMENT_COUNT" />
+		<result property="memberId" column="MEMBER_ID" />
+		
+		<collection property="commentList"
+				select="selectCommentList" column="BOARD_NO"
+				javaType="java.util.ArrayList" ofType="Comment">
+		</collection>
+		
+	</resultMap>
+	
 
 	<!-- 프사, 닉네임 수정 -->
 	<update id="updateProfile" parameterType="Member">
@@ -89,12 +104,36 @@
                		WHERE B.BOARD_NO = BG.BOARD_NO)
    </select>
    
-   <!-- <select id="selectBookmark2" resultMap="bookmark_rm">
-   		
+   <!-- 채용 북마크 조회 -->
+   
+   <select id="selectBookmark2" resultMap="bookmark_rm2">
+   		SELECT CMPN_LOGO, CMPN_NM, EXPR_PERIOD, EMPL_TYPE, CMPN_ADDR
+		FROM BOOKMARK BM
+		JOIN COMPANY C ON (C.MEMBER_ID = BM.MEMBER_ID)
+		JOIN BOARD_RECRUIT BR ON (BM.BOARD_NO = BR.BOARD_NO)
+		WHERE C.MEMBER_ID = #{memberId}
+		AND EXISTS (SELECT 1
+		                 FROM BOARD_RECRUIT BR
+		                 WHERE BM.BOARD_NO = BR.BOARD_NO)
+   </select>
    
    
+   <!-- 나의 게시글 목록 조회 -->
+   <select id="selectPostList" resultMap="post_rm">
+   		SELECT BOARD_TITLE, TO_CHAR(CREATE_DT, 'YYYY-MM-DD')AS CREATE_DT, READ_COUNT,
+       
+            (SELECT COUNT(*) FROM "COMMENT" C
+             WHERE C.BOARD_NO = B.BOARD_NO) COMMENT_COUNT,             
+             
+            (SELECT COUNT(*) FROM "LIKE" L
+             WHERE L.BOARD_NO = B.BOARD_NO) LIKE_COUNT
+                         
+         FROM "BOARD" B
+         WHERE DELETED_FL = 'N'
+         AND MEMBER_ID = #{memberId}
+         ORDER BY BOARD_NO DESC
+   </select>
    
-   </select> -->
    
    
 	

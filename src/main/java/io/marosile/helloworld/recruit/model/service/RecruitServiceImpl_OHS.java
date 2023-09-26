@@ -6,8 +6,11 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.multipart.MultipartFile;
 
+import io.marosile.helloworld.common.utility.Util;
 import io.marosile.helloworld.recruit.model.dao.RecruitDAO_OHS;
+import io.marosile.helloworld.recruit.model.dto.Company;
 import io.marosile.helloworld.recruit.model.dto.EmploymentTest;
 import io.marosile.helloworld.recruit.model.dto.Recruit;
 
@@ -29,7 +32,6 @@ public class RecruitServiceImpl_OHS implements RecruitService_OHS{
 		return dao.insertMyStacksToTag(myStacks);
 	}
 
-
 	// 채용공고 테스트 했는지 확인
 	@Transactional
 	@Override
@@ -42,4 +44,33 @@ public class RecruitServiceImpl_OHS implements RecruitService_OHS{
 	public List<Recruit> matchingRecruit(EmploymentTest employmentTest) {
 		return dao.matchingRecruit(employmentTest);
 	}
+
+	// 기업 담당자 등록 신청
+	@Override
+	public int companyInsert(Company company) {
+		company.setCompanyIntroduce(Util.XSSHandling(company.getCompanyIntroduce()));
+		return dao.companyInsert(company);
+	}
+
+	// 회사정보 가져오기
+	@Override
+	public Company selectMyCompanyInfo(String memberId) {
+		return dao.selectMyCompanyInfo(memberId);
+	}
+
+	// 채용공고 등록
+	@Override
+	public int recruitInsert(Recruit recruit) {
+		return dao.recruitInsert(recruit);
+	}
+
+	// 내 tagList(string) 가져오기
+	@Override
+	public String selectMyTagList(String memberId) {
+		return dao.selectMyTagList(memberId);
+	}
+	
+	
+	
+	
 }

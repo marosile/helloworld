@@ -80,7 +80,6 @@ public class BoardController {
 									   ,@RequestParam(value = "sortType", defaultValue = "recent") String sortType
 									   ,@RequestParam(value = "searchKeyword", required = false) String searchKeyword) {
 			
-			
 		    Map<String, Object> parameters = new HashMap<>();
 		    
 		    parameters.put("boardCode", boardCode);
@@ -278,6 +277,13 @@ public class BoardController {
 	@PostMapping("/follow")
 	@ResponseBody
 	public int follow(@RequestBody Map<String, Object> map) {
+		
+		String userId = (String) map.get("userId");
+		String memberId = (String) map.get("memberId");
+		
+		System.out.println(userId);
+		System.out.println(memberId);
+		System.out.println(map.get("followCheck"));
 				
 		return service2.follow(map);
 	}
