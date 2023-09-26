@@ -580,9 +580,11 @@ followBtn2.addEventListener("click", e=>{
 
     const data = {
         "memberId": loginMemberId,
-        "userId" : memberId,
+        "userId" : userId,
         "followCheck" : check
     };
+
+    
 
     fetch("/board/follow",{
         method: "POST",
@@ -592,10 +594,6 @@ followBtn2.addEventListener("click", e=>{
     .then( res => res.text())
     .then( count => {
 
-        alert(check)
-
-
-        
 
 
         if(count == -1) { // DML 실패
