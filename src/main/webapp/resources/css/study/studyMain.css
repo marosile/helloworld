@@ -14,7 +14,7 @@
 /* 스터디 전체 div */
 .P-header {
     width: 1000px;
-    margin: auto ;
+    margin: 30px;
     border: 1px solid var(--divider);
     border-radius: 10px;
     background-color: var(--bg-color-2);
@@ -26,6 +26,7 @@
 
     width: 900px;
     margin: 30px auto;
+
 
 }
 
@@ -862,4 +863,10 @@
     position: absolute;
     right: 20px;
     z-index: 10;
+
+}
+.like-button{
+    border: 0;
+    outline: 0;
+    background-color: transparent;
 }

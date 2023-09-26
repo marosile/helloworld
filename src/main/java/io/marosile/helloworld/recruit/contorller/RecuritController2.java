@@ -34,8 +34,6 @@ public class RecuritController2 {
 	public String test1(@ModelAttribute EmploymentTest EmploymentTest
 					   ,@SessionAttribute("loginMember") Member loginMember
 					   ,Model model){
-		
-		System.out.println(EmploymentTest);
 
 		EmploymentTest.setMemberId(loginMember.getMemberId());
 		
@@ -54,25 +52,15 @@ public class RecuritController2 {
 		
 		map.put("matching", matchingRecruitList);
 		
-		model.addAttribute("matching", map);
+		model.addAttribute("map", map);
+		
 		
 		 // 비교 조회해서 LIST에담아서 JSP로 가져가야함
 		
 		 // 채용공고 비교 조회했을때 tag들 담아와서 내 question6=[JAVA, Spring, Visual studio Code, JavaScript, Oracle, JQuery] 와 밑에 return한 jsp 비교
-		
 		return "recruit/employment-resultAndRecruitDetail";
 		
 	}
-	
-	/*
-	 * for (String item : EmploymentTest.getQuestion6()) {
-	 * myStacks.put("question6Tags_" + item, item);
-	 * 
-	 * 
-	 * int result2 = service.insertMyStacksToTag(myStacks); }
-	 * 
-	 * System.out.println(myStacks);
-	 */
 	
 }
 

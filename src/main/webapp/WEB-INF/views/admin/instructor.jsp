@@ -28,23 +28,23 @@
 
             <div class="adminMemberDisplay">
                 
-                <form action="#" id="searchMemberMenu" class="searchMemberMenu">
-                    <div class="adminSearchDiv">
-                        <button type="button" name="searchMember" id="searchMember">조회 방법
-                            <img src="/resources/images/admin/sort.png">
-                        </button>
-                        <ul class="searchMenu menuHidden" id="searchMenu">
-                            <li><button type="button" class="sidebarMenu" id="searchId">이름</button></li>
-                            <li><button type="button" class="sidebarMenu" id="searchId">아이디</button></li>
-                            <li><button type="button" class="sidebarMenu" id="searchId">제목</button></li>
-                        </ul>
-    
-                    </div>
+<%--                <form action="#" id="searchMemberMenu" class="searchMemberMenu">--%>
+<%--                    <div class="adminSearchDiv">--%>
+<%--                        <button type="button" name="searchMember" id="searchMember">조회 방법--%>
+<%--                            <img src="/resources/images/admin/sort.png">--%>
+<%--                        </button>--%>
+<%--                        <ul class="searchMenu menuHidden" id="searchMenu">--%>
+<%--                            <li><button type="button" class="sidebarMenu" id="searchId">이름</button></li>--%>
+<%--                            <li><button type="button" class="sidebarMenu" id="searchId">아이디</button></li>--%>
+<%--                            <li><button type="button" class="sidebarMenu" id="searchId">제목</button></li>--%>
+<%--                        </ul>--%>
+<%--    --%>
+<%--                    </div>--%>
 
-                    <input type="text" id="searchInput"> 
-                    <button id="searchBtn"><img src="/resources/images/admin/search.png"></button>
+<%--                    <input type="text" id="searchInput"> --%>
+<%--                    <button id="searchBtn"><img src="/resources/images/admin/search.png"></button>--%>
 
-                </form>
+<%--                </form>--%>
 
                 <form action="#">
                     <div class="tableDiv">

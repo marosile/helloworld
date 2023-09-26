@@ -27,6 +27,15 @@
                 <div id="company-name">
                     <img src="${recruit.companyLogo}">
                     <div>${recruit.companyName}</div>
+                    <%-- <div id="bookMark-area"> --%>
+                                <c:if test="${empty bookMarkCheck}">
+                                    <i class="fa-regular fa-bookmark fa-2xl" id="bookMark"></i>
+                                </c:if>
+
+                                <c:if test="${!empty bookMarkCheck}">
+                                    <i class="fa-solid fa-bookmark fa-2xl" id="bookMark"></i>
+                                </c:if>
+                    <%-- </div> --%>
                 </div>
 
 
@@ -103,6 +112,13 @@
                 </div>
             </div>
         </div>
+            <script>
+                 const boardNo = ${recruit.boardNo};
+                 const loginMemberId = "${loginMember.memberId}"
+            </script>
+
+
+
     </main> 
 
 

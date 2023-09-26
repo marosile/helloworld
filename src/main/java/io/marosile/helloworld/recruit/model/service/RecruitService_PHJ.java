@@ -1,7 +1,9 @@
 package io.marosile.helloworld.recruit.model.service;
 
 import java.util.List;
+import java.util.Map;
 
+import io.marosile.helloworld.recruit.model.dto.EmploymentTest;
 import io.marosile.helloworld.recruit.model.dto.Recruit;
 
 public interface RecruitService_PHJ {
@@ -16,5 +18,23 @@ public interface RecruitService_PHJ {
 	 * @return
 	 */
 	Recruit moreDetail(int boardNo);
+
+	/** 로그인한 회원의 이력서 정보 조회
+	 * @param memberId
+	 * @return
+	 */
+	EmploymentTest selectResume(String memberId);
+
+	/** 로그인한 멤버의 채용 리스트 조회
+	 * @param memberId
+	 * @return
+	 */
+	List<Recruit> noticeList(String memberId);
+
+	/** 북마크 확인 여부 서비스
+	 * @param map
+	 * @return
+	 */
+	int bookMarkCheck(Map<String, Object> map);
 
 }

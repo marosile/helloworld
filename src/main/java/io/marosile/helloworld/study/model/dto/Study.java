@@ -19,6 +19,7 @@ public class Study {
     private String location;
     private String headCount;
     private String studyStatus;
+    private String select1;
 
     // board
     private int boardNo;

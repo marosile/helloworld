@@ -167,10 +167,6 @@
                 <div class="answer" id="stackChoice4">✔️ Oracle</div>
                 <div class="answer" id="stackChoice5">✔️ Visual studio Code</div>
                 <div class="answer" id="stackChoice6">✔️ JQuery</div>
-<%--                 <div class="answer">✔️ Ajax</div>
-                <div class="answer">✔️ React</div>
-                <div class="answer">✔️ GitHub</div> --%>
-
                 <div class="btn-container">
                     <button type="submit" class="btn-3d blue" id="button7">DONE🎉</button>
                 </div>

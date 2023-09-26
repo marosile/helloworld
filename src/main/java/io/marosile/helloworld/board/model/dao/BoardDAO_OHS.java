@@ -29,13 +29,13 @@ public class BoardDAO_OHS {
 	 */
 	public int boardInsert(Board board) {
 
-		int result = sqlSession.insert("boardMapper.boardInsert", board);
+		int boardNo = sqlSession.insert("boardMapper.boardInsert", board);
 
-		if (result > 0) {
-			result = board.getBoardNo();
+		if (boardNo > 0) {
+			boardNo = board.getBoardNo(); // 없던 boardNo insert 후 가져오기
 		}
 
-		return result;
+		return boardNo;
 	}
 
 	/**

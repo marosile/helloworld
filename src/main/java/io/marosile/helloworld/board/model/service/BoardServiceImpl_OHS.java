@@ -15,8 +15,6 @@ public class BoardServiceImpl_OHS implements BoardService_OHS {
 
 	@Autowired
 	private BoardDAO_OHS dao;
-	
-
 
 	// 게시글 삽입
 	@Override

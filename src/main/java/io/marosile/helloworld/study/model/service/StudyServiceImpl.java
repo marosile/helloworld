@@ -119,32 +119,49 @@ public class StudyServiceImpl implements StudyService {
 	@Override
 	public Map<String, Object> studySearch(Map<String, Object> paramMap) {
 
+		Map<String, Object> map = new HashMap<>();
 
-		// 서울 전체 검색
-		List<Study> locationAll = dao.selectSearchAllLocation(paramMap);
+		// 1. 서울 전체 검색 아니면 위치만 검색
+		if ("서울전체".equals(paramMap.get("location"))) {
+			List<Study> studySearch = dao.selectSearch(paramMap);
+			map.put("studyList", studySearch);
+		}
 
-		// 위치 검색
-		List<Study> location = dao.selectSearchLocation(paramMap);
+		// 3. 포지션만 검색
+		if (paramMap.get("tagNm") != null && !paramMap.get("tagNm").equals("null")) {
+			List<Study> postion = dao.selectSearchPostion(paramMap);
+			map.put("studyList", postion);
+		}
 
-		// 포지션 검색
-		List<Study> postion = dao.selectSearchPostion(paramMap);
+		// 4. 인원만 검색
+		if (paramMap.get("headCount") != null) {
+			List<Study> person = dao.selectSearchPerson(paramMap);
+			map.put("studyList", person);
+		}
+/*
+		// 6. 서울 전체와 인원만 검색
+		if ("서울전체".equals(paramMap.get("location")) && paramMap.get("headCount") != null) {
+			List<Study> listAllSeoul = dao.listAllSeoul(paramMap);
+			map.put("studyList", listAllSeoul);
+		}
 
-		// 인원 검색
-		List<Study> person = dao.selectSearchPerson(paramMap);
+		// 7. 위치와 포지션만 검색
+		if (paramMap.get("location") != null && !"서울전체".equals(paramMap.get("location")) && paramMap.get("tagNm") != null) {
+			List<Study> locationAndPosition = dao.selectSearchLocationAndPosition(paramMap);
+			map.put("studyList", locationAndPosition);
+		}
 
-		// 전체 검색
-		List<Study> listAll = dao.selectStudyList(paramMap);
+		// 8. 위치와 인원만 검색
+		if (paramMap.get("location") != null && !"서울전체".equals(paramMap.get("location")) && paramMap.get("headCount") != null) {
+			List<Study> locationAndPerson = dao.selectSearchLocationAndPerson(paramMap);
+			map.put("studyList", locationAndPerson);
+		}
 
-		// 전체 검색 + 서울 전체검색
-		List<Study> listAllSeoul = dao.listAllSeoul(paramMap);
-
-		Map<String, Object> map = new HashMap<String, Object>();
-		map.put("studyList",locationAll);
-		map.put("location",location);
-		map.put("tagNm",postion);
-		map.put("headCount",person);
-		map.put("listAll",listAll);
-		map.put("listAllSeoul",listAllSeoul);
+		// 9. 포지션과 인원만 검색
+		if (paramMap.get("tagNm") != null && paramMap.get("headCount") != null) {
+			List<Study> positionAndPerson = dao.selectSearchPositionAndPerson(paramMap);
+			map.put("studyList", positionAndPerson);
+		}*/
 
 		return map;
 	}
@@ -179,6 +196,34 @@ public class StudyServiceImpl implements StudyService {
 
 		}
 		return result;
+	}
+
+
+	// 메인 좋아요!
+	@Override
+	public int mainLike(Map<String, Object> map) {
+
+		int result = 0;
+
+		Object likeCheckObj = map.get("likeCheck");
+
+		if (likeCheckObj instanceof Integer) {
+			Integer likeCheckObj2 = (Integer) likeCheckObj;
+
+			if (likeCheckObj2 == 0) {
+				result = dao.insertStudyLike(map);
+				System.out.println("좋아요삽입"+result);
+			} else {
+				result = dao.deleteStudyLike(map);
+				System.out.println("좋아요취소"+result);
+			}
+
+			if (result == 0) return -1;
+
+		}
+
+		int count = dao.countStudyLike(map.get("boardNo"));
+		return count;
 	}
 
 

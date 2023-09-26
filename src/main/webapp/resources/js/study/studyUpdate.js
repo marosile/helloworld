@@ -88,7 +88,7 @@ personBtn.addEventListener("click", (e) => {
 })
 // 작성취소
 // 작성하기
-const BtnDelete = document.getElementById("BtnDelete");
+let BtnDelete = document.getElementById("BtnDelete");
 
 BtnDelete.addEventListener("click", () => {
 
@@ -138,7 +138,9 @@ $.getJSON("/resources/seoul_gson.json", function(geojson) {
 var mapContainer = document.getElementById('map'), // 지도를 표시할 div
     mapOption = {
         center: new kakao.maps.LatLng(37.566826, 126.9786567), // 지도의 중심좌표
-        level: 9 // 지도의 확대 레벨
+        level: 9, // 지도의 확대 레벨
+        draggable :false
+
     };
 
 var map = new kakao.maps.Map(mapContainer, mapOption),
