@@ -69,3 +69,82 @@ function snackbar(content, color, icon) {
     document.getElementById('snackbar-container').append(temp);
     setTimeout(() => { document.querySelector('#snackbar-container > .snackbar:first-of-type').remove(); }, 5000);
 }
+
+function generateOrderId(callback) {
+    let result;
+    $.ajax({
+        url: '/purchase/generateOrderId',
+        type: 'post',
+        async: false,
+        success: (response) => {
+            result = response
+        },
+        error: (error) => {
+            console.log(error);
+        }
+    });
+    return result;
+}
+
+function confirmAlert() {
+    $('#alert').css('display', 'none');
+    preventScroll(false);
+    switchOverlay(false);
+}
+
+const wait = (callback, delay) => {
+    setTimeout(callback, delay)
+}
+
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+async function communityToggle() {
+    if ($('#community').attr('toggle') === 'on') {
+        if ($('#community').css('right') === '10px') {
+            $('.community-selected').click();
+            await sleep(500);
+        }
+        $('#community-nav-1 > img').attr('src', '/resources/images/up-arrow.png');
+        $('#community').attr('toggle', 'off')
+        $('#community').css('bottom', '');
+        return;
+    }
+    $('#community-nav-1 > img').attr('src', '/resources/images/down-arrow.png');
+    $('#community').attr('toggle', 'on')
+    $('#community').css('bottom', '10px');
+}
+
+(() => {
+    $('#community-nav-1 > div').on('click', function() {
+        if ($(this).hasClass('community-selected')) {
+            $(this).removeClass('community-selected');
+            $('#community').css('right', '');
+            $('#community-content > div').css('display', 'none');
+            return;
+        }
+        $('#community-nav-1 > div').removeClass('community-selected');
+        $(this).addClass('community-selected');
+        $('#community').css('right', '10px');
+        let menu = $(this).attr('id').replace('community-', '');
+        $('#' + menu).css('display', 'block');
+        $('#community-content > div:not(#' + menu + ')').css('display', 'none');
+        switch (menu) {
+            case 'follow':
+                $.ajax({
+                    url: '/lecture/populars',
+                    type: 'post',
+                    dataType: 'json',
+                    success: (result) => {
+
+                    },
+                    error: (error) => {
+                        console.log(error);
+                    }
+                });
+                break;
+            case 'chat':
+        }
+    })
+})()

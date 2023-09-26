@@ -1,6 +1,7 @@
 package io.marosile.helloworld.member.controller;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.PropertyNamingStrategy;
@@ -481,7 +482,21 @@ public class MemberController {
 		return path;
 	}
 
-	
+	@PostMapping("/getFollower")
+	@ResponseBody
+	public String getFollower(@RequestBody Map<String, Object> param) throws JsonProcessingException {
+		return new ObjectMapper().writeValueAsString(service.selectFollowerList(param));
+	}
 
+	@PostMapping("/getFollowing")
+	@ResponseBody
+	public String getFollowing(@RequestBody Map<String, Object> param) throws JsonProcessingException {
+		return new ObjectMapper().writeValueAsString(service.selectFollowingList(param));
+	}
 
+	@PostMapping("/getF4f")
+	@ResponseBody
+	public String getF4f(@RequestBody Map<String, Object> param) throws JsonProcessingException {
+		return new ObjectMapper().writeValueAsString(service.selectF4fList(param.get("memberId").toString()));
+	}
 }
