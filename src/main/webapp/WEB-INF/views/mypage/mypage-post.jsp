@@ -80,6 +80,7 @@
             </div>
         </div>
         
+        <%-- 헤더 끝 시작 --%>
         <main>
             <h1 class="Title">나의 게시글</h1>
             <section>

@@ -82,6 +82,7 @@
             </div>
         </div>
 
+        <%-- ======= 헤더 끝 메인 시작 --%>
         <main>
             <h1 class="Title">북마크</h1>
 
@@ -100,7 +101,9 @@
 
                         <c:otherwise>
                             <c:forEach items="${bookmarkList2}" var="bookmarkList2">
+                            
                                 <div class="row1">
+
                                     <div class="top">
                                         <img class="thumbnail" src="${bookmarkList2.companyLogo}">
                                         <div class="companyName"><a href="#">${bookmarkList2.companyName}</a></div>

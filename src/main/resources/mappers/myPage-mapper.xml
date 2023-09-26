@@ -120,11 +120,18 @@
    
    <!-- 나의 게시글 목록 조회 -->
    <select id="selectPostList" resultMap="post_rm">
-   		SELECT DISTINCT BOARD_TITLE, CREATE_DT, READ_COUNT, 
-            (SELECT COUNT(*) FROM "COMMENT")AS COMMENT_COUNT, 
-            (SELECT COUNT(*) FROM "LIKE")AS LIKE_COUNT
-		FROM BOARD
-		WHERE MEMBER_ID = #{memberId}
+   		SELECT BOARD_TITLE, TO_CHAR(CREATE_DT, 'YYYY-MM-DD')AS CREATE_DT, READ_COUNT,
+       
+            (SELECT COUNT(*) FROM "COMMENT" C
+             WHERE C.BOARD_NO = B.BOARD_NO) COMMENT_COUNT,             
+             
+            (SELECT COUNT(*) FROM "LIKE" L
+             WHERE L.BOARD_NO = B.BOARD_NO) LIKE_COUNT
+                         
+         FROM "BOARD" B
+         WHERE DELETED_FL = 'N'
+         AND MEMBER_ID = #{memberId}
+         ORDER BY BOARD_NO DESC
    </select>
    
    
