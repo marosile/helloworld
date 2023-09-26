@@ -19,6 +19,7 @@ public class Recruit {
     private String selectionProcess; // 전형 절차 (모집 및 선발 과정) //ENTR_EXAM
     private String employmentType; // 고용 형태 (인턴, 계약직, 정규직) //JOB_TYPE
     private String employmentBenefits; // 복리 후생
+    private String salaryInfo; // 연봉정보
     
     private int companyNo; // 회사 번호
 	private String companyName; //회사 이름
@@ -28,11 +29,14 @@ public class Recruit {
 	private String companyId;
 	private int companyMcount;
 	private String companyCreateDt;
+	private String companyHomePageAddress;
 	
 	private String boardTitle; // 채용 공고 제목
 	private String boardContent; // 채용 공고 내용
 	
+	
 	private String memberId;
+	private int boardType;
 
     
 }

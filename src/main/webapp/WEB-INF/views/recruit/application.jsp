@@ -11,7 +11,7 @@
     <title>기업 담당자 지원서 작성</title>
     <link rel="stylesheet" href="/resources/css/common/general.css">
     <link rel="stylesheet" href="/resources/css/index.css">
-    <link rel="stylesheet" href="/resources/css/application.css">
+    <link rel="stylesheet" href="/resources/css/recruit/application.css">
 
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 
@@ -71,6 +71,12 @@
                        <textarea placeholder="🔥회사 소개를 작성해주세요." name="companyIntroduce" id="cmpnIntro"></textarea>
                     </div>
                     
+                    <div id="companyHome">
+                        <div id ="companyhome2">
+                            <input type="text" name= "companyHomePageAddress" placeholder="회사 홈페이지 주소를 작성해주세요.">
+                        </div>
+                    </div>
+
                     <button id="sub">신청</button>
                     <button id="go-to-list">목록으로</button>
         

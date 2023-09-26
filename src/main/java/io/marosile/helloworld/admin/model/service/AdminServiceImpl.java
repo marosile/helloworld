@@ -86,4 +86,51 @@ public class AdminServiceImpl implements AdminService {
 		return dao.recruitOfficerDetail(userId);
 	}
 
+
+	// 기업 담당자 업데이트
+	@Transactional
+	@Override
+	public int recruitOfficerUpdate(AdminDTO cmpnInfo) {
+		return dao.recruitOfficerUpdate(cmpnInfo);
+	}
+
+	@Transactional
+	// 기업 담당자 승인 회원 자격 테이블에 추가
+	@Override
+	public int recruitOfficerInsert(AdminDTO cmpnInfo) {
+		return dao.recruitOfficerInsert(cmpnInfo);
+	}
+
+	// 현재 등록되어있는 담당자 리스트 뽑아오기
+	@Override
+	public List<AdminDTO> recruitListCurr() {
+		return dao.recruitListCurr();
+	}
+
+	@Transactional
+	// 기업 담당자 삭제 시키기
+	@Override
+	public int recruitOfficerDelete(AdminDTO cmpnInfo) {
+		return dao.recruitOfficerDelete(cmpnInfo);
+	}
+
+	@Transactional
+	// autority 테이블에서 삭제
+	@Override
+	public int recruitOfficerDelete2(AdminDTO cmpnInfo) {
+		return dao.recruitOfficerDelete2(cmpnInfo);
+	}
+
+	// 반려하기
+	@Override
+	public int recruitCancel(String userId) {
+		return dao.recruitCancel(userId);
+	}
+
+	// 전화번호 조회
+	@Override
+	public String findUserTel(String userId) {
+		return dao.findUserTel(userId);
+	}
+
 }

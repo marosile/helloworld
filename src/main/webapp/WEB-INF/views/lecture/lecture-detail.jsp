@@ -21,14 +21,13 @@
     <script>
         let loginMember;
         <c:if test="${!empty loginMember}">
-            loginMember = {'memberId' : '<c:out value="${loginMember.memberId}"/>',
-                                'memberNick' : '<c:out value="${loginMember.memberNick}"/>',
-                                'memberEmail' : '<c:out value="${loginMember.memberEmail}"/>'};
-            console.log(loginMember)
+            loginMember = {'memberId' : '${loginMember.memberId}',
+                            'memberNick' : '${loginMember.memberNick}',
+                            'memberEmail' : '${loginMember.memberEmail}'};
         </c:if>
-        let lecture = {'lectureNo' : <c:out value="${lecture.lectureNo}"/>,
-                        'lectureTitle' : '<c:out value="${lecture.lectureTitle}"/>',
-                        'lecturePrice' : <c:out value="${lecture.lecturePrice * (1 - lecture.lectureSale)}"/>};
+        let lecture = {'lectureNo' : ${lecture.lectureNo},
+                        'lectureTitle' : '${lecture.lectureTitle}',
+                        'lecturePrice' : ${lecture.lecturePrice * (1 - lecture.lectureSale)}};
     </script>
     <jsp:include page="/WEB-INF/views/common/header.jsp"/>
 	<main>
@@ -72,7 +71,7 @@
             </div>
             <div id="content" class="window">
                 <section id="lecture-nav">
-                    <a>강의 소개</a>
+                    <a class="selected">강의 소개</a>
                     <a>수강평</a>
                     <a>커뮤니티</a>
                 </section>
@@ -84,6 +83,12 @@
         <div id="promotion">
             <img id="thumbnail" src="${lecture.lectureThumbnail}">
             <c:choose>
+                <c:when test="${empty loginMember}">
+                    <div id="needToLogin">
+                        <p>로그인 후 이용해 주세요.</p>
+                        <a onclick="modalArea.style.display = 'block';">로그인</a>
+                    </div>
+                </c:when>
                 <c:when test="${loginMember.memberId != lecture.memberId}">
                     <c:choose>
                         <c:when test="${lecture.lecturePrice == 0}">

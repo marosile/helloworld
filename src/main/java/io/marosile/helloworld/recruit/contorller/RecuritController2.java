@@ -34,7 +34,6 @@ public class RecuritController2 {
 	public String test1(@ModelAttribute EmploymentTest EmploymentTest
 					   ,@SessionAttribute("loginMember") Member loginMember
 					   ,Model model){
-		
 
 		EmploymentTest.setMemberId(loginMember.getMemberId());
 		
@@ -53,9 +52,8 @@ public class RecuritController2 {
 		
 		map.put("matching", matchingRecruitList);
 		
-		System.out.println(matchingRecruitList);
-		
 		model.addAttribute("map", map);
+		
 		
 		 // 비교 조회해서 LIST에담아서 JSP로 가져가야함
 		
@@ -63,16 +61,6 @@ public class RecuritController2 {
 		return "recruit/employment-resultAndRecruitDetail";
 		
 	}
-	
-	/*
-	 * for (String item : EmploymentTest.getQuestion6()) {
-	 * myStacks.put("question6Tags_" + item, item);
-	 * 
-	 * 
-	 * int result2 = service.insertMyStacksToTag(myStacks); }
-	 * 
-	 * System.out.println(myStacks);
-	 */
 	
 }
 

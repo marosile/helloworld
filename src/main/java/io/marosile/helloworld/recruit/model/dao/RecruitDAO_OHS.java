@@ -26,7 +26,10 @@ public class RecruitDAO_OHS {
 	 * @return result
 	 */
 	public int insertMyResult(EmploymentTest EmploymentTest) {
+		
 		return sqlSession.insert("recruitMapper.insertMyResult", EmploymentTest);
+		
+		
 	}
 
 	/** 내 사용가능 기술 Tag 테이블로
@@ -67,6 +70,33 @@ public class RecruitDAO_OHS {
 	 */
 	public Company selectMyCompanyInfo(String memberId) {
 		return sqlSession.selectOne("recruitMapper.selectMyCompanyInfo", memberId);
+	}
+
+	/** 채용공고 삽입
+	 * @param recruit
+	 * @return result
+	 */
+	public int recruitInsert(Recruit recruit) {
+		
+		
+		int result = sqlSession.insert("recruitMapper.recruitInsert", recruit);
+
+		if (result > 0) {
+			result = recruit.getBoardNo();
+			
+			System.out.println("result는 : " + result);
+		}
+
+		return result;
+	
+	}
+
+	/** 내 tagList(string) 가져오기
+	 * @param memberId
+	 * @return list(string)
+	 */
+	public String selectMyTagList(String memberId) {
+		return sqlSession.selectOne("recruitMapper.selectMyTagList", memberId);
 	}
 	
 	

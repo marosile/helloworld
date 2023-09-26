@@ -1,6 +1,7 @@
 package io.marosile.helloworld.recruit.model.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -48,6 +49,15 @@ public class RecruitDAO_PHJ {
 	 */
 	public List<Recruit> noticeList(String memberId) {
 		return sqlSession.selectList("recruitMapper.noticeList", memberId);
+	}
+
+	
+	/** 북마크 확인 
+	 * @param map
+	 * @return
+	 */
+	public int bookMarkCheck(Map<String, Object> map) {
+		return sqlSession.selectOne("boardMapper.bookMarkCheck", map);
 	}
 	
 	

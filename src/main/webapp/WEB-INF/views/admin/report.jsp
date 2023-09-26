@@ -55,11 +55,15 @@
                         <div class="row">
 
                     <c:forEach items="${report}" var="report">
-                            <div class="box">
+                    
+                        <a href="/board/${report.boardCode}/${report.boardNo}">
+                            <div class="box" id="box">
                                 <p id="title">${report.boardTitle}</p>
                                 <p id="userId">${report.memberId}</p>
                                 <p id="content">${report.reportContent}</p>
                             </div>    
+                        </a>
+
                     </c:forEach>
                         </div>
 

@@ -21,5 +21,5 @@ public class Company {
 	private String companyIntroduce; // 회사 소개
 	private int companyMcount;  // 사원수
 	private String companyFl; // 담당자로 등록 여부
-
+	private String companyHomePageAddress; // 회사 홈페이지 주소
 }

@@ -11,16 +11,13 @@
 	</resultMap>
 
 	<select id="selectTagList" resultType="String">
-		SELECT TAG_NM
-		  FROM TAG
+		SELECT TAG_NM FROM TAG
 	</select>
 
 	<insert id="insertTag">
 		INSERT INTO TAG (TAG_NO, TAG_NM)
 		SELECT SEQ_TAG_NO.NEXTVAL, #{tag} FROM dual
-		WHERE NOT EXISTS (SELECT 1
-						    FROM TAG
-						   WHERE TAG_NM = #{tag})
+		WHERE NOT EXISTS (SELECT 1 FROM TAG WHERE TAG_NM = #{tag})
 	</insert>
 
 	<insert id="insertTagRelation">
@@ -46,9 +43,27 @@
 		JOIN BOARD B ON B.BOARD_NO = TR.ITEM_NO
 		WHERE B.BOARD_NO = #{boardNo} AND tr.ITEM_TYPE = #{boardType}
 	</select>
+	
+	<select id="tagSelects2" resultMap="TagResultMap">
+		SELECT T.TAG_NO, TAG_NM, tr.ITEM_NO, tr.ITEM_TYPE FROM TAG T
+		JOIN TAG_RELATION TR ON TR.TAG_NO = T.TAG_NO
+		JOIN BOARD B ON B.BOARD_NO = TR.ITEM_NO
+		WHERE B.BOARD_NO = #{boardNo} AND tr.ITEM_TYPE = #{boardType}
+	</select>
 
 	<!-- 일반 게시글 작성할 때의 태그 삽입 -->
 	<insert id="tagInsert" parameterType="Tag" useGeneratedKeys="true">
+		<selectKey order="BEFORE" resultType="int" keyProperty="tagNo">
+			SELECT SEQ_TAG_NO.NEXTVAL FROM DUAL
+		</selectKey>
+		INSERT ALL
+		INTO TAG (TAG_NO, TAG_NM) VALUES (#{tagNo}, #{tagName})
+		INTO TAG_RELATION (TAG_NO, ITEM_TYPE, ITEM_NO) VALUES (${tagNo}, #{boardType}, #{boardNo})
+		SELECT 1 FROM DUAL
+	</insert>
+	
+		<!-- 일반 게시글 작성할 때의 태그 삽입 -->
+	<insert id="tagInsert2" parameterType="Tag" useGeneratedKeys="true">
 		<selectKey order="BEFORE" resultType="int" keyProperty="tagNo">
 			SELECT SEQ_TAG_NO.NEXTVAL FROM DUAL
 		</selectKey>
@@ -66,19 +81,5 @@
 		UPDATE SET t.TAG_NM = #{tagName}
 		WHERE tr.ITEM_NO = ${boardNo} AND t.TAG_NO = ${tagNo}
 	</update>
-
-	<!-- 채용공고 테스트 했을 때의 태그 삽입 // 안함 -->
-	<insert id="insertMyStacksToTag" parameterType="java.util.Map">
-	
-		<selectKey order="BEFORE" resultType="int" keyProperty="tagNo">
-		        SELECT SEQ_TAG_NO.NEXTVAL FROM DUAL
-		</selectKey>
-	    
-	    INSERT INTO your_table_name (tag_column_name)
-	    VALUES
-	    <foreach collection="myStacks" item="entry" separator=",">
-	        #{entry.value}
-	    </foreach>
-	</insert>
 
 </mapper>

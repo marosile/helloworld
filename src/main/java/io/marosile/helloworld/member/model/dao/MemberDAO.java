@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @Repository
@@ -94,4 +95,15 @@ public class MemberDAO {
 
     public Member getMemberById(String memberId) { return sqlSession.selectOne("memberMapper.getMemberById", memberId); }
 
+    public List<Member> selectFollowerList(Map<String, Object> param) {
+        return sqlSession.selectList("memberMapper.selectFollowerList", param);
+    }
+
+    public List<Member> selectFollowingList(Map<String, Object> param) {
+        return sqlSession.selectList("memberMapper.selectFollowingList", param);
+    }
+
+    public List<Member> selectF4fList(String memberId) {
+        return sqlSession.selectList("memberMapper.selectF4fList", memberId);
+    }
 }

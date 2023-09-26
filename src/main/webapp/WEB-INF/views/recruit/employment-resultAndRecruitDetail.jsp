@@ -1,11 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page import="java.util.Random" %>
 
 <!DOCTYPE html>
 <html lang="ko">
 
 <c:set var="list" value="${map.matching}" />
-
 
 <head>
     <meta charset="UTF-8">
@@ -17,6 +17,7 @@
    <link rel="stylesheet" href="/resources/css/recruit/employment-result.css">
    <link rel="stylesheet" href="/resources/css/recruit/recruit-footer.css">
 
+     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 
    <script src="https://kit.fontawesome.com/98acdabf0d.js" crossorigin="anonymous"></script>
 
@@ -27,8 +28,6 @@
 
 <body>
 <%int i = 1;%>
-
-
 
     <jsp:include page="/WEB-INF/views/common/header.jsp"/>
 
@@ -42,20 +41,23 @@
             <div class="swiper-container">
 
             <div class="swiper-wrapper">
-            <c:forEach items="${map.matching}" var="recruit">
+            <c:forEach items="${map.matching}" var="recruit" varStatus="loop">
+
                 <div class="swiper-slide">
                     <!-- 슬라이드 내용 1 -->
                     <!-- 공고 번호 -->
                 <div id="recruitNo">
-                    <span><%= i++ %></span>
+                     <span>
+                        <span id="currentPageNo">${loop.index + 1}</span> / <span>${map.matching.size()}</span>
+                     </span>
                 </div>
 
                 <!-- 이미지, 회사명 -->
                 <div id="companyInfo1">
-                    <div><img src="/resources/images/recruit/companyImageEx.jpg" id="companyImg"></div>
+                    <div><img src="${recruit.companyLogo}" id="companyImg"></div>
                     <div id="companyName">${recruit.companyName}</div>
                     <div id="aplly-btn-area">
-                        <a href="moreDetail?boardNo=${recruit.boardNo}"><button id="apply-btn">지원하기</button></a>
+                        <a href="/recruit/moreDetail?boardNo=${recruit.boardNo}"><button id="apply-btn">지원하기</button></a>
                     </div>
                 </div>
 
@@ -66,16 +68,15 @@
 
                 <!-- 요구하는 기능들 -->
                 <div id="jobRequirements">
+                <!-- 기업의 요구 태그에 대해 내가 테스트 할 때 넣은 태그와 같을때는 색 바꿔주기 -->
+                    
+                    <c:set var="tagList" value="${map.tagList[loop.index]}"/>
+                        
+                    <c:forEach items="${tagList}" var="tag">
+                        <div class="notMySkill">${tag.tagName}</div>
+                    </c:forEach>
 
-                    <!-- 기업의 요구 태그에 대해 내가 가입할때 넣은 태그와 같을때는 
-                    색 바꾸고 체크표시해주기 -->
-
-                    <!-- 일단 임시 -->
-                    <div class="mySkill">✔ Java</div>
-                    <div class="mySkill">✔ Javascript</div>
-                    <div class="notMySkill">Linux</div>
                 </div>
-
                 <!-- 기업 간단 설명 -->
                 <div id="companyDescription">
                     ${recruit.companyIntroduce}
@@ -92,34 +93,32 @@
                         <span>${recruit.companyMcount} 명</span>
                     </div>
                 </div>
-
-                <!-- 매칭퍼센트와 설명 몇가지 -->
-                <div id="matchingInfo">
-                    <div id="matching">${recruit.memberId} 님과 매칭률</div>
-                    <div id="percent"> 85.8 %</div>
                     
-                    <div id="companyInfo2">
-                        <div id="widthDiv">
-                            
-                            <div class="checksInfo2">
-                                <div class="imgCenter"><img src="/resources/images/greenCheck.png" class="greenChecks"></div>
-                                <div>연봉 정보 비공개</div>
-                            </div>
-                            <div class="checksInfo2">
-                                <div class="imgCenter"><img src="/resources/images/greenCheck.png" class="greenChecks"></div>
-                                <div>${recruit.experiencePeriod}</div>
-                            </div>
-                            <div class="checksInfo2">
-                                <div class="imgCenter"><img src="/resources/images/greenCheck.png" class="greenChecks"></div>
-                                <div>${recruit.workConditions}</div>
-                            </div>
-                            <div class="checksInfo2">
-                                <div class="imgCenter"><img src="/resources/images/greenCheck.png" class="greenChecks"></div>
-                                <div>${recruit.companyAddress}</div>
-                            </div>
+                <div id="companyInfo2">
+
+                    <div id="widthDiv">
+                        
+                        <div class="checksInfo2">
+                            <div class="imgCenter"><img src="/resources/images/greenCheck.png" class="greenChecks"></div>
+                            <div>연봉 : ${recruit.salaryInfo}</div>
                         </div>
+                        <div class="checksInfo2">
+                            <div class="imgCenter"><img src="/resources/images/greenCheck.png" class="greenChecks"></div>
+                            <div>요구 경력 : ${recruit.experiencePeriod}</div>
+                        </div>
+                        <div class="checksInfo2">
+                            <div class="imgCenter"><img src="/resources/images/greenCheck.png" class="greenChecks"></div>
+                            <div>근무 형태 : ${recruit.workConditions}</div>
+                        </div>
+                        <%-- <div class="checksInfo2">
+                            <div class="imgCenter"><img src="/resources/images/greenCheck.png" class="greenChecks"></div>
+                            <div>회사 위치 ${recruit.companyAddress}</div>
+                        </div> --%>
+
                     </div>
+
                 </div>
+
 
                 <!-- 자격요건 -->
                 <div id="qualification">
@@ -148,39 +147,23 @@
 
                     </div>
 
-                    <!-- 주요업무 -->
-<%--                     <div id="responsibilities">
-                        
-                        <div id="responsibilitiesTitle">주요업무</div>
-                        
-                        <div class="want">
-                            <img src="/resources/images/recruit/bulb.png" class="bulbImages">
-                            이런 일을 하게 돼요!
-                        </div>
-
-                        <p>- 웹 서비스와 EMS(OAM) 관련 업무를 담당하고 개발합니다.</p>
-
-                    </div> --%>
-
                 </div>
-            </c:forEach>  
+
+          </c:forEach>  
+
             </div>    
 
-
         </div>
 
-
         </div>
-
-        
     
     </main>
 
-
-    <jsp:include page="/WEB-INF/views/recruit/recruit-footer.jsp"/> 
+    <script>
+        var myTagListString = "${myTagList}";
+    </script>
 
     <script src="/resources/js/common/general.js"></script>
-
     <script src="/resources/js/recruit/testResultAndDetail.js"></script>
     <script src="/resources/js/recruit/recruit-footer.js"></script>
 

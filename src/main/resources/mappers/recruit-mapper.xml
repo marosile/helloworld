@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="recruitMapper">
 
-		<!-- recruit ResultMap -->
+	<!-- recruit ResultMap -->
 	<resultMap type="recruit" id="recruitResultMap">
 	
 		<id property="companyNo" column="CMPN_NO" />
@@ -33,6 +33,7 @@
 		
 	</resultMap>
 	
+	<!-- company resultmap  -->
 	<resultMap type="company" id="companyResultMap">
 	
 		<id property="companyNo" column="CMPN_NO" />
@@ -44,22 +45,21 @@
 		<result property="companyIntroduce" column="CMPN_INTRO" />
 		<result property="companyMcount" column="CMPN_MCOUNT" />
 		<result property="companyFl" column="CMPN_FL" />
+		<result property="companyHomePageAddress" column="CMPN_HP" />
 
 	</resultMap>
 
 	<!-- 담당자의 회사 정보 가져오기 -->
 	<select id="selectMyCompanyInfo" resultMap = "companyResultMap">
-		
 		SELECT * FROM COMPANY WHERE MEMBER_ID = #{memberId}
-	
 	</select>
 
 	<!-- 내 매칭 공고 ( 조건 : 2개이상 일치 ) -->
 	<select id="matchingRecruit" resultMap = "recruitResultMap">
 		SELECT B.BOARD_CONTENT, RS.MEMBER_ID, BR.BOARD_NO, BR.POSITION,
-		    BR.EXPR_PERIOD, BR.EMPL_TYPE, BR.EMPL_CNDT,BR.ENTR_EXAM,BR.JOB_TYPE,
+		    BR.EXPR_PERIOD, BR.EMPL_TYPE, BR.EMPL_CNDT,BR.ENTR_EXAM,BR.JOB_TYPE, BR.SALARYINFO,
 		    BR.BENEFIT, CP.CMPN_NO, CP.MEMBER_ID AS CMPN_ID, CP.CMPN_NM, CP.CMPN_ADDR,
-		    CP.CMPN_LOGO,CP.CMPN_INTRO,CP.CMPN_MCOUNT
+		    CP.CMPN_LOGO, CP.CMPN_INTRO,CP.CMPN_MCOUNT
 		    FROM BOARD B JOIN BOARD_RECRUIT BR ON B.BOARD_NO = BR.BOARD_NO
 		    JOIN RESUME RS ON RS."POSITION" = BR."POSITION" JOIN COMPANY CP ON BR.CMPN_NO = CP.CMPN_NO
 		    WHERE
@@ -71,13 +71,13 @@
 		        (#{question2} = BR.EXPR_PERIOD AND #{question5} = CP.CMPN_ADDR) OR
 		        (#{question4} = BR.EMPL_TYPE AND #{question5} = CP.CMPN_ADDR)
 		    )
-    AND RS.MEMBER_ID = #{memberId}
+    	AND RS.MEMBER_ID = #{memberId}
 	</select>
 	
 	<!-- 채용 담당자 등록 신청 (insert 후 fl로 구분) -->
 	<insert id="companyInsert">
 		INSERT INTO COMPANY VALUES (SEQ_CMPN_NO.NEXTVAL, #{memberId}, #{companyName}, #{companyAddress}, 
-		'/resources/images/recruit/' || #{companyLogo}, #{companyIntroduce}, ${companyMcount}, DEFAULT)
+		'/resources/images/recruit/' || #{companyLogo}, #{companyIntroduce}, ${companyMcount}, DEFAULT, #{companyHomePageAddress})
 	</insert>
 
 	<!-- 전체 채용 공고 조회 -->
@@ -89,7 +89,7 @@
 	
 	<!-- 상세의 상세페이지 -->
 	<select id="moreDetail" resultMap="recruitResultMap">
-		SELECT BOARD_TITLE, BOARD_CONTENT, EMPL_CNDT, ENTR_EXAM, BENEFIT, POSITION, JOB_TYPE, CMPN_ADDR, CMPN_NO, CMPN_INTRO, 
+		SELECT BOARD_TITLE, BOARD_CONTENT, BOARD_NO, EMPL_CNDT, ENTR_EXAM, BENEFIT, POSITION, JOB_TYPE, CMPN_ADDR, CMPN_NO, CMPN_INTRO, 
 			CMPN_NM, CMPN_LOGO
 			FROM BOARD
 			JOIN BOARD_RECRUIT USING (BOARD_NO)
@@ -128,6 +128,31 @@
 	    )
 	    AND RS.MEMBER_ID = #{memberId}
 	</select>
+   
+    <!-- 채용공고 삽입 -->
+    <insert id="recruitInsert" parameterType="recruit" useGeneratedKeys="true">
+		
+		<selectKey order="BEFORE" resultType="_int" keyProperty="boardNo">
+			SELECT SEQ_BOARD_NO.NEXTVAL FROM DUAL
+		</selectKey>
+		
+		INSERT ALL
+		
+		INTO BOARD (BOARD_NO, MEMBER_ID, BOARD_TITLE, BOARD_CONTENT, CREATE_DT, DELETED_FL, READ_COUNT)
+		VALUES(#{boardNo}, #{memberId}, #{boardTitle}, #{boardContent}, DEFAULT, DEFAULT, 0)
+			
+		INTO BOARD_RECRUIT (BOARD_NO, CMPN_NO, POSITION, EXPR_PERIOD, EMPL_TYPE, JOB_TYPE, EMPL_CNDT, ENTR_EXAM, BENEFIT, SALARYINFO ) 
+		VALUES(#{boardNo}, #{companyNo}, #{jobField}, #{experiencePeriod}, #{workConditions}, #{employmentType}, #{workConditionsDetail}
+			  ,#{selectionProcess}, #{employmentBenefits}, #{salaryInfo} )
+		
+		SELECT 1 FROM DUAL
+   	
+   </insert>
+   
+   <!-- 내 tagList(string) 가져오기 -->
+   <select id="selectMyTagList" resultType="string">
+	   	SELECT FIELD FROM RESUME WHERE MEMBER_ID = #{memberId} 
+   </select>
    
    
 

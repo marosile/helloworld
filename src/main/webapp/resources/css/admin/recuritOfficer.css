@@ -163,13 +163,35 @@
 
 }
 
-/*프로필 사진 크기*/
+/* 프로필 사진 크기 */
 .cmpnLogo{
-    width: 30px;
+    width: 40px;
+    height:40px;
     margin: 10px;
     display: flex;
 }
 
 .cmpnNmLogo{
     display: flex;
+}
+
+/* 목록 바꾸는 css*/
+.listChange{
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    margin-right: 30px;
+}
+
+.listChange > span{
+    padding: 0 10px;
+}
+
+.listChange > a:first-child{
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.listChange > a:last-child{
+    color: grey;
 }

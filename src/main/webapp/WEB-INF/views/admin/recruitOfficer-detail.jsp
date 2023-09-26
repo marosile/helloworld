@@ -10,9 +10,9 @@
     <title>게시글 목록</title>
    <link rel="stylesheet" href="/resources/css/common/general.css">
 
-    <link rel="stylesheet" href="/resources/css/admin/recruitOfficer-detail.css">
-    
     <link rel="stylesheet" href="/resources/css/application.css">
+
+    <link rel="stylesheet" href="/resources/css/admin/recruitOfficer-detail.css">
 
     <script src="https://kit.fontawesome.com/98acdabf0d.js" crossorigin="anonymous"></script>
 
@@ -24,31 +24,73 @@
     <jsp:include page="/WEB-INF/views/common/header.jsp"/>
 
     <main id="body-area">
+
+        <c:choose>
+            <c:when test="${recruitOfficerDetail.cmpnFl == 'N'}">
+                <form action="/admin/recruitOfficer/detail/update" id="updateForm" >
+            </c:when>
+            <c:otherwise>
+                <form action="/admin/recruitOfficer/detail/delete" id="deleteForm" >
+            </c:otherwise>
+        </c:choose>
+
+
             <div id="main-area">
                 <p id="title3" class="title"><i class="fa-solid fa-building"></i></i>기업 담당자 신청 관리</p>
-                <div id="company-name" class="companyName">기업명</div>
+                <div id="company-name" class="companyName" name="cmpnNm">${recruitOfficerDetail.cmpnNm}</div>
                 <div class="info" id="info1">
-                    <span>오형석</span><span>/ 과장 /</span><span>010-1234-5678</span>
-                </div>
-                <div id="explain">
-                    네오사피엔스는 음성·언어 분야의 인공지능 원천기술을 개발하고 있습니다. 우리의 인공지능 성우 서비스 '타입캐스트'는 2019년 11월 정식 론칭 이래, 수많은 콘텐츠 창작자와 기업들의 더빙 툴로 사랑받고 있습니다.
+                    <span>담당자 : </span>
+                    <span name="userId">${recruitOfficerDetail.userId}</span>
+                    <span class=slash>/</span>
+                    <span>연락처 : </span>
+                    <span name="userTel">${recruitOfficerDetail.userTel}</span>
                 </div>
                 <div class="info" id="info2">
-                    <span><i class="fa-solid fa-location-dot"></i>서울특별시 강남구 삼성동169</span><span><i class="fa-solid fa-users"></i>63명</span>
+                    <div class="infoAddr">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <span name="cmpnAddr">${recruitOfficerDetail.cmpnAddr}</span>
+                    </div>
+
+                    <div>
+                        <i class="fa-solid fa-users"></i>
+                        <span name="cmpnMCount">${recruitOfficerDetail.cmpnMCount}</span>
+                        <span>명</span>
+                    </div>
                 </div>
-                <div id="content">
-                    신입 채용 및 경력 직원 채용 희망합니다 🐰
+                <div id="explain" name="cmpnIntro">
+                    ${recruitOfficerDetail.cmpnIntro}
                 </div>
-                
+
+
                 <!-- 반려 버튼, 등록 버튼 누르면 문자메세지로 알림 -->
-                <div id="button-area">
-                    <button id="cancelRegistration" class="btns">등록 반려</button>
-                    <button id="registerCompany" class="btns">담당자로 등록</button>
-                    <button id="goToList" class="btns">목록으로</button>
-                </div>
+                <c:choose>
+                    <c:when test="${recruitOfficerDetail.cmpnFl == 'N'}">
+                        <div id="button-area">
+                            <button id="cancelRegistration" class="btns" type="button" onclick="confirmCancel()">등록 반려</button>
+                            <button id="registerCompany" class="btns">담당자로 등록</button>
+                            <button class="btns" type="button" onClick="location.href='/admin/recruitOfficer'">목록으로</button>
+                        </div>
+                    </c:when>
+                    <c:otherwise>
+                        <div id="button-area">
+                            <button id="deleteCompony" class="btns">기업 담당 해지</button>
+                            <button class="btns" type="button" onClick="location.href='/admin/recruitOfficerCurr'">목록으로</button>
+                        </div>
+                    </c:otherwise>
+                </c:choose>
+
+
             </div>
-            
-        </main> 
+
+
+            <input type="hidden" name="cmpnNm" value="${recruitOfficerDetail.cmpnNm}"/>
+            <input type="hidden" name="userId" value="${recruitOfficerDetail.userId}"/>
+            <input type="hidden" name="userTel" value="${recruitOfficerDetail.userTel}"/>
+            <input type="hidden" name="cmpnMCount" value="${recruitOfficerDetail.cmpnMCount}"/>
+            <input type="hidden" name="cmpnIntro" value="${recruitOfficerDetail.cmpnIntro}"/>
+
+        </form>
+    </main>
 
      
 

@@ -52,8 +52,25 @@ public class RecruitServiceImpl_OHS implements RecruitService_OHS{
 		return dao.companyInsert(company);
 	}
 
+	// 회사정보 가져오기
 	@Override
 	public Company selectMyCompanyInfo(String memberId) {
 		return dao.selectMyCompanyInfo(memberId);
 	}
+
+	// 채용공고 등록
+	@Override
+	public int recruitInsert(Recruit recruit) {
+		return dao.recruitInsert(recruit);
+	}
+
+	// 내 tagList(string) 가져오기
+	@Override
+	public String selectMyTagList(String memberId) {
+		return dao.selectMyTagList(memberId);
+	}
+	
+	
+	
+	
 }

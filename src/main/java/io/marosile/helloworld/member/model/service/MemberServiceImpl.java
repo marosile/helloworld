@@ -8,6 +8,7 @@ import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import io.marosile.helloworld.member.model.dao.MemberDAO;
@@ -369,6 +370,15 @@ public class MemberServiceImpl implements MemberService {
     public Member getMemberById(String memberId) {
         return dao.getMemberById(memberId);
     }
+
+    @Override
+    public List<Member> selectFollowerList(Map<String, Object> param) { return dao.selectFollowerList(param); }
+
+    @Override
+    public List<Member> selectFollowingList(Map<String, Object> param) { return dao.selectFollowingList(param); }
+
+    @Override
+    public List<Member> selectF4fList(String memberId) { return dao.selectF4fList(memberId); }
 
 
 }

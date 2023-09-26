@@ -221,3 +221,19 @@ button:hover{
     font-size: 12px;
     cursor: pointer;
 }
+
+#companyHome{
+    height:60px;
+    display:flex;
+    align-items: center;   
+}
+
+#companyHome2{
+    display:flex;
+    align-items: center;
+    height:40px;
+}
+
+#companyHome  input{
+    width:500px;
+}

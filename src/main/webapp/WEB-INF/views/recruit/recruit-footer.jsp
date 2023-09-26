@@ -17,7 +17,7 @@
             </div>
 
             <div id="apply">
-                <button id="btn">지원하기</button>
+                <a href="/recruit/moreDetail?boardNo=${recruit.boardNo}"><button id="btn">지원하기</button></a>
             </div>
          
             <div>

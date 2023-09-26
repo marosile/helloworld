@@ -2,6 +2,7 @@ package io.marosile.helloworld.recruit.contorller;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -21,6 +22,8 @@ import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.multipart.MultipartFile;
 
+import io.marosile.helloworld.board.model.dto.Tag;
+import io.marosile.helloworld.board.model.service.TagService;
 import io.marosile.helloworld.member.model.dto.Member;
 import io.marosile.helloworld.recruit.model.dto.Company;
 import io.marosile.helloworld.recruit.model.dto.EmploymentTest;
@@ -39,6 +42,9 @@ public class RecruitController {
 	
 	@Autowired
 	private RecruitService_OHS service2;
+	
+	@Autowired
+	private TagService service3;
 	
 	
 	@GetMapping("/list")
@@ -61,11 +67,30 @@ public class RecruitController {
 				
 				Map<String, Object> map = new HashMap<>();
 				
+				// 매칭 공고들 가져오기
 				List<Recruit> matchingRecruitList = service2.matchingRecruit(EmploymentTest);
 				
-				map.put("matching", matchingRecruitList);
+				System.out.println(matchingRecruitList);
 				
-				 model.addAttribute("map", map); 
+				int boardType = 2; // 채용공고 == 2
+		
+				List<List<Tag>> tagLists = new ArrayList<>();
+
+				for (Recruit rec : matchingRecruitList) {
+				    rec.setBoardType(boardType);
+				    List<Tag> tagList = service3.tagSelects2(rec);
+				    tagLists.add(tagList);
+				}
+				
+				// 내 tagList가져오기
+				String myTagList = service2.selectMyTagList(memberId);
+				
+				model.addAttribute("myTagList", myTagList);
+				
+				map.put("matching", matchingRecruitList);
+				map.put("tagList", tagLists);
+				
+				model.addAttribute("map", map); 
 				
 				path = "recruit/employment-resultAndRecruitDetail";
 			}
@@ -107,30 +132,81 @@ public class RecruitController {
 	// 상세의 상세페이지
 	@GetMapping("/moreDetail")
 	public String recruitDetail(@RequestParam("boardNo") int boardNo
-								, Model model) {
+								, Model model
+								,@SessionAttribute(value="loginMember", required =false) Member loginMember) {
 		
 		Recruit recruit = service.moreDetail(boardNo);
 		
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("boardNo", boardNo);
+
+		
 		String logo = recruit.getCompanyLogo();
 		
-		System.out.println(logo);
+		if(recruit != null) {
+			
+			if(loginMember != null) {
+				
+				map.put("memberId", loginMember.getMemberId());
+				
+				int result = service.bookMarkCheck(map);
+				if (result > 0)
+					model.addAttribute("bookMarkCheck", "on");
+			}
+		}
 		
 		model.addAttribute("recruit", recruit);
-		
 		
 		return "recruit/recruit-moreDetail";
 	}
 	
-	// 채용 공고 등록
+	// 채용 공고 등록 페이지로
 	@GetMapping("/post")
-	public String postRecruit(@SessionAttribute("loginMember") Member loginMember) {
+	public String postRecruit(@SessionAttribute("loginMember") Member loginMember
+						     ,Model model) {
 		
 		// 기업 정보 가지고 오기
 		String memberId = loginMember.getMemberId();
 		
 		Company myCompany = service2.selectMyCompanyInfo(memberId);
 		
+		model.addAttribute("company", myCompany);
+		
 		return "recruit/recruit-post";
+	}
+	
+	// 채용 공고 등록
+	@PostMapping("/post")
+	public String postRecruit(@SessionAttribute("loginMember") Member loginMember
+							 ,@ModelAttribute("recruit") Recruit recruit
+							 ,@RequestParam(name = "tagInputs", required = false) List<String> tags) {
+		
+		
+		recruit.setMemberId(loginMember.getMemberId());
+		
+		// Recruit(boardNo=0, jobField=직무입니다, experiencePeriod=경력기간이요, workConditions=출근장소여부요, workConditionsDetail=근무조건요, selectionProcess=전형절차요, 
+		// employmentType=고용형태요, employmentBenefits=복리후생이요, salaryInfo=연봉정보요, companyNo=1, companyName=null, companyLogo=null, 
+		// companyAddress=null, companyIntroduce=null, companyId=null, companyMcount=0, companyCreateDt=null, boardTitle=제목입니다, boardContent=자격요건요, memberId=user01)
+
+		int boardNo = service2.recruitInsert(recruit);
+	
+		if( boardNo > 0 ) { // dao에서 boardNo 담았음
+			
+			// 태그 삽입
+			List<Tag> tagList = new ArrayList<>(); // 태그 객체를 저장할 리스트 생성
+			
+			if (tags != null) {
+			    for (String tagName : tags) {
+			        Tag tag = new Tag();
+			        tag.setTagName(tagName);
+			        tag.setBoardNo(boardNo);
+			        tag.setBoardType(2); // 채용공고 == 2
+			        tagList.add(tag);
+			    }
+			}
+			int result = service3.tagInsert2(tagList); // 태그 삽입
+		}
+		return "recruit/allnotice-list";
 	}
 	
 	// 이력서 등록
@@ -145,8 +221,6 @@ public class RecruitController {
 	public String application() {
 		return "recruit/application";
 	}
-	
-	
 	
 	// 기업 담당자 신청 등록
 		@PostMapping("/application")
@@ -170,18 +244,13 @@ public class RecruitController {
 		        // 파일을 지정된 경로에 저장
 		        image.transferTo(saveFile);
 
-		        System.out.println("company : " + company);
-
 		        int result = service2.companyInsert(company);
-		        
 		        
 		    } catch (IOException e) {
 		        e.printStackTrace();
 		    }
 			
-			
 			return "recruit/notice-list";
 		}
-
 	
 }

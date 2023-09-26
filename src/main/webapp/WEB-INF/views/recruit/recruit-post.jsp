@@ -13,6 +13,8 @@
    <link rel="stylesheet" href="/resources/css/recruit/recruit-post.css">
 
    <script src="https://kit.fontawesome.com/98acdabf0d.js" crossorigin="anonymous"></script>
+
+   <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
    
 </head>
 
@@ -26,25 +28,17 @@
     
         <div id = "divContainer">
 
+            <form action="post" method="post" id="uploadForm">
+            
             <!-- 타이틀 -->
             <div id="title">채용 공고 등록</div>
     
             <!-- 기업 이미지 + 이름 -->
             <div id="companyInfo1">
 
-                <!-- 	private int companyNo; // 회사 번호 (회사 아이디)
-                        private String memberId; // 담당자 아이디
-                        private String companyName; //회사 이름
-                        private String companyAddress; // 회사 주소
-                        private String companyLogo; // 회사 로고
-                        private String companyIntroduce; // 회사 소개
-                        private int companyMcount;  // 사원수
-                        private String companyFl; // 담당자로 등록 여부 
-                -->
-
                 <!-- 이미지 -->
                 <div id="companyImage">
-                    <img src = "${company.companyLogo}">
+                    <img src = "${company.companyLogo}" id="logo">
                 </div>
 
                 <!-- 이름 -->
@@ -54,19 +48,28 @@
 
             </div>
 
+            <!-- 제목(boardTitle) -->
+            <div id="boardTitleDiv">
+                <!-- BOARD_RECRUIT - jobField -->
+                <input type="text" id="boardTitleInput" name="boardTitle" placeholder="공고의 제목을 입력해주세요.">
+            </div>
+
             <!-- 직무명 -->
             <div id="jobTitleDiv">
-                <input type="text" id="jobTitleInput" name="" placeholder="구하고자 하는 직무명을 입력해주세요.">
+                <!-- BOARD_RECRUIT - jobField -->
+                <input type="text" id="jobTitleInput" name="jobField" placeholder="구하고자 하는 직무명을 입력해주세요.">
             </div>
 
             <!-- 직무에 맞는 태그 선택 -->
-            <div id="jobTitleTag">
-                <div id="jobTitleTagText">직무 태그 선택</div>
-                <input type="text" class="jobTitleTags" placeholder="#tag1" maxlength="20">
-                <input type="text" class="jobTitleTags" placeholder="#tag2" maxlength="20">
-                <input type="text" class="jobTitleTags" placeholder="#tag3" maxlength="20">
-                <input type="text" class="jobTitleTags" placeholder="#tag4" maxlength="20">
-                <input type="text" class="jobTitleTags" placeholder="#tag5" maxlength="20">
+            <div id="tagsContainer">
+
+                <div id="tagText"># 기술 태그 추가</div>
+
+                <div id="tagsDiv">
+              
+
+                </div>
+
             </div>
 
             <!-- 기업 소개 -->
@@ -79,11 +82,13 @@
 
                 <div class="checksInfo2">
                     <div class="imgCenter"><img src="/resources/images/greenCheck.png" class="greenChecks"></div>
-                    <div class="infos"><input type="text" placeholder=" 연봉정보를 입력해주세요. (비공개 가능)" class="infoInputs"></div>
+                    <div class="infos">
+                        <input type="text" id ="salaryInfo" name="salaryInfo" placeholder=" 연봉정보를 입력해주세요. (비공개 가능)" class="infoInputs">
+                    </div>
                 </div>
                 <div class="checksInfo2">
                     <div class="imgCenter"><img src="/resources/images/greenCheck.png" class="greenChecks"></div>
-                    <div class="infos"><input type="text" placeholder=" 요구 경력기간을 입력해주세요 (ex: 신입~5년차)" class="infoInputs"></div>
+                    <div class="infos"><input type="text" id="experiencePeriod" name="experiencePeriod" placeholder=" 요구 경력기간을 입력해주세요 (ex: 신입~5년차)" class="infoInputs"></div>
                 </div>
 
             </div>
@@ -92,12 +97,12 @@
 
                 <div class="checksInfo2">
                     <div class="imgCenter"><img src="/resources/images/greenCheck.png" class="greenChecks"></div>
-                    <div class="infos"><input type="text" placeholder=" 출근 장소 여부를 입력해주세요.(ex: 재택, 사무실 출근)" class="infoInputs"></div>
+                    <div class="infos"><input type="text" id = "workConditions" name="workConditions" placeholder=" 출근 형태를 입력해주세요.(ex: 재택, 사무실 출근)" class="infoInputs"></div>
                 </div>
                 <div class="checksInfo2">
                     <div class="imgCenter"><img src="/resources/images/greenCheck.png" class="greenChecks"></div>
                     <div class="infos">
-                        <textarea>회사 주소 : ${company.companyAddress} / 사원수 : ${company.companyMcount}명</textarea>
+                        <input type="text" id="employmentType" name="employmentType" placeholder=" 고용 형태를 입력해주세요.(ex: 인턴, 계약직, 정규직)" class="infoInputs">
                     </div>
                 </div>
 
@@ -107,16 +112,16 @@
             <div id="qualificationAndresponsibilities">
                 
                 <!-- BOARD - boardContent -->
-                <textarea placeholder="자격요건을 작성해주세요. ( 👨‍👦‍👦이런 분을 원해요. )" class="qualRespTextArea" id="qualrespTextArea1"></textarea>
+                <textarea name="boardContent" placeholder="자격요건을 작성해주세요. ( 👨‍👦‍👦이런 분을 원해요. )" class="qualRespTextArea" id="qualrespTextArea1"></textarea>
            
                 <!-- BOARD_RECRUIT - EMPL_CNDT -->
-                <textarea placeholder=" 근무조건을 작성해주세요. ( 🔥 ex : 주 5일 09:00 ~ 18:00시간 야근 X )" class="qualRespTextArea" id="qualrespTextArea2"></textarea>
+                <textarea maxlength="900" name="workConditionsDetail" placeholder=" 근무조건을 작성해주세요. ( 🔥 ex : 주 5일 09:00 ~ 18:00시간 야근 X )" class="qualRespTextArea" id="qualrespTextArea2"></textarea>
                 
                 <!-- BOARD_RECRUIT - EMPL_EXAM -->
-                <textarea placeholder=" 전형절차를 작성해주세요. ( 👌 ex : 지원서 제출 -> 코딩테스트 -> 직무인터뷰 -> 임원진 인터뷰)"  class="qualRespTextArea" id="qualrespTextArea3"></textarea>
+                <textarea maxlength="900" name ="selectionProcess" placeholder=" 전형절차를 작성해주세요. ( 👌 ex : 지원서 제출 -> 코딩테스트 -> 직무인터뷰 -> 임원진 인터뷰)"  class="qualRespTextArea" id="qualrespTextArea3"></textarea>
                 
                 <!-- BOARD_RECRUIT - BENEFIT -->
-                <textarea placeholder=" 복리후생을 작성해주세요. ( 🛀 ex : 1년 이상 재직자에 한해 50만원 상당의 건강검진 패키지를 제공합니다.)"  class="qualRespTextArea" id="qualrespTextArea4"></textarea>
+                <textarea maxlength="900" name="employmentBenefits" placeholder=" 복리후생을 작성해주세요. ( 🛀 ex : 1년 이상 재직자에 한해 50만원 상당의 건강검진 패키지를 제공합니다.)"  class="qualRespTextArea" id="qualrespTextArea4" ></textarea>
 
             </div>
 
@@ -127,7 +132,9 @@
 
             </div>
 
-    
+            <input type="hidden" name="companyNo" value="${company.companyNo}">
+
+        </form>
     </main>
 
     <jsp:include page="/WEB-INF/views/common/footer.jsp"/>

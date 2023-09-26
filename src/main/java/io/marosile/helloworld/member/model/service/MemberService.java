@@ -4,6 +4,7 @@ package io.marosile.helloworld.member.model.service;
 import io.marosile.helloworld.member.model.dto.Member;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public interface MemberService {
@@ -104,4 +105,10 @@ public interface MemberService {
     int newPwChange(Member member);
 
     Member getMemberById(String memberId);
+
+    List<Member> selectFollowerList(Map<String, Object> param);
+
+    List<Member> selectFollowingList(Map<String, Object> param);
+
+    List<Member> selectF4fList(String memberId);
 }

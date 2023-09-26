@@ -31,6 +31,13 @@
 
 
             <div class="adminMemberDisplay">
+
+                <div class="listChange">
+                    <a href="/admin/recruitOfficer">신청 현황</a>
+                    <span>|</span>
+                    <a href="/admin/recruitOfficerCurr">현재 기업 담당자 리스트</a>
+                </div>
+
                 
 
                     <div class="tableDiv">
