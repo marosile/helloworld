@@ -550,7 +550,7 @@ followBtn.addEventListener("click", () => {
 close.addEventListener("click", () => {
 
     followArea.classList.toggle("follow-area");
-    location.reload();
+    location.reload(); 
 })
 
 var iconElement = document.querySelector('#followBtn2 i'); 
@@ -575,16 +575,11 @@ followBtn2.addEventListener("click", e=>{
     } else {  // 북마크 눌렀을 때
         check=1;
     }
-
-
-
     const data = {
         "memberId": loginMemberId,
         "userId" : userId,
         "followCheck" : check
     };
-
-    
 
     fetch("/board/follow",{
         method: "POST",
@@ -593,8 +588,6 @@ followBtn2.addEventListener("click", e=>{
     })
     .then( res => res.text())
     .then( count => {
-
-
 
         if(count == -1) { // DML 실패
             alert("fail");
