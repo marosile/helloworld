@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.*;
 
 import io.marosile.helloworld.admin.model.dto.AdminDTO;
 import io.marosile.helloworld.admin.model.service.AdminService;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -125,7 +126,8 @@ public class AdminController {
 	}
 
 	@GetMapping("/recruitOfficer/detail/update")
-	public String recruitOfficerUpdate(@ModelAttribute AdminDTO cmpnInfo){
+	public String recruitOfficerUpdate(@ModelAttribute AdminDTO cmpnInfo
+										, RedirectAttributes ra){
 		System.out.println("왜???안대??");
 		System.out.println("dd::" + cmpnInfo);
 		
@@ -139,6 +141,7 @@ public class AdminController {
 
 			if(result > 0){
 				path += "/admin/recruitOfficer";
+				ra.addFlashAttribute("message", "기업 담당자 등록에 성공하셨습니다.");
 				System.out.println("성공");
 			}
 		}
@@ -149,11 +152,14 @@ public class AdminController {
 
 	// 현재 회원 등록 해지시키기
 	@GetMapping("/recruitOfficer/detail/delete")
-	public String recruitOfficerDelete(@ModelAttribute AdminDTO cmpnInfo){
+	public String recruitOfficerDelete(@ModelAttribute AdminDTO cmpnInfo
+										, RedirectAttributes ra){
 		System.out.println("삭제하는거 되라아아아아아아아아아아아");
 		System.out.println("dd::" + cmpnInfo);
 
-		/* N -> Y 로 업데이트 실행*/
+		/* N -> Y 로 업데이트 실행
+		* 해봤는데 삭제 시키는 것이 좋을 것이라고 판단, 삭제로 전환
+		* */
 		int result = service.recruitOfficerDelete(cmpnInfo);
 
 		String path = "redirect:";
@@ -163,6 +169,7 @@ public class AdminController {
 
 			if(result > 0){
 				path += "/admin/recruitOfficerCurr";
+				ra.addFlashAttribute("message", "담당자가 해지되었습니다.");
 				System.out.println("삭제 성공");
 			}
 		}
@@ -179,6 +186,32 @@ public class AdminController {
 		model.addAttribute("recruitListCurr", recruitListCurr);
 
 		return "admin/recruitOfficerCurr";
+	}
+
+	/*반려(컴퍼니 테이블에서 삭제만 시켜주면 됨)*/
+	@GetMapping("/recruitCancle/{userId}")
+	public String recruitCancle(@PathVariable("userId") String userId
+			, RedirectAttributes ra){
+		System.out.println("반려..되나..?");
+		System.out.println("dd::" + userId);
+
+		/* N -> Y 로 업데이트 실행
+		 * 해봤는데 삭제 시키는 것이 좋을 것이라고 판단, 삭제로 전환
+		 * */
+		int result = service.recruitCancle(userId);
+
+		String path = "redirect:";
+
+		if(result > 0){
+
+			if(result > 0){
+				path += "/admin/recruitOfficer";
+				ra.addFlashAttribute("message", "담당자 자격 반려되었습니다.");
+				System.out.println("반려(삭제) 성공");
+			}
+		}
+
+		return path;
 	}
 
 }
