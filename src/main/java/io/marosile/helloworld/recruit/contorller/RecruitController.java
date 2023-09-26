@@ -70,25 +70,20 @@ public class RecruitController {
 				// 매칭 공고들 가져오기
 				List<Recruit> matchingRecruitList = service2.matchingRecruit(EmploymentTest);
 				
-				
-				
-				List<Tag> tagList = new ArrayList<>();
-				
-				int boardType = 2;
-				
-				// 매칭 공고들의 tag들 가져오기
-				
-				for(Recruit rec : matchingRecruitList) {
-					rec.setBoardType(boardType);
-					System.out.println(rec);
-					tagList = service3.tagSelects2(rec);
+				int boardType = 2; // 채용공고 == 2
+		
+				List<List<Tag>> tagLists = new ArrayList<>();
+
+				for (Recruit rec : matchingRecruitList) {
+				    rec.setBoardType(boardType);
+				    List<Tag> tagList = service3.tagSelects2(rec);
+				    tagLists.add(tagList);
 				}
 				
-				System.out.println("tagList 제발 : " + tagList);
-				
+				System.out.println("내매칭공고 tagList들 : " + tagLists);
 				
 				map.put("matching", matchingRecruitList);
-				System.out.println(map);
+				map.put("tagList", tagLists);
 				
 				model.addAttribute("map", map); 
 				
@@ -228,8 +223,6 @@ public class RecruitController {
 
 		        // 파일을 지정된 경로에 저장
 		        image.transferTo(saveFile);
-
-		        System.out.println("company : " + company);
 
 		        int result = service2.companyInsert(company);
 		        

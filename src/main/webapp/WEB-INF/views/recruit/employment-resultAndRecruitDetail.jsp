@@ -6,7 +6,6 @@
 
 <c:set var="list" value="${map.matching}" />
 
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -40,7 +39,8 @@
             <div class="swiper-container">
 
             <div class="swiper-wrapper">
-            <c:forEach items="${map.matching}" var="recruit">
+            <c:forEach items="${map.matching}" var="recruit" varStatus="loop">
+
                 <div class="swiper-slide">
                     <!-- 슬라이드 내용 1 -->
                     <!-- 공고 번호 -->
@@ -72,6 +72,13 @@
                     <div class="mySkill">✔ Java</div>
                     <div class="mySkill">✔ Javascript</div>
                     <div class="notMySkill">Linux</div>
+                    
+                    <c:set var="tagList" value="${map.tagList[loop.index]}"/>
+                        <c:forEach items="${tagList}" var="tag">
+                            <div>${tag.tagName}</div>
+                        </c:forEach>
+    
+
                 </div>
 
                 <!-- 기업 간단 설명 -->
