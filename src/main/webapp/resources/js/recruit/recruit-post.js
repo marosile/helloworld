@@ -1,15 +1,4 @@
 
-// 채용공고 등록
-/* const writeButton = document.getElementById("writeButton");
-
-writeButton.addEventListener("click", () => {
-
-    alert("채용공고가 등록되었습니다.");
-
-    location.href = "allNoticeList";
-
-}) */
-
 // 채용공고 등록 취소
 const Backbutton = document.getElementById("Backbutton");
 
@@ -28,8 +17,6 @@ Backbutton.addEventListener("click", () => {
 
 
 const uploadForm = document.getElementById("uploadForm");
-const boardTitle = document.getElementById("boardTitle");
-const boardContent = document.getElementById("summernote");
 
 document.addEventListener("DOMContentLoaded", function() {
     const tagsDiv = document.getElementById("tagsDiv");
@@ -71,6 +58,16 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 });
 
+const boardTitle = document.getElementById("boardTitleInput");
+const jobTitle = document.getElementById("jobTitleInput");
+const salaryInfo = document.getElementById("salaryInfo");
+const experiencePeriod = document.getElementById("experiencePeriod");
+const workConditions = document.getElementById("workConditions");
+const employmentType = document.getElementById("employmentType");
+const qualrespTextArea1 = document.getElementById("qualrespTextArea1");
+const qualrespTextArea2 = document.getElementById("qualrespTextArea2");
+const qualrespTextArea3 = document.getElementById("qualrespTextArea3");
+const qualrespTextArea4 = document.getElementById("qualrespTextArea4");
 
 // form 제출 event 막기
 uploadForm.addEventListener("submit", (e) => {
@@ -82,11 +79,69 @@ uploadForm.addEventListener("submit", (e) => {
         return;
     }
 
-    if(boardContent.value.trim().length == 0){
-        snackbar('내용을 입력해주세요.', 'rgb(0, 128, 255)', '/resources/images/moon.png');
+    if(jobTitle.value.trim().length == 0){
+        snackbar('요구 직무명을 입력해주세요.', 'rgb(0, 128, 255)', '/resources/images/moon.png');
         e.preventDefault();
-        boardContent.focus();
+        jobTitle.focus();
+        return;
     } 
+
+    if(salaryInfo.value.trim().length == 0){
+        snackbar('연봉정보를 입력해주세요.', 'rgb(0, 128, 255)', '/resources/images/moon.png');
+        e.preventDefault();
+        salaryInfo.focus();
+        return;
+    } 
+
+    if(experiencePeriod.value.trim().length == 0){
+        snackbar('요구 경력기간을 입력해주세요.', 'rgb(0, 128, 255)', '/resources/images/moon.png');
+        e.preventDefault();
+        experiencePeriod.focus();
+        return;
+    } 
+
+    if(workConditions.value.trim().length == 0){
+        snackbar('출근 형태를 입력해주세요.', 'rgb(0, 128, 255)', '/resources/images/moon.png');
+        e.preventDefault();
+        workConditions.focus();
+        return;
+    } 
+
+    if(employmentType.value.trim().length == 0){
+        snackbar('고용 형태를 입력해주세요.', 'rgb(0, 128, 255)', '/resources/images/moon.png');
+        e.preventDefault();
+        employmentType.focus();
+        return;
+    } 
+    
+    if(qualrespTextArea1.value.trim().length == 0){
+        snackbar('자격요건을 입력해주세요.', 'rgb(0, 128, 255)', '/resources/images/moon.png');
+        e.preventDefault();
+        qualrespTextArea1.focus();
+        return;
+    } 
+
+    if(qualrespTextArea2.value.trim().length == 0){
+        snackbar('근무조건을 입력해주세요.', 'rgb(0, 128, 255)', '/resources/images/moon.png');
+        e.preventDefault();
+        qualrespTextArea2.focus();
+        return;
+    } 
+
+    if(qualrespTextArea3.value.trim().length == 0){
+        snackbar('전형절차를 입력해주세요.', 'rgb(0, 128, 255)', '/resources/images/moon.png');
+        e.preventDefault();
+        qualrespTextArea3.focus();
+        return;
+    } 
+
+    if(qualrespTextArea4.value.trim().length == 0){
+        snackbar('복리후생을 입력해주세요.', 'rgb(0, 128, 255)', '/resources/images/moon.png');
+        e.preventDefault();
+        qualrespTextArea4.focus();
+        return;
+    } 
+
 
     // 태그 입력 여부 확인
     const tagInputs = document.querySelectorAll(".tagInputs"); // nodeList
@@ -101,9 +156,10 @@ uploadForm.addEventListener("submit", (e) => {
     }
 
     if (!allTagsEntered) {
-        alert('추가한 태그를 모두 작성해주세요.');
+        snackbar('추가한 태그를 모두 작성해주세요.', 'rgb(0, 128, 255)', '/resources/images/moon.png');
         e.preventDefault(); // 이벤트 막음
     }
 
   
 })
+
