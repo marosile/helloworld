@@ -123,8 +123,14 @@ public class AdminServiceImpl implements AdminService {
 
 	// 반려하기
 	@Override
-	public int recruitCancle(String userId) {
-		return dao.recruitCancle(userId);
+	public int recruitCancel(String userId) {
+		return dao.recruitCancel(userId);
+	}
+
+	// 전화번호 조회
+	@Override
+	public String findUserTel(String userId) {
+		return dao.findUserTel(userId);
 	}
 
 }

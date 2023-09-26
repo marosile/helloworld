@@ -7,6 +7,7 @@ import java.util.Map;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import io.marosile.helloworld.common.utility.Util;
 import io.marosile.helloworld.member.model.dto.Member;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -130,7 +131,7 @@ public class AdminController {
 										, RedirectAttributes ra){
 		System.out.println("왜???안대??");
 		System.out.println("dd::" + cmpnInfo);
-		
+
 		/* N -> Y 로 업데이트 실행*/
 		int result = service.recruitOfficerUpdate(cmpnInfo);
 
@@ -143,6 +144,13 @@ public class AdminController {
 				path += "/admin/recruitOfficer";
 				ra.addFlashAttribute("message", "기업 담당자 등록에 성공하셨습니다.");
 				System.out.println("성공");
+
+				Util util = new Util();
+				try {
+					util.adminSendMessage(cmpnInfo.getUserTel(), "축하드립니다! \n기업 담당자로 등록되셨습니다.\n");
+				}catch (Exception e){
+					e.printStackTrace();
+				}
 			}
 		}
 
@@ -171,6 +179,13 @@ public class AdminController {
 				path += "/admin/recruitOfficerCurr";
 				ra.addFlashAttribute("message", "담당자가 해지되었습니다.");
 				System.out.println("삭제 성공");
+
+				Util util = new Util();
+				try {
+					util.adminSendMessage(cmpnInfo.getUserTel(), "기업 담당자에서 해지되었습니다. 등록을 원하시면 재신청 해주세요.");
+				}catch (Exception e){
+					e.printStackTrace();
+				}
 			}
 		}
 
@@ -189,8 +204,8 @@ public class AdminController {
 	}
 
 	/*반려(컴퍼니 테이블에서 삭제만 시켜주면 됨)*/
-	@GetMapping("/recruitCancle/{userId}")
-	public String recruitCancle(@PathVariable("userId") String userId
+	@GetMapping("/recruitCancel/{userId}")
+	public String recruitCancel(@PathVariable("userId") String userId
 			, RedirectAttributes ra){
 		System.out.println("반려..되나..?");
 		System.out.println("dd::" + userId);
@@ -198,17 +213,25 @@ public class AdminController {
 		/* N -> Y 로 업데이트 실행
 		 * 해봤는데 삭제 시키는 것이 좋을 것이라고 판단, 삭제로 전환
 		 * */
-		int result = service.recruitCancle(userId);
+		int result = service.recruitCancel(userId);
 
 		String path = "redirect:";
 
 		if(result > 0){
 
-			if(result > 0){
-				path += "/admin/recruitOfficer";
-				ra.addFlashAttribute("message", "담당자 자격 반려되었습니다.");
-				System.out.println("반려(삭제) 성공");
+			String userTel = service.findUserTel(userId);
+
+			path += "/admin/recruitOfficer";
+			ra.addFlashAttribute("message", "담당자 자격 반려되었습니다.");
+			System.out.println("반려(삭제) 성공");
+
+			Util util = new Util();
+			try {
+				util.adminSendMessage(userTel, "기업 담당자 신청이 반려 되었습니다. 등록을 원하시면 재신청 해주세요");
+			}catch (Exception e){
+				e.printStackTrace();
 			}
+
 		}
 
 		return path;

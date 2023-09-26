@@ -21,7 +21,7 @@ const userId = document.getElementsByName("userId")[1].value;
 function confirmCancel() {
     if (confirm("등록을 반려하시겠습니까?")) {
 
-        location.href = '/admin/recruitCancle/' + userId;
+        location.href = '/admin/recruitCancel/' + userId;
     } else {
 
     }
