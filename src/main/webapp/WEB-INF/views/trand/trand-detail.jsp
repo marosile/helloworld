@@ -287,6 +287,7 @@
             <script>
                  const boardCode = "${detail.boardCode}";  // js 사용
                  const boardNo = ${map.boardNo};
+                 const memberId = "${detail.memberId}";
                  const loginMemberId = "${loginMember.memberId}"
             </script>
 

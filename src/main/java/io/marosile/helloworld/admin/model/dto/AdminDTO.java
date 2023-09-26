@@ -13,6 +13,7 @@ public class AdminDTO {
 	
     private String boardTitle;
 	private int boardNo;
+	private int boardCode;
 	private int reportNo;
 	private String reportContent;
 	

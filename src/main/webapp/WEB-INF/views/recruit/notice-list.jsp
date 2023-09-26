@@ -27,7 +27,7 @@
                 <div class="row-area">
                     <div class="box">
                         <div id="row1">
-                            <div id="photo"><img src="/resources/images/mypage/당근.png"></div>
+                            <div id="photo"><img src="${list.companyLogo}"></div>
                             <div id="title-area">
                                 <div id="title">${list.companyName}</div>
                                 <div id="subTitle">${list.jobField}</div>
