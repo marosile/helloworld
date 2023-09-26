@@ -91,6 +91,7 @@
 #company-name div{
     font-size: 20px;
     font-weight: bold;
+    width: 530px;
 
     line-height: 70px;
     margin-left: 10px;
@@ -238,5 +239,5 @@ li{
     cursor: pointer;
 
     margin-top: 30px;
-    margin-left: 400px;
+    
 }
