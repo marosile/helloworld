@@ -10,7 +10,6 @@
     <title>헬로월드 - 마이페이지 - 강의 대시보드</title>
     <link rel="stylesheet" href="/resources/css/common/general.css">
     <link rel="stylesheet" href="/resources/css/mypage/general.css">
-    <link rel="stylesheet" href="/resources/css/mypage/general.css">
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"
             integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
             crossorigin="anonymous"></script>
