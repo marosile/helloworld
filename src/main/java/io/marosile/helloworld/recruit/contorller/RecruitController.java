@@ -80,7 +80,10 @@ public class RecruitController {
 				    tagLists.add(tagList);
 				}
 				
-				System.out.println("내매칭공고 tagList들 : " + tagLists);
+				// 내 tagList가져오기
+				String myTagList = service2.selectMyTagList(memberId);
+				
+				model.addAttribute("myTagList", myTagList);
 				
 				map.put("matching", matchingRecruitList);
 				map.put("tagList", tagLists);

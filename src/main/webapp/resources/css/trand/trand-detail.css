@@ -705,3 +705,7 @@
     height:50%;
     border-radius: 10px;
 }
+
+#pDiv img{
+    max-width:100% !important;
+}

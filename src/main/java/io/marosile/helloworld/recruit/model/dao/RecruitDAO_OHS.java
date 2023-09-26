@@ -90,6 +90,14 @@ public class RecruitDAO_OHS {
 		return result;
 	
 	}
+
+	/** 내 tagList(string) 가져오기
+	 * @param memberId
+	 * @return list(string)
+	 */
+	public String selectMyTagList(String memberId) {
+		return sqlSession.selectOne("recruitMapper.selectMyTagList", memberId);
+	}
 	
 	
 	

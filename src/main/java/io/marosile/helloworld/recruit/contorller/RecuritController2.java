@@ -34,7 +34,6 @@ public class RecuritController2 {
 	public String test1(@ModelAttribute EmploymentTest EmploymentTest
 					   ,@SessionAttribute("loginMember") Member loginMember
 					   ,Model model){
-		
 
 		EmploymentTest.setMemberId(loginMember.getMemberId());
 		

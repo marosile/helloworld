@@ -163,9 +163,10 @@
 
 }
 
-/*프로필 사진 크기*/
+/* 프로필 사진 크기 */
 .cmpnLogo{
-    width: 30px;
+    width: 40px;
+    height:40px;
     margin: 10px;
     display: flex;
 }
