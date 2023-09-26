@@ -11,7 +11,7 @@ import lombok.ToString;
 @NoArgsConstructor
 
 public class Company {
-	
+		
 	
 	private int companyNo; // 회사 번호 (회사 아이디)
 	private String memberId; // 담당자 아이디

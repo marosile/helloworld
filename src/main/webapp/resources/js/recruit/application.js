@@ -51,3 +51,69 @@ deleteImage.addEventListener("click", (e) => {
         inputImage.value = "";
     }
 });
+
+const companyMcountInput = document.querySelector('input[name="companyMcount"]');
+
+// 사원수 숫자입력 빼고 막기
+companyMcountInput.addEventListener("input", function () {
+    // Remove non-numeric characters from the input value
+    const numericValue = this.value.replace(/\D/g, '');
+
+    // Update the input value with the cleaned numeric value
+    this.value = numericValue;
+});
+
+// 폼 제출 이벤트 리스너
+document.getElementById("boardWriteFrm").addEventListener("submit", function (e) {
+    // 필수 입력 필드를 체크하고 라벨과 에러 메시지를 설정합니다.
+    const companyNameInput = document.querySelector('input[name="companyName"]');
+    const companyAddressInput = document.querySelector('input[name="companyAddress"]');
+
+    const companyIntroduceTextarea = document.querySelector('textarea[name="companyIntroduce"]');
+    const companyHomePageAddressInput = document.querySelector('input[name="companyHomePageAddress"]');
+
+    const inputImage = document.querySelector('.inputImage');
+
+    if (inputImage.files.length === 0) {
+        snackbar('이미지를 업로드해주세요.', 'rgb(0, 128, 255)', '/resources/images/moon.png');
+        e.preventDefault();
+        return;
+    }
+
+    if (companyNameInput.value.trim() === "") {
+        snackbar('회사명을 작성해주세요.', 'rgb(0, 128, 255)', '/resources/images/moon.png');
+        e.preventDefault();
+        companyNameInput.focus();
+        return;
+    }
+
+    if (companyAddressInput.value.trim() === "") {
+        snackbar('회사 주소를 작성해주세요.', 'rgb(0, 128, 255)', '/resources/images/moon.png');
+        e.preventDefault();
+        companyAddressInput.focus();
+        return;
+    }
+
+    if (companyMcountInput.value.trim() === "") {
+        snackbar('사원수를 작성해주세요.', 'rgb(0, 128, 255)', '/resources/images/moon.png');
+        e.preventDefault();
+        companyMcountInput.focus();
+        return;
+    }
+
+
+
+    if (companyIntroduceTextarea.value.trim() === "") {
+        snackbar('회사 소개를 작성해주세요.', 'rgb(0, 128, 255)', '/resources/images/moon.png');
+        e.preventDefault();
+        companyIntroduceTextarea.focus();
+        return;
+    }
+
+    if (companyHomePageAddressInput.value.trim() === "") {
+        snackbar('회사 홈페이지 주소를 작성해주세요.', 'rgb(0, 128, 255)', '/resources/images/moon.png');
+        e.preventDefault();
+        companyHomePageAddressInput.focus();
+        return;
+    }
+});

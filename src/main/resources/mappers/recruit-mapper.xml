@@ -24,6 +24,7 @@
 		<result property="companyIntroduce" column="CMPN_INTRO" />
 		<result property="companyMcount" column="CMPN_MCOUNT" />
 		<result property="companyCreateDt" column="CMPN_CREATE_DATE" />
+		<result property="companyHomePageAddress" column="CMPN_HP" />
 		
 		<result property="boardNo" column="BOARD_NO" />
 		<result property="boardTitle" column="BOARD_TITLE" />
@@ -90,7 +91,7 @@
 	<!-- 상세의 상세페이지 -->
 	<select id="moreDetail" resultMap="recruitResultMap">
 		SELECT BOARD_TITLE, BOARD_CONTENT, BOARD_NO, EMPL_CNDT, ENTR_EXAM, BENEFIT, POSITION, JOB_TYPE, CMPN_ADDR, CMPN_NO, CMPN_INTRO, 
-			CMPN_NM, CMPN_LOGO
+			CMPN_NM, CMPN_LOGO, CMPN_HP
 			FROM BOARD
 			JOIN BOARD_RECRUIT USING (BOARD_NO)
 			JOIN COMPANY USING (CMPN_NO)
