@@ -557,9 +557,10 @@ var iconElement = document.querySelector('#followBtn2 i');
 
 const followSpan = document.getElementById("followSpan");
 const followingSpan = document.getElementById("followingSpan");
-console.log(followSpan +"1");
+
 /* 팔로우 */
-iconElement.addEventListener("click", e=>{
+followBtn2.addEventListener("click", e=>{
+
 
     // 로그인 여부
     if(loginMemberId == ""){
@@ -575,6 +576,8 @@ iconElement.addEventListener("click", e=>{
         check=1;
     }
 
+
+
     const data = {
         "memberId": loginMemberId,
         "userId" : memberId,
@@ -589,7 +592,11 @@ iconElement.addEventListener("click", e=>{
     .then( res => res.text())
     .then( count => {
 
-        location.reload(true)
+        alert(check)
+
+
+        
+
 
         if(count == -1) { // DML 실패
             alert("fail");
