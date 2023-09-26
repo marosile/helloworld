@@ -90,11 +90,12 @@ function purchase() {
 }
 
 function requestPurchase() {
+    const orderId = generateOrderId();
     paymentWidget.requestPayment({
-        orderId: 'AD8aZDpbzXs4EQa-UkIX6',
+        orderId: orderId,
         orderName: lecture.lectureTitle,
-        successUrl: location.origin + "/purchase/success",
-        failUrl: location.origin + "/purchase/fail",
+        successUrl: location.origin + "/purchase/success?path=" + location.pathname,
+        failUrl: location.origin + "/purchase/fail?path=" + location.pathname,
         customerEmail: loginMember.memberEmail,
         customerName: loginMember.memberNick,
     });

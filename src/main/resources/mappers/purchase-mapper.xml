@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="purchaseMapper">
+    <insert id="insertOrderId">
+        INSERT INTO ORDER_ID
+        SELECT NVL(MAX(ORDER_NO) + 1, 1), SYSDATE
+          FROM ORDER_ID
+         WHERE TRUNC(ORDER_DT) = TRUNC(SYSDATE)
+    </insert>
+    <select id="selectOrderIdFormatted" resultType="string">
+        SELECT MAX(TO_CHAR(TRUNC(ORDER_DT), 'YYYYMMDD') || LPAD(TO_CHAR(ORDER_NO), 5, '0'))
+          FROM ORDER_ID
+    </select>
+</mapper>

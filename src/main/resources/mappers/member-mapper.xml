@@ -126,4 +126,29 @@
          WHERE MEMBER_ID = #{memberId}
     </select>
 
+    <select id="selectFollowerList" resultMap="member_rm">
+        SELECT *
+          FROM MEMBER
+          JOIN FOLLOW ON(MEMBER_ID = FOLLOW_FROM)
+         WHERE FOLLOW_TO = #{memberId}
+    </select>
+
+    <select id="selectFollowingList" resultMap="member_rm">
+        SELECT *
+          FROM MEMBER
+          JOIN FOLLOW ON(MEMBER_ID = FOLLOW_TO)
+         WHERE FOLLOW_FROM = #{memberId}
+    </select>
+
+    <select id="selectF4fList" resultMap="member_rm">
+        SELECT *
+          FROM MEMBER
+          JOIN FOLLOW F1 ON(MEMBER_ID = FOLLOW_FROM)
+         WHERE FOLLOW_TO = #{memberId}
+           AND EXISTS(SELECT 1
+                        FROM FOLLOW F2
+                       WHERE F1.FOLLOW_FROM = FOLLOW_TO
+                         AND F1.FOLLOW_TO = FOLLOW_FROM)
+    </select>
+
 </mapper>

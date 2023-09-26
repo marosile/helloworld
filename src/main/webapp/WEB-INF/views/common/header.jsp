@@ -5,6 +5,65 @@
 
 <jsp:include page="/WEB-INF/views/common/snack-bar.jsp"/>
 
+<c:if test="${!empty loginMember}">
+    <div id="community" toggle="off">
+        <div id="community-nav">
+            <div id="community-nav-1">
+                <img onclick="communityToggle()" src="/resources/images/up-arrow.png">
+                <div id="community-social">
+                    <img src="/resources/images/community/social.png">
+                </div>
+                <div id="community-chat">
+                    <img src="/resources/images/community/chat.png">
+                </div>
+            </div>
+            <div id="community-nav-2">
+
+            </div>
+        </div>
+        <div id="community-content">
+            <div id="social">
+                <h2>소셜</h2>
+            </div>
+            <div id="chat">
+                <h2>채팅</h2>
+                <div id="chat-rooms">
+                    <div class="chat-room">
+                        <div class="chat-room-thumbnail">
+                        </div>
+                    </div>
+                    <div class="chat-room">
+                        <div class="chat-room-thumbnail">
+                        </div>
+                        <div class="chat-room-content">
+                            <h3 class="chat-room-title">asdf</h3>
+                            <p class="chat-room-message">123</p>
+                        </div>
+                    </div>
+                </div>
+                <div id="chat-message">
+                    <div id="chat-message-container"></div>
+                    <input id="chat-message-input">
+                </div>
+            </div>
+        </div>
+    </div>
+</c:if>
+
+<c:if test="${!empty head}">
+    <div id="alert">
+        <h2>${head}</h2>
+        <p>${message}</p>
+        <button onclick="confirmAlert()">확인</button>
+    </div>
+    <script>
+        $(document).ready(() => {
+            preventScroll(true);
+            switchOverlay(true);
+        });
+    </script>
+</c:if>
+
 <div id="modal-overlay"></div>
 
 <header>

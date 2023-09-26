@@ -39,6 +39,7 @@
 		<mapper resource="/mappers/trand-mapper.xml"/>
 		<mapper resource="/mappers/studyComment-mapper.xml"/>
 		<mapper resource="/mappers/recruit-mapper.xml"/>
+		<mapper resource="/mappers/purchase-mapper.xml"/>
 	</mappers>
 
 </configuration>
