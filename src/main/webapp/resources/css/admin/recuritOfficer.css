@@ -175,3 +175,23 @@
     display: flex;
 }
 
+/* 목록 바꾸는 css*/
+.listChange{
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    margin-right: 30px;
+}
+
+.listChange > span{
+    padding: 0 10px;
+}
+
+.listChange > a:first-child{
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.listChange > a:last-child{
+    color: grey;
+}
