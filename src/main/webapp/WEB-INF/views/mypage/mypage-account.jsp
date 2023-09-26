@@ -10,13 +10,73 @@
     <title>마이페이지-계정 관리</title>
     <link rel="stylesheet" href="/resources/css/common/general.css">
     <link rel="stylesheet" href="/resources/css/index.css">
+    <link rel="stylesheet" href="/resources/css/mypage/general.css">
     <link rel="stylesheet" href="/resources/css/mypage/mypage-account.css">
     <link rel="stylesheet" href="/resources/css/mypage/mypage-nav.css">
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 </head>
 <body>
     <jsp:include page="/WEB-INF/views/common/header.jsp"/>
+    <div id="side" class="window">
+            <h6>일반</h6>
+            <div>
+                <a>
+                    <img src="/resources/images/mypage/category/profile.png">
+                    프로필
+                </a>
+            </div>
+            <div>
+                <a>
+                    <img src="/resources/images/mypage/category/account.png">
+                    계정 관리
+                </a>
+            </div>
+            <div>
+                <a>
+                    <img src="/resources/images/mypage/category/applications.png">
+                    이력서 관리
+                </a>
+            </div>
+            <div>
+                <a>
+                    <img src="/resources/images/mypage/category/resume.png">
+                    지원 이력
+                </a>
+            </div>
+            <div>
+                <a>
+                    <img src="/resources/images/mypage/category/post.png">
+                    나의 게시글
+                </a>
+            </div>
+            <div>
+                <a>
+                    <img src="/resources/images/mypage/category/bookmark.png">
+                    북마크 목록
+                </a>
+            </div>
+            <div>
+                <a>
+                    <img src="/resources/images/mypage/category/like.png">
+                    좋아요 목록
+                </a>
+            </div>
+            <h6>강사</h6>
+            <div  class="category-selected">
+                <a href="/mypage/lecture/dashboard">
+                    <img src="/resources/images/mypage/category/lecture-dashboard.png">
+                    대시보드
+                </a>
+            </div>
+            <div>
+                <a href="/mypage/lecture/management">
+                    <img src="/resources/images/mypage/category/lecture-management.png">
+                    관리
+                </a>
+            </div>
+        </div>
 	<main>
+        
         <!-- 마이페이지 nav -->
         <jsp:include page="/WEB-INF/views/mypage/mypage-nav.jsp"/>
 
