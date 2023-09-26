@@ -16,171 +16,225 @@
     <link rel="stylesheet" href="/resources/css/mypage/mypage-nav.css">
 
     <script src="https://kit.fontawesome.com/98acdabf0d.js" crossorigin="anonymous"></script>
-
-
 </head>
 <body id="body">
     <jsp:include page="/WEB-INF/views/common/header.jsp"/>
 
-	<main id="main">
-        <!-- 마이페이지 nav -->
-        <jsp:include page="/WEB-INF/views/mypage/mypage-nav.jsp"/>
+    <section class="ttt">
 
-        <h1 class="Title">이력서</h1>
-        <section>
-            <form action="resume" method="POST" name="mypageFrm" id="resumeFrm" enctype="multipart/form-data">
+        <div id="side" class="window">
+            <h6>일반</h6>
+            <div>
+                <a href="/mypage/profile">
+                    <img src="/resources/images/mypage/category/profile.png">
+                    프로필
+                </a>
+            </div>
+            <div>
+                <a href="/mypage/account">
+                    <img src="/resources/images/mypage/category/account.png">
+                    계정 관리
+                </a>
+            </div>
+            <div class="category-selected">
+                <a href="/mypage/resume">
+                    <img src="/resources/images/mypage/category/applications.png">
+                    이력서 관리
+                </a>
+            </div>
+            <div>
+                <a href="/mypage/applications">
+                    <img src="/resources/images/mypage/category/resume.png">
+                    지원 이력
+                </a>
+            </div>
+            <div>
+                <a href="/mypage/post">
+                    <img src="/resources/images/mypage/category/post.png">
+                    나의 게시글
+                </a>
+            </div>
+            <div>
+                <a href="/mypage/bookmark">
+                    <img src="/resources/images/mypage/category/bookmark.png">
+                    북마크 목록
+                </a>
+            </div>
+            <div>
+                <a href="/mypage/like">
+                    <img src="/resources/images/mypage/category/like.png">
+                    좋아요 목록
+                </a>
+            </div>
+            <h6>강사</h6>
+            <div>
+                <a href="/mypage/lecture/dashboard">
+                    <img src="/resources/images/mypage/category/lecture-dashboard.png">
+                    대시보드
+                </a>
+            </div>
+            <div>
+                <a href="/mypage/lecture/management">
+                    <img src="/resources/images/mypage/category/lecture-management.png">
+                    관리
+                </a>
+            </div>
+        </div>
 
-                <!-- ===== 이력서 영역 ===== -->
-                <div class="resume-area">
-                    <div class="fa-solid fa-arrow-up-from-bracket fa-4x" id="icon"></div>
-                    <label for="resumeInput">업로드 파일</label>
-                    <input type="file" name="resumeFile" id="resumeInput" accept="application/pdf, application/msword, application/vnd.openxmlformats-officedocument.wordprocessingml.document">
-                    <div>PDF, DOC, DOCX 최대 1MB</div>
-                </div>
+        <main id="main">
+            <h1 class="Title">이력서</h1>
+            <section>
+                <form action="resume" method="POST" name="mypageFrm" id="resumeFrm" enctype="multipart/form-data">
 
-                <hr>
-
-                <!-- ========  약관동의 영역 ========= -->
-                <div class="agree-area">
-                    <div>정책 동의</div>
-                    <div>이력서 활용에 대한 약관 및 정책에 동의해주세요.</div>
-
-                    <div class="row1">           <!-- 전체동의 -->
-                        <input type="checkbox" id="allcheck" class="cbox">
-                        <label for="check1">전체동의</label>
-                    </div>
-
-                    <hr>
-                    
-                    <div class="row23">
-                        <div class="row2">           <!-- 2번째 박스 -->
-                            <input type="checkbox" id="box2" class="cbox" name="boxList" required>
-                            <label for="box2">개인정보 보호에 대한 방침</label>
-
-                            <!-- 팝업 영역 -->
-                            <button type="button" id="popupBtn1">보기</button>
-
-                            <div class="popup" id="popup1">
-                                <span id="closeBtn1">&times</span>
-
-                                <!-- **************** 약관 내용  ******************-->
-                                <div class="agreeText">
-                                    <h1 class="agreeTitle">개인정보 보호에 대한 방침</h1>
-                                    <h3>1.개인정보의 처리 목적</h3>
-                                    가. 홈페이지 회원가입 및 관리
-                                    회원 가입의사 확인, 회원제 서비스 제공에 따른 본인 식별·인증, 회원자격 유지·관리, 
-                                    서비스 부정이용 방지, 고충처리, 분쟁 조정을 위한 기록 보존 등을 목적으로 개인정보를 처리합니다.
-                                    <br>
-                                    나. 민원사무 처리
-                                    민원인의 신원 확인, 민원사항 확인, 사실조사를 위한 연락·통지, 처리결과 통보 등을 목적으로 개인정보를 처리합니다.
-                                    <br>
-                                    다. 재화 또는 서비스 제공
-                                    서비스 제공, 콘텐츠 제공, 맞춤 서비스 제공, 본인인증 등을 목적으로 개인정보를 처리합니다.
-                                    <br>
-                                    라. 마케팅 및 광고에의 활용
-                                    신규 서비스(제품) 개발 및 맞춤 서비스 제공, 이벤트 및 광고성 정보 제공 및 참여기회 제공 , 
-                                    인구통계학적 특성에 따른 서비스 제공 및 광고 게재 , 
-                                    접속빈도 파악 또는 회원의 서비스 이용에 대한 통계 등을 목적으로 개인정보를 처리합니다.
-                                    <br><br><br>
-                                    <h3>2.개인정보 파일 현황</h3>
-                                    가. 홈페이지 회원가입 및 관리
-                                    회원 가입의사 확인, 회원제 서비스 제공에 따른 본인 식별·인증, 회원자격 유지·관리, 
-                                    서비스 부정이용 방지, 고충처리, 분쟁 조정을 위한 기록 보존 등을 목적으로 개인정보를 처리합니다.
-                                    <br>
-                                    나. 민원사무 처리
-                                    민원인의 신원 확인, 민원사항 확인, 사실조사를 위한 연락·통지, 처리결과 통보 등을 목적으로 개인정보를 처리합니다.
-                                    <br>
-                                    다. 재화 또는 서비스 제공
-                                    서비스 제공, 콘텐츠 제공, 맞춤 서비스 제공, 본인인증 등을 목적으로 개인정보를 처리합니다.
-                                    <br>
-                                    라. 마케팅 및 광고에의 활용
-                                    신규 서비스(제품) 개발 및 맞춤 서비스 제공, 이벤트 및 광고성 정보 제공 및 참여기회 제공 , 
-                                    인구통계학적 특성에 따른 서비스 제공 및 광고 게재 , 
-                                    접속빈도 파악 또는 회원의 서비스 이용에 대한 통계 등을 목적으로 개인정보를 처리합니다.
-                                    마. 오버 플로우 테스트
-                                    신규 서비스(제품) 개발 및 맞춤 서비스 제공, 이벤트 및 광고성 정보 제공 및 참여기회 제공 , 
-                                    인구통계학적 특성에 따른 서비스 제공 및 광고 게재 , 
-                                    접속빈도 파악 또는 회원의 서비스 이용에 대한 통계 등을 목적으로 개인정보를 처리합니다.
-                                </div> <!-- **************** 약관 내용 끝 ********* -->
-
-                            </div>
-                        </div>
-    
-                        <div class="row3">           <!-- 3번째 박스 -->
-                            <input type="checkbox" id="box3" class="cbox" name="boxList" required>
-                            <label for="box3">개인회원 이용약관</label>
-
-                            <!-- 팝업 영역 -->
-                            <button type="button" id="popupBtn2">보기</button>
-
-                            <div class="popup" id="popup2">
-                                <span id="closeBtn2">&times</span>
-
-                                <div class="agreeText">
-                                    <!-- *************** 약관내용  ****************-->
-                                    <h1 class="agreeTitle">개인회원 이용약관</h1>
-                                    <h3>1.개인정보의 처리 목적</h3>
-                                    가. 홈페이지 회원가입 및 관리
-                                    회원 가입의사 확인, 회원제 서비스 제공에 따른 본인 식별·인증, 회원자격 유지·관리, 
-                                    서비스 부정이용 방지, 고충처리, 분쟁 조정을 위한 기록 보존 등을 목적으로 개인정보를 처리합니다.
-                                    <br>
-                                    나. 민원사무 처리
-                                    민원인의 신원 확인, 민원사항 확인, 사실조사를 위한 연락·통지, 처리결과 통보 등을 목적으로 개인정보를 처리합니다.
-                                    <br>
-                                    다. 재화 또는 서비스 제공
-                                    서비스 제공, 콘텐츠 제공, 맞춤 서비스 제공, 본인인증 등을 목적으로 개인정보를 처리합니다.
-                                    <br>
-                                    라. 마케팅 및 광고에의 활용
-                                    신규 서비스(제품) 개발 및 맞춤 서비스 제공, 이벤트 및 광고성 정보 제공 및 참여기회 제공 , 
-                                    인구통계학적 특성에 따른 서비스 제공 및 광고 게재 , 
-                                    접속빈도 파악 또는 회원의 서비스 이용에 대한 통계 등을 목적으로 개인정보를 처리합니다.
-                                    <br><br><br>
-                                    <h3>2.개인정보 파일 현황</h3>
-                                    가. 홈페이지 회원가입 및 관리
-                                    회원 가입의사 확인, 회원제 서비스 제공에 따른 본인 식별·인증, 회원자격 유지·관리, 
-                                    서비스 부정이용 방지, 고충처리, 분쟁 조정을 위한 기록 보존 등을 목적으로 개인정보를 처리합니다.
-                                    <br>
-                                    나. 민원사무 처리
-                                    민원인의 신원 확인, 민원사항 확인, 사실조사를 위한 연락·통지, 처리결과 통보 등을 목적으로 개인정보를 처리합니다.
-                                    <br>
-                                    다. 재화 또는 서비스 제공
-                                    서비스 제공, 콘텐츠 제공, 맞춤 서비스 제공, 본인인증 등을 목적으로 개인정보를 처리합니다.
-                                    <br>
-                                    라. 마케팅 및 광고에의 활용
-                                    신규 서비스(제품) 개발 및 맞춤 서비스 제공, 이벤트 및 광고성 정보 제공 및 참여기회 제공 , 
-                                    인구통계학적 특성에 따른 서비스 제공 및 광고 게재 , 
-                                    접속빈도 파악 또는 회원의 서비스 이용에 대한 통계 등을 목적으로 개인정보를 처리합니다.
-                                    마. 오버 플로우 테스트
-                                    신규 서비스(제품) 개발 및 맞춤 서비스 제공, 이벤트 및 광고성 정보 제공 및 참여기회 제공 , 
-                                    인구통계학적 특성에 따른 서비스 제공 및 광고 게재 , 
-                                    접속빈도 파악 또는 회원의 서비스 이용에 대한 통계 등을 목적으로 개인정보를 처리합니다.
-                                </div><!-- 약관내용 끝 -->
-
-                            </div>
-
-                        </div>
+                    <!-- ===== 이력서 영역 ===== -->
+                    <div class="resume-area">
+                        <div class="fa-solid fa-arrow-up-from-bracket fa-4x" id="icon"></div>
+                        <label for="resumeInput">업로드 파일</label>
+                        <input type="file" name="resumeFile" id="resumeInput" accept="application/pdf, application/msword, application/vnd.openxmlformats-officedocument.wordprocessingml.document">
+                        <div>PDF, DOC, DOCX 최대 1MB</div>
                     </div>
 
                     <hr>
 
-                    <div class="row4">           <!-- 4번째 박스 -->
-                        <input type="checkbox" id="box4" class="cbox" name="boxList" required>
-                        <label for="box4">"바로 지원하기"에서 이메일 전달 동의</label>
+                    <!-- ========  약관동의 영역 ========= -->
+                    <div class="agree-area">
+                        <div>정책 동의</div>
+                        <div>이력서 활용에 대한 약관 및 정책에 동의해주세요.</div>
+
+                        <div class="row1">           <!-- 전체동의 -->
+                            <input type="checkbox" id="allcheck" class="cbox">
+                            <label for="check1">전체동의</label>
+                        </div>
+
+                        <hr>
+                        
+                        <div class="row23">
+                            <div class="row2">           <!-- 2번째 박스 -->
+                                <input type="checkbox" id="box2" class="cbox" name="boxList" required>
+                                <label for="box2">개인정보 보호에 대한 방침</label>
+
+                                <!-- 팝업 영역 -->
+                                <button type="button" id="popupBtn1">보기</button>
+
+                                <div class="popup" id="popup1">
+                                    <span id="closeBtn1">&times</span>
+
+                                    <!-- **************** 약관 내용  ******************-->
+                                    <div class="agreeText">
+                                        <h1 class="agreeTitle">개인정보 보호에 대한 방침</h1>
+                                        <h3>1.개인정보의 처리 목적</h3>
+                                        가. 홈페이지 회원가입 및 관리
+                                        회원 가입의사 확인, 회원제 서비스 제공에 따른 본인 식별·인증, 회원자격 유지·관리, 
+                                        서비스 부정이용 방지, 고충처리, 분쟁 조정을 위한 기록 보존 등을 목적으로 개인정보를 처리합니다.
+                                        <br>
+                                        나. 민원사무 처리
+                                        민원인의 신원 확인, 민원사항 확인, 사실조사를 위한 연락·통지, 처리결과 통보 등을 목적으로 개인정보를 처리합니다.
+                                        <br>
+                                        다. 재화 또는 서비스 제공
+                                        서비스 제공, 콘텐츠 제공, 맞춤 서비스 제공, 본인인증 등을 목적으로 개인정보를 처리합니다.
+                                        <br>
+                                        라. 마케팅 및 광고에의 활용
+                                        신규 서비스(제품) 개발 및 맞춤 서비스 제공, 이벤트 및 광고성 정보 제공 및 참여기회 제공 , 
+                                        인구통계학적 특성에 따른 서비스 제공 및 광고 게재 , 
+                                        접속빈도 파악 또는 회원의 서비스 이용에 대한 통계 등을 목적으로 개인정보를 처리합니다.
+                                        <br><br><br>
+                                        <h3>2.개인정보 파일 현황</h3>
+                                        가. 홈페이지 회원가입 및 관리
+                                        회원 가입의사 확인, 회원제 서비스 제공에 따른 본인 식별·인증, 회원자격 유지·관리, 
+                                        서비스 부정이용 방지, 고충처리, 분쟁 조정을 위한 기록 보존 등을 목적으로 개인정보를 처리합니다.
+                                        <br>
+                                        나. 민원사무 처리
+                                        민원인의 신원 확인, 민원사항 확인, 사실조사를 위한 연락·통지, 처리결과 통보 등을 목적으로 개인정보를 처리합니다.
+                                        <br>
+                                        다. 재화 또는 서비스 제공
+                                        서비스 제공, 콘텐츠 제공, 맞춤 서비스 제공, 본인인증 등을 목적으로 개인정보를 처리합니다.
+                                        <br>
+                                        라. 마케팅 및 광고에의 활용
+                                        신규 서비스(제품) 개발 및 맞춤 서비스 제공, 이벤트 및 광고성 정보 제공 및 참여기회 제공 , 
+                                        인구통계학적 특성에 따른 서비스 제공 및 광고 게재 , 
+                                        접속빈도 파악 또는 회원의 서비스 이용에 대한 통계 등을 목적으로 개인정보를 처리합니다.
+                                        마. 오버 플로우 테스트
+                                        신규 서비스(제품) 개발 및 맞춤 서비스 제공, 이벤트 및 광고성 정보 제공 및 참여기회 제공 , 
+                                        인구통계학적 특성에 따른 서비스 제공 및 광고 게재 , 
+                                        접속빈도 파악 또는 회원의 서비스 이용에 대한 통계 등을 목적으로 개인정보를 처리합니다.
+                                    </div> <!-- **************** 약관 내용 끝 ********* -->
+
+                                </div>
+                            </div>
+        
+                            <div class="row3">           <!-- 3번째 박스 -->
+                                <input type="checkbox" id="box3" class="cbox" name="boxList" required>
+                                <label for="box3">개인회원 이용약관</label>
+
+                                <!-- 팝업 영역 -->
+                                <button type="button" id="popupBtn2">보기</button>
+
+                                <div class="popup" id="popup2">
+                                    <span id="closeBtn2">&times</span>
+
+                                    <div class="agreeText">
+                                        <!-- *************** 약관내용  ****************-->
+                                        <h1 class="agreeTitle">개인회원 이용약관</h1>
+                                        <h3>1.개인정보의 처리 목적</h3>
+                                        가. 홈페이지 회원가입 및 관리
+                                        회원 가입의사 확인, 회원제 서비스 제공에 따른 본인 식별·인증, 회원자격 유지·관리, 
+                                        서비스 부정이용 방지, 고충처리, 분쟁 조정을 위한 기록 보존 등을 목적으로 개인정보를 처리합니다.
+                                        <br>
+                                        나. 민원사무 처리
+                                        민원인의 신원 확인, 민원사항 확인, 사실조사를 위한 연락·통지, 처리결과 통보 등을 목적으로 개인정보를 처리합니다.
+                                        <br>
+                                        다. 재화 또는 서비스 제공
+                                        서비스 제공, 콘텐츠 제공, 맞춤 서비스 제공, 본인인증 등을 목적으로 개인정보를 처리합니다.
+                                        <br>
+                                        라. 마케팅 및 광고에의 활용
+                                        신규 서비스(제품) 개발 및 맞춤 서비스 제공, 이벤트 및 광고성 정보 제공 및 참여기회 제공 , 
+                                        인구통계학적 특성에 따른 서비스 제공 및 광고 게재 , 
+                                        접속빈도 파악 또는 회원의 서비스 이용에 대한 통계 등을 목적으로 개인정보를 처리합니다.
+                                        <br><br><br>
+                                        <h3>2.개인정보 파일 현황</h3>
+                                        가. 홈페이지 회원가입 및 관리
+                                        회원 가입의사 확인, 회원제 서비스 제공에 따른 본인 식별·인증, 회원자격 유지·관리, 
+                                        서비스 부정이용 방지, 고충처리, 분쟁 조정을 위한 기록 보존 등을 목적으로 개인정보를 처리합니다.
+                                        <br>
+                                        나. 민원사무 처리
+                                        민원인의 신원 확인, 민원사항 확인, 사실조사를 위한 연락·통지, 처리결과 통보 등을 목적으로 개인정보를 처리합니다.
+                                        <br>
+                                        다. 재화 또는 서비스 제공
+                                        서비스 제공, 콘텐츠 제공, 맞춤 서비스 제공, 본인인증 등을 목적으로 개인정보를 처리합니다.
+                                        <br>
+                                        라. 마케팅 및 광고에의 활용
+                                        신규 서비스(제품) 개발 및 맞춤 서비스 제공, 이벤트 및 광고성 정보 제공 및 참여기회 제공 , 
+                                        인구통계학적 특성에 따른 서비스 제공 및 광고 게재 , 
+                                        접속빈도 파악 또는 회원의 서비스 이용에 대한 통계 등을 목적으로 개인정보를 처리합니다.
+                                        마. 오버 플로우 테스트
+                                        신규 서비스(제품) 개발 및 맞춤 서비스 제공, 이벤트 및 광고성 정보 제공 및 참여기회 제공 , 
+                                        인구통계학적 특성에 따른 서비스 제공 및 광고 게재 , 
+                                        접속빈도 파악 또는 회원의 서비스 이용에 대한 통계 등을 목적으로 개인정보를 처리합니다.
+                                    </div><!-- 약관내용 끝 -->
+
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <hr>
+
+                        <div class="row4">           <!-- 4번째 박스 -->
+                            <input type="checkbox" id="box4" class="cbox" name="boxList" required>
+                            <label for="box4">"바로 지원하기"에서 이메일 전달 동의</label>
+                        </div>
                     </div>
-                </div>
 
-                <button id="saveBtn">저장</button>
+                    <button id="saveBtn">저장</button>
 
-            </form>
+                </form>
+            
+            </section>
             
 
-        
-        </section>
-        
-        
 
-
-	</main>
+        </main>
+    </section>
 
     <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
     

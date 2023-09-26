@@ -18,146 +18,203 @@
 </head>
 <body>
     <jsp:include page="/WEB-INF/views/common/header.jsp"/>
-	<main>
-        <!-- 마이페이지 nav -->
-        <jsp:include page="/WEB-INF/views/mypage/mypage-nav.jsp"/>
+
+    <section class="ttt"> 
+        <div id="side" class="window">
+            <h6>일반</h6>
+            <div class="category-selected">
+                <a href="/mypage/profile">
+                    <img src="/resources/images/mypage/category/profile.png">
+                    프로필
+                </a>
+            </div>
+            <div>
+                <a href="/mypage/account">
+                    <img src="/resources/images/mypage/category/account.png">
+                    계정 관리
+                </a>
+            </div>
+            <div>
+                <a href="/mypage/resume">
+                    <img src="/resources/images/mypage/category/applications.png">
+                    이력서 관리
+                </a>
+            </div>
+            <div>
+                <a href="/mypage/applications">
+                    <img src="/resources/images/mypage/category/resume.png">
+                    지원 이력
+                </a>
+            </div>
+            <div>
+                <a href="/mypage/post">
+                    <img src="/resources/images/mypage/category/post.png">
+                    나의 게시글
+                </a>
+            </div>
+            <div>
+                <a href="/mypage/bookmark">
+                    <img src="/resources/images/mypage/category/bookmark.png">
+                    북마크 목록
+                </a>
+            </div>
+            <div>
+                <a href="/mypage/like">
+                    <img src="/resources/images/mypage/category/like.png">
+                    좋아요 목록
+                </a>
+            </div>
+            <h6>강사</h6>
+            <div>
+                <a href="/mypage/lecture/dashboard">
+                    <img src="/resources/images/mypage/category/lecture-dashboard.png">
+                    대시보드
+                </a>
+            </div>
+            <div>
+                <a href="/mypage/lecture/management">
+                    <img src="/resources/images/mypage/category/lecture-management.png">
+                    관리
+                </a>
+            </div>
+        </div>
         
-        <h1 class="Title">프로필</h1>
+        <main>
+            <h1 class="Title">프로필</h1>
 
-        <section class="myPage-profile">
+            <section class="myPage-profile">
 
-            <form action="/mypage/profile" method="POST" name="myPageFrm" id="profileFrm" enctype="multipart/form-data">
+                <form action="/mypage/profile" method="POST" name="myPageFrm" id="profileFrm" enctype="multipart/form-data">
 
-                <!-- =================== 프로필 이미지 영역 ==================== -->
-                <div class="profile-image-area">
+                    <!-- =================== 프로필 이미지 영역 ==================== -->
+                    <div class="profile-image-area">
 
-                    <%-- 프로필사진 없을 때 --%>
-                    <c:if test="${empty loginMember.profileImg}">
-                        <div class="image-area">
-                            <img src="/resources/images/user.png" id="profileImage" name="profileImg">
+                        <%-- 프로필사진 없을 때 --%>
+                        <c:if test="${empty loginMember.profileImg}">
+                            <div class="image-area">
+                                <img src="/resources/images/user.png" id="profileImage" name="profileImg">
+                            </div>
+                        </c:if>
+
+                        <%-- 프로필 사진 있을 때 --%>
+                        <c:if test="${!empty loginMember.profileImg}">
+                            <div class="image-area">
+                                <img src="${loginMember.profileImg}" id="profileImage" name="profileImg">
+                            </div>
+                        </c:if>
+
+                            <input type="hidden" name="profileImg2" value="${loginMember.profileImg}"/>
+                            <input type="hidden" name="profileImg3" value="/resources/images/user.png"/> 
+
+                        <%-- 변경 제거 버튼 영역 --%>
+                        <input type="hidden" id="ddd" value="${loginMember.profileImg}">
+                        <div class="Btn-area">
+                            <div class="imageBtn-area">
+                                <label for="imageInput" class="fa-solid fa-pencil" style="margin-top: 7px;">&nbsp;변경</label>
+                                <input type="file" name="profileImg1" id="imageInput" accept="image/*">
+                            </div>
+                            <button type="button" id="deleteBtn" class="fa-regular fa-trash-can">&nbsp;제거</button>
                         </div>
-                    </c:if>
 
-                    <%-- 프로필 사진 있을 때 --%>
-                    <c:if test="${!empty loginMember.profileImg}">
-                        <div class="image-area">
-                            <img src="${loginMember.profileImg}" id="profileImage" name="profileImg">
-                        </div>
-                    </c:if>
-
-                        <input type="hidden" name="profileImg2" value="${loginMember.profileImg}"/>
-                        <input type="hidden" name="profileImg3" value="/resources/images/user.png"/> 
-
-                    <%-- 변경 제거 버튼 영역 --%>
-                    <input type="hidden" id="ddd" value="${loginMember.profileImg}">
-                    <div class="Btn-area">
-                        <div class="imageBtn-area">
-                            <label for="imageInput" class="fa-solid fa-pencil" style="margin-top: 7px;">&nbsp;변경</label>
-                            <input type="file" name="profileImg1" id="imageInput" accept="image/*">
-                        </div>
-                        <button type="button" id="deleteBtn" class="fa-regular fa-trash-can">&nbsp;제거</button>
                     </div>
 
-                </div>
 
 
+                    
+                    <!-- ==================== 팔로워 팔로잉 영역 ===================== -->
+                    <div class="follow-area">
 
-                
-                <!-- ==================== 팔로워 팔로잉 영역 ===================== -->
-                <div class="follow-area">
+                        <!-- ======= 팔로워 영역 ======== -->
+                        <div class="follower-area">
 
-                    <!-- ======= 팔로워 영역 ======== -->
-                    <div class="follower-area">
+                            <button type="button" id="follower">팔로워 0</button>
+                            <!-- //// 팝업창 -->
+                            <div class="popup" id="popup1">
+                                <span id="closeBtn1">
+                                    <p>팔로워 목록</p>&times
+                                </span>
+        
+                                <!-- 팔로워 목록 -->
+                                <div class="followList">
 
-                        <button type="button" id="follower">팔로워 0</button>
-                        <!-- //// 팝업창 -->
-                        <div class="popup" id="popup1">
-                            <span id="closeBtn1">
-                                <p>팔로워 목록</p>&times
-                            </span>
-    
-                            <!-- 팔로워 목록 -->
-                            <div class="followList">
-
-                                <!-- 팔로워 한 행 요소들 -->
-                                <div class="row">
-                                    <div class="followerImage">
-                                        <img src="/resources/images/user.png" class="followImage">
+                                    <!-- 팔로워 한 행 요소들 -->
+                                    <div class="row">
+                                        <div class="followerImage">
+                                            <img src="/resources/images/user.png" class="followImage">
+                                        </div>
+                                        <div>아이디</div>
+                                        <button>팔로잉</button>
                                     </div>
-                                    <div>아이디</div>
-                                    <button>팔로잉</button>
-                                </div>
-                                <div class="row">
-                                    <div class="followerImage">
-                                        <img src="/resources/images/user.png" class="followImage">
+                                    <div class="row">
+                                        <div class="followerImage">
+                                            <img src="/resources/images/user.png" class="followImage">
+                                        </div>
+                                        <div>아이디</div>
+                                        <button>팔로잉</button>
                                     </div>
-                                    <div>아이디</div>
-                                    <button>팔로잉</button>
+
                                 </div>
 
                             </div>
-
+                            <!-- //// 팝업창 끝 -->
                         </div>
-                        <!-- //// 팝업창 끝 -->
-                    </div>
 
 
-                    <!-- ======== 팔로잉 영역 ==========-->
-                    <div class="following-area">
-                        <button type="button" id="following">팔로잉 0</button>
-                        
-                        <!-- //// 팝업창 -->
-                        <div class="popup" id="popup2">
-                            <span id="closeBtn2">
-                                <p>팔로잉 목록</p>&times
-                            </span>
-    
-                            <!-- 팔로잉 목록 -->
-                            <div class="followList">
+                        <!-- ======== 팔로잉 영역 ==========-->
+                        <div class="following-area">
+                            <button type="button" id="following">팔로잉 0</button>
+                            
+                            <!-- //// 팝업창 -->
+                            <div class="popup" id="popup2">
+                                <span id="closeBtn2">
+                                    <p>팔로잉 목록</p>&times
+                                </span>
+        
+                                <!-- 팔로잉 목록 -->
+                                <div class="followList">
 
-                                <!-- 팔로잉 한 행 요소 -->
-                                <div class="row">
-                                    <div class="followerImage">
-                                        <img src="/resources/images/user.png" class="followImage">
+                                    <!-- 팔로잉 한 행 요소 -->
+                                    <div class="row">
+                                        <div class="followerImage">
+                                            <img src="/resources/images/user.png" class="followImage">
+                                        </div>
+                                        <div>아이디</div>
+                                        <button>팔로잉</button>
                                     </div>
-                                    <div>아이디</div>
-                                    <button>팔로잉</button>
+
                                 </div>
 
-                            </div>
+                            </div> 
+                            <!-- 팝업창 끝 -->
+                        </div>
 
-                        </div> 
-                        <!-- 팝업창 끝 -->
                     </div>
 
-                </div>
 
 
-
-                <!-- ========================= 닉네임 영역 =============================  -->
-                <div>
-                    <div class="nick-area">
-                        <label>닉네임</label>
-                        <input type="text" name="memberNick" id="memberNickname" maxlength="8"
-                        value="${loginMember.memberNick}">
+                    <!-- ========================= 닉네임 영역 =============================  -->
+                    <div>
+                        <div class="nick-area">
+                            <label>닉네임</label>
+                            <input type="text" name="memberNick" id="memberNickname" maxlength="8"
+                            value="${loginMember.memberNick}">
+                        </div>
+                        <span id="nickMessage"></span>
                     </div>
-                    <span id="nickMessage"></span>
-                </div>
 
 
-                <!-- 저장 버튼 -->
-                <button id="saveBtn">저장</button>
+                    <!-- 저장 버튼 -->
+                    <button id="saveBtn">저장</button>
 
-            </form>
-            
+                </form>
+        
+        
+            </section>
+
+        </main>
+    </section>
 
     
-    
-        </section>
-
-
-
-	</main>
     <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
     <script src="/resources/js/common/general.js"></script>
     <script src="/resources/js/mypage/mypage-profile.js"></script>
