@@ -4,19 +4,27 @@ const goToList = document.getElementById("goToList");
 const updateForm = document.getElementById("updateForm");
 const deleteForm = document.getElementById("deleteForm");
 const deleteCompony = document.getElementById("deleteCompony");
+const userId = document.getElementsByName("userId")[1].value;
 
 // 반려
-if(cancelRegistration != null){
-    cancelRegistration.addEventListener("click", () => {
+// if(cancelRegistration != null){
+//     cancelRegistration.addEventListener("click", () => {
+//
+//         if(confirm("반려하시겠습니까?")){
+//
+//             // 반려 문자 보내기
+//         }
+//
+//     })
+// }
 
-        if(confirm("반려하시겠습니까?")){
+function confirmCancel() {
+    if (confirm("등록을 반려하시겠습니까?")) {
 
-            // 반려 문자 보내기
+        location.href = '/admin/recruitCancle/' + userId;
+    } else {
 
-
-        }
-
-    })
+    }
 }
 
 

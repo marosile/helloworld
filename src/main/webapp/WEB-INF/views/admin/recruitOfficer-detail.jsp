@@ -66,7 +66,7 @@
                 <c:choose>
                     <c:when test="${recruitOfficerDetail.cmpnFl == 'N'}">
                         <div id="button-area">
-                            <button id="cancelRegistration" class="btns" type="button" onclick="location.href='/admin/recruitCancle/${recruitOfficerDetail.userId}'">등록 반려</button>
+                            <button id="cancelRegistration" class="btns" type="button" onclick="confirmCancel()">등록 반려</button>
                             <button id="registerCompany" class="btns">담당자로 등록</button>
                             <button class="btns" type="button" onClick="location.href='/admin/recruitOfficer'">목록으로</button>
                         </div>
