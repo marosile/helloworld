@@ -147,5 +147,12 @@
 		SELECT 1 FROM DUAL
    	
    </insert>
+   
+   <!-- 내 tagList(string) 가져오기 -->
+   <select id="selectMyTagList" resultType="string">
+	   	SELECT FIELD FROM RESUME WHERE MEMBER_ID = #{memberId} 
+   </select>
+   
+   
 
 </mapper>

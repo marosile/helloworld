@@ -63,6 +63,12 @@ public class RecruitServiceImpl_OHS implements RecruitService_OHS{
 	public int recruitInsert(Recruit recruit) {
 		return dao.recruitInsert(recruit);
 	}
+
+	// 내 tagList(string) 가져오기
+	@Override
+	public String selectMyTagList(String memberId) {
+		return dao.selectMyTagList(memberId);
+	}
 	
 	
 	

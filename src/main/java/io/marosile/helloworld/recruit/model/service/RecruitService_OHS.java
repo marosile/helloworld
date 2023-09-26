@@ -53,4 +53,10 @@ public interface RecruitService_OHS {
 	 */
 	int recruitInsert(Recruit recruit);
 
+	/** 내 tagList 가져오기
+	 * @param memberId
+	 * @return list(string)
+	 */
+	String selectMyTagList(String memberId);
+
 }

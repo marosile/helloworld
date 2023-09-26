@@ -103,7 +103,6 @@
 
 $(document).ready(function() {
 
-
           var setting = {
             width:900,
             minHeight : 500,
@@ -143,6 +142,7 @@ $(document).ready(function() {
         const boardCode = "${boardCode}";  // js 사용
 
     </script>
+    
     </main>
 
 
