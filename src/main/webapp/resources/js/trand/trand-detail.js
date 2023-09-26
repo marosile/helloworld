@@ -575,8 +575,6 @@ iconElement.addEventListener("click", e=>{
         check=1;
     }
 
-
-
     const data = {
         "memberId": loginMemberId,
         "userId" : memberId,
