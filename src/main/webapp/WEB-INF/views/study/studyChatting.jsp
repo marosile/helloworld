@@ -25,7 +25,6 @@
 
         <body>
             <jsp:include page="/WEB-INF/views/common/header.jsp" />
-            <jsp:include page="/WEB-INF/views/study/study-nav.jsp" />
 
             <div class="P-header">
 
@@ -40,8 +39,7 @@
 
                         <div class="P-studyChatting-search-area">
                             <button id="P-studyChatting-searchBtn" class="fa-solid fa-magnifying-glass"></button>
-                            <input type="search" placeholder="닉네임 또는 아이디를 입력해주세요" id="P-studyChatting-query"
-                                autocomplete="off" autocomplete="off">
+                            <input type="search" placeholder="닉네임 또는 아이디를 입력해주세요" id="P-studyChatting-query">
                         </div>
 
                         <div class="P-studyChatting-search-list-area">
@@ -173,10 +171,10 @@
                         <div class="Follow-area" id="Follow-area">
                             <span id="close">&times</span>
 
-                            <p id="Follow-title">친구 추가</p>
+                            <p id="Follow-title">내 친구</p>
 
                             <div id="Follow-area2">
-                                <p>원하는 추가를 추가해서 대화를 해보세요.📧</p>
+                                <p>원하는 친구를 추가해서 대화를 해보세요.📧</p>
                                
                                 <div class="FollowArea">
                                     <div class="FollowContainer">

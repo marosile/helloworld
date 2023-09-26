@@ -115,6 +115,7 @@ public class StudyDAO {
         return  sqlSession.selectList("studyMapper.studyTopList");
     }
 
+
     public int followCheck(Map<String, Object> map) {
         return sqlSession.selectOne("studyMapper.followCheck",map);
     }
@@ -129,19 +130,8 @@ public class StudyDAO {
         return sqlSession.delete("studyMapper.deleteFollow",map);
     }
 
-    // 위치 검색
     public List<Study> selectSearch(Map<String, Object> paramMap) {
         return sqlSession.selectList("studyMapper.selectSearch",paramMap);
-    }
-
-    // 포지션만 검색
-    public List<Study> selectSearchPostion(Map<String, Object> paramMap) {
-        return sqlSession.selectList("studyMapper.selectSearchPostion",paramMap);
-    }
-
-    // 인원만 검색
-    public List<Study> selectSearchPerson(Map<String, Object> paramMap) {
-        return sqlSession.selectList("studyMapper.selectSearchPerson",paramMap);
     }
 }
 

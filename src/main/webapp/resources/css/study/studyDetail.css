@@ -348,7 +348,6 @@
 
 /* 오른쪽 프로필 영역 */
 .P-profile-area {
-
     top: 60px;
 
     border: 1px solid var(--divider);
@@ -371,7 +370,7 @@
     height: 300px;
     text-align: center;
     border-radius: 10px;
-    padding: 20px;
+    padding: 0 20px 20px 20px;
     z-index: 1;
 }
 
@@ -404,7 +403,6 @@
 #updateBtn:hover,
 #deleteBtn:hover,
 #completeBtn:hover,
-#share-button:hover,
 #contact-button:hover {
     background-color: rgb(255, 255, 255);
     color: rgb(0, 128, 255);
@@ -412,11 +410,32 @@
     border: 1px solid rgb(0, 128, 255);
 }
 
+
+/*팔로우*/
+#share-button {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: rgba(0, 0, 0, 0.45);
+    color: white;
+    font-size: 16px;
+
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+
+
 .P-study-datail-footer-area {
     display: flex;
     margin: auto 0;
 }
 
+#followSpan,
+#followingSpan{
+    color: white;
+}
 
 /* 스팬 태그의 스타일 */
 .P-study-detail-tag span {

@@ -38,7 +38,6 @@ public class StudyController {
 
         Map<String, Object> map = new HashMap<>();
         System.out.println(paramMap);
-
         if (paramMap.get("location") == null && paramMap.get("tagNm") == null && paramMap.get("headCount") == null) {
             // 목록 띄워주기
             map = service.selectStudyList();
@@ -309,12 +308,7 @@ public class StudyController {
         return path;
     }
 
-    // 스터디 체팅
-    @GetMapping("/chatting")
-    public String studyChatting(Model model) {
 
-        return "study/studyChatting";
-    }
 
     // 모집완료처리
     @PostMapping("/detail/completed")
