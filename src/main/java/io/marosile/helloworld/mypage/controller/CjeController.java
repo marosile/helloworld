@@ -11,7 +11,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -68,7 +67,7 @@ public class CjeController {
 		
 		
 		List<BookmarkList> bookmarkList = service.selectBookmark(memberId);
-		// System.out.println(bookmarkList + ":: 북1 북맠리스트1"); // 보드 넘버, 아이디, 닉네임, 프사 게시글, 게시글 제목 
+		System.out.println(bookmarkList + ":: 북1 북맠리스트1"); // 보드 넘버, 아이디, 닉네임, 프사 게시글, 게시글 제목 
 		
 		model.addAttribute("bookmarkList", bookmarkList);
 		// System.out.println(bookmarkList + "::북1 모델후 북리스트1"); //보드 넘버, 아이디, 닉네임, 프사 게시글, 게시글 제목 등등
@@ -114,6 +113,9 @@ public class CjeController {
 	// 좋아요
 	@GetMapping("/like")
 	public String like() {
+		
+		
+		
 		return "mypage/mypage-like";
 	}
 	

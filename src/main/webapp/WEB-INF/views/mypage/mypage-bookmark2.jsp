@@ -92,8 +92,8 @@
 
             <section class="bookmark">
 
-                <c:choose>
-                    <div class="bookmarkList">
+                <div class="bookmarkList">
+                    <c:choose>
                         <c:when test="${empty bookmarkList2}">
                             <div>북마크 목록이 존재하지 않습니다.</div>
                         </c:when>
@@ -101,7 +101,7 @@
 
                         <c:otherwise>
                             <c:forEach items="${bookmarkList2}" var="bookmarkList2">
-                            
+
                                 <div class="row1">
 
                                     <div class="top">
@@ -126,10 +126,10 @@
                                 </div>
                             </c:forEach>
                         </c:otherwise>
-                    </div>
-                </c:choose>
+                    </c:choose>
+
+                </div>
                 
-            
             </section>
 
         </main>
