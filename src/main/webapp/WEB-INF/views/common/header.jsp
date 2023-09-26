@@ -3,6 +3,15 @@
 
 <link rel="stylesheet" href="/resources/css/common/header.css">
 
+<script>
+    let loginMember;
+    <c:if test="${!empty loginMember}">
+    loginMember = {'memberId' : '${loginMember.memberId}',
+        'memberNick' : '${loginMember.memberNick}',
+        'memberEmail' : '${loginMember.memberEmail}'};
+    </c:if>
+</script>
+
 <jsp:include page="/WEB-INF/views/common/snack-bar.jsp"/>
 
 <c:if test="${!empty loginMember}">
@@ -24,6 +33,9 @@
         <div id="community-content">
             <div id="social">
                 <h2>소셜</h2>
+                <h3>팔로워</h3>
+                <div id="social-followers"></div>
+                <div id="social-following"></div>
             </div>
             <div id="chat">
                 <h2>채팅</h2>
