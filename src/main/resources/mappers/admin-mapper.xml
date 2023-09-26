@@ -152,8 +152,7 @@
 		SELECT CMPN_NO, MEMBER_ID, CMPN_NM, CMPN_ADDR, CMPN_LOGO, CMPN_INTRO, CMPN_MCOUNT, CMPN_FL, MEMBER_TEL
 		FROM COMPANY
 				 JOIN MEMBER USING(MEMBER_ID)
-		WHERE CMPN_FL = 'N'
-		  AND MEMBER_ID = #{userId}
+		WHERE MEMBER_ID = #{userId}
 		ORDER BY CMPN_NO
 	</select>
 
@@ -169,5 +168,23 @@
 		VALUES(2, #{userId})
 	</insert>
 
+	<!-- 관리자 현재 기업 담당자 목록 -->
+	<select id="recruitListCurr" resultMap="adminResultMap">
+		SELECT CMPN_NO, MEMBER_ID, CMPN_NM, CMPN_ADDR, CMPN_LOGO, CMPN_INTRO, CMPN_MCOUNT, CMPN_FL FROM "COMPANY"
+		WHERE CMPN_FL = 'Y'
+		ORDER BY CMPN_NO
+	</select>
+
+	<!-- 관리자 기업 담당 삭제 -->
+	<update id="recruitOfficerDelete" >
+		UPDATE COMPANY SET CMPN_FL='N'
+		WHERE MEMBER_ID = #{userId}
+	</update>
+
+<!--	 관리자 기업 담당 삭제-->
+	<delete id="recruitOfficerDelete2" >
+		DELETE FROM "AUTHORITY"
+		WHERE MEMBER_ID= #{userId}
+	</delete>
 
 </mapper>

@@ -25,7 +25,15 @@
 
     <main id="body-area">
 
-        <form action="/admin/recruitOfficer/detail/update" id="recruitForm" >
+        <c:choose>
+            <c:when test="${recruitOfficerDetail.cmpnFl == 'N'}">
+                <form action="/admin/recruitOfficer/detail/update" id="updateForm" >
+            </c:when>
+            <c:otherwise>
+                <form action="/admin/recruitOfficer/detail/delete" id="deleteForm" >
+            </c:otherwise>
+        </c:choose>
+
 
             <div id="main-area">
                 <p id="title3" class="title"><i class="fa-solid fa-building"></i></i>기업 담당자 신청 관리</p>
@@ -53,13 +61,25 @@
                     ${recruitOfficerDetail.cmpnIntro}
                 </div>
 
-                
+
                 <!-- 반려 버튼, 등록 버튼 누르면 문자메세지로 알림 -->
-                <div id="button-area">
-                    <button id="cancelRegistration" class="btns" type="button">등록 반려</button>
-                    <button id="registerCompany" class="btns">담당자로 등록</button>
-                    <button id="goToList" class="btns" type="button">목록으로</button>
-                </div>
+                <c:choose>
+                    <c:when test="${recruitOfficerDetail.cmpnFl == 'N'}">
+                        <div id="button-area">
+                            <button id="cancelRegistration" class="btns" type="button">등록 반려</button>
+                            <button id="registerCompany" class="btns">담당자로 등록</button>
+                            <button class="btns" type="button" onClick="location.href='/admin/recruitOfficer'">목록으로</button>
+                        </div>
+                    </c:when>
+                    <c:otherwise>
+                        <div id="button-area">
+                            <button id="deleteCompony" class="btns">기업 담당 해지</button>
+                            <button class="btns" type="button" onClick="location.href='/admin/recruitOfficerCurr'">목록으로</button>
+                        </div>
+                    </c:otherwise>
+                </c:choose>
+
+
             </div>
 
 

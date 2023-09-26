@@ -147,4 +147,38 @@ public class AdminController {
 		return path;
 	}
 
+	// 현재 회원 등록 해지시키기
+	@GetMapping("/recruitOfficer/detail/delete")
+	public String recruitOfficerDelete(@ModelAttribute AdminDTO cmpnInfo){
+		System.out.println("삭제하는거 되라아아아아아아아아아아아");
+		System.out.println("dd::" + cmpnInfo);
+
+		/* N -> Y 로 업데이트 실행*/
+		int result = service.recruitOfficerDelete(cmpnInfo);
+
+		String path = "redirect:";
+
+		if(result > 0){
+			result = service.recruitOfficerDelete2(cmpnInfo);
+
+			if(result > 0){
+				path += "/admin/recruitOfficerCurr";
+				System.out.println("삭제 성공");
+			}
+		}
+
+
+		return path;
+	}
+
+
+	@GetMapping("/recruitOfficerCurr")
+	public String recruitOfficerCurr(Model model) {
+
+		List<AdminDTO> recruitListCurr = service.recruitListCurr();
+		model.addAttribute("recruitListCurr", recruitListCurr);
+
+		return "admin/recruitOfficerCurr";
+	}
+
 }

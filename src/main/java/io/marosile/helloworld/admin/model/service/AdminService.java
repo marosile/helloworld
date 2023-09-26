@@ -43,4 +43,13 @@ public interface AdminService {
 
 	// 기업 담당자 승인 회원 자격 테이블에 추가
 	int recruitOfficerInsert(AdminDTO cmpnInfo);
+
+	// 현재 등록되어있는 담당자 리스트 뽑아오기
+	List<AdminDTO> recruitListCurr();
+
+	// 기업 담당자 삭제
+	int recruitOfficerDelete(AdminDTO cmpnInfo);
+
+	// autority 테이블에서 삭제
+	int recruitOfficerDelete2(AdminDTO cmpnInfo);
 }
