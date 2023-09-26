@@ -127,11 +127,28 @@ public class RecruitController {
 	// 상세의 상세페이지
 	@GetMapping("/moreDetail")
 	public String recruitDetail(@RequestParam("boardNo") int boardNo
-								, Model model) {
+								, Model model
+								,@SessionAttribute(value="loginMember", required =false) Member loginMember) {
 		
 		Recruit recruit = service.moreDetail(boardNo);
 		
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("boardNo", boardNo);
+
+		
 		String logo = recruit.getCompanyLogo();
+		
+		if(recruit != null) {
+			
+			if(loginMember != null) {
+				
+				map.put("memberId", loginMember.getMemberId());
+				
+				int result = service.bookMarkCheck(map);
+				if (result > 0)
+					model.addAttribute("bookMarkCheck", "on");
+			}
+		}
 		
 		model.addAttribute("recruit", recruit);
 		

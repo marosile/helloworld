@@ -8,7 +8,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(90deg, rgba(174, 193, 228, 0.167), rgba(116, 125, 136, .3)) !important;
+  /*   background: linear-gradient(90deg, rgba(174, 193, 228, 0.167), rgba(116, 125, 136, .3)) !important; */
 }
 
 /* text 부분들 */
@@ -258,8 +258,10 @@ span{
     width: 600px;
     min-height: 700px;
     border: 1px solid var(--divider);
-    border-radius: 10px;
-    background: linear-gradient(90deg, rgba(200, 100, 255, 0.3), rgba(0, 128, 255, 0.3)) !important;
+    border-radius: 10px;/* 
+    background: linear-gradient(90deg, rgba(200, 100, 255, 0.3), rgba(0, 128, 255, 0.3)) !important; */
+
+    background-color: white;
     transition-duration: 0.5s;    
 }
 
@@ -276,7 +278,7 @@ p{
     margin-top: 15px;
     margin-bottom: 70px;
 
-    color: #5b3a85;
+    color: rgb(15 44 73);
     
 }
 
