@@ -184,7 +184,7 @@ main{
 }
 
 #agreeText{
-    width: 500px;
+    width: 650px;
     height: 100px;
     border: 1px solid rgba(128, 128, 128, 0.774);
     overflow: auto;

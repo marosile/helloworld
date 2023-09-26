@@ -82,6 +82,7 @@
             </div>
         </div>
 
+        <%-- ================ 헤더 끝 메인 시작 --%>
         <main>
             <h1 class="Title">북마크</h1>
 
@@ -101,10 +102,10 @@
                     <%-- 비어있지 않다면 --%>
                     <c:otherwise>
                         <div class="bookmarkList">
-
                             <c:forEach items="${bookmarkList}" var="bookmarkList">
                             
                                 <div class="row1">
+
                                     <div class="top">
                                         <%-- 유저 프사 --%>
                                         <img class="profileImage" src="${bookmarkList.profileImage}">
