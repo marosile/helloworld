@@ -133,8 +133,6 @@ public class RecruitController {
 		
 		String logo = recruit.getCompanyLogo();
 		
-		System.out.println(logo);
-		
 		model.addAttribute("recruit", recruit);
 		
 		return "recruit/recruit-moreDetail";
