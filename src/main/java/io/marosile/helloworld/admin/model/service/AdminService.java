@@ -54,5 +54,8 @@ public interface AdminService {
 	int recruitOfficerDelete2(AdminDTO cmpnInfo);
 
 	// 반려하기
-	int recruitCancle(String userId);
+	int recruitCancel(String userId);
+
+	// 전화번호 조회
+	String findUserTel(String userId);
 }

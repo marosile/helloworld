@@ -229,7 +229,7 @@ public class Util {
         JSONArray  toArr = new JSONArray();
 
         // 난수와 함께 전송
-        toJson.put("content","문자 테스트 중! "+ rand);
+        toJson.put("content","[HelloWorld 안내 문자]\n\n"+ rand);
         toJson.put("to",tel);
         toArr.add(toJson);
 

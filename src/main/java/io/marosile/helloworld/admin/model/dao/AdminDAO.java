@@ -137,7 +137,12 @@ public class AdminDAO {
 		return sqlSession.delete("adminMapper.recruitOfficerDelete2", cmpnInfo);
 	}
 
-	public int recruitCancle(String userId) {
+	public int recruitCancel(String userId) {
 		return sqlSession.delete("adminMapper.recruitOfficerDelete", userId);
+	}
+	
+	// 전화번호 찾기
+	public String findUserTel(String userId) {
+		return sqlSession.selectOne("adminMapper.userTel", userId);
 	}
 }
