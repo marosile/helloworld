@@ -1,3 +1,15 @@
+/* $(document).ready(function() {
+    $('#summernote').summernote({
+        width: 900,
+        height: 500,
+        focus: true,
+        lang: "ko-KR",
+        disableResizeEditor: true,
+        placeholder: '내용을 입력해 주세요.'
+    });
+
+});
+ */
 const uploadForm = document.getElementById("uploadForm");
 const boardTitle = document.getElementById("boardTitle");
 const boardContent = document.getElementById("summernote");
