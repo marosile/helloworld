@@ -233,3 +233,10 @@ li{
 #applyBtn:hover{
     cursor: pointer;
 }
+
+#bookMark{
+    cursor: pointer;
+
+    margin-top: 30px;
+    margin-left: 400px;
+}
