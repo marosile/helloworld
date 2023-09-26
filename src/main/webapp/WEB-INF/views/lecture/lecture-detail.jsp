@@ -19,12 +19,6 @@
 </head>
 <body>
     <script>
-        let loginMember;
-        <c:if test="${!empty loginMember}">
-            loginMember = {'memberId' : '${loginMember.memberId}',
-                            'memberNick' : '${loginMember.memberNick}',
-                            'memberEmail' : '${loginMember.memberEmail}'};
-        </c:if>
         let lecture = {'lectureNo' : ${lecture.lectureNo},
                         'lectureTitle' : '${lecture.lectureTitle}',
                         'lecturePrice' : ${lecture.lecturePrice * (1 - lecture.lectureSale)}};

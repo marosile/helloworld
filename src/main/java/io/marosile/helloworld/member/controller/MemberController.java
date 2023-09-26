@@ -482,13 +482,19 @@ public class MemberController {
 
 	@PostMapping("/getFollower")
 	@ResponseBody
-	public String getFollower(@RequestBody Map<String, Object> param) throws JsonProcessingException {
+	public String getFollower(String memberId, boolean invertible) throws JsonProcessingException {
+		Map<String, Object> param = new HashMap();
+		param.put("memberId", memberId);
+		param.put("invertible", invertible);
 		return new ObjectMapper().writeValueAsString(service.selectFollowerList(param));
 	}
 
 	@PostMapping("/getFollowing")
 	@ResponseBody
-	public String getFollowing(@RequestBody Map<String, Object> param) throws JsonProcessingException {
+	public String getFollowing(String memberId, boolean invertible) throws JsonProcessingException {
+		Map<String, Object> param = new HashMap();
+		param.put("memberId", memberId);
+		param.put("invertible", invertible);
 		return new ObjectMapper().writeValueAsString(service.selectFollowingList(param));
 	}
 
