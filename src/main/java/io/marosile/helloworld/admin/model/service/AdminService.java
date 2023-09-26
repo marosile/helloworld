@@ -52,4 +52,7 @@ public interface AdminService {
 
 	// autority 테이블에서 삭제
 	int recruitOfficerDelete2(AdminDTO cmpnInfo);
+
+	// 반려하기
+	int recruitCancle(String userId);
 }

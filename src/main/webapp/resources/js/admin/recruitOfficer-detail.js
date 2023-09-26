@@ -13,9 +13,6 @@ if(cancelRegistration != null){
 
             // 반려 문자 보내기
 
-            alert("반려되었습니다.");
-
-            location.href = "/admin/recruitOfficer";
 
         }
 

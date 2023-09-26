@@ -129,11 +129,15 @@ public class AdminDAO {
 
 	// 기업 담당자 삭제
 	public int recruitOfficerDelete(AdminDTO cmpnInfo) {
-		return sqlSession.update("adminMapper.recruitOfficerDelete", cmpnInfo);
+		return sqlSession.delete("adminMapper.recruitOfficerDelete", cmpnInfo);
 	}
 
 	// autority 테이블에서 삭제
 	public int recruitOfficerDelete2(AdminDTO cmpnInfo) {
 		return sqlSession.delete("adminMapper.recruitOfficerDelete2", cmpnInfo);
+	}
+
+	public int recruitCancle(String userId) {
+		return sqlSession.delete("adminMapper.recruitOfficerDelete", userId);
 	}
 }

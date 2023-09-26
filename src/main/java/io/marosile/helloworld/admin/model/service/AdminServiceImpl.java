@@ -121,4 +121,10 @@ public class AdminServiceImpl implements AdminService {
 		return dao.recruitOfficerDelete2(cmpnInfo);
 	}
 
+	// 반려하기
+	@Override
+	public int recruitCancle(String userId) {
+		return dao.recruitCancle(userId);
+	}
+
 }

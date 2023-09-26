@@ -176,10 +176,10 @@
 	</select>
 
 	<!-- 관리자 기업 담당 삭제 -->
-	<update id="recruitOfficerDelete" >
-		UPDATE COMPANY SET CMPN_FL='N'
-		WHERE MEMBER_ID = #{userId}
-	</update>
+	<delete id="recruitOfficerDelete" >
+		DELETE FROM "COMPANY"
+		WHERE MEMBER_ID= #{userId}
+	</delete>
 
 <!--	 관리자 기업 담당 삭제-->
 	<delete id="recruitOfficerDelete2" >
