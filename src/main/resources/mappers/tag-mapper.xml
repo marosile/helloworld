@@ -82,18 +82,4 @@
 		WHERE tr.ITEM_NO = ${boardNo} AND t.TAG_NO = ${tagNo}
 	</update>
 
-	<!-- 채용공고 테스트 했을 때의 태그 삽입 // 안함 -->
-	<insert id="insertMyStacksToTag" parameterType="java.util.Map">
-	
-		<selectKey order="BEFORE" resultType="int" keyProperty="tagNo">
-		        SELECT SEQ_TAG_NO.NEXTVAL FROM DUAL
-		</selectKey>
-	    
-	    INSERT INTO your_table_name (tag_column_name)
-	    VALUES
-	    <foreach collection="myStacks" item="entry" separator=",">
-	        #{entry.value}
-	    </foreach>
-	</insert>
-
 </mapper>
