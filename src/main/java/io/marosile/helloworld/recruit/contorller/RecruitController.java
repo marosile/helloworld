@@ -70,6 +70,8 @@ public class RecruitController {
 				// 매칭 공고들 가져오기
 				List<Recruit> matchingRecruitList = service2.matchingRecruit(EmploymentTest);
 				
+				System.out.println(matchingRecruitList);
+				
 				int boardType = 2; // 채용공고 == 2
 		
 				List<List<Tag>> tagLists = new ArrayList<>();

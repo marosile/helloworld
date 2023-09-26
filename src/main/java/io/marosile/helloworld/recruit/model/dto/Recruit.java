@@ -29,9 +29,11 @@ public class Recruit {
 	private String companyId;
 	private int companyMcount;
 	private String companyCreateDt;
+	private String companyHomePageAddress;
 	
 	private String boardTitle; // 채용 공고 제목
 	private String boardContent; // 채용 공고 내용
+	
 	
 	private String memberId;
 	private int boardType;

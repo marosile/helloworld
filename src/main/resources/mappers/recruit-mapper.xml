@@ -45,6 +45,7 @@
 		<result property="companyIntroduce" column="CMPN_INTRO" />
 		<result property="companyMcount" column="CMPN_MCOUNT" />
 		<result property="companyFl" column="CMPN_FL" />
+		<result property="companyHomePageAddress" column="CMPN_HP" />
 
 	</resultMap>
 
@@ -56,9 +57,9 @@
 	<!-- 내 매칭 공고 ( 조건 : 2개이상 일치 ) -->
 	<select id="matchingRecruit" resultMap = "recruitResultMap">
 		SELECT B.BOARD_CONTENT, RS.MEMBER_ID, BR.BOARD_NO, BR.POSITION,
-		    BR.EXPR_PERIOD, BR.EMPL_TYPE, BR.EMPL_CNDT,BR.ENTR_EXAM,BR.JOB_TYPE,
+		    BR.EXPR_PERIOD, BR.EMPL_TYPE, BR.EMPL_CNDT,BR.ENTR_EXAM,BR.JOB_TYPE, BR.SALARYINFO,
 		    BR.BENEFIT, CP.CMPN_NO, CP.MEMBER_ID AS CMPN_ID, CP.CMPN_NM, CP.CMPN_ADDR,
-		    CP.CMPN_LOGO,CP.CMPN_INTRO,CP.CMPN_MCOUNT
+		    CP.CMPN_LOGO, CP.CMPN_INTRO,CP.CMPN_MCOUNT
 		    FROM BOARD B JOIN BOARD_RECRUIT BR ON B.BOARD_NO = BR.BOARD_NO
 		    JOIN RESUME RS ON RS."POSITION" = BR."POSITION" JOIN COMPANY CP ON BR.CMPN_NO = CP.CMPN_NO
 		    WHERE
@@ -76,7 +77,7 @@
 	<!-- 채용 담당자 등록 신청 (insert 후 fl로 구분) -->
 	<insert id="companyInsert">
 		INSERT INTO COMPANY VALUES (SEQ_CMPN_NO.NEXTVAL, #{memberId}, #{companyName}, #{companyAddress}, 
-		'/resources/images/recruit/' || #{companyLogo}, #{companyIntroduce}, ${companyMcount}, DEFAULT)
+		'/resources/images/recruit/' || #{companyLogo}, #{companyIntroduce}, ${companyMcount}, DEFAULT, #{companyHomePageAddress})
 	</insert>
 
 	<!-- 전체 채용 공고 조회 -->
