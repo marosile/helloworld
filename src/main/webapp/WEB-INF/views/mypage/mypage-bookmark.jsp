@@ -6,6 +6,7 @@
 
 <c:set var="bookmarkList" value="${bookmarkList}" />
 
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -103,7 +104,7 @@
                     <c:otherwise>
                         <div class="bookmarkList">
                             <c:forEach items="${bookmarkList}" var="bookmarkList">
-                            
+
                                 <div class="row1">
 
                                     <div class="top">
@@ -112,11 +113,11 @@
                                         <%-- 유저 닉네임 --%>
                                         <div class="memberNick">${bookmarkList.memberNickname}</div>
                                         <%-- 게시글 작성일 --%>
-                                        <div class="createDate">${bookmarkList.createDate}</div>
+                                        <div class="createDate">· ${bookmarkList.createDate}</div>
                                     </div>
 
                                     <div class="bottom">
-                                        <div class="title">${bookmarkList.boardTitle}</div>
+                                        <div class="title"><a href="/board/${bookmarkList.boardCode}/${bookmarkList.boardNo}">${bookmarkList.boardTitle}</a></div>
 
                                         <div class="Count-area">
                                             <div class="viewCount">

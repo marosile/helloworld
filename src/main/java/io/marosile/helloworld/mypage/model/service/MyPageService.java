@@ -41,7 +41,6 @@ public interface MyPageService {
 	int secession(String memberId);
 
 	
-	
 	/** 북마크 리스트 조회 (커뮤니티)
 	 * @return
 	 */

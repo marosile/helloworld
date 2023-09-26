@@ -21,43 +21,43 @@
     <div id="side" class="window">
       <h6>일반</h6>
       <div>
-        <a>
+        <a href="/mypage/profile">
           <img src="/resources/images/mypage/category/profile.png">
           프로필
         </a>
       </div>
       <div>
-        <a>
+        <a href="/mypage/account">
           <img src="/resources/images/mypage/category/account.png">
           계정 관리
         </a>
       </div>
       <div>
-        <a>
+        <a href="/mypage/resume">
           <img src="/resources/images/mypage/category/applications.png">
           이력서 관리
         </a>
       </div>
       <div>
-        <a>
+        <a href="/mypage/applications">
           <img src="/resources/images/mypage/category/resume.png">
           지원 이력
         </a>
       </div>
       <div>
-        <a>
+        <a href="/mypage/post">
           <img src="/resources/images/mypage/category/post.png">
           나의 게시글
         </a>
       </div>
       <div>
-        <a>
+        <a href="/mypage/bookmark">
           <img src="/resources/images/mypage/category/bookmark.png">
           북마크 목록
         </a>
       </div>
       <div>
-        <a>
+        <a href="/mypage/like">
           <img src="/resources/images/mypage/category/like.png">
           좋아요 목록
         </a>

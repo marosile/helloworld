@@ -131,6 +131,7 @@ main{
 .profileImage{
     width: 25px;
     height: 25px;
+    border-radius: 15px;
 }
 /* 유저 닉네임 */
 .memberNick{
@@ -146,7 +147,6 @@ main{
 
 
 
-
 /* ========== 아랫줄 영역 ============== */
 .bottom{
     display: flex;
@@ -158,6 +158,10 @@ main{
     font-size: 17px;
     color: #000000e8;
     font-weight: 500;
+}
+
+.title:hover{
+    font-size: large;
 }
 
 .bottom > :nth-child(1){flex-basis: 90%;}

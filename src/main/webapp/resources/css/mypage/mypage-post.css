@@ -90,22 +90,29 @@ main{
 
 /* 게시글 목록 테이블을 감싸는 div */
 .postList{
-    border: 1px solid gray;
     width: 755px;
     height: 500px;
     border-radius: 5px;
     margin-top: 40px;
 
     overflow: auto;
-    box-shadow: rgba(0, 0, 0, 0.05) 3px 3px 5px 2px;
 }
 
 
 /* 테이블 */
 .tb{
-    margin-left: 10px;
+    margin-left: 30px;
     margin-top: 5px;
-    width: 740px;
+    width: 700px;
+    border-collapse: collapse;
+}
+
+tbody{
+    border-bottom: 1px solid gray;
+}
+
+thead{
+    line-height: 1rem;
 }
 
 
@@ -113,6 +120,7 @@ main{
 
 .tb > tbody tr > :nth-of-type(1):hover{
     border-bottom: 1px solid gray;
+    font-size: large;
 }
 
 .tb tr > *:nth-of-type(2){ width: 16%; }    /* 작성일 */
@@ -123,5 +131,7 @@ main{
 
 .tb > tbody > tr{ 
     text-align: center;
-    height: 40px;
+    height: 50px;
+    border-bottom: 1px solid #a9a9a9b5;
+
 }

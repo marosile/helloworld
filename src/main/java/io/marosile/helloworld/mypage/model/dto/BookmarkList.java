@@ -18,6 +18,9 @@ public class BookmarkList {
 	private String boardNo; // 게시글 번호
 	private String memberId; // 멤버 아이디
 	
+	// BOARD_GENERAL
+	private int boardCode; // BOARD_CODE - 게시판 코드
+	
 	// MEMBER
 	private String memberNickname; // 멤버 닉네임
 	private String profileImage; // 프사
