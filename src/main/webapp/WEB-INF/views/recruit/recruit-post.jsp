@@ -120,7 +120,7 @@
                 <textarea name ="selectionProcess" placeholder=" 전형절차를 작성해주세요. ( 👌 ex : 지원서 제출 -> 코딩테스트 -> 직무인터뷰 -> 임원진 인터뷰)"  class="qualRespTextArea" id="qualrespTextArea3"></textarea>
                 
                 <!-- BOARD_RECRUIT - BENEFIT -->
-                <textarea name="employmentBenefits" placeholder=" 복리후생을 작성해주세요. ( 🛀 ex : 1년 이상 재직자에 한해 50만원 상당의 건강검진 패키지를 제공합니다.)"  class="qualRespTextArea" id="qualrespTextArea4"></textarea>
+                <textarea name="employmentBenefits" placeholder=" 복리후생을 작성해주세요. ( 🛀 ex : 1년 이상 재직자에 한해 50만원 상당의 건강검진 패키지를 제공합니다.)"  class="qualRespTextArea" id="qualrespTextArea4" maxlength="900"></textarea>
 
             </div>
 
