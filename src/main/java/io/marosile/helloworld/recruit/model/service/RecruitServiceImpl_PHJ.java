@@ -1,6 +1,7 @@
 package io.marosile.helloworld.recruit.model.service;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -37,5 +38,11 @@ public class RecruitServiceImpl_PHJ implements RecruitService_PHJ{
 	@Override
 	public List<Recruit> noticeList(String memberId) {
 		return dao.noticeList(memberId);
+	}
+
+	// 북마크 확인 여부 서비스
+	@Override
+	public int bookMarkCheck(Map<String, Object> map) {
+		return dao.bookMarkCheck(map);
 	}
 }

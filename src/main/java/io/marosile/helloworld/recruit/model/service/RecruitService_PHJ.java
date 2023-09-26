@@ -1,6 +1,7 @@
 package io.marosile.helloworld.recruit.model.service;
 
 import java.util.List;
+import java.util.Map;
 
 import io.marosile.helloworld.recruit.model.dto.EmploymentTest;
 import io.marosile.helloworld.recruit.model.dto.Recruit;
@@ -29,5 +30,11 @@ public interface RecruitService_PHJ {
 	 * @return
 	 */
 	List<Recruit> noticeList(String memberId);
+
+	/** 북마크 확인 여부 서비스
+	 * @param map
+	 * @return
+	 */
+	int bookMarkCheck(Map<String, Object> map);
 
 }
