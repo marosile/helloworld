@@ -281,9 +281,6 @@ public class BoardController {
 		String userId = (String) map.get("userId");
 		String memberId = (String) map.get("memberId");
 		
-		System.out.println(userId);
-		System.out.println(memberId);
-		System.out.println(map.get("followCheck"));
 				
 		return service2.follow(map);
 	}

@@ -106,7 +106,7 @@
                                 <c:otherwise>
                                     <c:forEach items="${postList}" var="postList">
                                             <tr>
-                                                <td><a>${postList.boardTitle}</a></td>
+                                                <td><a href="/board/${postList.boardCode}/${postList.boardNo}">${postList.boardTitle}</a></td>
                                                 <td>${postList.createDate}</td>
                                                 <td>${postList.readCount}</td>
                                                 <td>${postList.commentCount}</td>

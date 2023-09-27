@@ -14,7 +14,9 @@
     <title>채용 상세페이지</title>
     <link rel="stylesheet" href="/resources/css/common/general.css">
     <link rel="stylesheet" href="/resources/css/index.css">
-    <link rel="stylesheet" href="/resources/css/recruit/recruit-detail.css">
+    <link rel="stylesheet" href="/resources/css/recruit/recruit-moreDetail.css">
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -108,7 +110,7 @@
                     </div>
                 </div>
                 <div>
-                    <button id="applyBtn">지원하기</button>
+                    <a href="${recruit.companyHomePageAddress}" target="_blank"><button id="applyBtn">${recruit.companyName} 홈페이지로</button></a>
                 </div>
             </div>
         </div>

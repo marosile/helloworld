@@ -131,18 +131,26 @@ async function communityToggle() {
         $('#' + menu).css('display', 'block');
         $('#community-content > div:not(#' + menu + ')').css('display', 'none');
         switch (menu) {
-            case 'follow':
-                $.ajax({
-                    url: '/lecture/populars',
-                    type: 'post',
-                    dataType: 'json',
-                    success: (result) => {
-
-                    },
-                    error: (error) => {
-                        console.log(error);
-                    }
-                });
+            case 'social':
+                if ($('#social-followers').html() === '') {
+                    $.ajax({
+                        url: '/member/getFollower',
+                        data: {'memberId': loginMember.memberId},
+                        type: 'post',
+                        dataType: 'json',
+                        success: (result) => {
+                            for (member of result) {
+                                $('#social-followers').append(`<div class="social-member">
+                                                                    <img class="social-member-thumbnail" src="` + member.profileImg + `">
+                                                                    <p class="social-member-nick">` + member.memberNick + `</p>
+                                                               </div>`);
+                            }
+                        },
+                        error: (error) => {
+                            console.log(error);
+                        }
+                    });
+                }
                 break;
             case 'chat':
         }
