@@ -11,9 +11,15 @@ let selectTargetNo; // 현재 채팅 대상
 let selectTargetName; // 대상의 이름
 let selectTargetProfile; // 대상의 프로필
 
-// 체팅창 친구 추가 
+// 체팅창 대화 선택
 chattingPlus.addEventListener("click", () => {
     FollowArea.classList.toggle("Follow-area");
+
+
+
+
+
+
 })
 
 close.addEventListener("click", () => {
@@ -30,10 +36,12 @@ targetInput.addEventListener("input",e=>{
     }
 
     if(query.length>0){
-        fetch("/study/chatting/s")
-            .then()
-            .then()
-            .catch()
+        fetch("/study/chatting/selectTarget?query=+query")
+            .then(resp=> resp.json())
+            .then(list=>{
+
+            })
+            .catch(e=>console.log(e))
     }
 })
 

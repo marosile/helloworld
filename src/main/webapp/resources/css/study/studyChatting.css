@@ -493,3 +493,16 @@
 .addChatContent button:hover {
     background: linear-gradient(90deg, rgba(200, 100, 255, 0.5), rgba(0, 128, 255, 0.5));
 }
+
+.followList{
+    overflow-y: scroll;
+
+    -ms-overflow-style: none; /* 인터넷 익스플로러 */
+    scrollbar-width: none; /* 파이어폭스 */
+
+}
+
+
+.followList::-webkit-scrollbar {
+    display: none;
+}

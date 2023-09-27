@@ -175,21 +175,40 @@
 
                             <div id="Follow-area2">
                                 <p>원하는 친구를 추가해서 대화를 해보세요.📧</p>
-                               
-                                <div class="FollowArea">
-                                    <div class="FollowContainer">
-                                        <div><img src="/resources/images/user.png" class="replyImages"></div>
-                                        <span id="FollowWriter">박진아
+
+                                <div class="followList">
+                                    <div class="FollowArea">
+                                        <div class="FollowContainer">
+                                            <div><img src="/resources/images/user.png" class="replyImages"></div>
+                                            <span id="FollowWriter">박진아
                                             <div id="FollowInfo">KH정보교육원</div>
                                         </span>
-    
+
+                                        </div>
+
+                                        <div id="Follow-button-area">
+                                            <button id="reportBtn">대화하기</button>
+                                        </div>
+
                                     </div>
 
-                                    <div id="Follow-button-area">
-                                        <button id="reportBtn">대화하기</button>
+                                    <div class="FollowArea">
+                                        <div class="FollowContainer">
+                                            <div><img src="/resources/images/user.png" class="replyImages"></div>
+                                            <span id="FollowWriter">박진아
+                                            <div id="FollowInfo">KH정보교육원</div>
+                                        </span>
+
+                                        </div>
+
+                                        <div id="Follow-button-area">
+                                            <button id="reportBtn">대화하기</button>
+                                        </div>
+
                                     </div>
-                                    
                                 </div>
+                               
+
 
                             </div>
 
@@ -201,6 +220,7 @@
 
             </div>
 
+            <input type="hidden" id="userId" value="${studyDetail.memberId}"/>
 
             <jsp:include page="/WEB-INF/views/common/footer.jsp" />
             <script src="/resources/js/common/general.js"></script>
