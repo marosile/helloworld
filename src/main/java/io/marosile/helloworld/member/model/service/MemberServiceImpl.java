@@ -177,15 +177,15 @@ public class MemberServiceImpl implements MemberService {
             // 비밀번호가 그대로 db에 들어가면 해킹의 위험이 있다
             // -> 암호화 진행해야 함
             // --> 암호화 완료했으나 편의를 위해 변경
-            if(loginMember.getMemberId().equals(inputMember.getMemberId())
-             && loginMember.getMemberPw().equals(inputMember.getMemberPw())){
-
-                loginMember.setMemberId(inputMember.getMemberId());
-
-//            if(bcrypt.matches(inputMember.getMemberPw(), loginMember.getMemberPw())){
+//            if(loginMember.getMemberId().equals(inputMember.getMemberId())
+//             && loginMember.getMemberPw().equals(inputMember.getMemberPw())){
 //
-//                // 비밀번호를 유지하지 않기 위해서 로그인 정보에서 제거
-//                loginMember.setMemberPw(null);
+//                loginMember.setMemberId(inputMember.getMemberId());
+
+            if(bcrypt.matches(inputMember.getMemberPw(), loginMember.getMemberPw())){
+
+                // 비밀번호를 유지하지 않기 위해서 로그인 정보에서 제거
+                loginMember.setMemberPw(null);
 
             }else{
                 loginMember = null;
