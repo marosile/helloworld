@@ -21,6 +21,7 @@
     <jsp:include page="/WEB-INF/views/common/header.jsp"/>
     <jsp:include page="/WEB-INF/views/recruit/recruit-nav.jsp"/>
         <main id="body-area">
+
             <div id="main-area">
 
                 <c:forEach items="${list}" var = "list">
@@ -32,7 +33,7 @@
                                 <div id="title">${list.companyName}</div>
                                 <div id="subTitle">${list.jobField}</div>
                             </div>
-                            <div id="machting">70%</div>
+                             <div id="machting"><%= (int)(Math.random() * 21) + 80 %> %</div>
                         </div>
                         <div id="row2">
                             <div id="left">
