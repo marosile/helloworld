@@ -5,12 +5,11 @@ let currentJobIndex = 1;
 for (let i = 1; i <= 6; i++) {
     document.getElementById(`button${i}`).addEventListener("click", (function(index) {
       return function() {
-       
         if (index == 1) { // 1번째 버튼 누를 때 부터 divContainer 클래스 제거
             
-            if(loginMember == ''){
+            if(loginMember == '' || loginMember == null){
                 //snackbar('로그인 후 이용해주세요.', 'rgb(0, 128, 255)', '/resources/images/moon.png');
-                alert("로그인해줘");
+                alert("로그인 후 이용해주세요.");
                 return;
             }
       
@@ -232,6 +231,7 @@ document.getElementById("button7").addEventListener("click", () => {
 
 
 var answer = document.getElementsByClassName("answer");
+var answer2 = document.getElementsByClassName("answer2");
 
 function handleClick(event) {
 
@@ -253,3 +253,20 @@ function init() {
 }
 
 init();
+
+function handleClick2(event) {
+  // 클릭된 요소에 "clicked" 클래스를 추가하거나 제거
+  if (event.target.classList.contains("clicked")) {
+    event.target.classList.remove("clicked");
+  } else {
+    event.target.classList.add("clicked");
+  }
+}
+
+function init2() {
+  for (var i = 0; i < answer2.length; i++) {
+    answer2[i].addEventListener("click", handleClick2);
+  }
+}
+
+init2();

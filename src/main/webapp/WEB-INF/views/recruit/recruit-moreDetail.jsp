@@ -47,33 +47,27 @@
                     <makr> <i class="fa-regular fa-building"></i> 회사정보 </makr>
                     <div class="article">
                         <p>회사소개</p>
-                        <li>
+
                             ${recruit.companyIntroduce}
-                        </li>
+
                     </div>
                 </div>
                 <div class="info">
                     <makr><i class="fa-solid fa-file-lines"></i> 모집부문 및 상세내용</makr>
                     <div class="article">
-                        <li>
                             ${recruit.boardContent}
-                        </li>
                     </div>
                 </div>
                 <div class="Detail">
                     <makr><i class="fa-solid fa-check"></i> 근무조건</makr>
                     <div class="article">
-                        <li>
-                            ${recruit.selectionProcess}
-                        </li>
+                            ${recruit.workConditionsDetail}
                     </div>
                 </div>
                 <div class="selectionProcess">
                     <makr><i class="fa-solid fa-pen-to-square"></i> 전형절차</makr>
                     <div class="article">
-                        <li>
                             ${recruit.selectionProcess}
-                        </li>
                     </div>
                 </div>
                 <div class="info">

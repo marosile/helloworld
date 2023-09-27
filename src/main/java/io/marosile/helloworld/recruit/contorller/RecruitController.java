@@ -72,7 +72,7 @@ public class RecruitController {
 				
 				System.out.println(matchingRecruitList);
 				
-				int boardType = 2; // 채용공고 == 2
+				int boardType = 3; // 채용공고 == 3
 		
 				List<List<Tag>> tagLists = new ArrayList<>();
 
@@ -200,7 +200,7 @@ public class RecruitController {
 			        Tag tag = new Tag();
 			        tag.setTagName(tagName);
 			        tag.setBoardNo(boardNo);
-			        tag.setBoardType(2); // 채용공고 == 2
+			        tag.setBoardType(3); // 채용공고 == 3
 			        tagList.add(tag);
 			    }
 			}

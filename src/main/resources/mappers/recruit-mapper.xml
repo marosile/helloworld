@@ -72,7 +72,7 @@
 		        (#{question2} = BR.EXPR_PERIOD AND #{question5} = CP.CMPN_ADDR) OR
 		        (#{question4} = BR.EMPL_TYPE AND #{question5} = CP.CMPN_ADDR)
 		    )
-    	AND RS.MEMBER_ID = #{memberId}
+    	AND RS.MEMBER_ID = #{memberId} AND CP.CMPN_FL = 'Y'
 	</select>
 	
 	<!-- 채용 담당자 등록 신청 (insert 후 fl로 구분) -->
@@ -85,7 +85,8 @@
 	<select id="allRecruitList" resultMap="recruitResultMap">
 		SELECT BOARD_NO, CMPN_NO, CMPN_LOGO, CMPN_NM, POSITION
 		FROM BOARD_RECRUIT
-		JOIN COMPANY USING (CMPN_NO)
+		JOIN COMPANY USING (CMPN_NO) 
+		WHERE CMPN_FL = 'Y'
 	</select>
 	
 	<!-- 상세의 상세페이지 -->
@@ -127,7 +128,7 @@
 	        (#{question2} = BR.EXPR_PERIOD AND #{question5} = CP.CMPN_ADDR) OR
 	        (#{question4} = BR.EMPL_TYPE AND #{question5} = CP.CMPN_ADDR)
 	    )
-	    AND RS.MEMBER_ID = #{memberId}
+	    AND RS.MEMBER_ID = #{memberId} AND CP.CMPN_FL = 'Y'
 	</select>
    
     <!-- 채용공고 삽입 -->

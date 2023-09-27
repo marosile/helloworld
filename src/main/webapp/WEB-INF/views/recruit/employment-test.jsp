@@ -161,12 +161,12 @@
                 <p id="number">6/6</p>
                 <p id="question2">사용 가능한 기술을 선택해주세요 (복수 선택 가능)</p>
                 
-                <div class="answer" id="stackChoice1">✔️ JAVA</div>
-                <div class="answer" id="stackChoice2">✔️ JavaScript</div>
-                <div class="answer" id="stackChoice3">✔️ Spring</div>
-                <div class="answer" id="stackChoice4">✔️ Oracle</div>
-                <div class="answer" id="stackChoice5">✔️ Visual studio Code</div>
-                <div class="answer" id="stackChoice6">✔️ JQuery</div>
+                <div class="answer2" id="stackChoice1">✔️ JAVA</div>
+                <div class="answer2" id="stackChoice2">✔️ JavaScript</div>
+                <div class="answer2" id="stackChoice3">✔️ Spring</div>
+                <div class="answer2" id="stackChoice4">✔️ Oracle</div>
+                <div class="answer2" id="stackChoice5">✔️ Visual studio Code</div>
+                <div class="answer2" id="stackChoice6">✔️ JQuery</div>
                 <div class="btn-container">
                     <button type="submit" class="btn-3d blue" id="button7">DONE🎉</button>
                 </div>
