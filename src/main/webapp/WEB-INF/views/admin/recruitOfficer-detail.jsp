@@ -79,9 +79,7 @@
                     </c:otherwise>
                 </c:choose>
 
-
             </div>
-
 
             <input type="hidden" name="cmpnNm" value="${recruitOfficerDetail.cmpnNm}"/>
             <input type="hidden" name="userId" value="${recruitOfficerDetail.userId}"/>
