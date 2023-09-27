@@ -89,18 +89,16 @@
 
             <%-- 채용으로 가는 전환 버튼 --%>
             <div class="change">
-                <h4><span id="community">커뮤니티 엥 이거 어디감?</span> | <span id="chae"><a href="/mypage/bookmark2">채용공고</a></span></h4>
+                <h4><span id="communityy">커뮤니티</span> | <span id="chae"><a href="/mypage/bookmark2">채용공고</a></span></h4>
             </div>
 
             <section class="bookmark">
 
                 <c:choose>
-                    <%-- 북마크가 비어있다면 --%>
                     <c:when test="${empty bookmarkList}">
                         <div>북마크 목록이 존재하지 않습니다.</div>
                     </c:when>
 
-                    <%-- 비어있지 않다면 --%>
                     <c:otherwise>
                         <div class="bookmarkList">
                             <c:forEach items="${bookmarkList}" var="bookmarkList">
@@ -108,11 +106,8 @@
                                 <div class="row1">
 
                                     <div class="top">
-                                        <%-- 유저 프사 --%>
                                         <img class="profileImage" src="${bookmarkList.profileImage}">
-                                        <%-- 유저 닉네임 --%>
                                         <div class="memberNick">${bookmarkList.memberNickname}</div>
-                                        <%-- 게시글 작성일 --%>
                                         <div class="createDate">· ${bookmarkList.createDate}</div>
                                     </div>
 

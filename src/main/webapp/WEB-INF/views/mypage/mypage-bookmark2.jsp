@@ -87,7 +87,7 @@
             <h1 class="Title">북마크</h1>
 
             <div class="change">
-                <h4><span id="community"><a href="/mypage/bookmark">커뮤니티</a></span> | <span id="chae"><a href="/mypage/bookmark2">채용공고</a></span></h4>
+                <h4><span id="communityy"><a href="/mypage/bookmark">커뮤니티</a></span> | <span id="chae"><a href="/mypage/bookmark2">채용공고</a></span></h4>
             </div>
 
             <section class="bookmark">
