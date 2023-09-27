@@ -27,7 +27,7 @@
 
 .box{
     width: 490px;
-    height: 190px;
+    height: 215px;
 
     border: 1px solid var(--divider);
     border-radius: 10px;
@@ -35,13 +35,10 @@
     transition-duration: 0.5s;   
 }
 
-/* .box div{
-    border: 1px solid black;
-} */
-
 #row1{
     display: flex;
     height: 70px;
+    margin-top:10px;
 }
 
 i{
@@ -54,6 +51,9 @@ i{
     display: flex;
     line-height: 30px;
     height: 70px;
+
+    margin-top:10px;
+
 }
 
 #title{
@@ -65,9 +65,8 @@ i{
 
 #row3{
     display: flex;
-
-    margin-top: 8px;
-    margin-left: 35px;
+    justify-content: center;
+    align-items: center;
 }
 
 #row3:hover{
@@ -92,20 +91,26 @@ i{
 }
 
 #click{
-    width: 400px;
-    height: 30px;
+    width: 460px;
+    height: 40px;
     border-radius: 5px;
     line-height: 30px;
 
-    background-color: rgba(14, 14, 73, 0.658);
+    background-color: rgba(25, 25, 61, 0.613);
     color: white;
     
     font-weight: bold;
     font-size: 13px;
     
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
-    margin-left: 10px;
+}
+
+#applyBtn:hover{
+    color:black;
+    border: 1px solid var(--divider);
 }
 
 
@@ -155,11 +160,11 @@ i{
 }
 
 .up{
-    height: 50%;
+    height: 40%;
 }
 
 .down{
-    height: 50%;
+    height: 60%;
 }
 
 .row-area{

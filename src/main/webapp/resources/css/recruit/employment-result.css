@@ -266,7 +266,6 @@
 
 /* 신입, 경력, 내용 */
 .personInfo{
-    height:250px;
     margin-bottom: 20px;
 }
 
@@ -284,7 +283,7 @@
 
 /* 경력 div 만 */
 #personInfo2{
-    height:200px;
+    margin-top:70px !important;
 }
 
 /* 플러스요인 div */

@@ -113,7 +113,6 @@ textarea::placeholder{
 #main-area{
     border: 1px solid black;
     width: 780px;
-    height: 780px;
     border: 1px solid var(--divider);
     border-radius: 10px;
     background-color: var(--bg-color-2);
@@ -163,6 +162,7 @@ i{
 #sub{
     margin-top: 5px;
     margin-left: 590px;
+    margin-bottom: 20px;
 }
 
 button{
