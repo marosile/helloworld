@@ -20,8 +20,11 @@ public class PostList {
 	private String createDate; // CREATE_DT - 게시글 작성 날짜
 	private int readCount; 	   // READ_COUNT - 조회수
 	
-	// BOARD_GENERAL
+	// BOARD_GENERAL 테이블
 	private int boardCode; // BOARD_CODE - 게시판 코드
+	
+	// MEMBER 테이블
+	private String memberNickname;
 	
 	// COMMENT 테이블
     private List<Comment> commentList; 

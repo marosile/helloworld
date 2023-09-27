@@ -58,6 +58,12 @@ public interface MyPageService {
 	 * @return
 	 */
 	List<PostList> selectPostList(String memberId);
+
+	/** 좋아요 목록 조회
+	 * @param memberId
+	 * @return
+	 */
+	List<PostList> selectLikeList(String memberId);
 	
 
 

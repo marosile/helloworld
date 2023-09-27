@@ -85,6 +85,14 @@ public class MyPageDAO {
 		return sqlSession.selectList("myPageMapper.selectPostList", memberId);
 	}
 
+	/** 좋아요 목록 조회
+	 * @param memberId
+	 * @return
+	 */
+	public List<PostList> selectLikeList(String memberId) {
+		return sqlSession.selectList("myPageMapper.selectLikeList", memberId);
+	}
+
 	
 
 	

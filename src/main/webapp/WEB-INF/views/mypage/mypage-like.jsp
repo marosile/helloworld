@@ -3,6 +3,9 @@
 
 <!DOCTYPE html>
 <html lang="ko">
+
+<c:set var="LikeList" value="${LikeList}" />
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -77,6 +80,9 @@
             </div>
         </div>
 
+
+
+<%-- 사이드 바 끝 메인 시작======================================== --%>
         <main>
             <h1 class="Title">좋아요</h1>
             <section>
@@ -95,31 +101,23 @@
                         </thead>
 
                         <tbody>
-                            <tr>
-                                <td><a>제목이다</a></td>
-                                <td>작성자임</td>
-                                <td>조회수고</td>
-                                <td>댓글임</td>
-                                <td>좋아오</td>
-                            </tr>
+                            <c:choose>
+                                <c:when test="${empty LikeList}">
+                                    <div>좋아요 목록이 존재하지 않습니다.</div>
+                                </c:when>
 
-                            <tr>
-                                <td><a>제목이다</a></td>
-                                <td>user01</td>
-                                <td>조회수고</td>
-                                <td>댓글임</td>
-                                <td>좋아오</td>
-                            </tr>
-
-                            <tr>
-                                <td><a>제목이다</a></td>
-                                <td>작성일이고</td>
-                                <td>조회수고</td>
-                                <td>댓글임</td>
-                                <td>좋아오</td>
-                            </tr>
-
-
+                                <c:otherwise>
+                                    <c:forEach items="${LikeList}" var="LikeList">
+                                            <tr>
+                                                <td><a href="/board/${LikeList.boardCode}/${LikeList.boardNo}">${LikeList.boardTitle}</a></td>
+                                                <td>${LikeList.memberNickname}</td>
+                                                <td>${LikeList.readCount}</td>
+                                                <td>${LikeList.commentCount}</td>
+                                                <td>${LikeList.likeCount}</td>
+                                            </tr>
+                                    </c:forEach>
+                                </c:otherwise>
+                            </c:choose>
                         </tbody>
 
 

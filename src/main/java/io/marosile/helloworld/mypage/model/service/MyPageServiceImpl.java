@@ -110,6 +110,13 @@ public class MyPageServiceImpl implements MyPageService {
 		return dao.selectPostList(memberId);
 	}
 
+	/** 좋아요 목록 조회
+	 */
+	@Override
+	public List<PostList> selectLikeList(String memberId) {
+		return dao.selectLikeList(memberId);
+	}
+
 	
 
 }
