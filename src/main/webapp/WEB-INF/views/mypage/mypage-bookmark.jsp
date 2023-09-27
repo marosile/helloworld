@@ -89,7 +89,7 @@
 
             <%-- 채용으로 가는 전환 버튼 --%>
             <div class="change">
-                <h4><span id="community">커뮤니티</span> | <span id="chae"><a href="/mypage/bookmark2">채용공고</a></span></h4>
+                <h4><span id="community">커뮤니티 엥 이거 어디감?</span> | <span id="chae"><a href="/mypage/bookmark2">채용공고</a></span></h4>
             </div>
 
             <section class="bookmark">
