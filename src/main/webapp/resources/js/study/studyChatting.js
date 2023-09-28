@@ -4,7 +4,7 @@ const chattingPlus = document.getElementById("P-studyChatting-follow-btn"); // +
 const close = document.getElementById("close");// x 버튼
 const reportBtn = document.getElementById("reportBtn")// 대화하기 버튼
 const targetInput = document.getElementById("P-studyChatting-query");// 사용자 검색
-const resultArea= document.querySelectorAll(".P-studyChatting-item"); // 검색 결과
+const resultArea = document.querySelectorAll(".P-studyChatting-item"); // 검색 결과
 
 let selectChattingNo; // 선택한 채팅방 번호
 let selectTargetNo; // 현재 채팅 대상
@@ -15,44 +15,37 @@ let selectTargetProfile; // 대상의 프로필
 chattingPlus.addEventListener("click", () => {
     FollowArea.classList.toggle("Follow-area");
 
+    const data = {
+        "memberId": loginMemberId
+    }
 
+    fetch("/study/chatting/getFollowing", {
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify(data)
 
+    })
+        .then(resp => resp.text())
+        .then(list => {
 
+        })
+        .catch(err => {
+            console.log("예외발생")
+        })
 
+});
 
-})
 
 close.addEventListener("click", () => {
     FollowArea.classList.toggle("Follow-area");
 })
 
-// 사용자 검색하기
-targetInput.addEventListener("input",e=>{
 
-    const query =e.target.value.trim();
-    if(query.length==0){
-        resultArea.innerHTML="";
-        return;
-    }
-
-    if(query.length>0){
-        fetch("/study/chatting/selectTarget?query=+query")
-            .then(resp=> resp.json())
-            .then(list=>{
-
-            })
-            .catch(e=>console.log(e))
-    }
-})
-
-
-
-// 체팅창 나가기 
+//체팅창 나가기
 const leaveChat = document.getElementById("P-studyChatting-content-out")
 leaveChat.addEventListener("click", () => {
 
     if (confirm("채팅방을 나가시겠습니까?")) {
 
     }
-});
-
+})

@@ -16,7 +16,7 @@ public class Message {
     private String messageContent; // 메세지 내용
     private String sendTime; // 전송일시
 
-    private int chattingNo; //채팅룸
+    private int chattingNo; //채팅방번호
     private String sendDT; // 읽음
 
 }

@@ -92,7 +92,7 @@
                                     <button class="P-studyChatting-content-out" id="P-studyChatting-content-out">
                                         <i class="fa-solid fa-arrow-right" id="fa-arrow-right"></i></button>
                                   <!--   <button class="P-studyChatting-content-report"><i
-                                            class="fa-solid fa-bell-concierge"></i></button> 신고하기 -->  
+                                            class="fa-solid fa-bell-concierge"></i></button> 신고하기 -->
                                 </div>
                             </div>
 
@@ -174,9 +174,10 @@
                             <p id="Follow-title">내 친구</p>
 
                             <div id="Follow-area2">
-                                <p>원하는 친구를 추가해서 대화를 해보세요.📧</p>
+                                <p>원하는 친구와 대화를 해보세요.📧</p>
 
                                 <div class="followList">
+
                                     <div class="FollowArea">
                                         <div class="FollowContainer">
                                             <div><img src="/resources/images/user.png" class="replyImages"></div>
@@ -207,7 +208,7 @@
 
                                     </div>
                                 </div>
-                               
+
 
 
                             </div>
@@ -220,7 +221,11 @@
 
             </div>
 
-            <input type="hidden" id="userId" value="${studyDetail.memberId}"/>
+            <script>
+                const loginMemberId = "${studyDetail.memberId}";
+                console.log("loginMemberId:", loginMemberId);
+            </script>
+
 
             <jsp:include page="/WEB-INF/views/common/footer.jsp" />
             <script src="/resources/js/common/general.js"></script>
