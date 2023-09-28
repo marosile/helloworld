@@ -92,7 +92,7 @@
                                     <button class="P-studyChatting-content-out" id="P-studyChatting-content-out">
                                         <i class="fa-solid fa-arrow-right" id="fa-arrow-right"></i></button>
                                   <!--   <button class="P-studyChatting-content-report"><i
-                                            class="fa-solid fa-bell-concierge"></i></button> 신고하기 -->  
+                                            class="fa-solid fa-bell-concierge"></i></button> 신고하기 -->
                                 </div>
                             </div>
 
@@ -174,22 +174,42 @@
                             <p id="Follow-title">내 친구</p>
 
                             <div id="Follow-area2">
-                                <p>원하는 친구를 추가해서 대화를 해보세요.📧</p>
-                               
-                                <div class="FollowArea">
-                                    <div class="FollowContainer">
-                                        <div><img src="/resources/images/user.png" class="replyImages"></div>
-                                        <span id="FollowWriter">박진아
+                                <p>원하는 친구와 대화를 해보세요.📧</p>
+
+                                <div class="followList">
+
+                                    <div class="FollowArea">
+                                        <div class="FollowContainer">
+                                            <div><img src="/resources/images/user.png" class="replyImages"></div>
+                                            <span id="FollowWriter">박진아
                                             <div id="FollowInfo">KH정보교육원</div>
                                         </span>
-    
+
+                                        </div>
+
+                                        <div id="Follow-button-area">
+                                            <button id="reportBtn">대화하기</button>
+                                        </div>
+
                                     </div>
 
-                                    <div id="Follow-button-area">
-                                        <button id="reportBtn">대화하기</button>
+                                    <div class="FollowArea">
+                                        <div class="FollowContainer">
+                                            <div><img src="/resources/images/user.png" class="replyImages"></div>
+                                            <span id="FollowWriter">박진아
+                                            <div id="FollowInfo">KH정보교육원</div>
+                                        </span>
+
+                                        </div>
+
+                                        <div id="Follow-button-area">
+                                            <button id="reportBtn">대화하기</button>
+                                        </div>
+
                                     </div>
-                                    
                                 </div>
+
+
 
                             </div>
 
@@ -200,6 +220,11 @@
                 </div>
 
             </div>
+
+            <script>
+                const loginMemberId = "${studyDetail.memberId}";
+                console.log("loginMemberId:", loginMemberId);
+            </script>
 
 
             <jsp:include page="/WEB-INF/views/common/footer.jsp" />

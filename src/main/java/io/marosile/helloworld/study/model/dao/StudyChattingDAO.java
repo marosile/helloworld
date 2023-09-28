@@ -1,20 +1,35 @@
 package io.marosile.helloworld.study.model.dao;
 
-import org.apache.ibatis.session.SqlSession;
+import io.marosile.helloworld.member.model.dto.Member;
+import io.marosile.helloworld.study.model.dto.Study;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import io.marosile.helloworld.study.model.dto.Message;
 
+import java.util.List;
+import java.util.Map;
+
 @Repository
 public class StudyChattingDAO {
 	
 	@Autowired
-	private SqlSessionTemplate sqlsession;
+	private SqlSessionTemplate sqlSession;
 
 	public int insertMessage(Message msg) {
 		
-		return sqlsession.insert("studyChattingMapper.insertMessage",msg);
+		return sqlSession.insert("studyChattingMapper.insertMessage",msg);
+	}
+
+
+	// 체팅리스트 가져오기
+	public Study studyDetail(Map<String, Object> map) {
+		return sqlSession.selectOne("studyMapper.studyChattingDetail",map);
+	}
+
+	//팔로우 리스트 조회
+	public List<Study> selectTarget(String memberId) {
+		return sqlSession.selectOne("studyMapper.selectTarget",memberId);
 	}
 }

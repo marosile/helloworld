@@ -34,6 +34,7 @@ public class Study {
     // member
     private String memberId;
     private String memberNickname;
+    private String memberProfileImg;
 
     //tag
     private int tagNo;
@@ -45,6 +46,11 @@ public class Study {
 
     //comment
     private List<studyComment> studyCommentList;
+
+    //follow
+    private String followFrom;
+    private String followTo;
+
 
 
 

@@ -16,11 +16,11 @@ public class ChattingRoom {
     private String croomType; // 채팅방타입
 
 
-    private int studyNo;
+    private int studyNo; //스터디 이름
     private String studyTitle; // 스터디 이름
     private String leaderId; // 체팅방 생성자
 
-    private String targetNickName;
+    private String targetNickName; // 상대방
     private int notReadCount;
 
 
