@@ -223,6 +223,7 @@
 
             <script>
                 const loginMemberId = "${studyDetail.memberId}";
+                const boardNo = "${studyDetail.boardNo}";
                 console.log("loginMemberId:", loginMemberId);
             </script>
 

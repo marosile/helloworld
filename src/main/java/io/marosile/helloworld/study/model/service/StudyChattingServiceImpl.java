@@ -15,14 +15,14 @@ import java.util.Map;
 
 @Service
 public class StudyChattingServiceImpl implements StudyChattingService {
-	
-    @Autowired
+
+	@Autowired
 	private StudyChattingDAO dao;
 
 	// 메세지 삽입 
 	@Override
 	public int insertMessage(Message msg) {
-		
+
 		msg.setMessageContent(Util.XSSHandling(msg.getMessageContent()));
 		return dao.insertMessage(msg);
 	}
@@ -34,10 +34,12 @@ public class StudyChattingServiceImpl implements StudyChattingService {
 		return dao.studyDetail(map);
 	}
 
+
 	// 팔로우 리스트 조회
 	@Override
-	public List<Study> selectTarget(String memberId) {
-		return dao.selectTarget(memberId);
+	public List<Member> getFollowList(String memberId) {
+		return dao.getFollowList(memberId);
 	}
+
 
 }

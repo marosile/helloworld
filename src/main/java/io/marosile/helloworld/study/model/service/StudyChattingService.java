@@ -13,11 +13,10 @@ public interface StudyChattingService {
 	int insertMessage(Message msg);
 
 
-
 	// 스터디 체팅 상세조회
 	Study studyDetail(Map<String, Object> map);
 
 	
 	// 팔로우 리스트 조회
-	List<Study> selectTarget(String memberId);
+	List<Member> getFollowList(String memberId);
 }
