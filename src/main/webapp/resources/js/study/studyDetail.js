@@ -4,7 +4,7 @@ const chatBtn = document.getElementById("contact-button");
 if(chatBtn!=null){
     chatBtn.addEventListener("click", () => {
 
-        location.href = "/study/chatting/"+boardNo;
+        location.href = "/study/chatting?boardNo=" + boardNo + "&memberId=" + userId;
     })
 }
 

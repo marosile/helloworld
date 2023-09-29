@@ -28,8 +28,9 @@ public class StudyChattingDAO {
 		return sqlSession.selectOne("studyMapper.studyChattingDetail",map);
 	}
 
+
 	//팔로우 리스트 조회
-	public List<Study> selectTarget(String memberId) {
+	public List<Member> getFollowList(String memberId) {
 		return sqlSession.selectOne("studyMapper.selectTarget",memberId);
 	}
 }

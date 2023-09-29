@@ -21,14 +21,13 @@ public class StudyChattingController {
     private StudyChattingService service;
 
     // 스터디 채팅
-    @GetMapping("/chatting/{boardNo}")
-    public String studyChatting(Model model,@SessionAttribute(value = "loginMember", required = false) Member loginMember
-                                ,@PathVariable("boardNo") int boardNo) {
+    @GetMapping("/chatting")
+    public String getChattingPage(@RequestParam("boardNo") int boardNo, @RequestParam("memberId") String memberId, Model model) {
 
         Map<String, Object> map = new HashMap<String, Object>();
 
         map.put("boardNo", boardNo);
-        map.put("memberId", loginMember.getMemberId());
+        map.put("memberId", memberId);
 
         Study studyDetail = service.studyDetail(map);
 
@@ -37,18 +36,16 @@ public class StudyChattingController {
         return "study/studyChatting";
     }
 
-    // 팔로우검색
-    @PostMapping ("/chatting/getFollowing")
+
+    @GetMapping(value = "/chatting/getFollowList",produces="application/json; charset=UTF-8")
     @ResponseBody
-    public List<Study> selectTarget(@RequestParam("memberId") String memberId,Model model){
+    public List<Member> getFollowList(@RequestBody Map<String, Object> map) {
 
+        String memberId = (String) map.get("memberId");
         System.out.println(memberId);
+        List<Member> followList = service.getFollowList(memberId);
 
-        List<Study> followingList = service.selectTarget(memberId);
-        model.addAttribute("followingList",followingList);
-        System.out.println(followingList);
-
-        return followingList;
-
+        return followList;
     }
+
 }
