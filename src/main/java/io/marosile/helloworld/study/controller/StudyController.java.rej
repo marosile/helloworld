@@ -1,0 +1,16 @@
+diff a/src/main/java/io/marosile/helloworld/study/controller/StudyController.java b/src/main/java/io/marosile/helloworld/study/controller/StudyController.java	(rejected hunks)
+@@ -309,12 +309,12 @@
+     }
+ 
+ 
+-
+     // 모집완료처리
+     @PostMapping("/detail/completed")
+     @ResponseBody
+-    public int completed(@RequestBody Map<String,Object> map){
++    public int completed(@RequestBody Map<String, Object> map) {
+         return service.complete(map);
+     }
+ 
++
+ }
