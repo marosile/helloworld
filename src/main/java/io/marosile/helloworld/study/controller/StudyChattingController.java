@@ -42,7 +42,8 @@ public class StudyChattingController {
     public List<Member> getFollowList(@RequestBody Map<String, Object> map) {
 
         String memberId = (String) map.get("memberId");
-        System.out.println(memberId);
+        System.out.println("채팅"+memberId);
+        System.out.println("찍혀?");
         List<Member> followList = service.getFollowList(memberId);
 
         return followList;
