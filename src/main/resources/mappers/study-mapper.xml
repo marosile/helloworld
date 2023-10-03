@@ -558,4 +558,12 @@
         WHERE FOLLOW_TO = #{memberId}
     </select>
 
+
+    <!-- 채팅 상대 검색 -->
+    <select id="selectTarget1" resultMap="StudyResultMap">
+        SELECT MEMBER_ID, MEMBER_EMAIL, MEMBER_NICK, PROFILE_IMG  FROM "MEMBER"
+        WHERE (MEMBER_EMAIL LIKE '%${query}%' OR MEMBER_NICK LIKE '%${query}%')
+          AND DELETED_FL = 'N'
+          AND MEMBER_ID != ${memberId}
+    </select>
 </mapper>

@@ -42,10 +42,9 @@
                             <input type="search" placeholder="닉네임 또는 아이디를 입력해주세요" id="P-studyChatting-query">
                         </div>
 
-                        <div class="P-studyChatting-search-list-area">
+                        <div class="P-studyChatting-search-list-area" id="P-studyChatting-search-list-area">
 
-                            <div class="P-studyChatting-search-list">
-
+<%--
                                 <div class="P-studyChatting-item">
 
                                     <div class="P-studyChatting-item-header">
@@ -71,9 +70,8 @@
                                         </div>
                                     </div>
 
-                                </div>
 
-                            </div>
+                            </div>--%>
 
                         </div>
 
@@ -86,7 +84,7 @@
 
                             <div class="P-studyChatting-content-header">
 
-                                <h4>유저일</h4>
+                                <h4>${studyDetail.memberNickname}</h4>
 
                                 <div class="P-studyChatting-content-btn">
                                     <button class="P-studyChatting-content-out" id="P-studyChatting-content-out">
@@ -181,9 +179,7 @@
                                     <div class="FollowArea">
                                         <div class="FollowContainer">
                                             <div><img src="/resources/images/user.png" class="replyImages"></div>
-                                            <span id="FollowWriter">박진아
-                                            <div id="FollowInfo">KH정보교육원</div>
-                                        </span>
+                                            <span id="FollowWriter">박진아<div id="FollowInfo">KH정보교육원</div></span>
 
                                         </div>
 
@@ -192,21 +188,8 @@
                                         </div>
 
                                     </div>
+`
 
-                                    <div class="FollowArea">
-                                        <div class="FollowContainer">
-                                            <div><img src="/resources/images/user.png" class="replyImages"></div>
-                                            <span id="FollowWriter">박진아
-                                            <div id="FollowInfo">KH정보교육원</div>
-                                        </span>
-
-                                        </div>
-
-                                        <div id="Follow-button-area">
-                                            <button id="reportBtn">대화하기</button>
-                                        </div>
-
-                                    </div>
                                 </div>
 
 
@@ -220,17 +203,17 @@
                 </div>
 
             </div>
+            <script src="https://cdn.jsdelivr.net/npm/sockjs-client@1/dist/sockjs.min.js"></script>
 
-            <script>
-                const loginMemberId = "${studyDetail.memberId}";
-                const boardNo = "${studyDetail.boardNo}";
-                console.log("loginMemberId:", loginMemberId);
-            </script>
+
+            <input type="hidden" id="loginMemberId" value="${studyDetail.memberId}"/>
+            <input type="hidden" id="boardNo" value="${studyDetail.boardNo}"/>
 
 
             <jsp:include page="/WEB-INF/views/common/footer.jsp" />
             <script src="/resources/js/common/general.js"></script>
             <script src="/resources/js/study/studyChatting.js"></script>
+
         </body>
 
         </html>
