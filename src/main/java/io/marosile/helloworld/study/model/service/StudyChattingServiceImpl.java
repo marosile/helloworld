@@ -41,5 +41,11 @@ public class StudyChattingServiceImpl implements StudyChattingService {
 		return dao.getFollowList(memberId);
 	}
 
+	// 채팅 상대 검색
+	@Override
+	public List<Member> selectTarget(Map<String, Object> map) {
+		return dao.selectTarget(map);
+	}
+
 
 }

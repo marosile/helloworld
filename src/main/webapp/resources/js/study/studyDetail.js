@@ -4,9 +4,11 @@ const chatBtn = document.getElementById("contact-button");
 if(chatBtn!=null){
     chatBtn.addEventListener("click", () => {
 
-        location.href = "/study/chatting?boardNo=" + boardNo + "&memberId=" + userId;
+        location.href = "/study/chatting"
+
     })
 }
+
 
 
 // 수정 버튼 시

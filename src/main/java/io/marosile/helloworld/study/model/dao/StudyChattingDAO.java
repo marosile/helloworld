@@ -33,4 +33,9 @@ public class StudyChattingDAO {
 	public List<Member> getFollowList(String memberId) {
 		return sqlSession.selectOne("studyMapper.selectTarget",memberId);
 	}
+
+	// 채팅 상대 검색
+	public List<Member> selectTarget(Map<String, Object> map) {
+		return sqlSession.selectList("studyMapper.selectTarget1", map);
+	}
 }

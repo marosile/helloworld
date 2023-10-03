@@ -19,4 +19,7 @@ public interface StudyChattingService {
 	
 	// 팔로우 리스트 조회
 	List<Member> getFollowList(String memberId);
+
+	// 스터디 검색
+	List<Member> selectTarget(Map<String, Object> map);
 }

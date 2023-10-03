@@ -22,31 +22,34 @@ public class StudyChattingController {
 
     // 스터디 채팅
     @GetMapping("/chatting")
-    public String getChattingPage(@RequestParam("boardNo") int boardNo, @RequestParam("memberId") String memberId, Model model) {
-
+    public String getChattingPage(Model model, @RequestParam Map<String, Object> paramMap) {
         Map<String, Object> map = new HashMap<String, Object>();
-
-        map.put("boardNo", boardNo);
-        map.put("memberId", memberId);
+        map.put("boardNo", paramMap.get("boardNo"));
+        map.put("memberId", paramMap.get("userId"));
 
         Study studyDetail = service.studyDetail(map);
-
-        model.addAttribute("studyDetail", studyDetail);
-
         return "study/studyChatting";
     }
 
-
-    @GetMapping(value = "/chatting/getFollowList",produces="application/json; charset=UTF-8")
+    // 스터디 검색
+    @GetMapping(value = "/chatting/selectTarget", produces = "application/json; charset=UTF-8")
     @ResponseBody
-    public List<Member> getFollowList(@RequestBody Map<String, Object> map) {
+    public List<Member> selectTarget(String query, @SessionAttribute("loginMember") Member loginMember) {
+        Map<String, Object> map = new HashMap<>();
+        map.put("memberId", loginMember.getMemberId());
+        map.put("query", query);
 
-        String memberId = (String) map.get("memberId");
-        System.out.println("채팅"+memberId);
-        System.out.println("찍혀?");
-        List<Member> followList = service.getFollowList(memberId);
-
-        return followList;
+        System.out.println(map);
+        return service.selectTarget(map);
     }
 
+    @PostMapping(value = "/chatting/getFollowList", produces = "application/json; charset=UTF-8")
+    @ResponseBody
+    public List<Member> getFollowList(@RequestBody Map<String, Object> map) {
+        String memberId = (String) map.get("memberId");
+        System.out.println("채팅" + memberId);
+        System.out.println("찍혀?");
+
+        return service.getFollowList(memberId);
+    }
 }
