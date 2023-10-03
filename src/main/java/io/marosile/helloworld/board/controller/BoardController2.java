@@ -36,6 +36,8 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 
@@ -74,7 +76,7 @@ public class BoardController2 {
 	public String boardWrite(@PathVariable("boardCode") int boardCode
 							,@ModelAttribute Board board
 							,@SessionAttribute("loginMember") Member loginMember
-							,@RequestParam(name = "tagInputs", required = false) List<String> tags // board안에 삽입
+							,@RequestParam(name = "tagInputs", required = false) List<String> tags 
 							, RedirectAttributes ra) {
 
 		board.setMemberId(loginMember.getMemberId());
@@ -135,11 +137,15 @@ public class BoardController2 {
 	    for (Tag tag : tagList) {
 	   	 tagNames.add(tag.getTagName()); 
 	   	}
-
+	    
 	    // 태그 목록을 JSON 형태로 변환하여 모델에 추가
-	    Gson gson = new Gson();
-	    String tagListJson = gson.toJson(tagNames);
-	    model.addAttribute("tagListJson", tagListJson);
+	    //Gson gson = new Gson();
+	   // String tagListJson = gson.toJson(tagNames);
+	   // model.addAttribute("tagListJson", tagListJson);
+	    
+	    //System.out.println(tagListJson);
+	    
+	    model.addAttribute("tagNames", tagNames);
 	    
 	    Board board = service2.selectBoard(map);
 	    model.addAttribute("board", board);
@@ -175,12 +181,13 @@ public class BoardController2 {
 		if(result == 1) { // 게시글 수정 성공하면
 			
 		    // 수정에서 태그 변경했을때 
-		    for (int i = 0; i < tagList.size() && i < tags.size(); i++) {
-		        tagList.get(i).setTagName(tags.get(i));
-		    }
+			/*
+			 * for (int i = 0; i < tagList.size() && i < tags.size(); i++) {
+			 * tagList.get(i).setTagName(tags.get(i)); }
+			 */
 		    
 			// 기존 태그 업데이트
-			int result2 = service3.tagUpdate(tagList);
+			// int result2 = service3.tagUpdate(tagList);
 
 			 // 새로운 태그 추가
 			if (tags != null && !tags.isEmpty()) {
@@ -267,7 +274,6 @@ public class BoardController2 {
 		
 		if(result == 1) {
 			
-			System.out.println("Test");
 			path +="/board/" + boardCode;
 			
 		}else {
@@ -275,4 +281,33 @@ public class BoardController2 {
 		}
 		return path;
 	}
+	
+	// 수정중 태그 삭제
+    @PostMapping("/tagDelete")
+    public String deleteTag(@RequestParam String tagName
+    					    ,@RequestParam int boardNo){
+       
+    	
+		List<Tag> tagNos = service3.selectTagNos(boardNo);
+    	
+		
+		String tagNosString = tagNos.toString().replaceAll("[\\[\\]]", ""); 
+		
+		System.out.println(tagNosString);
+		Map<String, Object> map = new HashMap<>();
+		
+		map.put("tagName", tagName);
+		map.put("tagNosString", tagNosString);
+		
+    	int result = service3.deleteTag(map);
+    	
+    	System.out.println(result);
+    	
+    	//if(result == 1) {}
+    	
+    	return "Tag deleted successfully";
+    	
+    	
+    }
+	
 }

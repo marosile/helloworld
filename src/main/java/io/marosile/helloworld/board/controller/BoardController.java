@@ -67,7 +67,6 @@ public class BoardController {
 		    map.put("getTopList", getTopList);
 		    model.addAttribute("searchKeyword", searchKeyword);
 		    model.addAttribute("map", map);
-		    System.out.println(map);
 		    return "board/board-list";
 		}
 		
@@ -99,8 +98,6 @@ public class BoardController {
 									,@RequestParam("boardCode") int boardCode
 									,@RequestParam(value = "sortType", defaultValue = "recent") String sortType
 									,@RequestParam(value = "searchKeyword", required = false) String searchKeyword) {
-			System.out.println("test");
-			System.out.println(sortType);
 			int pageSize = 10; // 한 페이지에 표시할 게시글 수
 			int start = (page - 1) * pageSize + 1; // 첫 매핑 -> 11 두번째 매핑 -> 21 , ...
 			int end = page * pageSize; // 첫 매핑 -> 20, 두번째 매핑 -> 30 , ...
@@ -127,7 +124,6 @@ public class BoardController {
 
 			return postList;
 		}
-		
 		
 	// 게시글 상세 조회
 	@GetMapping("/{boardCode}/{boardNo}")

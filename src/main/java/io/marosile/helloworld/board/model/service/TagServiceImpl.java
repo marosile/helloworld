@@ -75,6 +75,18 @@ public class TagServiceImpl implements TagService{
 	}
 
 
+	@Override
+	public List<Tag> selectTagNos(int boardNo) {
+		return dao.selectTagNos(boardNo);
+	}
+
+	@Override
+	public int deleteTag(Map<String, Object> map) {
+
+		return dao.deleteTag(map);
+	}
+
+
 
 }
 

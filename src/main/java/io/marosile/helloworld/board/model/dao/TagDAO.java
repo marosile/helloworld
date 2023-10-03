@@ -44,5 +44,15 @@ public class TagDAO {
 		return sqlSession.selectList("tagMapper.tagSelect", rec);
 	}
 
+	public int deleteTag(Map<String, Object> map) {
+		System.out.println("dao2");
+		return sqlSession.delete("tagMapper.deleteTag", map);
+	}
+
+	public List<Tag> selectTagNos(int boardNo) {
+		System.out.println("dao");
+	 return sqlSession.selectList("tagMapper.selectTagNos", boardNo);
+	}
+
 
 }

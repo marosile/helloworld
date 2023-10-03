@@ -38,5 +38,9 @@ public interface TagService {
 	 */
 	List<Tag> tagSelects2(Recruit rec);
 
+	int deleteTag(Map<String, Object> map);
+
+	List<Tag> selectTagNos(int boardNo);
+
 
 }
