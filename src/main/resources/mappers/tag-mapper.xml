@@ -81,5 +81,16 @@
 		UPDATE SET t.TAG_NM = #{tagName}
 		WHERE tr.ITEM_NO = ${boardNo} AND t.TAG_NO = ${tagNo}
 	</update>
+	
+	<select id="selectTagNos" resultType="string">
+		SELECT TAG_NO
+	    FROM TAG_RELATION 
+	    WHERE ITEM_NO = #{boardNo}
+	</select>
+	
+	<delete id="deleteTag">
+    DELETE FROM TAG
+    WHERE TAG_NM = #{tagName} AND TAG_NO IN (${tagNosString})
+	</delete>
 
 </mapper>

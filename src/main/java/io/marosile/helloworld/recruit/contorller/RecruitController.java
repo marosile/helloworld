@@ -70,8 +70,6 @@ public class RecruitController {
 				// 매칭 공고들 가져오기
 				List<Recruit> matchingRecruitList = service2.matchingRecruit(EmploymentTest);
 				
-				System.out.println(matchingRecruitList);
-				
 				int boardType = 3; // 채용공고 == 3
 		
 				List<List<Tag>> tagLists = new ArrayList<>();
@@ -179,7 +177,8 @@ public class RecruitController {
 	@PostMapping("/post")
 	public String postRecruit(@SessionAttribute("loginMember") Member loginMember
 							 ,@ModelAttribute("recruit") Recruit recruit
-							 ,@RequestParam(name = "tagInputs", required = false) List<String> tags) {
+							 ,@RequestParam(name = "tagInputs", required = false) List<String> tags
+							 ,Model model) {
 		
 		
 		recruit.setMemberId(loginMember.getMemberId());
@@ -206,6 +205,10 @@ public class RecruitController {
 			}
 			int result = service3.tagInsert2(tagList); // 태그 삽입
 		}
+		 List<Recruit> recruitList = service.allRecruitList();
+		 
+		 model.addAttribute("recruitList", recruitList);
+		 
 		return "recruit/allnotice-list";
 	}
 	

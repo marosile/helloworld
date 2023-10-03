@@ -14,8 +14,17 @@
 
    <script src="https://kit.fontawesome.com/98acdabf0d.js" crossorigin="anonymous"></script>
 
-   <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-   
+   <script src="https://unpkg.com/hangul-js" type="text/javascript"></script>
+
+   <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+   integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+   crossorigin="anonymous"></script>
+
+   <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"
+   integrity="sha256-lSjKY0/srUM9BE3dPm+c4fBo1dky2v27Gdjm2uoZaL0="
+   crossorigin="anonymous"></script>
+
+
 </head>
 
 <body>
@@ -60,16 +69,11 @@
                 <input type="text" id="jobTitleInput" name="jobField" placeholder="구하고자 하는 직무명을 입력해주세요.">
             </div>
 
-            <!-- 직무에 맞는 태그 선택 -->
+            <!-- 태그 -->
             <div id="tagsContainer">
-
-                <div id="tagText"># 기술 태그 추가</div>
-
                 <div id="tagsDiv">
-              
-
+                    <input type="text" id="inputTag" placeholder="#태그를 입력해주세요.">
                 </div>
-
             </div>
 
             <!-- 기업 소개 -->

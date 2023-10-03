@@ -1,58 +1,130 @@
-/* $(document).ready(function() {
-    $('#summernote').summernote({
-        width: 900,
-        height: 500,
-        focus: true,
-        lang: "ko-KR",
-        disableResizeEditor: true,
-        placeholder: '내용을 입력해 주세요.'
-    });
 
-});
- */
 const uploadForm = document.getElementById("uploadForm");
 const boardTitle = document.getElementById("boardTitle");
 const boardContent = document.getElementById("summernote");
 
-document.addEventListener("DOMContentLoaded", function() {
-    const tagsDiv = document.getElementById("tagsDiv");
-    
-    const maxTags = 5;
+const input = $('#inputTag');
 
-    document.getElementById("tagText").addEventListener("click", function() {
-        if (tagsDiv.children.length < maxTags) {
-            const inputTag = document.createElement("input");
-            inputTag.type = "text";
+const tagInputs = document.getElementsByName("tagInputs");
+const maxTags = 5;
 
-            // 클래스 추가
-            inputTag.classList.add("tagInputs");
-            
-            // name 추가 -> controller로
-            inputTag.setAttribute("name", "tagInputs");
+$(document).ready(function() {
 
-            // 각각의 input 요소에 다른 placeholder 설정
-            if (tagsDiv.children.length === 0) {
-                inputTag.placeholder = "#태그1";
-            } else if (tagsDiv.children.length === 1) {
-                inputTag.placeholder = "#태그2";
-            } else if (tagsDiv.children.length === 2) {
-                inputTag.placeholder = "#태그3";
-            } else if (tagsDiv.children.length === 3) {
-                inputTag.placeholder = "#태그4";
-            } else {
-                inputTag.placeholder = "#태그5";
+    var setting = {
+      width:900,
+      minHeight : 500,
+      focus : true,
+      lang : 'ko-KR',
+      disableHtml: true,
+      disableResizeEditor: true,
+      placeholder: '내용을 입력해 주세요.',
+      //콜백 함수
+      callbacks : { 
+          onImageUpload : function(files, editor, welEditable) {
+      // 파일 업로드(다중업로드를 위해 반복문 사용)
+      for (var i = files.length - 1; i >= 0; i--) {
+      uploadSummernoteImageFile(files[i],
+      this);
+              }
+          }
+      }
+   
+  };
+
+  $('#summernote').summernote(setting);
+
+  $.ajax({
+      type: 'post',
+      url: '/tag/list',
+      dataType: 'json',
+      success: function (data) {
+
+          let tagList = $.map(data, function (item) {
+              chosung = "";
+              Hangul.d(item, true).forEach(function (strItem, index) {
+                  if (strItem[0] != " ") chosung += strItem[0];
+              });
+              return {
+                  label: chosung + "|" + item,
+                  value: item,
+                  chosung: chosung
+              }
+          });
+
+          const uniqueValues = {};
+
+          // tagList의 key값을 비교해서 중복제거
+          for (const item of tagList) {
+            const value = item.value.toUpperCase();
+            if (!uniqueValues[value]) {
+              uniqueValues[value] = item;
             }
+          }
+          
+          // Convert the uniqueValues object back to an array
+          const uniqueTagList = Object.values(uniqueValues);
+          console.log(uniqueTagList);
 
-            tagsDiv.appendChild(inputTag);
-
-            // 태그 추가 후에만 snackbar를 표시
-            if (tagsDiv.children.length >= maxTags) {
-                snackbar('태그는 5개까지 입력 가능합니다.', 'rgb(0, 128, 255)', '/resources/images/moon.png');
-            }
-        
+          input.autocomplete({
+            source: uniqueTagList,
+            select: function (event, ui) { console.log(ui.item.label + " 선택 완료"); },
+            focus: function (event, ui) { return false; }
+        }).autocomplete("instance")._renderItem = function (ul, item) {
+            return $("<li>").append("<div>" + item.value + "</div>").appendTo(ul);
+        };
+      
         }
-    });
+  });
+  input.on("keyup", function () {	//검색창에 뭔가가 입력될 때마다
+      value = input.val();	//입력된 값 저장
+      input.autocomplete("search", Hangul.disassemble(value).join("").replace(" ", ""));	//자모 분리후 띄어쓰기 삭제
+  });
+})
+
+$('#inputTag').keydown(function(event) {
+  
+    if (event.keyCode === 13) {
+        const val = $(this).val().replace(' ', '&nbsp;'); // 공백 유지
+        if (!val.length) {
+          event.preventDefault(); // 입력이 비어있으면 엔터 키 동작 막기
+          return;
+        }
+        if ($('#tagsContainer #tagsDiv span').length >= 5) {
+          event.preventDefault(); // 5개 이상의 태그가 입력되면 엔터 키 동작 막기
+          snackbar('태그는 5개까지 입력 가능합니다.', 'rgb(0, 128, 255)', '/resources/images/moon.png');
+          return;
+        }
+      } 
+  
+    if (event.keyCode === 13) {
+      event.preventDefault();
+      const val = $(this).val().replace(' ', '&nbsp;');
+      if (!val.length) return;
+      $('#tagsContainer #tagsDiv').append(`<span onClick="$(this).remove()">#` + val + `&nbsp;×<input type="hidden" name="tagInputs" value="` + val + `"></span>`)
+      $(this).val(null);
+  }  else if (event.keyCode === 8 && !$(this).val().length) {
+    // 백스페이스 키 처리 부분 (텍스트 지우기)
+    event.preventDefault();
+    $('#tagsContainer #tagsDiv > span:last-of-type').remove();
+}
 });
+
+  function uploadSummernoteImageFile(file, el) {
+      data = new FormData();
+      data.append("file", file);
+      $.ajax({
+          data : data,
+          type : "POST",
+          url : "/board2/uploadSummernoteImageFile",
+          contentType : false,
+          enctype : 'multipart/form-data',
+          processData : false,
+          success : function(data) {
+              $(el).summernote('editor.insertImage', data.url);
+          }
+      });
+  }
+
 
 
 // form 제출 event 막기
