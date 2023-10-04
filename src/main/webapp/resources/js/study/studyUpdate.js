@@ -213,10 +213,6 @@ function displayArea(area) {
     });
 
 }
-
-
-
-
 const BtnDelet = document.getElementById("BtnDelete");
 
 if(BtnDelet!=null){
@@ -226,3 +222,5 @@ if(BtnDelet!=null){
             location.href = location.href.replace("/update/", "/");
     })
 }
+
+
