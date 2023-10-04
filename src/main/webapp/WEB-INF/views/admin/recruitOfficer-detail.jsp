@@ -24,6 +24,7 @@
     <jsp:include page="/WEB-INF/views/common/header.jsp"/>
 
     <main id="body-area">
+    
 
         <c:choose>
             <c:when test="${recruitOfficerDetail.cmpnFl == 'N'}">
