@@ -33,7 +33,35 @@
             <div class="slide-bullet"></div>
             <div class="slide-bullet"></div>
         </div>
-        <div id="content" class="page">
+        <div id="content">
+            <div id="feeds">
+                <div class="feed">
+                    <div class="member">
+                        <div class="profile">
+                            <img src="/resources/images/member/20230925164648_12280.png">
+                        </div>
+                        <div class="info">
+                            <div class="nickname">이름</div>
+                            <div class="relation">팔로우한 회원</div>
+                        </div>
+                        <div class="create-date">날짜</div>
+                    </div>
+                    <h3 class="head">제목</h3>
+                    <div class="content">내용</div>
+                    <div class="interaction">
+                        <div class="like">좋아요</div>
+                        <div class="comment">댓글</div>
+                        <div class="bookmark">북마크</div>
+                    </div>
+                </div>
+                <div>
+                    <h3>제목</h3>
+                    <div>내용</div>
+                </div>
+            </div>
+            <div id="side">
+
+            </div>
         </div>
 	</main>
     <jsp:include page="/WEB-INF/views/common/footer.jsp"/>

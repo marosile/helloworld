@@ -61,7 +61,101 @@ main {
 }
 
 #content {
-    width: 1000px;
-    height: 500px;
+    display: flex;
     margin-top: 20px;
+}
+
+#feeds {
+    display: flex;
+    flex-direction: column;
+    width: 576px;
+}
+
+#feeds > div {
+    padding: 15px;
+    border: 1px solid var(--divider);
+    border-radius: 10px;
+    background-color: rgb(255, 255, 255);
+}
+
+#feeds > div:not(div:first-of-type) {
+    margin-top: 10px;
+}
+
+#side {
+    width: 324px;
+    height: 512px;
+    margin-left: 20px;
+    border: 1px solid var(--divider);
+    border-radius: 10px;
+    background-color: rgb(255, 255, 255);
+}
+
+.feed .member {
+    display: flex;
+}
+
+.feed .profile {
+    width: 60px;
+    height: 60px;
+    border: 1px solid var(--divider);
+    border-radius: 50%;
+    background-color: var(--divider);
+    overflow: hidden;
+}
+
+.feed .profile > img {
+    height: 100%;
+}
+
+.feed .info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 10px;
+}
+
+.feed .nickname {
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.feed .relation {
+    font-size: 12px;
+}
+
+.feed .create-date {
+    margin: auto;
+    margin-top: 0;
+    margin-right: 0;
+    font-size: 14px;
+}
+
+.feed .head {
+    margin-top: 20px;
+}
+
+.feed .content {
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--divider);
+}
+
+.feed .interaction {
+    display: flex;
+    height: 30px;
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+.feed .like {
+    margin-right: 10px;
+}
+
+.feed .comment {
+    margin-right: 10px;
+}
+
+.feed .bookmark {
+    margin: auto;
+    margin-right: 0;
 }
