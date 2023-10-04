@@ -176,7 +176,8 @@
     border: 2px solid var(--divider);
     border-radius: 10px;
 
-    
+    margin-right:8px;
+
     margin-top: 15px;
     text-align: center; 
 }
