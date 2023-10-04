@@ -14,7 +14,7 @@
         </div>
         <div class="login-inputAll">
             <label for="login-inputPw" class="login-inputName">비밀번호</label>
-            <input type="text" name="memberPw" id="login-inputPw" class="login-inputClass" autocomplete="off"
+            <input type="password" name="memberPw" id="login-inputPw" class="login-inputClass" autocomplete="off"
                    placeholder="비밀번호를 입력해주세요">
         </div>
         <c:if test="${!empty cookie.idSave.value}">

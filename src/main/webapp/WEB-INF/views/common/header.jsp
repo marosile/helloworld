@@ -128,7 +128,7 @@
             <a href="/recruit/list" servlet-link="recruit">채용</a>
             <a href="/lecture" servlet-link="lecture">강의</a>
             <a href="/study/main" servlet-link="study">스터디</a>
-            <a href="/admin/adminMember" servlet-link="admin">관리자(임시)</a>
+            <a href="/admin/adminMember" servlet-link="admin">관리자</a>
         </div>
     </div>
     <div id="header-right">
