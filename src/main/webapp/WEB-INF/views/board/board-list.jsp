@@ -59,7 +59,13 @@
                 <c:if test="${boardCode == 3}">Q&A 게시판 💁‍♀️</c:if>
             </div>
 
-            <button id="boardInsert">작성하기</button>
+                <c:if test="${boardCode == 1 || boardCode == 2}">
+                    <button id="boardInsert">작성하기</button>
+                </c:if>
+
+                <c:if test="${boardCode == 3}">
+                    <button id="boardInsert">질문하기</button>
+                </c:if>
 
             
             </form>

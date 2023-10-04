@@ -51,10 +51,21 @@
 
             <div class="comment-write-area">
                 <textarea id="commentContent"></textarea>
-                <button id="addComment">
-                    댓글<br>
-                    등록
-                </button>
+
+                <c:if test="${boardCode == 1 || boardCode == 2}">
+                    <button id="addComment">
+                        댓글<br>
+                        등록
+                    </button>
+                </c:if>
+
+                <c:if test="${boardCode == 3}">
+                    <button id="addComment">
+                        답변<br>
+                        하기
+                    </button>
+                </c:if>
+
             </div>
 
     </div>
