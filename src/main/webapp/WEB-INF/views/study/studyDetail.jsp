@@ -198,13 +198,7 @@
                     <!-- 공유하기 및 문의하기 버튼 -->
                     <div class="P-profile-buttons">
 
-                        <c:if test="${result == 1}">
-                            <button id="contact-button" >문의완료</button>
-                        </c:if>
 
-                        <c:if test="${result == 0}">
-                            <button id="contact-button" >문의하기</button>
-                        </c:if>
 
                         <c:if test="${empty followCheck}">
                             <button id="share-button"><i class="fa-solid fa-user-plus">
@@ -214,6 +208,13 @@
                         <c:if test="${!empty followCheck}">
                             <button id="share-button"><i class="fa-solid fa-check">
                                 <span id="followingSpan">팔로잉</span></i></button>
+                        </c:if>
+                        <c:if test="${result == 1}">
+                            <button id="contactY-button" >문의완료</button>
+                        </c:if>
+
+                        <c:if test="${result == 0}">
+                            <button id="contact-button" >문의하기</button>
                         </c:if>
 
 
