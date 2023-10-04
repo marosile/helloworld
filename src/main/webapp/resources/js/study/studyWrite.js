@@ -18,6 +18,17 @@ selectBoxRole.addEventListener("click", (e) => {
 });
 
 
+// 작성취소
+
+const BtnDelete = document.getElementById("BtnDelete");
+
+BtnDelete.addEventListener("click", () => {
+
+    if(confirm("작성취소하시겠습니까? 작성한 내용은 저장되지 않습니다.")){
+        location.href="/study/main";
+    }
+})
+
 
 /*
 // 카테고리 - 목적 클릭 했을때
@@ -86,16 +97,7 @@ personBtn.addEventListener("click", (e) => {
 
 
 })
-// 작성취소
 
-const BtnDelete = document.getElementById("BtnDelete");
-
-BtnDelete.addEventListener("click", () => {
-
-    if(confirm("작성취소하시겠습니까? 작성한 내용은 저장되지 않습니다.")){
-        location.href="/study/main";
-    }
-})
 // 작성하기
 const BtnModify = document.getElementById("BtnModify");
 const titleTextarea = document.getElementById("P-body-title-textarea");
@@ -127,7 +129,6 @@ BtnModify.addEventListener("click",e =>{
         return;
     }
 })
-
 
 // 지도에 폴리곤으로 표시할 영역데이터 배열입니다
 var areas = [];

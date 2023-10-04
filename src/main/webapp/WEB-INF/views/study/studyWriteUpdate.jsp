@@ -149,7 +149,7 @@
             <div class="P-body-controller">
                 <div class="P-body-controller-Btn">
                     <button id="BtnModify" type="submit">수정완료</button>
-                    <button id="BtnDelete">수정취소</button>
+                    <button  type="button" id="BtnDelete">수정취소</button>
                 </div>
 
             </div>
