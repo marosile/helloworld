@@ -8,6 +8,11 @@
     justify-content: center;
 }
 
+#body-area{
+  display: flex;
+  justify-content: center;
+}
+
 #main-area > div{
     margin: 20px 0;
     margin-left: 35px;

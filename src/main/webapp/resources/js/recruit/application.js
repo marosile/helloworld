@@ -116,4 +116,6 @@ document.getElementById("boardWriteFrm").addEventListener("submit", function (e)
         companyHomePageAddressInput.focus();
         return;
     }
+
+    alert("신청이 완료 되었습니다.")
 });
