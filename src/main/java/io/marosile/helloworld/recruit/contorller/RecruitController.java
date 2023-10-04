@@ -45,7 +45,7 @@ public class RecruitController {
 	
 	@Autowired
 	private TagService service3;
-	
+	///d
 	
 	@GetMapping("/list")
 	private String recruitTestMainOrRecruitDetail(@SessionAttribute(value = "loginMember", required = false) Member loginMember
