@@ -37,7 +37,7 @@
 
 
             <div id="main-area">
-                <p id="title3" class="title"><i class="fa-solid fa-building"></i></i>기업 담당자 신청 관리</p>
+                <p id="title3" class="title"><i class="fa-solid fa-building"></i></i> 기업 담당자 신청 관리</p>
                 <div id="company-name" class="companyName" name="cmpnNm">${recruitOfficerDetail.cmpnNm}</div>
                 <div class="info" id="info1">
                     <span>담당자 : </span>
