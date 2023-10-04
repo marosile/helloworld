@@ -110,7 +110,7 @@
                 <p id="report-title">게시글 신고</p>
 
                 <div id="report-area2">
-                    <p>게시글을 신고하는 이유를 작성해주세요 <i class="fa-solid fa-face-sad-tear"></i></p>
+                    <p>게시글을 신고하는 이유를 <작성해주세요></작성해주세요> <i class="fa-solid fa-face-sad-tear"></i></p>
                     <textarea id="report-content"></textarea>
                 </div>
 

@@ -155,12 +155,12 @@
                         <c:forEach items="${board}" var="board" begin="0" end="9">
 
 
-                            <a href="/board/${boardCode}/${board.boardNo}">
+                            <a href="/board/${boardCode}/${board.profileImage}">
 
                             <div class="posts"> <!-- height:250 px; -->
                                 <!-- 하나 중 이미지 + 작성자 + 직군 + 몇분전 양식-->
                                 <div class="postFirstpart">
-                                    <img src="/resources/images/logo.svg" class="writerImages">
+                                    <img src="${board.profileImage}" class="writerImages">
                                     <div class="firstPartRight">
                                         <div>${board.memberNickname} </div>
                                         

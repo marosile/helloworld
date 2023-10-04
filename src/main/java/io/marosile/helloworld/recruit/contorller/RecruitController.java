@@ -45,11 +45,10 @@ public class RecruitController {
 	
 	@Autowired
 	private TagService service3;
-	///d
 	
 	@GetMapping("/list")
 	private String recruitTestMainOrRecruitDetail(@SessionAttribute(value = "loginMember", required = false) Member loginMember
-												,Model model) {
+												  ,Model model) {
 		
 		// 테스트 했는지 조회
 		
@@ -226,34 +225,39 @@ public class RecruitController {
 	}
 	
 	// 기업 담당자 신청 등록
-		@PostMapping("/application")
-		public String postApplication(@RequestParam(value = "image", required=false) MultipartFile image
-									 ,@SessionAttribute("loginMember") Member loginMember 
-									 ,@ModelAttribute Company company
-									 ,HttpSession session) {
-			
-			company.setMemberId(loginMember.getMemberId());
-			
-			company.setCompanyLogo(image.getOriginalFilename());
-			
-			String webPath = "/resources/images/recruit/";
-			String filePath = session.getServletContext().getRealPath(webPath); // 실제 저장 경로
-		    
-			try {
-		        // 파일 저장 경로와 파일 이름 설정
-				String savePath = filePath + File.separator + company.getCompanyLogo();
-		        File saveFile = new File(savePath);
+	@PostMapping("/application")
+	public String postApplication(@RequestParam(value = "image", required=false) MultipartFile image
+								 ,@SessionAttribute("loginMember") Member loginMember 
+								 ,@ModelAttribute Company company
+								 ,HttpSession session
+								 ,Model model) {
+		
+		company.setMemberId(loginMember.getMemberId());
+		
+		company.setCompanyLogo(image.getOriginalFilename());
+		
+		String webPath = "/resources/images/recruit/";
+		String filePath = session.getServletContext().getRealPath(webPath); // 실제 저장 경로
+	    
+		try {
+	        // 파일 저장 경로와 파일 이름 설정
+			String savePath = filePath + File.separator + company.getCompanyLogo();
+	        File saveFile = new File(savePath);
 
-		        // 파일을 지정된 경로에 저장
-		        image.transferTo(saveFile);
+	        // 파일을 지정된 경로에 저장
+	        image.transferTo(saveFile);
 
-		        int result = service2.companyInsert(company);
-		        
-		    } catch (IOException e) {
-		        e.printStackTrace();
-		    }
-			
-			return "recruit/notice-list";
-		}
+	        int result = service2.companyInsert(company);
+	        
+	    } catch (IOException e) {
+	        e.printStackTrace();
+	    }
+		
+		List<Recruit> recruitList = service.allRecruitList();
+		 
+		model.addAttribute("recruitList", recruitList);
+		 
+		return "recruit/allnotice-list";
+	}
 	
 }
