@@ -5,12 +5,61 @@
 
 <script>
     let loginMember;
-    <c:if test="${!empty loginMember}">
-    loginMember = {'memberId' : '${loginMember.memberId}',
-        'memberNick' : '${loginMember.memberNick}',
-        'memberEmail' : '${loginMember.memberEmail}'};
-    </c:if>
+    let socket
 </script>
+
+<c:if test="${!empty loginMember}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.7.2/socket.io.min.js"
+            integrity="shaF512-Xm9qbB6Pu06k3PUwPj785dyTl6oHxgsv9nHp7ej7nCpAqGZT3OZpsELuCYX05DdonFpTlBpXMOxjavIAIUwr0w=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        loginMember = {
+            'memberId': '${loginMember.memberId}',
+            'memberNick': '${loginMember.memberNick}',
+            'memberEmail': '${loginMember.memberEmail}',
+            'profileImg': '${loginMember.profileImg}'
+        };
+
+        socket = io('211.224.159.21:8080');
+
+        socket.on('connect', function () {
+            console.log('Socket Connected.')
+            $.ajax({
+                url: '/chat/getChatRooms',
+                type: 'post',
+                dataType: 'json',
+                data: {'memberId': loginMember.memberId},
+                success: (result) => {
+                    for (let i of result) {
+                        socket.emit('joinRoom', i.chatRoomNo);
+                    }
+                    addRoom(id);
+                    return result;
+                },
+                error: (error) => {
+                    console.log(error);
+                }
+            });
+        });
+        socket.on('disconnect', function () {
+            console.log('Socket Disconnected.');
+        });
+        socket.on('message', function(data) {
+            if (data.memberId === loginMember.memberId) return;
+            $('#chat-message-container').append(`<div class="message other">
+                                                    <div class="message-profile">
+                                                        <img src="` + data.profileImg + `">
+                                                    </div>
+                                                    <div class="message-content">
+                                                        <h5>` + data.memberNick + `</h5>
+                                                        <span>` + data.messageContent + `</span>
+                                                    </div>
+                                                    <p>` + formatTime(new Date()) + `</p>
+                                                </div>`);
+            $('#chat-message-container').scrollTop($('#chat-message-container').prop('scrollHeight'));
+        });
+    </script>
+</c:if>
 
 <jsp:include page="/WEB-INF/views/common/snack-bar.jsp"/>
 
@@ -38,23 +87,14 @@
                 <div id="social-following"></div>
             </div>
             <div id="chat">
-                <h2>채팅</h2>
-                <div id="chat-rooms">
-                    <div class="chat-room">
-                        <div class="chat-room-thumbnail">
-                        </div>
-                    </div>
-                    <div class="chat-room">
-                        <div class="chat-room-thumbnail">
-                        </div>
-                        <div class="chat-room-content">
-                            <h3 class="chat-room-title">asdf</h3>
-                            <p class="chat-room-message">123</p>
-                        </div>
-                    </div>
-                </div>
+                <div id="chat-rooms"><h2>채팅</h2></div>
                 <div id="chat-message">
-                    <div id="chat-message-container"></div>
+                    <div id="chat-message-info">
+                        <h2></h2>
+                        <img src="/resources/images/back.png">
+                    </div>
+                    <div id="chat-message-container">
+                    </div>
                     <input id="chat-message-input">
                 </div>
             </div>
@@ -118,11 +158,11 @@
 </header>
 
 <body>
-    <div class="modalArea">
-        <div>
-            <jsp:include page="/WEB-INF/views/common/modal/login.jsp"/>
-        </div>
+<div class="modalArea">
+    <div>
+        <jsp:include page="/WEB-INF/views/common/modal/login.jsp"/>
     </div>
+</div>
 </body>
 
 
