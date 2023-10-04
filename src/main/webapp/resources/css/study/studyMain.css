@@ -268,10 +268,12 @@
     display: flex;
     font-size: 13px;
     margin: 8px 0 10px 5px;
+    width: 300px;
 
     overflow:hidden;
     text-overflow:ellipsis;
     white-space:nowrap;
+
 }
 
 #search{
@@ -813,6 +815,7 @@
 .post{
     margin:20px 0;
     height:80px;
+    width: 300px;
     display:flex;
     flex-direction: column;
     justify-content: center;

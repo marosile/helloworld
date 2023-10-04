@@ -51,4 +51,9 @@ public interface StudyService {
 
     // 좋아요 처리 (메인)
     int mainLike(Map<String, Object> map);
+
+    int studyMessage(Map<String, Object> map);
+
+    // 모집완료
+    int studyMessageSelect(Map<String, Object> map);
 }

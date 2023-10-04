@@ -20,6 +20,7 @@
         <result property="memberId" column="MEMBER_ID"/>
         <result property="memberNickname" column="MEMBER_NICK"/>
         <result property="memberProfileImg" column="PROFILE_IMG"/>
+        <result property="memberTel" column="MEMBER_TEL"/>
 
         <result property="location" column="LOCATION"/>
         <result property="headCount" column="HEAD_COUNT"/>
@@ -99,6 +100,8 @@
     <select id="studyDetail" resultMap="StudyResultMap">
         SELECT S.STUDY_STATUS
              , B.BOARD_NO
+             , M.MEMBER_TEL
+
              , M.MEMBER_NICK
              , S.HEAD_COUNT
              , B.MEMBER_ID
@@ -565,5 +568,14 @@
         WHERE (MEMBER_EMAIL LIKE '%${query}%' OR MEMBER_NICK LIKE '%${query}%')
           AND DELETED_FL = 'N'
           AND MEMBER_ID != ${memberId}
+    </select>
+
+    <!-- 스터디 문의하기 -->
+    <insert id="messageUpdate"  parameterType="Study">
+        INSERT INTO "STUDY_MESSAGE" VALUES(#{boardNo},#{memberId})
+    </insert>
+
+    <select id="studyMessageSelect" resultType="_int">
+        SELECT COUNT(*) FROM STUDY_MESSAGE WHERE BOARD_NO =#{boardNo} AND MEMBER_ID=#{memberId}
     </select>
 </mapper>

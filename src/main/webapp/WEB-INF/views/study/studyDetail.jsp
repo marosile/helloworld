@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="/resources/css/common/general.css">
     <link rel="stylesheet" href="/resources/css/index.css">
     <link rel="stylesheet" href="/resources/css/study/studyDetail.css">
+    <link rel="stylesheet" href="/resources/css/study/studyChatting.css">
     <script src="https://kit.fontawesome.com/98acdabf0d.js" crossorigin="anonymous"></script>
 
 
@@ -168,7 +169,6 @@
 
                     <!-- 이름 및 회사 정보 -->
                     <p>${loginMember.memberNick}</p>
-                    <p>KH정보교육원</p>
 
                     <!-- 수정하기/모집하기버튼 -->
                     <div class="P-profile-buttons">
@@ -193,11 +193,18 @@
 
                     <!-- 이름 및 회사 정보 -->
                     <p>${studyDetail.memberNickname}</p>
-                    <p>KH정보교육원</p>
+
 
                     <!-- 공유하기 및 문의하기 버튼 -->
                     <div class="P-profile-buttons">
-                        <button id="contact-button">채팅하기</button>
+
+                        <c:if test="${result == 1}">
+                            <button id="contact-button" >문의완료</button>
+                        </c:if>
+
+                        <c:if test="${result == 0}">
+                            <button id="contact-button" >문의하기</button>
+                        </c:if>
 
                         <c:if test="${empty followCheck}">
                             <button id="share-button"><i class="fa-solid fa-user-plus">
@@ -216,6 +223,50 @@
 
             </c:if>
 
+                <div class="Follow-area" id="Follow-area">
+                    <span id="close">&times</span>
+
+                    <p id="Follow-title">문의하기</p>
+
+                    <div id="Follow-area2">
+                        <p>친구와 같이 스터디하기를 원한다는걸 알려주세요!📧</p>
+
+                        <div class="followList">
+
+                            <div class="FollowArea">
+                                <div class="FollowContainer">
+                                    <c:if test="${empty studyDetail.memberProfileImg}">
+                                        <div><img src="/resources/images/user.png" class="replyImages"></div>
+                                    </c:if>
+
+                                    <c:if test="${!empty studyDetail.memberProfileImg}">
+                                        <div><img src="${studyDetail.memberProfileImg}" class="replyImages"></div>
+                                    </c:if>
+
+                                    <span id="FollowWriter">${studyDetail.memberNickname}</span>
+
+                                </div>
+
+
+                            </div>
+                            `
+
+                            <div id="Follow-button-area-contact">
+                                <input type="text" placeholder="스터디를 같이 하고 싶다면 문의하기를 누르면 회원님께 메세지가 발송됩니다.">
+                            </div>
+
+                            <div id="Follow-button-area">
+                                <button id="reportBtn" >문의하기</button>
+                            </div>
+
+
+                        </div>
+
+
+
+                    </div>
+
+                </div>
             <input type="hidden" id="loginMemberId" value="${loginMember.memberId}"/>
             <input type="hidden" id="boardNo" value="${studyDetail.boardNo}"/>
             <input type="hidden" id="userId" value="${studyDetail.memberId}"/>

@@ -29,6 +29,7 @@ public class Study {
     private String modifyDate;
     private String deletedFl;
     private int readCount;
+    private String memberTel;
 
 
     // member
