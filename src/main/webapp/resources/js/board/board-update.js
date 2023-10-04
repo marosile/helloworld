@@ -110,7 +110,6 @@ $('#inputTag').keydown(function(event) {
 });
 
 $(document).on('click', 'span', function () {
-    alert("test");
     const tagName = $(this).text(); // 클릭한 스팬의 텍스트 값 얻기
     const trimmedTagName = tagName.replace(/#/g, '').replace(/×/g, '').trim();
     // tagText 변수를 사용하여 원하는 처리 수행
