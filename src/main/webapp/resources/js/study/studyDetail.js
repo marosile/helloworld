@@ -3,9 +3,7 @@ const contactBtn=document.getElementById("contact-button");
 
 if(contactBtn!=null){
     contactBtn.addEventListener("click",()=>{
-        if(confirm("친구와 같이 스터디하기를 원한다는걸 문자로 알려주세요!📧")){
-            
-            
+        if(confirm("친구와 같이 스터디 하기 원하면 확인 버튼을 눌러주세요!\n친구에게 문자로 알림이 갑니다!📧")){
 
             fetch("/study/detail/"+boardNo+"/message",{
                 method:"POST",

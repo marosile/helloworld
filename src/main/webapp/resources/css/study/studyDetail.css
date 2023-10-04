@@ -445,7 +445,18 @@
     border-radius: 5px;
     cursor: pointer;
 }
+#completeBtny {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: rgb(77, 77, 77);
+    color: white;
+    font-size: 16px;
 
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
 
 
 .P-study-datail-footer-area {
