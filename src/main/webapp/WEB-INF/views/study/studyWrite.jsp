@@ -140,7 +140,7 @@
             </div>
 
             <div id="P-body-container-location">
-                <div class="h5"><span>*</span> 위치</div>
+                <div class="h5"><span>*</span> 위치 (선택하지 않으면 서울전체로 등록됩니다.)</div>
                 <div id="map"></div>
                 <input type="hidden" id="mapVal" name="location">
 
