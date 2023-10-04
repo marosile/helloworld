@@ -216,5 +216,16 @@ public class StudyServiceImpl implements StudyService {
 		return count;
 	}
 
+	@Override
+	public int studyMessage(Map<String, Object> map) {
+
+		return dao.studyMessage(map);
+	}
+
+	@Override
+	public int studyMessageSelect(Map<String, Object> map) {
+		return dao.studyMessageSelect(map);
+	}
+
 
 }

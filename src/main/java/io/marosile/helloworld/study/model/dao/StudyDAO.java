@@ -37,7 +37,9 @@ public class StudyDAO {
 
     // 스터디 게시글 상세 조회(태그해야함)
     public Study studyDetail(Map<String, Object> map) {
+
         return sqlSession.selectOne("studyMapper.studyDetail",map);
+
     }
 
 
@@ -132,6 +134,14 @@ public class StudyDAO {
 
     public List<Study> selectSearch(Map<String, Object> paramMap) {
         return sqlSession.selectList("studyMapper.selectSearch",paramMap);
+    }
+
+    public int studyMessage(Map<String, Object> map) {
+        return  sqlSession.insert("studyMapper.messageUpdate",map);
+    }
+
+    public int studyMessageSelect(Map<String, Object> map) {
+        return sqlSession.selectOne("studyMapper.studyMessageSelect",map);
     }
 }
 

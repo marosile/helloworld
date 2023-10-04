@@ -1,6 +1,8 @@
 package io.marosile.helloworld.study.controller;
 
+import io.marosile.helloworld.admin.model.dto.AdminDTO;
 import io.marosile.helloworld.board.model.dto.Board;
+import io.marosile.helloworld.common.utility.Util;
 import io.marosile.helloworld.member.model.dto.Member;
 import io.marosile.helloworld.study.model.dto.Study;
 import io.marosile.helloworld.study.model.service.StudyService;
@@ -103,6 +105,10 @@ public class StudyController {
                 if(result2>0){
                     model.addAttribute("followCheck","on");
                 }
+                // 보드 조회
+                int result3 = service.studyMessageSelect(map);
+                    model.addAttribute("result",result3);
+                System.out.println(result);
             }
 
             // 조회
@@ -316,5 +322,41 @@ public class StudyController {
     public int completed(@RequestBody Map<String,Object> map){
         return service.complete(map);
     }
+
+    @PostMapping("/detail/{boardNo}/message")
+    @ResponseBody
+    public String studyMessage(@PathVariable("boardNo") int boardNo
+                               ,@SessionAttribute(value = "loginMember") Member loginMember
+                               ,@SessionAttribute(value = "studyDetail", required = false) Study studyDetail){
+
+        Map<String, Object> map = new HashMap<String, Object>();
+
+        map.put("boardNo", boardNo);
+        map.put("memberId", loginMember.getMemberId());
+
+
+        // studyMessage=Y로 업데이트
+        int result = service.studyMessage(map);
+
+        String path = "0";
+
+        if(result>0){
+
+            Util util = new Util();
+            try{
+                util.adminSendMessage(studyDetail.getMemberTel(),"같이 공부하길 원하는 친구가 있어요!");
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+            path="1";
+
+        }
+
+        return path;
+
+    }
+
+
+
 
 }
