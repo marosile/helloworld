@@ -333,8 +333,11 @@ body{
 
 #chat-rooms {
     height: 100%;
-    padding: 10px 0;
     overflow: scroll;
+}
+
+#chat-rooms > h2 {
+    margin-bottom: 10px;
 }
 
 .chat-room {
@@ -392,6 +395,7 @@ body{
     border: 1px solid var(--divider);
     border-radius: 24px;
     transition-duration: 0.5s;
+    cursor: pointer;
 }
 
 .social-member:not(div:first-of-type) {
@@ -409,4 +413,111 @@ body{
 
 .social-member-nick {
     font-size: 16px;
+}
+
+.chat-room {
+    cursor: pointer;
+}
+
+.chat-room-thumbnail > img {
+    height: 100%;
+}
+
+#chat {
+    height: 100%;
+}
+
+#chat-message {
+    height: 100%;
+}
+
+#chat-message-info {
+    display: flex;
+    width: 100%;
+    height: 35px;
+    margin-bottom: 10px;
+}
+
+#chat-message-info > img {
+    position: relative;
+    height: 70%;
+    margin: auto;
+    margin-right: 0;
+    cursor: pointer;
+}
+
+#chat-message-container {
+    height: 395px;
+    padding: 5px 0;
+    border: 1px solid var(--divider);
+    border-radius: 5px;
+    margin-bottom: 10px;
+    overflow: scroll;
+}
+
+#chat-message-input {
+    width: 100%;
+    height: 30px;
+    border: 1px solid var(--divider);
+    border-radius: 5px;
+    outline: none;
+}
+
+.message {
+    display: flex;
+    padding: 5px 0;
+}
+
+.me {
+    flex-direction: row-reverse;
+    text-align: right;
+}
+
+.other {
+    justify-content: flex-start;
+}
+
+.me span {
+    background-color: rgba(0, 128, 255, 0.1);
+}
+
+.other span {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.message-profile {
+    width: 40px;
+    height: 40px;
+    margin: 5px;
+    border-radius: 50%;
+    background-color: var(--divider);
+}
+
+.message-profile > img {
+    width: 100%;
+    height: 100%;
+}
+
+.message-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.message-content > h5 {
+    height: 20px;
+}
+
+.message-content > span {
+    height: 30px;
+    padding: 5px 12px;
+    border-radius: 15px;
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.message > p {
+    align-self: flex-end;
+    padding: 0 5px;
+    margin-bottom: 3px;
+    font-size: 10px;
 }
