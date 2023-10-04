@@ -5,6 +5,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.PropertyNamingStrategy;
+import io.marosile.helloworld.board.model.service.BoardService;
 import io.marosile.helloworld.member.model.dto.GoogleOAuthRequest;
 import io.marosile.helloworld.member.model.dto.GoogleOAuthResponse;
 import io.marosile.helloworld.member.model.dto.Member;
@@ -101,14 +102,10 @@ public class MemberController {
 
 		if(loginMember != null){ // 성공시
 
-			System.out.println("로그인 성공");
 			// 메인페이지 이동
 //			path += "/";
 
 			model.addAttribute("loginMember", loginMember);
-			
-			System.out.println(loginMember + ":::::::::::로그인 멤버 담기니?");
-
 
 			// 쿠키를 이용한 아이디 저장
 			Cookie cookie = new Cookie("idSave", loginMember.getMemberId());
@@ -148,7 +145,6 @@ public class MemberController {
 			result = "1";
 
 		}else{
-			System.out.println("로그인 실패");
 //			path += referer;
 			result = "0";
 

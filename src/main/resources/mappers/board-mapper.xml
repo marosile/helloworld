@@ -401,5 +401,15 @@
 			CONNECT BY PRIOR COMMENT_NO = PARENT_NO 
 			ORDER SIBLINGS BY COMMENT_NO
 	</select>
-	
+
+	<select id="selectFollowingBoardList" resultMap="boardResultMap">
+		SELECT *
+		  FROM BOARD
+		  JOIN BOARD_GENERAL USING(BOARD_NO)
+		  JOIN MEMBER USING(MEMBER_ID)
+		 WHERE MEMBER_ID IN (SELECT FOLLOW_TO
+							   FROM FOLLOW
+							  WHERE FOLLOW_FROM = #{memberId})
+	</select>
+
 </mapper>

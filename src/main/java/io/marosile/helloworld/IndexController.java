@@ -1,5 +1,6 @@
 package io.marosile.helloworld;
 
+import io.marosile.helloworld.board.model.service.BoardService;
 import io.marosile.helloworld.member.model.dto.Member;
 import io.marosile.helloworld.member.model.service.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,7 +25,6 @@ public class IndexController {
 
 		Cookie[] cookies = request.getCookies();
 
-
 		if (cookies != null) {
 			for (Cookie cookie : cookies) {
 				if ("autoLogin".equals(cookie.getName())) {
@@ -36,13 +36,14 @@ public class IndexController {
 					Member loginMember = new Member();
 
 					loginMember = service.login(inputMember);
-					System.out.println("로그인멤버::" + loginMember);
 
 					model.addAttribute("loginMember", loginMember);
 					
 				}
 			}
 		}
+
+
 
 		return "index";
 	}

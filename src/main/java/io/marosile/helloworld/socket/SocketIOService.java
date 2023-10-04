@@ -36,7 +36,6 @@ public class SocketIOService {
             @Override
             public void onData(SocketIOClient socketIOClient, String roomName, AckRequest ackRequest) throws Exception {
                 socketIOClient.joinRoom(roomName);
-                System.out.println(socketIOClient.getAllRooms());
             }
         });
 

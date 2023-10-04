@@ -29,3 +29,19 @@ function slide(d, t) {
         timer = 0;
     }, t - 200)
 }
+
+(() => {
+    if (loginMember === undefined) return;
+    $.ajax({
+        url: '/board/getFeeds',
+        type: 'post',
+        dataType: 'json',
+        data: {'memberId': loginMember.memberId},
+        success: (result) => {
+            console.log(result);
+        },
+        error: (error) => {
+            console.log(error);
+        }
+    });
+})()

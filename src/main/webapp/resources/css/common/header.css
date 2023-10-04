@@ -419,6 +419,11 @@ body{
     cursor: pointer;
 }
 
+.chat-room-thumbnail {
+    border-radius: 50%;
+    overflow: hidden;
+}
+
 .chat-room-thumbnail > img {
     height: 100%;
 }
@@ -490,6 +495,7 @@ body{
     height: 40px;
     margin: 5px;
     border-radius: 50%;
+    overflow: hidden;
     background-color: var(--divider);
 }
 

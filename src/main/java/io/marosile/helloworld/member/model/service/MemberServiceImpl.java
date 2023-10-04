@@ -54,7 +54,7 @@ public class MemberServiceImpl implements MemberService {
             sb.append("grant_type=authorization_code");
 
             sb.append("&client_id=aac73a50e342183e31a5478826ffeffd"); // REST_API키 본인이 발급받은 key 넣어주기
-            sb.append("&redirect_uri=http://localhost/member/login/kakao"); // REDIRECT_URI 본인이 설정한 주소 넣어주기
+            sb.append("&redirect_uri=http://lnx.iptime.org/member/login/kakao"); // REDIRECT_URI 본인이 설정한 주소 넣어주기
 
             sb.append("&code=" + code);
             bw.write(sb.toString());
