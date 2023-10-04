@@ -89,6 +89,9 @@
     overflow-y: scroll;
     min-height: 1000px;
 
+    padding-left: 0px;
+
+
 }
 
 /* 채팅 메시지 컨테이너 스타일 */

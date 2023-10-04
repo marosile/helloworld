@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
         <!DOCTYPE html>
         <html lang="ko">
@@ -12,14 +12,9 @@
             <link rel="stylesheet" href="/resources/css/common/general.css">
             <link rel="stylesheet" href="/resources/css/index.css">
             <link rel="stylesheet" href="/resources/css/study/studyChatting.css">
+            <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 
             <script src="https://kit.fontawesome.com/98acdabf0d.js" crossorigin="anonymous"></script>
-
-
-
-            <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-            <script
-                src="//dapi.kakao.com/v2/maps/sdk.js?appkey=955d027ad541e959373216700e779cf3&libraries=services"></script>
 
         </head>
 
@@ -42,10 +37,10 @@
                             <input type="search" placeholder="닉네임 또는 아이디를 입력해주세요" id="P-studyChatting-query">
                         </div>
 
-                        <div class="P-studyChatting-search-list-area" id="P-studyChatting-search-list-area">
+                        <ul class="P-studyChatting-search-list-area" id="P-studyChatting-search-list-area">
 
-<%--
-                                <div class="P-studyChatting-item">
+
+                                <li class="P-studyChatting-item">
 
                                     <div class="P-studyChatting-item-header">
                                         <img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FQX0NG%2Fbtq4eLx4ioT%2FHIAI77g1dqA3t1ilaoSIzK%2Fimg.jpg"
@@ -71,9 +66,9 @@
                                     </div>
 
 
-                            </div>--%>
+                            </li>
 
-                        </div>
+                        </ul>
 
 
                     </div>
