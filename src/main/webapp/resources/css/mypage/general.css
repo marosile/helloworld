@@ -71,5 +71,6 @@ main {
 #main {
     width: 768px;
     height: 1024px;
+    padding: 30px;
     margin-left: 20px;
 }

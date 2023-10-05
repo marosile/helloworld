@@ -12,7 +12,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>마이페이지-좋아요</title>
     <link rel="stylesheet" href="/resources/css/common/general.css">
-    <link rel="stylesheet" href="/resources/css/index.css">
     <link rel="stylesheet" href="/resources/css/mypage/mypage-like.css">
     <link rel="stylesheet" href="/resources/css/mypage/mypage-nav.css">
     <link rel="stylesheet" href="/resources/css/mypage/mypage-post.css">

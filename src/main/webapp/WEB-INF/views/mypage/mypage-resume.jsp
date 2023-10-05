@@ -11,7 +11,6 @@
 
     <title>마이페이지-이력서</title>
     <link rel="stylesheet" href="/resources/css/common/general.css">
-    <link rel="stylesheet" href="/resources/css/index.css">
     <link rel="stylesheet" href="/resources/css/mypage/mypage-resume.css">
     <link rel="stylesheet" href="/resources/css/mypage/mypage-nav.css">
 

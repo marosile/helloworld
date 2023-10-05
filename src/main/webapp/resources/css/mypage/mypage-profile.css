@@ -1,5 +1,8 @@
 /* 공통 */
 main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     width: 768px;
     border: 1px solid var(--divider);
     border-radius: 10px;

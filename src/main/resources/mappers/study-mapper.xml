@@ -185,8 +185,8 @@
         INTO STUDY VALUES(${studyNo}, #{boardTitle}, #{memberId}, DEFAULT)
         INTO BOARD VALUES(${boardNo}, #{memberId}, #{boardTitle}, #{boardContent}, DEFAULT, NULL, DEFAULT, DEFAULT)
         INTO BOARD_STUDY VALUES(${boardNo}, ${studyNo}, #{location}, ${headCount}, 'N')
-        INTO TAG_RELATION VALUES((SELECT TAG_NO FROM TAG WHERE TAG_NM = #{tagNm}), 0, ${boardNo})
-        INTO TAG_RELATION VALUES((SELECT TAG_NO FROM TAG WHERE TAG_NM = #{tagNm}), 1, ${boardNo})
+        INTO TAG_RELATION VALUES((SELECT TAG_NO FROM TAG WHERE TAG_NM = #{tagNm} AND ROWNUM = 1), 0, ${boardNo})
+        INTO TAG_RELATION VALUES((SELECT TAG_NO FROM TAG WHERE TAG_NM = #{tagNm} AND ROWNUM = 1), 1, ${boardNo})
         SELECT * FROM DUAL
     </insert>
 
@@ -213,7 +213,7 @@
 
     <update id="studyUpdate4" parameterType="Study">
         UPDATE TAG_RELATION
-        SET TAG_NO = (SELECT TAG_NO FROM TAG WHERE TAG_NM = #{tagNm})
+        SET TAG_NO = (SELECT TAG_NO FROM TAG WHERE TAG_NM = #{tagNm} AND ROWNUM = 1)
         WHERE ITEM_NO = ${boardNo}
           AND ITEM_TYPE = 0
     </update>
@@ -221,7 +221,7 @@
 
     <update id="studyUpdate5" parameterType="Study">
         UPDATE TAG_RELATION
-        SET TAG_NO = (SELECT TAG_NO FROM TAG WHERE TAG_NM = #{tagNm})
+        SET TAG_NO = (SELECT TAG_NO FROM TAG WHERE TAG_NM = #{tagNm} AND ROWNUM = 1)
         WHERE ITEM_NO = ${boardNo}
           AND ITEM_TYPE = 1
     </update>
@@ -534,7 +534,7 @@
         <if test="headCount != null">
             AND S.HEAD_COUNT LIKE '%${headCount}%'
         </if>
-        AND S.STUDY_STATUS = 'N'
+        AND S.STUDY_STATUS = 'N' AND B.DELETED_FL = 'N'
         ORDER BY ROWNUM DESC
     </select>
 
