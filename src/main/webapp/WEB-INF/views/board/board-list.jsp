@@ -60,11 +60,11 @@
                 <c:if test="${boardCode == 3}">Q&A 게시판 💁‍♀️</c:if>
             </div>
 
-                <c:if test="${boardCode == 1 && loginMember.authority == 0 || boardCode == 2}">
+                <c:if test="${boardCode == 1 && loginMember.authority == 0 || !empty loginMember && boardCode == 2}">
                     <button id="boardInsert">작성하기</button>
                 </c:if>
 
-                <c:if test="${boardCode == 3}">
+                <c:if test="${!empty loginMember && boardCode == 3}">
                     <button id="boardInsert">질문하기</button>
                 </c:if>
 
