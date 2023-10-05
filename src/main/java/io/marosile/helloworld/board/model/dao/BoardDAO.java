@@ -14,8 +14,12 @@ public class BoardDAO {
     private SqlSessionTemplate session;
 
     public List<Board> selectFollowingBoardList(String memberId) {
-        {
-            return session.selectList("boardMapper.selectFollowingBoardList", memberId);
-        }
+        return session.selectList("boardMapper.selectFollowingBoardList", memberId);
     }
+
+    public List<Board> selectRecentBoardList() {
+        return session.selectList("boardMapper.selectRecentBoardList");
+    }
+
+    public List<Board> selectPopularBoardList() { return session.selectList("boardMapper.selectPopularBoardList"); }
 }

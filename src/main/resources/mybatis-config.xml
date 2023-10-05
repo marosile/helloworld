@@ -11,6 +11,7 @@
 		<typeAlias type="io.marosile.helloworld.board.model.dto.Board" alias="Board" />
 		<typeAlias type="io.marosile.helloworld.board.model.dto.Comment" alias="Comment" />
 		<typeAlias type="io.marosile.helloworld.study.model.dto.Study" alias="Study" />
+		<typeAlias type="io.marosile.helloworld.lecture.model.dto.Lesson" alias="Lesson" />
 		<typeAlias type="io.marosile.helloworld.lecture.model.dto.Lecture" alias="Lecture" />
 		<typeAlias type="io.marosile.helloworld.board.model.dto.Tag" alias="Tag" />
 		<typeAlias type="io.marosile.helloworld.admin.model.dto.AdminDTO" alias="Admin" />

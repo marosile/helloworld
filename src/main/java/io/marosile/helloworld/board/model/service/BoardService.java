@@ -8,4 +8,7 @@ public interface BoardService {
 
     List<Board> selectFollowingBoardList(String memberId);
 
+    List<Board> selectRecentBoardList();
+
+    List<Board> selectPopularBoardList();
 }

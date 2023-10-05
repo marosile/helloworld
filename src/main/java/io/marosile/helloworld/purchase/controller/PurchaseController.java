@@ -15,6 +15,8 @@ import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
+import java.util.HashMap;
+import java.util.Map;
 
 @Controller
 @RequestMapping("/purchase")
@@ -36,8 +38,7 @@ public class PurchaseController {
         .method("POST", HttpRequest.BodyPublishers.ofString("{\"paymentKey\":\"" + paymentKey + "\",\"amount\":" + amount + ",\"orderId\":\"" + orderId + "\"}"))
         .build();
         HttpResponse<String> response = HttpClient.newHttpClient().send(request, HttpResponse.BodyHandlers.ofString());
-
-        System.out.println(response.body());
+        service.updateOrderFlagToSuccess(orderId);
         ra.addFlashAttribute("head", "상품을 구매해 주셔서 감사합니다!");
         ra.addFlashAttribute("message", "마이페이지 - 내 강의에서 확인하실 수 있습니다.");
         return "redirect:" + path;
@@ -50,8 +51,13 @@ public class PurchaseController {
 
     @PostMapping("/generateOrderId")
     @ResponseBody
-    public String generateOrderId() {
-        return service.generateOrderId();
+    public String generateOrderId(int lectureNo, String memberId) {
+        String orderId = service.generateOrderId(memberId);
+        Map<String, Object> map = new HashMap<>();
+        map.put("orderId", orderId);
+        map.put("lectureNo", lectureNo);
+        service.insertOrderLecture(map);
+        return orderId;
     }
 
 }

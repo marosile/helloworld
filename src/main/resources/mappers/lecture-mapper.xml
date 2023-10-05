@@ -11,17 +11,33 @@
         <result property="lectureDifficulty" column="LCTR_DIFF"></result>
         <result property="lecturePrice" column="LCTR_PRICE"></result>
         <result property="lectureSale" column="LCTR_SALE"></result>
+        <collection property="lessons" select="selectLessonList"
+                    column="LCTR_NO" javaType="java.util.ArrayList">
+        </collection>
         <collection property="lectureTags" select="selectLectureTagList"
                     column="LCTR_NO" javaType="java.util.ArrayList">
         </collection>
     </resultMap>
+
+    <resultMap id="lessonResultMap" type="Lesson">
+        <id property="lectureNo" column="LCTR_NO"/>
+        <result property="lessonNo" column="LESSON_NO"></result>
+        <result property="lessonTitle" column="LESSON_TITLE"></result>
+        <result property="videoPath" column="VIDEO_PATH"></result>
+    </resultMap>
+
+    <select id="selectLessonList" resultMap="lessonResultMap">
+        SELECT *
+          FROM LESSON
+         WHERE LCTR_NO = #{lectureNo}
+    </select>
 
     <select id="selectLectureTagList" resultType="String">
         SELECT TAG_NM
           FROM TAG
           JOIN TAG_RELATION USING(TAG_NO)
          WHERE ITEM_TYPE = 2
-           AND ITEM_NO = ${lectureNo}
+           AND ITEM_NO = #{lectureNo}
     </select>
 
     <select id="selectPopularLectureList" resultMap="lectureResultMap">
@@ -70,5 +86,14 @@
         DELETE FROM LECTURE
          WHERE LCTR_NO = ${lectureNo}
     </delete>
+
+    <select id="selectPurchasedLectureList" resultMap="lectureResultMap">
+        SELECT *
+          FROM LECTURE
+          JOIN ORDER_LECTURE USING(LCTR_NO)
+          JOIN ORDER_INFO O USING(ORDER_NO, ORDER_DT)
+         WHERE ORDER_FL = 'Y'
+           AND O.MEMBER_ID = #{memberId}
+    </select>
 
 </mapper>

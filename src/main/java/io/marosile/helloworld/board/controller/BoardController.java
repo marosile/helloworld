@@ -61,6 +61,18 @@ public class BoardController {
         return new ObjectMapper().writeValueAsString(boardService.selectFollowingBoardList(memberId));
     }
 
+    @PostMapping("/getRecents")
+    @ResponseBody
+    public String getRecents() throws JsonProcessingException {
+        return new ObjectMapper().writeValueAsString(boardService.selectRecentBoardList());
+    }
+
+    @PostMapping("/getPopulars")
+    @ResponseBody
+    public String getPopulars() throws JsonProcessingException {
+        return new ObjectMapper().writeValueAsString(boardService.selectPopularBoardList());
+    }
+
     // 게시글 목록 조회 ( posts 10개, 검색어 유무 확인 )
     @GetMapping("/{boardCode:[1-3]}")
     public String boardList(Model model, @PathVariable("boardCode") int boardCode, @RequestParam(value = "searchKeyword", required = false) String searchKeyword) {

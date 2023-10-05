@@ -82,14 +82,44 @@
             </div>
             <div id="content" class="window">
                 <section id="lecture-nav">
-                    <a class="selected">강의 소개</a>
+                    <a href="/lecture/${lecture.lectureNo}">강의 소개</a>
                     <c:if test="${!empty isPurchased}">
                         <a href="/lecture/${lecture.lectureNo}/lessons">수업</a>
                     </c:if>
-                    <a href="/lecture/${lecture.lectureNo}/reviews">수강평</a>
+                    <a class="selected">수강평</a>
                 </section>
-                <section id="lecture-intro">
-                    ${lecture.lectureIntro}
+                <section id="lecture-review">
+                    <div id="write-review">
+                        <div id="write-review-head">
+                            <p>수강평 작성</p>
+                            <div id="write-review-star">
+                                <div id="write-review-star-filled">
+                                    <img src="/resources/images/star-filled.png">
+                                </div>
+                                <div id="write-review-star-unfilled">
+                                    <img src="/resources/images/star-unfilled.png">
+                                </div>
+                            </div>
+                        </div>
+                        <textarea id="write-review-content"></textarea>
+                        <div id="write-review-bottom">
+                            <button id="write-review-button" type="button" onclick="writeReview()">작성하기</button>
+                        </div>
+                    </div>
+                    <div id="reviews-container">
+                        <div class="review">
+                            <div class="member">
+                                <div class="profile">
+                                    <img>
+                                </div>
+                                <div class="info">
+                                    <div class="nickname">닉네임</div>
+                                </div>
+                            </div>
+                            <div class="star">별점</div>
+                            <div class="content">내용</div>
+                        </div>
+                    </div>
                 </section>
             </div>
         </div>
@@ -155,4 +185,5 @@
     <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
     <script src="/resources/js/common/general.js"></script>
     <script src="/resources/js/lecture/lecture-detail.js"></script>
+    <script src="/resources/js/lecture/lecture-detail-reviews.js"></script>
 </body>

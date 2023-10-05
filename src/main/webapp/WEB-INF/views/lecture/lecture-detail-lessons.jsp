@@ -82,14 +82,19 @@
             </div>
             <div id="content" class="window">
                 <section id="lecture-nav">
-                    <a class="selected">강의 소개</a>
+                    <a href="/lecture/${lecture.lectureNo}">강의 소개</a>
                     <c:if test="${!empty isPurchased}">
-                        <a href="/lecture/${lecture.lectureNo}/lessons">수업</a>
+                        <a class="selected">수업</a>
                     </c:if>
                     <a href="/lecture/${lecture.lectureNo}/reviews">수강평</a>
                 </section>
-                <section id="lecture-intro">
-                    ${lecture.lectureIntro}
+                <section id="lecture-lessons">
+                    <c:forEach var="item" items="${lecture.lessons}">
+                        <div class="lesson">
+                            <div class="lesson-thumbnail"></div>
+                            <div class="lesson-title"></div>
+                        </div>
+                    </c:forEach>
                 </section>
             </div>
         </div>
