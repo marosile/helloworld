@@ -147,8 +147,8 @@ function hideLoadingModal() {
                                                     '<div class="postThirdPart">' + rList.boardContent + '</div>' +
                                                     '<div class="postFourthPart">' + tagNames + '</div>' +
                                                     '<div class="postFifthPart">' + 
-                                                        '<div class="replyCount">' + rList.commentCount + '</div>' +
-                                                        '<div class="inquiryCount">' + "조회수" + rList.readCount+ '</div>' +
+                                                        '<div class="replyCount">' +  "댓글 " + rList.commentCount + '</div>' +
+                                                        '<div class="inquiryCount">' + "조회 " + rList.readCount+ '</div>' +
                                                     '</div>' +
     
                                     '</div>' + // 임시
@@ -234,8 +234,8 @@ function hideLoadingModal() {
                                                     '<div class="postThirdPart">' + whatever.boardContent + '</div>' +
                                                     '<div class="postFourthPart">' + tagNames + '</div>' +
                                                     '<div class="postFifthPart">' + 
-                                                        '<div class="replyCount">' + whatever.commentCount + '</div>' +
-                                                        '<div class="inquiryCount">' + "조회수" + whatever.readCount + '</div>' +
+                                                        '<div class="replyCount">' + "댓글 " + whatever.commentCount + '</div>' +
+                                                        '<div class="inquiryCount">' + "조회 " + whatever.readCount + '</div>' +
                                                     '</div>' +
                                                 '</div>' 
                                             '</a>' ; 
