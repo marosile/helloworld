@@ -166,7 +166,6 @@
 	    WHERE rnum BETWEEN #{start} AND #{end}
 	</select>
 
-
 	<!-- 게시글 상세 조회 -->
 	<select id="selectBoard" resultMap="boardResultMap">
 			SELECT B.BOARD_NO, B.MEMBER_ID, B.BOARD_TITLE, B.BOARD_CONTENT, B.CREATE_DT, B.MODIFY_DT, B.DELETED_FL, B.READ_COUNT, M.MEMBER_NICK, M.PROFILE_IMG, BG.BOARD_CODE,

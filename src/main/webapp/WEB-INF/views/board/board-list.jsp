@@ -155,12 +155,12 @@
                         <c:forEach items="${board}" var="board" begin="0" end="9">
 
 
-                            <a href="/board/${boardCode}/${board.profileImage}">
+                            <a href="/board/${boardCode}/${board.boardNo}">
 
                             <div class="posts"> <!-- height:250 px; -->
                                 <!-- 하나 중 이미지 + 작성자 + 직군 + 몇분전 양식-->
                                 <div class="postFirstpart">
-                                    <img src="${board.profileImage}" class="writerImages">
+                                    <img src="${board.profileImg}" class="writerImages">
                                     <div class="firstPartRight">
                                         <div>${board.memberNickname} </div>
                                         
@@ -177,7 +177,7 @@
                                 </div>
 
                                 <div class="postThirdPart">
-                                    ${board.boardContent}... 
+                                    ${board.boardContent}
                                 </div>
                         
                                 <div class="postFourthPart">
