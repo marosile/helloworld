@@ -22,6 +22,23 @@
         let lecture = {'lectureNo' : ${lecture.lectureNo},
                         'lectureTitle' : '${lecture.lectureTitle}',
                         'lecturePrice' : ${lecture.lecturePrice * (1 - lecture.lectureSale)}};
+
+        $.ajax({
+            url: '/lecture/purchased',
+            type: 'post',
+            data: {'memberId': loginMember.memberId},
+            dataType: 'json',
+            success: (result) => {
+                for (let i of result) {
+                    if (i.lectureNo === lecture.lectureNo) {
+                        $('#buttons, #price').remove();
+                        <c:set var="isPurchased" value="true"/>
+                    }
+                }
+            }, error: (error) => {
+                console.log(error);
+            }
+        });
     </script>
     <jsp:include page="/WEB-INF/views/common/header.jsp"/>
 	<main>
@@ -54,7 +71,7 @@
                     </section>
                     <section id="lecture-tag">
                         <c:forEach var="item" items="${lecture.lectureTags}">
-                            <a>${item}</a>
+                            <a>#${item}</a>
                         </c:forEach>
                     </section>
                 </div>
@@ -66,8 +83,10 @@
             <div id="content" class="window">
                 <section id="lecture-nav">
                     <a class="selected">강의 소개</a>
-                    <a>수강평</a>
-                    <a>커뮤니티</a>
+                    <c:if test="${!empty isPurchased}">
+                        <a href="/lecture/${lecture.lectureNo}/lessons">수업</a>
+                    </c:if>
+                    <a href="/lecture/${lecture.lectureNo}/reviews">수강평</a>
                 </section>
                 <section id="lecture-intro">
                     ${lecture.lectureIntro}
@@ -76,51 +95,53 @@
         </div>
         <div id="promotion">
             <img id="thumbnail" src="${lecture.lectureThumbnail}">
-            <c:choose>
-                <c:when test="${empty loginMember}">
-                    <div id="needToLogin">
-                        <p>로그인 후 이용해 주세요.</p>
-                        <a onclick="modalArea.style.display = 'block';">로그인</a>
-                    </div>
-                </c:when>
-                <c:when test="${loginMember.memberId != lecture.memberId}">
-                    <c:choose>
-                        <c:when test="${lecture.lecturePrice == 0}">
-                            <div id="price">
-                                <p id="sale-price">무료</p>
-                            </div>
-                            <div id="buttons">
-                                <button class="primary-button">지금 수강하기</button>
-                            </div>
-                        </c:when>
-                        <c:otherwise>
-                            <div id="price">
-                                <c:choose>
-                                    <c:when test="${lecture.lectureSale == 0}">
-                                        <p id="sale-price"><fmt:formatNumber value="${lecture.lecturePrice}"/> 원</p>
-                                    </c:when>
-                                    <c:otherwise>
-                                        <p id="real-price">
-                                            <strike><fmt:formatNumber value="${lecture.lecturePrice}"/> 원</strike> (-<fmt:formatNumber value="${lecture.lectureSale}" type="percent"/>)
-                                        </p>
-                                        <p id="sale-price"><fmt:formatNumber value="${lecture.lecturePrice * (1 - lecture.lectureSale)}"/> 원</p>
-                                    </c:otherwise>
-                                </c:choose>
-                            </div>
-                            <div id="buttons">
-                                <button class="primary-button" onclick="purchase()">지금 구매하기</button>
-                                <button class="secondary-button" onclick="addToCart()">장바구니에 담기</button>
-                            </div>
-                        </c:otherwise>
-                    </c:choose>
-                </c:when>
-                <c:otherwise>
-                    <div id="buttons">
-                        <button class="primary-button" onclick="location.href = '/lecture/write?no=${lecture.lectureNo}'">수정하기</button>
-                        <button class="secondary-button">삭제하기</button>
-                    </div>
-                </c:otherwise>
-            </c:choose>
+            <c:if test="${empty isPurchased}">
+                <c:choose>
+                    <c:when test="${empty loginMember}">
+                        <div id="needToLogin">
+                            <p>로그인 후 이용해 주세요.</p>
+                            <a onclick="modalArea.style.display = 'block';">로그인</a>
+                        </div>
+                    </c:when>
+                    <c:when test="${loginMember.memberId != lecture.memberId}">
+                        <c:choose>
+                            <c:when test="${lecture.lecturePrice == 0}">
+                                <div id="price">
+                                    <p id="sale-price">무료</p>
+                                </div>
+                                <div id="buttons">
+                                    <button class="primary-button">지금 수강하기</button>
+                                </div>
+                            </c:when>
+                            <c:otherwise>
+                                <div id="price">
+                                    <c:choose>
+                                        <c:when test="${lecture.lectureSale == 0}">
+                                            <p id="sale-price"><fmt:formatNumber value="${lecture.lecturePrice}"/> 원</p>
+                                        </c:when>
+                                        <c:otherwise>
+                                            <p id="real-price">
+                                                <strike><fmt:formatNumber value="${lecture.lecturePrice}"/> 원</strike> (-<fmt:formatNumber value="${lecture.lectureSale}" type="percent"/>)
+                                            </p>
+                                            <p id="sale-price"><fmt:formatNumber value="${lecture.lecturePrice * (1 - lecture.lectureSale)}"/> 원</p>
+                                        </c:otherwise>
+                                    </c:choose>
+                                </div>
+                                <div id="buttons">
+                                    <button class="primary-button" onclick="purchase()">지금 구매하기</button>
+                                    <button class="secondary-button" onclick="addToCart()">장바구니에 담기</button>
+                                </div>
+                            </c:otherwise>
+                        </c:choose>
+                    </c:when>
+                    <c:otherwise>
+                        <div id="buttons">
+                            <button class="primary-button" onclick="location.href = '/lecture/write?no=${lecture.lectureNo}'">수정하기</button>
+                            <button class="secondary-button">삭제하기</button>
+                        </div>
+                    </c:otherwise>
+                </c:choose>
+            </c:if>
         </div>
     </main>
     <div id="payment">

@@ -113,8 +113,6 @@ if(headerLogin != null){
     })
 }
 
-
-
 /* x누를 시 modal창 display none으로 만들기*/
 const idModalClose = document.getElementById("idModalClose");
 

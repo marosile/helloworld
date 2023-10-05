@@ -72,13 +72,13 @@
 
                 <div class="inputAll">
                     <label for="inputPw" class="inputName">비밀번호</label>
-                    <input type="text" name="memberPw" id="inputPw" class="inputClass" autocomplete="off">
+                    <input type="password" name="memberPw" id="inputPw" class="inputClass" autocomplete="off">
                     <span id="pwMessage">영어,숫자,특수문자(!,@,#,-,_) 6~20글자 사이로 입력해주세요</span>
                 </div>
 
                 <div class="inputAll">
                     <label for="inputConfirmPw" class="inputName">비밀번호확인</label>
-                    <input type="text" name="inputConfirmPw" id="inputConfirmPw" class="inputClass" autocomplete="off">
+                    <input type="password" name="inputConfirmPw" id="inputConfirmPw" class="inputClass" autocomplete="off">
                     <span id="pwCheckMessage"></span>
                 </div>
 

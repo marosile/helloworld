@@ -21,6 +21,10 @@ public class LectureDAO {
         return sqlSession.selectList("lectureMapper.selectRecentLectureList");
     }
 
+    public List<Lecture> selectPurchasedLectureList(String memberId) {
+        return sqlSession.selectList("lectureMapper.selectPurchasedLectureList", memberId);
+    }
+
     public Lecture selectLecture(int lectureNo) {
         return sqlSession.selectOne("lectureMapper.selectLecture", lectureNo);
     }
@@ -32,4 +36,5 @@ public class LectureDAO {
     public int updateLecture(Lecture lecture) { return sqlSession.update("lectureMapper.updateLecture", lecture); }
 
     public int deleteLecture(int lectureNo) { return sqlSession.update("lectureMapper.deleteLecture", lectureNo); };
+
 }

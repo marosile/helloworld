@@ -90,7 +90,7 @@ function purchase() {
 }
 
 function requestPurchase() {
-    const orderId = generateOrderId();
+    const orderId = generateOrderId(lecture.lectureNo);
     paymentWidget.requestPayment({
         orderId: orderId,
         orderName: lecture.lectureTitle,

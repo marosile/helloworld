@@ -45,7 +45,7 @@
 
     <div id="P-main-area">
         <p id="P-main-title">
-            <i class="fa-regular fa-file-lines"></i> 스터디 모집하기
+            <i class="fa-regular fa-file-lines"></i> 스터디 모집 내용 수정하기
         </p>
 
         <form action="/study/detail/update/${boardNo}" method="POST" class="P-body-category-top" enctype = "multipart/form-data">
@@ -138,7 +138,7 @@
             </div>
 
             <div id="P-body-container-location">
-                <div class="h5"><span>*</span> 위치</div>
+                <div class="h5"><span>*</span> 위치 (선택하지 않으면 서울전체로 등록됩니다.)</div>
                 <div id="map"></div>
                 <input type="hidden" id="mapVal" name="location">
 
@@ -148,8 +148,8 @@
 
             <div class="P-body-controller">
                 <div class="P-body-controller-Btn">
-                    <button id="BtnModify" type="submit">수정완료</button>
-                    <button id="BtnDelete">수정취소</button>
+                    <button  id="BtnModify" type="submit">수정완료</button>
+                    <button  type="button" id="BtnDelete">수정취소</button>
                 </div>
 
             </div>

@@ -10,6 +10,8 @@ public interface LectureService {
 
     List<Lecture> recentLectureList();
 
+    List<Lecture> selectPurchasedLectureList(String memberId);
+
     Lecture lectureDetail(int lectureNo);
 
     int insertLecture(Lecture lecture);

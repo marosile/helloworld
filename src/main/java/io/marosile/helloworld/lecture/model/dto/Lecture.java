@@ -20,6 +20,7 @@ public class Lecture {
     private String lectureIntro;
     private String lectureThumbnail;
     private int lectureDifficulty;
+    private List<Lesson> lessons;
     private List<String> lectureTags;
     private int lecturePrice;
     private float lectureSale;

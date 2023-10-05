@@ -1,15 +1,28 @@
-//채팅 클릭 시 채팅화면으로 이동
-const chatBtn = document.getElementById("contact-button");
+const boardNo = document.getElementById("boardNo").value;
+const contactBtn=document.getElementById("contact-button");
 
-if(chatBtn!=null){
-    chatBtn.addEventListener("click", () => {
+if(contactBtn!=null){
+    contactBtn.addEventListener("click",()=>{
+        if(confirm("친구와 같이 스터디 하기 원하면 확인 버튼을 눌러주세요!\n친구에게 문자로 알림이 갑니다!📧")){
 
-        location.href = "/study/chatting"
+            fetch("/study/detail/"+boardNo+"/message",{
+                method:"POST",
+                headers:{"Content-Type":"application/json"}
+            })
+                .then(res=>res.text())
+                .then(result =>{
+                    console.log(result)
 
+                    if(result>0){
+
+                        location.reload(true);
+                    }
+                })
+                .catch(e=>console.log("에러발생"))
+            alert("친구에서 문자가 갔습니다. 자세한 내용은 체팅을 이용해주세요!")
+        }
     })
 }
-
-
 
 // 수정 버튼 시
 const updateBtn = document.getElementById("updateBtn");
@@ -90,7 +103,7 @@ if (goToBackBtn!=null){
     const like = document.getElementById("like");
     const countSpan = document.getElementById("count");
     const loginMemberId = document.getElementById("loginMemberId").value;
-    const boardNo = document.getElementById("boardNo").value;
+
 
     like.addEventListener("click", e=>{
 

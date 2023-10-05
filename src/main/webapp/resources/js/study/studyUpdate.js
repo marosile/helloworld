@@ -93,7 +93,7 @@ let BtnDelete = document.getElementById("BtnDelete");
 BtnDelete.addEventListener("click", () => {
 
     if(confirm("작성취소하시겠습니까? 작성한 내용은 저장되지 않습니다.")){
-        location.href="/study/main";
+        location.href="/study/detail/"+boardNo;
     }
 })
 
@@ -213,16 +213,14 @@ function displayArea(area) {
     });
 
 }
-
-
-
-
-const BtnDelet = document.getElementById("BtnDelet");
+const BtnDelet = document.getElementById("BtnDelete");
 
 if(BtnDelet!=null){
 
     BtnDelet.addEventListener("click",() =>{
         if(confirm("정말 수정 취소하시겠습니까? "))
-            location.href = location.pathname.replace("boardNo")+"/delete"
+            location.href = location.href.replace("/update/", "/");
     })
 }
+
+

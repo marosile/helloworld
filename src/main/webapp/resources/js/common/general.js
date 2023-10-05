@@ -71,10 +71,14 @@ function snackbar(content, color, icon) {
     }, 5000);
 }
 
-function generateOrderId(callback) {
+function generateOrderId(no) {
     let result;
     $.ajax({
-        url: '/purchase/generateOrderId', type: 'post', async: false, success: (response) => {
+        url: '/purchase/generateOrderId',
+        type: 'post',
+        async: false,
+        data: {'lectureNo': no, 'memberId': loginMember.memberId},
+        success: (response) => {
             result = response
         }, error: (error) => {
             console.log(error);

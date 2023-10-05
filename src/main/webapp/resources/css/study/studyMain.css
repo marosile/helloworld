@@ -241,6 +241,10 @@
 .P-study-popular-container-f{
     display: flex; /* 텍스트 요소와 이미지를 나란히 배치 */
     align-items: center; /* 세로 중앙 정렬 */
+    width: 350px;
+}
+.P-study-popular-content>span{
+    width: 100%;
 }
 
 .P-study-popular-category{
@@ -268,11 +272,14 @@
     display: flex;
     font-size: 13px;
     margin: 8px 0 10px 5px;
+    width: 100%;
 
     overflow:hidden;
     text-overflow:ellipsis;
     white-space:nowrap;
+
 }
+
 
 #search{
     display: flex;
@@ -813,6 +820,7 @@
 .post{
     margin:20px 0;
     height:80px;
+    width: 390px;
     display:flex;
     flex-direction: column;
     justify-content: center;

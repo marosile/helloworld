@@ -14,7 +14,7 @@
         </div>
         <div class="login-inputAll">
             <label for="login-inputPw" class="login-inputName">비밀번호</label>
-            <input type="text" name="memberPw" id="login-inputPw" class="login-inputClass" autocomplete="off"
+            <input type="password" name="memberPw" id="login-inputPw" class="login-inputClass" autocomplete="off"
                    placeholder="비밀번호를 입력해주세요">
         </div>
         <c:if test="${!empty cookie.idSave.value}">
@@ -48,7 +48,7 @@
     <div class="snsLogin">
         <h3>SNS로그인</h3>
         <div class="kakao-button">
-            <a href="https://kauth.kakao.com/oauth/authorize?client_id=aac73a50e342183e31a5478826ffeffd&redirect_uri=http://localhost/member/login/kakao&response_type=code"
+            <a href="https://kauth.kakao.com/oauth/authorize?client_id=aac73a50e342183e31a5478826ffeffd&redirect_uri=http://lnx.iptime.org/member/login/kakao&response_type=code"
                id="kakaoLogin">
                 <img src="/resources/images/kakao_login_medium_wide.png">
             </a>

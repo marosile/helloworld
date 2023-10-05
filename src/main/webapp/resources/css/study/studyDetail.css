@@ -387,8 +387,7 @@
 #updateBtn,
 #deleteBtn,
 #completeBtn,
-#share-button,
-#contact-button {
+#share-button {
     width: 100%;
     padding: 10px;
     margin-bottom: 10px;
@@ -409,14 +408,11 @@
     font-size: 16px;
     border: 1px solid rgb(0, 128, 255);
 }
-
-
-/*팔로우*/
-#share-button {
+#contactY-button {
     width: 100%;
     padding: 10px;
     margin-bottom: 10px;
-    background-color: rgba(0, 0, 0, 0.45);
+    background-color: rgb(77, 77, 77);
     color: white;
     font-size: 16px;
 
@@ -424,7 +420,43 @@
     border-radius: 5px;
     cursor: pointer;
 }
+#contact-button {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: rgb(84, 190, 33);
+    color: white;
+    font-size: 16px;
 
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+/*팔로우*/
+#share-buttonY {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: rgb(101, 213, 47);
+    color: white;
+    font-size: 16px;
+
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+#completeBtny {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: rgb(77, 77, 77);
+    color: white;
+    font-size: 16px;
+
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
 
 
 .P-study-datail-footer-area {
