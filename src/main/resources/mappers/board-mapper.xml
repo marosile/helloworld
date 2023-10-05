@@ -560,7 +560,7 @@
    </select>
    
    <!-- 팔로워 ajax 트렌드 -->
-   <select id="selectFollowerList" resultType="_int">
+   <select id="selectFollowerList2" resultType="_int">
 		SELECT COUNT(*)
 		FROM MEMBER
 		JOIN FOLLOW ON(MEMBER_ID = FOLLOW_FROM)

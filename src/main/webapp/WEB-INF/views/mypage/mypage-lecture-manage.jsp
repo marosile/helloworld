@@ -22,12 +22,6 @@
     <div id="main" class="window">
       <h2>내 강의</h2>
       <div id="lecture-container">
-        <div class="lecture">
-          <div class="lecture-thumbnail">
-            <img>
-          </div>
-          <div class="lecture-title">asdfasdf</div>
-        </div>
       </div>
     </div>
   </main>
