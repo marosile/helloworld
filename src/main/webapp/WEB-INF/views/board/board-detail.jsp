@@ -101,6 +101,11 @@
                 <button id="update">수정</button>
                 <button id="deleteBtn">삭제</button>
             </c:if>
+
+            <c:if test="${loginMember.authority == 0}">
+                    <button id="deleteBtn">관리자 권한으로 삭제</button>
+            </c:if>
+
         <button id="list">목록</button>
             
             <%-- 신고 모달창 --%>
