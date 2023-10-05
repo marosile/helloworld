@@ -1,4 +1,7 @@
-main{
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     width: 768px;
     border: 1px solid var(--divider);
     border-radius: 10px;
@@ -8,7 +11,7 @@ main{
     margin-top: 20px;
 }
 
-.Title{
+.Title {
     display: flex;
     justify-content: center;
     margin-top: 30px;
