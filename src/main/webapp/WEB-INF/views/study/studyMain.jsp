@@ -126,7 +126,7 @@
 
                             <ul class="P-selectBox-role menuHidden" id=P-selectBox-role"">
                                 <li>
-                                    <button type="button" class="P-option-btn" name="position" id="front">프론트앤드</button>
+                                    <button type="button" class="P-option-btn" name="position" id="front">프론트엔드</button>
                                 </li>
                                 <li>
                                     <button type="button" class="P-option-btn" name="position" id="back">백엔드</button>
