@@ -101,7 +101,7 @@
         SELECT S.STUDY_STATUS
              , B.BOARD_NO
              , M.MEMBER_TEL
-
+             , M.PROFILE_IMG
              , M.MEMBER_NICK
              , S.HEAD_COUNT
              , B.MEMBER_ID

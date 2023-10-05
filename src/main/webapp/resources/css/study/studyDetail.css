@@ -377,6 +377,10 @@
     height: 64px;
     border-radius: 50%;
 }
+.P-profile-container p {
+
+    margin-right: 5px;
+}
 
 .P-profile-buttons {
     margin-top: 20px;
