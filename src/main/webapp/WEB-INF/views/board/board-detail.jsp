@@ -93,7 +93,7 @@
         </div>
         
         <div id="button-area">
-            <c:if test="${loginMember != null && loginMember.memberId != board.memberId}">
+            <c:if test="${loginMember != null && loginMember.memberId != board.memberId && loginMember.authority != 0}">
                 <button id="report"><i class="fa-regular fa-face-angry" style="color: rgb(177, 175, 175)"></i> 신고</button>
             </c:if>
 
@@ -103,7 +103,7 @@
             </c:if>
 
             <c:if test="${loginMember.authority == 0}">
-                    <button id="deleteBtn">관리자 권한으로 삭제</button>
+                    <button id="deleteBtn2">관리자 권한으로 삭제</button>
             </c:if>
 
         <button id="list">목록</button>

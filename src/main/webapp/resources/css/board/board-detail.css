@@ -344,6 +344,6 @@ i{
     margin-left: 2px;
 }
 
-#deleteBtn{
-    min-width:80px !important;
+#deleteBtn2{
+   width:160px;
 }
