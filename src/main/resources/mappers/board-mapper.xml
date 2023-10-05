@@ -549,8 +549,6 @@
 		WHERE FOLLOW_FROM = #{boardUserId}
    </select>
    
-   
-   
    <!-- 팔로잉 조회 -->
    <select id="selectFollowingList" resultType="_int">
 		SELECT COUNT(*)
@@ -560,7 +558,7 @@
    </select>
    
    <!-- 팔로워 ajax 트렌드 -->
-   <select id="selectFollowerList" resultType="_int">
+   <select id="selectFollowerList2" resultType="_int">
 		SELECT COUNT(*)
 		FROM MEMBER
 		JOIN FOLLOW ON(MEMBER_ID = FOLLOW_FROM)
