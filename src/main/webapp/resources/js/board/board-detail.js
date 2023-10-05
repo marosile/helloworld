@@ -48,11 +48,22 @@ if(report != null){
 
 /* 게시글 삭제 */
 const deleteBtn = document.getElementById("deleteBtn");
-
+const deleteBtn2 = document.getElementById("deleteBtn2");
 if(deleteBtn != null){
     deleteBtn.addEventListener("click", ()=>{
     
         if(confirm("정말 삭제하시겠습니까?")){
+    
+            alert("게시글이 삭제 되었습니다.");
+            location.href= "/board2/" + boardCode + "/" + boardNo + "/delete";
+        }
+    })
+}
+
+if(deleteBtn2 != null){
+    deleteBtn.addEventListener("click", ()=>{
+    
+        if(confirm("관리자 권한으로 삭제하시겠습니까?")){
     
             alert("게시글이 삭제 되었습니다.");
             location.href= "/board2/" + boardCode + "/" + boardNo + "/delete";
