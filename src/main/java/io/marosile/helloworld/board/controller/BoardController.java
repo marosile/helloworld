@@ -75,7 +75,9 @@ public class BoardController {
 
     // 게시글 목록 조회 ( posts 10개, 검색어 유무 확인 )
     @GetMapping("/{boardCode:[1-3]}")
-    public String boardList(Model model, @PathVariable("boardCode") int boardCode, @RequestParam(value = "searchKeyword", required = false) String searchKeyword) {
+    public String boardList(Model model, @PathVariable("boardCode") int boardCode
+                    , @RequestParam(value = "searchKeyword", required = false) String searchKeyword
+                    , @SessionAttribute(value = "loginMember", required = false) Member loginMember) {
 
 
         Map<String, Object> map = new HashMap<String, Object>();
@@ -86,6 +88,7 @@ public class BoardController {
 
         List<Board> getTopList = service2.getTopList();
 
+        map.put("loginMember", loginMember);
         map.put("boardList", boardList);
         map.put("getTopList", getTopList);
         model.addAttribute("searchKeyword", searchKeyword);
