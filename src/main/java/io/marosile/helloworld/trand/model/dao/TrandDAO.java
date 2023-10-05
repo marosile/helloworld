@@ -74,11 +74,11 @@ public class TrandDAO {
 	}
 
 	public int selectFollowers(String boardUserId) {
-		return sqlSession.selectOne("myPageMapper.selectFollowerList", boardUserId);
+		return sqlSession.selectOne("boardMapper.selectFollowerList", boardUserId);
 	}
 
 	public int selectFollowings(String boardUserId) {
-		return sqlSession.selectOne("myPageMapper.selectFollowingList", boardUserId);
+		return sqlSession.selectOne("boardMapper.selectFollowingList", boardUserId);
 	}
 
 }

@@ -103,8 +103,9 @@ public class TrandController {
 				int result4 = service.selectFollowers(boardUserId);
 				// 게시글 팔로잉 수 조회
 				int result5 = service.selectFollowings(boardUserId);
+				
 				map.put("follower", result4);
-				map.put("following", result5);
+				map.put("following", result5);	
 			}
 		}
 		
