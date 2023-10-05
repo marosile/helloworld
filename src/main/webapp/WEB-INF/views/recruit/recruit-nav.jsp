@@ -7,7 +7,9 @@
     <div id="navContainer">
         <a href="allNoticeList">전체 채용 공고</a>
         <a href="/recruit/noticeList">내 매칭 공고</a>
-        <a href="post">채용 공고 등록</a>
+        <c:if test="${loginMember.authority == 2}">
+            <a href="post">채용 공고 등록</a>
+        </c:if>
         <a href="application">기업 담당자 신청</a>
     </div>
 </recruitNav>
