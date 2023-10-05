@@ -539,4 +539,27 @@
            AND B.DELETED_FL = 'N'
          ORDER BY B.READ_COUNT DESC
     </select>
+    
+       
+   <!-- 팔로워 조회 -->
+   <select id="selectFollowerList" resultType="_int">
+		SELECT COUNT(*)
+		FROM MEMBER
+		JOIN FOLLOW ON(MEMBER_ID = FOLLOW_FROM)
+		WHERE FOLLOW_TO = #{boardUserId}
+   </select>
+   
+   
+   
+   <!-- 팔로잉 조회 -->
+   <select id="selectFollowingList" resultType="_int">
+		SELECT COUNT(*)
+		FROM MEMBER
+		JOIN FOLLOW ON(MEMBER_ID = FOLLOW_TO)
+		WHERE FOLLOW_FROM = #{boardUserId}
+   </select>
+   
+    
+    
+    
 </mapper>
