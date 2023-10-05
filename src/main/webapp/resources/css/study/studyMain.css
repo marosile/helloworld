@@ -266,6 +266,7 @@
     margin: 8px 1px 0 5px;
     font-size: 15px;
     font-weight: bold;
+    width: 290px;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -276,7 +277,7 @@
     display: flex;
     font-size: 13px;
     margin: 8px 0 10px 5px;
-    width: 100%;
+    width: 300px;
 
     overflow:hidden;
     text-overflow:ellipsis;
