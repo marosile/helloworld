@@ -40,6 +40,11 @@
            AND ITEM_NO = #{lectureNo}
     </select>
 
+    <select id="selectLectureListByMemberId" resultMap="lectureResultMap">
+        SELECT *
+          FROM LECTURE
+         WHERE MEMBER_ID = #{memberId}
+    </select>
     <select id="selectPopularLectureList" resultMap="lectureResultMap">
         SELECT *
           FROM LECTURE

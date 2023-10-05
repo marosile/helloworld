@@ -53,7 +53,7 @@
                     </div>
                     <img style="filter: drop-shadow(5px 5px 10px rgb(0, 0, 0, 0.3));" src="/resources/images/community.png">
                 </div>
-                <div class="slide" style="border: 1px solid var(--divider); background: linear-gradient(45deg, rgb(149, 0, 194), rgb(231, 133, 1));">
+                <div class="slide" style="background: linear-gradient(45deg, rgb(149, 0, 194), rgb(231, 133, 1));">
                     <div>
                         <span class="tag" style="background: rgba(0, 0, 0, 0.6);">스터디</span>
                         <h2>같이 공부할 사람 구해요!</h2>
@@ -101,7 +101,7 @@
                     </div>
                 </c:if>
                 <div id="popular-boards" class="window">
-                    <h2>실시간 인기 게시글</h2>
+                    <h3>실시간 인기 게시글</h3>
                 </div>
             </div>
         </div>

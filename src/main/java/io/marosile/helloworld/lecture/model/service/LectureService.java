@@ -19,4 +19,6 @@ public interface LectureService {
     int updateLecture(Lecture lecture);
 
     int deleteLecture(int lectureNo);
+
+    List<Lecture> selectLectureListByMemberId(String memberId);
 }
