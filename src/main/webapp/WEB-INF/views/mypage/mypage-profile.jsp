@@ -89,7 +89,7 @@
                                 <div class="followList">
 
                                     <!-- 팔로워 한 행 요소들 -->
-                                    <c:forEach items="${follower}" var="follower">
+                                    <c:forEach items="${following}" var="following">
                                         <div class="row">
                                             <div class="followerImage">
                                                 <img src="${following.profileImage}" id="werImage">
@@ -107,6 +107,8 @@
 
                         <!-- ======== 팔로잉 영역 ==========-->
                         <div class="following-area">
+                        
+                            <%-- 팔로잉 수 --%>
                             <button type="button" id="following">팔로잉 ${followerList}</button>
                             
                             <!-- //// 팝업창 -->
@@ -119,7 +121,7 @@
                                 <div class="followList">
 
                                     <!-- 팔로잉 한 행 요소 -->
-                                    <c:forEach items="${following}" var="following">
+                                    <c:forEach items="${follower}" var="follower">
                                         <div class="row">
                                             <div class="followerImage">
                                                 <img src="${follower.profileImage}" id="wingImage">
@@ -127,6 +129,7 @@
                                             <div>${follower.memberNickname}</div>
                                         </div>
                                     </c:forEach>
+
                                 </div>
 
                             </div> 
