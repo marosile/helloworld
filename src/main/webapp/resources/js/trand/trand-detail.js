@@ -591,6 +591,7 @@ followBtn2.addEventListener("click", e=>{
     .then( res => res.text())
     .then( count => {
 
+        console.log(count);
         followSpan2.innerText = count;
 
         iconElement.classList.toggle("fa-user-plus");
@@ -610,7 +611,6 @@ followBtn2.addEventListener("click", e=>{
         console.log("예외발생")
     })
 })
-
 
 
 
