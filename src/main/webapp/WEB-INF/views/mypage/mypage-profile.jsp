@@ -147,7 +147,7 @@
                                     <c:forEach items="${follower}" var="follower">
                                         <div class="row">
                                             <div class="followerImage">
-                                                <img src="${follower.profileImage}">
+                                                <img src="${follower.profileImage}" id="werImage">
                                             </div>
                                             <div>${follower.memberNickname}</div>
                                         </div>
@@ -177,7 +177,7 @@
                                     <c:forEach items="${following}" var="following">
                                         <div class="row">
                                             <div class="followerImage">
-                                                <img src="${following.profileImage}">
+                                                <img src="${following.profileImage}" id="wingImage">
                                             </div>
                                             <div>${following.memberNickname}</div>
                                         </div>
