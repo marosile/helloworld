@@ -45,10 +45,13 @@ public class CjeController {
 		// 팔로워 조회
 		int followerList = service.selectFollowerList(memberId);
 		model.addAttribute("followerList", followerList);
+		System.out.println(followerList + "=======================ㅇㅇㅇㅇ");
 		
 		// 팔로잉 조회
 		int followingList = service.selectFollowingList(memberId);
 		model.addAttribute("followingList", followingList);
+		
+		System.out.println("followingList : " + followingList);
 		
 		return "mypage/mypage-profile";
 	}
