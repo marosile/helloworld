@@ -45,6 +45,8 @@
 		<result property="commentCount" column="COMMENT_COUNT" />
 		<result property="memberId" column="MEMBER_ID" />
 		<result property="memberNickname" column="MEMBER_NICK" />
+		<result property="followFrom" column="FOLLOW_FROM" />
+		<result property="followTo" column="FOLLOW_TO" />
 		
 	</resultMap>
 	
@@ -150,6 +152,25 @@
          
          WHERE L.MEMBER_ID = #{memberId}
          ORDER BY B.BOARD_NO DESC
+   </select>
+   
+   
+   <!-- 팔로워 조회 -->
+   <select id="selectFollowerList" resultType="_int">
+		SELECT COUNT(*)
+		FROM MEMBER
+		JOIN FOLLOW ON(MEMBER_ID = FOLLOW_FROM)
+		WHERE FOLLOW_TO = #{memberId}
+   </select>
+   
+   
+   
+   <!-- 팔로잉 조회 -->
+   <select id="selectFollowingList" resultType="_int">
+		SELECT COUNT(*)
+		FROM MEMBER
+		JOIN FOLLOW ON(MEMBER_ID = FOLLOW_TO)
+		WHERE FOLLOW_FROM = #{memberId}
    </select>
    
    

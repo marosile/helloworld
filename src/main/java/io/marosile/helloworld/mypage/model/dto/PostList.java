@@ -33,6 +33,10 @@ public class PostList {
     // LIKE 테이블
     private String memberId;
     private int likeCount;
+    
+    // Follow
+    private String followFrom;
+    private String followTo;
 }
 
 

@@ -38,7 +38,18 @@ public class CjeController {
 	
 	// 마이페이지로 이동(프로필화면)
 	@GetMapping("/profile")
-	public String main() {
+	public String main(Model model, @SessionAttribute(value="loginMember", required = false) Member loginMember) {
+		
+		String memberId = loginMember.getMemberId();
+
+		// 팔로워 조회
+		int followerList = service.selectFollowerList(memberId);
+		model.addAttribute("followerList", followerList);
+		
+		// 팔로잉 조회
+		int followingList = service.selectFollowingList(memberId);
+		model.addAttribute("followingList", followingList);
+		
 		return "mypage/mypage-profile";
 	}
 	// 계정관리로 이동
@@ -76,12 +87,9 @@ public class CjeController {
 		
 		String memberId = loginMember.getMemberId(); // 로그인 멤버 잘 가지고옴
 		
-		
 		List<BookmarkList2> bookmarkList2 = service.selectBookmark2(memberId);
 		
-		
 		model.addAttribute("bookmarkList2", bookmarkList2);
-		
 		
 		return "mypage/mypage-bookmark2";
 	}
