@@ -67,7 +67,6 @@ public class TrandController {
 		
 		// 게시글 내용
 		Board trandDetail = service.selectTrandDetail(boardNo); 
-		
 		String boardUserId = trandDetail.getMemberId();
 		
 		// 댓글 내용
@@ -99,8 +98,17 @@ public class TrandController {
 				int result3 = service.followCheck(map);
 				if (result3 > 0) 
 					model.addAttribute("followCheck", "on");
+				
+				// 게시글 팔로워 수 조회
+				int result4 = service.selectFollowers(boardUserId);
+				// 게시글 팔로잉 수 조회
+				int result5 = service.selectFollowings(boardUserId);
+				map.put("follower", result4);
+				map.put("following", result5);
 			}
 		}
+		
+		
 		map.put("trandDetail", trandDetail);
 		map.put("commentList", commentList);
 		map.put("List", List);

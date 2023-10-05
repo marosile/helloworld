@@ -8,6 +8,8 @@
 <c:set var="comment" value="${map.commentList}" />
 <c:set var="topList" value="${map.List}" />
 <c:set var="boardNo" value="${map.boardNo}" />
+<c:set var="follower" value="${map.follower}" />
+<c:set var="following" value="${map.following}" />
 
 <head>
     <meta charset="UTF-8">
@@ -78,19 +80,19 @@
                         <p id="follow-nick"> 😎 ${detail.memberNickname}</p>
                     </div>
                     <div id="follow-zone">
-                        <p id="follower">팔로워 <span>10,869</span></p>
-                        <p id="following">팔로잉 <span>28</span></p>
+                        <p id="follower">팔로워 <span>${follower}</span></p>
+                        <p id="following">팔로잉 <span>${following}</span></p>
                     </div>
   
                     <div id="follow-button-area">
 
                     <%-- 팔로우 안했거나 로그인 x --%>
-                    <c:if test="${empty followCheck}">
+                    <c:if test="${empty followCheck && detail.memberId != loginMember.memberId}">
                         <button id="followBtn2"><i class="fa-solid fa-user-plus"></i> 
                         <span id="followSpan">팔로우</span></button>
                     </c:if>
 
-                    <c:if test="${!empty followCheck}">
+                    <c:if test="${!empty followCheck && detail.memberId != loginMember.memberId}">
                         <button id="followBtn2" class="fa-check"><i class="fa-solid fa-check"></i> 
                         <span id="followingSpan">팔로잉</span></button>
                     </c:if>
