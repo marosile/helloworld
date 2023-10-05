@@ -64,6 +64,18 @@ public interface MyPageService {
 	 * @return
 	 */
 	List<PostList> selectLikeList(String memberId);
+
+	/** 팔로워ㅏ 조회
+	 * @param memberId
+	 * @return
+	 */
+	int selectFollowerList(String memberId);
+
+	/** 팔로잉 조회
+	 * @param memberId
+	 * @return
+	 */
+	int selectFollowingList(String memberId);
 	
 
 

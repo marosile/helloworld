@@ -3,6 +3,12 @@
 
 <!DOCTYPE html>
 <html lang="ko">
+
+<c:set var="followerList" value="${followerList}" />
+<c:set var="followingList" value="${followingList}" />
+
+
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -127,7 +133,7 @@
                         <!-- ======= 팔로워 영역 ======== -->
                         <div class="follower-area">
 
-                            <button type="button" id="follower">팔로워 0</button>
+                            <button type="button" id="follower">팔로워 ${followerList}</button>
                             <!-- //// 팝업창 -->
                             <div class="popup" id="popup1">
                                 <span id="closeBtn1">
@@ -162,7 +168,7 @@
 
                         <!-- ======== 팔로잉 영역 ==========-->
                         <div class="following-area">
-                            <button type="button" id="following">팔로잉 0</button>
+                            <button type="button" id="following">팔로잉 ${followingList}</button>
                             
                             <!-- //// 팝업창 -->
                             <div class="popup" id="popup2">

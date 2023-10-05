@@ -117,6 +117,20 @@ public class MyPageServiceImpl implements MyPageService {
 		return dao.selectLikeList(memberId);
 	}
 
+	/** 팔로워 조회
+	 */
+	@Override
+	public int selectFollowerList(String memberId) {
+		return dao.selectFollowerList(memberId);
+	}
+
+	/** 팔로잉 조회
+	 */
+	@Override
+	public int selectFollowingList(String memberId) {
+	return dao.selectFollowingList(memberId);
+	}
+
 	
 
 }
