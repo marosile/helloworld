@@ -287,6 +287,7 @@
                  JOIN BOARD_STUDY S ON (B.BOARD_NO = S.BOARD_NO)
         WHERE ROWNUM &lt; 11
           AND S.STUDY_STATUS = 'N'
+          AND B.DELETED_FL = 'N'
         ORDER BY LIKE_COUNT DESC, S.BOARD_NO DESC
     </select>
     <!--

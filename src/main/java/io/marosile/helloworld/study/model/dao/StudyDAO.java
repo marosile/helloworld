@@ -79,6 +79,8 @@ public class StudyDAO {
         int result = sqlSession.update("studyMapper.studyUpdate1",study);
             System.out.println("studyUpdate1:"+result);
 
+
+
         if (result > 0) {
             result = sqlSession.update("studyMapper.studyUpdate2",study);
             System.out.println("studyUpdate2:"+result);

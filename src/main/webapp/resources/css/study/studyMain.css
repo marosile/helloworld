@@ -246,6 +246,9 @@
 .P-study-popular-content>span{
     width: 100%;
 }
+.P-study-popular-contentT{
+    width: 300px;
+}
 
 .P-study-popular-category{
     width: 50px;
