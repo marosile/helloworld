@@ -21,12 +21,7 @@
             이력서 관리
         </a>
     </div>
-    <div>
-        <a href="/mypage/applications">
-            <img src="/resources/images/mypage/category/resume.png">
-            지원 이력
-        </a>
-    </div>
+
     <div>
         <a href="/mypage/post">
             <img src="/resources/images/mypage/category/post.png">
