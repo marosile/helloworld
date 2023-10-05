@@ -37,4 +37,6 @@ public class LectureDAO {
 
     public int deleteLecture(int lectureNo) { return sqlSession.update("lectureMapper.deleteLecture", lectureNo); };
 
+    public List<Lecture> selectLectureListByMemberId(String memberId) { return sqlSession.selectList("lectureMapper.selectLectureListByMemberId", memberId); }
+
 }

@@ -44,4 +44,7 @@ public class LectureServiceImpl implements LectureService {
     @Transactional
     public int deleteLecture(int lectureNo) { return dao.deleteLecture(lectureNo); }
 
+    @Override
+    public List<Lecture> selectLectureListByMemberId(String memberId) { return dao.selectLectureListByMemberId(memberId); }
+
 }

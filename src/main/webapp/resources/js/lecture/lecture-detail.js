@@ -100,3 +100,32 @@ function requestPurchase() {
         customerName: loginMember.memberNick,
     });
 }
+
+$('#write-review-star img').click(function(event) {
+    let score = Math.round(Math.abs($(this).offset().left - event.pageX)/10)/2;
+    $('#write-review-star-filled').css('width', score * 20 + 'px')
+})
+
+$('#lecture-nav > a').on('click', function() {
+    $('#lecture-nav > a').removeClass('selected');
+    $(this).addClass('selected');
+    $('#lecture-nav ~ section').css('display', 'none');
+    $('#lecture-' + $(this).attr('category')).css('display', 'flex');
+})
+
+$.ajax({
+    url: '/lecture/purchased',
+    type: 'post',
+    data: {'memberId': loginMember.memberId},
+    dataType: 'json',
+    success: (result) => {
+        for (let i of result) {
+            if (i.lectureNo === lecture.lectureNo) {
+                $('[category="lessons"]').css('display', 'flex');
+                $('#buttons, #price').remove();
+            }
+        }
+    }, error: (error) => {
+        console.log(error);
+    }
+});

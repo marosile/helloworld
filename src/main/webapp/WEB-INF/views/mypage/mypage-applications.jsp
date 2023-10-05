@@ -12,73 +12,14 @@
     <link rel="stylesheet" href="/resources/css/index.css">
     <link rel="stylesheet" href="/resources/css/mypage/mypage-applications.css">
     <link rel="stylesheet" href="/resources/css/mypage/mypage-nav.css">
-
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/98acdabf0d.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <jsp:include page="/WEB-INF/views/common/header.jsp"/>
-
     <section class="ttt">
-        <div id="side" class="window">
-            <h6>일반</h6>
-            <div>
-                <a href="/mypage/profile">
-                    <img src="/resources/images/mypage/category/profile.png">
-                    프로필
-                </a>
-            </div>
-            <div>
-                <a href="/mypage/account">
-                    <img src="/resources/images/mypage/category/account.png">
-                    계정 관리
-                </a>
-            </div>
-            <div>
-                <a href="/mypage/resume">
-                    <img src="/resources/images/mypage/category/applications.png">
-                    이력서 관리
-                </a>
-            </div>
-            <div class="category-selected">
-                <a href="/mypage/applications">
-                    <img src="/resources/images/mypage/category/resume.png">
-                    지원 이력
-                </a>
-            </div>
-            <div>
-                <a href="/mypage/post">
-                    <img src="/resources/images/mypage/category/post.png">
-                    나의 게시글
-                </a>
-            </div>
-            <div>
-                <a href="/mypage/bookmark">
-                    <img src="/resources/images/mypage/category/bookmark.png">
-                    북마크 목록
-                </a>
-            </div>
-            <div>
-                <a href="/mypage/like">
-                    <img src="/resources/images/mypage/category/like.png">
-                    좋아요 목록
-                </a>
-            </div>
-            <h6>강사</h6>
-            <div>
-                <a href="/mypage/lecture/dashboard">
-                    <img src="/resources/images/mypage/category/lecture-dashboard.png">
-                    대시보드
-                </a>
-            </div>
-            <div>
-                <a href="/mypage/lecture/management">
-                    <img src="/resources/images/mypage/category/lecture-management.png">
-                    관리
-                </a>
-            </div>
-        </div>
+        <jsp:include page="/WEB-INF/views/mypage/mypage-side.jsp"/>
         <main>
-            
             <h1 class="Title">지원이력</h1>
             <section class="applications">
 

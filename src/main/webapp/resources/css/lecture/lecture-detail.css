@@ -230,7 +230,8 @@ main {
     padding: 30px;
 }
 
-#lecture-review {
+#lecture-reviews {
+    display: none;
     padding: 30px;
 }
 
@@ -392,7 +393,7 @@ main {
 }
 
 #lecture-lessons {
-    display: flex;
+    display: none;
     padding: 30px;
 }
 
