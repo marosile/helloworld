@@ -158,6 +158,9 @@ likeButtons.forEach(likeButton => {
         })
             .then(res => res.text())
             .then(count => {
+
+                if(loginMemberId !=boardId)
+
                 if (count == -1) { // DML 실패
                     alert("좋아요 실패 ㅜㅜ");
                     return;
