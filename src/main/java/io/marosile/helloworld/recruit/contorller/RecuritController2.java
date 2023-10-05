@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
+import io.marosile.helloworld.board.model.dto.Tag;
+import io.marosile.helloworld.board.model.service.TagService;
 import io.marosile.helloworld.member.model.dto.Member;
 import io.marosile.helloworld.recruit.model.dto.EmploymentTest;
 import io.marosile.helloworld.recruit.model.dto.Recruit;
@@ -28,6 +30,8 @@ public class RecuritController2 {
 	@Autowired
 	private RecruitService_OHS service;
 	
+	@Autowired
+	private TagService service3;
 
 	// 채용공고 결과
 	@PostMapping("/testResult")
@@ -50,7 +54,25 @@ public class RecuritController2 {
 		
 		List<Recruit> matchingRecruitList = service.matchingRecruit(EmploymentTest);
 		
+		int boardType = 3; // 채용공고 == 3
+		
+		List<List<Tag>> tagLists = new ArrayList<>();
+
+		for (Recruit rec : matchingRecruitList) {
+		    rec.setBoardType(boardType);
+		    List<Tag> tagList = service3.tagSelects2(rec);
+		    tagLists.add(tagList);
+		}
+
+		String memberId = loginMember.getMemberId();
+		
+		// 내 tagList가져오기
+		String myTagList = service.selectMyTagList(memberId);
+		
+		model.addAttribute("myTagList", myTagList);
+		
 		map.put("matching", matchingRecruitList);
+		map.put("tagList", tagLists);
 		
 		model.addAttribute("map", map);
 		
