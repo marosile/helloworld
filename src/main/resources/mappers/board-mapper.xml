@@ -350,9 +350,10 @@
                      B.READ_COUNT,
                      (SELECT COUNT(*) FROM "COMMENT" C WHERE C.BOARD_NO = B.BOARD_NO) AS COMMENT_COUNT
               FROM BOARD B
-                       JOIN BOARD_GENERAL BG ON (B.BOARD_NO = BG.BOARD_NO)
+                       JOIN BOARD_GENERAL BG ON (B.BOARD_NO = BG.BOARD_NO) 
+                       WHERE B.DELETED_FL = 'N'
               ORDER BY READ_COUNT DESC)
-        WHERE ROWNUM &lt; 11 AND B.DELETED_FL = 'N'
+        WHERE ROWNUM &lt; 11
 
     </select>
 
