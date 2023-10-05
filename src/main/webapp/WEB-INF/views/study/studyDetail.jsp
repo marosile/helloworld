@@ -162,10 +162,10 @@
 
                 <div class="P-profile-container">
                     <!-- 프로필 이미지 -->
-                    <a href="" class="P-profile-pro">
-                        <img src="${loginMember.profileImg}"
+                    <div class="P-profile-pro">
+                        <img src="${studyDetail.memberProfileImg}"
                              class="P-profile-image">
-                    </a>
+                    </div>
 
                     <!-- 이름 및 회사 정보 -->
                     <p>${loginMember.memberNick}</p>
@@ -201,10 +201,10 @@
 
                 <div class="P-profile-container">
                     <!-- 프로필 이미지 -->
-                    <a href="" class="P-profile-pro">
-                        <img src="/resources/images/logo.png"
+                    <div class="P-profile-pro">
+                        <img src="${studyDetail.memberProfileImg}"
                              class="P-profile-image">
-                    </a>
+                    </div>
 
                     <!-- 이름 및 회사 정보 -->
                     <p>${studyDetail.memberNickname}</p>
