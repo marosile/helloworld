@@ -46,7 +46,6 @@ public class StudyController {
 
         } else { //검색어가 있을 경우
             map = service.studySearch(paramMap);
-            System.out.println("검색결과"+map);
         }
 
         // TOP 10위
@@ -54,6 +53,8 @@ public class StudyController {
 
         model.addAttribute("studyTopList", studyTopList);
         model.addAttribute("map", map);
+        System.out.println("스터디메인"+map);
+        System.out.println(loginMember);
 
         return "study/studyMain";
     }

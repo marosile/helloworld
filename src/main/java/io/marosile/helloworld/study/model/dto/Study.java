@@ -31,7 +31,6 @@ public class Study {
     private int readCount;
     private String memberTel;
 
-
     // member
     private String memberId;
     private String memberNickname;

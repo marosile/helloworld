@@ -314,9 +314,9 @@
 
 
                     <script>
-                        const boardNo =
-                        ${study.boardNo}
-                        const loginMemberId = "${loginMember.memberId}"
+                        const boardNo =${study.boardNo}
+                        const loginMemberId = "${loginMember.memberId}" // 로그인한 사람
+                        const boardId ="${study.memberId}" // 작성한 사람
                     </script>
 
                 </div>
