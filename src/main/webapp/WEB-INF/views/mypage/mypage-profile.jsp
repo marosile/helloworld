@@ -75,7 +75,10 @@
                         <!-- ======= 팔로워 영역 ======== -->
                         <div class="follower-area">
 
+                            <%-- 팔로워 수 --%>
                             <button type="button" id="follower">팔로워 ${followingList}</button>
+
+
                             <!-- //// 팝업창 -->
                             <div class="popup" id="popup1">
                                 <span id="closeBtn1">
@@ -89,9 +92,9 @@
                                     <c:forEach items="${follower}" var="follower">
                                         <div class="row">
                                             <div class="followerImage">
-                                                <img src="${follower.profileImage}" id="werImage">
+                                                <img src="${following.profileImage}" id="werImage">
                                             </div>
-                                            <div>${follower.memberNickname}</div>
+                                            <div>${following.memberNickname}</div>
                                         </div>
                                     </c:forEach>
 
@@ -119,9 +122,9 @@
                                     <c:forEach items="${following}" var="following">
                                         <div class="row">
                                             <div class="followerImage">
-                                                <img src="${following.profileImage}" id="wingImage">
+                                                <img src="${follower.profileImage}" id="wingImage">
                                             </div>
-                                            <div>${following.memberNickname}</div>
+                                            <div>${follower.memberNickname}</div>
                                         </div>
                                     </c:forEach>
                                 </div>
