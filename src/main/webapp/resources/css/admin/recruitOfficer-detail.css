@@ -5,7 +5,7 @@
     border-radius: 10px;
     background-color: var(--bg-color-2);
     transition-duration: 0.5s;
-    justify-content: center;
+    margin: 50px auto;
 }
 
 #body-area{
@@ -43,10 +43,11 @@
 }
 
 .title{
-    /* margin-left:32px !important; */
+     margin-left:32px !important;
     margin-bottom: 25px !important;
     margin-top:25px !important;
     font-weight: normal !important;
+    font-size: 24px;
 }
 
 #info1{
@@ -189,6 +190,7 @@
     /*white-space: nowrap;*/
     overflow: auto;
     word-wrap: break-word;
+    height: 350px;
 }
 
 #button-area{

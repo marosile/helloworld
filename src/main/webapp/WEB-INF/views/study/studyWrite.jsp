@@ -150,7 +150,7 @@
             <div class="P-body-controller">
                 <div class="P-body-controller-Btn">
                     <button id="BtnModify">작성완료</button>
-                    <button id="BtnDelete">작성취소</button>
+                    <button type="button" id="BtnDelete">작성취소</button>
 
                 </div>
 

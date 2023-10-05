@@ -172,9 +172,24 @@
 
                     <!-- 수정하기/모집하기버튼 -->
                     <div class="P-profile-buttons">
-                        <button id="updateBtn">수정하기</button>
-                        <button id="deleteBtn">삭제하기</button>
-                        <button id="completeBtn">모집완료</button>
+                        <c:if test="${studyDetail.studyStatus =='N'}">
+                            <button id="updateBtn">수정하기</button>
+                        </c:if>
+                        <c:if test="${studyDetail.studyStatus =='N'}">
+                            <button id="deleteBtn">삭제하기</button>
+                        </c:if>
+
+
+
+
+                <c:if test="${studyDetail.studyStatus =='Y'}">
+                        <button type="button" id="completeBtny">모집완료</button>
+                 </c:if>
+
+                        <c:if test="${studyDetail.studyStatus =='N'}">
+                            <button id="completeBtn">모집중</button>
+                        </c:if>
+
                     </div>
                 </div>
 

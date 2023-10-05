@@ -294,11 +294,13 @@ function showInsertComment(parentNo,btn){
     insertBtn.innerText="등록";
     insertBtn.setAttribute("onclick","insertChildComment("+parentNo+",this)");
 
-    const cancleBtn = document.createElement("button")
-    cancleBtn.innerText="취소";
-    cancleBtn.setAttribute("onclick","insertCancel(this)")
+    const cancelBtn = document.createElement("button");
+    cancelBtn.innerText = "취소";
+    cancelBtn.setAttribute("onclick", "insertCancel(this)");
 
-    commentBtnArea.append(insertBtn,cancleBtn);
+// 답글 버튼 영역의 자식으로 등록/취소 버튼 추가
+    commentBtnArea.append(insertBtn, cancelBtn);
+
 
     textarea.after(commentBtnArea)
 
@@ -306,7 +308,7 @@ function showInsertComment(parentNo,btn){
 // 답글 작성 취소
 function insertCancel(btn){
 
-    btn.parentElement.parentElement.remove();
+    btn.parentElement.previousElementSibling.remove();
     btn.parentElement.remove();
 
 }

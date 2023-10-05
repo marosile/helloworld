@@ -448,6 +448,7 @@
     </select>
 
     <select id="selectFollowingBoardList" resultMap="boardResultMap">
+
 		SELECT
 			B.BOARD_NO,
 			B.MEMBER_ID,

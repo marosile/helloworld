@@ -134,7 +134,7 @@ function hideLoadingModal() {
                                 '<a href="/board/'+ rList.boardCode+ '/'+ rList.boardNo+'">' +
                                     '<div class="posts">' +  
                                                '<div class="postFirstpart">' +
-                                                    '<img src="/resources/images/logo.svg" class="writerImages">' +
+                                                    '<img src="' + rList.profileImage + '" class="writerImages">' +
                                                     '<div class="firstPartRight">' +
                                                             '<div>' + rList.memberId + '</div>' +
                                                                 '<div>'+ 
@@ -221,7 +221,7 @@ function hideLoadingModal() {
                         var postAppends =  `<a href="/board/${boardCode}/${whatever.boardNo}">` +
                                                 '<div class="posts">' +  
                                                 '<div class="postFirstpart">' +
-                                                        '<img src="/resources/images/logo.svg" class="writerImages">' +
+                                                    '<img src="' + whatever.profileImage + '" class="writerImages">' +
                                                         '<div class="firstPartRight">' +
                                                             '<div>' + whatever.memberId + '</div>' +
                                                                 '<div>'+ whatever.memberNickname +

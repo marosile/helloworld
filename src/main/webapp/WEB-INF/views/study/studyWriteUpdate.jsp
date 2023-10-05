@@ -45,7 +45,7 @@
 
     <div id="P-main-area">
         <p id="P-main-title">
-            <i class="fa-regular fa-file-lines"></i> 스터디 모집하기
+            <i class="fa-regular fa-file-lines"></i> 스터디 모집 내용 수정하기
         </p>
 
         <form action="/study/detail/update/${boardNo}" method="POST" class="P-body-category-top" enctype = "multipart/form-data">
@@ -148,8 +148,8 @@
 
             <div class="P-body-controller">
                 <div class="P-body-controller-Btn">
-                    <button id="BtnModify" type="submit">수정완료</button>
-                    <button id="BtnDelete">수정취소</button>
+                    <button  id="BtnModify" type="submit">수정완료</button>
+                    <button  type="button" id="BtnDelete">수정취소</button>
                 </div>
 
             </div>
