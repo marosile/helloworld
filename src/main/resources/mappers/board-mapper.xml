@@ -546,7 +546,7 @@
 		SELECT COUNT(*)
 		FROM MEMBER
 		JOIN FOLLOW ON(MEMBER_ID = FOLLOW_FROM)
-		WHERE FOLLOW_TO = #{boardUserId}
+		WHERE FOLLOW_FROM = #{boardUserId}
    </select>
    
    
@@ -556,10 +556,16 @@
 		SELECT COUNT(*)
 		FROM MEMBER
 		JOIN FOLLOW ON(MEMBER_ID = FOLLOW_TO)
-		WHERE FOLLOW_FROM = #{boardUserId}
+		WHERE FOLLOW_TO = #{boardUserId}
    </select>
    
-    
+   <!-- 팔로워 ajax 트렌드 -->
+   <select id="selectFollowerList" resultType="_int">
+		SELECT COUNT(*)
+		FROM MEMBER
+		JOIN FOLLOW ON(MEMBER_ID = FOLLOW_FROM)
+		WHERE FOLLOW_FROM = #{userId}
+   </select>
     
     
 </mapper>

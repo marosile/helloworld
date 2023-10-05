@@ -68,7 +68,7 @@ public class BoardServiceImpl_PHJ implements BoardService_PHJ{
 	public int follow(Map<String, Object> map) {
 		
 		int result = 0;
-		
+		int result2 = 0;
 	    Object followCheckObj = map.get("followCheck");
 	    
 	    if(followCheckObj instanceof Integer) {
@@ -76,13 +76,15 @@ public class BoardServiceImpl_PHJ implements BoardService_PHJ{
 	        
 	        if (followCheck == 0) {
 	        	result = dao.insertFollow(map);
+	        	result2 = dao.selectFollowerList(map);
 	        } else {
 				 result = dao.deleteFollow(map);
+				 result2 = dao.selectFollowerList(map);
 	        }
 	       
 	        if (result == 0) return -1;
 	    }
-		return result;
+		return result2;
 	}
 
 	

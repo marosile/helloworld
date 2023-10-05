@@ -83,8 +83,8 @@
                         <p id="follow-nick"> 😎 ${detail.memberNickname}</p>
                     </div>
                     <div id="follow-zone">
-                        <p id="follower">팔로워 <span>${follower}</span></p>
-                        <p id="following">팔로잉 <span>${following}</span></p>
+                        <p id="follower">팔로워 <span id="followerSpan">${follower}</span></p>
+                        <p id="following">팔로잉 <span id="followingSpan">${following}</span></p>
                     </div>
   
                     <div id="follow-button-area">

@@ -288,8 +288,7 @@ public class BoardController {
 
         String userId = (String) map.get("userId");
         String memberId = (String) map.get("memberId");
-
-
+        
         return service2.follow(map);
     }
 
