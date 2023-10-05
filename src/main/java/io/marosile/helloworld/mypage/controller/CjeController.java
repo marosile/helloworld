@@ -72,11 +72,6 @@ public class CjeController {
 	public String resume() {
 		return "mypage/mypage-resume";
 	}
-	// 지원이력 이동
-	@GetMapping("/applications")
-	public String applications() {
-		return "mypage/mypage-applications";
-	}
 	
 	// 북마크 페이지로 이동(커뮤니티)
 	@GetMapping("/bookmark")
