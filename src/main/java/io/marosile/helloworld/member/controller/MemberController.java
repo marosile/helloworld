@@ -96,6 +96,7 @@ public class MemberController {
 //		System.out.println("autoLogin::" + inputMember.getAutoLogin());
 
 		Member loginMember = service.login(inputMember);
+//		System.out.println(loginMember);
 
 //		String path = "redirect:";
 		String result = "0";

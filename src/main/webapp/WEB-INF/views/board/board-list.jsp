@@ -6,6 +6,7 @@
 
 <c:set var="board" value="${map.boardList}" />
 <c:set var="getTopList" value="${map.getTopList}" />
+<c:set var="loginMember" value="${map.loginMember}"/>
 
 
 <head>
@@ -59,7 +60,7 @@
                 <c:if test="${boardCode == 3}">Q&A 게시판 💁‍♀️</c:if>
             </div>
 
-                <c:if test="${boardCode == 1 || boardCode == 2}">
+                <c:if test="${boardCode == 1 && loginMember.authority == 0 || boardCode == 2}">
                     <button id="boardInsert">작성하기</button>
                 </c:if>
 

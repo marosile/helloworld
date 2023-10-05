@@ -15,17 +15,19 @@
         <result property="enrollDate" column="ENROLL_DT"/>
         <result property="promotionFl" column="PROMOTION_FL"/>
         <result property="deleteFl" column="DELETED_FL"/>
+        <result property="authority" column="AUTHORITY"/>
 
     </resultMap>
 
     <!-- 로그인 -->
     <select id="login" resultMap="member_rm" parameterType="Member">
-        SELECT MEMBER_ID, MEMBER_PW, MEMBER_NICK, MEMBER_EMAIL, MEMBER_TEL, PROFILE_IMG,
+        SELECT M.MEMBER_ID, MEMBER_PW, MEMBER_NICK, MEMBER_EMAIL, MEMBER_TEL, PROFILE_IMG,
                TO_CHAR(ENROLL_DT, 'YYYY"년" MM"월" DD"일" HH24"시" MI"분" SS"초"') ENROLL_DT,
-               PROMOTION_FL
-        FROM "MEMBER"
+               PROMOTION_FL, AUTHORITY
+        FROM "MEMBER" M
+        LEFT JOIN "AUTHORITY" A ON(M.MEMBER_ID = A.MEMBER_ID)
         WHERE DELETED_FL = 'N'
-        AND MEMBER_ID = #{memberId}
+        AND M.MEMBER_ID = #{memberId}
     </select>
 
     <!-- 회원가입 -->
