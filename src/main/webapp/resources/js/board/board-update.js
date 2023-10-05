@@ -148,7 +148,7 @@ $(document).on('keydown', function (event) {
 
 
   function uploadSummernoteImageFile(file, el) {
-      data = new FormData();
+      const data = new FormData();
       data.append("file", file);
       $.ajax({
           data : data,

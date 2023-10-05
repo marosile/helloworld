@@ -193,7 +193,7 @@ selectCommentList = () => {
                 if( loginMemberId == comment.memberId   ){
 
                     // 수정 버튼
-                    const updateBtn = document.createElement("updateBtn");
+                    const updateBtn = document.createElement("button");
                     updateBtn.innerText = "수정";
 
                     // 수정 버튼에 onclick 이벤트 속성 추가
@@ -201,7 +201,7 @@ selectCommentList = () => {
 
 
                     // 삭제 버튼
-                    const deleteBtn = document.createElement("deleteBtn");
+                    const deleteBtn = document.createElement("button");
                     deleteBtn.innerText = "삭제";
                     // 삭제 버튼에 onclick 이벤트 속성 추가
                     deleteBtn.setAttribute("onclick", "deleteComment("+comment.commentNo+")");                       
