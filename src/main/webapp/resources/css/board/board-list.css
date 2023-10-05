@@ -254,6 +254,7 @@
     justify-content: flex-start;
     font-size: 16px;
     font-weight: bold;
+    text-align: left !important;
 }
 
 .top10Inquirys{
