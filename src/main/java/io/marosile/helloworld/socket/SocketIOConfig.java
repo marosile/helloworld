@@ -10,7 +10,7 @@ public class SocketIOConfig {
     @Bean
     public SocketIOServer socketIOServer() {
         Configuration config = new Configuration();
-        config.setHostname("192.168.10.58");
+        config.setHostname("192.168.0.24");
         config.setPort(8080);
         return new SocketIOServer(config);
     }
