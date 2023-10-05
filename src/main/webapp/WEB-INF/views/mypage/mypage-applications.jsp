@@ -88,12 +88,12 @@
                     <div class="row1">
 
                         <div class="top">
-                            <img class="thumbnail" src="/resources/images/member/당근.png">
-                            <div class="companyName"><a>당근 마켓</a></div>
+                            <img class="thumbnail" src="/resources/images/member/OKKY.png">
+                            <div class="companyName"><a>OKKY</a></div>
                         </div>
 
                         <div class="mid">
-                            <div class="fa-solid fa-briefcase"> 신입 ~ 100년차</div>
+                            <div class="fa-solid fa-briefcase"> 신입 ~ 3년차</div>
                             <div class="fa-solid fa-coins"> 연봉 정보 비공개</div>
                         </div>
 
@@ -103,14 +103,14 @@
                         </div>
 
                         <div class="applyDate">
-                            <div class="fa-solid fa-calendar-days">&nbsp;지원일시 : </div>
+                            <div class="fa-solid fa-calendar-days">&nbsp;지원일시 : 2023-10-05</div>
                         </div>
 
                     </div>
 
         
                     <!-- 오룬쪽 -->
-                    <div class="row1">
+                    <%-- <div class="row1">
 
                         <div class="top">
                             <img class="thumbnail">
@@ -131,7 +131,7 @@
                             <div class="fa-solid fa-calendar-days">&nbsp;지원일시 : </div>
                         </div>
 
-                    </div>
+                    </div> --%>
                 </div>
                 
             
