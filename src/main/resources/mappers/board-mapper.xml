@@ -352,7 +352,7 @@
               FROM BOARD B
                        JOIN BOARD_GENERAL BG ON (B.BOARD_NO = BG.BOARD_NO)
               ORDER BY READ_COUNT DESC)
-        WHERE ROWNUM &lt; 11
+        WHERE ROWNUM &lt; 11 AND B.DELETED_FL = 'N'
 
     </select>
 
