@@ -51,4 +51,8 @@ public interface TrandService {
 	 */
 	int followCheck(Map<String, Object> map);
 
+	int selectFollowers(String boardUserId);
+
+	int selectFollowings(String boardUserId);
+
 }

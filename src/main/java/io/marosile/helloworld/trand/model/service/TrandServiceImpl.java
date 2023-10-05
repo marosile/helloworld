@@ -58,5 +58,15 @@ public class TrandServiceImpl implements TrandService {
 	public int followCheck(Map<String, Object> map) {
 		return dao.followCheck(map);
 	}
+
+	@Override
+	public int selectFollowers(String boardUserId) {
+		return dao.selectFollowers(boardUserId);
+	}
+
+	@Override
+	public int selectFollowings(String boardUserId) {
+		return dao.selectFollowings(boardUserId);
+	}
 	
 }

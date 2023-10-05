@@ -61,7 +61,7 @@ if(deleteBtn != null){
 }
 
 if(deleteBtn2 != null){
-    deleteBtn.addEventListener("click", ()=>{
+    deleteBtn2.addEventListener("click", ()=>{
     
         if(confirm("관리자 권한으로 삭제하시겠습니까?")){
     
