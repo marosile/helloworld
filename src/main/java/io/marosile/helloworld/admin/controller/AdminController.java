@@ -182,7 +182,7 @@ public class AdminController {
 
 				Util util = new Util();
 				try {
-					util.adminSendMessage(cmpnInfo.getUserTel(), "기업 담당자에서 해지되었습니다. 등록을 원하시면 재신청 해주세요.");
+					util.adminSendMessage(cmpnInfo.getUserTel(), "기업 담당자에서 해지되었습니다.등록을 원하시면 재신청 해주세요.");
 				}catch (Exception e){
 					e.printStackTrace();
 				}
