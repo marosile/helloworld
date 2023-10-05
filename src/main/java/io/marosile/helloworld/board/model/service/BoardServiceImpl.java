@@ -17,4 +17,12 @@ public class BoardServiceImpl implements BoardService {
     public List<Board> selectFollowingBoardList(String memberId) {
         return dao.selectFollowingBoardList(memberId);
     }
+
+    @Override
+    public List<Board> selectRecentBoardList() {
+        return dao.selectRecentBoardList();
+    }
+
+    @Override
+    public List<Board> selectPopularBoardList() { return dao.selectPopularBoardList(); }
 }

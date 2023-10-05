@@ -25,6 +25,9 @@ public class LectureServiceImpl implements LectureService {
     }
 
     @Override
+    public List<Lecture> selectPurchasedLectureList(String memberId) { return dao.selectPurchasedLectureList(memberId); }
+
+    @Override
     public Lecture lectureDetail(int lectureNo) {
         return dao.selectLecture(lectureNo);
     }

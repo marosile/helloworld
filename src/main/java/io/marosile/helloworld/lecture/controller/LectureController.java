@@ -45,6 +45,22 @@ public class LectureController {
 		return "lecture/lecture-detail";
 	}
 
+	@GetMapping("/lecture/{lectureNo}/lessons")
+	public String lectureDetailLessons(@PathVariable("lectureNo") int lectureNo, Model model) {
+		Lecture lecture = service.lectureDetail(lectureNo);
+		lecture.setLecturer(memberService.getMemberById(lecture.getMemberId()));
+		model.addAttribute("lecture", lecture);
+		return "lecture/lecture-detail-lessons";
+	}
+
+	@GetMapping("/lecture/{lectureNo}/reviews")
+	public String lectureDetailReviews(@PathVariable("lectureNo") int lectureNo, Model model) {
+		Lecture lecture = service.lectureDetail(lectureNo);
+		lecture.setLecturer(memberService.getMemberById(lecture.getMemberId()));
+		model.addAttribute("lecture", lecture);
+		return "lecture/lecture-detail-reviews";
+	}
+
 	@GetMapping("/lecture/write")
 	public String lectureWrite(@RequestParam(value="no", required = false) Integer no,
 							   Model model) {
@@ -100,4 +116,11 @@ public class LectureController {
 		return service.recentLectureList();
 	}
 
+	@PostMapping("/lecture/purchased")
+	@ResponseBody
+	public String purchasedLecutreList(String memberId) throws JsonProcessingException {
+		List<Lecture> lectures = service.selectPurchasedLectureList(memberId);
+		for (Lecture lecture : lectures) lecture.setLecturer(memberService.getMemberById(lecture.getMemberId()));
+		return new ObjectMapper().writeValueAsString(lectures);
+	}
 }
