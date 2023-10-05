@@ -78,12 +78,8 @@ public class BoardServiceImpl_PHJ implements BoardService_PHJ{
 	        	result = dao.insertFollow(map);
 	        } else {
 				 result = dao.deleteFollow(map);
-
 	        }
-	       
-	        if (result == 0) return -1;
 	    }
-	    
 		result2 = dao.selectFollowerList2(map);
 	    
 		return result2;
