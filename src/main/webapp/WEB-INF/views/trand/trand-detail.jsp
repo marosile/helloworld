@@ -51,8 +51,7 @@
                         <div id="introduce">${detail.memberNickname}</div>
                     </div>
 
-                    
-                    <c:if test="${!empty loginMember}">
+                    <c:if test="${!empty loginMember || detail.memberId != loginMember.memberId}">
 
                         <c:if test="${empty followCheck}">
                             <div id="followButtonDiv">
@@ -90,16 +89,15 @@
                     <div id="follow-button-area">
 
                     <%-- 팔로우 안했거나 로그인 x --%>
-                    <c:if test="${empty followCheck || detail.memberId != loginMember.memberId}">
-                        <button id="followBtn2"><i class="fa-solid fa-user-plus"></i> 
-                        <span id="followSpan">팔로우</span></button>
-                    </c:if>
+                        <c:if test="${empty followCheck }">
+                            <button id="followBtn2"><i class="fa-solid fa-user-plus"></i> 
+                            <span id="followSpan">팔로우</span></button>
+                        </c:if>
 
-                    <c:if test="${!empty followCheck || detail.memberId != loginMember.memberId}">
-                        <button id="followBtn2" class="fa-check"><i class="fa-solid fa-check"></i> 
-                        <span id="followingSpan">팔로잉</span></button>
-                    </c:if>
-                     
+                        <c:if test="${!empty followCheck }">
+                            <button id="followBtn2" class="fa-check"><i class="fa-solid fa-check"></i> 
+                            <span id="followingSpan">팔로잉</span></button>
+                        </c:if>
                     </div>
                 </div>
 
