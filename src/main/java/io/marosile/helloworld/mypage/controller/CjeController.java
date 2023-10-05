@@ -42,16 +42,23 @@ public class CjeController {
 		
 		String memberId = loginMember.getMemberId();
 
-		// 팔로워 조회
+		// 팔로워수 조회
 		int followerList = service.selectFollowerList(memberId);
 		model.addAttribute("followerList", followerList);
-		System.out.println(followerList + "=======================ㅇㅇㅇㅇ");
 		
-		// 팔로잉 조회
+		// 팔로잉수 조회
 		int followingList = service.selectFollowingList(memberId);
 		model.addAttribute("followingList", followingList);
+		/////////////////////////////////////////////////////
 		
-		System.out.println("followingList : " + followingList);
+		// 팔로잉
+		List<BookmarkList> following = service.selectfollowing(memberId);
+		model.addAttribute("following", following);
+		
+		// 팔로워
+		List<BookmarkList> follower = service.selectfollower(memberId);
+		model.addAttribute("follower", follower);
+		
 		
 		return "mypage/mypage-profile";
 	}

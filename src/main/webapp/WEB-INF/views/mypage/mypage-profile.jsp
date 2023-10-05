@@ -6,6 +6,8 @@
 
 <c:set var="followerList" value="${followerList}" />
 <c:set var="followingList" value="${followingList}" />
+<c:set var="following" value="${following}" />
+<c:set var="follower" value="${follower}" />
 
 <head>
     <meta charset="UTF-8">
@@ -84,20 +86,14 @@
                                 <div class="followList">
 
                                     <!-- 팔로워 한 행 요소들 -->
-                                    <div class="row">
-                                        <div class="followerImage">
-                                            <img src="/resources/images/user.png" class="followImage">
+                                    <c:forEach items="${follower}" var="follower">
+                                        <div class="row">
+                                            <div class="followerImage">
+                                                <img src="${follower.profileImage}">
+                                            </div>
+                                            <div>${follower.memberNickname}</div>
                                         </div>
-                                        <div>아이디</div>
-                                        <button>팔로잉</button>
-                                    </div>
-                                    <div class="row">
-                                        <div class="followerImage">
-                                            <img src="/resources/images/user.png" class="followImage">
-                                        </div>
-                                        <div>아이디</div>
-                                        <button>팔로잉</button>
-                                    </div>
+                                    </c:forEach>
 
                                 </div>
 
@@ -120,14 +116,14 @@
                                 <div class="followList">
 
                                     <!-- 팔로잉 한 행 요소 -->
-                                    <div class="row">
-                                        <div class="followerImage">
-                                            <img src="/resources/images/user.png" class="followImage">
+                                    <c:forEach items="${following}" var="following">
+                                        <div class="row">
+                                            <div class="followerImage">
+                                                <img src="${following.profileImage}">
+                                            </div>
+                                            <div>${following.memberNickname}</div>
                                         </div>
-                                        <div>아이디</div>
-                                        <button>팔로잉</button>
-                                    </div>
-
+                                    </c:forEach>
                                 </div>
 
                             </div> 

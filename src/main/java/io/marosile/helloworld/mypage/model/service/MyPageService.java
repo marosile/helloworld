@@ -65,17 +65,29 @@ public interface MyPageService {
 	 */
 	List<PostList> selectLikeList(String memberId);
 
-	/** 팔로워ㅏ 조회
+	/** 팔로워수 조회
 	 * @param memberId
 	 * @return
 	 */
 	int selectFollowerList(String memberId);
 
-	/** 팔로잉 조회
+	/** 팔로잉수 조회
 	 * @param memberId
 	 * @return
 	 */
 	int selectFollowingList(String memberId);
+
+	/** 팔로잉 조회(닉네임,프사)
+	 * @param memberId
+	 * @return
+	 */
+	List<BookmarkList> selectfollowing(String memberId);
+
+	/** 팔로우 조회
+	 * @param memberId
+	 * @return
+	 */
+	List<BookmarkList> selectfollower(String memberId);
 	
 
 
