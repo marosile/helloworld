@@ -10,6 +10,8 @@
         <c:if test="${loginMember.authority == 2}">
             <a href="post">채용 공고 등록</a>
         </c:if>
+        <c:if test="${loginMember.authority != 2}">
         <a href="application">기업 담당자 신청</a>
+        </c:if>
     </div>
 </recruitNav>
