@@ -207,7 +207,7 @@
                                                      class="top10LevelImage">
                                             </div>
 
-                                            <div class="P-study-popular-contentT">
+                                            <div class="P-study-popular-contentTop">
                                                 <div class="P-study-popular-title">
                                                         ${studyTopList[loop.index*2].boardTitle}
                                                 </div>

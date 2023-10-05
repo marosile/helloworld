@@ -128,9 +128,7 @@
 /* p태그 담은 div */
 #pDiv {
     width: 100%;
-    height: 500px;
     margin-bottom: 20px;
-    font-size: bold;
     padding: 0px 10px;
 }
 
