@@ -106,5 +106,9 @@ public class BoardDAO_PHJ {
 		return sqlSession2.selectList("boardMapper.selectBoardList", map);
 	}
 
+	public int selectFollowerList(Map<String, Object> map) {
+		return sqlSession2.selectOne("boardMapper.selectFollowerList2", map);
+	}
+
 
 }

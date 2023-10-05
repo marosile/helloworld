@@ -558,6 +558,8 @@ var iconElement = document.querySelector('#followBtn2 i');
 const followSpan = document.getElementById("followSpan");
 const followingSpan = document.getElementById("followingSpan");
 
+const followSpan2 = document.getElementById("followSpan2");
+
 /* 팔로우 */
 followBtn2.addEventListener("click", e=>{
 
@@ -589,10 +591,7 @@ followBtn2.addEventListener("click", e=>{
     .then( res => res.text())
     .then( count => {
 
-        if(count == -1) { // DML 실패
-            alert("fail");
-            return;
-        }
+        followSpan2.innerText = count;
 
         iconElement.classList.toggle("fa-user-plus");
         iconElement.classList.toggle("fa-check");
