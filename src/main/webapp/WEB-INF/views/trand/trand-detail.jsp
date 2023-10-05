@@ -94,8 +94,7 @@
                         <button id="followBtn2" class="fa-check"><i class="fa-solid fa-check"></i> 
                         <span id="followingSpan">팔로잉</span></button>
                     </c:if>
-
-                        <button id="messageBtn"><i class="fa-regular fa-comment-dots"></i> 메시지</button>
+                     
                     </div>
                 </div>
 
