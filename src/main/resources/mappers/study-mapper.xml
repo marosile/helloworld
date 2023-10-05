@@ -88,13 +88,9 @@
              , B.BOARD_CONTENT
              , S.LOCATION
              , S.STUDY_STATUS
-             , L.BOARD_NO
-             , L.MEMBER_ID
              , (SELECT COUNT(*) FROM "LIKE" L WHERE L.BOARD_NO = B.BOARD_NO) LIKE_COUNT
         FROM BOARD B
                  JOIN BOARD_STUDY S ON (B.BOARD_NO = S.BOARD_NO)
-                 JOIN "LIKE" L ON(B.BOARD_NO = L.BOARD_NO)
-
         WHERE B.DELETED_FL = 'N'
           AND S.STUDY_STATUS = 'N'
         ORDER BY S.BOARD_NO DESC
@@ -534,7 +530,8 @@
         <if test="headCount != null">
             AND S.HEAD_COUNT LIKE '%${headCount}%'
         </if>
-        AND S.STUDY_STATUS = 'N' AND B.DELETED_FL = 'N'
+        AND S.STUDY_STATUS = 'N'
+        AND B.DELETED_FL = 'N'
         ORDER BY ROWNUM DESC
     </select>
 
