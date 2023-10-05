@@ -51,7 +51,8 @@
                         <div id="introduce">${detail.memberNickname}</div>
                     </div>
 
-                    <c:if test="${!empty loginMember || detail.memberId != loginMember.memberId}">
+                    
+                    <c:if test="${!empty loginMember && detail.memberId != loginMember.memberId}">
 
                         <c:if test="${empty followCheck}">
                             <div id="followButtonDiv">
@@ -98,6 +99,7 @@
                             <button id="followBtn2" class="fa-check"><i class="fa-solid fa-check"></i> 
                             <span id="followingSpan">팔로잉</span></button>
                         </c:if>
+
                     </div>
                 </div>
 
