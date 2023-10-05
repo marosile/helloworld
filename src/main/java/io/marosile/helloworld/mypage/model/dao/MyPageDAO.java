@@ -109,5 +109,21 @@ public class MyPageDAO {
 		return sqlSession.selectOne("myPageMapper.selectFollowingList", memberId);
 	}
 
+	/** 팔로잉 조회
+	 * @param memberId
+	 * @return
+	 */
+	public List<BookmarkList> selectfollowing(String memberId) {
+		return sqlSession.selectList("myPageMapper.selectfollowing", memberId);
+	}
+
+	/** 팔로우 조회
+	 * @param memberId
+	 * @return
+	 */
+	public List<BookmarkList> selectfollower(String memberId) {
+		return sqlSession.selectList("myPageMapper.selectfollower", memberId);
+	}
+
 
 }

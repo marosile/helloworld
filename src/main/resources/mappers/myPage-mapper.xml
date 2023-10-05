@@ -51,8 +51,6 @@
 	</resultMap>
 	
 	<!-- Like resultMap -->
-	
-	
 
 	<!-- 프사, 닉네임 수정 -->
 	<update id="updateProfile" parameterType="Member">
@@ -155,7 +153,7 @@
    </select>
    
    
-   <!-- 팔로워 조회 -->
+   <!-- 팔로워수 조회 -->
    <select id="selectFollowerList" resultType="_int">
 		SELECT COUNT(*)
 		FROM MEMBER
@@ -163,15 +161,36 @@
 		WHERE FOLLOW_TO = #{memberId}
    </select>
    
-   
-   
-   <!-- 팔로잉 조회 -->
+   <!-- 팔로잉수 조회 -->
    <select id="selectFollowingList" resultType="_int">
 		SELECT COUNT(*)
 		FROM MEMBER
 		JOIN FOLLOW ON(MEMBER_ID = FOLLOW_TO)
 		WHERE FOLLOW_FROM = #{memberId}
    </select>
+   
+   
+   
+   <!-- 팔로잉 닉넴 프사 조회 -->
+   <select id="selectfollowing" resultMap="bookmark_rm">
+		SELECT PROFILE_IMG, MEMBER_NICK
+		FROM MEMBER
+		JOIN FOLLOW ON(MEMBER_ID = FOLLOW_TO)
+		WHERE FOLLOW_FROM = #{memberId}
+   </select>
+   
+   <!-- 팔로워 조회 -->
+   <select id="selectfollower" resultMap="bookmark_rm">
+		SELECT PROFILE_IMG, MEMBER_NICK
+		FROM MEMBER
+		JOIN FOLLOW ON(MEMBER_ID = FOLLOW_FROM)
+		WHERE FOLLOW_TO = #{memberId}
+   </select>
+   
+   
+   
+   
+   
    
    
    
