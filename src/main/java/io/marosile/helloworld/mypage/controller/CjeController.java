@@ -173,7 +173,7 @@ public class CjeController {
 			msg= "수정 실패";
 		}
 		
-		ra.addFlashAttribute("msg", msg);
+		ra.addFlashAttribute("message", msg);
 		
 		return "redirect:profile";
 	}
@@ -252,7 +252,7 @@ public class CjeController {
 			path += "account";
 		}
 		
-		ra.addFlashAttribute("msg", msg);
+		ra.addFlashAttribute("message", msg);
 		
 		return path;
 	}
