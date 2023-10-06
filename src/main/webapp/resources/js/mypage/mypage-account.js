@@ -12,12 +12,30 @@ const changePwFrm = document.getElementById("changePwFrm"); // 비번 폼태그
 
 changePwFrm.addEventListener("submit", e => {
     
-    // 비번 미작성시
+    // 현재 비번 미작성시
     if(currentPw.value.trim() == ""){
         alert("현재 비밀번호를 입력하세요.");
         e.preventDefault();
         currentPw.focus();
         currentPw.value = "";
+        return;
+    }
+
+    // 새 비번 미작성시
+    if(newPw.value.trim() == ""){
+        alert("새 비밀번호를 입력하세요.");
+        e.preventDefault();
+        newPw.focus();
+        newPw.value = "";
+        return;
+    }
+
+    // 새 비번 미작성시
+    if(newPwConfirm.value.trim() == ""){
+        alert("비밀번호 확인을 입력하세요.");
+        e.preventDefault();
+        newPwConfirm.focus();
+        newPwConfirm.value = "";
         return;
     }
 
@@ -143,11 +161,13 @@ checkAuthKeyBtn.addEventListener("click", ()=> {
                 emailAuthMessage.innerText ="인증되었습니다.";
                 emailAuthMessage.classList.add("confirm");
                 emailAuthMessage.classList.remove("error");
+                alert("인증 확인 및 이메일이 변경되었습니다.");
 
             }else{
                 emailAuthMessage.innerText ="인증번호가 일치하지 않습니다";
                 emailAuthMessage.classList.add("error");
                 emailAuthMessage.classList.remove("confirm");
+                alert("인증번호가 일치하지 않습니다. 다시 입력해주세요.");
             }
         })
 
