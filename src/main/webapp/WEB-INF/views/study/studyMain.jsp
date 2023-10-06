@@ -266,7 +266,7 @@
                                         <div class="P-study-main">
                                             <span class="P-study-category">스터디</span>
 
-                                            <c:if test="${!empty loginMember}">
+                                            <%--<c:if test="${!empty loginMember}">
                                                 <!-- 로그인한 사용자인 경우 -->
                                                 <c:choose>
                                                     <c:when test="${study.likeCount == 0}">
@@ -281,7 +281,7 @@
                                             <c:if test="${empty loginMember}">
                                                 <!-- 로그인하지 않은 사용자인 경우 -->
                                                 <button class="like-button" id="like${study.boardNo}"><i class="fa-regular fa-heart"></i></button>
-                                            </c:if>
+                                            </c:if>--%>
                                         </div>
 
                                         <div class="P-study-title">
