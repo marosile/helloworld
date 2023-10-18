@@ -16,7 +16,7 @@
                     다양한 정보와 모임 강의를 제공하고 있습니다.<br><br><br></p>
 
 <h1 align="center"> 📋 목차 📋 </h1>
-• <p align="center"><a href="">기획 의도</a> <br>
+<p align="center">• <a href="">기획 의도</a> <br>
 • <a href="">팀원 소개</a> <br>
 • <a href="">개발 기간</a> <br>
 • <a href="">개발 환경</a> <br>
