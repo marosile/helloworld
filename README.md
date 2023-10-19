@@ -25,7 +25,7 @@
 <br><br><br>
 <h2 align="center"> ✏ 기획 의도</h2>
 
-<p dir="auto"> 이제 막 수료를 해 공부를 하고 싶은나 아직 정보가 부족하고 어떻게 공부를 해야할지 감이 안 잡히는 <b>김케이씨</b>🙍‍♂️<br>
+<p  align="center" dir="auto"> 이제 막 수료를 해 공부를 하고 싶은나 아직 정보가 부족하고 어떻게 공부를 해야할지 감이 안 잡히는 <b>김케이씨</b>🙍‍♂️<br>
 다양한 강의와 새로운 정보를 얻고 싶은 주니어 개발자 <b>김에이씨</b> 🙎‍♀️<br></p>
 
 <p dir="auto">이러한 '개발 꿈나무'들을 위해 본인이 가진 지식을 공유할 수 있는 스터미 모임과 강의를 추가하여<br>
@@ -39,12 +39,12 @@
 <p dir="auto"><a name="user-content-팀원-소개"></a></p>
   <table>
     <tbody><tr>
-      <td><a target="_blank" rel="noopener noreferrer" href="https://user-images.githubusercontent.com/137850727/272760710-ffeb3f99-2a0a-4af1-af98-efc7c34ad87a.png"><img src="https://i.namu.wiki/i/WcCUbrdSA_j2mxAcQwvT3ujxkm5AUHpbGg3YBYHP_u5MXa5vM1cSjfl3NtDXlFLW4BjydHMwI35xn4YJvkYbDA.webp" style="max-width: 150px;"></a></td>
-      <td><a target="_blank" rel="noopener noreferrer" href="https://user-images.githubusercontent.com/137850727/272760728-b918f857-0283-4d4b-a4e8-8fc0ae0f45c6.png"><img src="https://i.namu.wiki/i/4ogJmNJ7gDE7lXE2GhOEotxBu85fEgteoKczyTuFnnmb60Cgl0CQsTKUFXkNCAQfFLH_dlzmMtGQYbqXmtgsOw.webp" style="max-width: 150px;"></a></td>
-      <td><a target="_blank" rel="noopener noreferrer" href="https://user-images.githubusercontent.com/137850727/272760717-dd9fc525-b32b-4c64-94bd-386356574f37.png"><img src="https://i.namu.wiki/i/Q6BIqhZWqyhBAFmeZoOWIFO2Ttw1X0xOimLTY0WyohXIadIRIoxaAWc6yoggyEKohkI3aDCoKXsBlp6rvL-MFg.webp" style="max-width:  100%;"></a></td>
-      <td><a target="_blank" rel="noopener noreferrer" href="https://user-images.githubusercontent.com/137850727/272760733-5b3700dc-8086-4363-bfbb-888e8ba4a53d.png"><img src="https://i.namu.wiki/i/Ru4CnCgeXkBJs3kVarXa0qABRYEqeIfBrUmJ-n5pLu-M-yp8tlECIblOwzEUKelLFM-8Csnd6decpzv4TVVKlw.webp" style="max-width: 100%;"></a></td>
-      <td><a target="_blank" rel="noopener noreferrer" href="https://user-images.githubusercontent.com/137850727/272760735-e115669c-198e-4570-b36d-e61ac110bbdf.png"><img src="https://i.namu.wiki/i/izVXkClWRy9-s5DAkC_lGo3za4Zy9seGH1V6AM0qZJzsckE9eWe6-Hp-1OvJm_DkVv7BL7U0Ar7QB89ApaklkQ.webp" style="max-width: 150px;"></a></td>
-     <td><a target="_blank" rel="noopener noreferrer" href="https://user-images.githubusercontent.com/137850727/272760735-e115669c-198e-4570-b36d-e61ac110bbdf.png"><img src="https://i.namu.wiki/i/hYSX5QwFOmwurgd-cdrDedDCs3_pVn1zjcuuROrhv-gVJ_PNiiGReEE0pT_7si2W2RSCe0-SmY6HRGx45YjxTA.webp" style="max-width: 150px;"></a></td>
+      <td><a target="_blank" rel="noopener noreferrer" href="https://user-images.githubusercontent.com/137850727/272760710-ffeb3f99-2a0a-4af1-af98-efc7c34ad87a.png"><img src="https://i.namu.wiki/i/WcCUbrdSA_j2mxAcQwvT3ujxkm5AUHpbGg3YBYHP_u5MXa5vM1cSjfl3NtDXlFLW4BjydHMwI35xn4YJvkYbDA.webp"  style="max-width:100%;"></a></td>
+      <td><a target="_blank" rel="noopener noreferrer" href="https://user-images.githubusercontent.com/137850727/272760728-b918f857-0283-4d4b-a4e8-8fc0ae0f45c6.png"><img src="https://i.namu.wiki/i/4ogJmNJ7gDE7lXE2GhOEotxBu85fEgteoKczyTuFnnmb60Cgl0CQsTKUFXkNCAQfFLH_dlzmMtGQYbqXmtgsOw.webp" style="max-width:100%;"></a></td>
+      <td><a target="_blank" rel="noopener noreferrer" href="https://user-images.githubusercontent.com/137850727/272760717-dd9fc525-b32b-4c64-94bd-386356574f37.png"><img src="https://i.namu.wiki/i/Q6BIqhZWqyhBAFmeZoOWIFO2Ttw1X0xOimLTY0WyohXIadIRIoxaAWc6yoggyEKohkI3aDCoKXsBlp6rvL-MFg.webp" style="max-width:100%;"></a></td>
+      <td><a target="_blank" rel="noopener noreferrer" href="https://user-images.githubusercontent.com/137850727/272760733-5b3700dc-8086-4363-bfbb-888e8ba4a53d.png"><img src="https://i.namu.wiki/i/Ru4CnCgeXkBJs3kVarXa0qABRYEqeIfBrUmJ-n5pLu-M-yp8tlECIblOwzEUKelLFM-8Csnd6decpzv4TVVKlw.webp" style="max-width:100%;"></a></td>
+      <td><a target="_blank" rel="noopener noreferrer" href="https://user-images.githubusercontent.com/137850727/272760735-e115669c-198e-4570-b36d-e61ac110bbdf.png"><img src="https://i.namu.wiki/i/izVXkClWRy9-s5DAkC_lGo3za4Zy9seGH1V6AM0qZJzsckE9eWe6-Hp-1OvJm_DkVv7BL7U0Ar7QB89ApaklkQ.webp" style="max-width: 100%;"></a></td>
+     <td><a target="_blank" rel="noopener noreferrer" href="https://user-images.githubusercontent.com/137850727/272760735-e115669c-198e-4570-b36d-e61ac110bbdf.png"><img src="https://i.namu.wiki/i/hYSX5QwFOmwurgd-cdrDedDCs3_pVn1zjcuuROrhv-gVJ_PNiiGReEE0pT_7si2W2RSCe0-SmY6HRGx45YjxTA.webp" style="max-width: 100%;"></a></td>
     </tr>
     <tr>
       <th>조훈 <br>(조장) <a href="https://github.com/abs013r"><br><img src="https://camo.githubusercontent.com/5148c757ec30584083d0dc8c25ee75363e4bc37a55889b989e864549f6b08132/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f6769746875622d3138313731373f7374796c653d666c6174266c6f676f3d676974687562266c6f676f436f6c6f723d7768697465" data-canonical-src="https://img.shields.io/badge/github-181717?style=flat&amp;logo=github&amp;logoColor=white" style="max-width: 100%;"></a></th>
@@ -56,4 +56,9 @@
     </tr>
   </tbody></table>
 
- 
+ <h2 align="center"> 📅 개발 기간 </h2>
+ <p align="center"> 2023.08 ~ 2023.10 <br><br><br></p>
+
+  <h2 align="center"> 📚 개발 환경 </h2>
+ <p align="center"> 2023.08 ~ 2023.10 <br><br><br></p>
+
