@@ -13,9 +13,9 @@
  <h1 align="center"> 💻 프로젝트 소개 💻 </h1>
  <p align="center"> 예비 개발 꿈나무와 모든 개발자들의 놀이터를 만들고 싶었습니다. <br><br>
                     우리 Hello,World는 당신이 처음 Hello,World 봤을때 느꼈던 기쁨과 신기함이 지속될 수 있도록<br> 
-                    다양한 정보와 모임 강의를 제공하고 있습니다.<br><br><br></p>
+                    다양한 정보와 모임 강의를 제공하고 있습니다.💜<br><br><br></p>
 
-<h3 align="center"> 📋 목차 📋 </h3>
+<h3 align="center"> 📋 목차</h3>
 <p align="center">• <a href="">기획 의도</a> <br>
 • <a href="">팀원 소개</a> <br>
 • <a href="">개발 기간</a> <br>
@@ -23,7 +23,7 @@
 • <a href="">주요 기능</a>
 </p>
 <br><br><br>
-<h3 align="center"> ✏ 기획의도 ✏ </h3>
+<h3 align="center"> ✏ 기획 의도</h3>
 <p align="center"> 예비 개발 꿈나무와 모든 개발자들의 놀이터를 만들고 싶었습니다. <br><br>
                     우리 Hello,World는 당신이 처음 Hello,World 봤을때 느꼈던 기쁨과 신기함이 지속될 수 있도록<br> 
                     다양한 정보와 모임 강의를 제공하고 있습니다.</p>
