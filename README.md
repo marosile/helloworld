@@ -25,14 +25,14 @@
 <br><br><br>
 <h2 align="center"> ✏ 기획 의도</h2>
 
-<p  align="center" dir="auto"> 이제 막 수료를 해 공부를 하고 싶은나 아직 정보가 부족하고 어떻게 공부를 해야할지 감이 안 잡히는 <b>김케이씨</b>🙍‍♂️<br>
+<p align="center" dir="auto"> 이제 막 수료를 해 공부를 하고 싶은나 <br> 아직 정보가 부족하고 어떻게 공부를 해야할지 감이 안 잡히는 <b>김케이씨</b>🙍‍♂️<br>
 다양한 강의와 새로운 정보를 얻고 싶은 주니어 개발자 <b>김에이씨</b> 🙎‍♀️<br></p>
 
-<p dir="auto">이러한 '개발 꿈나무'들을 위해 본인이 가진 지식을 공유할 수 있는 스터미 모임과 강의를 추가하여<br>
+<p align="center" dir="auto">이러한 '개발 꿈나무'들을 위해 본인이 가진 지식을 공유할 수 있는 스터미 모임과 강의를 추가하여<br>
 웹 플랫폼 <b>Hello, Wolrd</b>를 개발하게 되었습니다.<br></p>
-<p dir="auto">이 커뮤니티는 새로운 기술 트랜드를 학습하고 다른 전문가들과 네트워크를 구축하며,<br>
+<p align="center" dir="auto">이 커뮤니티는 새로운 기술 트랜드를 학습하고 다른 전문가들과 네트워크를 구축하며,<br>
  다양한 기능을 통해 사용자 중심의 반응형 웹을 제공합니다.<br></p>
-<p dir="auto">이를 통해 <b>개발자들에게 완벽한 커뮤니티</b>를 만들고자 하였습니다. </p>
+<p align="center" dir="auto">이를 통해 <b>개발자들에게 완벽한 커뮤니티</b>를 만들고자 하였습니다. </p>
 <p dir="auto"><br><br></p>
 
 <h2 align="center" tabindex="-1" id="user-content--팀원-소개" dir="auto"><a class="heading-link" href="#-팀원-소개">👧팀원 소개🧑<svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></h2>
@@ -60,5 +60,21 @@
  <p align="center"> 2023.08 ~ 2023.10 <br><br><br></p>
 
   <h2 align="center"> 📚 개발 환경 </h2>
- <p align="center"> 2023.08 ~ 2023.10 <br><br><br></p>
+ <div align=center> 
+  <img src="https://img.shields.io/badge/java-007396?style=flat&logo=java&logoColor=white"> 
+  <img src="https://img.shields.io/badge/html5-E34F26?style=flat&logo=html5&logoColor=white"> 
+  <img src="https://img.shields.io/badge/css-1572B6?style=flat&logo=css3&logoColor=white"> 
+  <img src="https://img.shields.io/badge/javascript-F7DF1E?style=flat&logo=javascript&logoColor=black"> 
+   <br>
+  <img src="https://img.shields.io/badge/jquery-0769AD?style=flat&logo=jquery&logoColor=white">
+   <img src="https://img.shields.io/badge/apachetomcat-F7DF1E?style=flat&logo=apachetomcat&logoColor=white">
+  <img src="https://img.shields.io/badge/oracle-F80000?style=flat&logo=oracle&logoColor=white"> 
+  <img src="https://img.shields.io/badge/mysql-4479A1?style=flat&logo=mysql&logoColor=white">  
+  <img src="https://img.shields.io/badge/react-61DAFB?style=flat&logo=react&logoColor=black"> 
+  <br>
+  <img src="https://img.shields.io/badge/spring-6DB33F?style=flat&logo=spring&logoColor=white"> 
+  <img src="https://img.shields.io/badge/github-181717?style=flat&logo=github&logoColor=white">
+  <img src="https://img.shields.io/badge/git-F05032?style=flats&logo=git&logoColor=white">
 
+  <br>
+</div>
