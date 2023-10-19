@@ -39,7 +39,7 @@
 <p dir="auto"><a name="user-content-팀원-소개"></a></p>
   <table>
     <tbody><tr>
-      <td><a target="_blank" rel="noopener noreferrer" href="https://user-images.githubusercontent.com/137850727/272760710-ffeb3f99-2a0a-4af1-af98-efc7c34ad87a.png"><img src="https://i.namu.wiki/i/WcCUbrdSA_j2mxAcQwvT3ujxkm5AUHpbGg3YBYHP_u5MXa5vM1cSjfl3NtDXlFLW4BjydHMwI35xn4YJvkYbDA.webp" style="max-width: 100%;"></a></td>
+      <td><a target="_blank" rel="noopener noreferrer" href="https://user-images.githubusercontent.com/137850727/272760710-ffeb3f99-2a0a-4af1-af98-efc7c34ad87a.png"><img src="https://i.namu.wiki/i/WcCUbrdSA_j2mxAcQwvT3ujxkm5AUHpbGg3YBYHP_u5MXa5vM1cSjfl3NtDXlFLW4BjydHMwI35xn4YJvkYbDA.webp" style="max-width: 150px;"></a></td>
       <td><a target="_blank" rel="noopener noreferrer" href="https://user-images.githubusercontent.com/137850727/272760728-b918f857-0283-4d4b-a4e8-8fc0ae0f45c6.png"><img src="https://i.namu.wiki/i/4ogJmNJ7gDE7lXE2GhOEotxBu85fEgteoKczyTuFnnmb60Cgl0CQsTKUFXkNCAQfFLH_dlzmMtGQYbqXmtgsOw.webp" style="max-width: 100%;"></a></td>
       <td><a target="_blank" rel="noopener noreferrer" href="https://user-images.githubusercontent.com/137850727/272760717-dd9fc525-b32b-4c64-94bd-386356574f37.png"><img src="https://i.namu.wiki/i/Q6BIqhZWqyhBAFmeZoOWIFO2Ttw1X0xOimLTY0WyohXIadIRIoxaAWc6yoggyEKohkI3aDCoKXsBlp6rvL-MFg.webp" style="max-width: 100%;"></a></td>
       <td><a target="_blank" rel="noopener noreferrer" href="https://user-images.githubusercontent.com/137850727/272760733-5b3700dc-8086-4363-bfbb-888e8ba4a53d.png"><img src="https://i.namu.wiki/i/Ru4CnCgeXkBJs3kVarXa0qABRYEqeIfBrUmJ-n5pLu-M-yp8tlECIblOwzEUKelLFM-8Csnd6decpzv4TVVKlw.webp" style="max-width: 100%;"></a></td>
