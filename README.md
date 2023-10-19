@@ -54,7 +54,7 @@
       <th>박진아 <br>(아이디어•기획 마스터 )<a href="https://github.com/jnaacode"><br><img src="https://camo.githubusercontent.com/5148c757ec30584083d0dc8c25ee75363e4bc37a55889b989e864549f6b08132/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f6769746875622d3138313731373f7374796c653d666c6174266c6f676f3d676974687562266c6f676f436f6c6f723d7768697465" data-canonical-src="https://img.shields.io/badge/github-181717?style=flat&amp;logo=github&amp;logoColor=white" style="max-width: 100%;"></a></th>
       <th>박현주 <br>(디자인 마스터)<a href="https://github.com/hunny9512"><br><img src="https://camo.githubusercontent.com/5148c757ec30584083d0dc8c25ee75363e4bc37a55889b989e864549f6b08132/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f6769746875622d3138313731373f7374796c653d666c6174266c6f676f3d676974687562266c6f676f436f6c6f723d7768697465" data-canonical-src="https://img.shields.io/badge/github-181717?style=flat&amp;logo=github&amp;logoColor=white" style="max-width: 100%;"></a></th>
     </tr>
-  </tbody></table>
+  </tbody></table> <br> <br>
 
  <h2 align="center"> 📅 개발 기간 </h2>
  <p align="center"> 2023.08 ~ 2023.10 <br><br><br></p>
@@ -70,11 +70,11 @@
    <img src="https://img.shields.io/badge/apachetomcat-F7DF1E?style=flat&logo=apachetomcat&logoColor=white">
   <img src="https://img.shields.io/badge/oracle-F80000?style=flat&logo=oracle&logoColor=white"> 
   <img src="https://img.shields.io/badge/mysql-4479A1?style=flat&logo=mysql&logoColor=white">  
-  <img src="https://img.shields.io/badge/react-61DAFB?style=flat&logo=react&logoColor=black"> 
+  <img src="https://img.shields.io/badge/json-61DAFB?style=flat&logo=json&logoColor=black"> 
   <br>
   <img src="https://img.shields.io/badge/spring-6DB33F?style=flat&logo=spring&logoColor=white"> 
   <img src="https://img.shields.io/badge/github-181717?style=flat&logo=github&logoColor=white">
   <img src="https://img.shields.io/badge/git-F05032?style=flats&logo=git&logoColor=white">
 
-  <br>
+  <br> <br>
 </div>
