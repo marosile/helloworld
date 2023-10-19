@@ -1,12 +1,14 @@
 
-
+<div data-target="readme-toc.content" class="Box-body px-5 pb-5">
+            <article class="markdown-body entry-content container-lg" itemprop="text"><p dir="auto"><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/babf1b5f01e3ef1e8ac15a5f52eeb3aa90a76c708dc3091c3f475860316e906e/68747470733a2f2f63617073756c652d72656e6465722e76657263656c2e6170702f6170693f747970653d736c69636526636f6c6f723d333837424646266865696768743d31383026746578743d48692c253230746865726525463025394625393125384226666f6e74416c69676e3d373026666f6e74436f6c6f723d66666626726f746174653d313326666f6e74416c69676e593d3235262673656374696f6e3d68656164657226666f6e7453697a653d3630"><img src="https://camo.githubusercontent.com/babf1b5f01e3ef1e8ac15a5f52eeb3aa90a76c708dc3091c3f475860316e906e/68747470733a2f2f63617073756c652d72656e6465722e76657263656c2e6170702f6170693f747970653d736c69636526636f6c6f723d333837424646266865696768743d31383026746578743d48692c253230746865726525463025394625393125384226666f6e74416c69676e3d373026666f6e74436f6c6f723d66666626726f746174653d313326666f6e74416c69676e593d3235262673656374696f6e3d68656164657226666f6e7453697a653d3630" alt="header" data-canonical-src="https://capsule-render.vercel.app/api?type=slice&amp;color=387BFF&amp;height=180&amp;text=Hi,%20there%F0%9F%91%8B&amp;fontAlign=70&amp;fontColor=fff&amp;rotate=13&amp;fontAlignY=25&amp;&amp;section=header&amp;fontSize=60" style="max-width: 100%;"></a></p>
+              
 <div align="center" dir="auto">
   <a target="_blank" rel="noopener noreferrer" href="https://github-production-user-asset-6210df.s3.amazonaws.com/130814431/276494784-9b33fe28-2c91-458b-98ac-be2d6d469535.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIWNJYAX4CSVEH53A%2F20231019%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20231019T051426Z&X-Amz-Expires=300&X-Amz-Signature=84e82bec42471dbfdc671d75a2993de12c43117965b06998ebb7d5cd5ab18c2c&X-Amz-SignedHeaders=host&actor_id=130814431&key_id=0&repo_id=682328599"><img width="400px" src="file:///C:/Users/2080pc/Desktop/KakaoTalk_20231018_230224215.png" style="max-width: 100%;"></a>
 <p dir="auto"><br><a href="http://lnx.iptime.org" rel="nofollow"><g-emoji class="g-emoji" alias="arrow_forward">💙</g-emoji> Hello,World 사이트 바로 가기 <g-emoji class="g-emoji" alias="arrow_backward">💜</g-emoji></a>
 <br><g-emoji class="g-emoji" alias="arrow_forward">💜</g-emoji> <a href="">Hello,World PPT</a> <g-emoji class="g-emoji" alias="arrow_backward">💜</g-emoji>
 <br></p>
 
-
+<br><br>
  <h1 align="center"> 💻 프로젝트 소개 💻 </h1>
  <p align="center"> 예비 개발 꿈나무와 모든 개발자들의 놀이터를 만들고 싶었습니다. <br><br>
                     우리 Hello,World는 당신이 처음 Hello,World 봤을때 느꼈던 기쁨과 신기함이 지속될 수 있도록<br> 
@@ -20,7 +22,7 @@
 • <a href="">개발 환경</a> <br>
 • <a href="">주요 기능</a>
 </p>
-<br><br><br>
+<br><br>
 <h2 align="center"> ✏ 기획 의도</h2>
 
 <p align="center" dir="auto"> 이제 막 수료를 해 공부를 하고 싶은나 <br> 아직 정보가 부족하고 어떻게 공부를 해야할지 감이 안 잡히는 <b>김케이씨</b>🙍‍♂️<br>
@@ -85,3 +87,8 @@
 • 내 주변에 사는 사람들과 스터디하기 📑<br>
 • 새로운 기술 학습하기 위해 강의 듣기 👩‍🏫 <br>
 </p>
+
+</div>
+<p dir="auto"><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/bcb8b12c487838186877bb3f994342c4e0b674d50332a6d6dbf98b21a95a0594/68747470733a2f2f63617073756c652d72656e6465722e76657263656c2e6170702f6170693f747970653d736c69636526636f6c6f723d303235334132266865696768743d3138302673656374696f6e3d666f6f74657226666f6e7453697a653d3630"><img src="https://camo.githubusercontent.com/bcb8b12c487838186877bb3f994342c4e0b674d50332a6d6dbf98b21a95a0594/68747470733a2f2f63617073756c652d72656e6465722e76657263656c2e6170702f6170693f747970653d736c69636526636f6c6f723d303235334132266865696768743d3138302673656374696f6e3d666f6f74657226666f6e7453697a653d3630" alt="footer" data-canonical-src="https://capsule-render.vercel.app/api?type=slice&amp;color=0253A2&amp;height=180&amp;section=footer&amp;fontSize=60" style="max-width: 100%;"></a></p>
+</article>
+          </div>
