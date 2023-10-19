@@ -1,8 +1,7 @@
 
 
 <div align="center" dir="auto">
-  <a target="_blank" rel="noopener noreferrer" href="https://github.com/marosile/helloworld/assets/130814431/9b33fe28-2c91-458b-98ac-be2d6d469535
-"><img width="400px" src="file:///C:/Users/2080pc/Desktop/KakaoTalk_20231018_230224215.png" style="max-width: 100%;"></a>
+  <a target="_blank" rel="noopener noreferrer" href="https://github-production-user-asset-6210df.s3.amazonaws.com/130814431/276494784-9b33fe28-2c91-458b-98ac-be2d6d469535.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIWNJYAX4CSVEH53A%2F20231019%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20231019T051426Z&X-Amz-Expires=300&X-Amz-Signature=84e82bec42471dbfdc671d75a2993de12c43117965b06998ebb7d5cd5ab18c2c&X-Amz-SignedHeaders=host&actor_id=130814431&key_id=0&repo_id=682328599"><img width="400px" src="file:///C:/Users/2080pc/Desktop/KakaoTalk_20231018_230224215.png" style="max-width: 100%;"></a>
 <p dir="auto"><br><a href="http://lnx.iptime.org" rel="nofollow"><g-emoji class="g-emoji" alias="arrow_forward">💙</g-emoji> Hello,World 사이트 바로 가기 <g-emoji class="g-emoji" alias="arrow_backward">💜</g-emoji></a>
 <br><g-emoji class="g-emoji" alias="arrow_forward">💜</g-emoji> <a href="">Hello,World PPT</a> <g-emoji class="g-emoji" alias="arrow_backward">💜</g-emoji>
 <br></p>
@@ -81,8 +80,8 @@
 
 <h2 align="center"> 🔎 주요 기능 </h2>
 <p align="center">
-• <a href=""> 채팅으로 소통하기 💻</a> <br>
-• <a href=""> 다양한 정보 공유하기 💬 </a> <br>
-• <a href=""> 내 주변에 사는 사람들과 스터디하기 📑</a> <br>
-• <a href=""> 새로운 기술 학습하기 위해 강의 듣기 👩‍🏫</a> <br>
+• 채팅으로 소통하기 💻<br>
+• 다양한 정보 공유하기 💬 <br>
+• 내 주변에 사는 사람들과 스터디하기 📑<br>
+• 새로운 기술 학습하기 위해 강의 듣기 👩‍🏫 <br>
 </p>
