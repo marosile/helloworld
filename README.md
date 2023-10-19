@@ -1,7 +1,7 @@
 
 
 <div align="center" dir="auto">
-  <a target="_blank" rel="noopener noreferrer" href="https://user-images.githubusercontent.com/137850727/272744091-595e282c-1361-4b09-b08e-7642df5a83b6.png"><img width="400px" src="file:///C:/Users/2080pc/Desktop/KakaoTalk_20231018_230224215.png" style="max-width: 100%;"></a>
+  <a target="_blank" rel="noopener noreferrer" href="http://lnx.iptime.org/resources/images/logo.svg"><img width="400px" src="file:///C:/Users/2080pc/Desktop/KakaoTalk_20231018_230224215.png" style="max-width: 100%;"></a>
 <p dir="auto"><br><a href="http://lnx.iptime.org" rel="nofollow"><g-emoji class="g-emoji" alias="arrow_forward">💙</g-emoji> Hello,World 사이트 바로 가기 <g-emoji class="g-emoji" alias="arrow_backward">💜</g-emoji></a>
 <br><g-emoji class="g-emoji" alias="arrow_forward">💜</g-emoji> <a href="">Hello,World PPT</a> <g-emoji class="g-emoji" alias="arrow_backward">💜</g-emoji>
 <br></p>
