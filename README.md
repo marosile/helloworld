@@ -1,13 +1,10 @@
 ![header](https://capsule-render.vercel.app/api?type=waving&color=timeGradient&text=Hello%20World%20👋&animation=twinkling&fontSize=35&fontAlignY=40&fontAlign=70&height=250)
 
-
- 
-<div align="center" rel="noopener noreferrer">
- <a target="_blank">
-   <img withd-"400px" src="file:///C:/Users/2080pc/Desktop/KakaoTalk_20231018_230224215.png" style="max-width: 100%;">  
- </a>
-
-</div>
+<div align="center" dir="auto">
+  <a target="_blank" rel="noopener noreferrer" href="https://user-images.githubusercontent.com/137850727/272744091-595e282c-1361-4b09-b08e-7642df5a83b6.png"><img width="400px" src="file:///C:/Users/2080pc/Desktop/KakaoTalk_20231018_230224215.png" style="max-width: 100%;"></a>
+<p dir="auto"><br><a href="http://lnx.iptime.org" rel="nofollow"><g-emoji class="g-emoji" alias="arrow_forward">💙💜</g-emoji> Hello,World 사이트 바로 가기 <g-emoji class="g-emoji" alias="arrow_backward">💜</g-emoji></a>
+<br><g-emoji class="g-emoji" alias="arrow_forward">💜</g-emoji> <a href="">Hello,World PPT</a> <g-emoji class="g-emoji" alias="arrow_backward">💜</g-emoji>
+<br></p>
 
 
  <h1 align="center"> 💻 프로젝트 소개 💻 </h1>
@@ -16,7 +13,8 @@
                     다양한 정보와 모임 강의를 제공하고 있습니다.💜<br><br><br></p>
 
 <h2 align="center"> 📋 목차</h2>
-<p align="center">• <a href="">기획 의도</a> <br>
+<p align="center">
+• <a href="">기획 의도</a> <br>
 • <a href="">팀원 소개</a> <br>
 • <a href="">개발 기간</a> <br>
 • <a href="">개발 환경</a> <br>
@@ -75,6 +73,15 @@
   <img src="https://img.shields.io/badge/spring-6DB33F?style=flat&logo=spring&logoColor=white"> 
   <img src="https://img.shields.io/badge/github-181717?style=flat&logo=github&logoColor=white">
   <img src="https://img.shields.io/badge/git-F05032?style=flats&logo=git&logoColor=white">
+    <img src="https://img.shields.io/badge/visualstudiocode-1572B6?style=flats&logo=visualstudiocode&logoColor=white">
 
   <br> <br>
 </div>
+
+<h2 align="center"> 🔎 주요 기능 </h2>
+<p align="center">
+• <a href=""> 채팅으로 소통하기 💻</a> <br>
+• <a href=""> 다양한 정보 공유하기 💬 </a> <br>
+• <a href=""> 내 주변에 사는 사람들과 스터디하기 📑</a> <br>
+• <a href=""> 새로운 기술 학습하기 위해 강의 듣기 👩‍🏫</a> <br>
+</p>
