@@ -521,7 +521,7 @@
         JOIN TAG T ON (TR.TAG_NO = T.TAG_NO)
 
         WHERE TR.ITEM_TYPE = 1
-        <if test="location != null &amp;&amp; !location.equals('서울전체')">
+       <if test="location != null &amp;&amp; !location.equals('서울전체')">
             AND S.LOCATION LIKE '%${location}%'
         </if>
         <if test="tagNm != null">
@@ -556,7 +556,6 @@
           AND FOLLOW_TO = #{userId}
     </delete>
 
-    <!--팔로우 조회-->
     <select id="selectTarget" resultMap="StudyResultMap">
         SELECT *
         FROM MEMBER
