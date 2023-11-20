@@ -67,7 +67,7 @@
                 <div class="studyContainer">
                     <div class="studyInfoRole">📍 같이 공부하고 싶은 위치</div>
                     <c:if test="${empty studyDetail.location}">
-                        <div class="studyTag">서울전체</div>
+                        <div class="studyTag">서울 전 지역</div>
                     </c:if>
 
                     <c:if test="${!empty studyDetail.location}">

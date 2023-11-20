@@ -289,7 +289,7 @@
         WHERE ROWNUM &lt; 11
           AND S.STUDY_STATUS = 'N'
           AND B.DELETED_FL = 'N'
-        ORDER BY READ_COUNT DESC, S.BOARD_NO DESC
+        ORDER BY LIKE_COUNT DESC, S.BOARD_NO DESC
     </select>
     <!--
         &lt;!&ndash;위치 전체 검색&ndash;&gt;
@@ -521,7 +521,7 @@
         JOIN TAG T ON (TR.TAG_NO = T.TAG_NO)
 
         WHERE TR.ITEM_TYPE = 1
-        <if test="location === null">
+        <if test="location != null &amp;&amp; !location.equals('서울전체')">
             AND S.LOCATION LIKE '%${location}%'
         </if>
         <if test="tagNm != null">
@@ -556,6 +556,7 @@
           AND FOLLOW_TO = #{userId}
     </delete>
 
+    <!--팔로우 조회-->
     <select id="selectTarget" resultMap="StudyResultMap">
         SELECT *
         FROM MEMBER
