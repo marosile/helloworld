@@ -68,7 +68,7 @@
                             <ul class="P-selectBox-purpose menuHidden">
 
                                 <li>
-                                    <button type="button" class="P-option-btn" name="seoulGu">서울전체</button>
+                                    <button type="button" class="P-option-btn" name="seoulGu">서울 전 지역</button>
                                 </li>
 
                                 <li>
